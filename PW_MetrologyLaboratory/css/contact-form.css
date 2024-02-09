@@ -1,0 +1,152 @@
+:root {
+    --main-color: #005195;
+    --color_gold: #B4AA9B;
+    --gold_70: #CAC2B6;
+
+    --color-sky: #82AFD7;
+    --blue_70: #A4C6E2;
+    --blue_45: #C4DAEC;
+    --blue_20: #E5EEF7;
+
+}
+
+/*Recuadro del form*/
+.item-wrap{
+    border:2px solid var(--blue_45);
+    border-radius:5px;
+    margin:20px auto;
+    padding:30px 15px 0;
+    width:100%;
+    background-color: var(--blue_20);
+}
+
+.form-content-wrap:first-child{
+    padding-top:60px;
+}
+
+/*seleccion opciones*/
+.popup-form select:focus{
+    background-image:linear-gradient(45deg, transparent 50%,  var(--main-color) 50%),
+    linear-gradient(135deg, var(--main-color) 50%, transparent 50%),
+    radial-gradient(transparent 66%, transparent 66%);
+    color: var(--blue_70);
+}
+.btn{font-size:16px;
+    overflow:hidden;
+    padding:6px 20px;
+    text-transform:uppercase;
+}
+.btn-custom{
+    background-color:var(--main-color);
+    color: var(--gold_70);
+    box-shadow:0 0 1px transparent;
+    display:inline-block;position:relative;
+    transform:perspective(1px) translateZ(0px);
+    transition-duration:0.3s;
+    transition-property:color;
+    vertical-align:middle;
+}
+
+/*Efecto hover*/
+.btn-custom::before{
+    background-color:var(--main-color);
+    font-color:var(--color_gold);
+    bottom:0;
+    content:"";
+    left:0;
+    position:absolute;
+    top:0;
+    right:0;
+    transform:scaleX(0);
+    transform-origin:50%;
+    transition-property:transform;
+    transition-duration:0.3s;
+    transition-timing-function:ease-out;
+    z-index:-1;
+}
+/*Borde boton hover*/
+.btn-custom:hover, .btn-custom:focus, .btn-custom:active{
+    border-color:#322873;
+}
+.btn-custom:hover::before, .btn-custom:focus::before, .btn-custom:active::before{
+    transform:scaleX(1);
+}
+.btn.btn-custom.disabled{
+    opacity:.3;
+}
+
+/*Color boton seleccionado texto*/
+.btn.focus, .btn:focus, .btn:hover{
+    color:var(--blue_20);
+}
+.popup-form .form-group{
+    position:relative;
+    margin:0 0 30px;
+}
+.popup-form .input-group-icon{
+    position:absolute;
+    top:0;
+}
+
+/*Espacio para iconos*/
+.popup-form .form-group .input-group-icon{
+    background-color:var(--main-color);
+    border:none;
+    border-radius: 4px 0 0 4px;
+    color:#fff;
+    display:table-cell;
+    font-size:14px;
+    height:100%;
+    padding:5px 7px 7px;
+    text-align:center;
+    vertical-align:top;
+    white-space:nowrap;
+    width:40px;
+}
+/*Borde inputs**/
+.popup-form .form-control{
+    background-color:transparent;
+    border:1px solid var(--main-color);
+    padding-left:50px;
+}
+/*Borde inputs cuando esta seleccionado*/
+.popup-form .form-control:focus, .popup-form .has-error .form-control:focus{
+    box-shadow:0 1px 1px rgba(0,81,149, 0.075) inset, 0 0 5px rgba(130,175,215, 1);
+}
+/*Espacio para iconos*/
+.popup-form .form-control:focus + .input-group-icon, #resetPassForm .has-error .form-control:focus + .input-group-icon{
+    background-color:#322873;
+    color:var(--gold_70);
+}
+
+/*Leyenda campos requeridos*/
+.popup-form span.sub-text{
+    bottom:50px;
+    color:var(--color_gold);
+    font-size:14px;
+    position:absolute;
+    right:50px;
+}
+
+/*Señalamiento de error en el llenado*/
+.popup-form .has-error .form-control{
+    border-color:#E10014;
+}
+.popup-form .has-error .input-group-icon{
+    background-color:#E10014;
+    color:#EFEDE9;
+}
+
+/*Boton -hover-*/
+.popup-form .btn.btn-custom{
+    transition:all 0.5s ease 0s;
+    width:200px;
+    border-radius:6px;
+}
+
+.popup-form .btn.btn-custom:hover::after{
+    opacity:0.5;
+    right:10px;
+    top:2px;
+}
+

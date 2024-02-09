@@ -1,5 +1,5 @@
 
-<input type="checkbox" id="menu-toggle">
+<input type="checkbox" id="menu-toggle" title="visibilidadMenu">
 <div class="sidebar">
     <div class="side-header">
         <div><img class="logoGrammer-img bg-img" alt="LogoGrammer" src="\MetrologyLaboratory\PW_MetrologyLaboratory\imgs\Grammer_Logo.ico"></div>
@@ -10,7 +10,7 @@
             <span><img class="logoGrammer2-img img-responsive" alt="LogoGrammer" src="\MetrologyLaboratory\PW_MetrologyLaboratory\imgs\logoGrammer.png"></span>
         </div>
         <div class="side-menu" id="menuLateral">
-            <ul>
+            <ul >
                 <li>
                     <a href="\MetrologyLaboratory\PW_MetrologyLaboratory\index.php" class="optionMenu active">
                         <span class="las la-home"></span>

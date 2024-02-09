@@ -5,9 +5,7 @@
                 <span class="las la-bars"></span>
             </label>
             <div class="header-menu">
-                <label for="">
                     <span class="las la-search"></span>
-                </label>
 
                 <div class="notify-icon">
                     <span class="las la-bell"></span>
