@@ -608,3 +608,11 @@ table tbody tr {
     flex-direction: column;
     align-content: flex-end;
 }
+
+.footer_section{
+    background-color: var(--blue_20);
+    color: var(--main-color);
+    font-weight: bold;
+    padding: 1%;
+}
+

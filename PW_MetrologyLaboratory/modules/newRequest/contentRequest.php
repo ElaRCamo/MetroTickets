@@ -1,8 +1,8 @@
 <main>
     <div class="page-header row headerLogo">
         <div class="col divTitle">
-            <h1> Nueva Solicitud </h1>
-            <small>Favor de registrar los datos para la nueva solicitud</small>
+            <h1> Solicitar una prueba </h1>
+            <small>Favor de registrar los datos siguientes:</small>
         </div>
         <div class="logoRight col-sm-3">
             <div>
@@ -14,204 +14,109 @@
         </div>
     </div>
 
-    <div class="page-content table-responsive-sm newRequestTabla">
-        <div class="container-fluid table-responsive">
+    <!--
+    <div class="page-content">
+        <div class="row container ">
             <form name="formNewRequest" action="" method="POST">
-                <table class="table table-borderless tableOpe table-responsive">
-                    <!--Fila uno-->
-                    <thead>
-                        <tr class="table-borderless">
-                            <th>
-                                <div class="form-group">
-                                    <label for="folio">FOLIO:<br>
-                                        <input type="number" class="form-control" id="idFolio" name="Folio" placeholder="6097" readonly>
-                                    </label>
-                                </div>
-                            </th>
-                            <th>
-                                <div class="form-group">
-                                    <label for="fecha">FECHA:
-                                        <input type="date" class="form-control" id="idfecha" name="fecha" readonly>
-                                    </label>
-                                </div>
-                            </th>
-                            <th>
-                                <div class="form-group">
-                                    <label for="solicitante">SOLICITADO POR:
-                                        <input type="text" class="form-control" id="idSolicitante" name="solicitante" placeholder="Aracely" readonly>
-                                    </label>
-                                </div>
-                            </th>
-                            <th>
-                                <div class="form-group">
-                                    <label for="turno">TURNO:
-                                        <input type="text" class="form-control" id="idTurno" name="turno" placeholder="1°" readonly>
-                                    </label>
-                                </div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <!--Fila dos-->
-                    <tr>
-                        <td>
-                            <div class="form-group">
-                                <label for="area">ÁREA/DEPTO:
-                                    <input type="text" class="form-control" id="idArea" name="area" required>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                <label for="linea">LÍNEA:<br>
-                                    <input type="text" class="form-control" id="idLinea" name="linea" required>
-                                </label>
 
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                <label for="estacion">ESTACIÓN:
-                                    <input type="text" class="form-control" id="idEstacion" name="estacion" required>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                <label for="mantenimiento">MANTENIMIENTO:<br>
-                                    <input type="radio" name="mantenimiento" value="correctivo" required>Correctivo
-                                    <input type="radio" name="mantenimiento" value="preventivo" required>Preventivo
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <!--Fila tres-->
-                    <tr>
-                        <td colspan="3" >
-                            <div class="form-group">
-                                <label for="problema">DESCRIPCIÓN DEL PROBLEMA/TRABAJO:
-                                    <input type="text" class="form-control" id="idProblema" name="problema" required>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                <label for="maquina">ESTATUS MÁQUINA:<br>
-                                    <input type="radio" name="maquina" value="trabaja" required>Trabaja
-                                    <input type="radio" name="maquina" value="noTrabaja" required>No trabaja
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                <div class="div-button">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="confirmarInfo">
-                        <label class="form-check-label" for="confirmarInfo">Confirmo que la información es correcta</label>
+                <div class="col-md-6 requestDiv">
+                    <div class="form-group">
+                        <label for="numParte">Número de parte </label>
+                        <input type="text" class="form-control" id="numParte" placeholder="Número de parte">
                     </div>
-                    <br><button type="submit" class="btn btn-primary">Generar Solicitud</button>
-                </div>
-            </form>
-            <div class="col">
-                <h6>La siguiente información es llenada por el técnico</h6>
-            </div>
-            <form name="formNewRequest" action="" method="POST">
-                <table class="table table-borderless tableTec">
-                    <!--Fila uno-->
-                    <tr>
-                        <td >
-                            <div class="form-group">
-                                <label for="ejecutadoPor">EJECUTADO POR EL TÉCNICO:
-                                    <input type="text" class="form-control" id="idEjecutadoPor" name="ejecutadoPor" placeholder="Cristopher Mtz." readonly>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                <label for="horaRecibo">HORA RECIBO:
-                                    <input type="time" class="form-control" id="idHoraRecibo" name="horaRecibo" readonly>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                <label for="afectados">OPERADORES AFECTADOS:
-                                    <input type="number" class="form-control" id="idAfectados" name="afectados">
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <!--Fila dos-->
-                    <tr>
-                        <td colspan="2" >
-                            <div class="form-group">
-                                <label for="diagnostico">DIAGNÓSTICO/TRABAJO REALIZADO:
-                                    <input type="text" class="form-control" id="idDiagnostico" name="diagnostico" required>
-                                </label>
-                            </div>
-                        </td>
-                        <td rowspan="2">
-                            <div class="form-group">
-                                <label for="obsTecnico">OBSERVACIONES:
-                                    <input type="text" class="form-control" id="idObsTecnico" name="obsTecnico" required>
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    <!--Fila tres-->
-                    <tr>
-                        <td colspan="2">
-                            <div class="form-group">
-                                <label for="causa">CAUSA RAÍZ:
-                                    <input type="text" class="form-control" id="idCausa" name="causa" required>
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                <div class="div-button">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="confirmarInfo">
-                        <label class="form-check-label" for="confirmarInfo">Confirmo que la información es correcta</label>
+                    <div class="form-group">
+                        <label for="OEM">OEM</label>
+                        <input type="text" class="form-control" id="OEM" placeholder="OEM">
                     </div>
-                    <br><button type="submit" class="btn btn-primary">Registrar Solitud</button>
-                </div>
-            </form>
+                    <div class="form-group">
+                        <label for="plataforma">Plataforma</label>
+                        <input type="text" class="form-control" id="plataforma" placeholder="Plataforma">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoPrueba">Tipo de prueba</label>
+                        <select class="form-control" id="tipoPrueba" name="tiposPrueba">
+                            <option value="" disabled selected>Seleccione el tipo de prueba</option>
+                            <option value="dimensional">Dimensional</option>
+                            <option value="full">Full</option>
+                            <option value="maquinaUniversal">Máquina Universal</option>
+                        </select>
+                    </div>
 
-            <form name="formNewRequestCierre" action="" method="POST">
-                <div class="col">
-                    <h6>Favor de registrar el cierre de la solicitud.</h6>
+
+                    <div id="dimensionalFields" class="form-group" style="display: none;">
+                        <label for="campoDimensional">Campo Dimensional</label>
+                        <input type="text" class="form-control" id="campoDimensional" name="campoDimensional">
+                    </div>
+
+                    <div id="fullFields" class="form-group" style="display: none;">
+                        <label for="campoFull">Campo Full</label>
+                        <input type="text" class="form-control" id="campoFull" name="campoFull">
+                    </div>
+
+                    <div id="maquinaUniversalFields" class="form-group" style="display: none;">
+                        <label for="campoMaquinaUniversal">Campo Máquina Universal</label>
+                        <input type="text" class="form-control" id="campoMaquinaUniversal" name="campoMaquinaUniversal">
+                    </div>
                 </div>
-                <table class="table table-borderless tableTec">
-                    <tr>
-                        <td colspan="2">
-                            <div class="form-group">
-                                <label for="aprobadoPor">RECIBIDO Y APROBADO POR:
-                                    <input type="text" class="form-control" id="idAprobadoPor" name="aprobadoPor" placeholder="Aracely" readonly>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                <label for="calificacion">CALIFICACIÓN DE TRABAJO RECIBIDO:<br>
-                                    <input type="radio" name="calificacion" value="excelente" required>Excelente
-                                    <input type="radio" name="calificacion" value="aceptable" required>Aceptable
-                                    <input type="radio" name="calificacion" value="noConforme" required>No conforme
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                <label for="observadciones">OBSERVACIONES:<br>
-                                    <input type="text" class="form-control" id="idObservaciones" name="observadciones" required>
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                <div class="div-button">
-                    <br><button type="submit" class="btn btn-primary">Cerrar Solitud</button>
+                <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+                <div class="col-md-3">
                 </div>
             </form>
         </div>
-    </div>
+    </div>  -->
+    <section id="contact-form-section" class="form-content-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="tab-content">
+                    <div class="col-sm-12">
+                        <div class="item-wrap">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form id="contactForm" name="contactform" data-toggle="validator" class="popup-form">
+                                        <div class="row">
+                                            <div id="msgContactSubmit" class="hidden"></div>
+
+                                            <div class="form-group col-sm-6">
+                                                <div class="help-block with-errors"></div>
+                                                <input name="fname" id="fname" placeholder="Tu nombre*" class="form-control" type="text" required data-error="Por favor ingresa tu nombre">
+                                                <div class="input-group-icon"><i class="fa fa-user"></i></div>
+                                            </div><!-- end form-group -->
+                                            <div class="form-group col-sm-6">
+                                                <div class="help-block with-errors"></div>
+                                                <input name="email" id="email" placeholder="Tu E-mail*" pattern=".*@\w{2,}\.\w{2,}" class="form-control" type="email" required data-error="Por favor ingresa un correo electrónico válido">
+                                                <div class="input-group-icon"><i class="fa fa-envelope"></i></div>
+                                            </div><!-- end form-group -->
+                                            <div class="form-group col-sm-6">
+                                                <div class="help-block with-errors"></div>
+                                                <input name="phone" id="phone" placeholder="Teléfono*" class="form-control" type="text" required data-error="Por favor ingresa tu número de teléfono">
+                                                <div class="input-group-icon"><i class="fa fa-phone"></i></div>
+                                            </div><!-- end form-group -->
+                                            <div class="form-group col-sm-6">
+                                                <div class="help-block with-errors"></div>
+                                                <input name="subject" id="subject" placeholder="Asunto*" class="form-control" type="text" required data-error="Por favor ingresa el asunto">
+                                                <div class="input-group-icon"><i class="fa fa-book"></i></div>
+                                            </div><!-- end form-group -->
+                                            <div class="form-group col-sm-12">
+                                                <div class="help-block with-errors"></div>
+                                                <textarea rows="3" name="message" id="message" placeholder="Escribe tu comentario aquí*" class="form-control" required data-error="Por favor ingresa un mensaje"></textarea>
+                                                <div class="textarea input-group-icon"><i class="fa fa-pencil"></i></div>
+                                            </div><!-- end form-group -->
+                                            <div class="form-group last col-sm-12">
+                                                <button type="submit" id="submit" class="btn btn-custom"><i class='fa fa-envelope'></i> Enviar</button>
+                                            </div><!-- end form-group -->
+
+                                            <span class="sub-text">* Campos requeridos</span>
+                                            <div class="clearfix"></div>
+                                        </div><!-- end row -->
+                                    </form><!-- end form -->
+
+                                </div>
+                            </div><!--End row -->
+                            <!-- Popup end -->
+                        </div><!-- end item-wrap -->
+                    </div><!--End col -->
+                </div><!--End tab-content -->
+            </div><!--End row -->
+        </div><!--End container -->
+    </section>
 </main>
