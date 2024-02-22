@@ -24,7 +24,7 @@
         # Content section
             require_once('contentReports.php');
         # Content section
-    require_once('../../footer.php')
+            require_once('../../footer.php')
     ?>
 
     <script src="../../js/general.js"></script>

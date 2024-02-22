@@ -13,31 +13,25 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Assistant', sans-serif;
+    font-family: "Poppins", sans-serif;
     min-height: 100vh;
     background-size: cover;
-    background: url('../imgs/grammer_background4.jpg')  ;
-    background-size: cover;
+    background: url('../imgs/grammer_background4.jpg') fixed center;
 }
 /*contenedor del form*/
 .wrapper{
     width: 420px;
     background: transparent;
     color:white;
-    border-radius: 10px;
-    padding: 30px 40px;
+    border-radius: 3%;
+    padding: 5% 10% 3%;
     border: 2px solid rgba(255,255,255,0.2);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
-.page-header{
-    font-size: 20px;
-    color: white;
-    padding-bottom: 50px;
-}
 
 .wrapper h2{
-    font-size: 36px;
+    font-size: 2em;
     text-align: center;
 }
 /*Contenedores individuales de inputs*/
@@ -55,7 +49,7 @@ body{
     outline: none;
     border: 2px solid rgba(255,255,255,0.2);
     border-radius: 40px;
-    font-size: 16px;
+    font-size: 1.2rem;
     color: #fff;
     padding: 20px 45px 20px 20px; /*ubicar contenido del input*/
 }
@@ -74,7 +68,7 @@ body{
 .wrapper .remember-forgot{
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 0.9em;
     margin: -15px 0 15px;
 }
 
@@ -125,25 +119,24 @@ body{
     background: var(--main-color);
     color: #fff;
 }
-
+#tittle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /*Titulo h1*/
 .text-box{
-    background: var(--main-color);
     color:#fff;
-    position: absolute;
-    top: 10%;
-    width: 100%;
 }
 
 .text-box h1{
-    font-size: 60px;
-    line-height: 40px;
-    margin-left: -10px;
+    font-size: 3.8em;
+    padding-bottom: 5%;
     color: transparent;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 2px #fff;
     background: url("../imgs/back.png") 0 0;
     -webkit-background-clip: text;
-    animation: back 20s linear infinite;
+    animation: back 60s linear infinite;
 }
 
 @keyframes back{
@@ -152,3 +145,37 @@ body{
     }
 }
 
+.footer_section{
+    background-color:transparent;
+    color: #fff;
+    font-weight: bold;
+    padding: 1%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 425px){
+    .wrapper{
+        width: 300px;
+        font-size: 0.8rem;
+        padding: 7% 5% 5%;
+    }
+    .wrapper input{
+        font-size: 0.9rem;
+    }
+
+    .text-box h1{
+        font-size: 2.8em;
+    }
+
+    .wrapper .remember-forgot{
+        font-size: 0.7rem;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 1px;
+    }
+    .wrapper .input-box {
+        margin: 25px 0;
+    }
+}

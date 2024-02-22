@@ -1,9 +1,12 @@
 <main>
-    <div class="page-header text-box">
-        <h1 class="">Laboratorio de Metrología</h1>
-    </div>
+
 
     <div class="page-content">
+        <div id="tittle">
+            <div class="text-box">
+                <h1 class="">METROLOGÍA</h1>
+            </div>
+        </div>
         <div class="wrapper">
             <form action="">
                 <h2 id="iniciarSesion">Iniciar Sesión</h2>
