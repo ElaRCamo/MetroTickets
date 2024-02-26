@@ -6,7 +6,7 @@
         </div>
         <div class="logoRight col-sm-3">
             <div>
-                <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="\MetrologyLaboratory\PW_MetrologyLaboratory\imgs\logoGrammer.png"><br>
+                <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="..\imgs\logoGrammer.png"><br>
             </div>
             <div>
                 <span><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></span>
@@ -40,9 +40,9 @@
                                             </div><!-- end form-group -->
                                             <div class="form-group col-sm-6">
                                                 <div class="help-block with-errors"></div>
-                                                <select class="form-control" id="tipoPrueba" name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba">
+                                                <select class="form-control" id="tipoPrueba" name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" onchange="banderaTipoPrueba()">
                                                     <option value="" disabled selected>Seleccione el tipo de prueba</option>
-                                                    <option value="dimensional">Pruebas con máquina universal</option>
+                                                    <option value="universal">Pruebas con máquina universal</option>
                                                     <option value="FOAM">Pruebas semanales-FOAM</option>
                                                     <option value="INSITU">Pruebas semanales-INSITU</option>
                                                     <option value="durezaFOAM">Pruebas semanales de dureza a FOAM</option>
@@ -54,14 +54,8 @@
 
                                             <!-- Formulario dependiendo tipo de prueba -->
 
-                                                <!--Opciones por default-->
-                                                <!--<option value="">Máq.Universal</option>-->
-                                                <!--<option value="">Pruebas semanales-FOAM</option>-->
-                                                <!--<option value="">Pruebas semanales-INSITU</option>-->
-                                                <!--<option value="">Pruebas semanales-dureza INSITU</option>-->
-
                                                 <!--<option value="">Pruebas dureza FOAM</option>-->
-                                            <!--<div id="indicarNorma" class="row" >-->
+                                            <div id="indicarNorma form-group" class="row" style="display:none;" >
                                                 <div class="form-group col-sm-6">
                                                     <div class="help-block with-errors"></div>
                                                     <input type="text" class="form-control" id="norma" placeholder="Norma*" required data-error="Por favor ingresa la norma para realizar la prueba">
@@ -72,6 +66,8 @@
                                                     <input type="file" class="form-control" id="normaFile" placeholder="Documento de la Norma " required data-error="Por favor ingresa la norma para realizar la prueba">
                                                     <div class="input-group-icon"><i class="las la-file"></i></div>
                                                 </div>
+                                            </div>
+
 
                                             <!-- Intento de cargar archivos con label personalizada
                                                 <div class="form-group col-sm-6">
@@ -147,3 +143,4 @@
         </div><!--End container -->
     </section>
 </main>
+

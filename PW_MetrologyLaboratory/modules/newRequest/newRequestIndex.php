@@ -36,15 +36,19 @@
 
     <script src="../../js/general.js"></script>
     <script>
-        $(document).ready(function(){
-            // Manejar el cambio en el select
-            $("#tipoPrueba").change(function(){
-                // Ocultar todos los campos
-                $("#durezaFOAM, #especiales_otra").hide();
+        let cbTipo = document.getElementById("tipoPrueba");
+        let divTipo = document.getElementById("indicarNorma");
 
-                // Mostrar el campo correspondiente a la opción seleccionada
-                let selectedOption = $(this).val();
-                $("#" + selectedOption + "Fields").show(); });
+        function banderaTipoPrueba(){
+            if(cbTipo.value === "durezaFOAM" || cbTipo.value === "especiales"){
+                divTipo.style.display = "block";
+            }else if (cbTipo.value === "especiales"){
+                divTipo.style.display = "none";
+            }
+            else {
+                divTipo.style.display = "none";
+            }
+        }
     </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
