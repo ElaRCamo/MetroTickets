@@ -21,9 +21,8 @@
                         <div class="item-wrap">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form name="formNewRequest" action="" method="POST" id="formRequestLab" data-toggle="validator" class="popup-form">
+                                    <form name="formNewRequest" action="" method="POST" enctype="multipart/form-data" id="formRequestLab" data-toggle="validator" class="popup-form">
                                         <div class="row">
-                                            <div id="msgContactSubmit" class="hidden"></div>
                                             <div class="form-group col-sm-6">
                                                 <div class="help-block with-errors"></div>
                                                 <input type="text" class="form-control" id="numParte" placeholder="Número de parte" required data-error="Por favor ingresa el número de parte">
@@ -43,28 +42,96 @@
                                                 <div class="help-block with-errors"></div>
                                                 <select class="form-control" id="tipoPrueba" name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba">
                                                     <option value="" disabled selected>Seleccione el tipo de prueba</option>
-                                                    <option value="dimensional">Dimensional</option>
-                                                    <option value="full">Full</option>
-                                                    <option value="maquinaUniversal">Máquina Universal</option>
+                                                    <option value="dimensional">Pruebas con máquina universal</option>
+                                                    <option value="FOAM">Pruebas semanales-FOAM</option>
+                                                    <option value="INSITU">Pruebas semanales-INSITU</option>
+                                                    <option value="durezaFOAM">Pruebas semanales de dureza a FOAM</option>
+                                                    <option value="durezaI">Pruebas semanales de dureza INSITU</option>
+                                                    <option value="especiales">Pruebas especiales/otra</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
                                             </div><!-- end form-group -->
+
                                             <!-- Formulario dependiendo tipo de prueba -->
-                                            <div id="dimensionalFields" class="form-group col-sm-12" style="display: none;">
-                                                <div class="help-block with-errors"></div>
-                                                <textarea rows="3" name="campoDimensional" id="campoDimensional" placeholder="Observaciones Dimensional*" class="form-control" required data-error="Por favor ingresa tus observaciones"></textarea>
-                                                <div class="textarea las la-clipboard-check"><i class="fa fa-pencil"></i></div>
-                                            </div>
-                                            <div id="fullFields" class="form-group" style="display: none;">
-                                                <textarea rows="3" name="campoFull" id="campoFull" placeholder="Observaciones Full*" class="form-control" required data-error="Por favor ingresa tus observaciones"></textarea>
-                                                <div class="textarea las la-clipboard-check"><i class="fa fa-pencil"></i></div>
-                                            </div>
-                                            <div id="maquinaUniversalFields" class="form-group" style="display: none;">
-                                                <textarea rows="3" name="campoMaquinaUniversal" id="campoMaquinaUniversal" placeholder="Observaciones Máquina Universal*" class="form-control" required data-error="Por favor ingresa tus observaciones"></textarea>
-                                                <div class="textarea las la-clipboard-check"><i class="fa fa-pencil"></i></div>
-                                            </div>
-                                            <div class="form-group last col-sm-12">
+
+                                                <!--Opciones por default-->
+                                                <!--<option value="">Máq.Universal</option>-->
+                                                <!--<option value="">Pruebas semanales-FOAM</option>-->
+                                                <!--<option value="">Pruebas semanales-INSITU</option>-->
+                                                <!--<option value="">Pruebas semanales-dureza INSITU</option>-->
+
+                                                <!--<option value="">Pruebas dureza FOAM</option>-->
+                                            <!--<div id="indicarNorma" class="row" >-->
+                                                <div class="form-group col-sm-6">
+                                                    <div class="help-block with-errors"></div>
+                                                    <input type="text" class="form-control" id="norma" placeholder="Norma*" required data-error="Por favor ingresa la norma para realizar la prueba">
+                                                    <div class="input-group-icon"><i class="las la-certificate"></i></div>
+                                                </div>
+                                                <div class="form-group col-sm-6">
+                                                    <div class="help-block with-errors"></div>
+                                                    <input type="file" class="form-control" id="normaFile" placeholder="Documento de la Norma " required data-error="Por favor ingresa la norma para realizar la prueba">
+                                                    <div class="input-group-icon"><i class="las la-file"></i></div>
+                                                </div>
+
+                                            <!-- Intento de cargar archivos con label personalizada
+                                                <div class="form-group col-sm-6">
+                                                    <div class="help-block with-errors"></div>
+                                                    <label for="normaFile" class="file-label">
+                                                        Seleccionar Archivo
+                                                        <input type="file" class="form-control" id="normaFile" required data-error="Por favor ingresa la norma para realizar la prueba">
+                                                    </label>
+                                                    <div class="input-group-icon"><i class="las la-file"></i></div>
+                                                </div>
+                                            -->
+
+                                            <!--</div>-->
+
+                                            <!--<option value="full">Pruebas especiales / otra </option>-->
+                                            <!--<div id="especiales" class="row">-->
+
+                                                    <div class="form-group col-sm-12">
+                                                        <div class="help-block with-errors pruebasEspeciales">
+                                                            <h6>Seleccione el tipo de prueba especial*:</h6>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" id="extraccion" value="extraccion">
+                                                                <label class="form-check-label" for="extraccion">Extraccion</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" id="compresion" value="compresion">
+                                                                <label class="form-check-label" for="compresion">Compresion</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" id="desprendimiento" value="desprendimiento">
+                                                                <label class="form-check-label" for="desprendimiento">Desprendimiento</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="checkbox" id="otro" value="otro">
+                                                                <label class="form-check-label" for="otro">Otro (especificar)</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-group-icon"><i class="las la-ruler"></i></div>
+                                                    </div>
+                                                    <div class="form-group col-sm-6">
+                                                        <div class="help-block with-errors"></div>
+                                                        <input type="number" class="form-control" id="otroPrueba" placeholder="Especificar*" required data-error="Por favor ingresa tipo de prueba">
+                                                        <div class="input-group-icon"><i class="las la-ruler-horizontal"></i></div>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-6">
+                                                        <div class="help-block with-errors"></div>
+                                                        <input type="number" class="form-control" id="numPiezas" placeholder="Cantidad de piezas" required data-error="Por favor ingresa la cantidad de piezas">
+                                                        <div class="input-group-icon"><i class="las la-puzzle-piece"></i></div>
+                                                    </div>
+                                                    <div class="form-group col-sm-12">
+                                                        <div class="help-block with-errors"></div>
+                                                        <textarea type="text" class="form-control" id="especificaciones" placeholder="Especificaciones y detalles de la prueba*" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
+                                                        <div class="input-group-icon"><i class="las la-file-alt"></i></div>
+                                                    </div>
+                                            <!--</div>-->
+
+                                            <div class="form-group last col-sm-12 buttons">
                                                 <button type="button" id="submit" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
+                                                <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
                                             </div><!-- end form-group -->
                                             <div class="sub-text">* Campos requeridos</div>
                                             <div class="clearfix"></div>

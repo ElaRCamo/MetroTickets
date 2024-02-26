@@ -8,7 +8,6 @@
     --blue_70: #A4C6E2;
     --blue_45: #C4DAEC;
     --blue_20: #E5EEF7;
-
 }
 /*Formato general*/
 * {
@@ -190,7 +189,7 @@ li a:hover small {
 #menu-toggle:checked ~ .sidebar .side-menu a span {
     font-size: 1.3rem;
 }
-
+/*ajuste para cuando se contrae el menú*/
 .main-content {
     margin-left: 165px;
     width: calc(100% - 165px);
@@ -234,7 +233,7 @@ header {
 
 .header-menu label,
 .header-menu .notify-icon {
-    margin-right: 2rem;
+    margin-right: 5rem;
     position: relative;
 }
 
@@ -284,6 +283,7 @@ main {
     padding: 1.3rem 1rem;
     background: #E9edf2;
     border-bottom: 1px solid #dee2e8;
+    margin:0;
 }
 
 .page-header h1, .page-header small {
@@ -610,18 +610,14 @@ table tbody tr {
     flex-direction: column;
     align-content: flex-end;
 }
-
+.pruebasEspeciales{
+    padding-left: 10%;
+}
 
 .footer_section{
     background-color: var(--blue_20);
     color: var(--main-color);
     font-weight: bold;
     padding: 1%;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
-.labTitile {
-    background: #005195;
+    margin-top: auto;
 }
