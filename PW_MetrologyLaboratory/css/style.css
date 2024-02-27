@@ -19,6 +19,9 @@
     font-family: 'Assistant', sans-serif;
     text-size-adjust: 100%;
 }
+body{
+    background-color: #f1f4f9;
+}
 /*Limpiar formato*/
 a:link, a:visited, a:active {
     text-decoration:none;
@@ -620,4 +623,5 @@ table tbody tr {
     font-weight: bold;
     padding: 1%;
     margin-top: auto;
+    bottom:0;
 }
