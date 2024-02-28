@@ -23,34 +23,25 @@
                                 <div class="col-md-12">
                                     <form name="formNewRequest" action="" method="POST" enctype="multipart/form-data" id="formRequestLab" data-toggle="validator" class="popup-form">
                                         <div class="row">
-                                            <div class="form-group col-sm-6">
-                                                <div class="help-block with-errors"></div>
-                                                <input type="text" class="form-control" id="numParte" placeholder="Número de parte" required data-error="Por favor ingresa el número de parte">
-                                                <div class="input-group-icon"><i class="las la-cog"></i></div>
-                                            </div><!-- end form-group -->
-                                            <div class="form-group col-sm-6">
-                                                <div class="help-block with-errors"></div>
-                                                <input type="text" class="form-control" id="OEM" placeholder="OEM" required data-error="Por favor ingresa OEM">
-                                                <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
-                                            </div><!-- end form-group -->
-                                            <div class="form-group col-sm-6">
-                                                <div class="help-block with-errors"></div>
-                                                <input type="text" class="form-control" id="plataforma" placeholder="Plataforma" required data-error="Por favor ingresa la plataforma">
-                                                <div class="input-group-icon"><i class="las la-warehouse"></i></div>
-                                            </div><!-- end form-group -->
-                                            <div class="form-group col-sm-6">
+                                            <div class="form-group col-sm-6" id="selectTipoPrueba">
                                                 <div class="help-block with-errors"></div>
                                                 <select class="form-control" id="tipoPrueba" name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" onchange="banderaTipoPrueba()">
                                                     <option value="" disabled selected>Seleccione el tipo de prueba</option>
                                                     <option value="universal">Pruebas con máquina universal</option>
-                                                    <option value="FOAM">Pruebas semanales-FOAM</option>
-                                                    <option value="INSITU">Pruebas semanales-INSITU</option>
-                                                    <option value="durezaFOAM">Pruebas semanales de dureza a FOAM</option>
-                                                    <option value="durezaINSITU">Pruebas semanales de dureza INSITU</option>
+                                                    <option value="FOAM">Pruebas-FOAM</option>
+                                                    <option value="INSITU">Pruebas-INSITU</option>
+                                                    <option value="durezaFOAM">Pruebas de dureza a FOAM</option>
+                                                    <option value="durezaINSITU">Pruebas de dureza INSITU</option>
                                                     <option value="especiales">Pruebas especiales/otra</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
-                                            </div><!-- end form-group -->
+                                            </div>
+                                            <div class="form-group col-sm-6" id="div-OEM">
+                                                <div class="help-block with-errors"></div>
+                                                <input type="text" class="form-control" id="OEM" placeholder="OEM" required data-error="Por favor ingresa OEM">
+                                                <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
+                                            </div>
+
 
                                             <!-- Formulario dependiendo tipo de prueba -->
 
@@ -104,6 +95,37 @@
                                                 <div class="input-group-icon"><i class="las la-file-alt"></i></div>
                                             </div>
 
+                                            <!-- Para agregar material por número de parte
+                                            <div class=" col-sm-12 numerosPartes"> </div> -->
+                                            <div class="col-sm-12" id="agregarNumParte">
+                                                <h6>MATERIALES | Para agregar otro número de parte, presione
+                                                    <button type="button" id="addNumParte" onclick="agregarNumParte()">
+                                                        <i class="las la-plus-square"></i>
+                                                    </button>
+                                                </h6>
+                                            </div>
+                                            <div class="form-group col-sm-6" id="numeroParte">
+                                                <div class="help-block with-errors"></div>
+                                                <input type="text" class="form-control" id="numParte" placeholder="Número de parte" required data-error="Por favor ingresa el número de parte">
+                                                <div class="input-group-icon"><i class="las la-cog"></i></div>
+                                            </div>
+                                            <div class="form-group col-sm-6" id="descripcionMaterial">
+                                                <div class="help-block with-errors"></div>
+                                                <input type="text" class="form-control" id="descMaterial" placeholder="Descripcion del material" required data-error="Por favor ingresa la descripción del material">
+                                                <div class="input-group-icon"><i class="las la-cog"></i></div>
+                                            </div>
+                                            <div class="form-group col-sm-6" ID="plataformaDiv">
+                                                <div class="help-block with-errors"></div>
+                                                <input type="text" class="form-control" id="plataforma" placeholder="Plataforma" required data-error="Por favor ingresa la plataforma">
+                                                <div class="input-group-icon"><i class="las la-warehouse"></i></div>
+                                            </div>
+                                            <div class="form-group col-sm-6" id="cantidadMaterial">
+                                                <div class="help-block with-errors"></div>
+                                                <input type="number" class="form-control" id="cdadMaterial" placeholder="Cantidad"  required data-error="Por favor ingresa la cantidad">
+                                                <div class="input-group-icon"><i class="las la-cog"></i></div>
+                                            </div>
+
+
                                             <div class="form-group last col-sm-12 buttons">
                                                 <button type="button" id="submit" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
                                                 <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
@@ -122,43 +144,6 @@
         </div><!--End container -->
     </section>
 </main>
-
-<script>
-    var cbTipo = document.getElementById("tipoPrueba");
-    var divNormaNombre = document.getElementById("normaNombre");
-    var divNormaArchivo = document.getElementById("normaArchivo");
-    var divPruebaEspecial = document.getElementById("pruebaEspecial");
-    var divOtroTipoPrueba = document.getElementById("otroTipoPrueba");
-    var divNumeroPiezas = document.getElementById("numeroPiezas");
-    var divDetallesPrueba = document.getElementById("detallesPrueba");
-
-    function banderaTipoPrueba(){
-        if(cbTipo.value === "durezaFOAM"){
-            divNormaNombre.style.display = "block";
-            divNormaArchivo.style.display = "block";
-            divPruebaEspecial.style.display = "none";
-            divOtroTipoPrueba.style.display = "none";
-            divNumeroPiezas.style.display = "none";
-            divDetallesPrueba.style.display = "none";
-
-        }else if (cbTipo.value === "especiales"){
-            divNormaNombre.style.display = "block";
-            divNormaArchivo.style.display = "block";
-            divPruebaEspecial.style.display = "block";
-            divOtroTipoPrueba.style.display = "block";
-            divNumeroPiezas.style.display = "block";
-            divDetallesPrueba.style.display = "block";
-        }
-        else {
-            divNormaNombre.style.display = "none";
-            divNormaArchivo.style.display = "none";
-            divPruebaEspecial.style.display = "none";
-            divOtroTipoPrueba.style.display = "none";
-            divNumeroPiezas.style.display = "none";
-            divDetallesPrueba.style.display = "none";
-        }
-    }
-</script>
 
 
 

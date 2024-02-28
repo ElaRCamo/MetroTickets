@@ -187,11 +187,41 @@ h6{
     color: #E10014;
     border: #E10014;
 }
+#agregarNumParte{
+    display: flex;
+    justify-content: center;
+}
+#addNumParte{
+    background-color:transparent;
+    border:transparent;
+    padding:0;
+    display: inline-block;
+}
+#addNumParte i{
+    font-size: 20px;
+    vertical-align: text-bottom;
+    color: var(--main-color);
+    transition:all 0.5s ease 0s;
+}
+#addNumParte i:hover{
+    color: #0AA0E1;
+    font-size: 1.5em;
+}
+#agregarNumParte button {
+    margin-bottom: -10px;  /* Elimina el margen inferior del encabezado para evitar espacio adicional */
+}
+#numeroParte, #descripcionMaterial, #plataformaDiv, #cantidadMaterial {
+    width: 49%;
+    display: flex;
+}
 /*Ocultar divs con inputs opcionales*/
 #normaNombre, #normaArchivo, #pruebaEspecial, #otroTipoPrueba,
-#numeroPiezas, #detallesPrueba {
+#numeroPiezas, #detallesPrueba , #div-OEM, #agregarNumParte, #numeroParte,
+#descripcionMaterial, #plataformaDiv, #cantidadMaterial {
     display: none;
 }
+
+
 
 /***********************
 .file-label{
