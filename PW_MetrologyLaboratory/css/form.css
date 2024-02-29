@@ -103,12 +103,14 @@
     width:40px;
     vertical-align: middle;
 }
-.pruebasEspeciales{
+/*.pruebasEspeciales{
     border:none;
     border-radius: 4px 4px 4px 4px;
     padding:5px 5px 5px 7px;
     color: #212529;
 }
+pruebasEspeciales: clase para checkbox
+*/
 h6{
     padding-left: 1.5rem;
 }
@@ -120,24 +122,25 @@ h6{
 }
 
 /*Borde inputs**/
-.popup-form .form-control, .pruebasEspeciales{
+.popup-form .form-control /*, .pruebasEspeciales*/{
     background-color:transparent;
     border:1px solid var(--main-color);
     padding-left:50px;
 }
 
 /*Borde inputs cuando esta seleccionado*/
-.popup-form .form-control:focus, .popup-form .has-error .form-control:focus, .pruebasEspeciales:focus{
+.popup-form .form-control:focus, .popup-form .has-error .form-control:focus /*,.pruebasEspeciales:focus*/{
     box-shadow:0 1px 1px rgba(0,81,149, 0.075) inset, 0 0 5px rgba(130,175,215, 1);
 }
 /*Espacio para iconos*/
-.popup-form .form-control:focus + .input-group-icon, #resetPassForm .has-error .form-control:focus + .input-group-icon, .pruebasEspeciales:focus + .input-group-icon{
+.popup-form .form-control:focus + .input-group-icon,
+#resetPassForm .has-error .form-control:focus + .input-group-icon /*,.pruebasEspeciales:focus + .input-group-icon*/{
     background-color:#322873;
     color:var(--gold_70);
 }
-.pruebasEspeciales{
+/*.pruebasEspeciales{
     padding-left: 0;
-}
+}*/
 /*Leyenda campos requeridos*/
 .popup-form span.sub-text{
     bottom:50px;
@@ -210,20 +213,12 @@ h6{
 #agregarNumParte button {
     margin-bottom: -10px;  /* Elimina el margen inferior del encabezado para evitar espacio adicional */
 }
-#numeroParte, #descripcionMaterial, #plataformaDiv, #cantidadMaterial {
+/*#numeroParte, #descripcionMaterial, #plataformaDiv, #cantidadMaterial {
     width: 49%;
     display: flex;
-}
-/*Ocultar divs con inputs opcionales*/
-#normaNombre, #normaArchivo, #pruebaEspecial, #otroTipoPrueba,
-#numeroPiezas, #detallesPrueba , #div-OEM, #agregarNumParte, #numeroParte,
-#descripcionMaterial, #plataformaDiv, #cantidadMaterial {
-    display: none;
-}
+}*/
 
-
-
-/***********************
+/****Cargar archivo***/
 .file-label{
     background-color:transparent;
     border:1px solid var(--main-color);
@@ -232,7 +227,7 @@ h6{
     width: 100%;
 
 }
-/*ocultar input
+/*ocultar input*/
 .file-label input {
     font-size: 1rem;
     position: absolute;
@@ -241,4 +236,12 @@ h6{
     opacity: 0;
     cursor: pointer;
 }
-*/
+/*Ocultar divs con inputs opcionales*/
+#normaNombre, #normaArchivo, #pruebaEspecial, #otroTipoPrueba,
+#numeroPiezas, #detallesPrueba , #div-OEM, #agregarNumParte, #numeroParte,
+#descripcionMaterial, #plataformaDiv, #cantidadMaterial, #selectTipoPrueba {
+    display: none;
+}
+
+
+

@@ -2,7 +2,6 @@ var cbTipo = document.getElementById("tipoPrueba");
 var divNormaNombre = document.getElementById("normaNombre");
 var divNormaArchivo = document.getElementById("normaArchivo");
 var divPruebaEspecial = document.getElementById("pruebaEspecial");
-var divOtroTipoPrueba = document.getElementById("otroTipoPrueba");
 var divNumeroPiezas = document.getElementById("numeroPiezas");
 var divDetallesPrueba = document.getElementById("detallesPrueba");
 var divOEM = document.getElementById("div-OEM");
@@ -14,6 +13,27 @@ var divDescripcionMaterial = document.getElementById("descripcionMaterial");
 var divPlataforma = document.getElementById("plataformaDiv");
 var divCantidadMaterial = document.getElementById("cantidadMaterial");
 
+var cbTipoEva = document.getElementById("tipoEvaluacion");
+var divSelectTipoPrueba = document.getElementById("selectTipoPrueba");
+
+var  cbOtroTipo = document.getElementById("tipoPruebaEspecial");
+var divOtroTipoPrueba = document.getElementById("otroTipoPrueba");
+
+function banderaTipoEvaluacion(){
+    if (cbTipoEva.value === "universal"){
+        divSelectTipoPrueba.style.display = "block";
+    }else{
+        divSelectTipoPrueba.style.display = "none";
+    }
+}
+
+function otroTipoPrueba(){
+    if (cbOtroTipo.value === "otroEspecial"){
+        divOtroTipoPrueba.style.display = "block";
+    }else{
+        divOtroTipoPrueba.style.display = "none";
+    }
+}
 
 function banderaTipoPrueba(){
     if(cbTipo.value === "durezaFOAM"){
@@ -27,7 +47,6 @@ function banderaTipoPrueba(){
         divCantidadMaterial.style.display = "block";
 
         divPruebaEspecial.style.display = "none";
-        divOtroTipoPrueba.style.display = "none";
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
 
@@ -36,7 +55,6 @@ function banderaTipoPrueba(){
         divNormaNombre.style.display = "block";
         divNormaArchivo.style.display = "block";
         divPruebaEspecial.style.display = "block";
-        divOtroTipoPrueba.style.display = "block";
         divNumeroPiezas.style.display = "block";
         divDetallesPrueba.style.display = "block";
         divAgregarNumParte.style.display = "block";
@@ -54,7 +72,6 @@ function banderaTipoPrueba(){
         divNormaNombre.style.display = "none";
         divNormaArchivo.style.display = "none";
         divPruebaEspecial.style.display = "none";
-        divOtroTipoPrueba.style.display = "none";
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
     }
@@ -77,3 +94,11 @@ function agregarNumParte() {
     divContenedor.after(cloneCantidadMaterial);
 }
 
+function mostrarNombreArchivo() {
+    var inputArchivo = document.getElementById('normaFile');
+    var nombreArchivo = inputArchivo.files[0].name;
+
+    // Obtener el elemento de etiqueta y actualizar su contenido
+    var labelArchivo = document.querySelector('.file-label');
+    labelArchivo.innerHTML = 'Archivo cargado: ' + nombreArchivo;
+}

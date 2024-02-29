@@ -618,7 +618,6 @@ table tbody tr {
 }
 
 .footer_section{
-    background-color: var(--blue_20);
     color: var(--main-color);
     font-weight: bold;
     padding: 1%;
