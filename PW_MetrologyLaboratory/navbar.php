@@ -12,7 +12,7 @@
                     <span class="notify">3</span>
                 </div>
                 <div class="user">
-                    <div><img class="user-img bg-img" alt="User" src="\MetrologyLaboratory\PW_MetrologyLaboratory\imgs\user.jpg"></div>
+                    <div><img class="user-img bg-img" alt="User" src="https://arketipo.mx/Produccion/ML\PW_MetrologyLaboratory\imgs\user.jpg"></div>
                 </div>
                 <div class="bg-img">
                     <span class="las la-power-off"></span>

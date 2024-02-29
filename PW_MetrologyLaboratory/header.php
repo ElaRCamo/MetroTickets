@@ -18,31 +18,31 @@
                     </a>
                 </li>
                 <li>
-                    <a href="\MetrologyLaboratory\PW_MetrologyLaboratory\modules\newRequest\newRequestIndex.php" class="optionMenu">
+                    <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\newRequest\newRequestIndex.php" class="optionMenu">
                         <span class="lar la-edit"></span>
                         <small>Nueva solicitud</small>
                     </a>
                 </li>
                 <li>
-                    <a href="\MetrologyLaboratory\PW_MetrologyLaboratory\modules\search\searchIndex.php" class="optionMenu">
+                    <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\search\searchIndex.php" class="optionMenu">
                         <span class="las la-search"></span>
                         <small>Buscar</small>
                     </a>
                 </li>
                 <li>
-                    <a href="\MetrologyLaboratory\PW_MetrologyLaboratory\modules\reports\reportsIndex.php" class="optionMenu">
+                    <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\reports\reportsIndex.php" class="optionMenu">
                         <span class="las la-book"></span>
                         <small>Generar reporte</small>
                     </a>
                 </li>
                 <li>
-                    <a href="\MetrologyLaboratory\PW_MetrologyLaboratory\modules\settings\settingsIndex.php" class="optionMenu">
+                    <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\settings\settingsIndex.php" class="optionMenu">
                         <span class="las la-cog"></span>
                         <small>Configuraciones</small>
                     </a>
                 </li>
                 <li>
-                    <a href="\MetrologyLaboratory\PW_MetrologyLaboratory\modules\sesion\sesionIndex.php" class="optionMenu">
+                    <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\sesion\sesionIndex.php" class="optionMenu">
                         <span class="las la-power-off"></span>
                         <small>Cerrar sesión</small>
                     </a>
