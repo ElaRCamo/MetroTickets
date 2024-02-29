@@ -18,13 +18,13 @@
 <body>
     <?php
         # Header section
-            require_once('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/header.php');
-            require_once('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/navbar.php');
+            require_once('../../header.php');
+            require_once('../../navbar.php');
 
         # Content section
             require_once('contentReports.php');
         # Content section
-            require_once('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/footer.php')
+            require_once('../../footer.php')
     ?>
 
     <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/general.js"></script>

@@ -30,7 +30,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\reports\reportsIndex.php" class="optionMenu">
+                    <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/reports/reportsIndex.php" class="optionMenu">
                         <span class="las la-book"></span>
                         <small>Generar reporte</small>
                     </a>
