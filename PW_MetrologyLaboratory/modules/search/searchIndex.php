@@ -24,7 +24,7 @@
         # Content section
             require_once('contentSearch.php');
         # Content section
-    require_once('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/footer.php')
+    require_once('../../footer.php')
     ?>
 
     <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/general.js"></script>
@@ -34,5 +34,3 @@
 </body>
 </html>
 
-<!-- PLANTILLA
-        https://www.youtube.com/watch?v=bvxTewiTHPs&list=PLL9jEdn7PvoT309qO1E_-fLnfhuw2T9kJ&index=8 -->

@@ -210,13 +210,6 @@ h6{
     color: #0AA0E1;
     font-size: 1.5em;
 }
-#agregarNumParte button {
-    margin-bottom: -10px;  /* Elimina el margen inferior del encabezado para evitar espacio adicional */
-}
-/*#numeroParte, #descripcionMaterial, #plataformaDiv, #cantidadMaterial {
-    width: 49%;
-    display: flex;
-}*/
 
 /****Cargar archivo***/
 .file-label{

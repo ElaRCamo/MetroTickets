@@ -15,7 +15,7 @@
     </div>
 
     <div class="page-content">
-        <div class="records table-responsive">
+        <div class="records"> <!--table-responsive-->
             <div class="record-header">
                 <div class="search">
                 </div>
@@ -27,23 +27,24 @@
                         <option value="estadoSolitud">Estado</option>
                         <option value="prioridadSolitud">Prioridad</option>
                     </select>
-                    <button>Buscar</button>
+                    <button class="btn button-cristal">Buscar</button>
                 </div>
             </div>
-            <div>
-                <table>
+            <div class="content-table">
+                <table class="table">
                     <thead>
                     <tr>
-                        <th>FOLIO</th>
-                        <th>FECHA</th>
-                        <th>PRIORIDAD</th>
-                        <th>ESTATUS </th>
-                        <th>SOLICITANTE </th>
-                        <th>ASIGNADO A </th>
-                        <th>OEM </th>
-                        <th>PLATAFORMA </th>
-                        <th>NÚM. PARTE </th>
-                        <th>TIPO DE PRUEBA</th>
+                        <th >FOLIO</th>
+                        <th >FECHA</th>
+                        <th >PRIORIDAD</th>
+                        <th >ESTATUS </th>
+                        <th >SOLICITANTE </th>
+                        <th >ASIGNADO A </th>
+                        <th >OEM </th>
+                        <th >PLATAFORMA </th>
+                        <th >NÚM. PARTE </th>
+                        <th >TIPO DE PRUEBA</th>
+                        <th >GESTIONAR</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -54,10 +55,11 @@
                         <td>Cerrada</td>
                         <td>Aracely</td>
                         <td>Adrian</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>BMW</td>
+                        <td>G05 frontal</td>
                         <td>12345678</td>
                         <td>Dimensional</td>
+                        <td>Ver más...</td>
                     </tr>
                     <tr>
                         <td>6097</td>
@@ -66,10 +68,11 @@
                         <td>Cerrada</td>
                         <td>Aracely</td>
                         <td>Adrian</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>BMW</td>
+                        <td>G05 frontal</td>
                         <td>12345678</td>
                         <td>Dimensional</td>
+                        <td>Ver más...</td>
                     </tr>
                     <tr>
                         <td>6097</td>
@@ -78,10 +81,11 @@
                         <td>Cerrada</td>
                         <td>Aracely</td>
                         <td>Adrian</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>BMW</td>
+                        <td>G05 frontal</td>
                         <td>12345678</td>
                         <td>Dimensional</td>
+                        <td>Ver más...</td>
                     </tr>
                     <tr>
                         <td>6097</td>
@@ -90,10 +94,11 @@
                         <td>Cerrada</td>
                         <td>Aracely</td>
                         <td>Adrian</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>BMW</td>
+                        <td>G05 frontal</td>
                         <td>12345678</td>
                         <td>Dimensional</td>
+                        <td>Ver más...</td>
                     </tr>
                     <tr>
                         <td>6097</td>
@@ -102,10 +107,11 @@
                         <td>Cerrada</td>
                         <td>Aracely</td>
                         <td>Adrian</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>BMW</td>
+                        <td>G05 frontal</td>
                         <td>12345678</td>
                         <td>Dimensional</td>
+                        <td>Ver más...</td>
                     </tr>
                     <tr>
                         <td>6097</td>
@@ -114,10 +120,11 @@
                         <td>Cerrada</td>
                         <td>Aracely</td>
                         <td>Adrian</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td>BMW</td>
+                        <td>G05 frontal</td>
                         <td>12345678</td>
                         <td>Dimensional</td>
+                        <td>Ver más...</td>
                     </tr>
                     </tbody>
                 </table>
