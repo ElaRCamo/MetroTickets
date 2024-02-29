@@ -2,12 +2,12 @@
 <input type="checkbox" id="menu-toggle" title="visibilidadMenu">
 <div class="sidebar">
     <div class="side-header">
-        <div><img class="logoGrammer-img bg-img" alt="LogoGrammer" src="\MetrologyLaboratory\PW_MetrologyLaboratory\imgs\Grammer_Logo.ico"></div>
+        <div><img class="logoGrammer-img bg-img" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML\PW_MetrologyLaboratory\imgs\Grammer_Logo.ico"></div>
     </div>
 
     <div class="side-content">
         <div class="profile">
-            <span><img class="logoGrammer2-img img-responsive" alt="LogoGrammer" src="\MetrologyLaboratory\PW_MetrologyLaboratory\imgs\logoGrammer.png"></span>
+            <span><img class="logoGrammer2-img img-responsive" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML\PW_MetrologyLaboratory\imgs\logoGrammer.png"></span>
         </div>
         <div class="side-menu" id="menuLateral">
             <ul >
