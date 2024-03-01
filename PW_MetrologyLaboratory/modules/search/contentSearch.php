@@ -15,7 +15,7 @@
     </div>
 
     <div class="page-content">
-        <div class="records"> <!--table-responsive-->
+        <div class="records table-responsive">
             <div class="record-header">
                 <div class="search">
                 </div>
@@ -30,8 +30,8 @@
                     <button class="btn button-cristal">Buscar</button>
                 </div>
             </div>
-            <div class="content-table">
-                <table class="table">
+            <div class="table-Conteiner">
+                <table class="tableSearch">
                     <thead>
                     <tr>
                         <th >FOLIO</th>
@@ -39,7 +39,7 @@
                         <th >PRIORIDAD</th>
                         <th >ESTATUS </th>
                         <th >SOLICITANTE </th>
-                        <th >ASIGNADO A </th>
+                        <th >ASIGNADO </th>
                         <th >OEM </th>
                         <th >PLATAFORMA </th>
                         <th >NÚM. PARTE </th>

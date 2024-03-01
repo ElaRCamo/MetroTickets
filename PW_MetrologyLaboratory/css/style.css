@@ -414,11 +414,14 @@ input, button, select {
     width: 100px;
 }
 
-.table-responsive {
+
+.reportsTable{
+    width:100%;
+}
+.table-responsive2 {
     width: 100%;
     overflow: auto;
 }
-
 table {
     border-collapse: collapse;
 }
@@ -444,7 +447,7 @@ table tbody td {
 }
 
 td{
-    font-size: .7rem;
+    font-size: 1rem;
     text-align: center;
 }
 
@@ -458,7 +461,14 @@ table tbody td:first-child {
 table tbody tr {
     border-bottom: 1px solid #dee2e8;
 }
-
+.tableSearch{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+.table-Conteiner {
+    overflow-x: auto;
+}
 .user {
     display: flex;
     align-items: center;
@@ -556,6 +566,16 @@ table tbody tr {
         display: flex;
         flex-wrap: wrap-reverse;
     }
+    table thead th {
+        font-size: 0.7rem;
+    }
+    td{
+        font-size: 0.7rem;
+        text-align: center;
+    }
+    .search input{
+        width: 120px;
+    }
 }
 
 /*Contenido Nueva Solicitud*/
@@ -575,7 +595,7 @@ table tbody tr {
 .form-group  span {
     display:none;
 }
-/*tabla-formulario*/
+/*tabla-formulario
 .newRequestTabla table{
     table-layout: fixed;
     width:100%;
@@ -588,7 +608,7 @@ table tbody tr {
 .tableTec td {
     width: 15%;
     word-wrap: break-word;
-}
+}*/
 .logoRight {
     display: flex;
     justify-content: center;
