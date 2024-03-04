@@ -184,3 +184,32 @@ body{
         margin: 25px 0;
     }
 }
+.wrapper-register{
+    padding: 1% 10% 2%;
+}
+
+.wrapper-register .input-box {
+    margin: 15px 0;
+    height: 40px;
+}
+#registrarseForm {
+    margin: auto;
+}
+
+#nombreUsuario,
+#correo,
+#nomina,
+#password {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+#registrarse {
+    padding: 10px;
+    margin-bottom: 0;
+}
+
+.register-link {
+    margin-top: 0;
+    margin-bottom: 0;
+}

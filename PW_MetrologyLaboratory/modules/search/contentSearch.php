@@ -72,7 +72,12 @@
                         <td>G05 frontal</td>
                         <td>12345678</td>
                         <td>Dimensional</td>
-                        <td>Ver más...</td>
+                        <td>
+                            <a href="../review/index.php">
+                                <span class="las la-eye"></span>
+                                <small>Ver más...</small>
+                            </a>
+                        </td>
                     </tr>
                     <tr>
                         <td>6097</td>
