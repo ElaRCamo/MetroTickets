@@ -34,22 +34,22 @@
             </div>
         </div>
         <div class="wrapper wrapper-register">
-            <form id="registrarseForm" action="dao/connection.php" method="POST">
+            <form id="registrarseForm" action="../dao/userRegister.php" method="POST">
                 <h2 id="registrarse">Regístrarse</h2>
                 <div class="input-box">
                     <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre Completo" required>
                     <i class="las la-user-alt"></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" id="correo" placeholder="Correo electrónico" required>
+                    <input type="text" id="correo" name="correo"  placeholder="Correo electrónico" required>
                     <i class="las la-envelope"></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" id="nomina" placeholder="No. de nómina" required>
+                    <input type="text" id="nomina" name="numNomina" placeholder="No. de nómina" required>
                     <i class="las la-user"></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" id="password" placeholder="Contraseña" required>
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
                     <i class="las la-lock"></i>
                 </div>
 
