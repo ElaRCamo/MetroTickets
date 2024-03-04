@@ -2,7 +2,7 @@
 class LocalConector{
     private $host = "127.0.0.1:3306";
     private $usuario = "u543707098_MARIELA";
-    private $clave = "Grammer1";
+    private $clave = "";
     private $db = "u543707098_PRODUCCION";
 
     public function conectar(){
