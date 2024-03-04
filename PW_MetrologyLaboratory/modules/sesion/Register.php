@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="wrapper wrapper-register">
-            <form id="registrarseForm" action="POST">
+            <form id="registrarseForm" action="dao/connection.php" method="POST">
                 <h2 id="registrarse">Regístrarse</h2>
                 <div class="input-box">
                     <input type="text" id="nombreUsuario" placeholder="Nombre Completo" required>
