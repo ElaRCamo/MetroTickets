@@ -37,7 +37,7 @@
             <form id="registrarseForm" action="dao/connection.php" method="POST">
                 <h2 id="registrarse">Regístrarse</h2>
                 <div class="input-box">
-                    <input type="text" id="nombreUsuario" placeholder="Nombre Completo" required>
+                    <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre Completo" required>
                     <i class="las la-user-alt"></i>
                 </div>
                 <div class="input-box">
