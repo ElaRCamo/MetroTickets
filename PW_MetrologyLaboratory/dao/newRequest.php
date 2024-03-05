@@ -3,10 +3,11 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include_once('connection.php');
 
-function fcliente($clienteSeleccionado = '') {
-    $con = new LocalConector();
-    $conex = $con->conectar();
+fcliente();
 
+function fcliente(){
+    $con = new LocalConector();
+    $conex=$con->conectar();
     $sqlCliente = "SELECT distinct descripcionCliente FROM Cliente";
     $resultado = mysqli_query($conex,$sqlCliente);
 
@@ -14,7 +15,7 @@ function fcliente($clienteSeleccionado = '') {
         echo "<option value=''>Selecciona un cliente</option>";
 
         while ($fila = $resultado->fetch_assoc()) {
-            $selected = ($fila['idCliente'] == $clienteSeleccionado) ? 'selected' : '';
+            $selected = ($fila['idCliente'] == $resultado) ? 'selected' : '';
             echo "<option value='{$fila['idCliente']}' $selected>{$fila['descripcionCliente']}</option>";
         }
     } else {
