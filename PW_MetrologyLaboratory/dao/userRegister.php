@@ -19,8 +19,8 @@ function fcliente($clienteSeleccionado = '') {
 
         // Imprimir las opciones del select con las descripciones de clientes
         while ($fila = $resultado->fetch_assoc()) {
-            $selected = ($fila['idCliente'] == $clienteSeleccionado) ? 'selected' : '';
-            echo "<option value='{$fila['idCliente']}' $selected>{$fila['descripcionCliente']}</option>";
+            $selected = ($fila['id_Cliente'] == $clienteSeleccionado) ? 'selected' : '';
+            echo "<option value='{$fila['id_Cliente']}' $selected>{$fila['descripcionCliente']}</option>";
         }
     } else {
         echo "<option value=''>No se encontraron clientes</option>";
