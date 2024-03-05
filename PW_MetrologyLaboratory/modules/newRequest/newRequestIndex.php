@@ -24,6 +24,7 @@
 </head>
 <body>
     <?php
+            include_once('../../dao/newRequest.php');
         # Header section
             require_once('../../header.php');
             require_once('../../navbar.php');
@@ -31,7 +32,7 @@
         # Content section
             require_once('contentRequest.php');
         # Content section
-            require_once('../../footer.php')
+            require_once('../../footer.php');
     ?>
 
     <script src="../../js/general.js"></script>

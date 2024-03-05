@@ -1,23 +1,18 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
+ini_set('display_errors', 1);
 include_once('connection.php');
 
 function fcliente($clienteSeleccionado = '') {
     $con = new LocalConector();
     $conex = $con->conectar();
 
+    $sqlCliente = "SELECT distinct descripcionCliente FROM Cliente";
+    $resultado = mysqli_query($conex,$sqlCliente);
 
-    $clienteSQL = "SELECT distinct idCliente, descripcionCliente FROM Cliente";
-    $resultado = $conex->query($clienteSQL);
-
-    // Verificar si hay resultados
     if ($resultado->num_rows > 0) {
-        echo "<option value='' selected>Selecciona un cliente</option>";
+        echo "<option value=''>Selecciona un cliente</option>";
 
-        // Imprimir las opciones del select con las descripciones de clientes
         while ($fila = $resultado->fetch_assoc()) {
             $selected = ($fila['idCliente'] == $clienteSeleccionado) ? 'selected' : '';
             echo "<option value='{$fila['idCliente']}' $selected>{$fila['descripcionCliente']}</option>";
@@ -26,6 +21,7 @@ function fcliente($clienteSeleccionado = '') {
         echo "<option value=''>No se encontraron clientes</option>";
     }
 
+    // Cerrar la conexión a la base de datos
     $conex->close();
 }
 

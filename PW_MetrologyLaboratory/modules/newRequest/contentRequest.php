@@ -23,7 +23,7 @@
                                 <div class="col-md-12">
                                     <form name="formNewRequest" action="" method="POST" enctype="multipart/form-data" id="formRequestLab" data-toggle="validator" class="popup-form">
                                         <div class="row">
-                                            <div class="form-group col-sm-4" id="selectEvaluacion">
+                                            <div class="form-group col-sm-6" id="selectEvaluacion">
                                                 <div class="help-block with-errors"></div>
                                                 <select class="form-control" id="tipoEvaluacion" onchange="banderaTipoEvaluacion()" name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione tipo de evaluacion" >
                                                     <option value="" disabled selected>Seleccione el tipo de evaluación</option>
@@ -34,7 +34,7 @@
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
                                             </div>
-                                            <div class="form-group col-sm-4" id="selectTipoPrueba">
+                                            <div class="form-group col-sm-6" id="selectTipoPrueba">
                                                 <div class="help-block with-errors"></div>
                                                 <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba()" name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
                                                     <option value="" disabled selected>Seleccione el tipo de prueba</option>
@@ -45,11 +45,6 @@
                                                     <option value="especiales">Pruebas especiales/otra</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
-                                            </div>
-                                            <div class="form-group col-sm-4" id="div-OEM">
-                                                <div class="help-block with-errors"></div>
-                                                <input type="text" class="form-control" id="OEM" placeholder="OEM(cliente)" required data-error="Por favor ingresa el area solicitante">
-                                                <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
                                             </div>
 
                                             <!-- Formulario dependiendo tipo de prueba -->
@@ -93,8 +88,7 @@
                                                 <div class="input-group-icon"><i class="las la-file-alt"></i></div>
                                             </div>
 
-                                            <!-- Para agregar material por número de parte
-                                            <div class=" col-sm-12 numerosPartes"> </div> -->
+                                            <!-- Para agregar material por número de parte-->
                                             <div class=" form-group col-sm-12" id="agregarNumParte">
                                                 <h6>REGISTRO DE MATERIALES | Para agregar otro número de parte, presione
                                                     <button type="button" id="addNumParte" onclick="agregarNumParte()">
@@ -102,25 +96,43 @@
                                                     </button>
                                                 </h6>
                                             </div>
-                                            <div class="form-group col-sm-6" id="numeroParte">
+                                            <div class="form-group col-sm-4" id="numeroParte">
                                                 <div class="help-block with-errors"></div>
                                                 <input type="text" class="form-control" id="numParte" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                             </div>
+                                            <div class="form-group col-sm-4" id="div-OEM">
+                                                <div class="help-block with-errors"></div>
+                                                <select name="cliente" class="form-control" id="cliente" required data-error="Por favor ingresa el area solicitante">
+                                                    <option value""> Cliente(OEM)* </option>
+                                                    <--?php
+                                                    echo fcliente();
+                                                    ?>-->
+                                                </select>
+                                                <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
+                                            </div>
+                                            <div class="form-group col-sm-4" ID="plataformaDiv">
+                                                <div class="help-block with-errors"></div>
+                                                <select name="plataforma" class="form-control" id="plataforma" required data-error="Por favor ingresa la plataforma">
+                                                    <option value""> Plataforma* </option>
+                                                    <!--?php echo fplataforma($plataforma); ?>--> </select>
+                                                <div class="input-group-icon"><i class="las la-warehouse"></i></div>
+                                            </div>
                                             <div class="form-group col-sm-6" id="descripcionMaterial">
                                                 <div class="help-block with-errors"></div>
-                                                <input type="text" class="form-control" id="descMaterial" placeholder="Descripcion del material*" required data-error="Por favor ingresa la descripción del material">
+                                                <select name="descripcion" class="form-control" id="descMaterial" onchange="descripcionMaterial()" required data-error="Por favor ingresa la descripción del material">
+                                                    <option value""> Descripcion* </option>
+                                                    <option value="prueba">Pueba Imagen</option>
+                                                    <!--?php echo fdescMaterial($descripcion); ?>--> </select>
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
-                                            </div>
-                                            <div class="form-group col-sm-6" ID="plataformaDiv">
-                                                <div class="help-block with-errors"></div>
-                                                <input type="text" class="form-control" id="plataforma" placeholder="Plataforma*" required data-error="Por favor ingresa la plataforma">
-                                                <div class="input-group-icon"><i class="las la-warehouse"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="cantidadMaterial">
                                                 <div class="help-block with-errors"></div>
                                                 <input type="number" class="form-control" id="cdadMaterial" placeholder="Cantidad*"  required data-error="Por favor ingresa la cantidad">
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
+                                            </div>
+                                            <div class="form-group col-sm-12" id="imgMaterial">
+                                                <img src="../../imgs/cabecera.png" class="rounded mx-auto d-block" alt="Cabecera">
                                             </div>
                                             <div class="form-group last col-sm-12 buttons">
                                                 <button type="button" id="submit" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>

@@ -15,6 +15,8 @@ class LocalConector{
         if ($this->conexion->connect_error) {
             die("Error de conexión: " . $this->conexion->connect_error);
         }
+        echo "conexion exitosa";
+        return $this->conexion;
     }
 
     public function cerrarConexion() {
@@ -27,4 +29,4 @@ class LocalConector{
         return $this->conexion;
     }
 }
-?>
+
