@@ -25,7 +25,7 @@
                                         <div class="row">
                                             <div class="form-group col-sm-6" id="selectEvaluacion">
                                                 <div class="help-block with-errors"></div>
-                                                <select class="form-control" id="tipoEvaluacion" <!--onchange="banderaTipoEvaluacion()"--> name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione tipo de evaluacion" >
+                                                <select class="form-control" id="tipoEvaluacion" onchange="banderaTipoEvaluacion()" name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione tipo de evaluacion" >
                                                     <option value="" disabled selected>Seleccione el tipo de evaluación</option>
                                                     <option value="universal">Evaluación con máquina universal</option>
                                                     <option value="dimensional" disabled>Evaluación dimensional</option>
@@ -36,7 +36,7 @@
                                             </div>
                                             <div class="form-group col-sm-6" id="selectTipoPrueba">
                                                 <div class="help-block with-errors"></div>
-                                                <select class="form-control" id="tipoPrueba" <!--onchange="banderaTipoPrueba()"-->  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
+                                                <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba()"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
                                                     <option value="" disabled selected>Seleccione el tipo de prueba</option>
                                                     <option value="FOAM">Pruebas-FOAM</option>
                                                     <option value="INSITU">Pruebas-INSITU</option>
@@ -57,12 +57,12 @@
                                                 <div class="help-block with-errors"></div>
                                                 <label for="normaFile" class="file-label">
                                                     Seleccione el documento de la norma
-                                                    <input type="file" class="form-control" id="normaFile" required data-error="Por favor ingresa la norma para realizar la prueba" <!--onchange="mostrarNombreArchivo()"-->>
+                                                    <input type="file" class="form-control" id="normaFile" required data-error="Por favor ingresa la norma para realizar la prueba" onchange="mostrarNombreArchivo()">
                                                 </label>
                                                 <div class="input-group-icon"><i class="las la-file"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6 " id="pruebaEspecial">
-                                                    <select class="form-control" id="tipoPruebaEspecial" <!--onchange="otroTipoPrueba()"-->  name="tiposPruebaEspecial" title="TipoDePruebaEspecial" required data-error="Por favor seleccione tipo de prueba" >
+                                                    <select class="form-control" id="tipoPruebaEspecial" onchange="otroTipoPrueba()" name="tiposPruebaEspecial" title="TipoDePruebaEspecial" required data-error="Por favor seleccione tipo de prueba" >
                                                         <option value="" disabled selected>Seleccione el tipo de prueba especial*</option>
                                                         <option value="extraccion">Extracción</option>
                                                         <option value="compresion">Compresión</option>
@@ -91,7 +91,7 @@
                                             <!-- Para agregar material por número de parte-->
                                             <div class=" form-group col-sm-12" id="agregarNumParte">
                                                 <h6>REGISTRO DE MATERIALES | Para agregar otro número de parte, presione
-                                                    <button type="button" id="addNumParte" <!--onclick="agregarNumParte();"-->>
+                                                    <button type="button" id="addNumParte" onclick="agregarNumParte()">
                                                         <i class="las la-plus-square"></i>
                                                     </button>
                                                 </h6>
@@ -104,21 +104,19 @@
                                             <div class="form-group col-sm-4" id="div-OEM">
                                                 <div class="help-block with-errors"></div>
                                                 <select name="cliente" class="form-control" id="cliente" required data-error="Por favor ingresa el area solicitante">
-                                                    <?php fcliente(); ?>
+                                                    <!--?php fcliente(); ?>-->
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
                                             </div>
                                             <div class="form-group col-sm-4" ID="plataformaDiv">
                                                 <div class="help-block with-errors"></div>
                                                 <select name="plataforma" class="form-control" id="plataforma" required data-error="Por favor ingresa la plataforma">
-                                                    <?php fplataforma(); ?> </select>
+                                                    <!--?php fplataforma(); ?> </select>-->
                                                 <div class="input-group-icon"><i class="las la-warehouse"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="descripcionMaterial">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="descripcion" class="form-control" id="descMaterial" <!--onchange="descripcionMaterial();"--> required data-error="Por favor ingresa la descripción del material">
-                                                    <option value""> Descripcion* </option>
-                                                    <option value="prueba">Pueba Imagen</option>
+                                                <select name="descripcion" class="form-control" id="descMaterial" <!--onchange="descripcionMaterial()"--> required data-error="Por favor ingresa la descripción del material">
                                                     <!--?php echo fdescMaterial($descripcion); ?>--> </select>
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                             </div>

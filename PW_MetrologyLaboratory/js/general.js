@@ -21,7 +21,7 @@ var divOtroTipoPrueba = document.getElementById("otroTipoPrueba");
 var cbDescMaterial = document.getElementById("descMaterial");
 var divImgMaterial = document.getElementById("imgMaterial");
 
-document.getElementById("tipoEvaluacion").onchange = function() {banderaTipoEvaluacion()};
+//document.getElementById("tipoEvaluacion").onchange = function() {banderaTipoEvaluacion()};
 function banderaTipoEvaluacion(){
     if (cbTipoEva.value === "universal"){
         divSelectTipoPrueba.style.display = "block";
@@ -31,27 +31,7 @@ function banderaTipoEvaluacion(){
     console.log("banderaTipoEvaluacion()");
 }
 
-document.getElementById("tipoPruebaEspecial").onchange = function() {otroTipoPrueba()};
-function otroTipoPrueba(){
-    if (cbOtroTipo.value === "otroEspecial"){
-        divOtroTipoPrueba.style.display = "block";
-    }else{
-        divOtroTipoPrueba.style.display = "none";
-    }
-    console.log("otroTipoPrueba()");
-}
-
-document.getElementById("descMaterial").onchange = function() {descripcionMaterial()};
-function descripcionMaterial(){
-    if (cbDescMaterial.value != null){
-        divImgMaterial.style.display = "block";
-    }else{
-        divImgMaterial.style.display = "none";
-    }
-    console.log("descripcionMaterial()");
-}
-
-document.getElementById("tipoPrueba").onchange = function() {banderaTipoPrueba()};
+//document.getElementById("tipoPrueba").onchange = function() {banderaTipoPrueba()};
 function banderaTipoPrueba(){
     if(cbTipo.value === "durezaFOAM"){
         divOEM.style.display = "block";
@@ -93,8 +73,27 @@ function banderaTipoPrueba(){
     }
     console.log(" banderaTipoPrueba()");
 }
+//document.getElementById("normaFile").onchange = function() {mostrarNombreArchivo()};
+function mostrarNombreArchivo() {
+    var inputArchivo = document.getElementById('normaFile');
+    var nombreArchivo = inputArchivo.files[0].name;
 
-document.getElementById("addNumParte").onclick = function() {agregarNumParte()};
+    // Obtener el elemento de etiqueta y actualizar su contenido
+    var labelArchivo = document.querySelector('.file-label');
+    labelArchivo.innerHTML = 'Archivo cargado: ' + nombreArchivo;
+    console.log("mostrarNombreArchivo");
+}
+//document.getElementById("tipoPruebaEspecial").onchange = function() {otroTipoPrueba()};
+function otroTipoPrueba(){
+    if (cbOtroTipo.value === "otroEspecial"){
+        divOtroTipoPrueba.style.display = "block";
+    }else{
+        divOtroTipoPrueba.style.display = "none";
+    }
+    console.log("otroTipoPrueba()");
+}
+
+//document.getElementById("addNumParte").onclick = function() {agregarNumParte()};
 function agregarNumParte() {
     // Clonar los divs
     var cloneNumeroParte = divNumeroParte.cloneNode(true);
@@ -118,13 +117,14 @@ function agregarNumParte() {
     console.log("agregarNumParte()");
 }
 
-document.getElementById("normaFile").onchange = function() {mostrarNombreArchivo()};
-function mostrarNombreArchivo() {
-    var inputArchivo = document.getElementById('normaFile');
-    var nombreArchivo = inputArchivo.files[0].name;
-
-    // Obtener el elemento de etiqueta y actualizar su contenido
-    var labelArchivo = document.querySelector('.file-label');
-    labelArchivo.innerHTML = 'Archivo cargado: ' + nombreArchivo;
-    console.log("mostrarNombreArchivo");
+//document.getElementById("descMaterial").onchange = function() {descripcionMaterial()};
+function descripcionMaterial(){
+    if (cbDescMaterial.value != null){
+        divImgMaterial.style.display = "block";
+    }else{
+        divImgMaterial.style.display = "none";
+    }
+    console.log("descripcionMaterial()");
 }
+
+
