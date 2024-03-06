@@ -1,3 +1,4 @@
+<?php include_once('../../dao/newRequest.php');?>
 <!doctype html>
 <html lang="es">
 <head>
