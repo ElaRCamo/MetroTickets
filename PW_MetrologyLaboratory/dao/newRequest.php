@@ -3,8 +3,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include_once('connection.php');
 
-fcliente();
-
 function fcliente(){
     $con = new LocalConector();
     $conex=$con->conectar();
@@ -15,8 +13,8 @@ function fcliente(){
         echo "<option value=''>Selecciona un cliente</option>";
 
         while ($fila = $resultado->fetch_assoc()) {
-            $selected = ($fila['id_cliente'] == $resultado) ? 'selected' : '';
-            echo "<option value='{$fila['id_cliente']}' $selected>{$fila['descripcionCliente']}</option>";
+            $selected = ($fila['descripcionCliente'] == $resultado) ? 'selected' : '';
+            echo "<option value='{$fila['descripcionCliente']}' $selected>{$fila['descripcionCliente']}</option>";
         }
     } else {
         echo "<option value=''>No se encontraron clientes</option>";
@@ -25,5 +23,4 @@ function fcliente(){
     // Cerrar la conexión a la base de datos
     $conex->close();
 }
-
 
