@@ -1,3 +1,5 @@
+<?php  include_once('../../dao/newRequest.php'); ?>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -24,7 +26,6 @@
 </head>
 <body>
     <?php
-            include_once('../../dao/newRequest.php');
         # Header section
             require_once('../../header.php');
             require_once('../../navbar.php');
