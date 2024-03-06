@@ -105,34 +105,24 @@ global$resultado;
 
                                             <div class="form-group col-sm-4" id="div-OEM">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="cliente" class="form-control" id="cliente" required data-error="Por favor ingresa el area solicitante"><!--?php fcliente();?>-->
-                                                    <option value="-1"></option>
-                                                    <?php
-                                                    include_once('../../dao/connection.php');
-                                                    $con = new LocalConector();
-                                                    $conex = $con->conectar();
-
-                                                    $sqlCliente = "SELECT id_cliente,descripcionCliente FROM Cliente ORDER BY descripcionCliente";
-                                                    $resultado = mysqli_query($conex, $sqlCliente);
-
-                                                    foreach ($resultado as $cliente){
-                                                        ?>
-                                                            <option value="<?php echo $cliente['id_cliente'] ?>"><?php echo $cliente['descripcionCliente']?></option>
-                                                        <?php
-                                                        }
-                                                        ?>
+                                                <select name="cliente" class="form-control" id="cliente" onchange="llenarClientes()" required data-error="Por favor ingresa el area solicitante">
+                                                    <option value="">Seleccione el cliente (OEM)</option>
+                                                    </option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
                                             </div>
                                             <div class="form-group col-sm-4" ID="plataformaDiv">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="plataforma" class="form-control" id="plataforma" required data-error="Por favor ingresa la plataforma"><!--?php fplataforma();?--></select>
+                                                <select name="plataforma" class="form-control" id="plataforma" onchange="llenarPlataformas()" required data-error="Por favor ingresa la plataforma">
+                                                    <option value="">Seleccione la plataforma</option>
+                                                </select>
                                                 <div class="input-group-icon"><i class="las la-warehouse"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="descripcionMaterial">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="descripcion" class="form-control" id="descMaterial" onchange="descripcionMaterial()" required data-error="Por favor ingresa la descripción del material">
-                                                    <!--?php echo fdescMaterial($descripcion); ?>--> </select>
+                                                <select name="descripcion" class="form-control" id="descMaterial"  <!-- onchange="llenarDescripcion()" onchange="descripcionMaterial()"--> required data-error="Por favor ingresa la descripción del material">
+                                                    <option value="">Seleccione la descripción</option>
+                                                </select>
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="cantidadMaterial">
