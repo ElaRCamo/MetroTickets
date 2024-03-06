@@ -108,7 +108,7 @@ global$resultado;
                                                 <select name="cliente" class="form-control" id="cliente" required data-error="Por favor ingresa el area solicitante"><!--?php fcliente();?>-->
                                                     <option value="-1"></option>
                                                     <?php
-                                                    include_once('connection.php');
+                                                    include_once('../../dao/connection.php');
                                                     $con = new LocalConector();
                                                     $conex = $con->conectar();
 

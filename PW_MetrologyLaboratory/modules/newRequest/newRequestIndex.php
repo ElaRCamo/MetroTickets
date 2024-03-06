@@ -46,12 +46,12 @@
                     let plataformaDropdown = document.getElementById('plataforma');
                     plataformaDropdown.innerText=null;
 
-                    Plataformas.forEach(function(c)){
+                    Plataformas.forEach(function(c){
                         var option = document.createElement('option');
                         option.text = c.name;
                         option.value = c.id;
                         plataformaDropdown.appendChild(option);
-                    })
+                    });
                 }
             };
             xhttp.open("GET","get_plataformas.php?id_cliente=" + e.target.value, true);
