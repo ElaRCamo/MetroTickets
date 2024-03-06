@@ -10,7 +10,7 @@ function fcliente($clienteSeleccionado = '') {
     $conex = $con->conectar();
 
 
-    $clienteSQL = "SELECT distinct idCliente, descripcionCliente FROM Cliente";
+    $clienteSQL = "SELECT distinct id_cliente, descripcionCliente FROM Cliente";
     $resultado = $conex->query($clienteSQL);
 
     // Verificar si hay resultados
@@ -19,8 +19,8 @@ function fcliente($clienteSeleccionado = '') {
 
         // Imprimir las opciones del select con las descripciones de clientes
         while ($fila = $resultado->fetch_assoc()) {
-            $selected = ($fila['id_Cliente'] == $clienteSeleccionado) ? 'selected' : '';
-            echo "<option value='{$fila['id_Cliente']}' $selected>{$fila['descripcionCliente']}</option>";
+            $selected = ($fila['id_cliente'] == $clienteSeleccionado) ? 'selected' : '';
+            echo "<option value='{$fila['id_cliente']}' $selected>{$fila['descripcionCliente']}</option>";
         }
     } else {
         echo "<option value=''>No se encontraron clientes</option>";
