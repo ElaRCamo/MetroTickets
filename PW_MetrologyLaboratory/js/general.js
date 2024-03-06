@@ -28,6 +28,7 @@ function banderaTipoEvaluacion(){
     }else{
         divSelectTipoPrueba.style.display = "none";
     }
+    console.log("banderaTipoEvaluacion()");
 }
 
 document.getElementById("tipoPruebaEspecial").onchange = function() {otroTipoPrueba()};
@@ -37,6 +38,7 @@ function otroTipoPrueba(){
     }else{
         divOtroTipoPrueba.style.display = "none";
     }
+    console.log("otroTipoPrueba()");
 }
 
 document.getElementById("descMaterial").onchange = function() {descripcionMaterial()};
@@ -46,6 +48,7 @@ function descripcionMaterial(){
     }else{
         divImgMaterial.style.display = "none";
     }
+    console.log("descripcionMaterial()");
 }
 
 document.getElementById("tipoPrueba").onchange = function() {banderaTipoPrueba()};
@@ -88,6 +91,7 @@ function banderaTipoPrueba(){
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
     }
+    console.log(" banderaTipoPrueba()");
 }
 
 document.getElementById("addNumParte").onclick = function() {agregarNumParte()};
@@ -111,7 +115,7 @@ function agregarNumParte() {
     divContenedor.after(clonePlataforma);
     divContenedor.after(cloneOEM);
     divContenedor.after(cloneNumeroParte);
-
+    console.log("agregarNumParte()");
 }
 
 document.getElementById("normaFile").onchange = function() {mostrarNombreArchivo()};
@@ -122,4 +126,5 @@ function mostrarNombreArchivo() {
     // Obtener el elemento de etiqueta y actualizar su contenido
     var labelArchivo = document.querySelector('.file-label');
     labelArchivo.innerHTML = 'Archivo cargado: ' + nombreArchivo;
+    console.log("mostrarNombreArchivo");
 }
