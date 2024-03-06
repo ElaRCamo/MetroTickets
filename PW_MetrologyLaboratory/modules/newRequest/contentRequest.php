@@ -104,10 +104,7 @@
                                             <div class="form-group col-sm-4" id="div-OEM">
                                                 <div class="help-block with-errors"></div>
                                                 <select name="cliente" class="form-control" id="cliente" required data-error="Por favor ingresa el area solicitante">
-                                                    <option value""> Cliente(OEM)* </option>
-                                                    <?php
-                                                    echo fcliente();
-                                                    ?>-->
+                                                    <?php echo fcliente(); ?>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
                                             </div>

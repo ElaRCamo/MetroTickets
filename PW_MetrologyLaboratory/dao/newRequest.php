@@ -10,7 +10,7 @@ function fcliente(){
     $resultado = mysqli_query($conex,$sqlCliente);
 
     if ($resultado->num_rows > 0) {
-        echo "<option value=''>Selecciona un cliente</option>";
+        echo "<option value=''>Selecciona un cliente (OEM)</option>";
 
         while ($fila = $resultado->fetch_assoc()) {
             $selected = ($fila['descripcionCliente'] == $resultado) ? 'selected' : '';
