@@ -104,19 +104,19 @@
                                             <div class="form-group col-sm-4" id="div-OEM">
                                                 <div class="help-block with-errors"></div>
                                                 <select name="cliente" class="form-control" id="cliente" required data-error="Por favor ingresa el area solicitante">
-                                                    <!--?php fcliente(); ?>-->
+                                                    ?php fcliente(); ?>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
                                             </div>
                                             <div class="form-group col-sm-4" ID="plataformaDiv">
                                                 <div class="help-block with-errors"></div>
                                                 <select name="plataforma" class="form-control" id="plataforma" required data-error="Por favor ingresa la plataforma">
-                                                    <!--?php fplataforma(); ?> </select>-->
+                                                    <!--?php fplataforma(); ?> --> </select>
                                                 <div class="input-group-icon"><i class="las la-warehouse"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="descripcionMaterial">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="descripcion" class="form-control" id="descMaterial" <!--onchange="descripcionMaterial()"--> required data-error="Por favor ingresa la descripción del material">
+                                                <select name="descripcion" class="form-control" id="descMaterial" onchange="descripcionMaterial()" required data-error="Por favor ingresa la descripción del material">
                                                     <!--?php echo fdescMaterial($descripcion); ?>--> </select>
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                             </div>
