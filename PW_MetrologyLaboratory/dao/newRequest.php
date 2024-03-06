@@ -33,12 +33,11 @@ function fplataforma()
     // Verificar si la variable de sesión está definida
     if (isset($_SESSION['clienteSeleccionado'])) {
         $clienteSeleccionado = $_SESSION['clienteSeleccionado'];
-        $sqlPlataforma = "SELECT descripcionPlataforma FROM Plataforma, Cliente WHERE id_plataforma = idPlataforma AND descripcionCliente = '$clienteSeleccionado'";
+        $sqlPlataforma = "SELECT descripcionPlataforma FROM Plataforma, Cliente WHERE descripcionCliente = '$clienteSeleccionado' AND id_plataforma = idPlataforma;";
         $resultado = mysqli_query($conex, $sqlPlataforma);
 
         if ($resultado->num_rows > 0) {
             echo "<option value=''>Selecciona la plataforma</option>";
-
             while ($fila = $resultado->fetch_assoc()) {
                 $selected = (isset($_SESSION['plataformaSeleccionada']) && $_SESSION['plataformaSeleccionada'] == $fila['descripcionPlataforma']) ? 'selected' : '';
                 echo "<option value='{$fila['descripcionPlataforma']}' $selected>{$fila['descripcionPlataforma']}</option>";
