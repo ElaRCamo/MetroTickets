@@ -15,8 +15,8 @@ function fcliente(){
         echo "<option value=''>Selecciona un cliente</option>";
 
         while ($fila = $resultado->fetch_assoc()) {
-            $selected = ($fila['idCliente'] == $resultado) ? 'selected' : '';
-            echo "<option value='{$fila['idCliente']}' $selected>{$fila['descripcionCliente']}</option>";
+            $selected = ($fila['id_cliente'] == $resultado) ? 'selected' : '';
+            echo "<option value='{$fila['id_cliente']}' $selected>{$fila['descripcionCliente']}</option>";
         }
     } else {
         echo "<option value=''>No se encontraron clientes</option>";
