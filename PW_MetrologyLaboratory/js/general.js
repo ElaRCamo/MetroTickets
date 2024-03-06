@@ -90,6 +90,7 @@ function banderaTipoPrueba(){
     }
 }
 
+document.getElementById("addNumParte").onclick = function() {agregarNumParte()};
 function agregarNumParte() {
     // Clonar los divs
     var cloneNumeroParte = divNumeroParte.cloneNode(true);
@@ -113,6 +114,7 @@ function agregarNumParte() {
 
 }
 
+document.getElementById("normaFile").onchange = function() {mostrarNombreArchivo()};
 function mostrarNombreArchivo() {
     var inputArchivo = document.getElementById('normaFile');
     var nombreArchivo = inputArchivo.files[0].name;

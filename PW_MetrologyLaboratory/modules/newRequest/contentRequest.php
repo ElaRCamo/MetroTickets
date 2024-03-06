@@ -57,7 +57,7 @@
                                                 <div class="help-block with-errors"></div>
                                                 <label for="normaFile" class="file-label">
                                                     Seleccione el documento de la norma
-                                                    <input type="file" class="form-control" id="normaFile" required data-error="Por favor ingresa la norma para realizar la prueba" onchange="mostrarNombreArchivo()">
+                                                    <input type="file" class="form-control" id="normaFile" required data-error="Por favor ingresa la norma para realizar la prueba" <!--onchange="mostrarNombreArchivo()"-->>
                                                 </label>
                                                 <div class="input-group-icon"><i class="las la-file"></i></div>
                                             </div>
@@ -91,7 +91,7 @@
                                             <!-- Para agregar material por número de parte-->
                                             <div class=" form-group col-sm-12" id="agregarNumParte">
                                                 <h6>REGISTRO DE MATERIALES | Para agregar otro número de parte, presione
-                                                    <button type="button" id="addNumParte" onclick="agregarNumParte();">
+                                                    <button type="button" id="addNumParte" <!--onclick="agregarNumParte();"-->>
                                                         <i class="las la-plus-square"></i>
                                                     </button>
                                                 </h6>
