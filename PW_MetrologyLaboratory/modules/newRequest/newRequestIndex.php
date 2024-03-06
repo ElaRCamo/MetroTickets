@@ -36,6 +36,28 @@
     ?>
 
     <script src="../../js/general.js"></script>
+    <script type="application/javascript">
+        document.getElementById('cliente').addEventListener('change', function (e) {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange= function (){
+                if(this.readyState === 4 && this.status === 200){
+                    let Plataformas = JSON.parse(this.responseText);
+                    let plataformaDropdown = document.getElementById('plataforma');
+                    plataformaDropdown.innerText=null;
+
+                    Plataformas.forEach(function(c)){
+                        var option = document.createElement('option');
+                        option.text = c.name;
+                        option.value = c.id;
+                        plataformaDropdown.appendChild(option);
+                    })
+                }
+            };
+            xhttp.open("GET","get_plataformas.php?id_cliente=" + e.target.value, true);
+            xhttp.send();
+        });
+    </script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
