@@ -4,8 +4,6 @@ var divNormaArchivo = document.getElementById("normaArchivo");
 var divPruebaEspecial = document.getElementById("pruebaEspecial");
 var divNumeroPiezas = document.getElementById("numeroPiezas");
 var divDetallesPrueba = document.getElementById("detallesPrueba");
-
-
 var divAgregarNumParte = document.getElementById("agregarNumParte");
 <!-- Para agregar material por número de parte -->
 var divNumeroParte = document.getElementById("numeroParte");
@@ -23,7 +21,7 @@ var divOtroTipoPrueba = document.getElementById("otroTipoPrueba");
 var cbDescMaterial = document.getElementById("descMaterial");
 var divImgMaterial = document.getElementById("imgMaterial");
 
-
+document.getElementById("tipoEvaluacion").onchange = function() {banderaTipoEvaluacion()};
 function banderaTipoEvaluacion(){
     if (cbTipoEva.value === "universal"){
         divSelectTipoPrueba.style.display = "block";
@@ -32,6 +30,7 @@ function banderaTipoEvaluacion(){
     }
 }
 
+document.getElementById("tipoPruebaEspecial").onchange = function() {otroTipoPrueba()};
 function otroTipoPrueba(){
     if (cbOtroTipo.value === "otroEspecial"){
         divOtroTipoPrueba.style.display = "block";
@@ -39,6 +38,8 @@ function otroTipoPrueba(){
         divOtroTipoPrueba.style.display = "none";
     }
 }
+
+document.getElementById("descMaterial").onchange = function() {descripcionMaterial()};
 function descripcionMaterial(){
     if (cbDescMaterial.value != null){
         divImgMaterial.style.display = "block";
@@ -47,6 +48,7 @@ function descripcionMaterial(){
     }
 }
 
+document.getElementById("tipoPrueba").onchange = function() {banderaTipoPrueba()};
 function banderaTipoPrueba(){
     if(cbTipo.value === "durezaFOAM"){
         divOEM.style.display = "block";
