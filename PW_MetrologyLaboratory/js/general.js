@@ -21,7 +21,6 @@ var divOtroTipoPrueba = document.getElementById("otroTipoPrueba");
 var cbDescMaterial = document.getElementById("descMaterial");
 var divImgMaterial = document.getElementById("imgMaterial");
 
-//document.getElementById("tipoEvaluacion").onchange = function() {banderaTipoEvaluacion()};
 function banderaTipoEvaluacion(){
     if (cbTipoEva.value != null){
         divSelectTipoPrueba.style.display = "block";
@@ -31,9 +30,8 @@ function banderaTipoEvaluacion(){
     }
 }
 
-//document.getElementById("tipoPrueba").onchange = function() {banderaTipoPrueba()};
 function banderaTipoPrueba(){
-    if(cbTipo.value === "durezaFOAM"){
+    if(cbTipo.value === 4){ //dureza FOAM
         divOEM.style.display = "block";
         divNormaNombre.style.display = "block";
         divNormaArchivo.style.display = "block";
@@ -46,7 +44,7 @@ function banderaTipoPrueba(){
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
 
-    }else if (cbTipo.value === "especiales"){
+    }else if (cbTipo.value === 5){ //especiales/otra
         divOEM.style.display = "block";
         divNormaNombre.style.display = "block";
         divNormaArchivo.style.display = "block";
@@ -71,7 +69,6 @@ function banderaTipoPrueba(){
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
     }
-    console.log(" banderaTipoPrueba()");
 }
 //document.getElementById("normaFile").onchange = function() {mostrarNombreArchivo()};
 function mostrarNombreArchivo() {
@@ -81,16 +78,14 @@ function mostrarNombreArchivo() {
     // Obtener el elemento de etiqueta y actualizar su contenido
     var labelArchivo = document.querySelector('.file-label');
     labelArchivo.innerHTML = 'Archivo cargado: ' + nombreArchivo;
-    console.log("mostrarNombreArchivo");
 }
 //document.getElementById("tipoPruebaEspecial").onchange = function() {otroTipoPrueba()};
 function otroTipoPrueba(){
-    if (cbOtroTipo.value === "otroEspecial"){
+    if (cbOtroTipo.value === 5){
         divOtroTipoPrueba.style.display = "block";
     }else{
         divOtroTipoPrueba.style.display = "none";
     }
-    console.log("otroTipoPrueba()");
 }
 
 //document.getElementById("addNumParte").onclick = function() {agregarNumParte()};
@@ -114,7 +109,6 @@ function agregarNumParte() {
     divContenedor.after(clonePlataforma);
     divContenedor.after(cloneOEM);
     divContenedor.after(cloneNumeroParte);
-    console.log("agregarNumParte()");
 }
 
 //document.getElementById("descMaterial").onchange = function() {descripcionMaterial()};
@@ -124,7 +118,6 @@ function descripcionMaterial(){
     }else{
         divImgMaterial.style.display = "none";
     }
-    console.log("descripcionMaterial()");
 }
 
 
