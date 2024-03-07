@@ -30,7 +30,7 @@ function banderaTipoEvaluacion(){
     }
 }
 $id_tipoPrueba = $_GET['id_tipoPrueba'];
-function banderaTipoPrueba(){
+function banderaTipoPrueba($id_tipoPrueba){
     if($id_tipoPrueba === 4){ //dureza FOAM
         divOEM.style.display = "block";
         llenarCliente();
