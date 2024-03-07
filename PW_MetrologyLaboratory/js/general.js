@@ -21,6 +21,18 @@ var divOtroTipoPrueba = document.getElementById("otroTipoPrueba");
 var cbDescMaterial = document.getElementById("descMaterial");
 var divImgMaterial = document.getElementById("imgMaterial");
 
+llenarEvaluacion();
+function llenarEvaluacion(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoEvaluacion.php', function (data){
+        var select = document.getElementById("tipoEvaluacion");
+        for (var i = 0; i < data.data.length; i++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[i].id_tipoEvaluacion;
+            createOption.text = data.data[i].descripcionEvaluacion;
+            select.appendChild(createOption);
+        }
+    });
+}
 function banderaTipoEvaluacion(){
     if (cbTipoEva.value != null){
         divSelectTipoPrueba.style.display = "block";
