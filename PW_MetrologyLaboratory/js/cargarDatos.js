@@ -9,9 +9,10 @@ function llenarCliente(){
             select.appendChild(createOption);
         }
     });
+    var valorCliente = document.getElementById("cliente").value;
+    alert(valorCliente);
 }
-var valorCliente = document.getElementById("cliente").value;
-alert(valorCliente);
+
 function llenarPlataforma() {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + document.getElementById("cliente").value, function (data) {
         var selectS = document.getElementById("plataforma");
