@@ -25,6 +25,7 @@ var divImgMaterial = document.getElementById("imgMaterial");
 function banderaTipoEvaluacion(){
     if (cbTipoEva.value != null){
         divSelectTipoPrueba.style.display = "block";
+        llenarTipoPrueba();
     }else{
         divSelectTipoPrueba.style.display = "none";
     }
