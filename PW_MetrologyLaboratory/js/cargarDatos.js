@@ -13,7 +13,7 @@ function llenarCliente(){
 function llenarPlataforma() {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + document.getElementById("cliente").value, function (data) {
         var selectS = document.getElementById("plataforma");
-        selectS.innerHTML = "";
+        selectS.innerHTML = ""; //limpiar contenido
 
         var selectA = document.getElementById("descMaterial");
         selectA.innerHTML = "";
@@ -26,8 +26,8 @@ function llenarPlataforma() {
 
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
-            createOptionS.text = data.data[i].descripcionPlataforma;
             createOptionS.value = data.data[i].id_plataforma;
+            createOptionS.text = data.data[i].descripcionPlataforma;
             selectS.appendChild(createOptionS);
         }
     });

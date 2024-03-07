@@ -1,8 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-include_once('connection.php');
 
+include_once('connection.php');
 
 $id_cliente = $_GET['id_cliente'];
 contadorPlataforma($id_cliente);
