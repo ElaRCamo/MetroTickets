@@ -38,7 +38,12 @@ function banderaTipoEvaluacion(){
         divSelectTipoPrueba.style.display = "block";
         $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + document.getElementById("tipoEvaluacion").value, function (data) {
             var selectS = document.getElementById("tipoPrueba");
-            //selectS.innerHTML = ""; //limpiar contenido
+            selectS.innerHTML = ""; //limpiar contenido
+
+            var createOptionDef = document.createElement("option");
+            createOptionDef.text = "Seleccione Tipo de Prueba";
+            createOptionDef.value = "";
+            selectS.appendChild(createOptionDef);
 
             for (var i = 0; i < data.data.length; i++) {
                 var createOptionS = document.createElement("option");
@@ -52,7 +57,25 @@ function banderaTipoEvaluacion(){
     }
 }
 function banderaTipoPrueba(){
-    if(cbTipo.value == 4){ //dureza FOAM
+
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php', function (data){
+        var selectS = document.getElementById("cliente");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione Tipo de Cliente";
+        createOptionDef.value = "";
+
+        selectS.appendChild(createOptionDef);
+        for (var i = 0; i < data.data.length; i++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[i].id_cliente;
+            createOption.text = data.data[i].descripcionCliente;
+            select.appendChild(createOption);
+        }
+    });
+
+    if(cbTipo.value === 4){ //dureza FOAM
         divOEM.style.display = "block";
         divNormaNombre.style.display = "block";
         divNormaArchivo.style.display = "block";
