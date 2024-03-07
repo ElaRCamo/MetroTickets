@@ -9,7 +9,6 @@ function llenarCliente(){
             select.appendChild(createOption);
         }
     });
-    llenarPlataforma();
 }
 
 function llenarPlataforma() {
@@ -17,14 +16,14 @@ function llenarPlataforma() {
         var selectS = document.getElementById("plataforma");
         selectS.innerHTML = ""; //limpiar contenido
 
-        var selectA = document.getElementById("descMaterial");
+        /*var selectA = document.getElementById("descMaterial");
         selectA.innerHTML = "";
 
 
         var createOptionDef = document.createElement("option");
         createOptionDef.text = "Seleccione";
         createOptionDef.value = "";
-        selectS.appendChild(createOptionDef);
+        selectS.appendChild(createOptionDef);*/
 
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
@@ -35,29 +34,27 @@ function llenarPlataforma() {
     });
 }
 
-/*
-function llenarSuper() {
-    $.getJSON('https://arketipo.mx/RH/Entrevistas/dao/daoSupervisor.php?APU=' + document.getElementById("cbEncargado").value, function (data) {
-        var selectS = document.getElementById("cbSupervisor");
+function llenarDescMaterial() {
+    $.getJSON('Produccion/ML/PW_MetrologyLaboratory/dao/daoDescMaterial.php?id_plataforma=' + document.getElementById("plataforma").value, function (data) {
+        var selectS = document.getElementById("descMaterial");
         selectS.innerHTML = "";
 
-        var selectA = document.getElementById("cbShiftLeader");
-        selectA.innerHTML = "";
-
-
-        var createOptionDef = document.createElement("option");
-        createOptionDef.text = "Seleccione";
-        createOptionDef.value = "";
-        selectS.appendChild(createOptionDef);
+        var createOptionDefS = document.createElement("option");
+        createOptionDefS.text = "Seleccione";
+        createOptionDefS.value = "";
+        selectS.appendChild(createOptionDefS);
 
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
-            createOptionS.text = data.data[i].Supervisor;
-            createOptionS.value = data.data[i].Supervisor;
+            createOptionS.value = data.data[i].id_plataforma;
+            createOptionS.text = data.data[i].descripcionPlataforma;
             selectS.appendChild(createOptionS);
         }
     });
 }
+
+
+/*
 
 function llenarShift() {
     $.getJSON('https://arketipo.mx/RH/Entrevistas/dao/daoShiftLeader.php?APU=' + document.getElementById("cbSupervisor").value, function (data) {
