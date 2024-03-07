@@ -11,6 +11,7 @@ function llenarEvaluacion(){
         }
     });
 }
+llenarTipoPrueba();
 function llenarTipoPrueba() {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + document.getElementById("cliente").value, function (data) {
         var selectS = document.getElementById("tipoPrueba");
