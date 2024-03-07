@@ -112,7 +112,7 @@ global$resultado;
                                             </div>
                                             <div class="form-group col-sm-4" ID="plataformaDiv">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="plataforma" class="form-control" id="plataforma" <!--onchange="llenarPlataforma()"--> required data-error="Por favor ingresa la plataforma">
+                                                <select name="plataforma" class="form-control" id="plataforma" onchange="llenarPlataforma()" required data-error="Por favor ingresa la plataforma">
                                                     <option value="">Seleccione la plataforma</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-warehouse"></i></div>
