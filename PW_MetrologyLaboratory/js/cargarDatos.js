@@ -9,8 +9,7 @@ function llenarCliente(){
             select.appendChild(createOption);
         }
     });
-    var valorCliente = document.getElementById("cliente").value;
-    alert(valorCliente);
+    llenarPlataforma();
 }
 
 function llenarPlataforma() {
