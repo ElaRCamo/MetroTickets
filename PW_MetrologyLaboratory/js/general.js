@@ -21,22 +21,10 @@ var divOtroTipoPrueba = document.getElementById("otroTipoPrueba");
 var cbDescMaterial = document.getElementById("descMaterial");
 var divImgMaterial = document.getElementById("imgMaterial");
 
-llenarEvaluacion();
-function llenarEvaluacion(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoEvaluacion.php', function (data){
-        var select = document.getElementById("tipoEvaluacion");
-        for (var i = 0; i < data.data.length; i++) {
-            var createOption = document.createElement("option");
-            createOption.value = data.data[i].id_tipoEvaluacion;
-            createOption.text = data.data[i].descripcionEvaluacion;
-            select.appendChild(createOption);
-        }
-    });
-}
 function banderaTipoEvaluacion(){
     if (cbTipoEva.value != null){
         divSelectTipoPrueba.style.display = "block";
-        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + document.getElementById("tipoEvaluacion").value, function (data) {
+        /*$.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + document.getElementById("tipoEvaluacion").value, function (data) {
             var selectS = document.getElementById("tipoPrueba");
             selectS.innerHTML = ""; //limpiar contenido
 
@@ -51,13 +39,13 @@ function banderaTipoEvaluacion(){
                 createOptionS.text = data.data[i].descripcionPrueba;
                 selectS.appendChild(createOptionS);
             }
-        });
+        });*/
     }else{
         divSelectTipoPrueba.style.display = "none";
     }
 }
 function banderaTipoPrueba(){
-    if(cbTipo.value === 4){ //dureza FOAM
+    if(cbTipo.value === '4'){ //dureza FOAM
         divOEM.style.display = "block";
         divNormaNombre.style.display = "block";
         divNormaArchivo.style.display = "block";
@@ -70,7 +58,7 @@ function banderaTipoPrueba(){
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
 
-    }else if (cbTipo.value === 5){ //especiales/otra
+    }else if (cbTipo.value === '5'){ //especiales/otra
         divOEM.style.display = "block";
         divNormaNombre.style.display = "block";
         divNormaArchivo.style.display = "block";
