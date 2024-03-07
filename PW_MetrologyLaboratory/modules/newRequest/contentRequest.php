@@ -105,21 +105,21 @@ global$resultado;
 
                                             <div class="form-group col-sm-4" id="div-OEM">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="cliente" class="form-control" id="cliente" onchange="llenarCliente()" required data-error="Por favor ingresa el area solicitante">
+                                                <select name="cliente" class="form-control" id="cliente" onchange="llenarPlataforma()" required data-error="Por favor ingresa el area solicitante">
                                                     <option value="">Seleccione el cliente (OEM)</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
                                             </div>
                                             <div class="form-group col-sm-4" id="plataformaDiv">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="plataforma" class="form-control" id="plataforma" onchange="llenarPlataforma()" required data-error="Por favor ingresa la plataforma">
+                                                <select name="plataforma" class="form-control" id="plataforma"  onchange=llenarDescMaterial() required data-error="Por favor ingresa la plataforma">
                                                     <option value="">Seleccione la plataforma</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-warehouse"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="descripcionMaterial">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="descripcion" class="form-control" id="descMaterial"  onchange=llenarDescMaterial(); <!-- onchange="descripcionMaterial()"--> required data-error="Por favor ingresa la descripción del material">
+                                                <select name="descripcion" class="form-control" id="descMaterial"   <!-- onchange="descripcionMaterial()"--> required data-error="Por favor ingresa la descripción del material">
                                                     <option value="">Seleccione la descripción</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>

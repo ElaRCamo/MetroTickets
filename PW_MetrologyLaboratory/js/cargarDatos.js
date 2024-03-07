@@ -52,27 +52,3 @@ function llenarDescMaterial() {
         }
     });
 }
-
-
-/*
-
-function llenarShift() {
-    $.getJSON('https://arketipo.mx/RH/Entrevistas/dao/daoShiftLeader.php?APU=' + document.getElementById("cbSupervisor").value, function (data) {
-        var selectS = document.getElementById("cbShiftLeader");
-        selectS.innerHTML = "";
-
-        var createOptionDefS = document.createElement("option");
-        createOptionDefS.text = "Seleccione";
-        createOptionDefS.value = "";
-        selectS.appendChild(createOptionDefS);
-
-        for (var i = 0; i < data.data.length; i++) {
-            var createOptionS = document.createElement("option");
-            createOptionS.text = data.data[i].ShiftLeader;
-            createOptionS.value = data.data[i].ShiftLeader;
-            selectS.appendChild(createOptionS);
-        }
-    });
-}
-/
- */
