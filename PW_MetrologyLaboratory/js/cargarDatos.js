@@ -16,15 +16,6 @@ function llenarPlataforma() {
         var selectS = document.getElementById("plataforma");
         selectS.innerHTML = ""; //limpiar contenido
 
-        /*var selectA = document.getElementById("descMaterial");
-        selectA.innerHTML = "";
-
-
-        var createOptionDef = document.createElement("option");
-        createOptionDef.text = "Seleccione";
-        createOptionDef.value = "";
-        selectS.appendChild(createOptionDef);*/
-
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
             createOptionS.value = data.data[i].id_plataforma;
@@ -35,14 +26,9 @@ function llenarPlataforma() {
 }
 
 function llenarDescMaterial() {
-    $.getJSON('Produccion/ML/PW_MetrologyLaboratory/dao/daoDescMaterial.php?id_plataforma=' + document.getElementById("plataforma").value, function (data) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoDescMaterial.php?id_plataforma=' + document.getElementById("plataforma").value, function (data) {
         var selectS = document.getElementById("descMaterial");
         selectS.innerHTML = "";
-
-        var createOptionDefS = document.createElement("option");
-        createOptionDefS.text = "Seleccione";
-        createOptionDefS.value = "";
-        selectS.appendChild(createOptionDefS);
 
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
