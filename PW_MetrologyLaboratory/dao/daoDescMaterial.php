@@ -2,17 +2,17 @@
 
 include_once('connection.php');
 
-$id_cliente = $_GET['id_cliente'];
-contadorPlataforma($id_cliente);
+$id_plataforma = $_GET['id_plataforma'];
+contadorPlataforma($id_plataforma );
 
-function contadorPlataforma($id_cliente){
+function contadorPlataforma($id_plataforma ){
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $sqlPlataforma =  mysqli_query($conex, "SELECT id_plataforma,descripcionPlataforma FROM Plataforma WHERE id_cliente='$id_cliente' ORDER BY descripcionPlataforma;");
-
-    $resultado= mysqli_fetch_all($sqlPlataforma, MYSQLI_ASSOC);
+    $sqlDescMaterial =  mysqli_query($conex, "SELECT id_descripcion,descripcionMaterial FROM DescripcionMaterial WHERE id_plataforma='$id_plataforma' ORDER BY descripcionMaterial;");
+    $resultado= mysqli_fetch_all($sqlDescMaterial, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
 }
 
 ?>
+

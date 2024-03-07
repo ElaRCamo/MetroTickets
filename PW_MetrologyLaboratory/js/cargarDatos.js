@@ -46,8 +46,8 @@ function llenarDescMaterial() {
 
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
-            createOptionS.value = data.data[i].id_plataforma;
-            createOptionS.text = data.data[i].descripcionPlataforma;
+            createOptionS.value = data.data[i].id_descripcion;
+            createOptionS.text = data.data[i].descripcionMaterial;
             selectS.appendChild(createOptionS);
         }
     });
