@@ -24,22 +24,6 @@ var divImgMaterial = document.getElementById("imgMaterial");
 function banderaTipoEvaluacion(){
     if (cbTipoEva.value != null){
         divSelectTipoPrueba.style.display = "block";
-        /*$.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + document.getElementById("tipoEvaluacion").value, function (data) {
-            var selectS = document.getElementById("tipoPrueba");
-            selectS.innerHTML = ""; //limpiar contenido
-
-            var createOptionDef = document.createElement("option");
-            createOptionDef.text = "Seleccione Tipo de Prueba";
-            createOptionDef.value = "";
-            selectS.appendChild(createOptionDef);
-
-            for (var i = 0; i < data.data.length; i++) {
-                var createOptionS = document.createElement("option");
-                createOptionS.value = data.data[i].id_tipoPrueba;
-                createOptionS.text = data.data[i].descripcionPrueba;
-                selectS.appendChild(createOptionS);
-            }
-        });*/
     }else{
         divSelectTipoPrueba.style.display = "none";
     }
@@ -86,7 +70,7 @@ function banderaTipoPrueba(){
     }
 
 }
-//document.getElementById("normaFile").onchange = function() {mostrarNombreArchivo()};
+
 function mostrarNombreArchivo() {
     var inputArchivo = document.getElementById('normaFile');
     var nombreArchivo = inputArchivo.files[0].name;
