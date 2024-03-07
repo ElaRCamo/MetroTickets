@@ -1,7 +1,13 @@
 llenarEvaluacion();
 function llenarEvaluacion(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoEvaluacion.php', function (data){
-        var select = document.getElementById("tipoEvaluacion");
+        var selectS = document.getElementById("tipoEvaluacion");
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
         for (var i = 0; i < data.data.length; i++) {
             var createOption = document.createElement("option");
             createOption.value = data.data[i].id_tipoEvaluacion;
@@ -14,7 +20,12 @@ function llenarEvaluacion(){
 function llenarTipoPrueba() {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + document.getElementById("tipoEvaluacion").value, function (data) {
         var selectS = document.getElementById("tipoPrueba");
-        //selectS.innerHTML = ""; //limpiar contenido
+        selectS.innerHTML = ""; //limpiar contenido
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
 
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
@@ -27,7 +38,13 @@ function llenarTipoPrueba() {
 
 function llenarCliente(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php', function (data){
-        var select = document.getElementById("cliente");
+        var selectS = document.getElementById("cliente");
+        selectS.innerHTML = ""; //limpiar contenido
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
         for (var i = 0; i < data.data.length; i++) {
             var createOption = document.createElement("option");
             createOption.value = data.data[i].id_cliente;
@@ -42,6 +59,11 @@ function llenarPlataforma() {
         var selectS = document.getElementById("plataforma");
         selectS.innerHTML = ""; //limpiar contenido
 
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
             createOptionS.value = data.data[i].id_plataforma;
@@ -55,6 +77,11 @@ function llenarDescMaterial() {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoDescMaterial.php?id_plataforma=' + document.getElementById("plataforma").value, function (data) {
         var selectS = document.getElementById("descMaterial");
         selectS.innerHTML = "";
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
 
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
