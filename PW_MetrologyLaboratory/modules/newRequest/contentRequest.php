@@ -107,7 +107,6 @@ global$resultado;
                                                 <div class="help-block with-errors"></div>
                                                 <select name="cliente" class="form-control" id="cliente" onchange="llenarCliente()" required data-error="Por favor ingresa el area solicitante">
                                                     <option value="">Seleccione el cliente (OEM)</option>
-                                                    </option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
                                             </div>
@@ -151,10 +150,3 @@ global$resultado;
         </div><!--End container -->
     </section>
 </main>
-
-
-
-
-
-
-
