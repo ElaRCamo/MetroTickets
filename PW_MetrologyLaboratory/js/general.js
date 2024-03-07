@@ -29,9 +29,9 @@ function banderaTipoEvaluacion(){
         divSelectTipoPrueba.style.display = "none";
     }
 }
-
+$id_tipoPrueba = $_GET['id_tipoPrueba'];
 function banderaTipoPrueba(){
-    if(cbTipo.value === 4){ //dureza FOAM
+    if($id_tipoPrueba === 4){ //dureza FOAM
         divOEM.style.display = "block";
         llenarCliente();
         divNormaNombre.style.display = "block";
@@ -45,7 +45,7 @@ function banderaTipoPrueba(){
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
 
-    }else if (cbTipo.value === 5){ //especiales/otra
+    }else if ($id_tipoPrueba === 5){ //especiales/otra
         divOEM.style.display = "block";
         llenarCliente();
         divNormaNombre.style.display = "block";
