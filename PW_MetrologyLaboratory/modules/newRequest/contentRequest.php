@@ -105,7 +105,7 @@ global$resultado;
 
                                             <div class="form-group col-sm-4" id="div-OEM">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="cliente" class="form-control" id="cliente" onchange="llenarClientes()" required data-error="Por favor ingresa el area solicitante">
+                                                <select name="cliente" class="form-control" id="cliente" onchange="llenarCliente()" required data-error="Por favor ingresa el area solicitante">
                                                     <option value="">Seleccione el cliente (OEM)</option>
                                                     </option>
                                                 </select>
@@ -113,7 +113,7 @@ global$resultado;
                                             </div>
                                             <div class="form-group col-sm-4" ID="plataformaDiv">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="plataforma" class="form-control" id="plataforma" onchange="llenarPlataformas()" required data-error="Por favor ingresa la plataforma">
+                                                <select name="plataforma" class="form-control" id="plataforma" <!--onchange="llenarPlataforma()"--> required data-error="Por favor ingresa la plataforma">
                                                     <option value="">Seleccione la plataforma</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-warehouse"></i></div>
