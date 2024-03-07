@@ -24,16 +24,13 @@ var divImgMaterial = document.getElementById("imgMaterial");
 function banderaTipoEvaluacion(){
     if (cbTipoEva.value != null){
         divSelectTipoPrueba.style.display = "block";
-        llenarTipoPrueba();
     }else{
         divSelectTipoPrueba.style.display = "none";
     }
 }
-$id_tipoPrueba = $_GET['id_tipoPrueba'];
-function banderaTipoPrueba($id_tipoPrueba){
-    if($id_tipoPrueba === 4){ //dureza FOAM
+function banderaTipoPrueba(){
+    if(cbTipo.value == 4){ //dureza FOAM
         divOEM.style.display = "block";
-        llenarCliente();
         divNormaNombre.style.display = "block";
         divNormaArchivo.style.display = "block";
         divAgregarNumParte.style.display = "block";
@@ -45,9 +42,8 @@ function banderaTipoPrueba($id_tipoPrueba){
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
 
-    }else if ($id_tipoPrueba === 5){ //especiales/otra
+    }else if (cbTipo.value === 5){ //especiales/otra
         divOEM.style.display = "block";
-        llenarCliente();
         divNormaNombre.style.display = "block";
         divNormaArchivo.style.display = "block";
         divPruebaEspecial.style.display = "block";
@@ -60,7 +56,6 @@ function banderaTipoPrueba($id_tipoPrueba){
         divCantidadMaterial.style.display = "block";
     }else if (cbTipo.value != null){
         divOEM.style.display = "block";
-        llenarCliente();
         divAgregarNumParte.style.display = "block";
         divNumeroParte.style.display = "block";
         divDescripcionMaterial.style.display = "block";
@@ -73,6 +68,17 @@ function banderaTipoPrueba($id_tipoPrueba){
         divDetallesPrueba.style.display = "none";
 
     }
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + document.getElementById("tipoEvaluacion").value, function (data) {
+        var selectS = document.getElementById("tipoPrueba");
+        //selectS.innerHTML = ""; //limpiar contenido
+
+        for (var i = 0; i < data.data.length; i++) {
+            var createOptionS = document.createElement("option");
+            createOptionS.value = data.data[i].id_tipoPrueba;
+            createOptionS.text = data.data[i].descripcionPrueba;
+            selectS.appendChild(createOptionS);
+        }
+    });
 }
 //document.getElementById("normaFile").onchange = function() {mostrarNombreArchivo()};
 function mostrarNombreArchivo() {
