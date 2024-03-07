@@ -21,7 +21,7 @@ var divOtroTipoPrueba = document.getElementById("otroTipoPrueba");
 var cbDescMaterial = document.getElementById("descMaterial");
 var divImgMaterial = document.getElementById("imgMaterial");
 
-document.getElementById("tipoEvaluacion").onchange = function() {banderaTipoEvaluacion()};
+//document.getElementById("tipoEvaluacion").onchange = function() {banderaTipoEvaluacion()};
 function banderaTipoEvaluacion(){
     if (cbTipoEva.value != null){
         divSelectTipoPrueba.style.display = "block";
