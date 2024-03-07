@@ -23,12 +23,11 @@ var divImgMaterial = document.getElementById("imgMaterial");
 
 document.getElementById("tipoEvaluacion").onchange = function() {banderaTipoEvaluacion()};
 function banderaTipoEvaluacion(){
-    if (cbTipoEva.value === "universal"){
+    if (cbTipoEva.value != null){
         divSelectTipoPrueba.style.display = "block";
     }else{
         divSelectTipoPrueba.style.display = "none";
     }
-    console.log("banderaTipoEvaluacion()");
 }
 
 //document.getElementById("tipoPrueba").onchange = function() {banderaTipoPrueba()};
