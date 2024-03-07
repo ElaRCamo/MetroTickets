@@ -2,9 +2,9 @@
 
 include_once('connection.php');
 
-ftipoEvaluacion();
+ContadorEvaluacion();
 
-function ftipoEvaluacion(){
+function ContadorEvaluacion(){
     $con = new LocalConector();
     $conex = $con->conectar();
 

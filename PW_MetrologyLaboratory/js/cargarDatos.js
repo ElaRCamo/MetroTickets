@@ -11,10 +11,23 @@ function llenarEvaluacion(){
         }
     });
 }
+function llenarTipoPrueba() {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + document.getElementById("cliente").value, function (data) {
+        var selectS = document.getElementById("tipoPrueba");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        for (var i = 0; i < data.data.length; i++) {
+            var createOptionS = document.createElement("option");
+            createOptionS.value = data.data[i].id_tipoPrueba;
+            createOptionS.text = data.data[i].descripcionPrueba;
+            selectS.appendChild(createOptionS);
+        }
+    });
+}
 
 llenarCliente();
 function llenarCliente(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php', function (data){
         var select = document.getElementById("cliente");
         for (var i = 0; i < data.data.length; i++) {
             var createOption = document.createElement("option");
