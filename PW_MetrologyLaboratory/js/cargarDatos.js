@@ -25,7 +25,7 @@ function llenarTipoPrueba() {
     });
 }
 
-llenarCliente();
+
 function llenarCliente(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php', function (data){
         var select = document.getElementById("cliente");

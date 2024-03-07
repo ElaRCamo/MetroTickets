@@ -68,6 +68,7 @@ function banderaTipoPrueba(){
         divPruebaEspecial.style.display = "none";
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
+        llenarCliente();
     }
 }
 //document.getElementById("normaFile").onchange = function() {mostrarNombreArchivo()};
@@ -81,7 +82,7 @@ function mostrarNombreArchivo() {
 }
 //document.getElementById("tipoPruebaEspecial").onchange = function() {otroTipoPrueba()};
 function otroTipoPrueba(){
-    if (cbOtroTipo.value === 5){
+    if (cbOtroTipo.value === "otroEspecial"){//otroEspecial
         divOtroTipoPrueba.style.display = "block";
     }else{
         divOtroTipoPrueba.style.display = "none";
