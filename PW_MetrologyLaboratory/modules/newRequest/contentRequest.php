@@ -28,10 +28,6 @@ global$resultado;
                                                 <div class="help-block with-errors"></div>
                                                 <select class="form-control" id="tipoEvaluacion" onchange="banderaTipoEvaluacion()" name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione tipo de evaluacion" >
                                                     <option value="" disabled selected>Seleccione el tipo de evaluación</option>
-                                                    <option value="universal">Evaluación con máquina universal</option>
-                                                    <option value="dimensional" disabled>Evaluación dimensional</option>
-                                                    <option value="full" disabled>Inspección a full</option>
-
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
                                             </div>
@@ -39,11 +35,6 @@ global$resultado;
                                                 <div class="help-block with-errors"></div>
                                                 <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba()"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
                                                     <option value="" disabled selected>Seleccione el tipo de prueba</option>
-                                                    <option value="FOAM">Pruebas-FOAM</option>
-                                                    <option value="INSITU">Pruebas-INSITU</option>
-                                                    <option value="durezaINSITU">Pruebas de dureza INSITU</option>
-                                                    <option value="durezaFOAM">Pruebas de dureza FOAM</option>
-                                                    <option value="especiales">Pruebas especiales/otra</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
                                             </div>

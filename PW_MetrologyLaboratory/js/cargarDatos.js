@@ -1,3 +1,17 @@
+llenarEvaluacion();
+
+function llenarEvaluacion(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoEvaluacion.php', function (data){
+        var select = document.getElementById("tipoEvaluacion");
+        for (var i = 0; i < data.data.length; i++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[i].id_tipoEvaluacion;
+            createOption.text = data.data[i].descripcionEvaluacion;
+            select.appendChild(createOption);
+        }
+    });
+}
+
 llenarCliente();
 function llenarCliente(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
