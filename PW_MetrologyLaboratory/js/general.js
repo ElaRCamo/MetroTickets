@@ -33,6 +33,7 @@ function banderaTipoEvaluacion(){
 function banderaTipoPrueba(){
     if(cbTipo.value === 4){ //dureza FOAM
         divOEM.style.display = "block";
+        llenarCliente();
         divNormaNombre.style.display = "block";
         divNormaArchivo.style.display = "block";
         divAgregarNumParte.style.display = "block";
@@ -46,6 +47,7 @@ function banderaTipoPrueba(){
 
     }else if (cbTipo.value === 5){ //especiales/otra
         divOEM.style.display = "block";
+        llenarCliente();
         divNormaNombre.style.display = "block";
         divNormaArchivo.style.display = "block";
         divPruebaEspecial.style.display = "block";
@@ -58,6 +60,7 @@ function banderaTipoPrueba(){
         divCantidadMaterial.style.display = "block";
     }else if (cbTipo.value != null){
         divOEM.style.display = "block";
+        llenarCliente();
         divAgregarNumParte.style.display = "block";
         divNumeroParte.style.display = "block";
         divDescripcionMaterial.style.display = "block";
@@ -68,7 +71,7 @@ function banderaTipoPrueba(){
         divPruebaEspecial.style.display = "none";
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
-        llenarCliente();
+
     }
 }
 //document.getElementById("normaFile").onchange = function() {mostrarNombreArchivo()};
