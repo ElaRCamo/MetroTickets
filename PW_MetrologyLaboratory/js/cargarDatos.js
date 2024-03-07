@@ -12,7 +12,7 @@ function llenarEvaluacion(){
             var createOption = document.createElement("option");
             createOption.value = data.data[i].id_tipoEvaluacion;
             createOption.text = data.data[i].descripcionEvaluacion;
-            select.appendChild(createOption);
+            selectS.appendChild(createOption);
         }
     });
 }
@@ -49,7 +49,7 @@ function llenarCliente(){
             var createOption = document.createElement("option");
             createOption.value = data.data[i].id_cliente;
             createOption.text = data.data[i].descripcionCliente;
-            select.appendChild(createOption);
+            selectS.appendChild(createOption);
         }
     });
 }
