@@ -3,10 +3,18 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include_once('connection.php');
 
-$con = new LocalConector();
-$conex = $con->conectar();
 
-$sqlPlataforma = 'SELECT id_plataforma,descripcionPlataforma FROM Plataforma WHERE id_cliente='.$_GET['id_cliente'].' ORDER BY descripcionPlataforma';
-$resultado=mysqli_query($conex, $sqlPlataforma);
-header('Content-Type: application/json');
-echo json_encode($resultado);
+$id_cliente = $_GET['id_cliente'];
+contadorPlataforma($id_cliente);
+
+function contadorPlataforma($id_cliente){
+    $con = new LocalConector();
+    $conex = $con->conectar();
+
+    $sqlPlataforma =  mysqli_query($conex, "SELECT id_plataforma,descripcionPlataforma FROM Plataforma WHERE id_cliente='$id_cliente' ORDER BY descripcionPlataforma;");
+
+    $resultado= mysqli_fetch_all($sqlPlataforma, MYSQLI_ASSOC);
+    echo json_encode(array("data" => $resultado));
+}
+
+?>
