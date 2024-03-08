@@ -79,7 +79,6 @@ function mostrarNombreArchivo() {
     var labelArchivo = document.querySelector('.file-label');
     labelArchivo.innerHTML = 'Archivo cargado: ' + nombreArchivo;
 }
-//document.getElementById("tipoPruebaEspecial").onchange = function() {otroTipoPrueba()};
 function otroTipoPrueba(){
     if (cbOtroTipo.value === '4'){//otroEspecial
         divOtroTipoPrueba.style.display = "block";
