@@ -53,10 +53,6 @@ function llenarCliente(){
         var selectS = document.getElementById("cliente");
         selectS.innerHTML = ""; //limpiar contenido
 
-        createOptionDef.text = "Seleccione el cliente";
-        createOptionDef.value = "";
-        selectS.appendChild(createOptionDef);
-
         for (var i = 0; i < data.data.length; i++) {
             var createOption = document.createElement("option");
             createOption.value = data.data[i].id_cliente;
