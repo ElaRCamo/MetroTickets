@@ -5,7 +5,10 @@ $numNomina     = $_POST['numNomina'];
 $nombreUsuario = $_POST['nombreUsuario'];
 $correo        = $_POST['correo'];
 $password      = $_POST['password'];
-echo '<script>alert("' . $numNomina . $nombreUsuario . $correo . $password . '")</script>';
+if($numNomina!=null && $nombreUsuario!=null && $correo != null&& $password!=null  ){
+    echo '<script>alert("' . $numNomina . $nombreUsuario . $correo . $password . '")</script>';
+}
+
 RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password);
 
 function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
