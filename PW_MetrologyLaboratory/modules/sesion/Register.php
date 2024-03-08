@@ -20,7 +20,6 @@
     <!--<link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/css/login.css">-->
     <link rel="stylesheet" href="../../css/login.css">
-    <?php include ('../../dao/userRegister.php')?>
 </head>
 <body>
 <main>

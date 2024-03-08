@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 include_once('connection.php');
 
 $numNomina     = $_POST['numNomina'];
@@ -28,8 +24,7 @@ function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
         echo '<script>alert("Usuario registrado exitosamente"); window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";</script>';
         return 1;
     }
-
 }
 
-
+?>
 
