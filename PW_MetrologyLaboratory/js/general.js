@@ -87,15 +87,14 @@ function otroTipoPrueba(){
     }
 }
 
-//document.getElementById("addNumParte").onclick = function() {agregarNumParte()};
 function agregarNumParte() {
     // Clonar los divs
-    var cloneNumeroParte = divNumeroParte.cloneNode(true);
-    var cloneDescripcionMaterial = divDescripcionMaterial.cloneNode(true);
-    var clonePlataforma = divPlataforma.cloneNode(true);
-    var cloneCantidadMaterial = divCantidadMaterial.cloneNode(true);
-    var cloneOEM =     divOEM.cloneNode(true);
-    var cloneImgMaterial =     divImgMaterial.cloneNode(true);
+    var cloneNumeroParte = divNumeroParte.structuredClone(true);
+    var cloneDescripcionMaterial = divDescripcionMaterial.structuredClone(true);
+    var clonePlataforma = divPlataforma.structuredClone(true);
+    var cloneCantidadMaterial = divCantidadMaterial.structuredClone(true);
+    var cloneOEM =     divOEM.structuredClone(true);
+    var cloneImgMaterial =     divImgMaterial.structuredClone(true);
 
 
     // Obtener el contenedor donde se agregarán los nuevos divs

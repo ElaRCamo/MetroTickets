@@ -5,28 +5,6 @@ error_reporting(E_ALL);
 
 include_once('connection.php');
 
-function fcliente($clienteSeleccionado = '') {
-    $con = new LocalConector();
-    $conex = $con->conectar();
 
-
-    $clienteSQL = "SELECT distinct id_cliente, descripcionCliente FROM Cliente";
-    $resultado = $conex->query($clienteSQL);
-
-    // Verificar si hay resultados
-    if ($resultado->num_rows > 0) {
-        echo "<option value='' selected>Selecciona un cliente</option>";
-
-        // Imprimir las opciones del select con las descripciones de clientes
-        while ($fila = $resultado->fetch_assoc()) {
-            $selected = ($fila['id_cliente'] == $clienteSeleccionado) ? 'selected' : '';
-            echo "<option value='{$fila['id_cliente']}' $selected>{$fila['descripcionCliente']}</option>";
-        }
-    } else {
-        echo "<option value=''>No se encontraron clientes</option>";
-    }
-
-    $conex->close();
-}
 
 
