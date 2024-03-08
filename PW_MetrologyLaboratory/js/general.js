@@ -69,6 +69,10 @@ function banderaTipoPrueba(){
 
     }
 
+    if(divOEM.style.display = "block"){
+        llenarCliente();
+    }
+
 }
 
 function mostrarNombreArchivo() {
