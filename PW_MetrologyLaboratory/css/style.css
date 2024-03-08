@@ -657,8 +657,3 @@ table tbody tr {
     background-color: #fff;
     color: var(--main-color);
 }
-.alerta{
-    border-color:#E10014;
-    background-color:#E10014;
-    color:#EFEDE9;
-}

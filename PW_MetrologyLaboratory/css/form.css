@@ -235,6 +235,10 @@ h6{
 #descripcionMaterial, #plataformaDiv, #cantidadMaterial, #selectTipoPrueba, #imgMaterial{
     display: none;
 }
-
+.alerta{
+    border-color:#E10014;
+    background-color:#E10014;
+    color:#EFEDE9;
+}
 
 
