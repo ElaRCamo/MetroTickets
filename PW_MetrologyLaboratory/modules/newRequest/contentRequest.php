@@ -33,7 +33,7 @@ global$resultado;
                                             </div>
                                             <div class="form-group col-sm-6" id="selectTipoPrueba">
                                                 <div class="help-block with-errors"></div>
-                                                <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba();"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
+                                                <select class="form-control" id="tipoPrueba" onchange="llenarCliente(); banderaTipoPrueba();"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
                                                     <option value="">Seleccione el tipo de prueba</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
@@ -101,11 +101,6 @@ global$resultado;
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
                                             </div>
-                                                <script>
-                                                    if(divOEM.style.display === "block"){
-                                                        llenarCliente();
-                                                    }
-                                                </script>
                                             <div class="form-group col-sm-4" id="plataformaDiv">
                                                 <div class="help-block with-errors"></div>
                                                 <select name="plataforma" class="form-control" id="plataforma"  onchange=llenarDescMaterial() required data-error="Por favor ingresa la plataforma">
