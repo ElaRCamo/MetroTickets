@@ -33,7 +33,7 @@ global$resultado;
                                             </div>
                                             <div class="form-group col-sm-6" id="selectTipoPrueba">
                                                 <div class="help-block with-errors"></div>
-                                                <select class="form-control" id="tipoPrueba" onchange="llenarCliente(); banderaTipoPrueba();"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
+                                                <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba()"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
                                                     <option value="">Seleccione el tipo de prueba</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
@@ -86,7 +86,7 @@ global$resultado;
                                             </div>
                                             <div class="form-group col-sm-4" id="numeroParte"">
                                                 <div class="help-block with-errors"></div>
-                                                <input type="text" class="form-control" id="numParte" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
+                                                <input type="text" class="form-control" id="numParte" onchange="llenarCliente()" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                             </div>
 
