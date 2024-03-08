@@ -35,10 +35,6 @@ function llenarPruebaEspecial(){
         var selectS = document.getElementById("tipoPruebaEspecial");
         selectS.innerHTML = ""; //limpiar contenido
 
-        createOptionDef.text = "Seleccione el tipo de prueba especial";
-        createOptionDef.value = "";
-        selectS.appendChild(createOptionDef);
-
         for (var i = 0; i < data.data.length; i++) {
             var createOption = document.createElement("option");
             createOption.value = data.data[i].id_pruebaEspecial;
