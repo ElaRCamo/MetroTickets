@@ -101,6 +101,11 @@ global$resultado;
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
                                             </div>
+                                                <script>
+                                                    if(divOEM.style.display === "block"){
+                                                        llenarCliente();
+                                                    }
+                                                </script>
                                             <div class="form-group col-sm-4" id="plataformaDiv">
                                                 <div class="help-block with-errors"></div>
                                                 <select name="plataforma" class="form-control" id="plataforma"  onchange=llenarDescMaterial() required data-error="Por favor ingresa la plataforma">
