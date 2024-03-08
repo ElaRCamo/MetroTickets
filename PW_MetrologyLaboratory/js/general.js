@@ -70,7 +70,6 @@ function banderaTipoPrueba(){
     }
 
 }
-llenarCliente();
 
 function mostrarNombreArchivo() {
     var inputArchivo = document.getElementById('normaFile');

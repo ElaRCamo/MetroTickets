@@ -90,7 +90,7 @@ global$resultado;
                                             </div>
                                             <div class="form-group col-sm-4" id="numeroParte"">
                                                 <div class="help-block with-errors"></div>
-                                                <input type="text" class="form-control" id="numParte" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
+                                                <input type="text" class="form-control" id="numParte" onchange="llenarCliente()" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                             </div>
 
