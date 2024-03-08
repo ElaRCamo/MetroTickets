@@ -22,8 +22,8 @@ function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
         echo '<div class="alerta">Error al registrar el usuario</div>';
     }else{
         echo '<script>alert("Usuario registrado exitosamente"); window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";</script>';
-        return 1;
     }
+    return 1;
 }
 
 ?>
