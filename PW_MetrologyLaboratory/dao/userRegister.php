@@ -1,15 +1,19 @@
 <?php
-include_once('connection.php');
+include('connection.php');
 
-$numNomina     = $_POST['numNomina'];
-$nombreUsuario = $_POST['nombreUsuario'];
-$correo        = $_POST['correo'];
-$password      = $_POST['password'];
-if($numNomina!=null && $nombreUsuario!=null && $correo != null&& $password!=null  ){
-    echo '<script>alert("' . $numNomina . $nombreUsuario . $correo . $password . '")</script>';
+if (isset($_POST['registrarse'])){
+    $numNomina     = $_POST['numNomina'];
+    $nombreUsuario = $_POST['nombreUsuario'];
+    $correo        = $_POST['correo'];
+    $password      = $_POST['password'];
+    if($numNomina!=null && $nombreUsuario!=null && $correo != null&& $password!=null  ){
+        echo '<script>alert("' . $numNomina . $nombreUsuario . $correo . $password . '")</script>';
+    }
+
+    RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password);
+}else{
+    echo '<div class="alerta">Error al registrar el usuario</div>';
 }
-
-RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password);
 
 function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
     $con = new LocalConector();
