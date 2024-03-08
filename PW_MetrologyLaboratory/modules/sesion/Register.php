@@ -20,6 +20,7 @@
     <!--<link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/css/login.css">-->
     <link rel="stylesheet" href="../../css/login.css">
+    <?php include ('../../dao/userRegister.php')?>
 </head>
 <body>
 <main>
@@ -52,7 +53,7 @@
                     <i class="las la-lock"></i>
                 </div>
 
-                <button type="submit" id="registrarse" class="btn login">Regístrarse</button>
+                <button type="submit" id="registrarse" name="registrarse"  class="btn login">Regístrarse</button>
 
                 <div class="register-link">
                     <p>¿Ya tienes cuenta? <a href="Index.php">INGRESAR</a> </p>

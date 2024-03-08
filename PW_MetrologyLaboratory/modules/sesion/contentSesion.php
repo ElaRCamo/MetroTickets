@@ -14,11 +14,11 @@
             <form action="">
                 <h2 id="iniciarSesion">Iniciar Sesión</h2>
                 <div class="input-box">
-                    <input type="text" placeholder="No. de nómina" required>
+                    <input type="text" name="numNomina" placeholder="No. de nómina" required>
                     <i class="las la-user"></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="Contraseña" required>
+                    <input type="password" name="password" placeholder="Contraseña" required>
                     <i class="las la-lock"></i>
                 </div>
 
