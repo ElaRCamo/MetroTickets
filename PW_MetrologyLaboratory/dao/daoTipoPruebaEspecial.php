@@ -1,5 +1,7 @@
 <?php
 include_once('connection.php');
+
+ContadorPruebaEspecial();
 function ContadorPruebaEspecial(){
     $con = new LocalConector();
     $conex = $con->conectar();
