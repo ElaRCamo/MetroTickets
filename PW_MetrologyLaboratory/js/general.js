@@ -81,7 +81,7 @@ function mostrarNombreArchivo() {
 }
 //document.getElementById("tipoPruebaEspecial").onchange = function() {otroTipoPrueba()};
 function otroTipoPrueba(){
-    if (cbOtroTipo.value === "otroEspecial"){//otroEspecial
+    if (cbOtroTipo.value === '4'){//otroEspecial
         divOtroTipoPrueba.style.display = "block";
     }else{
         divOtroTipoPrueba.style.display = "none";

@@ -9,9 +9,9 @@ function ContadorTipoPrueba($id_tipoEvaluacion){
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $sqlPlataforma =  mysqli_query($conex, "SELECT id_tipoPrueba,descripcionPrueba FROM TipoPrueba WHERE id_tipoEvaluacion='$id_tipoEvaluacion';");
+    $sqlPrueba =  mysqli_query($conex, "SELECT id_tipoPrueba,descripcionPrueba FROM TipoPrueba WHERE id_tipoEvaluacion='$id_tipoEvaluacion';");
 
-    $resultado= mysqli_fetch_all($sqlPlataforma, MYSQLI_ASSOC);
+    $resultado= mysqli_fetch_all($sqlPrueba, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
 }
 

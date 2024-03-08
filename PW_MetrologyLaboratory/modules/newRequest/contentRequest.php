@@ -54,12 +54,8 @@ global$resultado;
                                                 <div class="input-group-icon"><i class="las la-file"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6 " id="pruebaEspecial">
-                                                    <select class="form-control" id="tipoPruebaEspecial" onchange="otroTipoPrueba()" name="tiposPruebaEspecial" title="TipoDePruebaEspecial" required data-error="Por favor seleccione tipo de prueba" >
-                                                        <option value="" disabled selected>Seleccione el tipo de prueba especial*</option>
-                                                        <option value="extraccion">Extracción</option>
-                                                        <option value="compresion">Compresión</option>
-                                                        <option value="desprendimiento">Desprendimiento</option>
-                                                        <option value="otroEspecial">Otro </option>
+                                                    <select class="form-control" id="tipoPruebaEspecial" onchange="llenarPruebaEspecial(); otroTipoPrueba(); " name="tiposPruebaEspecial" title="TipoDePruebaEspecial" required data-error="Por favor seleccione tipo de prueba" >
+                                                        <option value="" >Seleccione el tipo de prueba especial*</option>
                                                     </select>
                                                 <div class="input-group-icon"><i class="las la-ruler"></i></div>
                                             </div>
