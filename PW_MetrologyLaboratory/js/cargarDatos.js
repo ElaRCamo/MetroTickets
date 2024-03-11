@@ -18,7 +18,7 @@ function llenarTipoPrueba() {
         selectS.innerHTML = ""; //limpiar contenido
 
         var createOptionDef = document.createElement("option");
-        createOptionDef.text = "Seleccione el tipo de prueba";
+        createOptionDef.text = "Seleccione el tipo de prueba*";
         createOptionDef.value = "";
         selectS.appendChild(createOptionDef);
 
@@ -36,7 +36,7 @@ function llenarPruebaEspecial(){
         selectS.innerHTML = ""; //limpiar contenido
 
         var createOptionDef = document.createElement("option");
-        createOptionDef.text = "Especifique el tipo de prueba";
+        createOptionDef.text = "Especifique el tipo de prueba*";
         createOptionDef.value = "";
         selectS.appendChild(createOptionDef);
 
@@ -55,7 +55,7 @@ function llenarCliente(){
         selectS.innerHTML = ""; //limpiar contenido
 
         var createOptionDef = document.createElement("option");
-        createOptionDef.text = "Especifique el cliente(OEM)";
+        createOptionDef.text = "Especifique el cliente(OEM)*";
         createOptionDef.value = "";
         selectS.appendChild(createOptionDef);
 
@@ -74,7 +74,7 @@ function llenarPlataforma() {
         selectS.innerHTML = ""; //limpiar contenido
 
         var createOptionDef = document.createElement("option");
-        createOptionDef.text = "Seleccione la plataforma";
+        createOptionDef.text = "Seleccione la plataforma*";
         createOptionDef.value = "";
         selectS.appendChild(createOptionDef);
 
@@ -93,7 +93,7 @@ function llenarDescMaterial() {
         selectS.innerHTML = "";
 
         var createOptionDef = document.createElement("option");
-        createOptionDef.text = "Seleccione la descripcion";
+        createOptionDef.text = "Seleccione la descripcion*";
         createOptionDef.value = "";
         selectS.appendChild(createOptionDef);
 

@@ -20,9 +20,10 @@ var divOtroTipoPrueba = document.getElementById("otroTipoPrueba");
 
 var cbDescMaterial = document.getElementById("descMaterial");
 var divImgMaterial = document.getElementById("imgMaterial");
+var botonEnviar = document.getElementById("submitRequest");
 
 function banderaTipoEvaluacion(){
-    if (cbTipoEva.value != null){
+    if (cbTipoEva.value !== ''){
         divSelectTipoPrueba.style.display = "block";
     }else{
         divSelectTipoPrueba.style.display = "none";
@@ -38,6 +39,7 @@ function banderaTipoPrueba(){
         divDescripcionMaterial.style.display = "block";
         divPlataforma.style.display = "block";
         divCantidadMaterial.style.display = "block";
+        botonEnviar.style.display = "block";
         divPruebaEspecial.style.display = "none";
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
@@ -53,6 +55,7 @@ function banderaTipoPrueba(){
         divNumeroParte.style.display = "block";
         divDescripcionMaterial.style.display = "block";
         divPlataforma.style.display = "block";
+        botonEnviar.style.display = "block";
         divCantidadMaterial.style.display = "block";
     }else if (cbTipo.value !== ''){
         divOEM.style.display = "block";
@@ -66,19 +69,22 @@ function banderaTipoPrueba(){
         divPruebaEspecial.style.display = "none";
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
+        botonEnviar.style.display = "none";
 
     }else{
-            divOEM.style.display = "none";
-            divAgregarNumParte.style.display = "none";
-            divNumeroParte.style.display = "none";
-            divDescripcionMaterial.style.display = "none";
-            divPlataforma.style.display = "none";
-            divCantidadMaterial.style.display = "none";
-            divNormaNombre.style.display = "none";
-            divNormaArchivo.style.display = "none";
-            divPruebaEspecial.style.display = "none";
-            divNumeroPiezas.style.display = "none";
-            divDetallesPrueba.style.display = "none";
+        divOEM.style.display = "none";
+        divAgregarNumParte.style.display = "none";
+        divNumeroParte.style.display = "none";
+        divDescripcionMaterial.style.display = "none";
+        divPlataforma.style.display = "none";
+        divCantidadMaterial.style.display = "none";
+        divNormaNombre.style.display = "none";
+        divNormaArchivo.style.display = "none";
+        divPruebaEspecial.style.display = "none";
+        divNumeroPiezas.style.display = "none";
+        divDetallesPrueba.style.display = "none";
+        divImgMaterial.style.display = "none";
+        botonEnviar.style.display = "none";
     }
 
 }
