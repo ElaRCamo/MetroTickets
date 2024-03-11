@@ -53,7 +53,7 @@
                     <i class="las la-lock"></i>
                 </div>
 
-                <button type="submit" id="registrarse" name="registrarse"  class="btn login">Regístrarse</button>
+                <button type="submit" id="registrarse" name="registrarse"  class="btn login" onclick="registrarUsuario()">Regístrarse</button>
 
                 <div class="register-link">
                     <p>¿Ya tienes cuenta? <a href="Index.php">INGRESAR</a> </p>
@@ -70,5 +70,41 @@ require_once('../../footer.php')
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+<script>
+    function registrarUsuario(){
+
+        var nomina = document.getElementById("nomina");
+        var nombreUsuario = document.getElementById("nombreUsuario");
+        var correo = document.getElementById("correo");
+        var password = document.getElementById("password");
+
+        const data = new FormData();
+
+        data.append('numNomina', nomina.value.trim());
+        data.append('nombreUsuario', nombreUsuario.value.trim());
+        data.append('correo', correo.value);
+        data.append('password', password.value);
+
+        fetch('../../dao/userRegister.php', {
+            method: 'POST',
+            body: data
+        })
+            .then(function (response) {
+                if (response.ok) { //respuesta
+                    console.log ('Usuario registrado')
+
+                } else {
+                    throw "Error en la llamada Ajax";
+                }
+
+            })
+            .then(function (texto) {
+                console.log(texto);
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+    }
+</script>
 </body>
 </html>

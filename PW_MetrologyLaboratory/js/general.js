@@ -1,26 +1,28 @@
-var cbTipo = document.getElementById("tipoPrueba");
-var divNormaNombre = document.getElementById("normaNombre");
-var divNormaArchivo = document.getElementById("normaArchivo");
-var divPruebaEspecial = document.getElementById("pruebaEspecial");
-var divNumeroPiezas = document.getElementById("numeroPiezas");
-var divDetallesPrueba = document.getElementById("detallesPrueba");
-var divAgregarNumParte = document.getElementById("agregarNumParte");
+const id = str => document.getElementById(str);
+
+var cbTipo = id("tipoPrueba");
+var divNormaNombre = id("normaNombre");
+var divNormaArchivo = id("normaArchivo");
+var divPruebaEspecial = id("pruebaEspecial");
+var divNumeroPiezas = id("numeroPiezas");
+var divDetallesPrueba = id("detallesPrueba");
+var divAgregarNumParte = id("agregarNumParte");
 <!-- Para agregar material por número de parte -->
-var divNumeroParte = document.getElementById("numeroParte");
-var divDescripcionMaterial = document.getElementById("descripcionMaterial");
-var divPlataforma = document.getElementById("plataformaDiv");
-var divOEM = document.getElementById("div-OEM");
-var divCantidadMaterial = document.getElementById("cantidadMaterial");
+var divNumeroParte = id("numeroParte");
+var divDescripcionMaterial = id("descripcionMaterial");
+var divPlataforma = id("plataformaDiv");
+var divOEM = id("div-OEM");
+var divCantidadMaterial = id("cantidadMaterial");
 
-var cbTipoEva = document.getElementById("tipoEvaluacion");
-var divSelectTipoPrueba = document.getElementById("selectTipoPrueba");
+var cbTipoEva = id("tipoEvaluacion");
+var divSelectTipoPrueba = id("selectTipoPrueba");
 
-var  cbOtroTipo = document.getElementById("tipoPruebaEspecial");
-var divOtroTipoPrueba = document.getElementById("otroTipoPrueba");
+var  cbOtroTipo = id("tipoPruebaEspecial");
+var divOtroTipoPrueba = id("otroTipoPrueba");
 
-var cbDescMaterial = document.getElementById("descMaterial");
-var divImgMaterial = document.getElementById("imgMaterial");
-var botonEnviar = document.getElementById("submitRequest");
+var cbDescMaterial = id("descMaterial");
+var divImgMaterial = id("imgMaterial");
+var botonEnviar = id("submitRequest");
 
 function banderaTipoEvaluacion(){
     if (cbTipoEva.value !== ''){
@@ -105,6 +107,7 @@ function otroTipoPrueba(){
     }
 }
 
+/*
 function agregarNumParte() {
     // Clonar los divs
     var cloneNumeroParte = divNumeroParte.structuredClone(true);
@@ -126,6 +129,64 @@ function agregarNumParte() {
     divContenedor.after(cloneOEM);
     divContenedor.after(cloneNumeroParte);
 }
+*/
+
+const btn_agregar = id("addNumParte");
+btn_agregar.addEventListener("click", function ( ){
+
+    //div para NumeroParte
+    const divNumeroParte  = D.create('div', {class:" form-group col-sm-4"});
+    const selectNP = D.create('input',{type:"text",name:"numPartes[]", class:"form-control", onchange:"llenarCliente()", placeholder:"Número de parte*"});
+    D.append(selectNP,divNumeroParte);
+
+    //div para OEM
+    const divOEM = D.create('div',{class:" form-group col-sm-4"});
+    const selectOEM = D.create('select', {name:"clientes[]", class:"form-control", onchange:"llenarPlataforma()"});
+    D.append(selectOEM,divOEM);
+
+    // div para Plataforma
+    const divPlataforma = D.create('div',{class:" form-group col-sm-4"});
+    const selectPlataforma = D.create('select', {name:"plataformas[]", class:"form-control", id:"plataforma",  onchange:"llenarDescMaterial()"});
+    D.append(selectPlataforma,divPlataforma);
+
+    //div para DescripcionMaterial
+    const divDescripcionMaterial = D.create('div', {class:" form-group col-sm-6"});
+    const selectDescMaterial = D.create('select', {name:"descripciones[]", class:"form-control", id:"descMaterial", onchange:"descripcionMaterial()"});
+    D.append(selectDescMaterial,divDescripcionMaterial);
+
+    //div para CantidadMaterial
+    const divCantidadMaterial = D.create('div', {class:" form-group col-sm-6"});
+    const inputCantidad= D.create('input',{type:"number", class:"form-control", id:"cdadesMaterial[]", placeholder:"Cantidad*"});
+    D.append(inputCantidad,divCantidadMaterial);
+
+    //div para ImgMaterial
+    const divImgMaterial = D.create('div', {class:" form-group col-sm-12"});
+    const imagenMaterial = D.create('img',{src:"../../imgs/cabecera.png", class:"imgsMaterial", alt:"Imagen Material"});
+    D.append(imagenMaterial, divImgMaterial);
+
+
+    //Boton para eliminar este div
+    const borrar = D.create('a',{href: 'javascript:void(0)', innerHTML:'x', onclick: function ( ){
+        D.remove(divNumeroParte);
+        D.remove(divOEM);
+        D.remove(divPlataforma);
+        D.remove(divDescripcionMaterial);
+        D.remove(divCantidadMaterial);
+        D.remove(divImgMaterial);
+        }})
+
+    // Obtener el contenedor donde se agregarán los nuevos divs
+    var divContenedor = document.getElementById("agregarNumParte");
+    D.append(divNumeroParte, divContenedor);
+    D.append(divOEM, divContenedor)
+    D.append(divPlataforma, divContenedor);
+    D.append(divDescripcionMaterial, divContenedor)
+    D.append(divCantidadMaterial, divContenedor);
+    D.append(divImgMaterial, divContenedor);
+    D.append(borrar, divContenedor);
+
+
+})
 
 //document.getElementById("descMaterial").onchange = function() {descripcionMaterial()};
 function descripcionMaterial(){

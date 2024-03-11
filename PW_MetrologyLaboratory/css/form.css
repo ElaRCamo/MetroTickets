@@ -237,11 +237,10 @@ h6{
 #imgMaterial, #submitRequest{
     display: none;
 }
-/*
-.alerta{
-    border-color:#E10014;
-    background-color:#E10014;
-    color:#EFEDE9;
-} */
+
+#reset{
+    margin-left: 0.5%;
+}
+
 
 
