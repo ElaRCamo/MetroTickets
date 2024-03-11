@@ -27,14 +27,14 @@ global$resultado;
                                             <div class="form-group col-sm-6" id="selectEvaluacion">
                                                 <div class="help-block with-errors"></div>
                                                 <select class="form-control" id="tipoEvaluacion" onchange="banderaTipoEvaluacion();  llenarTipoPrueba();" name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione tipo de evaluacion" >
-                                                    <option value="">Seleccione el tipo de evaluación</option>
+                                                    <option value="">Seleccione el tipo de evaluación*</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="selectTipoPrueba">
                                                 <div class="help-block with-errors"></div>
                                                 <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba()"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
-                                                    <option value="">Seleccione el tipo de prueba</option>
+                                                    <option value="">Seleccione el tipo de prueba*</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
                                             </div>
@@ -93,21 +93,21 @@ global$resultado;
                                             <div class="form-group col-sm-4" id="div-OEM">
                                                 <div class="help-block with-errors"></div>
                                                 <select name="cliente" class="form-control" id="cliente" onchange="llenarPlataforma()" required data-error="Por favor ingresa el area solicitante">
-                                                    <option value="">Seleccione el cliente (OEM)</option>
+                                                    <option value="">Seleccione el cliente (OEM)*</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
                                             </div>
                                             <div class="form-group col-sm-4" id="plataformaDiv">
                                                 <div class="help-block with-errors"></div>
                                                 <select name="plataforma" class="form-control" id="plataforma"  onchange=llenarDescMaterial() required data-error="Por favor ingresa la plataforma">
-                                                    <option value="">Seleccione la plataforma</option>
+                                                    <option value="">Seleccione la plataforma*</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-warehouse"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="descripcionMaterial">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="descripcion" class="form-control" id="descMaterial"   <!-- onchange="descripcionMaterial()"--> required data-error="Por favor ingresa la descripción del material">
-                                                    <option value="">Seleccione la descripción</option>
+                                                <select name="descripcion" class="form-control" id="descMaterial"   onchange="descripcionMaterial()" required data-error="Por favor ingresa la descripción del material">
+                                                    <option value="">Seleccione la descripción*</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                             </div>
@@ -117,7 +117,8 @@ global$resultado;
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                             </div>
                                             <div class="form-group col-sm-12" id="imgMaterial">
-                                                <img src="../../imgs/cabecera.png" class="rounded mx-auto d-block" alt="Cabecera">
+                                                <!--<input type="file" id="materialImg" name="materialImg" class="form-control rounded mx-auto d-block">-->
+                                                <img src="../../imgs/cabecera.png" class="" alt="Cabecera">
                                             </div>
                                             <div class="form-group last col-sm-12 buttons">
                                                 <button type="button" id="submit" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>

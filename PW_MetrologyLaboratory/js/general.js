@@ -54,7 +54,7 @@ function banderaTipoPrueba(){
         divDescripcionMaterial.style.display = "block";
         divPlataforma.style.display = "block";
         divCantidadMaterial.style.display = "block";
-    }else if (cbTipo.value != null){
+    }else if (cbTipo.value !== ''){
         divOEM.style.display = "block";
         divAgregarNumParte.style.display = "block";
         divNumeroParte.style.display = "block";
@@ -67,6 +67,18 @@ function banderaTipoPrueba(){
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
 
+    }else{
+            divOEM.style.display = "none";
+            divAgregarNumParte.style.display = "none";
+            divNumeroParte.style.display = "none";
+            divDescripcionMaterial.style.display = "none";
+            divPlataforma.style.display = "none";
+            divCantidadMaterial.style.display = "none";
+            divNormaNombre.style.display = "none";
+            divNormaArchivo.style.display = "none";
+            divPruebaEspecial.style.display = "none";
+            divNumeroPiezas.style.display = "none";
+            divDetallesPrueba.style.display = "none";
     }
 
 }
@@ -87,15 +99,14 @@ function otroTipoPrueba(){
     }
 }
 
-//document.getElementById("addNumParte").onclick = function() {agregarNumParte()};
 function agregarNumParte() {
     // Clonar los divs
-    var cloneNumeroParte = divNumeroParte.cloneNode(true);
-    var cloneDescripcionMaterial = divDescripcionMaterial.cloneNode(true);
-    var clonePlataforma = divPlataforma.cloneNode(true);
-    var cloneCantidadMaterial = divCantidadMaterial.cloneNode(true);
-    var cloneOEM =     divOEM.cloneNode(true);
-    var cloneImgMaterial =     divImgMaterial.cloneNode(true);
+    var cloneNumeroParte = divNumeroParte.structuredClone(true);
+    var cloneDescripcionMaterial = divDescripcionMaterial.structuredClone(true);
+    var clonePlataforma = divPlataforma.structuredClone(true);
+    var cloneCantidadMaterial = divCantidadMaterial.structuredClone(true);
+    var cloneOEM =     divOEM.structuredClone(true);
+    var cloneImgMaterial =     divImgMaterial.structuredClone(true);
 
 
     // Obtener el contenedor donde se agregarán los nuevos divs

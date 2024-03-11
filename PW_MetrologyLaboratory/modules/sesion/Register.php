@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../../imgs/Grammer_Logo.ico" type="image/x-icon">
     <title>Metrología | Regístrarse </title>
 
     <!--Enlace de iconos: icons8, licencia con mención -->
@@ -52,7 +53,7 @@
                     <i class="las la-lock"></i>
                 </div>
 
-                <button type="submit" id="registrarse" class="btn login">Regístrarse</button>
+                <button type="submit" id="registrarse" name="registrarse"  class="btn login">Regístrarse</button>
 
                 <div class="register-link">
                     <p>¿Ya tienes cuenta? <a href="Index.php">INGRESAR</a> </p>

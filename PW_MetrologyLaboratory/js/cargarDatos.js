@@ -35,6 +35,11 @@ function llenarPruebaEspecial(){
         var selectS = document.getElementById("tipoPruebaEspecial");
         selectS.innerHTML = ""; //limpiar contenido
 
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Especifique el tipo de prueba";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
         for (var i = 0; i < data.data.length; i++) {
             var createOption = document.createElement("option");
             createOption.value = data.data[i].id_pruebaEspecial;
@@ -48,6 +53,11 @@ function llenarCliente(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
         var selectS = document.getElementById("cliente");
         selectS.innerHTML = ""; //limpiar contenido
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Especifique el cliente(OEM)";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
 
         for (var i = 0; i < data.data.length; i++) {
             var createOption = document.createElement("option");

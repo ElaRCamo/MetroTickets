@@ -1,32 +1,59 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 include_once('connection.php');
 
-function fcliente($clienteSeleccionado = '') {
+$numNomina     = $_POST['numNomina'];
+$nombreUsuario = $_POST['nombreUsuario'];
+$correo        = $_POST['correo'];
+$password      = $_POST['password'];
+
+RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password);
+function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
     $con = new LocalConector();
     $conex = $con->conectar();
 
+    $insertUsuario = "INSERT INTO `Usuario` (`id_usuario`, `nombreUsuario`, `correoElectronico`, `passwordHash`) VALUES ('$numNomina', '$nombreUsuario', '$correo', '$password')";
 
-    $clienteSQL = "SELECT distinct id_cliente, descripcionCliente FROM Cliente";
-    $resultado = $conex->query($clienteSQL);
+    echo '<script>alert("' . $insertUsuario . '")</script>';
+    $rInsertUsuario = mysqli_query($conex,$insertUsuario);
+    echo 1;
 
-    // Verificar si hay resultados
-    if ($resultado->num_rows > 0) {
-        echo "<option value='' selected>Selecciona un cliente</option>";
+    mysqli_close($conex);
 
-        // Imprimir las opciones del select con las descripciones de clientes
-        while ($fila = $resultado->fetch_assoc()) {
-            $selected = ($fila['id_cliente'] == $clienteSeleccionado) ? 'selected' : '';
-            echo "<option value='{$fila['id_cliente']}' $selected>{$fila['descripcionCliente']}</option>";
-        }
-    } else {
-        echo "<option value=''>No se encontraron clientes</option>";
-    }
-
-    $conex->close();
+    return $rInsertUsuario;
 }
 
+/*
+if (isset($_POST['registrarse'])){
+    $numNomina     = $_POST['numNomina'];
+    $nombreUsuario = $_POST['nombreUsuario'];
+    $correo        = $_POST['correo'];
+    $password      = $_POST['password'];
+    if($numNomina!=null && $nombreUsuario!=null && $correo != null&& $password!=null  ){
+        echo '<script>alert("' . $numNomina . $nombreUsuario . $correo . $password . '")</script>';
+    }
+
+    RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password);
+}else{
+    echo '<div class="alerta">Error al registrar el usuario</div>';
+}
+
+function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
+    $con = new LocalConector();
+    $conex = $con->conectar();
+
+    $insertUsuario = "INSERT INTO `Usuario` (`id_usuario`, `nombreUsuario`, `correoElectronico`, `passwordHash`) VALUES ('$numNomina', '$nombreUsuario', '$correo', '$password');";
+
+    echo '<script>alert("' . $insertUsuario . '")</script>';
+    $rInsertUsuario = mysqli_query($conex,$insertUsuario);
+    mysqli_close($conex);
+
+    if(!$rInsertUsuario){
+        echo '<div class="alerta">Error al registrar el usuario</div>';
+    }
+
+    //echo '<script>alert("Usuario registrado exitosamente"); window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";</script>';
+    return 1;
+}
+*/
+?>
 
