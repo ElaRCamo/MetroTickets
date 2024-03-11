@@ -120,8 +120,8 @@ global$resultado;
                                                 <!--<input type="file" id="materialImg" name="materialImg" class="form-control rounded mx-auto d-block">-->
                                                 <img src="../../imgs/cabecera.png" class="" alt="Cabecera">
                                             </div>
-                                            <div class="form-group last col-sm-12 buttons">
-                                                <button type="button" id="submit" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
+                                            <div class="form-group last col-sm-12 buttons" >
+                                                <button type="submit" id="submitRequest" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
                                                 <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
                                             </div><!-- end form-group -->
                                             <div class="sub-text">* Campos requeridos</div>
