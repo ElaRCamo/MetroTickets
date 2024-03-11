@@ -92,6 +92,7 @@ require_once('../../footer.php')
             .then(function (response) {
                 if (response.ok) { //respuesta
                     console.log ('Usuario registrado')
+                    alert("Usuario registrado");
 
                 } else {
                     throw "Error en la llamada Ajax";
