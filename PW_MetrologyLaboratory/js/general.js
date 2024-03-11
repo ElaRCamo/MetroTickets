@@ -69,7 +69,7 @@ function banderaTipoPrueba(){
         divPruebaEspecial.style.display = "none";
         divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
-        botonEnviar.style.display = "none";
+        botonEnviar.style.display = "block";
 
     }else{
         divOEM.style.display = "none";
