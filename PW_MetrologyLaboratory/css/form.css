@@ -12,11 +12,12 @@
 
 /*Recuadro del form*/
 .item-wrap{
-    border:2px solid var(--blue_45);
     border-radius:5px;
     margin:20px auto;
     padding:30px 15px 0;
     width:100%;
+    /*background-color: var(--blue_20);
+    border:2px solid var(--blue_45);*/
     background-color: var(--blue_20);
 }
 
@@ -235,10 +236,11 @@ h6{
 #descripcionMaterial, #plataformaDiv, #cantidadMaterial, #selectTipoPrueba, #imgMaterial{
     display: none;
 }
+/*
 .alerta{
     border-color:#E10014;
     background-color:#E10014;
     color:#EFEDE9;
-}
+} */
 
 

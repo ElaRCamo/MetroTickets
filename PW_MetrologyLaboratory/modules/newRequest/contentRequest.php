@@ -117,7 +117,8 @@ global$resultado;
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                             </div>
                                             <div class="form-group col-sm-12" id="imgMaterial">
-                                                <img src="../../imgs/cabecera.png" class="rounded mx-auto d-block" alt="Cabecera">
+                                                <!--<input type="file" id="materialImg" name="materialImg" class="form-control rounded mx-auto d-block">-->
+                                                <img src="../../imgs/cabecera.png" class="" alt="Cabecera">
                                             </div>
                                             <div class="form-group last col-sm-12 buttons">
                                                 <button type="button" id="submit" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
