@@ -79,7 +79,7 @@ global$resultado;
                                             <!-- Para agregar material por número de parte-->
                                             <div class=" form-group col-sm-12" id="agregarNumParte">
                                                 <h6>REGISTRO DE MATERIALES | Para agregar otro número de parte, presione
-                                                    <button type="button" id="addNumParte">
+                                                    <button type="button" id="addNumParte" onclick="agregarNumParte()">
                                                         <i class="las la-plus-square"></i>
                                                     </button>
                                                 </h6>
@@ -121,7 +121,7 @@ global$resultado;
                                                 <img src="../../imgs/cabecera.png" class="imgsMaterial" alt="Imagen Material">
                                             </div>
                                             <div class="form-group last col-sm-12 buttons" >
-                                                <button type="submit" id="submitRequest" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
+                                                <button type="submit" id="submitRequest"  onclick="registrarSolicitud()" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
                                                 <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
                                             </div><!-- end form-group -->
                                             <div class="sub-text">* Campos requeridos</div>
