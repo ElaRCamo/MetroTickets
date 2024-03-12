@@ -15,7 +15,12 @@ function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
     $rInsertUsuario = mysqli_query($conex,$insertUsuario);
     mysqli_close($conex);
 
-    return $rInsertUsuario;
+    if(!$rInsertUsuario){
+        echo '<div class="alerta">Error al registrar el usuario</div>';
+        return 0;
+    }else{
+        return 1;
+    }
 }
 
 /*
