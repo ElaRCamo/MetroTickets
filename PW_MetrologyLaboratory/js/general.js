@@ -129,7 +129,7 @@ function agregarNumParte() {
     divContenedor.after(cloneOEM);
     divContenedor.after(cloneNumeroParte);
 }
-*/
+
 
 const btn_agregar = id("addNumParte");
 btn_agregar.addEventListener("click", function ( ){
@@ -187,7 +187,7 @@ btn_agregar.addEventListener("click", function ( ){
 
 
 })
-
+*/
 //document.getElementById("descMaterial").onchange = function() {descripcionMaterial()};
 function descripcionMaterial(){
     if (cbDescMaterial.value != null){

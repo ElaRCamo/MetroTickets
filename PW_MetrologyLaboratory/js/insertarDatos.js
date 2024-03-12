@@ -9,8 +9,8 @@ function registrarUsuario(){
 
     data.append('numNomina', nomina.value.trim());
     data.append('nombreUsuario', nombreUsuario.value.trim());
-    data.append('correo', correo.value);
-    data.append('password', password.value);
+    data.append('correo', correo.value.trim());
+    data.append('password', password.value.trim());
 
     fetch('../../dao/userRegister.php', {
         method: 'POST',
@@ -23,7 +23,6 @@ function registrarUsuario(){
             } else {
                 throw "Error en la llamada Ajax";
             }
-
         })
         .then(function (texto) {
             console.log(texto);
