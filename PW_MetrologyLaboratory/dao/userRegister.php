@@ -12,13 +12,11 @@ function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
     $conex = $con->conectar();
 
     $insertUsuario = "INSERT INTO `Usuario` (`id_usuario`, `nombreUsuario`, `correoElectronico`, `passwordHash`) VALUES ('$numNomina', '$nombreUsuario', '$correo', '$password')";
-
-    echo '<script>alert("' . $insertUsuario . '")</script>';
     $rInsertUsuario = mysqli_query($conex,$insertUsuario);
-    echo 1;
-
     mysqli_close($conex);
 
+
+    echo '<script>alert("Usuario registrado exitosamente"); window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";</script>';
     return $rInsertUsuario;
 }
 
@@ -51,8 +49,7 @@ function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
         echo '<div class="alerta">Error al registrar el usuario</div>';
     }
 
-    //echo '<script>alert("Usuario registrado exitosamente"); window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";</script>';
-    return 1;
+
 }
 */
 ?>
