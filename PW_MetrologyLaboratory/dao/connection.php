@@ -18,15 +18,5 @@ class LocalConector{
         //echo "conexion exitosa";
         return $this->conexion;
     }
-
-    public function cerrarConexion() {
-        if ($this->conexion) {
-            $this->conexion->close();
-        }
-    }
-
-    public function getConexion() {
-        return $this->conexion;
-    }
 }
 

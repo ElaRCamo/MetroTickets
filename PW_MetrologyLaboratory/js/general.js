@@ -107,7 +107,7 @@ function otroTipoPrueba(){
     }
 }
 
-/*
+
 function agregarNumParte() {
     // Clonar los divs
     var cloneNumeroParte = divNumeroParte.structuredClone(true);
@@ -130,7 +130,7 @@ function agregarNumParte() {
     divContenedor.after(cloneNumeroParte);
 }
 
-
+/*
 const btn_agregar = id("addNumParte");
 btn_agregar.addEventListener("click", function ( ){
 

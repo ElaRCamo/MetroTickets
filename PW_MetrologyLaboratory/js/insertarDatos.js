@@ -1,9 +1,9 @@
 function registrarUsuario(){
 
-    var nomina = document.getElementById("nomina");
-    var nombreUsuario = document.getElementById("nombreUsuario");
-    var correo = document.getElementById("correo");
-    var password = document.getElementById("password");
+    var nomina = id("nomina");
+    var nombreUsuario = id("nombreUsuario");
+    var correo = id("correo");
+    var password = id("password");
 
     const data = new FormData();
 
@@ -29,4 +29,36 @@ function registrarUsuario(){
         .catch(function (err) {
             console.log(err);
         });
+}
+
+
+// Crear id con fecha
+var fecha = new Date();
+var anio = fecha.getFullYear();
+
+function registrarSolicitud(){
+
+    const dataForm = new FormData();
+
+    var tipoEvaluacion = id("tipoEvaluacion");
+    var tipoPrueba = id("tipoPrueba");
+
+    <!-- Formulario dependiendo tipo de prueba -->
+    var norma = id("norma");
+    var normaFile = id("normaFile");
+    var tipoPruebaEspecial = id("tipoPruebaEspecial");
+    var otroPrueba = id("otroPrueba");
+    var numPiezas = id("numPiezas");
+    var especificaciones = id ("especificaciones");
+
+    <!-- Para agregar material por número de parte-->
+
+
+
+
+
+
+
+
+
 }
