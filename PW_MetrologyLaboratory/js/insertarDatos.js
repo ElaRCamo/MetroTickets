@@ -18,7 +18,8 @@ function registrarUsuario(){
     })
         .then(function (response) {
             if (response.ok) { //respuesta
-                console.log ('Usuario registrado')
+                alert("Usuario registrado exitosamente");
+                window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";
             } else {
                 throw "Error en la llamada Ajax";
             }

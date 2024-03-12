@@ -15,8 +15,6 @@ function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
     $rInsertUsuario = mysqli_query($conex,$insertUsuario);
     mysqli_close($conex);
 
-
-    echo '<script>alert("Usuario registrado exitosamente"); window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";</script>';
     return $rInsertUsuario;
 }
 
