@@ -192,6 +192,11 @@ btn_agregar.addEventListener("click", function ( ){
 function descripcionMaterial(){
     if (cbDescMaterial.value != null){
         divImgMaterial.style.display = "block";
+        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoDescMaterial.php?id_descripcion=' + id("descMaterial").value, function (data) {
+            id("imagenMaterial").src=data.data[0];
+            alert (data.data[0]);
+
+        });
     }else{
         divImgMaterial.style.display = "none";
     }
