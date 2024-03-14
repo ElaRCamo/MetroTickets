@@ -106,7 +106,7 @@ global$resultado;
                                             </div>
                                             <div class="form-group col-sm-6" id="descripcionMaterial">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="descripciones[]" class="form-control" id="descMaterial" onchange="descripcionMaterial(); cargarImagen();" required data-error="Por favor ingresa la descripción del material">
+                                                <select name="descripciones[]" class="form-control" id="descMaterial" onchange="descripcionMaterial()" required data-error="Por favor ingresa la descripción del material">
                                                     <option value="">Seleccione la descripción*</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
