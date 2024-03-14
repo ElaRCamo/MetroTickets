@@ -39,26 +39,27 @@ function idSolicitud(){
         var consecutivoId = idMaxPartes[1];
         var fecha = new Date();
         var anio = fecha.getFullYear();
-
         var nuevoId;
+
         if (anioIdMax === anio) {
             nuevoId = anioIdMax + "-" + (parseInt(consecutivoId) + 1).toString().padStart(4, '0');
-
         } else {
             nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
         }
-
-        alert('nuevoId: ' + nuevoId);
-        console.log('anioId: ' + anioIdMax + ' consecutivoId: ' + consecutivoId + ' año actual:' + anio);
-        console.log(anioIdMax === anio);
+        resolve(nuevoId);
     });
-
 }
 
 
 function registrarSolicitud(){
 
     const dataForm = new FormData();
+
+    var id_Solicitud;
+    idSolicitud().then(function(nuevoId) {
+        id_Solicitud = nuevoId;
+        console.log("El nuevo ID es:", id_Solicitud);
+    });
 
     var tipoEvaluacion = id("tipoEvaluacion");
     var tipoPrueba = id("tipoPrueba");
