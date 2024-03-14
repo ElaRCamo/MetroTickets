@@ -44,7 +44,7 @@ function idSolicitud(){
     var guion = idMaxPartes[1];
     var consecutivoId = idMaxPartes[2];
 
-    alert ('anioId:'+anioId+'guion:'+guion+'consecutivoId:'+consecutivoId);
+    alert ('anioId:'+anioId+'guion:'+guion+'consecutivoId:'+consecutivoId+ 'año actual:'+anio);
 
 }
 
