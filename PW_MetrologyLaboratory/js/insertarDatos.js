@@ -35,14 +35,19 @@ function idSolicitud(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function (data) {
         let idMaximo = data.data[0].max_id_prueba;
         var idMaxPartes = idMaximo.split("-");
-        var anioId = idMaxPartes[0];
-        var guion = idMaxPartes[1];
-        var consecutivoId = idMaxPartes[2];
+        var anioIdMax = idMaxPartes[0];
+        var consecutivoId = idMaxPartes[1];
         var fecha = new Date();
         var anio = fecha.getFullYear();
 
-        alert ('anioId:'+anioId+'guion:'+guion+'consecutivoId:'+consecutivoId+ 'año actual:'+anio);
-        console.log('anioId:'+anioId+'guion:'+guion+'consecutivoId:'+consecutivoId+ 'año actual:'+anio);
+        if(anioIdMax === anio){
+           var nuevoId = anioIdMax + "-" + (consecutivoId+1);
+        }else{
+            var nuevoId = anio + "-" + 1;
+        }
+
+        alert ('nuevoId: '+nuevoId);
+        console.log('anioId: '+anioId+' consecutivoId: '+consecutivoId+ ' año actual:'+anio);
     });
 }
 
