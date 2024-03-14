@@ -47,7 +47,8 @@ function idSolicitud(){
         }
 
         alert ('nuevoId: '+nuevoId);
-        console.log('anioId: '+anioId+' consecutivoId: '+consecutivoId+ ' año actual:'+anio);
+        console.log('anioId: '+anioIdMax+' consecutivoId: '+consecutivoId+ ' año actual:'+anio);
+        console.log(anioIdMax === anio);
     });
 }
 
