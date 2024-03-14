@@ -194,7 +194,6 @@ function descripcionMaterial(){
         divImgMaterial.style.display = "block";
         $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoImgMaterial.php?id_descripcion=' + id("descMaterial").value, function (data) {
             id("imagenMaterial").src = data.data[0].imgMaterial;
-            alert (data.data[0].imgMaterial);
         });
     }else{
         divImgMaterial.style.display = "none";
