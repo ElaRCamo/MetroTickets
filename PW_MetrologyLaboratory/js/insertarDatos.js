@@ -60,6 +60,7 @@ function registrarSolicitud(){
     var id_Solicitud;
     idSolicitud().then(function(nuevoId) {
         id_Solicitud = nuevoId;
+        console.log("El nuevo ID es:", id_Solicitud);
     });
 
     var tipoEvaluacion = id("tipoEvaluacion");
