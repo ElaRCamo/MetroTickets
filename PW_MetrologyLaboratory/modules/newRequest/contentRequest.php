@@ -29,7 +29,7 @@ global$resultado;
                                                 <select class="form-control" id="tipoEvaluacion" onchange="banderaTipoEvaluacion();  llenarTipoPrueba();" name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione tipo de evaluacion" >
                                                     <option value="">Seleccione el tipo de evaluación*</option>
                                                 </select>
-                                                <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
+                                                <div class="input-group-icon"><i class="las la-ruler-combined" onclick="idSolicitud()"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="selectTipoPrueba">
                                                 <div class="help-block with-errors"></div>
@@ -113,7 +113,7 @@ global$resultado;
                                             </div>
                                             <div class="form-group col-sm-6" id="cantidadMaterial">
                                                 <div class="help-block with-errors"></div>
-                                                <input type="number" class="form-control" id="cdadMaterial" name="cdadesMaterial[]" onchange="idSolicitud()" placeholder="Cantidad*"  required data-error="Por favor ingresa la cantidad">
+                                                <input type="number" class="form-control" id="cdadMaterial" name="cdadesMaterial[]"  placeholder="Cantidad*"  required data-error="Por favor ingresa la cantidad">
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                             </div>
                                             <div class="form-group col-sm-12" id="imgMaterial">
