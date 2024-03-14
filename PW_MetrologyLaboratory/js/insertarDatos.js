@@ -38,10 +38,8 @@ function idSolicitud(){
         var anioId = idMaxPartes[0];
         var guion = idMaxPartes[1];
         var consecutivoId = idMaxPartes[2];
-
         var fecha = new Date();
         var anio = fecha.getFullYear();
-
 
         alert ('anioId:'+anioId+'guion:'+guion+'consecutivoId:'+consecutivoId+ 'año actual:'+anio);
         console.log('anioId:'+anioId+'guion:'+guion+'consecutivoId:'+consecutivoId+ 'año actual:'+anio);
