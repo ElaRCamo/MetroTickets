@@ -37,7 +37,7 @@ function idSolicitud(){
     var anio = fecha.getFullYear();
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function (data) {
-        var idMaximo = data.data[0].max_id_prueba;
+        let idMaximo = data.data[0].max_id_prueba;
     });
     var idMaxPartes = idMaximo.split("-");
     var anioId = idMaxPartes[0];
