@@ -32,10 +32,6 @@ function registrarUsuario(){
 }
 
 function idSolicitud(){
-    // Crear id con fecha
-    var fecha = new Date();
-    var anio = fecha.getFullYear();
-
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function (data) {
         let idMaximo = data.data[0].max_id_prueba;
         var idMaxPartes = idMaximo.split("-");
@@ -43,10 +39,13 @@ function idSolicitud(){
         var guion = idMaxPartes[1];
         var consecutivoId = idMaxPartes[2];
 
+        var fecha = new Date();
+        var anio = fecha.getFullYear();
+
+
         alert ('anioId:'+anioId+'guion:'+guion+'consecutivoId:'+consecutivoId+ 'año actual:'+anio);
+        console.log('anioId:'+anioId+'guion:'+guion+'consecutivoId:'+consecutivoId+ 'año actual:'+anio);
     });
-
-
 }
 
 
