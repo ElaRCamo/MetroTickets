@@ -110,16 +110,16 @@ function otroTipoPrueba(){
 
 function agregarNumParte() {
     // Clonar los divs
-    var cloneNumeroParte = divNumeroParte.structuredClone(true);
-    var cloneDescripcionMaterial = divDescripcionMaterial.structuredClone(true);
-    var clonePlataforma = divPlataforma.structuredClone(true);
-    var cloneCantidadMaterial = divCantidadMaterial.structuredClone(true);
-    var cloneOEM =     divOEM.structuredClone(true);
-    var cloneImgMaterial =     divImgMaterial.structuredClone(true);
+    var cloneNumeroParte = divNumeroParte.cloneNode(true);
+    var cloneDescripcionMaterial = divDescripcionMaterial.cloneNode(true);
+    var clonePlataforma = divPlataforma.cloneNode(true);
+    var cloneCantidadMaterial = divCantidadMaterial.cloneNode(true);
+    var cloneOEM = divOEM.cloneNode(true);
+    var cloneImgMaterial = divImgMaterial.cloneNode(true);
 
 
     // Obtener el contenedor donde se agregarán los nuevos divs
-    var divContenedor = document.getElementById("agregarNumParte");
+    var divContenedor = id("agregarNumParte");
 
     // Agregar los clones al contenedor
     divContenedor.after(cloneImgMaterial);
@@ -194,7 +194,6 @@ function descripcionMaterial(){
         divImgMaterial.style.display = "block";
         $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoImgMaterial.php?id_descripcion=' + id("descMaterial").value, function (data) {
             id("imagenMaterial").src = data.data[0].imgMaterial;
-            alert (data.data[0].imgMaterial);
         });
     }else{
         divImgMaterial.style.display = "none";
