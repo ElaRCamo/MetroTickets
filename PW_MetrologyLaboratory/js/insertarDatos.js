@@ -37,7 +37,7 @@ function idSolicitud(){
         var idMaxPartes = idMaximo.split("-");
         var anioIdMax = parseInt(idMaxPartes[0]); // Convertir a número
         var consecutivoId = idMaxPartes[1];
-        var fecha = new Date();
+        var fecha = new Date(2023,5,13);
         var anio = fecha.getFullYear();
 
         var nuevoId;
