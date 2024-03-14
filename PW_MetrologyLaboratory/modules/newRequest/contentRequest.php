@@ -113,7 +113,7 @@ global$resultado;
                                             </div>
                                             <div class="form-group col-sm-6" id="cantidadMaterial">
                                                 <div class="help-block with-errors"></div>
-                                                <input type="number" class="form-control" id="cdadMaterial" name="cdadesMaterial[]" placeholder="Cantidad*"  required data-error="Por favor ingresa la cantidad">
+                                                <input type="number" class="form-control" id="cdadMaterial" name="cdadesMaterial[]" onchange="idSolicitud()" placeholder="Cantidad*"  required data-error="Por favor ingresa la cantidad">
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                             </div>
                                             <div class="form-group col-sm-12" id="imgMaterial">

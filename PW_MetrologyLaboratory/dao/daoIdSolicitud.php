@@ -2,7 +2,7 @@
 
 include_once('connection.php');
 
-ConsultaIdMax( );
+ConsultaIdMax();
 
 function ConsultaIdMax()
 {
@@ -15,10 +15,10 @@ function ConsultaIdMax()
     if ($sqlIdMax) {
         // Obtener el resultado como un array asociativo
         $resultado = mysqli_fetch_assoc($sqlIdMax);
-        $max_id_prueba = $resultado['max_id_prueba'];
+        //$max_id_prueba = $resultado['max_id_prueba'];
 
-        echo "El valor máximo de id_prueba es: " . $max_id_prueba;
-        return $max_id_prueba;
+        //echo "El valor máximo de id_prueba es: " . $max_id_prueba;
+        return $resultado;
     } else {
         echo "Error al ejecutar la consulta: " . mysqli_error($conex);
         return 0;
