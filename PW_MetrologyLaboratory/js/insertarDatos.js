@@ -37,12 +37,13 @@ function idSolicitud(){
         var idMaxPartes = idMaximo.split("-");
         var anioIdMax = parseInt(idMaxPartes[0]); // Convertir a número
         var consecutivoId = idMaxPartes[1];
-        var fecha = new Date(2023,5,13);
+        var fecha = new Date();
         var anio = fecha.getFullYear();
 
         var nuevoId;
         if (anioIdMax === anio) {
-            nuevoId = anioIdMax + "-" + (parseInt(consecutivoId) + 1);
+            nuevoId = anioIdMax + "-" + (parseInt(consecutivoId) + 1).toString().padStart(4, '0');
+
         } else {
             nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
         }
