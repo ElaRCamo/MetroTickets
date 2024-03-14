@@ -56,9 +56,4 @@ function registrarSolicitud(){
 
 
 
-
-
-
-
-
 }
