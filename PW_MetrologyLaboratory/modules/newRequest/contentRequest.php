@@ -106,7 +106,7 @@ global$resultado;
                                             </div>
                                             <div class="form-group col-sm-6" id="descripcionMaterial">
                                                 <div class="help-block with-errors"></div>
-                                                <select name="descripciones[]" class="form-control" id="descMaterial"   onchange="descripcionMaterial()" required data-error="Por favor ingresa la descripción del material">
+                                                <select name="descripciones[]" class="form-control" id="descMaterial"   onchange="descripcionMaterial() cargarImagen()" required data-error="Por favor ingresa la descripción del material">
                                                     <option value="">Seleccione la descripción*</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
@@ -117,8 +117,7 @@ global$resultado;
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                             </div>
                                             <div class="form-group col-sm-12" id="imgMaterial">
-                                                <!--<input type="file" id="materialImg" name="materialImg" class="form-control rounded mx-auto d-block">-->
-                                                <img src="../../imgs/cabecera.png" class="imgsMaterial" alt="Imagen Material">
+                                                <img src="" class="imgsMaterial" id="imagenMaterial" alt="Imagen Material">
                                             </div>
                                             <div class="form-group last col-sm-12 buttons" >
                                                 <button type="submit" id="submitRequest"  onclick="registrarSolicitud()" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>

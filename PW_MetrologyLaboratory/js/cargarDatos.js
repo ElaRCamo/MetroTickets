@@ -1,7 +1,7 @@
 llenarEvaluacion();
 function llenarEvaluacion(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoEvaluacion.php', function (data){
-        var selectS = document.getElementById("tipoEvaluacion");
+        var selectS = id("tipoEvaluacion");
 
         for (var i = 0; i < data.data.length; i++) {
             var createOption = document.createElement("option");
@@ -13,8 +13,8 @@ function llenarEvaluacion(){
 }
 
 function llenarTipoPrueba() {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + document.getElementById("tipoEvaluacion").value, function (data) {
-        var selectS = document.getElementById("tipoPrueba");
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + id("tipoEvaluacion").value, function (data) {
+        var selectS = id("tipoPrueba");
         selectS.innerHTML = ""; //limpiar contenido
 
         var createOptionDef = document.createElement("option");
@@ -32,7 +32,7 @@ function llenarTipoPrueba() {
 }
 function llenarPruebaEspecial(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPruebaEspecial.php', function (data){
-        var selectS = document.getElementById("tipoPruebaEspecial");
+        var selectS = id("tipoPruebaEspecial");
         selectS.innerHTML = ""; //limpiar contenido
 
         var createOptionDef = document.createElement("option");
@@ -51,7 +51,7 @@ function llenarPruebaEspecial(){
 
 function llenarCliente(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
-        var selectS = document.getElementById("cliente");
+        var selectS = id("cliente");
         selectS.innerHTML = ""; //limpiar contenido
 
         var createOptionDef = document.createElement("option");
@@ -69,8 +69,8 @@ function llenarCliente(){
 }
 
 function llenarPlataforma() {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + document.getElementById("cliente").value, function (data) {
-        var selectS = document.getElementById("plataforma");
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + id("cliente").value, function (data) {
+        var selectS = id("plataforma");
         selectS.innerHTML = ""; //limpiar contenido
 
         var createOptionDef = document.createElement("option");
@@ -88,8 +88,8 @@ function llenarPlataforma() {
 }
 
 function llenarDescMaterial() {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoDescMaterial.php?id_plataforma=' + document.getElementById("plataforma").value, function (data) {
-        var selectS = document.getElementById("descMaterial");
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoDescMaterial.php?id_plataforma=' + id("plataforma").value, function (data) {
+        var selectS = id("descMaterial");
         selectS.innerHTML = "";
 
         var createOptionDef = document.createElement("option");
@@ -103,5 +103,12 @@ function llenarDescMaterial() {
             createOptionS.text = data.data[i].descripcionMaterial;
             selectS.appendChild(createOptionS);
         }
+    });
+}
+
+function cargarImagen(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoDescMaterial.php?id_descripcion=' + id("descMaterial").value, function (data) {
+        id("imagenMaterial").src=data.data[0];
+
     });
 }
