@@ -47,7 +47,6 @@ function idSolicitud() {
             } else {
                 nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
             }
-
             resolve(nuevoId); // Resolver la promesa con el nuevo ID
         });
     });
@@ -61,7 +60,6 @@ function registrarSolicitud(){
     var id_Solicitud;
     idSolicitud().then(function(nuevoId) {
         id_Solicitud = nuevoId;
-        console.log("El nuevo ID es:", id_Solicitud);
     });
 
     var tipoEvaluacion = id("tipoEvaluacion");
