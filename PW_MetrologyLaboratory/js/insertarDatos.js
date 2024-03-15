@@ -60,9 +60,9 @@ function registrarSolicitud(){
     var tipoPrueba         = id("tipoPrueba");
     var norma              = id("norma");
     var normaFile          = id("normaFile");
-    var tipoPruebaEspecial = id("tipoPruebaEspecial");
-    var otroPrueba         = id("otroPrueba");
-    var numPiezas          = id("numPiezas");
+    //var tipoPruebaEspecial = id("tipoPruebaEspecial");
+    //var otroPrueba         = id("otroPrueba");
+    //var numPiezas          = id("numPiezas");
     var especificaciones   = id ("especificaciones");
 
     // Para agregar material por número de parte
