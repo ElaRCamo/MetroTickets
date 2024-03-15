@@ -91,11 +91,12 @@ function registrarSolicitud(){
     idPrueba().then(function(nuevoId) {
         id_prueba = nuevoId;
         dataForm.append('id_prueba', id_prueba);
+        alert(id_prueba);
     }).catch(function(error) {
-        console.error('Error al obtener el ID de la prueba:', error);
+        alert('Error al obtener el ID de la prueba:');
     });
 
-    console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaSolicitud.value+"&id_prueba="+id_prueba);
+    console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
 
     fetch('../../dao/requestRegister.php', {
         method: 'POST',
