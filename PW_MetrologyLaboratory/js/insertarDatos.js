@@ -71,6 +71,8 @@ function registrarSolicitud(){
     var cdadMaterial       = id('cdadMaterial');
 
     var fechaSolicitud= new Date();
+    var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
+
     var id_prueba;
     idPrueba().then(function(nuevoId) {
         id_prueba = nuevoId;
@@ -87,7 +89,7 @@ function registrarSolicitud(){
     dataForm.append('numParte', numParte.value.trim());
     dataForm.append('descMaterial', descMaterial.value.trim());
     dataForm.append('cdadMaterial', cdadMaterial.value.trim());
-    dataForm.append('fechaSolicitud', fechaSolicitud.value.trim());
+    dataForm.append('fechaSolicitud', fechaFormateada);
     dataForm.append('id_prueba', id_prueba);
 
     console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaSolicitud.value+"&id_prueba="+id_prueba.value);
