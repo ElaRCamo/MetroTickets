@@ -91,7 +91,7 @@ function registrarSolicitud(){
     idPrueba().then(function(nuevoId) {
         id_prueba = nuevoId;
         console.log("El nuevo ID es:", id_prueba);
-        dataForm.append('id_prueba', id_prueba);
+        /*dataForm.append('id_prueba', id_prueba);*/
     });
 
     /* console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
