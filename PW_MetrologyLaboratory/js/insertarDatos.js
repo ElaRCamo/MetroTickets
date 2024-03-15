@@ -31,7 +31,7 @@ function registrarUsuario(){
         });
 }
 
-function idSolicitud() {
+function idPrueba() {
     return new Promise(function(resolve, reject) {
         $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function(data) {
             let idMaximo = data.data[0].max_id_prueba;
@@ -57,26 +57,57 @@ function registrarSolicitud(){
 
     const dataForm = new FormData();
 
-    var id_Solicitud;
-    idSolicitud().then(function(nuevoId) {
-        id_Solicitud = nuevoId;
-        console.log("El nuevo ID es:", id_Solicitud);
+    var tipoPrueba         = id("tipoPrueba");
+    var norma              = id("norma");
+    var normaFile          = id("normaFile");
+    var tipoPruebaEspecial = id("tipoPruebaEspecial");
+    var otroPrueba         = id("otroPrueba");
+    var numPiezas          = id("numPiezas");
+    var especificaciones   = id ("especificaciones");
+
+    // Para agregar material por número de parte
+    var numParte           = id('numParte');
+    var descMaterial       = id('descMaterial');
+    var cdadMaterial       = id('cdadMaterial');
+
+    var fechaSolicitud= new Date();
+    var id_prueba;
+    idPrueba().then(function(nuevoId) {
+        id_prueba = nuevoId;
+        //console.log("El nuevo ID es:", id_prueba);
     });
 
-    var tipoEvaluacion = id("tipoEvaluacion");
-    var tipoPrueba = id("tipoPrueba");
+    dataForm.append('tipoPrueba', tipoPrueba.value.trim());
+    dataForm.append('norma', norma.value.trim());
+    dataForm.append('normaFile', normaFile.value.trim());
+    //dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
+    //dataForm.append('otroPrueba', otroPrueba.value.trim());
+    //dataForm.append('numPiezas', numPiezas.value.trim());
+    dataForm.append('especificaciones', especificaciones.value.trim());
+    dataForm.append('numParte', numParte.value.trim());
+    dataForm.append('descMaterial', descMaterial.value.trim());
+    dataForm.append('cdadMaterial', cdadMaterial.value.trim());
+    dataForm.append('fechaSolicitud', fechaSolicitud.value.trim());
+    dataForm.append('id_prueba', id_prueba);
 
-    <!-- Formulario dependiendo tipo de prueba -->
-    var norma = id("norma");
-    var normaFile = id("normaFile");
-    var tipoPruebaEspecial = id("tipoPruebaEspecial");
-    var otroPrueba = id("otroPrueba");
-    var numPiezas = id("numPiezas");
-    var especificaciones = id ("especificaciones");
+    console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaSolicitud.value+"&id_prueba="+id_prueba.value);
 
-    <!-- Para agregar material por número de parte-->
-
-
-
+    fetch('../../dao/requestRegister.php', {
+        method: 'POST',
+        body: dataForm
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
 
 }
