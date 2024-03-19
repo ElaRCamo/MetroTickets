@@ -16,13 +16,14 @@ if(isset($_POST['iniciarSesionBtn'])){
     if (strlen($Nomina) == 6) { $Nomina = "00".$Nomina; }
     if (strlen($Nomina) == 7) { $Nomina = "0".$Nomina; }
 
-    $statusLogin = Usuario($Nomina, $Password);
+    $resultado = Usuario($Nomina, $Password);
 
-    if($statusLogin == 1){
+    if($resultado['success']){
         $_SESSION['nomina'] = $Nomina;
         $_SESSIOM['password'] = $Password;
+        $tipoUsuario = $resultado['tipoUsuario'];
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\index.php'>";
-    }else if($statusLogin == 0){
+    }else{
         echo "<script>alert('Acceso Denegado')</script>";
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\sesion\indexSesion.php'>";
     }

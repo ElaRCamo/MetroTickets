@@ -10,16 +10,24 @@ Usuario($Nomina, $Password);*/
 function Usuario($Nomina, $Password){
     $con = new LocalConector();
     $conexion=$con->conectar();
-    $consP="SELECT id_usuario, nombreUsuario FROM Usuario WHERE id_usuario = '$Nomina' and passwordHash = '$Password'";
+
+    $consP="SELECT id_usuario, nombreUsuario, id_tipoUsuario FROM Usuario WHERE id_usuario = '$Nomina' and passwordHash = '$Password'";
     $rsconsPro=mysqli_query($conexion,$consP);
+
     mysqli_close($conexion);
     $userData = array();
 
     if(mysqli_num_rows($rsconsPro) == 1){
-        return 1;
+        $row = mysqli_fetch_assoc($rsconsPro);
+        return array(
+            'success' => true, // Indicador de éxito
+            'tipoUsuario' => $row['tipoUsuario']
+        );
     }
     else{
-        return 0;
+        return array(
+            'success' => false
+        );
     }
 }
 
