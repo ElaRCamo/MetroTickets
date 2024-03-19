@@ -29,7 +29,7 @@ global$resultado;
                                                 <select class="form-control" id="tipoEvaluacion" onchange="banderaTipoEvaluacion();  llenarTipoPrueba();" name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione tipo de evaluacion" >
                                                     <option value="">Seleccione el tipo de evaluación*</option>
                                                 </select>
-                                                <div class="input-group-icon"><i class="las la-ruler-combined" onclick="idSolicitud(registrarSolicitud);"></i></div>
+                                                <div class="input-group-icon"><i class="las la-ruler-combined" onclick="idSolicitud(registrarSolicitud)"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="selectTipoPrueba">
                                                 <div class="help-block with-errors"></div>
@@ -120,7 +120,7 @@ global$resultado;
                                                 <img src="" class="imgsMaterial" id="imagenMaterial" alt="Imagen Material">
                                             </div>
                                             <div class="form-group last col-sm-12 buttons" >
-                                                <button type="submit" id="submitRequest"  onclick="registrarSolicitud()" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
+                                                <button type="submit" id="submitRequest"  onclick="idSolicitud(registrarSolicitud)" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
                                                 <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
                                             </div><!-- end form-group -->
                                             <div class="sub-text">* Campos requeridos</div>

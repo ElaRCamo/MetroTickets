@@ -101,7 +101,7 @@ function registrarSolicitud(nuevoId) {
 
     console.log("El nuevo id guardado en otra variable es:", id_Solicitud);
 
-/*
+
     dataForm.append('tipoPrueba', tipoPrueba.value.trim());
     dataForm.append('norma', norma.value.trim());
     dataForm.append('normaFile', normaFile.value.trim());
@@ -134,5 +134,5 @@ function registrarSolicitud(nuevoId) {
         .catch(function (err) {
             console.log(err);
         });
-*/
+
 }
