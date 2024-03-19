@@ -55,7 +55,7 @@ function idPrueba() {
     });
 }
 */
-function idSolicitud(callback){
+function idSolicitud(callback) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function (data) {
         let idMaximo = data.data[0].max_id_prueba;
         var idMaxPartes = idMaximo.split("-");
@@ -72,41 +72,35 @@ function idSolicitud(callback){
         } else {
             nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
         }
-        //alert('nuevoId: ' + nuevoId);
 
+        // Llamar a la función de devolución de llamada con el nuevoId como argumento
         callback(nuevoId);
     });
-
 }
 
-function registrarSolicitud(){
-
+function registrarSolicitud(nuevoId) {
     const dataForm = new FormData();
 
-    var tipoPrueba         = id("tipoPrueba");
-    var norma              = id("norma");
-    var normaFile          = id("normaFile");
+    // Aquí van las operaciones que deseas realizar con el nuevoId y los demás datos del formulario
+    var tipoPrueba = id("tipoPrueba");
+    var norma = id("norma");
+    var normaFile = id("normaFile");
     var tipoPruebaEspecial = id("tipoPruebaEspecial");
-    var otroPrueba         = id("otroPrueba");
-    var numPiezas          = id("numPiezas");
-    var especificaciones   = id ("especificaciones");
+    var otroPrueba = id("otroPrueba");
+    var numPiezas = id("numPiezas");
+    var especificaciones = id("especificaciones");
 
     // Para agregar material por número de parte
-    var numParte           = id('numParte');
-    var descMaterial       = id('descMaterial');
-    var cdadMaterial       = id('cdadMaterial');
+    var numParte = id('numParte');
+    var descMaterial = id('descMaterial');
+    var cdadMaterial = id('cdadMaterial');
 
-    var fechaSolicitud= new Date();
+    var fechaSolicitud = new Date();
     var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
-    var id_prueba;
+    var id_Solicitud = nuevoId;
 
-    var id_Solicitud;
-    idSolicitud(function (nuevoId) {
-        // Guardar el nuevoId en otra variable
-        var id_Solicitud = nuevoId;
-        // Hacer lo que sea necesario con otroVariable
-        console.log("El nuevo id guardado en otra variable es:", id_Solicitud);
-    });
+    console.log("El nuevo id guardado en otra variable es:", id_Solicitud);
+
 /*
     dataForm.append('tipoPrueba', tipoPrueba.value.trim());
     dataForm.append('norma', norma.value.trim());
