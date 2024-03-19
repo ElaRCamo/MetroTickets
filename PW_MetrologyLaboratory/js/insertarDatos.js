@@ -108,7 +108,7 @@ function registrarSolicitud(){
 obtenerNuevoId().then(function(nuevoId) {
     id_prueba = nuevoId;
     console.log("El nuevo ID es:", id_prueba);
-    dataForm.append('id_prueba', id_prueba);
+    dataForm.append('id_prueba', id_prueba.toString());
     // Aquí puedes usar el nuevo ID obtenido
     console.log("Nuevo ID obtenido en otra función:", nuevoId);
 });
