@@ -60,9 +60,9 @@ function registrarSolicitud(){
     var tipoPrueba         = id("tipoPrueba");
     var norma              = id("norma");
     var normaFile          = id("normaFile");
-    //var tipoPruebaEspecial = id("tipoPruebaEspecial");
-    //var otroPrueba         = id("otroPrueba");
-    //var numPiezas          = id("numPiezas");
+    var tipoPruebaEspecial = id("tipoPruebaEspecial");
+    var otroPrueba         = id("otroPrueba");
+    var numPiezas          = id("numPiezas");
     var especificaciones   = id ("especificaciones");
 
     // Para agregar material por número de parte
@@ -73,28 +73,27 @@ function registrarSolicitud(){
     var fechaSolicitud= new Date();
     var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
 
-    var id_prueba;
-    idPrueba().then(function(nuevoId) {
-        id_prueba = nuevoId;
-        console.log("El nuevo ID es:", id_prueba);
-        /*dataForm.append('id_prueba', id_prueba);*/
-    });
 
     dataForm.append('tipoPrueba', tipoPrueba.value.trim());
     dataForm.append('norma', norma.value.trim());
     dataForm.append('normaFile', normaFile.value.trim());
-    //dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
-    //dataForm.append('otroPrueba', otroPrueba.value.trim());
-    //dataForm.append('numPiezas', numPiezas.value.trim());
+    dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
+    dataForm.append('otroPrueba', otroPrueba.value.trim());
+    dataForm.append('numPiezas', numPiezas.value.trim());
     dataForm.append('especificaciones', especificaciones.value.trim());
     dataForm.append('numParte', numParte.value.trim());
     dataForm.append('descMaterial', descMaterial.value.trim());
     dataForm.append('cdadMaterial', cdadMaterial.value.trim());
     dataForm.append('fechaSolicitud', fechaFormateada);
 
+    var id_prueba;
+    idPrueba().then(function(nuevoId) {
+        id_prueba = nuevoId;
+        console.log("El nuevo ID es:", id_prueba);
+        dataForm.append('id_prueba', id_prueba);
+    });
 
-
-    /* console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
+     console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
 
      fetch('../../dao/requestRegister.php', {
          method: 'POST',
@@ -113,5 +112,4 @@ function registrarSolicitud(){
          .catch(function (err) {
              console.log(err);
          });
- */
 }
