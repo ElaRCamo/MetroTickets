@@ -1,6 +1,4 @@
 <main>
-
-
     <div class="page-content">
         <div id="tittle">
             <div class="LAB">
@@ -11,14 +9,14 @@
             </div>
         </div>
         <div class="wrapper">
-            <form action="">
+            <form action="../../dao/login.php">
                 <h2 id="iniciarSesion">Iniciar Sesión</h2>
                 <div class="input-box">
-                    <input type="text" name="numNomina" placeholder="No. de nómina" required>
+                    <input type="text" name="numNomina" id="numNomina" placeholder="No. de nómina" required>
                     <i class="las la-user"></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <input type="password" name="password"  id="password" placeholder="Contraseña" required>
                     <i class="las la-lock"></i>
                 </div>
 
@@ -27,7 +25,7 @@
                     <a href="#">¿Has olvidado la contraseña?</a>
                 </div>
 
-                <button type="submit" class="btn login">Iniciar Sesión</button>
+                <button type="submit" class="btn login" id="iniciarSesionBtn">Iniciar Sesión</button>
 
                 <div class="register-link">
                     <p>¿No tienes cuenta? <a href="Register.php">REGÍSTRATE</a> </p>

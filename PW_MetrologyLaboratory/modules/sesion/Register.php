@@ -56,7 +56,7 @@
                 <button type="submit" id="registrarse" name="registrarse"  class="btn login" onclick="registrarUsuario()">Regístrarse</button>
 
                 <div class="register-link">
-                    <p>¿Ya tienes cuenta? <a href="Index.php">INGRESAR</a> </p>
+                    <p>¿Ya tienes cuenta? <a href="indexSesion.php">INGRESAR</a> </p>
                 </div>
             </form>
         </div>
