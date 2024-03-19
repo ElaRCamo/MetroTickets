@@ -52,6 +52,16 @@ function idPrueba() {
     });
 }
 
+function obtenerNuevoId() {
+    return idPrueba().then(function(nuevoId) {
+        // Aquí puedes hacer lo que quieras con nuevoId
+        console.log("obtenerNuevoId-Nuevo ID:", nuevoId);
+        return nuevoId; // Puedes devolverlo para usarlo fuera de esta función
+    }).catch(function(error) {
+        console.error("Error al obtener el nuevo ID:", error);
+    });
+}
+
 
 function registrarSolicitud(){
 
@@ -88,12 +98,20 @@ function registrarSolicitud(){
     dataForm.append('fechaSolicitud', fechaFormateada);
 
     var id_prueba;
+    /*
     idPrueba().then(function(nuevoId) {
         id_prueba = nuevoId;
         console.log("El nuevo ID es:", id_prueba);
         /*dataForm.append('id_prueba', id_prueba);*/
-    });
-
+   /* });
+*/
+obtenerNuevoId().then(function(nuevoId) {
+    id_prueba = nuevoId;
+    console.log("El nuevo ID es:", id_prueba);
+    dataForm.append('id_prueba', id_prueba);
+    // Aquí puedes usar el nuevo ID obtenido
+    console.log("Nuevo ID obtenido en otra función:", nuevoId);
+});
     console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
 
      fetch('../../dao/requestRegister.php', {
