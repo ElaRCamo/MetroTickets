@@ -47,7 +47,9 @@ function idPrueba() {
             } else {
                 nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
             }
+            alert("El nuevo id="+nuevoId);
             resolve(nuevoId); // Resolver la promesa con el nuevo ID
+
         });
     });
 }
