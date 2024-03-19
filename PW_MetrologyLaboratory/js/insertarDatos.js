@@ -44,12 +44,13 @@ function idPrueba() {
 
             if (anioIdMax === anio) {
                 nuevoId = anioIdMax + "-" + (parseInt(consecutivoId) + 1).toString().padStart(4, '0');
+                console.log("El nuevo id="+nuevoId);
             } else {
                 nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
+                console.log("El nuevo id="+nuevoId);
             }
-            alert("El nuevo id="+nuevoId);
-            resolve(nuevoId); // Resolver la promesa con el nuevo ID
 
+            resolve(nuevoId); // Resolver la promesa con el nuevo ID
         });
     });
 }
