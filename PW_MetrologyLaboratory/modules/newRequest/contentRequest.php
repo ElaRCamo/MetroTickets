@@ -120,7 +120,7 @@ global$resultado;
                                                 <img src="" class="imgsMaterial" id="imagenMaterial" alt="Imagen Material">
                                             </div>
                                             <div class="form-group last col-sm-12 buttons" >
-                                                <button type="submit" id="submitRequest"  onclick="idPrueba(registrarSolicitud)" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
+                                                <button type="submit" id="submitRequest"  onclick="registrarSolicitud()" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
                                                 <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
                                             </div><!-- end form-group -->
                                             <div class="sub-text">* Campos requeridos</div>

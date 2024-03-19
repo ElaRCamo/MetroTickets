@@ -54,85 +54,64 @@ function idPrueba() {
         });
     });
 }
-/*
-function idSolicitud(callback) {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function (data) {
-        let idMaximo = data.data[0].max_id_prueba;
-        var idMaxPartes = idMaximo.split("-");
 
-        var anioIdMax = parseInt(idMaxPartes[0]); // Convertir a número
-        var consecutivoId = idMaxPartes[1];
-        var fecha = new Date();
-        var anio = fecha.getFullYear();
-        var nuevoId;
+async function registrarSolicitud() {
+    try {
+        const id_prueba = await idPrueba();
+        const dataForm = new FormData();
+        // Aquí van las operaciones que deseas realizar con el nuevoId y los demás datos del formulario
+        var tipoPrueba = id("tipoPrueba");
+        var norma = id("norma");
+        var normaFile = id("normaFile");
+        //var tipoPruebaEspecial = id("tipoPruebaEspecial");
+        //var otroPrueba = id("otroPrueba");
+        //var numPiezas = id("numPiezas");
+        var especificaciones = id("especificaciones");
 
-        if (anioIdMax === anio) {
-            nuevoId = anioIdMax + "-" + (parseInt(consecutivoId) + 1).toString().padStart(4, '0');
+        // Para agregar material por número de parte
+        var numParte = id('numParte');
+        var descMaterial = id('descMaterial');
+        var cdadMaterial = id('cdadMaterial');
 
-        } else {
-            nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
-        }
+        var fechaSolicitud = new Date();
+        var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
 
-        // Llamar a la función de devolución de llamada con el nuevoId como argumento
-        callback(nuevoId);
-    });
-}*/
+        console.log("El nuevo id guardado en otra variable es:", id_prueba);
 
-function registrarSolicitud(nuevoId) {
-    const dataForm = new FormData();
-
-    // Aquí van las operaciones que deseas realizar con el nuevoId y los demás datos del formulario
-    var tipoPrueba = id("tipoPrueba");
-    var norma = id("norma");
-    var normaFile = id("normaFile");
-    //var tipoPruebaEspecial = id("tipoPruebaEspecial");
-    //var otroPrueba = id("otroPrueba");
-    //var numPiezas = id("numPiezas");
-    var especificaciones = id("especificaciones");
-
-    // Para agregar material por número de parte
-    var numParte = id('numParte');
-    var descMaterial = id('descMaterial');
-    var cdadMaterial = id('cdadMaterial');
-
-    var fechaSolicitud = new Date();
-    var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
-    var id_prueba = nuevoId;
-
-    console.log("El nuevo id guardado en otra variable es:", id_prueba);
-
-    dataForm.append('tipoPrueba', tipoPrueba.value.trim());
-    dataForm.append('norma', norma.value.trim());
-    dataForm.append('normaFile', normaFile.value.trim());
-    //dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
-    //dataForm.append('otroPrueba', otroPrueba.value.trim());
-    //dataForm.append('numPiezas', numPiezas.value.trim());
-    dataForm.append('especificaciones', especificaciones.value.trim());
-    dataForm.append('numParte', numParte.value.trim());
-    dataForm.append('descMaterial', descMaterial.value.trim());
-    dataForm.append('cdadMaterial', cdadMaterial.value.trim());
-    dataForm.append('fechaSolicitud', fechaFormateada);
-    dataForm.append('id_prueba', id_prueba);
+        dataForm.append('tipoPrueba', tipoPrueba.value.trim());
+        dataForm.append('norma', norma.value.trim());
+        dataForm.append('normaFile', normaFile.value.trim());
+        //dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
+        //dataForm.append('otroPrueba', otroPrueba.value.trim());
+        //dataForm.append('numPiezas', numPiezas.value.trim());
+        dataForm.append('especificaciones', especificaciones.value.trim());
+        dataForm.append('numParte', numParte.value.trim());
+        dataForm.append('descMaterial', descMaterial.value.trim());
+        dataForm.append('cdadMaterial', cdadMaterial.value.trim());
+        dataForm.append('fechaSolicitud', fechaFormateada);
+        dataForm.append('id_prueba', id_prueba);
 
 
-    console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
+        console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
 
-    fetch('../../dao/requestRegister.php', {
-        method: 'POST',
-        body: dataForm
-    })
-        .then(function (response) {
-            if (response.ok) { //respuesta
-                window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";
-            } else {
-                throw "Error en la llamada Ajax";
-            }
+        fetch('../../dao/requestRegister.php', {
+            method: 'POST',
+            body: dataForm
         })
-        .then(function (texto) {
-            console.log(texto);
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
-
+            .then(function (response) {
+                if (response.ok) { //respuesta
+                    window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";
+                } else {
+                    throw "Error en la llamada Ajax";
+                }
+            })
+            .then(function (texto) {
+                console.log(texto);
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+    } catch (error) {
+        console.log(error);
+    }
 }
