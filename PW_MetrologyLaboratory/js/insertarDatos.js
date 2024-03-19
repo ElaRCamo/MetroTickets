@@ -106,30 +106,31 @@ function registrarSolicitud(){
    /* });
 */
 obtenerNuevoId().then(function(nuevoId) {
-    id_prueba = nuevoId;
+    id_prueba = toString(nuevoId);
     console.log("El nuevo ID es:", id_prueba);
     dataForm.append('id_prueba', id_prueba.toString());
     // Aquí puedes usar el nuevo ID obtenido
     console.log("Nuevo ID obtenido en otra función:", nuevoId);
-});
     console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
+    fetch('../../dao/requestRegister.php', {
+        method: 'POST',
+        body: dataForm
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
 
-     fetch('../../dao/requestRegister.php', {
-         method: 'POST',
-         body: dataForm
-     })
-         .then(function (response) {
-             if (response.ok) { //respuesta
-                 window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";
-             } else {
-                 throw "Error en la llamada Ajax";
-             }
-         })
-         .then(function (texto) {
-             console.log(texto);
-         })
-         .catch(function (err) {
-             console.log(err);
-         });
+});
+
 
 }
