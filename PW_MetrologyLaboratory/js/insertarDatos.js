@@ -72,7 +72,7 @@ function registrarSolicitud(){
 
     var fechaSolicitud= new Date();
     var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
-
+    var id_prueba;
 
     dataForm.append('tipoPrueba', tipoPrueba.value.trim());
     dataForm.append('norma', norma.value.trim());
@@ -86,16 +86,15 @@ function registrarSolicitud(){
     dataForm.append('cdadMaterial', cdadMaterial.value.trim());
     dataForm.append('fechaSolicitud', fechaFormateada);
 
-    var id_prueba;
     idPrueba().then(function(nuevoId) {
         id_prueba = nuevoId;
         console.log("El nuevo ID es:", id_prueba);
         dataForm.append('id_prueba', id_prueba);
+        console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
+
     });
 
-     console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
-
-     fetch('../../dao/requestRegister.php', {
+    fetch('../../dao/requestRegister.php', {
          method: 'POST',
          body: dataForm
      })
