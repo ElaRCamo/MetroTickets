@@ -12,13 +12,16 @@ function Usuario($Nomina, $Password){
     $conexion=$con->conectar();
 
     $consP="SELECT id_usuario, nombreUsuario, id_tipoUsuario FROM Usuario WHERE id_usuario = '$Nomina' and passwordHash = '$Password'";
+    echo "<script>alert('.$consP.')</script>";
     $rsconsPro=mysqli_query($conexion,$consP);
+    echo "<script>alert('.$rsconsPro.')</script>";
 
     mysqli_close($conexion);
     $userData = array();
 
     if(mysqli_num_rows($rsconsPro) == 1){
         $row = mysqli_fetch_assoc($rsconsPro);
+        echo "<script>alert('.$row.')</script>";
         return array(
             'success' => true, // Indicador de éxito
             'tipoUsuario' => $row['tipoUsuario']
