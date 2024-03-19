@@ -22,6 +22,7 @@ if(isset($_POST['iniciarSesionBtn'])){
         $_SESSION['numNomina'] = $Nomina;
         $_SESSIOM['password'] = $Password;
         $tipoUsuario = $resultado['tipoUsuario'];
+        echo "<script>alert('Acceso correcto')</script>";
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\index.php'>";
     }else{
         echo "<script>alert('Acceso Denegado')</script>";
