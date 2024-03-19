@@ -25,9 +25,9 @@
                     <a href="#">¿Has olvidado la contraseña?</a>
                 </div>
 
-                <button type="submit" class="btn login" id="iniciarSesionBtn">Iniciar Sesión</button>
+                <button type="submit" class="btn login" id="iniciarSesionBtn" name="iniciarSesionBtn">Iniciar Sesión</button>
 
-                <div class="register-link">
+                <div class="register-link">s
                     <p>¿No tienes cuenta? <a href="Register.php">REGÍSTRATE</a> </p>
                 </div>
             </form>

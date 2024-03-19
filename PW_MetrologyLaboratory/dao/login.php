@@ -5,7 +5,7 @@ require 'daoUsuario.php';
 if(isset($_POST['iniciarSesionBtn'])){
 
     session_start();
-    $Nomina = $_POST['nomina'];
+    $Nomina = $_POST['numNomina'];
     $Password=$_POST['password'];
 
     if (strlen($Nomina) == 1) { $Nomina = "0000000".$Nomina; }
@@ -19,7 +19,7 @@ if(isset($_POST['iniciarSesionBtn'])){
     $resultado = Usuario($Nomina, $Password);
 
     if($resultado['success']){
-        $_SESSION['nomina'] = $Nomina;
+        $_SESSION['numNomina'] = $Nomina;
         $_SESSIOM['password'] = $Password;
         $tipoUsuario = $resultado['tipoUsuario'];
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\index.php'>";
