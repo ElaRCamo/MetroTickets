@@ -44,76 +44,74 @@ function idPrueba() {
 
             if (anioIdMax === anio) {
                 nuevoId = anioIdMax + "-" + (parseInt(consecutivoId) + 1).toString().padStart(4, '0');
-                console.log("El nuevo id="+nuevoId);
             } else {
                 nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
-                console.log("El nuevo id="+nuevoId);
             }
-
             resolve(nuevoId); // Resolver la promesa con el nuevo ID
         });
     });
 }
 
 
-async function registrarSolicitud() {
-    try {
-        const id_prueba = await idPrueba();
-        console.log("id_prueba:", id_prueba);
+function registrarSolicitud(){
 
-        const dataForm = new FormData();
-        var tipoPrueba = id("tipoPrueba");
-        var norma = id("norma");
-        var normaFile = id("normaFile");
-        //var tipoPruebaEspecial = id("tipoPruebaEspecial");
-        //var otroPrueba = id("otroPrueba");
-        //var numPiezas = id("numPiezas");
-        var especificaciones = id("especificaciones");
+    const dataForm = new FormData();
 
-        // Para agregar material por número de parte
-        var numParte = id('numParte');
-        var descMaterial = id('descMaterial');
-        var cdadMaterial = id('cdadMaterial');
+    var tipoPrueba         = id("tipoPrueba");
+    var norma              = id("norma");
+    var normaFile          = id("normaFile");
+    var tipoPruebaEspecial = id("tipoPruebaEspecial");
+    var otroPrueba         = id("otroPrueba");
+    var numPiezas          = id("numPiezas");
+    var especificaciones   = id ("especificaciones");
 
-        var fechaSolicitud = new Date();
-        var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
+    // Para agregar material por número de parte
+    var numParte           = id('numParte');
+    var descMaterial       = id('descMaterial');
+    var cdadMaterial       = id('cdadMaterial');
 
-        console.log("El nuevo id guardado en otra variable es:", id_prueba);
+    var fechaSolicitud= new Date();
+    var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
 
-        dataForm.append('tipoPrueba', tipoPrueba.value.trim());
-        dataForm.append('norma', norma.value.trim());
-        dataForm.append('normaFile', normaFile.value.trim());
-        //dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
-        //dataForm.append('otroPrueba', otroPrueba.value.trim());
-        //dataForm.append('numPiezas', numPiezas.value.trim());
-        dataForm.append('especificaciones', especificaciones.value.trim());
-        dataForm.append('numParte', numParte.value.trim());
-        dataForm.append('descMaterial', descMaterial.value.trim());
-        dataForm.append('cdadMaterial', cdadMaterial.value.trim());
-        dataForm.append('fechaSolicitud', fechaFormateada);
-        dataForm.append('id_prueba', id_prueba.toString());
 
-        console.log("Form Data:", dataForm);
 
-        fetch('../../dao/requestRegister.php', {
-            method: 'POST',
-            body: dataForm
-        })
-            .then(function (response) {
-                if (response.ok) {
-                    return response.text(); // Retornar el texto de la respuesta si es exitosa
-                } else {
-                    throw "Error en la llamada Ajax";
-                }
-            })
-            .then(function (texto) {
-                console.log("Respuesta del servidor:", texto);
-                window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";
-            })
-            .catch(function (err) {
-                console.error("Error en fetch:", err);
-            });
-    } catch (error) {
-        console.error("Error en registrarSolicitud:", error);
-    }
+    dataForm.append('tipoPrueba', tipoPrueba.value.trim());
+    dataForm.append('norma', norma.value.trim());
+    dataForm.append('normaFile', normaFile.value.trim());
+    //dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
+    //dataForm.append('otroPrueba', otroPrueba.value.trim());
+    //dataForm.append('numPiezas', numPiezas.value.trim());
+    dataForm.append('especificaciones', especificaciones.value.trim());
+    dataForm.append('numParte', numParte.value.trim());
+    dataForm.append('descMaterial', descMaterial.value.trim());
+    dataForm.append('cdadMaterial', cdadMaterial.value.trim());
+    dataForm.append('fechaSolicitud', fechaFormateada);
+
+    var id_prueba;
+    idPrueba().then(function(nuevoId) {
+        id_prueba = nuevoId;
+        console.log("El nuevo ID es:", id_prueba);
+        /*dataForm.append('id_prueba', id_prueba);*/
+    });
+
+    /* console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
+
+     fetch('../../dao/requestRegister.php', {
+         method: 'POST',
+         body: dataForm
+     })
+         .then(function (response) {
+             if (response.ok) { //respuesta
+                 window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";
+             } else {
+                 throw "Error en la llamada Ajax";
+             }
+         })
+         .then(function (texto) {
+             console.log(texto);
+         })
+         .catch(function (err) {
+             console.log(err);
+         });
+ */
 }
