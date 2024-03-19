@@ -30,7 +30,7 @@ function registrarUsuario(){
             console.log(err);
         });
 }
-
+/*
 function idPrueba() {
     return new Promise(function(resolve, reject) {
         $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function(data) {
@@ -52,6 +52,25 @@ function idPrueba() {
 
             resolve(nuevoId); // Resolver la promesa con el nuevo ID
         });
+    });
+}
+*/
+function idSolicitud(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function (data) {
+        let idMaximo = data.data[0].max_id_prueba;
+        var idMaxPartes = idMaximo.split("-");
+        var anioIdMax = parseInt(idMaxPartes[0]); // Convertir a número
+        var consecutivoId = idMaxPartes[1];
+        var fecha = new Date();
+        var anio = fecha.getFullYear();
+        var nuevoId;
+
+        if (anioIdMax === anio) {
+            nuevoId = anioIdMax + "-" + (parseInt(consecutivoId) + 1).toString().padStart(4, '0');
+        } else {
+            nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
+        }
+        resolve(nuevoId);
     });
 }
 
@@ -77,6 +96,11 @@ function registrarSolicitud(){
     var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
     var id_prueba;
 
+    idSolicitud().then(function(nuevoId) {
+        id_prueba = nuevoId;
+        console.log("El nuevo ID es:", id_prueba);
+    });
+
     dataForm.append('tipoPrueba', tipoPrueba.value.trim());
     dataForm.append('norma', norma.value.trim());
     dataForm.append('normaFile', normaFile.value.trim());
@@ -90,12 +114,7 @@ function registrarSolicitud(){
     dataForm.append('fechaSolicitud', fechaFormateada);
     dataForm.append('id_prueba', '1234');
 
-    idPrueba().then(function(nuevoId) {
-        id_prueba = nuevoId;
-        console.log("El nuevo ID es:", id_prueba);
 
-
-    });
     console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
     fetch('../../dao/requestRegister.php', {
         method: 'POST',
