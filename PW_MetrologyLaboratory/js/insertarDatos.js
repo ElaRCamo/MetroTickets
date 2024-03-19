@@ -137,6 +137,7 @@ function registrarSolicitud(){
 async function registrarSolicitud() {
     try {
         var id_prueba = await obtenerNuevoId(); // Esperar a que se resuelva la promesa y obtener el nuevo ID
+        console.log("registrarSolicitud-Nuevo ID(1):", id_prueba);
 
         const dataForm = new FormData();
 
