@@ -67,12 +67,10 @@ function idSolicitud(){
 
         if (anioIdMax === anio) {
             nuevoId = anioIdMax + "-" + (parseInt(consecutivoId) + 1).toString().padStart(4, '0');
-            console.log("El nuevo ID es:", nuevoId);
         } else {
             nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
-            console.log("El nuevo ID es:", nuevoId);
         }
-        resolve(nuevoId);
+        console.log("El nuevo ID es:", nuevoId);
     });
 }
 
