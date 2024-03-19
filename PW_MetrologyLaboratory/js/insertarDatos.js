@@ -105,7 +105,7 @@ function registrarSolicitud(){
         id_Solicitud = nuevoId;
         console.log("El nuevo ID es:", id_Solicitud);
     });
-
+/*
     dataForm.append('tipoPrueba', tipoPrueba.value.trim());
     dataForm.append('norma', norma.value.trim());
     dataForm.append('normaFile', normaFile.value.trim());
@@ -138,5 +138,5 @@ function registrarSolicitud(){
         .catch(function (err) {
             console.log(err);
         });
-
+*/
 }
