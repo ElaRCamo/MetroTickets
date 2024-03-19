@@ -55,11 +55,13 @@ function idPrueba() {
     });
 }
 
+
 async function registrarSolicitud() {
     try {
         const id_prueba = await idPrueba();
+        console.log("id_prueba:", id_prueba);
+
         const dataForm = new FormData();
-        // Aquí van las operaciones que deseas realizar con el nuevoId y los demás datos del formulario
         var tipoPrueba = id("tipoPrueba");
         var norma = id("norma");
         var normaFile = id("normaFile");
@@ -89,29 +91,29 @@ async function registrarSolicitud() {
         dataForm.append('descMaterial', descMaterial.value.trim());
         dataForm.append('cdadMaterial', cdadMaterial.value.trim());
         dataForm.append('fechaSolicitud', fechaFormateada);
-        dataForm.append('id_prueba', id_prueba);
+        dataForm.append('id_prueba', id_prueba.toString());
 
-
-        console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
+        console.log("Form Data:", dataForm);
 
         fetch('../../dao/requestRegister.php', {
             method: 'POST',
             body: dataForm
         })
             .then(function (response) {
-                if (response.ok) { //respuesta
-                    window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";
+                if (response.ok) {
+                    return response.text(); // Retornar el texto de la respuesta si es exitosa
                 } else {
                     throw "Error en la llamada Ajax";
                 }
             })
             .then(function (texto) {
-                console.log(texto);
+                console.log("Respuesta del servidor:", texto);
+                window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Index.php";
             })
             .catch(function (err) {
-                console.log(err);
+                console.error("Error en fetch:", err);
             });
     } catch (error) {
-        console.log(error);
+        console.error("Error en registrarSolicitud:", error);
     }
 }
