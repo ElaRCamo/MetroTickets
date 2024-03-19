@@ -55,7 +55,7 @@ function idPrueba() {
     });
 }
 */
-function idSolicitud(){
+function idSolicitud(callback){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function (data) {
         let idMaximo = data.data[0].max_id_prueba;
         var idMaxPartes = idMaximo.split("-");
@@ -72,9 +72,9 @@ function idSolicitud(){
         } else {
             nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
         }
-        alert('nuevoId: ' + nuevoId);
-        console.log('anioId: ' + anioIdMax + ' consecutivoId: ' + consecutivoId + ' año actual:' + anio);
-        console.log(anioIdMax === anio);
+        //alert('nuevoId: ' + nuevoId);
+
+        callback(nuevoId);
     });
 
 }
@@ -101,9 +101,11 @@ function registrarSolicitud(){
     var id_prueba;
 
     var id_Solicitud;
-    idSolicitud().then(function(nuevoId) {
-        id_Solicitud = nuevoId;
-        console.log("El nuevo ID es:", id_Solicitud);
+    idSolicitud(function (nuevoId) {
+        // Guardar el nuevoId en otra variable
+        var id_Solicitud = nuevoId;
+        // Hacer lo que sea necesario con otroVariable
+        console.log("El nuevo id guardado en otra variable es:", id_Solicitud);
     });
 /*
     dataForm.append('tipoPrueba', tipoPrueba.value.trim());
