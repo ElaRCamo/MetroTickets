@@ -97,7 +97,7 @@ function registrarSolicitud(){
     dataForm.append('cdadMaterial', cdadMaterial.value.trim());
     dataForm.append('fechaSolicitud', fechaFormateada);
 
-    var id_prueba;
+    var id_prueba = obtenerNuevoId();
     /*
     idPrueba().then(function(nuevoId) {
         id_prueba = nuevoId;
@@ -105,14 +105,11 @@ function registrarSolicitud(){
         /*dataForm.append('id_prueba', id_prueba);*/
    /* });
 */
-obtenerNuevoId().then(function(nuevoId) {
-    id_prueba = nuevoId;
+
     console.log("El nuevo ID es:", id_prueba);
     dataForm.append('id_prueba', id_prueba.toString());
     // Aquí puedes usar el nuevo ID obtenido
-    console.log("Nuevo ID obtenido en otra función:", nuevoId);
     console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
-});
 
 
      fetch('../../dao/requestRegister.php', {
