@@ -30,7 +30,7 @@ function registrarUsuario(){
             console.log(err);
         });
 }
-/*
+
 function idPrueba() {
     return new Promise(function(resolve, reject) {
         $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function(data) {
@@ -54,7 +54,7 @@ function idPrueba() {
         });
     });
 }
-*/
+/*
 function idSolicitud(callback) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function (data) {
         let idMaximo = data.data[0].max_id_prueba;
@@ -76,7 +76,7 @@ function idSolicitud(callback) {
         // Llamar a la función de devolución de llamada con el nuevoId como argumento
         callback(nuevoId);
     });
-}
+}*/
 
 function registrarSolicitud(nuevoId) {
     const dataForm = new FormData();
