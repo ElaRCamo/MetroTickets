@@ -97,7 +97,7 @@ function registrarSolicitud(nuevoId) {
 
     var fechaSolicitud = new Date();
     var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
-    var id_Solicitud = nuevoId;
+    var id_prueba = nuevoId;
 
     console.log("El nuevo id guardado en otra variable es:", id_Solicitud);
 
@@ -113,10 +113,11 @@ function registrarSolicitud(nuevoId) {
     dataForm.append('descMaterial', descMaterial.value.trim());
     dataForm.append('cdadMaterial', cdadMaterial.value.trim());
     dataForm.append('fechaSolicitud', fechaFormateada);
-    dataForm.append('id_prueba', '1234');
+    dataForm.append('id_prueba', id_prueba);
 
 
     console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
+
     fetch('../../dao/requestRegister.php', {
         method: 'POST',
         body: dataForm
