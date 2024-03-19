@@ -99,7 +99,7 @@ function registrarSolicitud(nuevoId) {
     var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
     var id_prueba = nuevoId;
 
-    console.log("El nuevo id guardado en otra variable es:", id_Solicitud);
+    console.log("El nuevo id guardado en otra variable es:", id_prueba);
 
 
     dataForm.append('tipoPrueba', tipoPrueba.value.trim());
