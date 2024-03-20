@@ -25,10 +25,10 @@ if(isset($_POST['iniciarSesionBtn'])){
         $tipoUsuario = $resultado['tipoUsuario'];
         echo "<script>alert('Acceso correcto')</script>";
         if($tipoUsuario == 1){
-            echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\index.php'>";
+            header("Location: ../index.php");
             echo "<script>alert('administrador')</script>";
         }elseif ($tipoUsuario == 2){
-            header("Location: ..requestsIndex.php");
+            header("Location: ../modules/requests/requestsIndex.php");
             echo "<script>alert('metrologo')</script>";
         }elseif ($tipoUsuario == 3){
             echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=../modules/newRequest/newRequestIndex.php'>";

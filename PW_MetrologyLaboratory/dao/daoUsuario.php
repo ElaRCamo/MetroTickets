@@ -8,12 +8,10 @@ Usuario($Nomina, $Password);*/
 
 
 function Usuario($Nomina, $Password){
-    echo "<script>console.log('Entrando daoUsuario')</script>";
     $con = new LocalConector();
     $conexion=$con->conectar();
 
     $consP="SELECT id_usuario, nombreUsuario, id_tipoUsuario FROM Usuario WHERE id_usuario = '$Nomina' and passwordHash = '$Password'";
-
     $rsconsPro=mysqli_query($conexion,$consP);
 
     mysqli_close($conexion);
@@ -21,7 +19,6 @@ function Usuario($Nomina, $Password){
 
     if(mysqli_num_rows($rsconsPro) == 1){
         $row = mysqli_fetch_assoc($rsconsPro);
-
         return array(
             'success' => true, // Indicador de éxito
             'tipoUsuario' => $row['id_tipoUsuario']
