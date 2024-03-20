@@ -27,7 +27,7 @@
 
                 <button type="submit" class="btn login" name="iniciarSesionBtn">Iniciar Sesión</button>
 
-                <div class="register-link">s
+                <div class="register-link">
                     <p>¿No tienes cuenta? <a href="Register.php">REGÍSTRATE</a> </p>
                 </div>
             </form>
