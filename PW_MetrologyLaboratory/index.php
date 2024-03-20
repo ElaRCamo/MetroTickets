@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="imgs/Grammer_Logo.ico" type="image/x-icon">
-    <title>Solicitudes</title>
+    <title>Bienvenido</title>
 
     <!--Enlace de iconos: icons8, licencia con mención -->
     <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
@@ -16,15 +16,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <?php
-    session_start();
-    if ($_SESSION["numNomina"] == "" && $_SESSION["password"]== "") {
-        echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php'>";
-        session_destroy();
-    }else{
-        session_start();
-    }
+    require_once('dao/validarAdministrador.php');
     ?>
-
 </head>
 <body>
     <?php
