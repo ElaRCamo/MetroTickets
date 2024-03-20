@@ -18,7 +18,7 @@
     <?php
     session_start();
     if ($_SESSION["nomina"] == "" && $_SESSION["password"]== "") {
-        echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=index.html'>";
+        echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/index.php'>";
         session_destroy();
     }else{
         session_start();
