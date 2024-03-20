@@ -24,20 +24,18 @@ if(isset($_POST['iniciarSesionBtn'])){
         $_SESSIOM['password'] = $Password;
         $tipoUsuario = $resultado['tipoUsuario'];
         echo "<script>alert('Acceso correcto')</script>";
+
         if($tipoUsuario == 1){
             header("Location: ../index.php");
-            echo "<script>alert('administrador')</script>";
         }elseif ($tipoUsuario == 2){
             header("Location: ../modules/requests/requestsIndex.php");
-            echo "<script>alert('metrologo')</script>";
         }elseif ($tipoUsuario == 3){
             echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=../modules/newRequest/newRequestIndex.php'>";
-            echo "<script>alert('solicitante')</script>";
         }
 
     }else{
         echo "<script>alert('Acceso Denegado')</script>";
-        echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\sesion\indexSesion.php'>";
+        echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=..modules/sesion/indexSesion.php'>";
     }
 }
 
