@@ -22,7 +22,6 @@ if(isset($_POST['iniciarSesionBtn'])){
         $_SESSION['numNomina'] = $Nomina;
         $_SESSIOM['password'] = $Password;
         $tipoUsuario = $resultado['tipoUsuario'];
-        echo "<script>alert('Acceso correcto')</script>";
 
         if($tipoUsuario == 1){
             header("Location: ../index.php");
@@ -31,9 +30,10 @@ if(isset($_POST['iniciarSesionBtn'])){
         }elseif ($tipoUsuario == 3){
             echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=../modules/newRequest/newRequestIndex.php'>";
         }
+        echo "<script>alert('Acceso correcto')</script>";
     }else{
-        echo "<script>alert('Acceso Denegado')</script>";
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=../modules/sesion/indexSesion.php'>";
+        echo "<script>alert('Acceso Denegado')</script>";
     }
 }
 
