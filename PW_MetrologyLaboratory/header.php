@@ -36,9 +36,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\settings\settingsIndex.php" class="optionMenu">
+                    <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\administrator\administratorIndex.php" class="optionMenu">
                         <span class="las la-cog"></span>
-                        <small>Configuraciones</small>
+                        <small>Administrar</small>
                     </a>
                 </li>
                 <li>
