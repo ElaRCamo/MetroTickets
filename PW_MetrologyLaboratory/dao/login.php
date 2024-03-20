@@ -28,10 +28,10 @@ if(isset($_POST['iniciarSesionBtn'])){
             echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\index.php'>";
             echo "<script>alert('administrador')</script>";
         }elseif ($tipoUsuario == 2){
-            header("Location: ..\index.php");
+            header("Location: ..\modules\requests\requestsIndex.php");
             echo "<script>alert('metrologo')</script>";
         }elseif ($tipoUsuario == 3){
-            echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=..\index.php'>";
+            echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=..\modules\newRequest\newRequestIndex.php'>";
             echo "<script>alert('solicitante')</script>";
         }
 

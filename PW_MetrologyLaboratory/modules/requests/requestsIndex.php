@@ -23,7 +23,7 @@
             require_once('../../navbar.php');
 
         # Content section
-            require_once('contentSearch.php');
+            require_once('contentRequests.php');
         # Content section
     require_once('../../footer.php')
     ?>

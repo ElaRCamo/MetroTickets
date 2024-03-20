@@ -24,9 +24,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\search\searchIndex.php" class="optionMenu">
-                        <span class="las la-search"></span>
-                        <small>Buscar</small>
+                    <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\requests\requestsIndex.php" class="optionMenu">
+                        <span class="las la-list-ol"></span>
+                        <small>Solicitudes</small>
                     </a>
                 </li>
                 <li>
