@@ -28,12 +28,12 @@ if(isset($_POST['iniciarSesionBtn'])){
         }elseif ($tipoUsuario == 2){
             header("Location: ../modules/requests/requestsIndex.php");
         }elseif ($tipoUsuario == 3){
-            echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=../modules/newRequest/newRequestIndex.php'>";
+            header("Location: ../modules/newRequest/newRequestIndex.php");
         }
         echo "<script>alert('Acceso correcto')</script>";
     }else{
-        echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=../modules/sesion/indexSesion.php'>";
         echo "<script>alert('Acceso Denegado')</script>";
+        header("Location: ../modules/sesion/indexSesion.php");
     }
 }
 
