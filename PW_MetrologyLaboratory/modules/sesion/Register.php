@@ -36,7 +36,7 @@
         <div class="wrapper wrapper-register">
             <form id="registrarseForm" method="POST">
                 <h2 id="registrarse">Regístrarse</h2>
-                <div id=aviso></div>
+                <div id=aviso style='align-content:center;'></div>
                 <div class="input-box">
                     <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre Completo" required>
                     <i class="las la-user-alt"></i>
