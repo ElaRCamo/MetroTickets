@@ -30,7 +30,7 @@ if(isset($_POST['iniciarSesionBtn'])){
     }
 }
 
-if($_POST['cerrarSesion'] || $_POST['cerrarS'] !== null){
+if(isset($_POST['cerrarSesion']) || (isset($_POST['cerrarS']))){
     session_start();
     session_destroy();
     echo "<script>alert('Sesión cerrada exitosamente')</script>";

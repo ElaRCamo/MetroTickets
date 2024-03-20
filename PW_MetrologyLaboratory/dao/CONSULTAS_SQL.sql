@@ -165,3 +165,10 @@ END;
 //
 
 DELIMITER ;
+
+
+
+
+
+INSERT INTO `Usuario` (`id_usuario`, `nombreUsuario`, `correoElectronico`, `passwordHash`, `id_tipoUsuario`, `id_areaTrabajo`, `puesto`)
+VALUES ('00030293', 'Mariela Reyes Camo', 'extern.mariela.reyes@grammer.com', '123456', '1', '3', 'Trainee');
