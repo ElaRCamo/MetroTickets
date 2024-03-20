@@ -13,9 +13,8 @@ function Usuario($Nomina, $Password){
     $conexion=$con->conectar();
 
     $consP="SELECT id_usuario, nombreUsuario, id_tipoUsuario FROM Usuario WHERE id_usuario = '$Nomina' and passwordHash = '$Password'";
-    echo "<script>console.log('.$consP.')</script>";
+
     $rsconsPro=mysqli_query($conexion,$consP);
-    echo "<script>alert('.$rsconsPro.')</script>";
 
     mysqli_close($conexion);
     $userData = array();
