@@ -49,7 +49,6 @@ body{
     outline: none;
     border: 2px solid rgba(255,255,255,0.2);
     border-radius: 40px;
-    font-size: 1.2rem;
     color: #fff;
     padding: 20px 45px 20px 20px; /*ubicar contenido del input*/
 }

@@ -1,7 +1,7 @@
 <main>
     <div class="page-header">
-        <h1>Solicitudes</h1>
-        <small>Configuraciones </small>
+        <h1>Reportes</h1>
+        <small>Genera un nuevo reporte</small>
     </div>
 
     <div class="page-content">
