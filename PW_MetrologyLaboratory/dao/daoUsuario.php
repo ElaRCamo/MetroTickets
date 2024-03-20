@@ -21,10 +21,10 @@ function Usuario($Nomina, $Password){
 
     if(mysqli_num_rows($rsconsPro) == 1){
         $row = mysqli_fetch_assoc($rsconsPro);
-        echo "<script>alert('.$row.')</script>";
+
         return array(
             'success' => true, // Indicador de éxito
-            'tipoUsuario' => $row['tipoUsuario']
+            'tipoUsuario' => $row['id_tipoUsuario']
         );
     }
     else{

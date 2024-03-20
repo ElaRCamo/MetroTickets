@@ -35,7 +35,6 @@ if(isset($_POST['iniciarSesionBtn'])){
             echo "<script>alert('solicitante')</script>";
         }
 
-
     }else{
         echo "<script>alert('Acceso Denegado')</script>";
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\sesion\indexSesion.php'>";
