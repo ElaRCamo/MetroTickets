@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="wrapper">
-            <form action="../../dao/login.php">
+            <form action="../../dao/login.php" method="post" >
                 <h2 id="iniciarSesion">Iniciar Sesión</h2>
                 <div class="input-box">
                     <input type="text" name="numNomina" id="numNomina" placeholder="No. de nómina" required>
@@ -25,7 +25,7 @@
                     <a href="#">¿Has olvidado la contraseña?</a>
                 </div>
 
-                <button type="submit" class="btn login" id="iniciarSesionBtn" name="iniciarSesionBtn">Iniciar Sesión</button>
+                <button type="submit" class="btn login" name="iniciarSesionBtn">Iniciar Sesión</button>
 
                 <div class="register-link">s
                     <p>¿No tienes cuenta? <a href="Register.php">REGÍSTRATE</a> </p>

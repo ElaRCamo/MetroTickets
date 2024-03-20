@@ -8,11 +8,12 @@ Usuario($Nomina, $Password);*/
 
 
 function Usuario($Nomina, $Password){
+    echo "<script>console.log('Entrando daoUsuario')</script>";
     $con = new LocalConector();
     $conexion=$con->conectar();
 
     $consP="SELECT id_usuario, nombreUsuario, id_tipoUsuario FROM Usuario WHERE id_usuario = '$Nomina' and passwordHash = '$Password'";
-    echo "<script>alert('.$consP.')</script>";
+    echo "<script>console.log('.$consP.')</script>";
     $rsconsPro=mysqli_query($conexion,$consP);
     echo "<script>alert('.$rsconsPro.')</script>";
 

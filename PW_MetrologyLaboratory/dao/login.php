@@ -7,6 +7,7 @@ if(isset($_POST['iniciarSesionBtn'])){
     session_start();
     $Nomina = $_POST['numNomina'];
     $Password=$_POST['password'];
+    echo "<script>alert('sesion iniciada')</script>";
 
     if (strlen($Nomina) == 1) { $Nomina = "0000000".$Nomina; }
     if (strlen($Nomina) == 2) { $Nomina = "000000".$Nomina; }
