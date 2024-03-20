@@ -12,7 +12,7 @@
         <div class="side-menu" id="menuLateral">
             <ul >
                 <li>
-                    <a href="index.php" class="optionMenu active">
+                    <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\index.php" class="optionMenu">
                         <span class="las la-home"></span>
                         <small>Inicio</small>
                     </a>
