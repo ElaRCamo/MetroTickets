@@ -34,7 +34,7 @@ if(isset($_POST['cerrarSesion']) || (isset($_POST['cerrarS']))){
     session_start();
     session_destroy();
     echo "<script>alert('Sesión cerrada exitosamente')</script>";
-    echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=indexSesion.html'>";
+    echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\index.php'>";
 }
 
 ?>
