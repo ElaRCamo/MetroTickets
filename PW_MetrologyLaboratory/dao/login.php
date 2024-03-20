@@ -29,16 +29,12 @@ if(isset($_POST['iniciarSesionBtn'])){
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\sesion\indexSesion.php'>";
     }
 }
-/*
-if(isset($_POST['btnSalir'])){
+
+if($_POST['cerrarSesion'] || $_POST['cerrarS'] !== null){
     session_start();
     session_destroy();
     echo "<script>alert('Sesión cerrada exitosamente')</script>";
     echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=indexSesion.html'>";
 }
 
-if(isset($_POST['btnRegistro'])){
-    echo "<script>alert('Acceso Correcto')</script>";
-}
-*/
 ?>

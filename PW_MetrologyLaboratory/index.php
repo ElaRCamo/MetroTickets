@@ -17,8 +17,7 @@
     <link rel="stylesheet" href="css/style.css">
     <?php
     session_start();
-
-    if ($_SESSION["nomina"] == "" && $_SESSION["nomina"]== null && $_SESSION["password"]== "" && $_SESSION["password"]== null) {
+    if ($_SESSION["nomina"] == "" && $_SESSION["password"]== "") {
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=index.html'>";
         session_destroy();
     }else{
