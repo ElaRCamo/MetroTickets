@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="wrapper">
-            <form action="../../dao/login.php" method="post" >
+            <form id="formInicioSesion" action="../../dao/login.php" method="post" >
                 <h2 id="iniciarSesion">Iniciar Sesión</h2>
                 <div class="input-box">
                     <input type="text" name="numNomina" id="numNomina" placeholder="No. de nómina" required>

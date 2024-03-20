@@ -36,6 +36,7 @@
         <div class="wrapper wrapper-register">
             <form id="registrarseForm" method="POST">
                 <h2 id="registrarse">Regístrarse</h2>
+                <div id=aviso></div>
                 <div class="input-box">
                     <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre Completo" required>
                     <i class="las la-user-alt"></i>
@@ -66,6 +67,20 @@
 # Content section
 require_once('../../footer.php')
 ?>
+<script>
+    const registrarseForm = document.getElementById('registrarseForm');
+    const correoInput = document.getElementById('correo');
+
+    registrarseForm.addEventListener('submit', function(event) {
+        const correo = correoInput.value.trim();
+        const dominioPermitido = '@grammer.com';
+
+        if (!correo.endsWith(dominioPermitido)) {
+            event.preventDefault(); // Evita el envío del formulario
+            document.getElementById('aviso').innerHTML="<label style='color:red;'>El correo debe tener el dominio '@grammer.com'</label>";
+        }
+    });
+</script>
 <script src="../../js/general.js"></script>
 <script src="../../js/insertarDatos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
