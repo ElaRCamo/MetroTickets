@@ -1,5 +1,6 @@
 <?php
 session_start();
+/*
 require_once('daoUsuario.php');
 
 if (!isset($_SESSION["numNomina"]) || !isset($_SESSION["password"])) {
@@ -30,5 +31,5 @@ if (!isset($_SESSION["numNomina"]) || !isset($_SESSION["password"])) {
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php'>";
         echo "<script>alert('El usuario no existe')</script>";
     }
-}
+}*/
 ?>
