@@ -21,9 +21,14 @@
         $tipoUser = $_SESSION['tipoUsuario'];
 
         if($tipoUser == 2){
-            header("Location: modules/requests/requestsIndex.php");
+            echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php'>";
+            echo "<script>alert('Permisos Insuficientes')</script>";
         }elseif ($tipoUser == 3){
-                header("Location: modules/newRequest/newRequestIndex.php");
+            echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/newRequest/newRequestIndex.php'>";
+            echo "<script>alert('Permisos Insuficientes')</script>";
+        }elseif ($tipoUser != 1){
+            echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\sesion\indexSesion.php'>";
+            echo "<script>alert('Favor de iniciar sesión')</script>";
         }
     ?>
 
