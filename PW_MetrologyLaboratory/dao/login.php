@@ -34,8 +34,8 @@ if(isset($_POST['iniciarSesionBtn'])){
                 header("Location: ../modules/newRequest/newRequestIndex.php");
             }
             echo "<script>alert('Acceso correcto')</script>";
-        }else{
-            echo "<META HTTP-EQUIV='' CONTENT='URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\sesion\indexSesion.php'>";
+        } else {
+            echo "<META HTTP-EQUIV='REFRESH' CONTENT='URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\sesion\indexSesion.php'>";
             echo "<script>alert('Contraseña incorrecta, verifique sus datos')</script>";
         }
     }else{
