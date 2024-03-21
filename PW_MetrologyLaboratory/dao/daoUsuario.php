@@ -17,14 +17,14 @@ function Usuario($Nomina, $Password){
     mysqli_close($conexion);
     echo ($consP);
     if(mysqli_num_rows($rsconsPro) > 0){
-
+        $row = mysqli_fetch_assoc($rsconsPro);
         $rows = $rsconsPro ->fetch_assoc();
         $password_bd = $rows ['passwordHash'];
         $pass_c = sha1($Password);
         echo($password_bd == $pass_c);
 
         if($password_bd == $pass_c){
-            $row = mysqli_fetch_assoc($rsconsPro);
+
             return array(
                 'success' => true, // Indicador de éxito
                 'tipoUsuario' => $row['id_tipoUsuario']
