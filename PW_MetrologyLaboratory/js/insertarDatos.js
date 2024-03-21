@@ -109,7 +109,7 @@ async function registrarSolicitud() {
         })
             .then(function (response) {
                 if (response.ok) { //respuesta
-                    window.location.href = "../modules/sesion/indexSesion.php";
+                    window.location.href = "../modules/requests/requestsIndex.php";
                 } else {
                     throw "Error en la llamada Ajax";
                 }
