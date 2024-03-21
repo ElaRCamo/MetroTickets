@@ -12,21 +12,25 @@ if(isset($_POST['iniciarSesionBtn'])){
         $Nomina = str_pad($Nomina, 8, "0", STR_PAD_LEFT);
     }
 
-    $resultado = Usuario($Nomina, $Password);
+    $resultado = Usuario($Nomina);
 
     if($resultado['success']){
         $_SESSION['numNomina'] = $Nomina;
         $_SESSIOM['password'] = $Password;
+        $password_bd = $resultado['password_bd'];
         $tipoUsuario = $resultado['tipoUsuario'];
+        $passwordS = sha1($Password);
 
-        if($tipoUsuario == 1){
-            header("Location: ../index.php");
-        }elseif ($tipoUsuario == 2){
-            header("Location: ../modules/requests/requestsIndex.php");
-        }elseif ($tipoUsuario == 3){
-            header("Location: ../modules/newRequest/newRequestIndex.php");
+        if($password_bd == $passwordS){
+            if($tipoUsuario == 1){
+                header("Location: ../index.php");
+            }elseif ($tipoUsuario == 2){
+                header("Location: ../modules/requests/requestsIndex.php");
+            }elseif ($tipoUsuario == 3){
+                header("Location: ../modules/newRequest/newRequestIndex.php");
+            }
+            echo "<script>alert('Acceso correcto')</script>";
         }
-        echo "<script>alert('Acceso correcto')</script>";
     }else{
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\sesion\indexSesion.php'>";
         echo "<script>alert('Acceso Denegado')</script>";
