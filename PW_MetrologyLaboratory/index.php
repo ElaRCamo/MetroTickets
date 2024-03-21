@@ -26,6 +26,7 @@
             require_once('header.php');
             require_once('navbar.php');
         # Content section
+    echo $nombreUsuario;
             require_once('contentIndex.php');
         # Content section
             require_once('footer.php')
