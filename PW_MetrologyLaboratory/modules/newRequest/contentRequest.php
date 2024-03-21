@@ -3,7 +3,7 @@ global$resultado;
     <div class="page-header row headerLogo">
         <div class="col divTitle">
             <h1> Solicitar una prueba </h1>
-            <h2>Bienvenido(a) <?php echo $nombreUsuario . ' (' . $idUsuario . ')'; ?></h2>
+            <h5>Bienvenido(a) <?php echo $nombreUser . ' (' . $idUsuario . ')'; ?></h5>
             <small>Favor de registrar los datos siguientes:</small>
         </div>
         <div class="logoRight col-sm-3">

@@ -1,6 +1,7 @@
 <?php
 include_once('connection.php');
-
+session_start();
+$idUsuario = $_SESSION['nomina'];
 $tipoPrueba     = $_POST['tipoPrueba'];
 $norma          = $_POST['norma'];
 $normaFile      = $_POST['normaFile'];
@@ -17,14 +18,14 @@ $id_prueba          = $_POST['id_prueba'];
 $fechaSolicitud     = $_POST['fechaSolicitud'];
 //$tipoPruebaEspecial, $otroPrueba, $numPiezas,
 
-RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba);
-function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)
+RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba);
+function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
 
     $insertSolicitud = "INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`) 
-                        VALUES ('$id_prueba', '$fechaSolicitud',  '$especificaciones', '$norma', '$normaFile', '00030299', '$tipoPrueba');";
+                        VALUES ('$id_prueba', '$fechaSolicitud',  '$especificaciones', '$norma', '$normaFile', $idUsuario, '$tipoPrueba');";
     $rInsertSolicitud = mysqli_query($conex,$insertSolicitud);
     $insertMaterial = "INSERT INTO `Material` (`id_prueba`, `numDeParte`, `cantidad`, `id_descripcion`) 
                         VALUES ('$id_prueba', '$numParte ', '$cdadMaterial', '$descMaterial');";
