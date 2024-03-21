@@ -21,9 +21,9 @@
         $tipoUser = $_SESSION['tipoUsuario'];
 
         if($tipoUser == 2){
-            header("Location: ../modules/requests/requestsIndex.php");
+            header("Location: modules/requests/requestsIndex.php");
         }elseif ($tipoUser == 3){
-                header("Location: ../modules/newRequest/newRequestIndex.php");
+                header("Location: modules/newRequest/newRequestIndex.php");
         }
     ?>
 
