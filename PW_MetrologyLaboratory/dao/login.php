@@ -1,5 +1,6 @@
 <?php
 
+global $nombreUsuario;
 require 'daoUsuario.php';
 
 if(isset($_POST['iniciarSesionBtn'])){
@@ -16,9 +17,13 @@ if(isset($_POST['iniciarSesionBtn'])){
 
     if($resultado['success']){
         $_SESSION['numNomina'] = $Nomina;
-        $_SESSIOM['password'] = $Password;
+        $_SESSION['password'] = $Password;
+        $_SESSION['nombreUsuario']= $nombreUsuario;
+
+        $nombreUsuario = $resultado['nombreUsuario'];
         $password_bd = $resultado['password_bd'];
         $tipoUsuario = $resultado['tipoUsuario'];
+
         $passwordS = sha1($Password);
 
         if($password_bd == $passwordS){

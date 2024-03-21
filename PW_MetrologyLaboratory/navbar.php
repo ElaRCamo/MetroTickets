@@ -1,3 +1,4 @@
+<?php global$nombreUsuario;?>
 <div class="main-content">
     <header>
         <div class="header-content">
@@ -6,6 +7,9 @@
             </label>
             <div class="header-menu">
                     <span class="las la-search"></span>
+                <div class="nav-item">
+                    <?php echo $nombreUsuario; ?>
+                </div>
 
                 <div class="notify-icon">
                     <span class="las la-bell"></span>

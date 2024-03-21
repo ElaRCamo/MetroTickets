@@ -1,5 +1,6 @@
 <?php
 session_start();
+$nombreUsuario = $_SESSION['nombreUsuario'];
 /*
 require_once('daoUsuario.php');
 

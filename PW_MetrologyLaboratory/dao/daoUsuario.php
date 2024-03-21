@@ -16,7 +16,8 @@ function Usuario($Nomina){
         return array(
             'success' => true, // Indicador de éxito
             'tipoUsuario' => $row['id_tipoUsuario'],
-            'password_bd' => $row['passwordHash']
+            'password_bd' => $row['passwordHash'],
+            'nombreUsuario' => $row['nombreUsuario']
         );
     }
     else{
