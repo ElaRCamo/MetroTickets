@@ -1,8 +1,9 @@
-    <main>
+
+<main>
         <div class="page-header row headerLogo">
             <div class="col divTitle">
                 <h1> Inicio </h1>
-                <small>Bienvenido</small>
+                <small>Bienvenido <?php global$nombreUsuario; echo $nombreUsuario; ?> </small>
             </div>
             <div class="logoRight col-sm-3">
                 <div>
