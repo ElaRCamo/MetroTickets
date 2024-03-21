@@ -71,6 +71,7 @@ async function registrarSolicitud() {
         var tipoPrueba         = id("tipoPrueba");
         var norma              = id("norma");
         var normaFile          = id("normaFile");
+        var idNomina = id("idUsuario");
         var tipoPruebaEspecial = id("tipoPruebaEspecial");
         var otroPrueba         = id("otroPrueba");
         var numPiezas          = id("numPiezas");
@@ -88,6 +89,7 @@ async function registrarSolicitud() {
         dataForm.append('tipoPrueba', tipoPrueba.value.trim());
         dataForm.append('norma', norma.value.trim());
         dataForm.append('normaFile', normaFile.value.trim());
+        dataForm.append('idUsuario', idUsuario.value.trim());
         //dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
         //dataForm.append('otroPrueba', otroPrueba.value.trim());
         //dataForm.append('numPiezas', numPiezas.value.trim());
