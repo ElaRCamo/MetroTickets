@@ -6,7 +6,7 @@ $nombreUsuario = $_SESSION['nombreUsuario'];
         <div class="page-header row headerLogo">
             <div class="col divTitle">
                 <h1> Inicio </h1>
-                <small>Bienvenido <?php echo $nombreUsuario; ?> </small>
+                <small>Bienvenido(a) <?php echo $nombreUsuario; ?> </small>
             </div>
             <div class="logoRight col-sm-3">
                 <div>
