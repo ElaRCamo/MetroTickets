@@ -34,10 +34,12 @@ if(isset($_POST['iniciarSesionBtn'])){
                 header("Location: ../modules/newRequest/newRequestIndex.php");
             }
             echo "<script>alert('Acceso correcto')</script>";
+        }else{
+            echo "<script>alert('Contraseña incorrecta, verifique sus datos')</script>";
         }
     }else{
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\sesion\indexSesion.php'>";
-        echo "<script>alert('Acceso Denegado')</script>";
+        echo "<script>alert('El usuario no existe')</script>";
     }
 }
 
