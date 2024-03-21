@@ -18,8 +18,10 @@ if(isset($_POST['iniciarSesionBtn'])){
         $_SESSION['numNomina'] = $Nomina;
         $_SESSION['password'] = $Password;
         $_SESSION['nombreUsuario']= $resultado['nombreUsuario'];
+        $_SESSION['tipoUsuario']= $resultado['tipoUsuario'];
+
         $password_bd = $resultado['password_bd'];
-        $tipoUsuario = $resultado['tipoUsuario'];
+        $tipoUsuario = $_SESSION['tipoUsuario'];
 
         $passwordS = sha1($Password);
 
