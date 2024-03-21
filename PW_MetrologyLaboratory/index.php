@@ -17,13 +17,14 @@
     <link rel="stylesheet" href="css/style.css">
     <?php
     session_start();
+    $nombreUser = $_SESSION['nombreUsuario'];
     ?>
 
 </head>
 <body>
 <script>
     // Mostrar alerta con el nombre de usuario
-    alert("<?php echo $_SESSION['nombreUsuario']; ?>");
+    alert("<?php echo $nombreUser; ?>");
 </script>
     <?php
         # Header section
