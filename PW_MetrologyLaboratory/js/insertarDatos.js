@@ -67,11 +67,12 @@ async function registrarSolicitud() {
         var id_prueba = await obtenerNuevoId(); // Esperar a que se resuelva la promesa y obtener el nuevo ID
 
         const dataForm = new FormData();
-
+        console.log("1");
         var tipoPrueba         = id("tipoPrueba");
         var norma              = id("norma");
         var normaFile          = id("normaFile");
-        var idNomina = id("idUsuario");
+        var idNomina           = id("idUsuario");
+        console.log(idNomina);
         var tipoPruebaEspecial = id("tipoPruebaEspecial");
         var otroPrueba         = id("otroPrueba");
         var numPiezas          = id("numPiezas");
