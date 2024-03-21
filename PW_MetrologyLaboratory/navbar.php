@@ -1,4 +1,3 @@
-<?php global$nombreUsuario;?>
 <div class="main-content">
     <header>
         <div class="header-content">
@@ -7,16 +6,12 @@
             </label>
             <div class="header-menu">
                     <span class="las la-search"></span>
-                <div class="nav-item">
-                    <?php echo $nombreUsuario; ?>
-                </div>
-
                 <div class="notify-icon">
                     <span class="las la-bell"></span>
                     <span class="notify">3</span>
                 </div>
                 <div class="user">
-                    <div><img class="user-img bg-img" alt="User" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/user.jpg"></div>
+                    <div><?php echo $nombreUsuario; ?> <img class="user-img bg-img" alt="User" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/user.jpg"></div>
                 </div>
                 <div class="bg-img" id="cerrarS" onclick="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/login.php">
                     <span class="las la-power-off"></span>
