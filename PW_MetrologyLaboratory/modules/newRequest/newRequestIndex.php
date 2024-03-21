@@ -21,6 +21,20 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <?php
+        session_start();
+        $nombreUser = $_SESSION['nombreUsuario'];
+        $tipoUser = $_SESSION['tipoUsuario'];
+        $idUsuario = $_SESSION['nomina'];
+
+        if ($tipoUser == null){
+            header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
+        }elseif($tipoUser == 2){
+            echo "<script>alert('Permisos Insuficientes')</script>";
+            echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php'>";
+        }
+    ?>
+
 </head>
 <body>
     <?php
