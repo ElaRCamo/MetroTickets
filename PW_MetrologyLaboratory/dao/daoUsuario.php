@@ -15,12 +15,13 @@ function Usuario($Nomina, $Password){
     $rsconsPro=mysqli_query($conexion,$consP);
 
     mysqli_close($conexion);
-    $userData = array();
-
+    echo ($consP);
     if(mysqli_num_rows($rsconsPro) > 0){
-        $row = $rsconsPro ->fetch_assoc();
-        $password_bd = $row ['passwordHash'];
+
+        $rows = $rsconsPro ->fetch_assoc();
+        $password_bd = $rows ['passwordHash'];
         $pass_c = sha1($Password);
+        echo($password_bd == $pass_c);
 
         if($password_bd == $pass_c){
             $row = mysqli_fetch_assoc($rsconsPro);
