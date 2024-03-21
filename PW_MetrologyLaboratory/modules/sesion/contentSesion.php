@@ -19,7 +19,6 @@
                     <input type="password" name="password"  id="password" placeholder="Contraseña" required>
                     <i class="las la-lock"></i>
                 </div>
-
                 <div class="remember-forgot">
                     <label><input type="checkbox">Recuérdame</label>
                     <a href="#">¿Has olvidado la contraseña?</a>
