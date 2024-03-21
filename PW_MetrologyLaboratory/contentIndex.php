@@ -1,7 +1,3 @@
-<?php
-session_start();
-$nombreUsuario = $_SESSION['nombreUsuario'];
-?>
 <main>
         <div class="page-header row headerLogo">
             <div class="col divTitle">
