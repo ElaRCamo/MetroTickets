@@ -1,6 +1,5 @@
 <?php
 
-global $nombreUsuario;
 require 'daoUsuario.php';
 
 if(isset($_POST['iniciarSesionBtn'])){
@@ -18,9 +17,7 @@ if(isset($_POST['iniciarSesionBtn'])){
     if($resultado['success']){
         $_SESSION['numNomina'] = $Nomina;
         $_SESSION['password'] = $Password;
-        $_SESSION['nombreUsuario']= $nombreUsuario;
-
-        $nombreUsuario = $resultado['nombreUsuario'];
+        $_SESSION['nombreUsuario']= $resultado['nombreUsuario'];
         $password_bd = $resultado['password_bd'];
         $tipoUsuario = $resultado['tipoUsuario'];
 
