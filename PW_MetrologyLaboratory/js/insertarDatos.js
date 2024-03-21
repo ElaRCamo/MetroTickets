@@ -100,7 +100,7 @@ async function registrarSolicitud() {
         dataForm.append('fechaSolicitud', fechaFormateada);
         dataForm.append('id_prueba', id_prueba);
 
-        //console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
+        console.log("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&idNomina="+idNomina.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
 
         fetch('../../dao/requestRegister.php', {
             method: 'POST',
