@@ -7,7 +7,7 @@ $Password=$_GET['password'];
 Usuario($Nomina, $Password);*/
 
 
-function Usuario($Nomina, $Password){
+function Usuario($Nomina){
     $con = new LocalConector();
     $conexion=$con->conectar();
 
@@ -15,8 +15,11 @@ function Usuario($Nomina, $Password){
     $rsconsPro=mysqli_query($conexion,$consP);
 
     mysqli_close($conexion);
-    echo ($consP);
-    if(mysqli_num_rows($rsconsPro) > 0){
+
+   /*
+        $num = $rsconsPro->num_rows;
+
+        if(mysqli_num_rows($rsconsPro) > 0){
         $row = mysqli_fetch_assoc($rsconsPro);
         $rows = $rsconsPro ->fetch_assoc();
         $password_bd = $rows ['passwordHash'];
@@ -29,7 +32,24 @@ function Usuario($Nomina, $Password){
                 'success' => true, // Indicador de éxito
                 'tipoUsuario' => $row['id_tipoUsuario']
             );
-        }
+
+
+
+   if(mysqli_num_rows($rsconsPro) == 1){
+        $row = mysqli_fetch_assoc($rsconsPro);
+        return array(
+            'success' => true, // Indicador de éxito
+            'tipoUsuario' => $row['id_tipoUsuario']
+        );
+    }
+        }*/
+    if(mysqli_num_rows($rsconsPro) == 1){
+        $row = mysqli_fetch_assoc($rsconsPro);
+        return array(
+            'success' => true, // Indicador de éxito
+            'tipoUsuario' => $row['id_tipoUsuario'],
+            'password_bd' => $row['passwordHash']
+        );
     }
     else{
         return array(
