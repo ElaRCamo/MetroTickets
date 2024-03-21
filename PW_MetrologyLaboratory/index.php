@@ -27,7 +27,7 @@
             echo "<META HTTP-EQUIV='REFRESH' CONTENT='URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/newRequest/newRequestIndex.php'>";
             echo "<script>alert('Permisos Insuficientes')</script>";
         }elseif ($tipoUser != 1){
-            header("Location: ..\modules\sesion\indexSesion.php");
+            header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
         }
     ?>
 
