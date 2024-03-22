@@ -50,7 +50,7 @@
                                                 <div class="help-block with-errors"></div>
                                                 <label for="normaFile" class="file-label">
                                                     Seleccione el documento de la norma
-                                                    <input type="file" class="form-control" id="normaFile" required data-error="Por favor ingresa la norma para realizar la prueba" onchange="mostrarNombreArchivo()">
+                                                    <input type="file" class="form-control" id="normaFile" required data-error="Por favor ingresa la norma para realizar la prueba" onchange="">
                                                 </label>
                                                 <div class="input-group-icon"><i class="las la-file"></i></div>
                                             </div>
