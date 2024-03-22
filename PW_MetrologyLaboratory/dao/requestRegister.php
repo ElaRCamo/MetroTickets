@@ -9,15 +9,13 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_POST['normaFile'], $_SESSION['
 
     //guardar los archivos de la norma
     //$normaFile = $_POST['normaFile'];
-    $file = $_FILES['normaFile'];
-    $target_dir = "../archivos";
+    $target_dir = "../archivos/";
     $target_file = $target_dir . basename($_FILES["normaFile"]["name"]);
 
     if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $target_file)) {
-        echo '<script>console.log("El archivo ' . htmlspecialchars(basename($_FILES["normaFile"]["name"])) . ' ha sido subido.");</script>';
-
+        echo "El archivo ". htmlspecialchars( basename( $_FILES["normaFile"]["name"])). " ha sido subidito.";
     } else {
-        echo '<script>console.log("Hubo un error al subir tu archivito.");</script>';
+        echo "Hubo un error al subir tu archivito.";
     }
     $normaFile = $_FILES["normaFile"]["name"];
     echo '<script>console.log("Archivo: ' . $normaFile . '");</script>';
