@@ -10,23 +10,18 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_POST['normaFile'], $_SESSION['
     //guardar los archivos de la norma
     //$normaFile = $_POST['normaFile'];
     $file = $_FILES['normaFile'];
-        $targetDir = "../archivos";
-        $targetFile = $targetDir . basename($file["name"]);
+    $target_dir = "../archivos";
+    $target_file = $target_dir . basename($_FILES["normaFile"]["name"]);
 
-    // Agrega una alerta para verificar si se está recibiendo el archivo correctamente
-    echo "<script>alert('Recibiendo archivo en PHP');</script>";
+    if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $target_file)) {
+        echo '<script>console.log("El archivo ' . htmlspecialchars(basename($_FILES["normaFile"]["name"])) . ' ha sido subido.");</script>';
 
-    if (move_uploaded_file($file["tmp_name"], $targetFile)) {
-        // Agrega una alerta para verificar si el archivo se ha movido correctamente
-        echo "<script>alert('Archivo movido correctamente');</script>";
-        echo "El archivo se ha subido correctamente.";
     } else {
-        // Agrega una alerta para verificar si hubo un error al mover el archivo
-        echo "<script>alert('Error al mover archivo');</script>";
-        echo "Hubo un error al subir el archivo.";
+        echo '<script>console.log("Hubo un error al subir tu archivito.");</script>';
     }
-
     $normaFile = $file["name"];
+    echo '<script>console.log("Archivo: ' . $normaFile . '");</script>';
+
 
     $idUsuario = $_SESSION['nomina'];
     //$tipoPruebaEspecial = $_POST['tipoPruebaEspecial'];
