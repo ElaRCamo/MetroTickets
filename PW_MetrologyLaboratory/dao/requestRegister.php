@@ -13,12 +13,20 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_POST['normaFile'], $_SESSION['
         $targetDir = "../archivos";
         $targetFile = $targetDir . basename($file["name"]);
 
-        if (move_uploaded_file($file["tmp_name"], $targetFile)) {
-            echo "El archivo se ha subido correctamente.";
-        } else {
-            echo "Hubo un error al subir el archivo.";
-        }
-        $normaFile = $file["name"];
+    // Agrega una alerta para verificar si se está recibiendo el archivo correctamente
+    echo "<script>alert('Recibiendo archivo en PHP');</script>";
+
+    if (move_uploaded_file($file["tmp_name"], $targetFile)) {
+        // Agrega una alerta para verificar si el archivo se ha movido correctamente
+        echo "<script>alert('Archivo movido correctamente');</script>";
+        echo "El archivo se ha subido correctamente.";
+    } else {
+        // Agrega una alerta para verificar si hubo un error al mover el archivo
+        echo "<script>alert('Error al mover archivo');</script>";
+        echo "Hubo un error al subir el archivo.";
+    }
+
+    $normaFile = $file["name"];
 
     $idUsuario = $_SESSION['nomina'];
     //$tipoPruebaEspecial = $_POST['tipoPruebaEspecial'];
