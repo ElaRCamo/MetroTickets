@@ -108,7 +108,7 @@ async function registrarSolicitud() {
             .then(function (response) {
                 if (response.ok) { //respuesta
                     alert("Solicitud realizada exitosamente");
-                    window.location.href = "../modules/requests/requestsIndex.php";
+                    window.location.href = "../requests/requestsIndex.php";
                     alert("Solicitud realizada exitosamente?");
                 } else {
                     throw "Error en la llamada Ajax";
