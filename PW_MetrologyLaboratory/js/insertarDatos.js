@@ -35,6 +35,7 @@ function idPrueba() {
     return new Promise(function(resolve, reject) {
         $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function(data) {
             let idMaximo = data.data[0].max_id_prueba;
+            console.log("IDmax:"+idMaximo);
             var idMaxPartes = idMaximo.split("-");
             var anioIdMax = parseInt(idMaxPartes[0]); // Convertir a número
             var consecutivoId = idMaxPartes[1];
@@ -44,7 +45,7 @@ function idPrueba() {
 
             if (anioIdMax === anio) {
                 nuevoId = anioIdMax + "-" + (parseInt(consecutivoId) + 1).toString().padStart(4, '0');
-            } else {
+            } else if (anioIdMax === anio || anioIdMax==null) {
                 nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
             }
             resolve(nuevoId); // Resolver la promesa con el nuevo ID
