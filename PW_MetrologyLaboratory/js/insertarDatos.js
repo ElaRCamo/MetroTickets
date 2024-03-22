@@ -65,8 +65,8 @@ function obtenerNuevoId() {
 async function registrarSolicitud() {
     try {
         var id_prueba = await obtenerNuevoId(); // Esperar a que se resuelva la promesa y obtener el nuevo ID
-
         const dataForm = new FormData();
+
         var tipoPrueba         = id("tipoPrueba");
         var norma              = id("norma");
         var normaFile          = id("normaFile");
@@ -107,9 +107,7 @@ async function registrarSolicitud() {
         })
             .then(function (response) {
                 if (response.ok) { //respuesta
-                    alert("Solicitud realizada exitosamente");
                     window.location.href = "../requests/requestsIndex.php";
-                    alert("Solicitud realizada exitosamente?");
                 } else {
                     throw "Error en la llamada Ajax";
                 }
