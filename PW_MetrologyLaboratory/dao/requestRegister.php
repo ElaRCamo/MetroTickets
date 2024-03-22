@@ -8,15 +8,14 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     $norma = $_POST['norma'];
 
     //guardar los archivos de la norma
-    //$normaFile = $_POST['normaFile'];
-    $target_dir = "../archivos/";
+    $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/archivos/";
     $normaFileName = basename($_FILES["normaFile"]["name"]);
     $normaFile = $target_dir . $normaFileName;
 
     if ($_FILES["normaFile"]["error"] > 0) {
         echo "Error: " . $_FILES["normaFile"]["error"];
     } else {
-        // Intenta mover el archivo cargado a la ubicación deseada
+        // mover el archivo cargado a la ubicación deseada
         if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $normaFile)) {
             echo "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente.";
         } else {
