@@ -8,7 +8,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     $norma = $_POST['norma'];
 
     //guardar los archivos de la norma
-    $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/archivos/";
+    $target_dir = "../archivos/";
     $normaFileName = basename($_FILES["normaFile"]["name"]);
     $normaFile = $target_dir . $normaFileName;
 
