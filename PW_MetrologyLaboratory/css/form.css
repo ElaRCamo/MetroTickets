@@ -115,6 +115,10 @@ pruebasEspeciales: clase para checkbox
 h6{
     padding-left: 1.5rem;
 }
+h5{
+    font-size: 0.9rem;
+    color: var(--main-color);
+}
 .form-check-inline {
     margin-left: 8%;
 }

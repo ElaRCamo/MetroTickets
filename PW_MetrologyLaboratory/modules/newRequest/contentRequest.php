@@ -1,4 +1,4 @@
-global$resultado;
+
 <main>
     <div class="page-header row headerLogo">
         <div class="col divTitle">

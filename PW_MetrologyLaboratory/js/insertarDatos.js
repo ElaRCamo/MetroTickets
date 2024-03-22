@@ -92,7 +92,8 @@ async function registrarSolicitud() {
 
         dataForm.append('tipoPrueba', tipoPrueba.value.trim());
         dataForm.append('norma', norma.value.trim());
-        dataForm.append('normaFile', normaFile.value.trim());
+        //dataForm.append('normaFile', normaFile.value.trim());
+        dataForm.append('normaFile', normaFile.files[0]);
         dataForm.append('idUsuario', idNomina.value.trim());
         //dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
         //dataForm.append('otroPrueba', otroPrueba.value.trim());

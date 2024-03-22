@@ -6,7 +6,20 @@ session_start();
 if(isset($_POST['tipoPrueba'], $_POST['norma'], $_POST['normaFile'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['numParte'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
     $tipoPrueba = $_POST['tipoPrueba'];
     $norma = $_POST['norma'];
-    $normaFile = $_POST['normaFile'];
+
+    //guardar los archivos de la norma
+    //$normaFile = $_POST['normaFile'];
+    $file = $_FILES['normaFile'];
+        $targetDir = "../archivos";
+        $targetFile = $targetDir . basename($file["name"]);
+
+        if (move_uploaded_file($file["tmp_name"], $targetFile)) {
+            echo "El archivo se ha subido correctamente.";
+        } else {
+            echo "Hubo un error al subir el archivo.";
+        }
+        $normaFile = $file["name"];
+
     $idUsuario = $_SESSION['nomina'];
     //$tipoPruebaEspecial = $_POST['tipoPruebaEspecial'];
     //$otroPrueba         = $_POST['otroPrueba'];
