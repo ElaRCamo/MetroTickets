@@ -10,16 +10,13 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_POST['normaFile'], $_SESSION['
     //guardar los archivos de la norma
     //$normaFile = $_POST['normaFile'];
     $target_dir = "../archivos/";
-    $target_file = $target_dir . basename($_FILES["normaFile"]["name"]);
+    $normaFile = $target_dir . basename($_FILES["normaFile"]["name"]);
 
-    if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $target_file)) {
+    if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $normaFile)) {
         echo "El archivo ". htmlspecialchars( basename( $_FILES["normaFile"]["name"])). " ha sido subidito.";
     } else {
         echo "Hubo un error al subir tu archivito.";
     }
-    $normaFile = $_FILES["normaFile"]["name"];
-    echo '<script>console.log("Archivo: ' . $normaFile . '");</script>';
-
 
     $idUsuario = $_SESSION['nomina'];
     //$tipoPruebaEspecial = $_POST['tipoPruebaEspecial'];
