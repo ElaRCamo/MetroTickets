@@ -13,7 +13,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_POST['normaFile'], $_SESSION['
     $normaFile = $target_dir . basename($_FILES["normaFile"]["name"]);
 
     if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $normaFile)) {
-        echo "El archivo ". htmlspecialchars( basename( $_FILES["normaFile"]["name"])). " ha sido subidito.";
+        echo "El archivo ". htmlspecialchars($normaFile). " ha sido subidito.";
     } else {
         echo "Hubo un error al subir tu archivito.";
     }
