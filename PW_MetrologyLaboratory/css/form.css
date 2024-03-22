@@ -234,6 +234,20 @@ h5{
     opacity: 0;
     cursor: pointer;
 }
+.contenedorImg {
+    width: 150px; /* Ancho del contenedor */
+    height: 150px; /* Altura del contenedor */
+    border: 2px solid navy; /* Borde color azul marino */
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.imgsMaterial {
+    max-width: 100%; /* Ajustar imagen al tamaño del contenedor */
+    max-height: 100%; /* Ajustar imagen al tamaño del contenedor */
+}
+
 /*Ocultar divs con inputs opcionales*/
 #normaNombre, #normaArchivo, #pruebaEspecial, #otroTipoPrueba,
 #numeroPiezas, #detallesPrueba , #div-OEM, #agregarNumParte, #numeroParte,

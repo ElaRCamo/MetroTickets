@@ -117,7 +117,7 @@
                                                 <input type="number" class="form-control" id="cdadMaterial" name="cdadesMaterial[]"  placeholder="Cantidad*"  required data-error="Por favor ingresa la cantidad">
                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                             </div>
-                                            <div class="form-group col-sm-12" id="imgMaterial">
+                                            <div class="form-group col-sm-12 contenedorImg" id="imgMaterial">
                                                 <img src="" class="imgsMaterial" id="imagenMaterial" alt="Imagen Material">
                                             </div>
                                             <div class="form-group last col-sm-12 buttons" >
