@@ -39,18 +39,18 @@ function idPrueba() {
             var nuevoId;
             let idMaximo = data.data[0].max_id_prueba;
 
-            if (idMaximo==null) {
+            if (idMaximo == null) {
                 nuevoId = anio + "-0001";
-            }
+            }else{
+                var idMaxPartes = idMaximo.split("-");
+                var anioIdMax = parseInt(idMaxPartes[0]); // Convertir a número
+                var consecutivoId = idMaxPartes[1];
 
-            var idMaxPartes = idMaximo.split("-");
-            var anioIdMax = parseInt(idMaxPartes[0]); // Convertir a número
-            var consecutivoId = idMaxPartes[1];
-
-            if (anioIdMax === anio) {
-                nuevoId = anioIdMax + "-" + (parseInt(consecutivoId) + 1).toString().padStart(4, '0');
-            } else {//cambio de año
-                nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
+                if (anioIdMax === anio) {
+                    nuevoId = anioIdMax + "-" + (parseInt(consecutivoId) + 1).toString().padStart(4, '0');
+                } else {//cambio de año
+                    nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
+                }
             }
             resolve(nuevoId); // Resolver la promesa con el nuevo ID
         });
