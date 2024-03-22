@@ -1,7 +1,7 @@
 <?php
 include_once('connection.php');
 session_start();
-$idUsuario = $_SESSION['nomina'];
+$idUsuario      = $_SESSION['nomina'];
 $tipoPrueba     = $_POST['tipoPrueba'];
 $norma          = $_POST['norma'];
 $normaFile      = $_POST['normaFile'];
@@ -19,6 +19,7 @@ $fechaSolicitud     = $_POST['fechaSolicitud'];
 //$tipoPruebaEspecial, $otroPrueba, $numPiezas,
 
 RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba);
+echo '<script>alert("RegistrarSolicitud: ".$idUsuario.")"</script>';
 function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)
 {
     $con = new LocalConector();
