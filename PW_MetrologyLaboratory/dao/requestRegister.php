@@ -8,12 +8,16 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_POST['normaFile'], $_SESSION['
     $norma = $_POST['norma'];
     $normaFile = $_POST['normaFile'];
     $idUsuario = $_SESSION['nomina'];
+    //$tipoPruebaEspecial = $_POST['tipoPruebaEspecial'];
+    //$otroPrueba         = $_POST['otroPrueba'];
+    //$numPiezas          = $_POST['numPiezas'];
     $especificaciones = $_POST['especificaciones'];
     $numParte = $_POST['numParte'];
     $descMaterial = $_POST['descMaterial'];
     $cdadMaterial = $_POST['cdadMaterial'];
     $fechaSolicitud = $_POST['fechaSolicitud'];
     $id_prueba = $_POST['id_prueba'];
+    //$tipoPruebaEspecial, $otroPrueba, $numPiezas,
 
     // Llamar a la función
     if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)) {
@@ -32,7 +36,7 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
 
     // Consulta preparada para evitar inyección SQL
     $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`) 
-                        VALUES (?, ?, ?, ?, ?, ?, ?)");
+                                              VALUES (?, ?, ?, ?, ?, ?, ?)");
     $insertSolicitud->bind_param("ssssssi", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba);
     $rInsertSolicitud = $insertSolicitud->execute();
 
@@ -41,7 +45,7 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
     }
 
     $insertMaterial = $conex->prepare("INSERT INTO `Material` (`id_prueba`, `numDeParte`, `cantidad`, `id_descripcion`) 
-                        VALUES (?, ?, ?, ?)");
+                                             VALUES (?, ?, ?, ?)");
     $insertMaterial->bind_param("isii", $id_prueba, $numParte, $cdadMaterial, $descMaterial);
     $rInsertMaterial  = $insertMaterial->execute();
 
@@ -53,6 +57,8 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
 
     return true;
 }
+//bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.
+//ssssssi": especifica el tipo de datos de los parámetros que se están vinculando(cada "s" indica que el parámetro es una cadena (string) y cada "i" indica que el parámetro es un entero (integer))
 ?>
 
 
