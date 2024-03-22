@@ -114,7 +114,7 @@ async function registrarSolicitud() {
             .then(function (response) {
                 if (response.ok) { //respuesta
                     //window.location.href = "../requests/requestsIndex.php";
-                    setTimeout(function(){ window.location.href = 'pagina_destino.php'; }, 3000);
+                    setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 3000);
                 } else {
                     throw "Error en la llamada Ajax";
                 }
