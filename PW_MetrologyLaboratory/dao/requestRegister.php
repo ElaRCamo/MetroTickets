@@ -3,26 +3,28 @@ include_once('connection.php');
 session_start();
 
 // Verificar si los datos están presentes y asignarlos de manera segura
-if(isset($_POST['tipoPrueba'], $_POST['norma'], $_POST['normaFile'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['numParte'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
+if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['numParte'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
     $tipoPrueba = $_POST['tipoPrueba'];
     $norma = $_POST['norma'];
 
     //guardar los archivos de la norma
     //$normaFile = $_POST['normaFile'];
     $target_dir = "../archivos/";
-    $normaFile = $target_dir . basename($_FILES["normaFile"]["name"]);
+    $normaFileName = basename($_FILES["normaFile"]["name"]);
+    $normaFile = $target_dir . $normaFileName;
 
     if ($_FILES["normaFile"]["error"] > 0) {
         echo "Error: " . $_FILES["normaFile"]["error"];
     } else {
+        // Intenta mover el archivo cargado a la ubicación deseada
         if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $normaFile)) {
-        echo "El archivo ". htmlspecialchars($normaFile). " ha sido subidito.";
+            echo "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente.";
         } else {
-            echo "Hubo un error al subir tu archivito.";
+            echo "Hubo un error al subir el archivo.";
         }
     }
 
-    $idUsuario = $_SESSION['nomina'];
+    $idUsuario            = $_SESSION['nomina'];
     //$tipoPruebaEspecial = $_POST['tipoPruebaEspecial'];
     //$otroPrueba         = $_POST['otroPrueba'];
     //$numPiezas          = $_POST['numPiezas'];
