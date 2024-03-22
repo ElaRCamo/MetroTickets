@@ -40,20 +40,16 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
     $insertSolicitud->bind_param("ssssssi", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba);
     $rInsertSolicitud = $insertSolicitud->execute();
 
-    if(!$rInsertSolicitud) {
-        return false;
-    }
-
     $insertMaterial = $conex->prepare("INSERT INTO `Material` (`id_prueba`, `numDeParte`, `cantidad`, `id_descripcion`) 
                                              VALUES (?, ?, ?, ?)");
     $insertMaterial->bind_param("isii", $id_prueba, $numParte, $cdadMaterial, $descMaterial);
     $rInsertMaterial  = $insertMaterial->execute();
 
-    $conex->close();
-
-    if(!$rInsertMaterial) {
+    if(!$rInsertSolicitud || !$rInsertMaterial) {
         return false;
     }
+
+    $conex->close();
 
     return true;
 }
