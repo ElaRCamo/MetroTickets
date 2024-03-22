@@ -19,7 +19,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_POST['normaFile'], $_SESSION['
     } else {
         echo '<script>console.log("Hubo un error al subir tu archivito.");</script>';
     }
-    $normaFile = $file["name"];
+    $normaFile = $_FILES["normaFile"]["name"];
     echo '<script>console.log("Archivo: ' . $normaFile . '");</script>';
 
 
