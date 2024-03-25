@@ -55,7 +55,7 @@
                                                 <div class="input-group-icon"><i class="las la-file"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6 " id="pruebaEspecial">
-                                                    <select class="form-control" id="tipoPruebaEspecial" onchange="otroTipoPrueba()" name="tipoPruebaEspecial" title="TipoDePruebaEspecial" required data-error="Por favor seleccione tipo de prueba" >
+                                                    <select class="form-control" id="tipoPruebaEspecial" onchange="otroTipoPrueba(); ocultarOpcion();" name="tipoPruebaEspecial" title="TipoDePruebaEspecial" required data-error="Por favor seleccione tipo de prueba" >
                                                         <option value="" >Seleccione el tipo de prueba especial*</option>
                                                     </select>
                                                 <div class="input-group-icon"><i class="las la-ruler"></i></div>
