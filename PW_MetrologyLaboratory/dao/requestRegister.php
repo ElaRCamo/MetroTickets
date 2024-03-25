@@ -37,7 +37,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     // $otroPrueba, $numPiezas,
 
     // Llamar a la función
-    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $tipoPruebaEspecial,$idUsuario, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)) {
+    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)) {
         echo '<script>alert("Solicitud registrada exitosamente")</script>';
     } else {
         echo '<script>alert("Error al registrar la solicitud")</script>';
@@ -46,7 +46,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
 
-function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)
+function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
