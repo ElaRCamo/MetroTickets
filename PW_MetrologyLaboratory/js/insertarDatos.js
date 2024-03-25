@@ -89,13 +89,11 @@ async function registrarSolicitud() {
         var fechaSolicitud= new Date();
         var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
 
-
         dataForm.append('tipoPrueba', tipoPrueba.value.trim());
         dataForm.append('norma', norma.value.trim());
-        //dataForm.append('normaFile', normaFile.value.trim());
         dataForm.append('normaFile', inputArchivo.files[0]);
         dataForm.append('idUsuario', idNomina.value.trim());
-        //dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
+        dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
         //dataForm.append('otroPrueba', otroPrueba.value.trim());
         //dataForm.append('numPiezas', numPiezas.value.trim());
         dataForm.append('especificaciones', especificaciones.value.trim());

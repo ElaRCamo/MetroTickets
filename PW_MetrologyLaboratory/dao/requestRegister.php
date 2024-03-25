@@ -25,7 +25,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     }
 
     $idUsuario            = $_SESSION['nomina'];
-    //$tipoPruebaEspecial = $_POST['tipoPruebaEspecial'];
+    $tipoPruebaEspecial = $_POST['tipoPruebaEspecial'];
     //$otroPrueba         = $_POST['otroPrueba'];
     //$numPiezas          = $_POST['numPiezas'];
     $especificaciones = $_POST['especificaciones'];
@@ -34,10 +34,10 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     $cdadMaterial = $_POST['cdadMaterial'];
     $fechaSolicitud = $_POST['fechaSolicitud'];
     $id_prueba = $_POST['id_prueba'];
-    //$tipoPruebaEspecial, $otroPrueba, $numPiezas,
+    // $otroPrueba, $numPiezas,
 
     // Llamar a la función
-    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)) {
+    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $tipoPruebaEspecial,$idUsuario, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)) {
         echo '<script>alert("Solicitud registrada exitosamente")</script>';
     } else {
         echo '<script>alert("Error al registrar la solicitud")</script>';
@@ -52,10 +52,13 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
     $conex = $con->conectar();
 
     // Consulta preparada para evitar inyección SQL
-    $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`) 
-                                              VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $insertSolicitud->bind_param("ssssssi", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba);
+    $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `otroTipoEspecial`) 
+                                              VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $insertSolicitud->bind_param("ssssssis", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial);
     $rInsertSolicitud = $insertSolicitud->execute();
+
+    //Si la prueba es de de tipo Especial:
+
 
     if(!$rInsertSolicitud) {
         return false;
