@@ -3,7 +3,7 @@ include_once('connection.php');
 session_start();
 
 // Verificar si los datos están presentes y asignarlos de manera segura
-if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['numParte'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'], $_POST['tipoPruebaEspecial'])) {
+if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['numParte'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'], $_POST['tipoPruebaEspecial'], $_POST['otroPrueba'])) {
     $tipoPrueba = $_POST['tipoPrueba'];
     $norma = $_POST['norma'];
 
@@ -26,7 +26,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
 
     $idUsuario            = $_SESSION['nomina'];
     $tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
-    //$otroPrueba         = $_POST['otroPrueba'];
+    $otroPrueba         = $_POST['otroPrueba'];
     //$numPiezas          = $_POST['numPiezas'];
     $especificaciones = $_POST['especificaciones'];
     $numParte = $_POST['numParte'];
@@ -37,7 +37,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     // $otroPrueba, $numPiezas,
 
     // Llamar a la función
-    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)) {
+    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)) {
         echo '<script>alert("Solicitud registrada exitosamente")</script>';
     } else {
         echo '<script>alert("Error al registrar la solicitud")</script>';
@@ -46,15 +46,15 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
 
-function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)
+function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
 
     // Consulta preparada para evitar inyección SQL
-    $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `id_pruebaEspecial`) 
-                                              VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $insertSolicitud->bind_param("ssssssii", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial);
+    $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `id_pruebaEspecial`, `otroTipoEspecial`) 
+                                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $insertSolicitud->bind_param("ssssssiis", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial, $otroPrueba);
     $rInsertSolicitud = $insertSolicitud->execute();
 
     //Si la prueba es de de tipo Especial:

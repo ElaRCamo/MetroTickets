@@ -77,7 +77,7 @@ async function registrarSolicitud() {
         var inputArchivo       = id('normaFile');
         var idNomina           = id("idUsuario");
         var tipoPruebaEspecial = id("tipoPruebaEspecial");
-        //var otroPrueba         = id("otroPrueba");
+        var otroPrueba         = id("otroPrueba");
         //var numPiezas          = id("numPiezas");
         var especificaciones   = id ("especificaciones");
 
@@ -94,7 +94,7 @@ async function registrarSolicitud() {
         dataForm.append('normaFile', inputArchivo.files[0]);
         dataForm.append('idUsuario', idNomina.value.trim());
         dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
-        //dataForm.append('otroPrueba', otroPrueba.value.trim());
+        dataForm.append('otroPrueba', otroPrueba.value.trim());
         //dataForm.append('numPiezas', numPiezas.value.trim());
         dataForm.append('especificaciones', especificaciones.value.trim());
         dataForm.append('numParte', numParte.value.trim());
@@ -103,7 +103,7 @@ async function registrarSolicitud() {
         dataForm.append('fechaSolicitud', fechaFormateada);
         dataForm.append('id_prueba', id_prueba);
 
-        alert("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&tipoPruebaEspecial="+tipoPruebaEspecial.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&idNomina="+idNomina.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
+        alert("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&tipoPruebaEspecial="+tipoPruebaEspecial.value+"&otroEspecial="+otroPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&idNomina="+idNomina.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
 
         fetch('../../dao/requestRegister.php', {
             method: 'POST',
