@@ -1,0 +1,15 @@
+Pendientes del Proyecto del Laboratorio de Metrología:
+
+Corregir registro de la solicitud
+*Poner nombre archivo de la norma
+
+1. ¿Has olvidado la contraseña?
+2. En registro, validar si el usuario ya existe
+3. Cerrar sesión correctamente
+4.Una vez que se carga el archivo de la norma, uya no deja modificarlo
+5. ¿Qué fecha de respuesta estaria por default?
+6. Cuando se registre un usuario la contraseña se guarde en SHA1
+99.El boton de la regla en solicitudes tiene asignada iffunction
+100. Asignar valores por default en la BD
+
+

@@ -9,7 +9,8 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
 
     //guardar los archivos de la norma
     $target_dir = "../archivos/";
-    $normaFileName = basename($_FILES["normaFile"]["name"]);
+    $id_prueba = $_POST['id_prueba'];
+    $normaFileName = $id_prueba."-".basename($_FILES["normaFile"]["name"]);
     $normaFile = $target_dir . $normaFileName;
 
     if ($_FILES["normaFile"]["error"] > 0) {
