@@ -218,7 +218,8 @@ h5{
 
 /****Cargar archivo***/
 #normaFile::file-selector-button {
-    color: var(--main-color); /*Selectror del input tipo file*/
+    color: greenyellow; /*Selectror del input tipo file*/
+    background-color: #E10014;
 }
 .contenedorImg {
     width: 150px; /* Ancho del contenedor */
