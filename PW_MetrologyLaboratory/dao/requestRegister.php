@@ -30,7 +30,6 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     $idUsuario            = $_SESSION['nomina'];
     $tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
     $otroPrueba           = $_POST['otroPrueba'];
-        if($tipoPruebaEspecial != 4){ $otroPrueba = 'No aplica';}
     //$numPiezas          = $_POST['numPiezas'];
     $especificaciones     = $_POST['especificaciones'];
     $numParte             = $_POST['numParte'];
@@ -38,7 +37,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     $cdadMaterial         = $_POST['cdadMaterial'];
     $fechaSolicitud       = $_POST['fechaSolicitud'];
     $id_prueba            = $_POST['id_prueba'];
-    // $numPiezas,
+    // $otroPrueba, $numPiezas,
 
     // Llamar a la función
     if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)) {
@@ -57,13 +56,12 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
 
     // Consulta preparada para evitar inyección SQL
     $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `id_pruebaEspecial`, `otroTipoEspecial`) 
-                                                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $insertSolicitud->bind_param("ssssssiis", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial, $otroPrueba);
     $rInsertSolicitud = $insertSolicitud->execute();
 
 
     if(!$rInsertSolicitud) {
-        //echo "Error al ejecutar la consulta: " . $insertSolicitud->error;
         return false;
     }
 
@@ -75,7 +73,6 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     $conex->close();
 
     if(!$rInsertMaterial) {
-        //echo "Error al ejecutar la consulta: " . $insertMaterial->error;
         return false;
     }
 
