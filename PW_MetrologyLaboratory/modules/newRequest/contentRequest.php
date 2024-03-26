@@ -174,7 +174,7 @@
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group contenedorImg" id="imgMaterial">
-                                                        <img src="" class="col-md-6 float-md-end mb-3 ms-md-3 imgsMaterial" id="imagenMaterial" alt="Imagen Material">
+                                                        <img src="" class="col-md-6 float-md-end mb-3 ms-md-3 img-rounded img-fluid imgsMaterial" id="imagenMaterial" alt="Imagen Material">
                                                     </div>
                                                 </div>
                                             </div>
