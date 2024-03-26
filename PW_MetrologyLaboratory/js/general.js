@@ -1,23 +1,23 @@
 const id = str => document.getElementById(str);
 
-var cbTipo = id("tipoPrueba");
-var divNormaNombre = id("normaNombre");
-var divNormaArchivo = id("normaArchivo");
+var cbTipo            = id("tipoPrueba");
+var divNormaNombre    = id("normaNombre");
+var divNormaArchivo   = id("normaArchivo");
 var divPruebaEspecial = id("pruebaEspecial");
-var divNumeroPiezas = id("numeroPiezas");
+var divNumeroPiezas   = id("numeroPiezas");
 var divDetallesPrueba = id("detallesPrueba");
-var divAgregarNumParte = id("agregarNumParte");
+var divAgregarNumParte= id("agregarNumParte");
 <!-- Para agregar material por número de parte -->
-var divNumeroParte = id("numeroParte");
+var divNumeroParte    = id("numeroParte");
 var divDescripcionMaterial = id("descripcionMaterial");
-var divPlataforma = id("plataformaDiv");
-var divOEM = id("div-OEM");
-var divCantidadMaterial = id("cantidadMaterial");
+var divPlataforma     = id("plataformaDiv");
+var divOEM            = id("div-OEM");
+var divCantidadMaterial= id("cantidadMaterial");
 
-var cbTipoEva = id("tipoEvaluacion");
+var cbTipoEva         = id("tipoEvaluacion");
 var divSelectTipoPrueba = id("selectTipoPrueba");
 
-var  cbOtroTipo = id("tipoPruebaEspecial");
+var  cbOtroTipo       = id("tipoPruebaEspecial");
 var divOtroTipoPrueba = id("otroTipoPrueba");
 
 var cbDescMaterial = id("descMaterial");
@@ -100,20 +100,19 @@ function banderaTipoPrueba(){
     labelArchivo.innerHTML = 'Archivo cargado: ' + nombreArchivo;
 }*/
 
+// Agregar el event listener al input de tipo file
+document.getElementById('normaFile').addEventListener('change', function() {
+    var nombreArchivoInput = this.files[0].name;
+    mostrarNombreArchivo(nombreArchivoInput);
+});
+
+// Función para mostrar el nombre del archivo
 function mostrarNombreArchivo(nombreArchivo) {
     var labelArchivo = document.querySelector('.file-label');
     if (labelArchivo) {
         labelArchivo.innerHTML = 'Archivo cargado: ' + nombreArchivo;
     }
 }
-
-// Evento change del input de tipo file
-document.getElementById('normaFile').addEventListener('change', function() {
-    var nombreArchivoInput = this.files[0].name;
-    mostrarNombreArchivo(nombreArchivoInput);
-});
-
-
 
 
 function otroTipoPrueba(){
