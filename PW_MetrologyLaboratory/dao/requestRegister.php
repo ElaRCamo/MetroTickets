@@ -68,7 +68,7 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     $rInsertSolicitud = $insertSolicitud->execute();
 
     if(!$rInsertSolicitud) {
-        echo "Error al ejecutar la consulta: " . $insertSolicitud->error;
+        //echo "Error al ejecutar la consulta: " . $insertSolicitud->error;
         return false;
     }
 
@@ -80,7 +80,7 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     $conex->close();
 
     if(!$rInsertMaterial) {
-        echo "Error al ejecutar la consulta: " . $insertMaterial->error;
+        //echo "Error al ejecutar la consulta: " . $insertMaterial->error;
         return false;
     }
 
