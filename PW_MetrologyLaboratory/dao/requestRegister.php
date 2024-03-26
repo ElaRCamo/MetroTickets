@@ -56,18 +56,19 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
 
     // Consulta preparada para evitar inyección SQL
 
-    if($tipoPrueba == 5 && $tipoPruebaEspecial == 4){
+    if($tipoPruebaEspecial == 4){
         $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `id_pruebaEspecial`, `otroTipoEspecial`) 
-                                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                                                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $insertSolicitud->bind_param("ssssssiis", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial, $otroPrueba);
     }else{
         $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `id_pruebaEspecial`) 
-                                              VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                                                  VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $insertSolicitud->bind_param("ssssssii", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial);
     }
     $rInsertSolicitud = $insertSolicitud->execute();
 
     if(!$rInsertSolicitud) {
+        echo "Error al ejecutar la consulta: " . $insertSolicitud->error;
         return false;
     }
 
@@ -79,6 +80,7 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     $conex->close();
 
     if(!$rInsertMaterial) {
+        echo "Error al ejecutar la consulta: " . $insertMaterial->error;
         return false;
     }
 
