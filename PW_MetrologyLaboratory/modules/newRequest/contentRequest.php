@@ -127,7 +127,7 @@
                                                 </div>
                                             </div>
                                             -->
-                                            <div class="row">
+                                            <div class="row clearfix">
                                                 <div class="col-sm-4">
                                                     <div class="form-group" id="numeroParte">
                                                         <div class="help-block with-errors"></div>
@@ -172,7 +172,7 @@
                                                         <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                     </div>
                                                 </div>
-                                                <div class="clearfix">
+                                                <div class="col-sm-4">
                                                     <div class="form-group contenedorImg" id="imgMaterial">
                                                         <img src="" class="col-md-6 float-md-end mb-3 ms-md-3 imgsMaterial" id="imagenMaterial" alt="Imagen Material">
                                                     </div>
