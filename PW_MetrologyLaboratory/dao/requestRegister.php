@@ -30,6 +30,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     $idUsuario            = $_SESSION['nomina'];
     $tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
     $otroPrueba           = $_POST['otroPrueba'];
+        if($tipoPruebaEspecial != 4){ $otroPrueba = 'No aplica';}
     //$numPiezas          = $_POST['numPiezas'];
     $especificaciones     = $_POST['especificaciones'];
     $numParte             = $_POST['numParte'];
