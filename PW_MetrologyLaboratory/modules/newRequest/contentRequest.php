@@ -58,8 +58,6 @@
                                                 <div class="help-block with-errors"></div>
                                                     <input type="file" placeholder="Seleccione el documento de la norma" class="form-control" id="normaFile" name="normaFile">
                                                 <div class="input-group-icon"><i class="las la-file"></i></div>
-                                                <!-- Agregar un nuevo elemento para mostrar el nombre del archivo -->
-                                                <span id="nombreArchivoSeleccionado"></span>
                                             </div>
                                             <div class="form-group col-sm-6 " id="pruebaEspecial">
                                                     <select class="form-control" id="tipoPruebaEspecial" onchange="otroTipoPrueba()" name="tipoPruebaEspecial" title="TipoDePruebaEspecial" required data-error="Por favor seleccione tipo de prueba" >

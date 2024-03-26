@@ -101,7 +101,7 @@ function banderaTipoPrueba(){
 }*/
 
 // Agregar el event listener al input de tipo file
-document.getElementById('normaFile').addEventListener('change', function() {
+/*document.getElementById('normaFile').addEventListener('change', function() {
     var nombreArchivoInput = this.files[0].name;
     mostrarNombreArchivo(nombreArchivoInput);
 });
@@ -112,7 +112,7 @@ function mostrarNombreArchivo(nombreArchivo) {
     if (spanNombreArchivo) {
         spanNombreArchivo.textContent = 'Archivo cargado: ' + nombreArchivo;
     }
-}
+}*/
 
 
 
