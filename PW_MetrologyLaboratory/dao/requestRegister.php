@@ -5,42 +5,42 @@ session_start();
 // Verificar si los datos están presentes y asignarlos de manera segura
 if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['numParte'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
     $tipoPrueba     = $_POST['tipoPrueba'];
-    $norma          = $_POST['norma'];
-
-    //guardar los archivos de la norma
-    $target_dir     = "../archivos/";
     $id_prueba      = $_POST['id_prueba'];
 
-    //Quitar espacios del nombre del archivo:
-    $nombreArchivo  = $_FILES["normaFile"]["name"];
-    $normaFileName  = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
-    $normaFile      = $target_dir . $normaFileName;
+    if($_POST['tipoPrueba'] == 4 || $_POST['tipoPrueba'] == 5){ //si se requiere norma por tipo de prueba
+        $norma          = $_POST['norma'];
+        //guardar los archivos de la norma
+        $target_dir     = "../archivos/";
+        //Quitar espacios del nombre del archivo:
+        $nombreArchivo  = $_FILES["normaFile"]["name"];
+        $normaFileName  = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
+        $normaFile      = $target_dir . $normaFileName;
 
-    if ($_FILES["normaFile"]["error"] > 0) {
-        echo "Error: " . $_FILES["normaFile"]["error"];
-    } else {
-        // mover el archivo cargado a la ubicación deseada
-        if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $normaFile)) {
-            echo "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente.";
+        if ($_FILES["normaFile"]["error"] > 0) {
+            echo "Error: " . $_FILES["normaFile"]["error"];
         } else {
-            echo "Hubo un error al subir el archivo.";
+            // mover el archivo cargado a la ubicación deseada
+            if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $normaFile)) {
+                echo "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente.";
+            } else {
+                echo "Hubo un error al subir el archivo.";
+            }
         }
+
+    }else{ //El tipo de prueba no requiere especificar norma
+        $norma     = 'No aplica';
+        $normaFile = 'No aplica';
     }
 
     $idUsuario            = $_SESSION['nomina'];
     $tipoPruebaEspecial   = ($_POST['tipoPrueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
     $otroPrueba           = ($tipoPruebaEspecial  != 4) ? 'No aplica' : $_POST['otroPrueba'] ;
-    /*
-    $tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
-    $otroPrueba           = $_POST['otroPrueba'];
-        if($tipoPruebaEspecial != 4){ $otroPrueba = 'No aplica';}*/
-    //$numPiezas          = $_POST['numPiezas'];
     $especificaciones     = $_POST['especificaciones'];
     $numParte             = $_POST['numParte'];
     $descMaterial         = $_POST['descMaterial'];
     $cdadMaterial         = $_POST['cdadMaterial'];
     $fechaSolicitud       = $_POST['fechaSolicitud'];
-    // $otroPrueba, $numPiezas,
+    // $numPiezas
 
     // Llamar a la función
     if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)) {
