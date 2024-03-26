@@ -57,6 +57,7 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     // Consulta preparada para evitar inyección SQL
 
     if($tipoPruebaEspecial == 4){
+        echo '<script>alert("$tipoPruebaEspecial == 4")</script>';
         $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `id_pruebaEspecial`, `otroTipoEspecial`) 
                                                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $insertSolicitud->bind_param("ssssssiis", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial, $otroPrueba);
