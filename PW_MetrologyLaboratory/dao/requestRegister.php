@@ -30,6 +30,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     $idUsuario            = $_SESSION['nomina'];
     $tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
     $otroPrueba           = $_POST['otroPrueba'];
+        if($tipoPruebaEspecial != 4){ $otroPrueba = 'No aplica';}
     //$numPiezas          = $_POST['numPiezas'];
     $especificaciones     = $_POST['especificaciones'];
     $numParte             = $_POST['numParte'];
@@ -37,7 +38,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     $cdadMaterial         = $_POST['cdadMaterial'];
     $fechaSolicitud       = $_POST['fechaSolicitud'];
     $id_prueba            = $_POST['id_prueba'];
-    // $otroPrueba, $numPiezas,
+    // $numPiezas,
 
     // Llamar a la función
     if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)) {
@@ -55,12 +56,6 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     $conex = $con->conectar();
 
     // Consulta preparada para evitar inyección SQL
-
-    if($tipoPruebaEspecial != 4){
-        echo '<script>alert("$tipoPruebaEspecial == 4")</script>';
-        $otroPrueba = 'No aplica2';
-    }
-
     $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `id_pruebaEspecial`, `otroTipoEspecial`) 
                                                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $insertSolicitud->bind_param("ssssssiis", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial, $otroPrueba);

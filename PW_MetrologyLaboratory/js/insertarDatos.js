@@ -78,7 +78,7 @@ async function registrarSolicitud() {
         var idNomina           = id("idUsuario");
         var tipoPruebaEspecial = id("tipoPruebaEspecial");
         var otroPrueba         = id("otroPrueba");
-        //var numPiezas          = id("numPiezas");
+        //var numPiezas                       = id("numPiezas");
         var especificaciones   = id ("especificaciones");
 
         // Para agregar material por número de parte
