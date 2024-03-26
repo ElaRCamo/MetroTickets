@@ -153,8 +153,6 @@
                                                         <div class="input-group-icon"><i class="las la-warehouse"></i></div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class=".col-md-8 row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group" id="descripcionMaterial">
                                                         <div class="help-block with-errors"></div>
