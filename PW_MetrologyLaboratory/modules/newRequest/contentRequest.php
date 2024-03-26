@@ -128,14 +128,14 @@
                                             </div>
                                             -->
                                             <div class=".col-md-8 row">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-4">
                                                     <div class="form-group" id="numeroParte">
                                                         <div class="help-block with-errors"></div>
                                                         <input type="text" class="form-control" id="numParte" name="numPartes[]" onchange="llenarCliente()" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                                                         <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-4">
                                                     <div class="form-group" id="div-OEM">
                                                         <div class="help-block with-errors" id="divError"></div>
                                                         <select class="form-control" id="cliente" name="clientes[]" onchange="llenarPlataforma()" required data-error="Por favor ingresa el area solicitante">
@@ -144,7 +144,7 @@
                                                         <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-4">
                                                     <div class="form-group" id="plataformaDiv">
                                                         <div class="help-block with-errors"></div>
                                                         <select name="plataformas[]" class="form-control" id="plataforma" onchange="llenarDescMaterial()" required data-error="Por favor ingresa la plataforma">
@@ -153,6 +153,13 @@
                                                         <div class="input-group-icon"><i class="las la-warehouse"></i></div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="row .col-md-4">
+                                                    <div class="form-group  clearfix" id="imgMaterial"> <!--contenedorImg-->
+                                                        <img src="" class="col-md-6 float-md-end mb-3 ms-md-3 img-rounded img-fluid imgsMaterial" id="imagenMaterial" alt="Imagen Material">
+                                                    </div>
+                                            </div>
+                                            <div class=".col-md-8 row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group" id="descripcionMaterial">
                                                         <div class="help-block with-errors"></div>
@@ -169,11 +176,6 @@
                                                         <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row .col-md-4">
-                                                    <div class="form-group  clearfix" id="imgMaterial"> <!--contenedorImg-->
-                                                        <img src="" class="col-md-6 float-md-end mb-3 ms-md-3 img-rounded img-fluid imgsMaterial" id="imagenMaterial" alt="Imagen Material">
-                                                    </div>
                                             </div>
 
                                             <div class="form-group last col-sm-12 buttons" >
