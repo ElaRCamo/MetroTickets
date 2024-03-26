@@ -218,8 +218,8 @@ h5{
 
 /****Cargar archivo***/
 #normaFile::file-selector-button {
-    color: greenyellow; /*Selectror del input tipo file*/
-    background-color: #E10014;
+    color: #f1f4f9; /*Selectror del input tipo file*/
+    background-color: var(--main-color);
 }
 .contenedorImg {
     width: 150px; /* Ancho del contenedor */
@@ -233,6 +233,7 @@ h5{
 .imgsMaterial {
     max-width: 100%; /* Ajustar imagen al tamaño del contenedor */
     max-height: 100%; /* Ajustar imagen al tamaño del contenedor */
+    object-fit: contain;
 }
 
 /*Ocultar divs con inputs opcionales*/
