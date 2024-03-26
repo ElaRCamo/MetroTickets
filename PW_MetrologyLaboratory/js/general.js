@@ -100,13 +100,20 @@ function banderaTipoPrueba(){
     labelArchivo.innerHTML = 'Archivo cargado: ' + nombreArchivo;
 }*/
 
-function mostrarNombreArchivo() {
-    var nombreArchivoInput = id('normaFile').files[0].name;
+function mostrarNombreArchivo(nombreArchivo) {
     var labelArchivo = document.querySelector('.file-label');
     if (labelArchivo) {
-        labelArchivo.innerHTML = 'Archivo cargado: ' + nombreArchivoInput;
+        labelArchivo.innerHTML = 'Archivo cargado: ' + nombreArchivo;
     }
 }
+
+// Evento change del input de tipo file
+document.getElementById('normaFile').addEventListener('change', function() {
+    var nombreArchivoInput = this.files[0].name;
+    mostrarNombreArchivo(nombreArchivoInput);
+});
+
+
 
 
 function otroTipoPrueba(){
