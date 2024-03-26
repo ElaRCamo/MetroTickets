@@ -55,11 +55,17 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     $conex = $con->conectar();
 
     // Consulta preparada para evitar inyección SQL
-    $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `id_pruebaEspecial`, `otroTipoEspecial`) 
-                                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $insertSolicitud->bind_param("ssssssiis", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial, $otroPrueba);
-    $rInsertSolicitud = $insertSolicitud->execute();
 
+    if($tipoPrueba == 5 && $tipoPruebaEspecial == 4){
+        $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `id_pruebaEspecial`, `otroTipoEspecial`) 
+                                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $insertSolicitud->bind_param("ssssssiis", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial, $otroPrueba);
+    }else{
+        $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `id_pruebaEspecial`) 
+                                              VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $insertSolicitud->bind_param("ssssssii", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial);
+    }
+    $rInsertSolicitud = $insertSolicitud->execute();
 
     if(!$rInsertSolicitud) {
         return false;
