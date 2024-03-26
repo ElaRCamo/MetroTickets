@@ -217,22 +217,8 @@ h5{
 }
 
 /****Cargar archivo***/
-.file-label{
-    background-color:transparent;
-    border:1px solid var(--main-color);
-    padding:5px 5px 7px 50px;
-    border-radius: 4px 4px 4px 4px;
-    width: 100%;
-
-}
-/*ocultar input*/
-.file-label input {
-    font-size: 1rem;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    cursor: pointer;
+.normaFile{
+    background-color: var(--color-sky);
 }
 .contenedorImg {
     width: 150px; /* Ancho del contenedor */

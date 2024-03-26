@@ -91,31 +91,6 @@ function banderaTipoPrueba(){
 
 }
 
-/*function mostrarNombreArchivo() {
-
-    var nombreArchivo = id('normaFile').files[0].name;
-
-    // Obtener el elemento de etiqueta y actualizar su contenido
-    var labelArchivo = document.querySelector('.file-label');
-    labelArchivo.innerHTML = 'Archivo cargado: ' + nombreArchivo;
-}*/
-
-// Agregar el event listener al input de tipo file
-/*document.getElementById('normaFile').addEventListener('change', function() {
-    var nombreArchivoInput = this.files[0].name;
-    mostrarNombreArchivo(nombreArchivoInput);
-});
-
-// Función para mostrar el nombre del archivo
-function mostrarNombreArchivo(nombreArchivo) {
-    var spanNombreArchivo = document.getElementById('nombreArchivoSeleccionado');
-    if (spanNombreArchivo) {
-        spanNombreArchivo.textContent = 'Archivo cargado: ' + nombreArchivo;
-    }
-}*/
-
-
-
 function otroTipoPrueba(){
     if (cbOtroTipo.value === '4'){//otroEspecial
         divOtroTipoPrueba.style.display = "block";
