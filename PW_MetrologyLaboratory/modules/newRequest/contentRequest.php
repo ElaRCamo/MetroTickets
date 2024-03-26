@@ -46,6 +46,14 @@
                                                 <input type="text" class="form-control" id="norma" onchange="llenarPruebaEspecial();" placeholder="Norma*" required data-error="Por favor ingresa la norma para realizar la prueba">
                                                 <div class="input-group-icon"><i class="las la-certificate"></i></div>
                                             </div>
+                                            <!--<div class="form-group col-sm-6" id="normaArchivo">
+                                                <div class="help-block with-errors"></div>
+                                                <label for="normaFile" class="file-label">
+                                                    Seleccione el documento de la norma
+                                                    <input type="file" class="form-control" id="normaFile" name="normaFile">
+                                                </label>
+                                                <div class="input-group-icon"><i class="las la-file"></i></div>
+                                            </div>-->
                                             <div class="form-group col-sm-6" id="normaArchivo">
                                                 <div class="help-block with-errors"></div>
                                                 <label for="normaFile" class="file-label">
@@ -53,7 +61,10 @@
                                                     <input type="file" class="form-control" id="normaFile" name="normaFile">
                                                 </label>
                                                 <div class="input-group-icon"><i class="las la-file"></i></div>
+                                                <!-- Agregar un nuevo elemento para mostrar el nombre del archivo -->
+                                                <span id="nombreArchivoSeleccionado"></span>
                                             </div>
+
                                             <div class="form-group col-sm-6 " id="pruebaEspecial">
                                                     <select class="form-control" id="tipoPruebaEspecial" onchange="otroTipoPrueba()" name="tipoPruebaEspecial" title="TipoDePruebaEspecial" required data-error="Por favor seleccione tipo de prueba" >
                                                         <option value="" >Seleccione el tipo de prueba especial*</option>

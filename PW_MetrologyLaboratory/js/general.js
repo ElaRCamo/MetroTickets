@@ -108,11 +108,12 @@ document.getElementById('normaFile').addEventListener('change', function() {
 
 // Función para mostrar el nombre del archivo
 function mostrarNombreArchivo(nombreArchivo) {
-    var labelArchivo = document.querySelector('.file-label');
-    if (labelArchivo) {
-        labelArchivo.innerHTML = 'Archivo cargado: ' + nombreArchivo;
+    var spanNombreArchivo = document.getElementById('nombreArchivoSeleccionado');
+    if (spanNombreArchivo) {
+        spanNombreArchivo.textContent = 'Archivo cargado: ' + nombreArchivo;
     }
 }
+
 
 
 function otroTipoPrueba(){
