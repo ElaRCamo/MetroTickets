@@ -3,7 +3,7 @@ include_once('connection.php');
 session_start();
 
 // Verificar si los datos están presentes y asignarlos de manera segura
-if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['numParte'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'], $_POST['tipoPruebaEspecial'], $_POST['otroPrueba'])) {
+if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['numParte'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'], $_POST['tipoPruebaEspecial'])) {
     $tipoPrueba     = $_POST['tipoPrueba'];
     $norma          = $_POST['norma'];
 
@@ -28,9 +28,12 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     }
 
     $idUsuario            = $_SESSION['nomina'];
+    $tipoPruebaEspecial   = ($_POST['id_prueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
+    $otroPrueba           = ($tipoPruebaEspecial != 4) ? 'No aplica' : $_POST['otroPrueba'] ;
+    /*
     $tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
     $otroPrueba           = $_POST['otroPrueba'];
-        if($tipoPruebaEspecial != 4){ $otroPrueba = 'No aplica';}
+        if($tipoPruebaEspecial != 4){ $otroPrueba = 'No aplica';}*/
     //$numPiezas          = $_POST['numPiezas'];
     $especificaciones     = $_POST['especificaciones'];
     $numParte             = $_POST['numParte'];
