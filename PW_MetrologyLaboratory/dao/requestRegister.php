@@ -55,6 +55,7 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     $conex = $con->conectar();
 
     // Consulta preparada para evitar inyección SQL
+<<<<<<< HEAD
 
     if($tipoPruebaEspecial == 4){
         echo '<script>alert("$tipoPruebaEspecial == 4")</script>';
@@ -66,7 +67,13 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
                                                   VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
         $insertSolicitud->bind_param("ssssssii", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial);
     }
+=======
+    $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `id_pruebaEspecial`, `otroTipoEspecial`) 
+                                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $insertSolicitud->bind_param("ssssssiis", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial, $otroPrueba);
+>>>>>>> parent of 0666916 (Se agregan condiciones para registro de otro tipo de prueba especial)
     $rInsertSolicitud = $insertSolicitud->execute();
+
 
     if(!$rInsertSolicitud) {
         //echo "Error al ejecutar la consulta: " . $insertSolicitud->error;

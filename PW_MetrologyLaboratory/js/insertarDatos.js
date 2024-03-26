@@ -94,6 +94,7 @@ async function registrarSolicitud() {
         dataForm.append('normaFile', inputArchivo.files[0]);
         dataForm.append('idUsuario', idNomina.value.trim());
         dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
+        alert("&tipoPruebaEspecial="+tipoPruebaEspecial.value);
         if(tipoPruebaEspecial.value===4){
             dataForm.append('otroPrueba', otroPrueba.value.trim());
         }
@@ -116,6 +117,7 @@ async function registrarSolicitud() {
                     window.location.href = "../requests/requestsIndex.php";
                     //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 3000);
                 } else {
+                    alert("Error js");
                     throw "Error en la llamada Ajax";
                 }
             })
