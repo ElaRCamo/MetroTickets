@@ -3,11 +3,11 @@ include_once('connection.php');
 session_start();
 
 // Verificar si los datos están presentes y asignarlos de manera segura
-if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['numParte'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
+if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['numParte'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
     $tipoPrueba     = $_POST['tipoPrueba'];
     $id_prueba      = $_POST['id_prueba'];
 
-    if($_POST['tipoPrueba'] == 4 || $_POST['tipoPrueba'] == 5){ //si se requiere norma por tipo de prueba
+    if($tipoPrueba == 4 || $tipoPrueba == 5){ //si se requiere norma por tipo de prueba
         $norma          = $_POST['norma'];
         //guardar los archivos de la norma
         $target_dir     = "../archivos/";
