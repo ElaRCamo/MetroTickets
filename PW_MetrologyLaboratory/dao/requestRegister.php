@@ -28,8 +28,8 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     }
 
     $idUsuario            = $_SESSION['nomina'];
-    $tipoPruebaEspecial   = ($_POST['id_prueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
-    $otroPrueba           = ($tipoPruebaEspecial != 4) ? 'No aplica' : $_POST['otroPrueba'] ;
+    $tipoPruebaEspecial   = ($_POST['tipoPrueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
+    $otroPrueba           = ($tipoPruebaEspecial  != 4) ? 'No aplica' : $_POST['otroPrueba'] ;
     /*
     $tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
     $otroPrueba           = $_POST['otroPrueba'];
@@ -40,7 +40,6 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     $descMaterial         = $_POST['descMaterial'];
     $cdadMaterial         = $_POST['cdadMaterial'];
     $fechaSolicitud       = $_POST['fechaSolicitud'];
-    $id_prueba            = $_POST['id_prueba'];
     // $otroPrueba, $numPiezas,
 
     // Llamar a la función
