@@ -4,14 +4,19 @@ session_start();
 
 // Verificar si los datos están presentes y asignarlos de manera segura
 if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['numParte'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'], $_POST['tipoPruebaEspecial'], $_POST['otroPrueba'])) {
-    $tipoPrueba = $_POST['tipoPrueba'];
-    $norma = $_POST['norma'];
+    $tipoPrueba     = $_POST['tipoPrueba'];
+    $norma          = $_POST['norma'];
 
     //guardar los archivos de la norma
-    $target_dir = "../archivos/";
-    $id_prueba = $_POST['id_prueba'];
-    $normaFileName = $id_prueba."-".basename($_FILES["normaFile"]["name"]);
-    $normaFile = $target_dir . $normaFileName;
+    $target_dir     = "../archivos/";
+    $id_prueba      = $_POST['id_prueba'];
+    //$normaFileName  = $id_prueba."-".basename($_FILES["normaFile"]["name"]);
+
+    //Quitar espacios del nombre del archivo:
+    $nombreArchivo = $_FILES["normaFile"]["name"];
+    $normaFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
+    $normaFile      = $target_dir . $normaFileName;
+
 
     if ($_FILES["normaFile"]["error"] > 0) {
         echo "Error: " . $_FILES["normaFile"]["error"];
@@ -26,14 +31,14 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
 
     $idUsuario            = $_SESSION['nomina'];
     $tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
-    $otroPrueba         = $_POST['otroPrueba'];
+    $otroPrueba           = $_POST['otroPrueba'];
     //$numPiezas          = $_POST['numPiezas'];
-    $especificaciones = $_POST['especificaciones'];
-    $numParte = $_POST['numParte'];
-    $descMaterial = $_POST['descMaterial'];
-    $cdadMaterial = $_POST['cdadMaterial'];
-    $fechaSolicitud = $_POST['fechaSolicitud'];
-    $id_prueba = $_POST['id_prueba'];
+    $especificaciones     = $_POST['especificaciones'];
+    $numParte             = $_POST['numParte'];
+    $descMaterial         = $_POST['descMaterial'];
+    $cdadMaterial         = $_POST['cdadMaterial'];
+    $fechaSolicitud       = $_POST['fechaSolicitud'];
+    $id_prueba            = $_POST['id_prueba'];
     // $otroPrueba, $numPiezas,
 
     // Llamar a la función
