@@ -217,7 +217,7 @@ h5{
 }
 
 /****Cargar archivo***/
-.normaFile{
+#normaFile{
     background-color: var(--color-sky);
 }
 .contenedorImg {
