@@ -48,7 +48,7 @@
                                             </div>
                                             <div class="form-group col-sm-6" id="normaArchivo">
                                                 <div class="help-block with-errors"></div>
-                                                <label for="normaFile" class="file-label">
+                                                <label for="normaFile" class="file-label" onclick="mostrarNombreArchivo()">
                                                     Seleccione el documento de la norma
                                                     <input type="file" class="form-control" id="normaFile" name="normaFile" onchange="">
                                                 </label>

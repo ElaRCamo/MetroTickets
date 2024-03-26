@@ -92,8 +92,9 @@ function banderaTipoPrueba(){
 }
 
 function mostrarNombreArchivo() {
-    var inputArchivo = id('normaFile');
-    var nombreArchivo = inputArchivo.files[0].name;
+    //var inputArchivo = id('normaFile');
+    //var nombreArchivo = inputArchivo.files[0].name;
+    var nombreArchivo = id('normaFile').files[0].name;
 
     // Obtener el elemento de etiqueta y actualizar su contenido
     var labelArchivo = document.querySelector('.file-label');
