@@ -10,13 +10,11 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_FILES['normaFile'], $_SESSION[
     //guardar los archivos de la norma
     $target_dir     = "../archivos/";
     $id_prueba      = $_POST['id_prueba'];
-    //$normaFileName  = $id_prueba."-".basename($_FILES["normaFile"]["name"]);
 
     //Quitar espacios del nombre del archivo:
-    $nombreArchivo = $_FILES["normaFile"]["name"];
-    $normaFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
+    $nombreArchivo  = $_FILES["normaFile"]["name"];
+    $normaFileName  = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
     $normaFile      = $target_dir . $normaFileName;
-
 
     if ($_FILES["normaFile"]["error"] > 0) {
         echo "Error: " . $_FILES["normaFile"]["error"];
@@ -61,8 +59,6 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
                                               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $insertSolicitud->bind_param("ssssssiis", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial, $otroPrueba);
     $rInsertSolicitud = $insertSolicitud->execute();
-
-    //Si la prueba es de de tipo Especial:
 
 
     if(!$rInsertSolicitud) {
