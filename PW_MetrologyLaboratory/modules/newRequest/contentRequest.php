@@ -127,7 +127,7 @@
                                                 </div>
                                             </div>
                                             -->
-                                            <div class="row clearfix">
+                                            <div class=".col-md-8 row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group" id="numeroParte">
                                                         <div class="help-block with-errors"></div>
@@ -154,8 +154,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="row">
+                                            <div class=".col-md-8 row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group" id="descripcionMaterial">
                                                         <div class="help-block with-errors"></div>
@@ -172,11 +171,11 @@
                                                         <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group contenedorImg" id="imgMaterial">
+                                            </div>
+                                            <div class="row .col-md-4">
+                                                    <div class="form-group contenedorImg clearfix" id="imgMaterial">
                                                         <img src="" class="col-md-6 float-md-end mb-3 ms-md-3 img-rounded img-fluid imgsMaterial" id="imagenMaterial" alt="Imagen Material">
                                                     </div>
-                                                </div>
                                             </div>
 
                                             <div class="form-group last col-sm-12 buttons" >
