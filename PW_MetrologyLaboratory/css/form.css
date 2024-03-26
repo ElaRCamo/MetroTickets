@@ -217,8 +217,8 @@ h5{
 }
 
 /****Cargar archivo***/
-#normaFile{
-    background-color: var(--color-sky);
+#normaFile::file-selector-button {
+    color: var(--main-color); /*Selectror del input tipo file*/
 }
 .contenedorImg {
     width: 150px; /* Ancho del contenedor */
