@@ -126,59 +126,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="row">
-                                                <div class="col-sm-4">
-                                                    <div class="form-group" id="numeroParte">
-                                                        <div class="help-block with-errors"></div>
-                                                        <input type="text" class="form-control" id="numParte" name="numPartes[]" onchange="llenarCliente()" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
-                                                        <div class="input-group-icon"><i class="las la-cog"></i></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group" id="div-OEM">
-                                                        <div class="help-block with-errors" id="divError"></div>
-                                                        <select class="form-control" id="cliente" name="clientes[]" onchange="llenarPlataforma()" required data-error="Por favor ingresa el area solicitante">
-                                                            <option value="">Seleccione el cliente (OEM)*</option>
-                                                        </select>
-                                                        <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group" id="plataformaDiv">
-                                                        <div class="help-block with-errors"></div>
-                                                        <select name="plataformas[]" class="form-control" id="plataforma" onchange="llenarDescMaterial()" required data-error="Por favor ingresa la plataforma">
-                                                            <option value="">Seleccione la plataforma*</option>
-                                                        </select>
-                                                        <div class="input-group-icon"><i class="las la-warehouse"></i></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-sm-4">
-                                                    <div class="form-group" id="descripcionMaterial">
-                                                        <div class="help-block with-errors"></div>
-                                                        <select name="descripciones[]" class="form-control" id="descMaterial" onchange="descripcionMaterial()" required data-error="Por favor ingresa la descripción del material">
-                                                            <option value="">Seleccione la descripción*</option>
-                                                        </select>
-                                                        <div class="input-group-icon"><i class="las la-cog"></i></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group" id="cantidadMaterial">
-                                                        <div class="help-block with-errors"></div>
-                                                        <input type="number" class="form-control" id="cdadMaterial" name="cdadesMaterial[]" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
-                                                        <div class="input-group-icon"><i class="las la-cog"></i></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group contenedorImg" id="imgMaterial">
-                                                        <img src="" class="imgsMaterial" id="imagenMaterial" alt="Imagen Material">
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                             -->
                                             <div class="row">
                                                 <div class="col-sm-4">
@@ -187,6 +134,8 @@
                                                         <input type="text" class="form-control" id="numParte" name="numPartes[]" onchange="llenarCliente()" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                                                         <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                     </div>
+                                                </div>
+                                                <div class="col-sm-4">
                                                     <div class="form-group" id="div-OEM">
                                                         <div class="help-block with-errors" id="divError"></div>
                                                         <select class="form-control" id="cliente" name="clientes[]" onchange="llenarPlataforma()" required data-error="Por favor ingresa el area solicitante">
@@ -204,6 +153,9 @@
                                                         <div class="input-group-icon"><i class="las la-warehouse"></i></div>
                                                     </div>
                                                 </div>
+                                            </div>
+
+                                            <div class="row">
                                                 <div class="col-sm-4">
                                                     <div class="form-group" id="descripcionMaterial">
                                                         <div class="help-block with-errors"></div>
@@ -212,21 +164,20 @@
                                                         </select>
                                                         <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                     </div>
+                                                </div>
+                                                <div class="col-sm-4">
                                                     <div class="form-group" id="cantidadMaterial">
                                                         <div class="help-block with-errors"></div>
                                                         <input type="number" class="form-control" id="cdadMaterial" name="cdadesMaterial[]" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
                                                         <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-12">
+                                                <div class="clearfix">
                                                     <div class="form-group contenedorImg" id="imgMaterial">
-                                                        <img src="" class="imgsMaterial" id="imagenMaterial" alt="Imagen Material">
+                                                        <img src="" class="col-md-6 float-md-end mb-3 ms-md-3 imgsMaterial" id="imagenMaterial" alt="Imagen Material">
                                                     </div>
                                                 </div>
                                             </div>
-
 
                                             <div class="form-group last col-sm-12 buttons" >
                                                 <button type="submit" id="submitRequest"  onclick="registrarSolicitud()" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
