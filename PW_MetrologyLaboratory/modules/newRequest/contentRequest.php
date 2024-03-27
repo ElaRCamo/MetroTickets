@@ -129,6 +129,7 @@
                                             -->
                                             <div class="row row-cols-2 clearfix">
                                                 <div class="col-8">
+                                                    <div class="row">
                                                 <div class="col-6">
                                                     <div class="form-group" id="numeroParte">
                                                         <div class="help-block with-errors"></div>
@@ -169,6 +170,7 @@
                                                         <input type="number" class="form-control" id="cdadMaterial" name="cdadesMaterial[]" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
                                                         <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                     </div>
+                                                </div>
                                                 </div>
                                                 </div>
 
