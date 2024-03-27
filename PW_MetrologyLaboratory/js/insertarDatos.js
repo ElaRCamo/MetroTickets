@@ -79,7 +79,7 @@ function validarSesion() {
         console.log("Obterner estatus de la sesión: ", sesionIniciada);
         return sesionIniciada;
     }).catch(function(error) {
-        console.error("Error al obtener validar la sesión", error);
+        console.error("Error al validar la sesión", error);
     });
 }
 
@@ -87,7 +87,12 @@ async function registrarSolicitud() {
 
     var sesionIniciada = await validarSesion();
 
-    if(sesionIniciada){
+    if (!sesionIniciada) {
+        // Si la sesión no está iniciada, redirigir al usuario a la página de inicio de sesión
+        window.location.href = "../modules/sesion/indexSesion.php";
+        alert("La sesión no está iniciada.");
+        return;
+    }
         try {
             var id_prueba = await obtenerNuevoId(); // Esperar a que se resuelva la promesa y obtener el nuevo ID
             const dataForm = new FormData();
@@ -147,8 +152,4 @@ async function registrarSolicitud() {
         } catch (error) {
             console.error("Error al registrar la solicitud:", error);
         }
-    }else{
-        console.error("Sesion no iniciada: "+ sesionIniciada);
-    }
-
 }
