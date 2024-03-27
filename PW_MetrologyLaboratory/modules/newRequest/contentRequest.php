@@ -128,16 +128,16 @@
                                             </div>
                                             -->
                                             <div class="row row-cols-2 clearfix">
-                                                <div class="col-8">
+                                                <div class="col-xl-8">
                                                     <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-sm-6">
                                                     <div class="form-group" id="numeroParte">
                                                         <div class="help-block with-errors"></div>
                                                         <input type="text" class="form-control" id="numParte" name="numPartes[]" onchange="llenarCliente()" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                                                         <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-6">
+                                                <div class="col-sm-6">
                                                     <div class="form-group" id="div-OEM">
                                                         <div class="help-block with-errors" id="divError"></div>
                                                         <select class="form-control" id="cliente" name="clientes[]" onchange="llenarPlataforma()" required data-error="Por favor ingresa el area solicitante">
@@ -146,7 +146,7 @@
                                                         <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-6">
+                                                <div class="col-sm-6">
                                                     <div class="form-group" id="plataformaDiv">
                                                         <div class="help-block with-errors"></div>
                                                         <select name="plataformas[]" class="form-control" id="plataforma" onchange="llenarDescMaterial()" required data-error="Por favor ingresa la plataforma">
@@ -155,7 +155,7 @@
                                                         <div class="input-group-icon"><i class="las la-warehouse"></i></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-6">
+                                                <div class="col-sm-6">
                                                     <div class="form-group" id="descripcionMaterial">
                                                         <div class="help-block with-errors"></div>
                                                         <select name="descripciones[]" class="form-control" id="descMaterial" onchange="descripcionMaterial()" required data-error="Por favor ingresa la descripción del material">
@@ -164,7 +164,7 @@
                                                         <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                     </div>
                                                 </div>
-                                                <div class="col">
+                                                <div class="col-xl-4">
                                                     <div class="form-group" id="cantidadMaterial">
                                                         <div class="help-block with-errors"></div>
                                                         <input type="number" class="form-control" id="cdadMaterial" name="cdadesMaterial[]" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
