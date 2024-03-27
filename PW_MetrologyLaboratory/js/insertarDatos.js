@@ -138,7 +138,7 @@ async function registrarSolicitud() {
             console.error("Error al registrar la solicitud:", error);
         }
     }else{
-        console.error("Sesion no iniciada");
+        console.error("Sesion no iniciada: "+ sesionIniciada);
     }
 
 }
