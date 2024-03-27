@@ -67,76 +67,78 @@ function obtenerNuevoId() {
     });
 }
 
-
-function validarSesion() {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSesionIniciada.php' , function (data) {
-        resolve(data.sesionIniciada);
-    }).fail(function(jqxhr, textStatus, error) {
-        reject(error); // Rechaza la promesa en caso de error
+function validarSesion(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSesionIniciada.php', function (data){
+        return(data.sesionIniciada);
     });
 }
 
+async function registrarSolicitud() {
 
-validarSesion().then(
-    async function registrarSolicitud() {
-    try {
+    var sesionIniciada = validarSesion();
 
-        var id_prueba = await obtenerNuevoId(); // Esperar a que se resuelva la promesa y obtener el nuevo ID
-        const dataForm = new FormData();
+    if(sesionIniciada){
+        try {
+            var id_prueba = await obtenerNuevoId(); // Esperar a que se resuelva la promesa y obtener el nuevo ID
+            const dataForm = new FormData();
 
-        var tipoPrueba         = id("tipoPrueba");
-        var norma              = id("norma");
-        var inputArchivo       = id('normaFile');
-        var idNomina           = id("idUsuario");
-        var tipoPruebaEspecial = id("tipoPruebaEspecial");
-        var otroPrueba         = id("otroPrueba");
-        //var numPiezas          = id("numPiezas");
-        var especificaciones   = id ("especificaciones");
+            var tipoPrueba         = id("tipoPrueba");
+            var norma              = id("norma");
+            var inputArchivo       = id('normaFile');
+            var idNomina           = id("idUsuario");
+            var tipoPruebaEspecial = id("tipoPruebaEspecial");
+            var otroPrueba         = id("otroPrueba");
+            //var numPiezas          = id("numPiezas");
+            var especificaciones   = id ("especificaciones");
 
-        // Para agregar material por número de parte
-        var numParte           = id('numParte');
-        var descMaterial       = id('descMaterial');
-        var cdadMaterial       = id('cdadMaterial');
+            // Para agregar material por número de parte
+            var numParte           = id('numParte');
+            var descMaterial       = id('descMaterial');
+            var cdadMaterial       = id('cdadMaterial');
 
-        var fechaSolicitud= new Date();
-        var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
+            var fechaSolicitud= new Date();
+            var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
 
-        dataForm.append('tipoPrueba', tipoPrueba.value.trim());
-        dataForm.append('norma', norma.value.trim());
-        dataForm.append('normaFile', inputArchivo.files[0]);
-        dataForm.append('idUsuario', idNomina.value.trim());
-        dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
-        dataForm.append('otroPrueba', otroPrueba.value.trim());
-        //dataForm.append('numPiezas', numPiezas.value.trim());
-        dataForm.append('especificaciones', especificaciones.value.trim());
-        dataForm.append('numParte', numParte.value.trim());
-        dataForm.append('descMaterial', descMaterial.value.trim());
-        dataForm.append('cdadMaterial', cdadMaterial.value.trim());
-        dataForm.append('fechaSolicitud', fechaFormateada);
-        dataForm.append('id_prueba', id_prueba);
+            dataForm.append('tipoPrueba', tipoPrueba.value.trim());
+            dataForm.append('norma', norma.value.trim());
+            dataForm.append('normaFile', inputArchivo.files[0]);
+            dataForm.append('idUsuario', idNomina.value.trim());
+            dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
+            dataForm.append('otroPrueba', otroPrueba.value.trim());
+            //dataForm.append('numPiezas', numPiezas.value.trim());
+            dataForm.append('especificaciones', especificaciones.value.trim());
+            dataForm.append('numParte', numParte.value.trim());
+            dataForm.append('descMaterial', descMaterial.value.trim());
+            dataForm.append('cdadMaterial', cdadMaterial.value.trim());
+            dataForm.append('fechaSolicitud', fechaFormateada);
+            dataForm.append('id_prueba', id_prueba);
 
-        //alert("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&tipoPruebaEspecial="+tipoPruebaEspecial.value+"&otroEspecial="+otroPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&idNomina="+idNomina.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
+            //alert("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&tipoPruebaEspecial="+tipoPruebaEspecial.value+"&otroEspecial="+otroPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&idNomina="+idNomina.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
 
-        fetch('../../dao/requestRegister.php', {
-            method: 'POST',
-            body: dataForm
-        })
-            .then(function (response) {
-                if (response.ok) { //respuesta
-                    window.location.href = "../requests/requestsIndex.php";
-                    //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 3000);
-                } else {
-                    throw "Error en la llamada Ajax";
-                }
+            fetch('../../dao/requestRegister.php', {
+                method: 'POST',
+                body: dataForm
             })
-            .then(function (texto) {
-                console.log(texto);
-            })
-            .catch(function (err) {
-                console.log(err);
-            });
+                .then(function (response) {
+                    if (response.ok) { //respuesta
+                        window.location.href = "../requests/requestsIndex.php";
+                        //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 3000);
+                    } else {
+                        throw "Error en la llamada Ajax";
+                    }
+                })
+                .then(function (texto) {
+                    console.log(texto);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
 
-    } catch (error) {
-        console.error("Error al registrar la solicitud:", error);
+        } catch (error) {
+            console.error("Error al registrar la solicitud:", error);
+        }
+    }else{
+        console.error("Sesion no iniciada");
     }
-});
+
+}
