@@ -174,10 +174,8 @@
                                                 </div>
                                                 </div>
 
-                                                <div class="col-xl-4">
-                                                        <div class="form-group justify-content-md-center" id="imgMaterial"> <!--contenedorImg-->
-                                                            <img src="" class="col-md-6 mb-3 ms-md-3 img-rounded img-fluid imgsMaterial" id="imagenMaterial" alt="Imagen Material">
-                                                        </div>
+                                                <div class="col-xl-4 justify-content-md-center" id="imgMaterial">
+                                                    <img src="" class="col-md-6 mb-3 ms-md-3 img-rounded img-fluid imgsMaterial" id="imagenMaterial" alt="Imagen Material">
                                                 </div>
                                             </div>
 
