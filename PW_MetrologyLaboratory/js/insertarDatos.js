@@ -59,23 +59,34 @@ function idPrueba() {
 
 function obtenerNuevoId() {
     return idPrueba().then(function(nuevoId) {
-        // Aquí puedes hacer lo que quieras con nuevoId
         console.log("obtenerNuevoId-Nuevo ID:", nuevoId);
-        return nuevoId; // Puedes devolverlo para usarlo fuera de esta función
+        return nuevoId;
     }).catch(function(error) {
         console.error("Error al obtener el nuevo ID:", error);
     });
 }
 
-function validarSesion(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSesionIniciada.php', function (data){
-        return(data.sesionIniciada);
+function obtenerSesion() {
+    return new Promise(function(resolve, reject) {
+        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSesionIniciada.php', function(data) {
+            let sesionIniciada = data.data[0].sesionIniciada;
+            resolve(sesionIniciada); // Resolver la promesa con el nuevo ID
+        });
+    });
+}
+function validarSesion() {
+    return obtenerSesion().then(function(sesionIniciada) {
+        console.log("Obterner estatus de la sesión: ", sesionIniciada);
+        return sesionIniciada;
+    }).catch(function(error) {
+        console.error("Error al obtener validar la sesión", error);
     });
 }
 
+
 async function registrarSolicitud() {
 
-    var sesionIniciada = validarSesion();//
+    var sesionIniciada = await validarSesion();
 
     if(sesionIniciada){
         try {
