@@ -67,19 +67,19 @@ function obtenerNuevoId() {
     });
 }
 
-async function registrarSolicitud() {
+
+function validarSesion() {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSesionIniciada.php' , function (data) {
+        resolve(data.sesionIniciada);
+    }).fail(function(jqxhr, textStatus, error) {
+        reject(error); // Rechaza la promesa en caso de error
+    });
+}
+
+
+validarSesion().then(
+    async function registrarSolicitud() {
     try {
-
-        // Validar si la sesión está iniciada(solicitud AJAX para verificar la sesión en PHP)
-        const response = await fetch('../dao/daoSesionIniciada.php');
-        const data = await response.json();
-
-        // Verificar si la sesión está iniciada
-        if (!data.sesionIniciada) {
-            window.location.href = "../modules/sesion/indexSesion.php";
-            alert("La sesión no está iniciada.");
-            return;
-        }
 
         var id_prueba = await obtenerNuevoId(); // Esperar a que se resuelva la promesa y obtener el nuevo ID
         const dataForm = new FormData();
@@ -139,4 +139,4 @@ async function registrarSolicitud() {
     } catch (error) {
         console.error("Error al registrar la solicitud:", error);
     }
-}
+});
