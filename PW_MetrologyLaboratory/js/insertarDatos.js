@@ -69,7 +69,7 @@ function obtenerNuevoId() {
 function obtenerSesion() {
     return new Promise(function(resolve, reject) {
         $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSesionIniciada.php', function(data) {
-            let sesionIniciada = data.data.sesionIniciada;
+            let sesionIniciada = data.sesionIniciada;
             resolve(sesionIniciada); // Resolver la promesa con el nuevo ID
         });
     });
