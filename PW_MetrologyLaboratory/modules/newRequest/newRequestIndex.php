@@ -32,24 +32,16 @@
 
     <?php
     session_start();
-
-    // Verificar si las variables de sesión están establecidas
-    if (!isset($_SESSION['tipoUsuario'])) {
-        header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
-        exit;
-    }
     $nombreUser = $_SESSION['nombreUsuario'];
     $tipoUser = $_SESSION['tipoUsuario'];
     $idUsuario = $_SESSION['nomina'];
-
-    if ($tipoUser == 2) {
+    if ($tipoUser == null){
+        header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
+    }elseif($tipoUser == 2){
         echo "<script>alert('Permisos Insuficientes')</script>";
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php'>";
-        exit;
     }
     ?>
-
-
 </head>
 <body>
     <?php
