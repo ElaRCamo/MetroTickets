@@ -175,7 +175,7 @@
                                                 </div>
 
                                                 <div class="col-xl-4 text-center" id="imgMaterial">
-                                                    <img src="" class="col-md-6 mb-3 ms-md-3 rounded mx-auto d-block img-fluid img-thumbnail" id="imagenMaterial" alt="Imagen Material">
+                                                    <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial" alt="Imagen Material">
                                                 </div>
                                             </div>
 
