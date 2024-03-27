@@ -227,8 +227,8 @@ h5{
     height: 110px;
     border: var(--main-color);
     display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente
+    align-items: center; /* Centrar verticalmente
 }
 /*
 .imgsMaterial {
