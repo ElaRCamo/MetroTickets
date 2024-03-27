@@ -175,11 +175,9 @@
                                                 </div>
 
                                                 <div class="col-4">
-                                                    <div class="col">
                                                         <div class="form-group clearfix" id="imgMaterial"> <!--contenedorImg-->
                                                             <img src="" class="col-md-6 float-md-center mb-3 ms-md-3 img-rounded img-fluid imgsMaterial" id="imagenMaterial" alt="Imagen Material">
                                                         </div>
-                                                    </div>
                                                 </div>
                                             </div>
 
