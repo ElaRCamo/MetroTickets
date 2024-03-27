@@ -195,7 +195,7 @@ function descripcionMaterial(){
 
 // Función para cerrar sesión
 function cerrarSesion() {
-    window.location.href = "../dao/login.php";
+    window.location.href = "../../dao/login.php";
 }
 document.getElementById("cerrarSesion").addEventListener("click", function(event) {
     event.preventDefault(); // Esto evita que el enlace se siga automáticamente
