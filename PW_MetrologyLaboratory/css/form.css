@@ -221,6 +221,7 @@ h5{
     color: #f1f4f9; /*Selectror del input tipo file*/
     background-color: var(--main-color);
 }
+/*
 .contenedorImg {
     width: 110px;
     height: 110px;
@@ -229,13 +230,13 @@ h5{
     justify-content: center; /* Centrar horizontalmente */
     align-items: center; /* Centrar verticalmente */
 }
-
+/*
 .imgsMaterial {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 }
-
+*/
 /*Ocultar divs con inputs opcionales*/
 #normaNombre, #normaArchivo, #pruebaEspecial, #otroTipoPrueba,
 #numeroPiezas, #detallesPrueba , #div-OEM, #agregarNumParte, #numeroParte,
