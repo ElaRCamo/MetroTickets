@@ -78,6 +78,7 @@ function validarSesion() {
     return obtenerSesion().then(function(sesionIniciada) {
         console.log("Obterner estatus de la sesión: ", sesionIniciada);
         return sesionIniciada;
+
     }).catch(function(error) {
         console.error("Error al validar la sesión", error);
     });
