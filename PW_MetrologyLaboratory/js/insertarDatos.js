@@ -90,7 +90,7 @@ async function registrarSolicitud() {
 
     if (!sesionIniciada) {
         // Si la sesión no está iniciada, redirigir al usuario a la página de inicio de sesión
-        window.location.href = "../modules/sesion/indexSesion.php";
+        window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php";
         alert("La sesión no está iniciada.");
         return;
     }
