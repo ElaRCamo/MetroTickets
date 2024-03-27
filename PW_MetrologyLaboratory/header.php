@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\sesion\indexSesion.php" class="optionMenu" id="cerrarSesion"  onclick="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/login.php">
+                    <a class="optionMenu" id="cerrarSesion">
                         <span class="las la-power-off"></span>
                         <small>Cerrar sesión</small>
                     </a>
