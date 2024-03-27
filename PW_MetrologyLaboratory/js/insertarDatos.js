@@ -75,7 +75,7 @@ function validarSesion(){
 
 async function registrarSolicitud() {
 
-    var sesionIniciada = validarSesion();
+    var sesionIniciada = validarSesion();//
 
     if(sesionIniciada){
         try {
