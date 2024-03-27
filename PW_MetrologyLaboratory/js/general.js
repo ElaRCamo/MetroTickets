@@ -195,7 +195,16 @@ function descripcionMaterial(){
 
 // Función para cerrar sesión
 function cerrarSesion() {
-    window.location.href = "../../dao/login.php";
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert('Sesión cerrada exitosamente');
+            window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php";
+        }
+    };
+    xhttp.open("POST", "../../dao/login.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("cerrarSesion=true");
 }
 document.getElementById("cerrarSesion").addEventListener("click", function(event) {
     event.preventDefault(); // Esto evita que el enlace se siga automáticamente
