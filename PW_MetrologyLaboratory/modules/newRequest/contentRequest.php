@@ -127,6 +127,7 @@
                                                 </div>
                                             </div>
                                             -->
+                                            <div class=".col-md-12 clearfix">
                                             <div class=".col-md-8">
                                                 <div class="col-md-4">
                                                     <div class="form-group" id="numeroParte">
@@ -153,14 +154,14 @@
                                                         <div class="input-group-icon"><i class="las la-warehouse"></i></div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div></div>
                                             <div class="row .col-md-4">
                                                     <div class="form-group  clearfix" id="imgMaterial"> <!--contenedorImg-->
                                                         <img src="" class="col-md-6 float-md-end mb-3 ms-md-3 img-rounded img-fluid imgsMaterial" id="imagenMaterial" alt="Imagen Material">
                                                     </div>
                                             </div>
                                             <div class=".col-md-8">
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-4">
                                                     <div class="form-group" id="descripcionMaterial">
                                                         <div class="help-block with-errors"></div>
                                                         <select name="descripciones[]" class="form-control" id="descMaterial" onchange="descripcionMaterial()" required data-error="Por favor ingresa la descripción del material">
@@ -169,7 +170,7 @@
                                                         <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-4">
                                                     <div class="form-group" id="cantidadMaterial">
                                                         <div class="help-block with-errors"></div>
                                                         <input type="number" class="form-control" id="cdadMaterial" name="cdadesMaterial[]" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
