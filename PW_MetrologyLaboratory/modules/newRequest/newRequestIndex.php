@@ -38,6 +38,7 @@
         header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
         exit;
     }
+    $nombreUser = $_SESSION['nombreUsuario'];
     $tipoUser = $_SESSION['tipoUsuario'];
     $idUsuario = $_SESSION['nomina'];
 
