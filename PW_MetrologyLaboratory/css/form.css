@@ -221,14 +221,11 @@ h5{
     color: #f1f4f9; /*Selectror del input tipo file*/
     background-color: var(--main-color);
 }
-/*
+
 .contenedorImg {
-    width: 110px;
-    height: 110px;
-    border: var(--main-color);
     display: flex;
-    justify-content: center; /* Centrar horizontalmente
-    align-items: center; /* Centrar verticalmente
+    justify-content: center; /* Centrar horizontalmente*/
+    align-items: center; /* Centrar verticalmente*/
 }
 /*
 .imgsMaterial {
