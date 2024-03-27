@@ -83,7 +83,6 @@ function validarSesion() {
     });
 }
 
-
 async function registrarSolicitud() {
 
     var sesionIniciada = await validarSesion();
