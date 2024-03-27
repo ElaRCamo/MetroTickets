@@ -75,9 +75,9 @@ function validarSesion(){
 
 async function registrarSolicitud() {
 
-    var sesionIniciada = validarSesion();//
+    //var sesionIniciada = validarSesion();//
 
-    if(sesionIniciada){
+    //if(sesionIniciada){
         try {
             var id_prueba = await obtenerNuevoId(); // Esperar a que se resuelva la promesa y obtener el nuevo ID
             const dataForm = new FormData();
@@ -137,8 +137,8 @@ async function registrarSolicitud() {
         } catch (error) {
             console.error("Error al registrar la solicitud:", error);
         }
-    }else{
-        console.error("Sesion no iniciada");
-    }
+    //}else{
+    //    console.error("Sesion no iniciada");
+    //}
 
 }
