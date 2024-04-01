@@ -95,7 +95,7 @@ function otroTipoPrueba(){
         divOtroTipoPrueba.style.display = "none";
     }
 }
-
+/*
 function agregarNumParte(){
     var divPrincipal= id("elementosMaterial");
     var clonedivPrincipal  = divPrincipal.cloneNode(true);
@@ -103,7 +103,7 @@ function agregarNumParte(){
     divContenedor.after(clonedivPrincipal);
 }
 
-/*
+
 function agregarNumParte() {
     // Clonar los divs
     var cloneNumeroParte = divNumeroParte.cloneNode(true);
