@@ -88,14 +88,14 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group" id="numeroParte">
                                                         <div class="help-block with-errors"></div>
-                                                        <input id="numParte" name="numPartes[]" type="text" class="form-control"  onchange="llenarCliente()" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
+                                                        <input id="numParte" name="numPartes[]" type="text" class="form-control"  onchange="llenarCliente('')" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                                                         <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group" id="div-OEM">
                                                         <div class="help-block with-errors" id="divError"></div>
-                                                        <select id="cliente" name="clientes[]" class="form-control"  onchange="llenarPlataforma()" required data-error="Por favor ingresa el area solicitante">
+                                                        <select id="cliente" name="clientes[]" class="form-control"  onchange="llenarPlataforma('')" required data-error="Por favor ingresa el area solicitante">
                                                             <option value="">Seleccione el cliente (OEM)*</option>
                                                         </select>
                                                         <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
@@ -104,7 +104,7 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group" id="plataformaDiv">
                                                         <div class="help-block with-errors"></div>
-                                                        <select id="plataforma" name="plataformas[]" class="form-control"  onchange="llenarDescMaterial()" required data-error="Por favor ingresa la plataforma">
+                                                        <select id="plataforma" name="plataformas[]" class="form-control"  onchange="llenarDescMaterial('')" required data-error="Por favor ingresa la plataforma">
                                                             <option value="">Seleccione la plataforma*</option>
                                                         </select>
                                                         <div class="input-group-icon"><i class="las la-warehouse"></i></div>
@@ -113,7 +113,7 @@
                                                 <div class="col-sm-6">
                                                     <div class="form-group" id="descripcionMaterial">
                                                         <div class="help-block with-errors"></div>
-                                                        <select id="descMaterial" name="descripciones[]" class="form-control"  onchange="descripcionMaterial()" required data-error="Por favor ingresa la descripción del material">
+                                                        <select id="descMaterial" name="descripciones[]" class="form-control"  onchange="descripcionMaterial('')" required data-error="Por favor ingresa la descripción del material">
                                                             <option value="">Seleccione la descripción*</option>
                                                         </select>
                                                         <div class="input-group-icon"><i class="las la-cog"></i></div>

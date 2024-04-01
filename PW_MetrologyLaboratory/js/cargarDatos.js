@@ -49,9 +49,9 @@ function llenarPruebaEspecial(){
     });
 }
 
-function llenarCliente(){
+function llenarCliente(i){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
-        var selectS = id("cliente");
+        var selectS = id("cliente" + i);
         selectS.innerHTML = ""; //limpiar contenido
 
         var createOptionDef = document.createElement("option");
@@ -68,9 +68,9 @@ function llenarCliente(){
     });
 }
 
-function llenarPlataforma() {
+function llenarPlataforma(i) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + id("cliente").value, function (data) {
-        var selectS = id("plataforma");
+        var selectS = id("plataforma"+ i);
         selectS.innerHTML = ""; //limpiar contenido
 
         var createOptionDef = document.createElement("option");
@@ -87,9 +87,9 @@ function llenarPlataforma() {
     });
 }
 
-function llenarDescMaterial() {
+function llenarDescMaterial(i) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoDescMaterial.php?id_plataforma=' + id("plataforma").value, function (data) {
-        var selectS = id("descMaterial");
+        var selectS = id("descMaterial"+ i);
         selectS.innerHTML = "";
 
         var createOptionDef = document.createElement("option");
@@ -105,3 +105,16 @@ function llenarDescMaterial() {
         }
     });
 }
+
+function descripcionMaterial(i){
+    var divImgMaterial     = id("imgMaterial" + i);
+    if (cbDescMaterial.value != null){
+        divImgMaterial.style.display = "block";
+        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoImgMaterial.php?id_descripcion=' + id("descMaterial").value, function (data) {
+            id("imagenMaterial").src = data.data[0].imgMaterial;
+        });
+    }else{
+        divImgMaterial.style.display = "none";
+    }
+}
+
