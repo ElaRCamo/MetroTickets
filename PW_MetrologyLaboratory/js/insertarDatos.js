@@ -33,30 +33,31 @@ function registrarUsuario(){
             }
         })
         .catch(function(err) {
-            console.log(err);
+            console.log("Error en la solicitud:", err);
         });
 
 
 
 
-/*
-    fetch('../../dao/userRegister.php', {
-        method: 'POST',
-        body: data
-    })
-        .then(function (response) {
-            if (response.ok) { //respuesta
-                window.location.href = "../sesion/indexSesion.php";
-            } else {
-                throw "Error en la llamada Ajax";
-            }
+
+    /*
+        fetch('../../dao/userRegister.php', {
+            method: 'POST',
+            body: data
         })
-        .then(function (texto) {
-            console.log(texto);
-        })
-        .catch(function (err) {
-            console.log(err);
-        });*/
+            .then(function (response) {
+                if (response.ok) { //respuesta
+                    window.location.href = "../sesion/indexSesion.php";
+                } else {
+                    throw "Error en la llamada Ajax";
+                }
+            })
+            .then(function (texto) {
+                console.log(texto);
+            })
+            .catch(function (err) {
+                console.log(err);
+            });*/
 }
 
 function idPrueba() {
