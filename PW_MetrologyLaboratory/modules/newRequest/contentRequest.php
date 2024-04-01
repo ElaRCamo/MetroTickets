@@ -129,7 +129,7 @@
                                                 </div>
                                                 </div>
                                                 <div class="col-xl-4 text-center contenedorImg" id="imgMaterial">
-                                                    <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial" alt="Imagen Material">
+                                                    <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial0" alt="Imagen Material">
                                                 </div>
                                             </div>
                                             <div class="form-group last col-sm-12 buttons" >

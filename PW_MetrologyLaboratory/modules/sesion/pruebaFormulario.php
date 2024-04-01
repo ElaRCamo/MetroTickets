@@ -87,10 +87,11 @@
 <script src="../../js/insertarDatos.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        var i = 1;
+
 
         $('#addNumParte').click(function() {
-            i++;
+            var i = 1;
+
             var newRow = $('<div id="newRow' + i + '" class="col-xl-8">'
                 + '<div class="row">'
                 + '<div class="col-sm-6">'
@@ -140,6 +141,7 @@
                 + '</div>'
                 + '</div>');
             newRow.appendTo('#elementosMaterial');
+            i++;
         });
 
         $(document).on('click', '.remove-lnk', function(e) {
@@ -147,6 +149,7 @@
             var id = $(this).attr("id");
             $('#newRow' + id).remove();
         });
+
     });
 </script>
 
