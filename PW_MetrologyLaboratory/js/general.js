@@ -1,28 +1,25 @@
 const id = str => document.getElementById(str);
 
-var cbTipo            = id("tipoPrueba");
-var divNormaNombre    = id("normaNombre");
-var divNormaArchivo   = id("normaArchivo");
-var divPruebaEspecial = id("pruebaEspecial");
-var divNumeroPiezas   = id("numeroPiezas");
-var divDetallesPrueba = id("detallesPrueba");
-var divAgregarNumParte= id("agregarNumParte");
+var cbTipo             = id("tipoPrueba");
+var divNormaNombre     = id("normaNombre");
+var divNormaArchivo    = id("normaArchivo");
+var divPruebaEspecial  = id("pruebaEspecial");
+var divNumeroPiezas    = id("numeroPiezas");
+var divDetallesPrueba  = id("detallesPrueba");
+var divAgregarNumParte = id("agregarNumParte");
 <!-- Para agregar material por número de parte -->
-var divNumeroParte    = id("numeroParte");
+var divNumeroParte     = id("numeroParte");
 var divDescripcionMaterial = id("descripcionMaterial");
-var divPlataforma     = id("plataformaDiv");
-var divOEM            = id("div-OEM");
+var divPlataforma      = id("plataformaDiv");
+var divOEM             = id("div-OEM");
 var divCantidadMaterial= id("cantidadMaterial");
-
-var cbTipoEva         = id("tipoEvaluacion");
-var divSelectTipoPrueba = id("selectTipoPrueba");
-
-var  cbOtroTipo       = id("tipoPruebaEspecial");
-var divOtroTipoPrueba = id("otroTipoPrueba");
-
-var cbDescMaterial = id("descMaterial");
-var divImgMaterial = id("imgMaterial");
-var botonEnviar = id("submitRequest");
+var cbTipoEva          = id("tipoEvaluacion");
+var divSelectTipoPrueba= id("selectTipoPrueba");
+var  cbOtroTipo        = id("tipoPruebaEspecial");
+var divOtroTipoPrueba  = id("otroTipoPrueba");
+var cbDescMaterial     = id("descMaterial");
+var divImgMaterial     = id("imgMaterial");
+var botonEnviar        = id("submitRequest");
 
 function banderaTipoEvaluacion(){
     if (cbTipoEva.value !== ''){
@@ -99,7 +96,14 @@ function otroTipoPrueba(){
     }
 }
 
+function agregarNumParte(){
+    var divPrincipal= id("elementosMaterial");
+    var clonedivPrincipal  = divPrincipal.cloneNode(true);
+    var divContenedor = id("agregarNumParte");
+    divContenedor.after(clonedivPrincipal);
+}
 
+/*
 function agregarNumParte() {
     // Clonar los divs
     var cloneNumeroParte = divNumeroParte.cloneNode(true);
@@ -121,7 +125,7 @@ function agregarNumParte() {
     divContenedor.after(cloneOEM);
     divContenedor.after(cloneNumeroParte);
 }
-
+*/
 /*
 const btn_agregar = id("addNumParte");
 btn_agregar.addEventListener("click", function ( ){

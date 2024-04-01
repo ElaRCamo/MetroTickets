@@ -82,7 +82,7 @@
                                                     </button>
                                                 </h6>
                                             </div>
-                                            <div class="row row-cols-xl-2 clearfix">
+                                            <div class="row row-cols-xl-2 clearfix" id="elementosMaterial">
                                                 <div class="col-xl-8">
                                                     <div class="row">
                                                 <div class="col-sm-6">
