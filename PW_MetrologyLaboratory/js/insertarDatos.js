@@ -16,6 +16,34 @@ function registrarUsuario(){
         method: 'POST',
         body: data
     })
+        .then(function(response) {
+            if (response.ok) {
+                return response.text(); // Devuelve el cuerpo de la respuesta como texto
+            } else {
+                throw new Error('Error en la llamada Ajax');
+            }
+        })
+        .then(function(texto) {
+            // Verifica el texto de la respuesta y redirige en consecuencia
+            if (texto.includes("Usuario registrado exitosamente")) {
+                window.location.href = "../sesion/indexSesion.php";
+            } else {
+                // Manejar otras respuestas si es necesario
+                console.log(texto);
+            }
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
+
+
+
+
+/*
+    fetch('../../dao/userRegister.php', {
+        method: 'POST',
+        body: data
+    })
         .then(function (response) {
             if (response.ok) { //respuesta
                 window.location.href = "../sesion/indexSesion.php";
@@ -28,7 +56,7 @@ function registrarUsuario(){
         })
         .catch(function (err) {
             console.log(err);
-        });
+        });*/
 }
 
 function idPrueba() {

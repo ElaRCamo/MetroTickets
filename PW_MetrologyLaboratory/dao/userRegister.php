@@ -12,12 +12,12 @@ if(isset( $_POST['numNomina'], $_POST['nombreUsuario'], $_POST['correo'], $_POST
 
     // Llamar a la función
     if(RegistrarUsuario($Nomina ,$nombreUsuario, $correo, $password)) {
-        echo '<script>alert("Usuario registrado exitosamente")</script>';
+        echo "Usuario registrado exitosamente";
     } else {
-        echo '<script>alert("Error al registrar el usuario")</script>';
+        echo "Error al registrar el usuario";
     }
 } else {
-    echo '<script>alert("Error: Faltan datos en el formulario")</script>';
+    echo "Error: Faltan datos en el formulario";
 }
 function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password)
 {
