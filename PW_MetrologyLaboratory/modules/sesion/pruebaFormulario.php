@@ -24,14 +24,14 @@
 </head>
 <body>
 <!-- Para agregar material por número de parte-->
-<div class=" form-group col-sm-12" id="agregarNumParte">
+<div class=" form-group col-sm-12" id="agregarNumParte" style="display: block">
     <h6>REGISTRO DE MATERIALES | Para agregar otro número de parte, presione
         <button type="button" id="addNumParte">
             <i class="las la-plus-square"></i>
         </button>
     </h6>
 </div>
-<div class="row row-cols-xl-2 clearfix" id="elementosMaterial">
+<div class="row row-cols-xl-2 clearfix" id="elementosMaterial" style="display: block">
     <div class="col-xl-8">
         <div class="row">
             <div class="col-sm-6">
