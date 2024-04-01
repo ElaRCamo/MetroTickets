@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group" id="cantidadMaterial">
+                <div class="form-group" id="cantidadMaterial" style="display: block">
                     <div class="help-block with-errors"></div>
                     <input id="cdadMaterial" name="cdadesMaterial[]" type="number" class="form-control"  placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
                     <div class="input-group-icon"><i class="las la-cog"></i></div>
@@ -77,6 +77,10 @@
             </div>
         </div>
     </div>
+    <div class="col-xl-4 text-center contenedorImg" id="imgMaterial0">
+        <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial" alt="Imagen Material">
+    </div>
+</div>
 <script src="../../js/dom.js"></script>
 <script src="../../js/general.js"></script>
 <script src="../../js/cargarDatos.js"></script>
