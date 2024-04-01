@@ -12,8 +12,9 @@ function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
     $conex = $con->conectar();
 
     $passwordS = sha1($password);
+    $Nomina = str_pad($numNomina, 8, "0", STR_PAD_LEFT);
 
-    $insertUsuario = "INSERT INTO `Usuario` (`id_usuario`, `nombreUsuario`, `correoElectronico`, `passwordHash`) VALUES ('$numNomina', '$nombreUsuario', '$correo', '$passwordS')";
+    $insertUsuario = "INSERT INTO `Usuario` (`id_usuario`, `nombreUsuario`, `correoElectronico`, `passwordHash`) VALUES ('$Nomina', '$nombreUsuario', '$correo', '$passwordS')";
     $rInsertUsuario = mysqli_query($conex,$insertUsuario);
     mysqli_close($conex);
 

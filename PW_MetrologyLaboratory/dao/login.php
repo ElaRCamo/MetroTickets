@@ -6,7 +6,6 @@ if(isset($_POST['iniciarSesionBtn'])){
 
     session_start();
     $Nomina = $_POST['numNomina'];
-    //$Password=;
 
     if (strlen($Nomina) < 8) { //Validar los ceros (8 digitos)
         $Nomina = str_pad($Nomina, 8, "0", STR_PAD_LEFT);
