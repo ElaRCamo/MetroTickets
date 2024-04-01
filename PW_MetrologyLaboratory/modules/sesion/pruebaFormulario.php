@@ -78,7 +78,7 @@
         </div>
     </div>
     <div class="col-xl-4 text-center contenedorImg" id="imgMaterial1">
-        <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial" alt="Imagen Material">
+        <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial1" alt="Imagen Material">
     </div>
 </div>
 <script src="../../js/dom.js"></script>
@@ -138,7 +138,7 @@
                 + '<a href="#" class="btn btn-danger remove-lnk" id="' + i + '">Eliminar</a>'
                 + '</div>'
                 + '<div class="col-xl-4 text-center contenedorImg" id="imgMaterial' + i + '">'
-                + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial" alt="Imagen Material">'
+                + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial' + i + '" alt="Imagen Material">'
                 + '</div>'
                 + '</div>'
                 + '</div>');
