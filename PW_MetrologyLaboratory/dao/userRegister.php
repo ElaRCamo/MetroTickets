@@ -14,16 +14,27 @@ function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
     $passwordS = sha1($password);
     $Nomina = str_pad($numNomina, 8, "0", STR_PAD_LEFT);
 
-    $insertUsuario = "INSERT INTO `Usuario` (`id_usuario`, `nombreUsuario`, `correoElectronico`, `passwordHash`) VALUES ('$Nomina', '$nombreUsuario', '$correo', '$passwordS')";
-    $rInsertUsuario = mysqli_query($conex,$insertUsuario);
-    mysqli_close($conex);
+    //Verificar si el usuario ya existe:
+    $consP="SELECT id_usuario FROM Usuario WHERE id_usuario = '$Nomina'";
+    $rsconsPro=mysqli_query($conex,$consP);
 
-    if(!$rInsertUsuario){
-        echo '<script>alert("Error al registrar el usuario")</script>';
+    if(mysqli_num_rows($rsconsPro) == 1){
+        echo '<script>alert("El usuario ya existe")</script>';
         return 0;
-    }else{
-        echo '<script>alert("Usuario registrado exitosamente")</script>';
-        return 1;
+    }
+    else{
+
+        $insertUsuario = "INSERT INTO `Usuario` (`id_usuario`, `nombreUsuario`, `correoElectronico`, `passwordHash`) VALUES ('$Nomina', '$nombreUsuario', '$correo', '$passwordS')";
+        $rInsertUsuario = mysqli_query($conex,$insertUsuario);
+        mysqli_close($conex);
+
+        if(!$rInsertUsuario){
+            echo '<script>alert("Error al registrar el usuario")</script>';
+            return 0;
+        }else{
+            echo '<script>alert("Usuario registrado exitosamente")</script>';
+            return 1;
+        }
     }
 }
 ?>
