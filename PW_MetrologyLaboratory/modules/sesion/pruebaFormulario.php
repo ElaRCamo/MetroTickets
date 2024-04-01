@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group" id="cantidadMaterial" style="display: block">
+                <div class="form-group" id="cantidadMaterial">
                     <div class="help-block with-errors"></div>
                     <input id="cdadMaterial" name="cdadesMaterial[]" type="number" class="form-control"  placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
                     <div class="input-group-icon"><i class="las la-cog"></i></div>
