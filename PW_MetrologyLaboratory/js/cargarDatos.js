@@ -80,10 +80,10 @@ function llenarPlataforma(i) {
         createOptionDef.value = "";
         selectS.appendChild(createOptionDef);
 
-        for (var i = 0; i < data.data.length; i++) {
+        for (var j = 0; j < data.data.length; j++) {
             var createOptionS = document.createElement("option");
-            createOptionS.value = data.data[i].id_plataforma;
-            createOptionS.text = data.data[i].descripcionPlataforma;
+            createOptionS.value = data.data[j].id_plataforma;
+            createOptionS.text = data.data[j].descripcionPlataforma;
             selectS.appendChild(createOptionS);
         }
     });
@@ -99,10 +99,10 @@ function llenarDescMaterial(i) {
         createOptionDef.value = "";
         selectS.appendChild(createOptionDef);
 
-        for (var i = 0; i < data.data.length; i++) {
+        for (var j = 0; j < data.data.length; j++) {
             var createOptionS = document.createElement("option");
-            createOptionS.value = data.data[i].id_descripcion;
-            createOptionS.text = data.data[i].descripcionMaterial;
+            createOptionS.value = data.data[j].id_descripcion;
+            createOptionS.text = data.data[j].descripcionMaterial;
             selectS.appendChild(createOptionS);
         }
     });
