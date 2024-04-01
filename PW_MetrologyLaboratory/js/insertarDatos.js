@@ -24,16 +24,27 @@ function registrarUsuario(){
             }
         })
         .then(function(texto) {
+        // Verifica el texto de la respuesta y redirige en consecuencia
+        if (texto.includes("Usuario registrado exitosamente")) {
+            window.location.href = "../sesion/indexSesion.php";
+            alert("Usuario registrado exitosamente");
+        } else {
+            // Manejar otras respuestas si es necesario
+            console.log(texto);
+        }
+    })
+        .then(function(texto) {
             // Verifica el texto de la respuesta y redirige en consecuencia
-            if (texto.includes("Usuario registrado exitosamente")) {
-                window.location.href = "../sesion/indexSesion.php";
+            if (texto.includes("El usuario ya existe, verifique sus datos")) {
+                window.location.href = "../sesion/Register.php";
+                alert("El usuario ya existe, verifique sus datos");
             } else {
                 // Manejar otras respuestas si es necesario
                 console.log(texto);
             }
         })
         .catch(function(err) {
-            alert("Error en la solicitud:" + err);
+            console.log("Error en la solicitud:", err);
         });
 
 
