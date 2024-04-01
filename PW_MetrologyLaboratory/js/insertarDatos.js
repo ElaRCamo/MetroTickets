@@ -18,7 +18,7 @@ function registrarUsuario(){
     })
         .then(function (response) {
             if (response.ok) { //respuesta
-                window.location.href = "../modules/sesion/indexSesion.php";
+                window.location.href = "../sesion/indexSesion.php";
             } else {
                 throw "Error en la llamada Ajax";
             }
