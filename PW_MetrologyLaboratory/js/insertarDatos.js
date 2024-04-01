@@ -33,7 +33,7 @@ function registrarUsuario(){
             }
         })
         .catch(function(err) {
-            console.log("Error en la solicitud:", err);
+            alert("Error en la solicitud:" + err);
         });
 
 
