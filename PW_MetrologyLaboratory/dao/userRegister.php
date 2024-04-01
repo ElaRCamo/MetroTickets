@@ -19,7 +19,8 @@ function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
     $rsconsPro=mysqli_query($conex,$consP);
 
     if(mysqli_num_rows($rsconsPro) == 1){
-        echo '<script>alert("El usuario ya existe")</script>';
+        echo '<script>alert("El usuario ya existe, verifique sus datos")</script>';
+        echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Register.php'>";
         return 0;
     }
     else{
