@@ -6,7 +6,7 @@ if(isset($_POST['iniciarSesionBtn'])){
 
     session_start();
     $Nomina = $_POST['numNomina'];
-    $Password=$_POST['password'];
+    //$Password=;
 
     if (strlen($Nomina) < 8) { //Validar los ceros (8 digitos)
         $Nomina = str_pad($Nomina, 8, "0", STR_PAD_LEFT);
@@ -16,7 +16,7 @@ if(isset($_POST['iniciarSesionBtn'])){
 
     if($resultado['success']){
         $_SESSION['numNomina'] = $Nomina;
-        $_SESSION['password'] = $Password;
+        $_SESSION['password'] = $_POST['password'];
         $_SESSION['nombreUsuario']= $resultado['nombreUsuario'];
         $_SESSION['tipoUsuario']= $resultado['tipoUsuario'];
         $_SESSION['nomina']= $resultado['idUser'];
@@ -24,7 +24,7 @@ if(isset($_POST['iniciarSesionBtn'])){
         $password_bd = $resultado['password_bd'];
         $tipoUsuario = $_SESSION['tipoUsuario'];
 
-        $passwordS = sha1($Password);
+        $passwordS = sha1($_POST['password']);
 
         if($password_bd == $passwordS){
             if($tipoUsuario == 1){
