@@ -87,24 +87,23 @@
 <script src="../../js/insertarDatos.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-
+        var i = 1;
 
         $('#addNumParte').click(function() {
-            var i = 1;
-
+            i++;
             var newRow = $('<div id="newRow' + i + '" class="col-xl-8">'
                 + '<div class="row">'
                 + '<div class="col-sm-6">'
                 + '<div class="form-group" id="numeroParte' + i + '">'
                 + '<div class="help-block with-errors"></div>'
-                + '<input id="numParte' + i + '" name="numPartes[]" type="text" class="form-control" onchange="llenarCliente(i)" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">'
+                + '<input id="numParte' + i + '" name="numPartes[]" type="text" class="form-control" onchange="llenarCliente(' + i + ')" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">'
                 + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
                 + '</div>'
                 + '</div>'
                 + '<div class="col-sm-6">'
                 + '<div class="form-group" id="div-OEM' + i + '">'
                 + '<div class="help-block with-errors" id="divError' + i + '"></div>'
-                + '<select id="cliente' + i + '" name="clientes[]" class="form-control" onchange="llenarPlataforma(i)" required data-error="Por favor ingresa el area solicitante">'
+                + '<select id="cliente' + i + '" name="clientes[]" class="form-control" onchange="llenarPlataforma(' + i + ')" required data-error="Por favor ingresa el area solicitante">'
                 + '<option value="">Seleccione el cliente (OEM)*</option>'
                 + '</select>'
                 + '<div class="input-group-icon"><i class="las la-screwdriver"></i></div>'
@@ -113,7 +112,7 @@
                 + '<div class="col-sm-6">'
                 + '<div class="form-group" id="plataformaDiv' + i + '">'
                 + '<div class="help-block with-errors"></div>'
-                + '<select id="plataforma' + i + '" name="plataformas[]" class="form-control" onchange="llenarDescMaterial(i)" required data-error="Por favor ingresa la plataforma">'
+                + '<select id="plataforma' + i + '" name="plataformas[]" class="form-control" onchange="llenarDescMaterial(' + i + ')" required data-error="Por favor ingresa la plataforma">'
                 + '<option value="">Seleccione la plataforma*</option>'
                 + '</select>'
                 + '<div class="input-group-icon"><i class="las la-warehouse"></i></div>'
@@ -122,7 +121,7 @@
                 + '<div class="col-sm-6">'
                 + '<div class="form-group" id="descripcionMaterial' + i + '">'
                 + '<div class="help-block with-errors"></div>'
-                + '<select id="descMaterial' + i + '" name="descripciones[]" class="form-control" onchange="descripcionMaterial(i)" required data-error="Por favor ingresa la descripción del material">'
+                + '<select id="descMaterial' + i + '" name="descripciones[]" class="form-control" onchange="descripcionMaterial(' + i + ')" required data-error="Por favor ingresa la descripción del material">'
                 + '<option value="">Seleccione la descripción*</option>'
                 + '</select>'
                 + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
@@ -141,7 +140,6 @@
                 + '</div>'
                 + '</div>');
             newRow.appendTo('#elementosMaterial');
-            i++;
         });
 
         $(document).on('click', '.remove-lnk', function(e) {
@@ -149,7 +147,6 @@
             var id = $(this).attr("id");
             $('#newRow' + id).remove();
         });
-
     });
 </script>
 
