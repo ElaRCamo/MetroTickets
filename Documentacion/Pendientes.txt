@@ -1,15 +1,22 @@
 Pendientes del Proyecto del Laboratorio de Metrología:
 
-Corregir registro de la solicitud
-*Poner nombre archivo de la norma
+ 1. ¿Has olvidado la contraseña?
+ 2. En registro, validar si el usuario ya existe
+✓ 3. Cerrar sesión correctamente (27/03/2024)
+✓ 3.1 Cuando cierra sesión, deja "enviar" formulario pero no llega a la BD (27/03/2024)
+  3.2 Se permite el llenado del formulario pero al seleccionar "Enviar" redirecciona
+  4. Una vez que se carga el archivo de la norma, ya no deja modificarlo
+  5. ¿Qué fecha de respuesta estaria por default?
+  6. Cuando se registre un usuario la contraseña se guarde en SHA1
+✓ 7. Poner nombre archivo de la norma (25/03/2024)
+✓ 7.1 Considerar nombres de archivos cuando hay espacios (26/03/2024)
+  8. Validaciones del formulario 
+✓ 9. Agregar a la bd la opcion otro cuando es prueba especial (26/03/24)
+  10. Corregir registro de la solicitud
+✓ 10.1 Validar inputs en requestRegister.php (26/03/2024)
+	-----Nota---- Si se hacen más cambios en el formulario, se requiere revisar nuevamente esta sección
+✓ 11. Centrar imagen en el formulario y dar formato a inputs(27/03/2024)
+  12. Que se permita registrar más de un material
 
-1. ¿Has olvidado la contraseña?
-2. En registro, validar si el usuario ya existe
-3. Cerrar sesión correctamente
-4.Una vez que se carga el archivo de la norma, uya no deja modificarlo
-5. ¿Qué fecha de respuesta estaria por default?
-6. Cuando se registre un usuario la contraseña se guarde en SHA1
-99.El boton de la regla en solicitudes tiene asignada iffunction
-100. Asignar valores por default en la BD
-
-
+  99.El boton de la regla en solicitudes tiene asignada if function
+  100. Asignar valores por default en la BD

@@ -11,7 +11,9 @@ function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password){
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $insertUsuario = "INSERT INTO `Usuario` (`id_usuario`, `nombreUsuario`, `correoElectronico`, `passwordHash`) VALUES ('$numNomina', '$nombreUsuario', '$correo', '$password')";
+    $passwordS = sha1($password);
+
+    $insertUsuario = "INSERT INTO `Usuario` (`id_usuario`, `nombreUsuario`, `correoElectronico`, `passwordHash`) VALUES ('$numNomina', '$nombreUsuario', '$correo', '$passwordS')";
     $rInsertUsuario = mysqli_query($conex,$insertUsuario);
     mysqli_close($conex);
 
