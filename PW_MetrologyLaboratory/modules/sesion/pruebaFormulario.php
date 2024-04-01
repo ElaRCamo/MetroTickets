@@ -35,14 +35,14 @@
     <div class="col-xl-8">
         <div class="row">
             <div class="col-sm-6">
-                <div class="form-group" id="numeroParte">
+                <div class="form-group" id="numeroParte" style="display: block">
                     <div class="help-block with-errors"></div>
                     <input id="numParte0" name="numPartes[]" type="text" class="form-control"  onchange="llenarCliente(0)" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                     <div class="input-group-icon"><i class="las la-cog"></i></div>
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group" id="div-OEM">
+                <div class="form-group" id="div-OEM" style="display: block">
                     <div class="help-block with-errors" id="divError"></div>
                     <select id="cliente0" name="clientes[]" class="form-control"  onchange="llenarPlataforma(0)" required data-error="Por favor ingresa el area solicitante">
                         <option value="">Seleccione el cliente (OEM)*</option>
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group" id="plataformaDiv">
+                <div class="form-group" id="plataformaDiv" style="display: block">
                     <div class="help-block with-errors"></div>
                     <select id="plataforma0" name="plataformas[]" class="form-control"  onchange="llenarDescMaterial(0)" required data-error="Por favor ingresa la plataforma">
                         <option value="">Seleccione la plataforma*</option>
@@ -60,7 +60,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group" id="descripcionMaterial">
+                <div class="form-group" id="descripcionMaterial" style="display: block">
                     <div class="help-block with-errors"></div>
                     <select id="descMaterial0" name="descripciones[]" class="form-control"  onchange="descripcionMaterial(0)" required data-error="Por favor ingresa la descripción del material">
                         <option value="">Seleccione la descripción*</option>
@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group" id="cantidadMaterial">
+                <div class="form-group" id="cantidadMaterial" style="display: block">
                     <div class="help-block with-errors"></div>
                     <input id="cdadMaterial" name="cdadesMaterial[]" type="number" class="form-control"  placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
                     <div class="input-group-icon"><i class="las la-cog"></i></div>
