@@ -28,7 +28,7 @@ function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password)
     if ($resultado['success']) {
         http_response_code(302); // Código de respuesta de redirección temporal
         header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Register.php");
-        echo '<script>alert("El usuario ya existe, verifique sus datos")</script>';
+        echo '<script>console.log("El usuario ya existe, verifique sus datos")</script>';
         exit; // Salir para asegurar que no se envíe otro contenido
     } else {
         $con = new LocalConector();
