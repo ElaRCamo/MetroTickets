@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="wrapper wrapper-register">
-            <form id="registrarseForm"  action="../../dao/userRegister.php" method="POST">
+            <form id="registrarseForm" method="POST">
                 <h2 id="registrarse">Regístrarse</h2>
                 <div id=aviso style='align-content:center;'></div>
                 <div class="input-box">
@@ -54,7 +54,7 @@
                     <i class="las la-lock"></i>
                 </div>
 
-                <button type="submit" id="registrarse" name="registrarse"  class="btn login" onclick="">Regístrarse</button>
+                <button type="submit" id="registrarse" name="registrarse"  class="btn login" onclick="registrarUsuario()">Regístrarse</button>
 
                 <div class="register-link">
                     <p>¿Ya tienes cuenta? <a href="indexSesion.php">INGRESAR</a> </p>

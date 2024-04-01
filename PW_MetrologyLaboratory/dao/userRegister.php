@@ -12,12 +12,12 @@ if(isset( $_POST['numNomina'], $_POST['nombreUsuario'], $_POST['correo'], $_POST
 
     // Llamar a la función
     if(RegistrarUsuario($Nomina ,$nombreUsuario, $correo, $password)) {
-        echo "Usuario registrado exitosamente";
+        echo '<script>alert("Usuario registrado exitosamente")</script>';
     } else {
-        echo "Error al registrar el usuario";
+        echo '<script>alert("Error al registrar el usuario")</script>';
     }
 } else {
-    echo "Error: Faltan datos en el formulario";
+    echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
 function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password)
 {
@@ -26,10 +26,9 @@ function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password)
     $resultado = Usuario($Nomina);
 
     if ($resultado['success']) {
-        http_response_code(302); // Código de respuesta de redirección temporal
-        header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Register.php");
-        echo '<script>console.log("El usuario ya existe, verifique sus datos")</script>';
-        exit; // Salir para asegurar que no se envíe otro contenido
+        echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/Register.php'>";
+        echo '<script>alert("El usuario ya existe, verifique sus datos")</script>';
+        return 0;
     } else {
         $con = new LocalConector();
         $conex = $con->conectar();

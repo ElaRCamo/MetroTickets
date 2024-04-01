@@ -12,46 +12,6 @@ function registrarUsuario(){
     data.append('correo', correo.value.trim());
     data.append('password', password.value.trim());
 
-    fetch('../../dao/userRegister.php', {
-        method: 'POST',
-        body: data
-    })
-        .then(function(response) {
-            if (response.ok) {
-                return response.text(); // Devuelve el cuerpo de la respuesta como texto
-            } else {
-                throw new Error('Error en la llamada Ajax');
-            }
-        })
-        .then(function(texto) {
-        // Verifica el texto de la respuesta y redirige en consecuencia
-        if (texto.includes("Usuario registrado exitosamente")) {
-            window.location.href = "../sesion/indexSesion.php";
-            alert("Usuario registrado exitosamente");
-        } else {
-            // Manejar otras respuestas si es necesario
-            console.log(texto);
-        }
-    })
-        .then(function(texto) {
-            // Verifica el texto de la respuesta y redirige en consecuencia
-            if (texto.includes("El usuario ya existe, verifique sus datos")) {
-                window.location.href = "../sesion/Register.php";
-                alert("El usuario ya existe, verifique sus datos");
-            } else {
-                // Manejar otras respuestas si es necesario
-                console.log(texto);
-            }
-        })
-        .catch(function(err) {
-            console.log("Error en la solicitud:", err);
-        });
-
-
-
-
-
-    /*
         fetch('../../dao/userRegister.php', {
             method: 'POST',
             body: data
@@ -68,7 +28,7 @@ function registrarUsuario(){
             })
             .catch(function (err) {
                 console.log(err);
-            });*/
+            });
 }
 
 function idPrueba() {
