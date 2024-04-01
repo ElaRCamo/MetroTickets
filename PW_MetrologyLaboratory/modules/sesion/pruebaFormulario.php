@@ -44,7 +44,7 @@
             <div class="col-sm-6">
                 <div class="form-group" id="div-OEM" style="display: block">
                     <div class="help-block with-errors" id="divError"></div>
-                    <select id="cliente0" name="clientes[]" class="form-control"  onchange="llenarPlataforma(0)" required data-error="Por favor ingresa el area solicitante">
+                    <select id="cliente1" name="clientes[]" class="form-control"  onchange="llenarPlataforma(1)" required data-error="Por favor ingresa el area solicitante">
                         <option value="">Seleccione el cliente (OEM)*</option>
                     </select>
                     <div class="input-group-icon"><i class="las la-screwdriver"></i></div>
@@ -53,7 +53,7 @@
             <div class="col-sm-6">
                 <div class="form-group" id="plataformaDiv" style="display: block">
                     <div class="help-block with-errors"></div>
-                    <select id="plataforma0" name="plataformas[]" class="form-control"  onchange="llenarDescMaterial(0)" required data-error="Por favor ingresa la plataforma">
+                    <select id="plataforma1" name="plataformas[]" class="form-control"  onchange="llenarDescMaterial(1)" required data-error="Por favor ingresa la plataforma">
                         <option value="">Seleccione la plataforma*</option>
                     </select>
                     <div class="input-group-icon"><i class="las la-warehouse"></i></div>
@@ -62,7 +62,7 @@
             <div class="col-sm-6">
                 <div class="form-group" id="descripcionMaterial" style="display: block">
                     <div class="help-block with-errors"></div>
-                    <select id="descMaterial0" name="descripciones[]" class="form-control"  onchange="descripcionMaterial(0)" required data-error="Por favor ingresa la descripción del material">
+                    <select id="descMaterial1" name="descripciones[]" class="form-control"  onchange="descripcionMaterial(1)" required data-error="Por favor ingresa la descripción del material">
                         <option value="">Seleccione la descripción*</option>
                     </select>
                     <div class="input-group-icon"><i class="las la-cog"></i></div>
@@ -77,8 +77,8 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-4 text-center contenedorImg" id="imgMaterial0">
-        <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial0" alt="Imagen Material">
+    <div class="col-xl-4 text-center contenedorImg" id="imgMaterial1">
+        <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial" alt="Imagen Material">
     </div>
 </div>
 <script src="../../js/dom.js"></script>
@@ -134,11 +134,11 @@
                 + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
                 + '</div>'
                 + '</div>'
-                + '<div class="col-xl-4 text-center contenedorImg" id="imgMaterial' + i + '">'
-                + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial0" alt="Imagen Material">'
-                + '</div>'
                 + '<div class="col-sm-6">'
                 + '<a href="#" class="btn btn-danger remove-lnk" id="' + i + '">Eliminar</a>'
+                + '</div>'
+                + '<div class="col-xl-4 text-center contenedorImg" id="imgMaterial' + i + '">'
+                + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial" alt="Imagen Material">'
                 + '</div>'
                 + '</div>'
                 + '</div>');
