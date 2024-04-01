@@ -112,6 +112,7 @@ function llenarDescMaterial(i) {
 
 function descripcionMaterial(i){
     var divImgMaterial     = id("imgMaterial" + i);
+    var cbDescMaterial     = id("descMaterial" + i);
     console.log("imgMaterial" + i);
     if (cbDescMaterial.value != null){
         divImgMaterial.style.display = "block";
