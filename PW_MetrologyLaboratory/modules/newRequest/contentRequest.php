@@ -62,17 +62,6 @@
                                                 <input type="text" class="form-control" id="otroPrueba" placeholder="Especifique*" required data-error="Por favor especifique el tipo de prueba">
                                                 <div class="input-group-icon"><i class="las la-ruler-horizontal"></i></div>
                                             </div>
-
-                                            <div class="form-group col-sm-6" id="numeroPiezas">
-                                                <div class="help-block with-errors"></div>
-                                                <input type="number" class="form-control" id="numPiezas" placeholder="Cantidad de piezas*" required data-error="Por favor ingresa la cantidad de piezas">
-                                                <div class="input-group-icon"><i class="las la-puzzle-piece"></i></div>
-                                            </div>
-                                            <div class="form-group col-sm-12" id="detallesPrueba">
-                                                <div class="help-block with-errors"></div>
-                                                <textarea type="text" class="form-control" id="especificaciones" placeholder="Especificaciones y detalles de la prueba*" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
-                                                <div class="input-group-icon"><i class="las la-file-alt"></i></div>
-                                            </div>
                                             <!-- Para agregar material por número de parte-->
                                             <div class=" form-group col-sm-12" id="agregarNumParte">
                                                 <h6>REGISTRO DE MATERIALES | Para agregar otro número de parte, presione
@@ -131,6 +120,11 @@
                                                     <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial1" alt="Imagen Material">
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="form-group col-sm-12" id="detallesPrueba">
+                                            <div class="help-block with-errors"></div>
+                                            <textarea type="text" class="form-control" id="especificaciones" placeholder="Especificaciones y detalles de la prueba*" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
+                                            <div class="input-group-icon"><i class="las la-file-alt"></i></div>
                                         </div>
                                         <div class="form-group last col-sm-12 buttons" >
                                             <button type="submit" id="submitRequest"  onclick="registrarSolicitud()" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>

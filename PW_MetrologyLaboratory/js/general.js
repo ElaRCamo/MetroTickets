@@ -4,7 +4,6 @@ var cbTipo             = id("tipoPrueba");
 var divNormaNombre     = id("normaNombre");
 var divNormaArchivo    = id("normaArchivo");
 var divPruebaEspecial  = id("pruebaEspecial");
-var divNumeroPiezas    = id("numeroPiezas");
 var divDetallesPrueba  = id("detallesPrueba");
 var divAgregarNumParte = id("agregarNumParte");
 <!-- Para agregar material por número de parte -->
@@ -40,7 +39,6 @@ function banderaTipoPrueba(){
         divCantidadMaterial.style.display = "block";
         botonEnviar.style.display = "block";
         divPruebaEspecial.style.display = "none";
-        divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
 
     }else if (cbTipo.value === '5'){ //especiales/otra
@@ -48,7 +46,6 @@ function banderaTipoPrueba(){
         divNormaNombre.style.display = "block";
         divNormaArchivo.style.display = "block";
         divPruebaEspecial.style.display = "block";
-        divNumeroPiezas.style.display = "block";
         divDetallesPrueba.style.display = "block";
         divAgregarNumParte.style.display = "block";
         divNumeroParte.style.display = "block";
@@ -66,7 +63,6 @@ function banderaTipoPrueba(){
         divNormaNombre.style.display = "none";
         divNormaArchivo.style.display = "none";
         divPruebaEspecial.style.display = "none";
-        divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
         botonEnviar.style.display = "block";
 
@@ -80,7 +76,6 @@ function banderaTipoPrueba(){
         divNormaNombre.style.display = "none";
         divNormaArchivo.style.display = "none";
         divPruebaEspecial.style.display = "none";
-        divNumeroPiezas.style.display = "none";
         divDetallesPrueba.style.display = "none";
         divImgMaterial.style.display = "none";
         botonEnviar.style.display = "none";
@@ -95,95 +90,6 @@ function otroTipoPrueba(){
         divOtroTipoPrueba.style.display = "none";
     }
 }
-/*
-function agregarNumParte(){
-    var divPrincipal= id("elementosMaterial");
-    var clonedivPrincipal  = divPrincipal.cloneNode(true);
-    var divContenedor = id("agregarNumParte");
-    divContenedor.after(clonedivPrincipal);
-}
-
-
-function agregarNumParte() {
-    // Clonar los divs
-    var cloneNumeroParte = divNumeroParte.cloneNode(true);
-    var cloneDescripcionMaterial = divDescripcionMaterial.cloneNode(true);
-    var clonePlataforma = divPlataforma.cloneNode(true);
-    var cloneCantidadMaterial = divCantidadMaterial.cloneNode(true);
-    var cloneOEM = divOEM.cloneNode(true);
-    var cloneImgMaterial = divImgMaterial.cloneNode(true);
-
-
-    // Obtener el contenedor donde se agregarán los nuevos divs
-    var divContenedor = id("agregarNumParte");
-
-    // Agregar los clones al contenedor
-    divContenedor.after(cloneImgMaterial);
-    divContenedor.after(cloneCantidadMaterial);
-    divContenedor.after(cloneDescripcionMaterial);
-    divContenedor.after(clonePlataforma);
-    divContenedor.after(cloneOEM);
-    divContenedor.after(cloneNumeroParte);
-}
-*/
-/*
-const btn_agregar = id("addNumParte");
-btn_agregar.addEventListener("click", function ( ){
-
-    //div para NumeroParte
-    const divNumeroParte  = D.create('div', {class:" form-group col-sm-4"});
-    const selectNP = D.create('input',{type:"text",name:"numPartes[]", class:"form-control", onchange:"llenarCliente()", placeholder:"Número de parte*"});
-    D.append(selectNP,divNumeroParte);
-
-    //div para OEM
-    const divOEM = D.create('div',{class:" form-group col-sm-4"});
-    const selectOEM = D.create('select', {name:"clientes[]", class:"form-control", onchange:"llenarPlataforma()"});
-    D.append(selectOEM,divOEM);
-
-    // div para Plataforma
-    const divPlataforma = D.create('div',{class:" form-group col-sm-4"});
-    const selectPlataforma = D.create('select', {name:"plataformas[]", class:"form-control", id:"plataforma",  onchange:"llenarDescMaterial()"});
-    D.append(selectPlataforma,divPlataforma);
-
-    //div para DescripcionMaterial
-    const divDescripcionMaterial = D.create('div', {class:" form-group col-sm-6"});
-    const selectDescMaterial = D.create('select', {name:"descripciones[]", class:"form-control", id:"descMaterial", onchange:"descripcionMaterial()"});
-    D.append(selectDescMaterial,divDescripcionMaterial);
-
-    //div para CantidadMaterial
-    const divCantidadMaterial = D.create('div', {class:" form-group col-sm-6"});
-    const inputCantidad= D.create('input',{type:"number", class:"form-control", id:"cdadesMaterial[]", placeholder:"Cantidad*"});
-    D.append(inputCantidad,divCantidadMaterial);
-
-    //div para ImgMaterial
-    const divImgMaterial = D.create('div', {class:" form-group col-sm-12"});
-    const imagenMaterial = D.create('img',{src:"../../imgs/cabecera.png", class:"imgsMaterial", alt:"Imagen Material"});
-    D.append(imagenMaterial, divImgMaterial);
-
-
-    //Boton para eliminar este div
-    const borrar = D.create('a',{href: 'javascript:void(0)', innerHTML:'x', onclick: function ( ){
-        D.remove(divNumeroParte);
-        D.remove(divOEM);
-        D.remove(divPlataforma);
-        D.remove(divDescripcionMaterial);
-        D.remove(divCantidadMaterial);
-        D.remove(divImgMaterial);
-        }})
-
-    // Obtener el contenedor donde se agregarán los nuevos divs
-    var divContenedor = document.getElementById("agregarNumParte");
-    D.append(divNumeroParte, divContenedor);
-    D.append(divOEM, divContenedor)
-    D.append(divPlataforma, divContenedor);
-    D.append(divDescripcionMaterial, divContenedor)
-    D.append(divCantidadMaterial, divContenedor);
-    D.append(divImgMaterial, divContenedor);
-    D.append(borrar, divContenedor);
-
-
-})
-*/
 
 // Función para cerrar sesión
 function cerrarSesion() {
