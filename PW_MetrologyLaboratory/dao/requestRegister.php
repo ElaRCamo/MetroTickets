@@ -26,7 +26,6 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
                 echo "Hubo un error al subir el archivo.";
             }
         }
-
     }else{ //El tipo de prueba no requiere especificar norma
         $norma     = 'No aplica';
         $normaFile = 'No aplica';
