@@ -76,7 +76,7 @@
                                             <!-- Para agregar material por número de parte-->
                                             <div class=" form-group col-sm-12" id="agregarNumParte">
                                                 <h6>REGISTRO DE MATERIALES | Para agregar otro número de parte, presione
-                                                    <button type="button" id="addNumParte" >
+                                                    <button type="button" id="addNumParte1" >
                                                         <i class="las la-plus-square"></i>
                                                     </button>
                                                 </h6>
