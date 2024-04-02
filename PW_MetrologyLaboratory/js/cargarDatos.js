@@ -111,18 +111,16 @@ function llenarDescMaterial(i) {
 }
 
 function descripcionMaterial(i){
-    var divImgMat = document.querySelectorAll('[id^="imgMaterial"]');
-
     var divImgMaterial     = id("imgMaterial" + i);
     var cbDescMaterial     = id("descMaterial" + i);
     console.log("imgMaterial" + i);
     if (cbDescMaterial.value != null){
-        divImgMat.style.display = "block";
+        divImgMaterial.style.display = "block";
         $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoImgMaterial.php?id_descripcion=' + id("descMaterial" + i).value, function (data) {
             id("imagenMaterial"+ i).src = data.data[0].imgMaterial;
         });
     }else{
-        divImgMat.style.display = "none";
+        divImgMaterial.style.display = "none";
     }
 }
 
