@@ -113,7 +113,7 @@
                     + '<button type="button" class="btn btn-success" id="addNumParte' + i + '"><i class="las la-plus-square"></i></button>'
                     + '</div>'
                     + '</div>'
-                    + '<div class="col-xl-4 text-center contenedorImg" id="imgMaterial' + i + '">'
+                    + '<div class="col-xl-4 text-center" id="imgMaterial' + i + '">'
                     + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial' + i + '" alt="Imagen Material">'
                     + '</div>'
                     + '</div>'
