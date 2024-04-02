@@ -124,8 +124,7 @@ async function registrarSolicitud() {
 
             alert("valor de i ="+i);
 
-
-            for (var k = 1; k === i; k++) {
+            for (var k = 1; k <= i; k++) {
                 // Para agregar material por número de parte
                 var descMaterial       = id('descMaterial' + k);
                 var cdadMaterial       = id('cdadMaterial' + k);
