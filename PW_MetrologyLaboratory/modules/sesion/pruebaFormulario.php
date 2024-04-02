@@ -37,7 +37,7 @@
             <div class="col-sm-6">
                 <div class="form-group" id="numeroParte1" style="display: block">
                     <div class="help-block with-errors"></div>
-                    <input id="numParte1" name="numPartes[]" type="text" class="form-control"  onchange="llenarCliente(0)" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
+                    <input id="numParte1" name="numPartes[]" type="text" class="form-control"  onclick="llenarCliente(0)" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                     <div class="input-group-icon"><i class="las la-cog"></i></div>
                 </div>
             </div>
