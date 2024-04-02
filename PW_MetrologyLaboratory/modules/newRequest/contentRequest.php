@@ -105,7 +105,7 @@
                                                         <div class="col-sm-6">
                                                             <div class="form-group" id="descripcionMaterial1">
                                                                 <div class="help-block with-errors"></div>
-                                                                <select id="descMaterial1" name="descripciones[]" class="form-control"  onchange="descripcionMaterial(1)" required data-error="Por favor ingresa la descripción del material">
+                                                                <select id="descMaterial1" name="descripciones[]" class="form-control"  onchange="descripcionMaterial(1); numeroDeParte(1);" required data-error="Por favor ingresa la descripción del material">
                                                                     <option value="">Seleccione la descripción*</option>
                                                                 </select>
                                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
