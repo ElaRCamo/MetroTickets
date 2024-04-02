@@ -34,7 +34,7 @@
                                             </div>
                                             <div class="form-group col-sm-6" id="selectTipoPrueba">
                                                 <div class="help-block with-errors"></div>
-                                                <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba()"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
+                                                <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba(); llenarCliente(1);"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
                                                     <option value="">Seleccione el tipo de prueba*</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
@@ -133,18 +133,18 @@
                                                 </div>
                                             </div> -->
                                             <!-- Para agregar material por número de parte-->
-                                            <div class=" form-group col-sm-12" id="agregarNumParte" style="display: block">
+                                            <div class=" form-group col-sm-12" id="agregarNumParte">
                                                 <h6>REGISTRO DE MATERIALES | Para agregar otro número de parte, presione
-                                                    <button type="button" id="addNumParte"  onclick="llenarCliente(1)">
+                                                    <button type="button" id="addNumParte"  onclick="llenarCliente(' + i + ')">
                                                         <i class="las la-plus-square"></i>
                                                     </button>
                                                 </h6>
                                             </div>
-                                            <div class="row row-cols-xl-2 clearfix" id="elementosMaterial" style="display: block">
+                                            <div class="row row-cols-xl-2 clearfix" id="elementosMaterial">
                                                 <div class="col-xl-8">
                                                     <div class="row">
                                                         <div class="col-sm-6">
-                                                            <div class="form-group" id="div-OEM1" style="display: block">
+                                                            <div class="form-group" id="div-OEM1">
                                                                 <div class="help-block with-errors" id="divError1"></div>
                                                                 <select id="cliente1" name="clientes[]" class="form-control"  onchange="llenarPlataforma(1)" required data-error="Por favor ingresa el area solicitante">
                                                                     <option value="">Seleccione el cliente (OEM)*</option>
@@ -153,7 +153,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <div class="form-group" id="plataformaDiv1" style="display: block">
+                                                            <div class="form-group" id="plataformaDiv1">
                                                                 <div class="help-block with-errors"></div>
                                                                 <select id="plataforma1" name="plataformas[]" class="form-control"  onchange="llenarDescMaterial(1)" required data-error="Por favor ingresa la plataforma">
                                                                     <option value="">Seleccione la plataforma*</option>
@@ -162,7 +162,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <div class="form-group" id="descripcionMaterial1" style="display: block">
+                                                            <div class="form-group" id="descripcionMaterial1">
                                                                 <div class="help-block with-errors"></div>
                                                                 <select id="descMaterial1" name="descripciones[]" class="form-control"  onchange="descripcionMaterial(1)" required data-error="Por favor ingresa la descripción del material">
                                                                     <option value="">Seleccione la descripción*</option>
@@ -171,14 +171,14 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <div class="form-group" id="numeroParte1" style="display: block">
+                                                            <div class="form-group" id="numeroParte1">
                                                                 <div class="help-block with-errors"></div>
                                                                 <input id="numParte1" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <div class="form-group" id="cantidadMaterial1" style="display: block">
+                                                            <div class="form-group" id="cantidadMaterial1">
                                                                 <div class="help-block with-errors"></div>
                                                                 <input id="cdadMaterial1" name="cdadesMaterial[]" type="number" class="form-control"  placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
                                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
