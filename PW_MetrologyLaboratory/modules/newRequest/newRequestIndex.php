@@ -98,7 +98,7 @@
                     + '<div class="col-sm-6">'
                     + '<div class="form-group" id="numeroParte' + i + '">'
                     + '<div class="help-block with-errors"></div>'
-                    + '<input id="numParte' + i + '" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">'
+                    + '<input id="numParte' + i + '" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte" readonly>'
                     + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
                     + '</div>'
                     + '</div>'
