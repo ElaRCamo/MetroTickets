@@ -26,7 +26,7 @@
 <!-- Para agregar material por número de parte-->
 <div class=" form-group col-sm-12" id="agregarNumParte" style="display: block">
     <h6>REGISTRO DE MATERIALES | Para agregar otro número de parte, presione
-        <button type="button" id="addNumParte">
+        <button type="button" id="addNumParte"  onclick="llenarCliente(1)">
             <i class="las la-plus-square"></i>
         </button>
     </h6>
@@ -34,13 +34,6 @@
 <div class="row row-cols-xl-2 clearfix" id="elementosMaterial" style="display: block">
     <div class="col-xl-8">
         <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group" id="numeroParte1" style="display: block">
-                    <div class="help-block with-errors"></div>
-                    <input id="numParte1" name="numPartes[]" type="text" class="form-control"  onclick="llenarCliente(0)" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
-                    <div class="input-group-icon"><i class="las la-cog"></i></div>
-                </div>
-            </div>
             <div class="col-sm-6">
                 <div class="form-group" id="div-OEM1" style="display: block">
                     <div class="help-block with-errors" id="divError1"></div>
@@ -75,6 +68,13 @@
                     <div class="input-group-icon"><i class="las la-cog"></i></div>
                 </div>
             </div>
+            <div class="col-sm-6">
+                <div class="form-group" id="numeroParte1" style="display: block">
+                    <div class="help-block with-errors"></div>
+                    <input id="numParte1" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
+                    <div class="input-group-icon"><i class="las la-cog"></i></div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-xl-4 text-center contenedorImg" id="imgMaterial1">
@@ -93,13 +93,6 @@
             i++;
             var newRow = $('<div id="newRow' + i + '" class="col-xl-8">'
                 + '<div class="row">'
-                + '<div class="col-sm-6">'
-                + '<div class="form-group" id="numeroParte' + i + '">'
-                + '<div class="help-block with-errors"></div>'
-                + '<input id="numParte' + i + '" name="numPartes[]" type="text" class="form-control" onchange="llenarCliente(' + i + ')" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">'
-                + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
-                + '</div>'
-                + '</div>'
                 + '<div class="col-sm-6">'
                 + '<div class="form-group" id="div-OEM' + i + '">'
                 + '<div class="help-block with-errors" id="divError' + i + '"></div>'
@@ -124,6 +117,13 @@
                 + '<select id="descMaterial' + i + '" name="descripciones[]" class="form-control" onchange="descripcionMaterial(' + i + ')" required data-error="Por favor ingresa la descripción del material">'
                 + '<option value="">Seleccione la descripción*</option>'
                 + '</select>'
+                + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
+                + '</div>'
+                + '</div>'
+                + '<div class="col-sm-6">'
+                + '<div class="form-group" id="numeroParte' + i + '">'
+                + '<div class="help-block with-errors"></div>'
+                + '<input id="numParte' + i + '" name="numPartes[]" type="text" class="form-control" onchange="llenarCliente(' + i + ')" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">'
                 + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
                 + '</div>'
                 + '</div>'
