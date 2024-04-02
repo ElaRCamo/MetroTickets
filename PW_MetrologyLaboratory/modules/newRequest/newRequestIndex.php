@@ -64,13 +64,14 @@
 
             $('#addNumParte').click(function() {
                 i++;
+                llenarCliente( i );
                 var newRow = $('<div id="newRow' + i + '" class="row row-cols-xl-2 clearfix">'
                     + '<div class="col-xl-8">'
                     + '<div class="row">'
                     + '<div class="col-sm-6">'
                     + '<div class="form-group" id="div-OEM' + i + '">'
                     + '<div class="help-block with-errors" id="divError' + i + '"></div>'
-                    + '<select id="cliente' + i + '" name="clientes[]" class="form-control" onclick="llenarCliente(' + i + ')" onchange="llenarPlataforma(' + i + ')" required data-error="Por favor ingresa el area solicitante">'
+                    + '<select id="cliente' + i + '" name="clientes[]" class="form-control" onclick="" onchange="llenarPlataforma(' + i + ')" required data-error="Por favor ingresa el area solicitante">'
                     + '<option value="">Seleccione el cliente (OEM)*</option>'
                     + '</select>'
                     + '<div class="input-group-icon"><i class="las la-screwdriver"></i></div>'
@@ -117,7 +118,7 @@
                     + '</div>'
                     + '</div>'
                     + '</div>');
-                newRow.appendTo('#elementosMaterial');
+                newRow.appendTo('#contenedorFormulario');
             });
 
             $(document).on('click', '.remove-lnk', function(e) {
