@@ -55,8 +55,8 @@
             require_once('../../footer.php');
     ?>
     <script type="text/javascript">
+        var i = 1;
         $(document).ready(function() {
-            var i = 1;
 
             $(document).on('click', '[id^="addNumParte"]', function() {
                 i++;
@@ -129,6 +129,8 @@
                 $('#newRow' + id).remove();
             });
         })
+        const totalPartes = i;
+        console.log(totalPartes);
     </script>
     <script src="../../js/general.js"></script>
     <script src="../../js/cargarDatos.js"></script>
