@@ -3,7 +3,7 @@ include_once('connection.php');
 session_start();
 
 // Verificar si los datos están presentes y asignarlos de manera segura
-if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
+if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['materiales'], $_POST['cantidades'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
     $tipoPrueba     = $_POST['tipoPrueba'];
     $id_prueba      = $_POST['id_prueba'];
 
@@ -35,12 +35,24 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
     $tipoPruebaEspecial   = ($_POST['tipoPrueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
     $otroPrueba           = ($tipoPruebaEspecial  != 4) ? 'No aplica' : $_POST['otroPrueba'] ;
     $especificaciones     = $_POST['especificaciones'];
-    $descMaterial         = $_POST['descMaterial'];
-    $cdadMaterial         = $_POST['cdadMaterial'];
     $fechaSolicitud       = $_POST['fechaSolicitud'];
 
+    //$descMaterial         = $_POST['descMaterial'];
+    //$cdadMaterial         = $_POST['cdadMaterial'];
+
+    // Recibir los datos del formulario
+    $descMateriales = $_POST['materiales'];
+    $cantidades = $_POST['cantidades'];
+
+    // Suponiendo que $descMateriales y $cantidades son strings separadas por comas, puedes convertirlas en arrays usando explode
+    $descMateriales = explode(', ', $_POST['materiales']);
+    $cdadMateriales = explode(', ', $_POST['cantidades']);
+
+
+
+
     // Llamar a la función
-    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)) {
+    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cantidades, $fechaSolicitud, $id_prueba)) {
         echo '<script>alert("Solicitud registrada exitosamente")</script>';
     } else {
         echo '<script>alert("Error al registrar la solicitud")</script>';
@@ -49,7 +61,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
 
-function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)
+function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
@@ -65,16 +77,20 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
         return false;
     }
 
-    $insertMaterial = $conex->prepare("INSERT INTO `Material` (`id_prueba`, `cantidad`, `id_descripcion`) 
-                                             VALUES (?, ?, ?)");
-    $insertMaterial->bind_param("sii", $id_prueba, $cdadMaterial, $descMaterial);
-    $rInsertMaterial  = $insertMaterial->execute();
+    for ($i = 0; $i < count($descMateriales); $i++) {
+        $descMaterial = $descMateriales[$i];
+        $cdadMaterial = $cdadMateriales[$i];
+
+        $insertMaterial = $conex->prepare("INSERT INTO `Material` (`id_prueba`, `cantidad`, `id_descripcion`) 
+                                                 VALUES (?, ?, ?)");
+        $insertMaterial->bind_param("sii", $id_prueba, $cdadMaterial, $descMaterial);
+        $rInsertMaterial  = $insertMaterial->execute();
+        if(!$rInsertMaterial) {
+            return false;
+        }
+    }
 
     $conex->close();
-
-    if(!$rInsertMaterial) {
-        return false;
-    }
 
     return true;
 }

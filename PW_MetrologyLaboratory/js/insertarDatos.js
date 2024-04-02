@@ -122,7 +122,7 @@ async function registrarSolicitud() {
             var materiales = [];
             var cantidades = [];
 
-            alert("valor de i ="+i);
+            //alert("valor de i ="+i);
 
             for (var k = 1; k <= i; k++) {
                 // Para agregar material por número de parte
