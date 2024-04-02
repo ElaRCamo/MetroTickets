@@ -67,7 +67,7 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     }
 
     $insertMaterial = $conex->prepare("INSERT INTO `Material` (`id_prueba`, `cantidad`, `id_descripcion`) 
-                                             VALUES (?, ?, ?, ?)");
+                                             VALUES (?, ?, ?)");
     $insertMaterial->bind_param("sii", $id_prueba, $cdadMaterial, $descMaterial);
     $rInsertMaterial  = $insertMaterial->execute();
 
