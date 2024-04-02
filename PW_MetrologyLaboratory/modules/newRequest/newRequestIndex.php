@@ -64,7 +64,6 @@
 
             $('#addNumParte').click(function() {
                 i++;
-                llenarCliente( i );
                 var newRow = $('<div id="newRow' + i + '" class="row row-cols-xl-2 clearfix">'
                     + '<div class="col-xl-8">'
                     + '<div class="row">'
@@ -119,6 +118,7 @@
                     + '</div>'
                     + '</div>');
                 newRow.appendTo('#contenedorFormulario');
+                llenarCliente( i );
             });
 
             $(document).on('click', '.remove-lnk', function(e) {
