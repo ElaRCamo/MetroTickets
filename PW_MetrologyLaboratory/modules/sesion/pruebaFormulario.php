@@ -62,16 +62,16 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group" id="cantidadMaterial1" style="display: block">
+                <div class="form-group" id="numeroParte1" style="display: block">
                     <div class="help-block with-errors"></div>
-                    <input id="cdadMaterial1" name="cdadesMaterial[]" type="number" class="form-control"  placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
+                    <input id="numParte1" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                     <div class="input-group-icon"><i class="las la-cog"></i></div>
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group" id="numeroParte1" style="display: block">
+                <div class="form-group" id="cantidadMaterial1" style="display: block">
                     <div class="help-block with-errors"></div>
-                    <input id="numParte1" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
+                    <input id="cdadMaterial1" name="cdadesMaterial[]" type="number" class="form-control"  placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
                     <div class="input-group-icon"><i class="las la-cog"></i></div>
                 </div>
             </div>
@@ -91,7 +91,8 @@
 
         $('#addNumParte').click(function() {
             i++;
-            var newRow = $('<div id="newRow' + i + '" class="col-xl-8">'
+            var newRow = $('<div id="newRow' + i + '" class="row row-cols-xl-2 clearfix">'
+                + '<div class="col-xl-8">'
                 + '<div class="row">'
                 + '<div class="col-sm-6">'
                 + '<div class="form-group" id="div-OEM' + i + '">'
@@ -136,6 +137,7 @@
                 + '</div>'
                 + '<div class="col-sm-6">'
                 + '<a href="#" class="btn btn-danger remove-lnk" id="' + i + '">Eliminar</a>'
+                + '</div>'
                 + '</div>'
                 + '<div class="col-xl-4 text-center contenedorImg" id="imgMaterial' + i + '">'
                 + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial' + i + '" alt="Imagen Material">'
