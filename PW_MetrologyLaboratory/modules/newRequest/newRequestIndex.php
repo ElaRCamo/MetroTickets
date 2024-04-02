@@ -62,7 +62,7 @@
         $(document).ready(function() {
             var i = 1;
 
-            $('#addNumParte').click(function() {
+            $('#addNumParte + i + ').click(function() {
                 i++;
                 var newRow = $('<div id="newRow' + i + '" class="row row-cols-xl-2 clearfix">'
                     + '<div class="col-xl-8">'
@@ -110,6 +110,7 @@
                     + '</div>'
                     + '<div class="col-sm-6">'
                     + '<a href="#" class="btn btn-danger remove-lnk" id="' + i + '">Eliminar</a>'
+                    + '<button type="button" class="btn btn-success" id="addNumParte' + i + '"><i class="las la-plus-square"></i></button>'
                     + '</div>'
                     + '</div>'
                     + '<div class="col-xl-4 text-center contenedorImg" id="imgMaterial' + i + '">'
