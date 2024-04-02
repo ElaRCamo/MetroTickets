@@ -106,10 +106,6 @@ async function registrarSolicitud() {
             var otroPrueba         = id("otroPrueba");
             var especificaciones   = id ("especificaciones");
 
-            // Para agregar material por número de parte
-            var descMaterial       = id('descMaterial');
-            var cdadMaterial       = id('cdadMaterial');
-
             var fechaSolicitud= new Date();
             var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
 
@@ -119,12 +115,27 @@ async function registrarSolicitud() {
             dataForm.append('idUsuario', idNomina.value.trim());
             dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
             dataForm.append('otroPrueba', otroPrueba.value.trim());
-            //dataForm.append('numPiezas', numPiezas.value.trim());
             dataForm.append('especificaciones', especificaciones.value.trim());
-            dataForm.append('descMaterial', descMaterial.value.trim());
-            dataForm.append('cdadMaterial', cdadMaterial.value.trim());
             dataForm.append('fechaSolicitud', fechaFormateada);
             dataForm.append('id_prueba', id_prueba);
+
+            var materiales = [];
+            var cantidades = [];
+
+            for (var k = 1; k === i; k++) {
+                // Para agregar material por número de parte
+                var descMaterial       = id('descMaterial' + k);
+                var cdadMaterial       = id('cdadMaterial' + k);
+
+                // Añadimos los valores a los arrays correspondientes
+                materiales.push(descMaterial.value.trim());
+                cantidades.push(cdadMaterial.value.trim());
+            }
+            // Agregamos los arrays al FormData
+            dataForm.append('materiales', materiales.join(', '));
+            dataForm.append('cantidades', cantidades.join(', '));
+
+            alert("Materiales: " + materiales.join(', ') + "\nCantidades: " + cantidades.join(', '));
 
             //alert("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&tipoPruebaEspecial="+tipoPruebaEspecial.value+"&otroEspecial="+otroPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&idNomina="+idNomina.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
 
