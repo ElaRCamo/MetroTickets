@@ -70,7 +70,7 @@
                     + '<div class="col-sm-6">'
                     + '<div class="form-group" id="div-OEM' + i + '">'
                     + '<div class="help-block with-errors" id="divError' + i + '"></div>'
-                    + '<select id="cliente' + i + '" name="clientes[]" class="form-control" onchange="llenarPlataforma(' + i + ')" required data-error="Por favor ingresa el area solicitante">'
+                    + '<select id="cliente' + i + '" name="clientes[]" class="form-control" onclick="llenarCliente(' + i + ')" onchange="llenarPlataforma(' + i + ')" required data-error="Por favor ingresa el area solicitante">'
                     + '<option value="">Seleccione el cliente (OEM)*</option>'
                     + '</select>'
                     + '<div class="input-group-icon"><i class="las la-screwdriver"></i></div>'
