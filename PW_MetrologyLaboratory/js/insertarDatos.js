@@ -138,7 +138,7 @@ async function registrarSolicitud() {
             dataForm.append('materiales', materiales.join(', '));
             dataForm.append('cantidades', cantidades.join(', '));
 
-            alert("Materiales: " + materiales + "\nCantidades: " + cantidades );
+            alert("Materiales son: " + materiales + "\nCantidades con: " + cantidades );
 
             //alert("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&tipoPruebaEspecial="+tipoPruebaEspecial.value+"&otroEspecial="+otroPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&idNomina="+idNomina.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
 
