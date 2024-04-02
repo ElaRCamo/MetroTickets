@@ -8,17 +8,17 @@ var divNumeroPiezas    = id("numeroPiezas");
 var divDetallesPrueba  = id("detallesPrueba");
 var divAgregarNumParte = id("agregarNumParte");
 <!-- Para agregar material por número de parte -->
-var divNumeroParte     = id("numeroParte");
-var divDescripcionMaterial = id("descripcionMaterial");
-var divPlataforma      = id("plataformaDiv");
-var divOEM             = id("div-OEM");
-var divCantidadMaterial= id("cantidadMaterial");
+var divNumeroParte     = id("numeroParte1");
+var divDescripcionMaterial = id("descripcionMaterial1");
+var divPlataforma      = id("plataformaDiv1");
+var divOEM             = id("div-OEM1");
+var divCantidadMaterial= id("cantidadMaterial1");
 var cbTipoEva          = id("tipoEvaluacion");
 var divSelectTipoPrueba= id("selectTipoPrueba");
 var  cbOtroTipo        = id("tipoPruebaEspecial");
 var divOtroTipoPrueba  = id("otroTipoPrueba");
 var cbDescMaterial     = id("descMaterial");
-var divImgMaterial     = id("imgMaterial");
+var divImgMaterial     = id("imgMaterial1");
 var botonEnviar        = id("submitRequest");
 
 function banderaTipoEvaluacion(){
