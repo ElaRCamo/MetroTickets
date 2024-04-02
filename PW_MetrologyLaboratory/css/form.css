@@ -230,9 +230,9 @@ h5{
 
 /*Ocultar divs con inputs opcionales*/
 #normaNombre, #normaArchivo, #pruebaEspecial, #otroTipoPrueba,
-#numeroPiezas, #detallesPrueba , #div-OEM, #agregarNumParte, #numeroParte,
-#descripcionMaterial, #plataformaDiv, #cantidadMaterial, #selectTipoPrueba,
-#imgMaterial, #submitRequest{
+#numeroPiezas, #detallesPrueba , #div-OEM1, #agregarNumParte, #numeroParte1,
+#descripcionMaterial1, #plataformaDiv1, #cantidadMaterial1, #selectTipoPrueba,
+#imgMaterial1, #submitRequest{
     display: none;
 }
 
