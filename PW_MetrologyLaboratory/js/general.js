@@ -39,7 +39,7 @@ function banderaTipoPrueba(){
         divCantidadMaterial.style.display = "block";
         botonEnviar.style.display = "block";
         divPruebaEspecial.style.display = "none";
-        divDetallesPrueba.style.display = "none";
+        divDetallesPrueba.style.display = "block";
 
     }else if (cbTipo.value === '5'){ //especiales/otra
         divOEM.style.display = "block";
@@ -63,7 +63,7 @@ function banderaTipoPrueba(){
         divNormaNombre.style.display = "none";
         divNormaArchivo.style.display = "none";
         divPruebaEspecial.style.display = "none";
-        divDetallesPrueba.style.display = "none";
+        divDetallesPrueba.style.display = "block";
         botonEnviar.style.display = "block";
 
     }else{
