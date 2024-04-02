@@ -121,7 +121,7 @@
 
                 newRow.appendTo('#contenedorFormulario');
                 llenarCliente( i );
-                console.log("valor de 1:"+i);
+                console.log("valor de i:"+i);
             });
 
             $(document).on('click', '.remove-lnk', function(e) {
@@ -130,8 +130,6 @@
                 $('#newRow' + id).remove();
             });
         })
-        const totalPartes = i;
-        console.log(totalPartes);
     </script>
     <script src="../../js/general.js"></script>
     <script src="../../js/cargarDatos.js"></script>
