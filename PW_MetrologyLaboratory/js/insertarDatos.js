@@ -104,11 +104,9 @@ async function registrarSolicitud() {
             var idNomina           = id("idUsuario");
             var tipoPruebaEspecial = id("tipoPruebaEspecial");
             var otroPrueba         = id("otroPrueba");
-            //var numPiezas          = id("numPiezas");
             var especificaciones   = id ("especificaciones");
 
             // Para agregar material por número de parte
-            var numParte           = id('numParte');
             var descMaterial       = id('descMaterial');
             var cdadMaterial       = id('cdadMaterial');
 
@@ -123,7 +121,6 @@ async function registrarSolicitud() {
             dataForm.append('otroPrueba', otroPrueba.value.trim());
             //dataForm.append('numPiezas', numPiezas.value.trim());
             dataForm.append('especificaciones', especificaciones.value.trim());
-            dataForm.append('numParte', numParte.value.trim());
             dataForm.append('descMaterial', descMaterial.value.trim());
             dataForm.append('cdadMaterial', cdadMaterial.value.trim());
             dataForm.append('fechaSolicitud', fechaFormateada);

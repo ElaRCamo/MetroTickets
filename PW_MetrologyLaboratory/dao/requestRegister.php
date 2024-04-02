@@ -3,7 +3,7 @@ include_once('connection.php');
 session_start();
 
 // Verificar si los datos están presentes y asignarlos de manera segura
-if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['numParte'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
+if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['descMaterial'], $_POST['cdadMaterial'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
     $tipoPrueba     = $_POST['tipoPrueba'];
     $id_prueba      = $_POST['id_prueba'];
 
@@ -36,14 +36,12 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
     $tipoPruebaEspecial   = ($_POST['tipoPrueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
     $otroPrueba           = ($tipoPruebaEspecial  != 4) ? 'No aplica' : $_POST['otroPrueba'] ;
     $especificaciones     = $_POST['especificaciones'];
-    $numParte             = $_POST['numParte'];
     $descMaterial         = $_POST['descMaterial'];
     $cdadMaterial         = $_POST['cdadMaterial'];
     $fechaSolicitud       = $_POST['fechaSolicitud'];
-    // $numPiezas
 
     // Llamar a la función
-    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)) {
+    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)) {
         echo '<script>alert("Solicitud registrada exitosamente")</script>';
     } else {
         echo '<script>alert("Error al registrar la solicitud")</script>';
@@ -52,7 +50,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
 
-function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones,  $numParte, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)
+function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMaterial, $cdadMaterial, $fechaSolicitud, $id_prueba)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
@@ -68,9 +66,9 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
         return false;
     }
 
-    $insertMaterial = $conex->prepare("INSERT INTO `Material` (`id_prueba`, `numDeParte`, `cantidad`, `id_descripcion`) 
+    $insertMaterial = $conex->prepare("INSERT INTO `Material` (`id_prueba`, `cantidad`, `id_descripcion`) 
                                              VALUES (?, ?, ?, ?)");
-    $insertMaterial->bind_param("ssii", $id_prueba, $numParte, $cdadMaterial, $descMaterial);
+    $insertMaterial->bind_param("sii", $id_prueba, $cdadMaterial, $descMaterial);
     $rInsertMaterial  = $insertMaterial->execute();
 
     $conex->close();
