@@ -121,9 +121,11 @@ async function registrarSolicitud() {
 
             var materiales = [];
             var cantidades = [];
-            alert("valor de i en el for:"+i);
+
 
             for (var k = 1; k === i; k++) {
+
+                alert("valor de i dentro del for:"+i);
 
                 // Para agregar material por número de parte
                 var descMaterial       = id('descMaterial' + k);
