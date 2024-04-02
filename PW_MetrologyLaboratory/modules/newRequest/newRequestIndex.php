@@ -62,7 +62,7 @@
         $(document).ready(function() {
             var i = 1;
 
-            $('#addNumParte + i + ').click(function() {
+            $(document).on('click', '[id^="addNumParte"]', function() {
                 i++;
                 var newRow = $('<div id="newRow' + i + '" class="row row-cols-xl-2 clearfix">'
                     + '<div class="col-xl-8">'
@@ -127,7 +127,7 @@
                 var id = $(this).attr("id");
                 $('#newRow' + id).remove();
             });
-        });
+        })
     </script>
 
 
