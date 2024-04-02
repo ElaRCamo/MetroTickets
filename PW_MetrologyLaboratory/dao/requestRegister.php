@@ -44,7 +44,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
     $descMateriales = $_POST['materiales'];
     $cantidades = $_POST['cantidades'];
 
-    // Suponiendo que $descMateriales y $cantidades son strings separadas por comas, puedes convertirlas en arrays usando explode
+    // Suponiendo que $descMateriales y $cantidades son strings separadas por comas, se converten en arrays usando explode
     $descMateriales = explode(', ', $_POST['materiales']);
     $cdadMateriales = explode(', ', $_POST['cantidades']);
 
@@ -81,11 +81,18 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
         $descMaterial = $descMateriales[$i];
         $cdadMaterial = $cdadMateriales[$i];
 
+        echo "DescMaterial: " . $descMateriales[$i] . "<br>";
+        echo "CdadMaterial: " . $cdadMateriales[$i] . "<br>";
+
         $insertMaterial = $conex->prepare("INSERT INTO `Material` (`id_prueba`, `cantidad`, `id_descripcion`) 
                                                  VALUES (?, ?, ?)");
+
+        echo "query:".$insertMaterial;
+
         $insertMaterial->bind_param("sii", $id_prueba, $cdadMaterial, $descMaterial);
         $rInsertMaterial  = $insertMaterial->execute();
         if(!$rInsertMaterial) {
+            echo "Los datos no se insertado correctamente.";
             return false;
         }
     }

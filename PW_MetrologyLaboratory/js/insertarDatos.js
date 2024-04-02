@@ -122,7 +122,7 @@ async function registrarSolicitud() {
             var materiales = [];
             var cantidades = [];
 
-            //alert("valor de i ="+i);
+            alert("valor de i ="+i);
 
             for (var k = 1; k <= i; k++) {
                 // Para agregar material por número de parte
@@ -147,8 +147,8 @@ async function registrarSolicitud() {
             })
                 .then(function (response) {
                     if (response.ok) { //respuesta
-                        window.location.href = "../requests/requestsIndex.php";
-                        //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 3000);
+                        //window.location.href = "../requests/requestsIndex.php";
+                        setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 3000);
                     } else {
                         throw "Error en la llamada Ajax";
                     }
