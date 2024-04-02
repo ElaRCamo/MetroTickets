@@ -31,7 +31,7 @@
         </button>
     </h6>
 </div>
-<div class="row row-cols-xl-2 clearfix" id="elementosMaterial1" style="display: block">
+<div class="row row-cols-xl-2 clearfix" id="elementosMaterial" style="display: block">
     <div class="col-xl-8">
         <div class="row">
             <div class="col-sm-6">
