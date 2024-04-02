@@ -111,6 +111,8 @@ function llenarDescMaterial(i) {
 }
 
 function descripcionMaterial(i){
+    var divImgMat = document.querySelectorAll('[id^="imgMaterial"]');
+
     var divImgMaterial     = id("imgMaterial" + i);
     var cbDescMaterial     = id("descMaterial" + i);
     console.log("imgMaterial" + i);
@@ -121,6 +123,7 @@ function descripcionMaterial(i){
         });
     }else{
         divImgMaterial.style.display = "none";
+        divImgMat.style.display = "none";
     }
 }
 
