@@ -121,7 +121,9 @@
                     + '</div>'
                     + '</div>');*/
 
-                var newRow = $('<div id="newRow' + i + '" class="row clearfix">'
+                var newRow = $('<div id="newRow' + i + '" class="row row-cols-xl-3 clearfix">'
+                    + '<div class="col-xl-8">'
+                    + '<div class="row">'
                     + '<div class="col-sm-6">'
                     + '<div class="form-group" id="div-OEM' + i + '">'
                     + '<div class="help-block with-errors" id="divError' + i + '"></div>'
@@ -163,16 +165,20 @@
                     + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
                     + '</div>'
                     + '</div>'
-                    + '<div class="col-sm-12">'
-                    + '<div class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imgMaterial' + i + '">'
-                    + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial' + i + '" alt="Imagen Material">'
-                    + '</div>'
-                    + '</div>'
                     + '<div class="col-sm-6">'
                     + '<a href="#" class="btn btn-danger remove-lnk" id="' + i + '">Eliminar</a>'
                     + '<button type="button" class="btn btn-success" id="addNumParte' + i + '"><i class="las la-plus-square"></i></button>'
                     + '</div>'
+                    + '</div>'
+                    + '</div>'
+
+                    + '<div class="col-xl-4 text-center">'
+                    + '<div id="imgMaterial' + i + '">'
+                    + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial' + i + '" alt="Imagen Material">'
+                    + '</div>'
+                    + '</div>'
                     + '</div>');
+
 
                 newRow.appendTo('#contenedorFormulario');
                 llenarCliente( i );
