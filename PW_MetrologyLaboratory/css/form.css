@@ -200,22 +200,19 @@ h5{
     display: flex;
     justify-content: center;
 }
-[id^="addNumParte"] {
-    /* Tus estilos aquí */
-    background-color: transparent;
-    border: transparent;
-    padding: 0;
+#addNumParte1{
+    background-color:transparent;
+    border:transparent;
+    padding:0;
     display: inline-block;
 }
-
-[id^="addNumParte"] i {
+#addNumParte1 i{
     font-size: 20px;
     vertical-align: text-bottom;
     color: var(--main-color);
-    transition: all 0.5s ease 0s;
+    transition:all 0.5s ease 0s;
 }
-
-[id^="addNumParte"] i:hover {
+#addNumParte1 i:hover{
     color: #0AA0E1;
     font-size: 1.5em;
 }
@@ -226,7 +223,7 @@ h5{
     background-color: var(--main-color);
 }
 
-[id^="imgMaterial"]{
+.contenedorImg {
     display: flex;
     justify-content: center; /* Centrar horizontalmente*/
     align-items: center; /* Centrar verticalmente*/
