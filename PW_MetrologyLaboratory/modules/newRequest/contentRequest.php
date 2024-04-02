@@ -131,12 +131,13 @@
                                                     <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial1" alt="Imagen Material">
                                                 </div>
                                             </div>
-                                            <div class="form-group last col-sm-12 buttons" >
-                                                <button type="submit" id="submitRequest"  onclick="registrarSolicitud()" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
-                                                <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
-                                            </div><!-- end form-group -->
-                                            <div class="sub-text">* Campos requeridos</div>
-                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="form-group last col-sm-12 buttons" >
+                                            <button type="submit" id="submitRequest"  onclick="registrarSolicitud()" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
+                                            <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
+                                        </div><!-- end form-group -->
+                                        <div class="sub-text">* Campos requeridos</div>
+                                        <div class="clearfix"></div>
                                         </div><!-- end row -->
                                     </form><!-- end form -->
                                 </div>
