@@ -223,7 +223,7 @@ h5{
     background-color: var(--main-color);
 }
 
-.contenedorImg {
+[id^="imgMaterial"]{
     display: flex;
     justify-content: center; /* Centrar horizontalmente*/
     align-items: center; /* Centrar verticalmente*/

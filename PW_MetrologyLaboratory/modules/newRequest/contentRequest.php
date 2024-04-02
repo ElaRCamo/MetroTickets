@@ -127,7 +127,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4 text-center contenedorImg" id="imgMaterial1">
+                                                <div class="col-xl-4 text-center" id="imgMaterial1">
                                                     <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial1" alt="Imagen Material">
                                                 </div>
                                             </div>
