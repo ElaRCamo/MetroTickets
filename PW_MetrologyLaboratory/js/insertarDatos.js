@@ -200,8 +200,9 @@ async function registrarSolicitud() {
         })
             .then(function (response) {
                 if (response.ok) { //respuesta
+                    alert("Datos guardados");
                     //window.location.href = "../requests/requestsIndex.php";
-                    setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 3000);
+                    //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 3000);
                 } else {
                     throw "Error en la llamada Ajax";
                 }
