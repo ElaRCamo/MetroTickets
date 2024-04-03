@@ -83,7 +83,7 @@ function validarSesion() {
         console.error("Error al validar la sesión", error);
     });
 }
-/*
+
 async function registrarSolicitud() {
 
     var sesionIniciada = await validarSesion();
@@ -163,58 +163,4 @@ async function registrarSolicitud() {
         } catch (error) {
             console.error("Error al registrar la solicitud:", error);
         }
-}*/
-async function registrarSolicitud() {
-
-    try {
-        var id_prueba = await obtenerNuevoId(); // Esperar a que se resuelva la promesa y obtener el nuevo ID
-        const dataForm = new FormData();
-
-        dataForm.append('id_prueba', id_prueba);
-
-        var materiales = [];
-        var cantidades = [];
-
-        alert("valor de i ="+i);
-
-        for (var k = 1; k <= i; k++) {
-            // Para agregar material por número de parte
-            var descMaterial       = id('descMaterial' + k);
-            var cdadMaterial       = id('cdadMaterial' + k);
-
-            // Añadimos los valores a los arrays correspondientes
-            materiales.push(descMaterial.value.trim());
-            cantidades.push(cdadMaterial.value.trim());
-        }
-        // Agregamos los arrays al FormData
-        dataForm.append('materiales', materiales.join(', '));
-        dataForm.append('cantidades', cantidades.join(', '));
-
-        alert("Materiales son: " + materiales + "\nCantidades con: " + cantidades + "\nId Prueba: " + id_prueba );
-
-        //alert("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&tipoPruebaEspecial="+tipoPruebaEspecial.value+"&otroEspecial="+otroPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&idNomina="+idNomina.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
-
-        fetch('../../dao/requestRegisterPrueba.php', {
-            method: 'POST',
-            body: dataForm
-        })
-            .then(function (response) {
-                if (response.ok) { //respuesta
-                    alert("Datos guardados");
-                    //window.location.href = "../requests/requestsIndex.php";
-                    //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 3000);
-                } else {
-                    throw "Error en la llamada Ajax";
-                }
-            })
-            .then(function (texto) {
-                console.log(texto);
-            })
-            .catch(function (err) {
-                console.log(err);
-            });
-
-    } catch (error) {
-        console.error("Error al registrar la solicitud:", error);
-    }
 }

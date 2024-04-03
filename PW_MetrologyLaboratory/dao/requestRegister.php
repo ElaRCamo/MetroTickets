@@ -37,20 +37,13 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
     $especificaciones     = $_POST['especificaciones'];
     $fechaSolicitud       = $_POST['fechaSolicitud'];
 
-    //$descMaterial         = $_POST['descMaterial'];
-    //$cdadMaterial         = $_POST['cdadMaterial'];
-
-    // Recibir los datos del formulario
-    $descMateriales = $_POST['materiales'];
-    $cantidades = $_POST['cantidades'];
-
-    // Suponiendo que $descMateriales y $cantidades son strings separadas por comas, se converten en arrays usando explode
-    //$descMateriales = explode(', ', $_POST['materiales']);
-    //$cdadMateriales = explode(', ', $_POST['cantidades']);
+    // materiales y cantidades son strings separadas por comas, asi que se convierten en arrays usando explode
+    $descMateriales = explode(', ', $_POST['materiales']);
+    $cdadMateriales = explode(', ', $_POST['cantidades']);
 
 
     // Llamar a la función
-    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cantidades, $fechaSolicitud, $id_prueba)) {
+    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba)) {
         echo '<script>alert("Solicitud registrada exitosamente")</script>';
     } else {
         echo '<script>alert("Error al registrar la solicitud")</script>';
@@ -76,9 +69,6 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
         $descMaterial = $descMateriales[$i];
         $cdadMaterial = $cdadMateriales[$i];
 
-        echo "DescMaterial: " . $descMateriales[$i] . "<br>";
-        echo "CdadMaterial: " . $cdadMateriales[$i] . "<br>";
-
         $insertMaterial = $conex->prepare("INSERT INTO `Material` (`id_prueba`, `cantidad`, `id_descripcion`) 
                                                  VALUES (?, ?, ?)");
 
@@ -96,15 +86,17 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
         return false;
     }
      */
+    $conex->close();
 
     if(!$rInsertSolicitud || !$rInsertMaterial) {
         echo "Los datos no se insertaron correctamente.";
         echo json_encode(array('error' => true));
+        return false;
     }else{
         echo json_encode(array('error' => false));
+        return true;
     }
 
-    $conex->close();
 
     //return true;
 }
