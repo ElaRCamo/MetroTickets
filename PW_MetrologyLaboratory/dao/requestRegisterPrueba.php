@@ -17,8 +17,8 @@ if(isset($_POST['materiales'], $_POST['cantidades'], $_POST['id_prueba'])) {
     echo '<script>alert("$descMateriales: '.$descMateriales.'\n $cantidades: '.$cantidades.'")</script>';
 
     // Suponiendo que $descMateriales y $cantidades son strings separadas por comas, se converten en arrays usando explode
-    $descMateriales = explode(', ', $_POST['materiales']);
-    $cdadMateriales = explode(', ', $_POST['cantidades']);
+    //$descMateriales = explode(', ', $_POST['materiales']);
+    //$cdadMateriales = explode(', ', $_POST['cantidades']);
 
     echo '<script>alert("descMateriales:".print_r($descMateriales, true)."\n cdadMateriales:".print_r($cdadMateriales, true))</script>';
 
