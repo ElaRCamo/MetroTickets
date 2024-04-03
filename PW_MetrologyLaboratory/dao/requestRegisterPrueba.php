@@ -14,16 +14,9 @@ if(isset($_POST['materiales'], $_POST['cantidades'], $_POST['id_prueba'])) {
     $materiales = $_POST['materiales'];
     $cantidades = $_POST['cantidades'];
 
-    echo '<script>alert("$descMateriales: '.$materiales.'\n $cantidades: '.$cantidades.'")</script>';
-
-    // Suponiendo que $descMateriales y $cantidades son strings separadas por comas, se converten en arrays usando explode
-    $descMateriales = explode(', ', $_POST['materiales']);
-    $cdadMateriales = explode(', ', $_POST['cantidades']);
-
-    echo '<script>alert("descMateriales:".print_r($descMateriales, true)."\n cdadMateriales:".print_r($cdadMateriales, true))</script>';
 
     // Llamar a la función
-    if(RegistrarSolicitud($descMateriales, $cantidades, $id_prueba)) {
+    if(RegistrarSolicitud($materiales, $cantidades, $id_prueba)) {
         echo '<script>alert("Solicitud registrada exitosamente")</script>';
     } else {
         echo '<script>alert("Error al registrar la solicitud")</script>';
@@ -32,10 +25,16 @@ if(isset($_POST['materiales'], $_POST['cantidades'], $_POST['id_prueba'])) {
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
 
-function RegistrarSolicitud($descMateriales, $cdadMateriales, $id_prueba)
+function RegistrarSolicitud($materiales, $cantidades, $id_prueba)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
+
+
+    // Suponiendo que $descMateriales y $cantidades son strings separadas por comas, se converten en arrays usando explode
+    $descMateriales = explode(', ', $materiales);
+    $cdadMateriales = explode(', ', $cantidades);
+
 
     for ($i = 0; $i < count($descMateriales); $i++) {
         $descMaterial = $descMateriales[$i];
