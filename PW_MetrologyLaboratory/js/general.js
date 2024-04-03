@@ -41,6 +41,12 @@ function banderaTipoPrueba(){
         divPruebaEspecial.style.display = "none";
         divDetallesPrueba.style.display = "block";
 
+        if (cbOtroTipo.value === '4'){//otroEspecial
+            divOtroTipoPrueba.style.display = "block";
+        }else{
+            divOtroTipoPrueba.style.display = "none";
+        }
+
     }else if (cbTipo.value === '5'){ //especiales/otra
         divOEM.style.display = "block";
         divNormaNombre.style.display = "block";
@@ -53,6 +59,8 @@ function banderaTipoPrueba(){
         divPlataforma.style.display = "block";
         botonEnviar.style.display = "block";
         divCantidadMaterial.style.display = "block";
+        divOtroTipoPrueba.style.display = "none";
+
     }else if (cbTipo.value !== ''){
         divOEM.style.display = "block";
         divAgregarNumParte.style.display = "block";
@@ -65,6 +73,7 @@ function banderaTipoPrueba(){
         divPruebaEspecial.style.display = "none";
         divDetallesPrueba.style.display = "block";
         botonEnviar.style.display = "block";
+        divOtroTipoPrueba.style.display = "none";
 
     }else{
         divOEM.style.display = "none";
@@ -79,17 +88,11 @@ function banderaTipoPrueba(){
         divDetallesPrueba.style.display = "none";
         divImgMaterial.style.display = "none";
         botonEnviar.style.display = "none";
-    }
-
-}
-
-function otroTipoPrueba(){
-    if (cbOtroTipo.value === '4'){//otroEspecial
-        divOtroTipoPrueba.style.display = "block";
-    }else{
         divOtroTipoPrueba.style.display = "none";
     }
+
 }
+
 
 // Función para cerrar sesión
 function cerrarSesion() {
