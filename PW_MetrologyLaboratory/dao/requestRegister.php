@@ -70,10 +70,7 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     $insertSolicitud->bind_param("ssssssiis", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial, $otroPrueba);
     $rInsertSolicitud = $insertSolicitud->execute();
 
-
-    if(!$rInsertSolicitud) {
-        return false;
-    }
+    $rInsertMaterial = false;
 
     for ($i = 0; $i < count($descMateriales); $i++) {
         $descMaterial = $descMateriales[$i];
@@ -89,10 +86,13 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
 
         $insertMaterial->bind_param("sii", $id_prueba, $cdadMaterial, $descMaterial);
         $rInsertMaterial  = $insertMaterial->execute();
-        if(!$rInsertMaterial) {
-            echo "Los datos no se insertado correctamente.";
-            return false;
-        }
+
+    }
+
+    if(!$rInsertSolicitud || !$rInsertMaterial) {
+        echo "Los datos no se insertaron correctamente.";
+        header("Location: newRequestIndex.php");
+        return false;
     }
 
     $conex->close();
