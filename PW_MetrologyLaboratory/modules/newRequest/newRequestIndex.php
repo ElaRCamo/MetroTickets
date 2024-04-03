@@ -121,7 +121,6 @@
 
                 newRow.appendTo('#contenedorFormulario');
                 llenarCliente( i );
-                console.log("valor de i:"+i);
             });
 
             $(document).on('click', '.remove-lnk', function(e) {

@@ -20,6 +20,10 @@ var cbDescMaterial     = id("descMaterial");
 var divImgMaterial     = id("imgMaterial1");
 var botonEnviar        = id("submitRequest");
 
+const mostrarBloque = (elemento, mostrar) => {
+    elemento.style.display = mostrar ? "block" : "none";
+};
+
 function banderaTipoEvaluacion(){
     if (cbTipoEva.value !== ''){
         divSelectTipoPrueba.style.display = "block";
@@ -97,13 +101,8 @@ function otroTipoPrueba(){
 }*/
 
 function banderaTipoPrueba() {
-    const mostrarBloque = (elemento, mostrar) => {
-        elemento.style.display = mostrar ? "block" : "none";
-    };
 
     const tipo = cbTipo.value;
-    const otroTipo = cbOtroTipo.value === '4'; // se pasa a boleano
-    console.log(otroTipo);
 
     mostrarBloque(divOEM, tipo !== '');
     mostrarBloque(divAgregarNumParte, tipo !== '');
@@ -113,8 +112,6 @@ function banderaTipoPrueba() {
     mostrarBloque(divCantidadMaterial, tipo !== '');
 
     if (tipo === '4') { // dureza FOAM
-        console.log("if "+otroTipo);
-        mostrarBloque(divOtroTipoPrueba, otroTipo);
         mostrarBloque(divNormaNombre, true);
         mostrarBloque(divNormaArchivo, true);
         mostrarBloque(divAgregarNumParte, true);
@@ -143,6 +140,21 @@ function banderaTipoPrueba() {
         mostrarBloque(divPruebaEspecial, false);
         mostrarBloque(divDetallesPrueba, true);
         mostrarBloque(botonEnviar, true);
+        mostrarBloque(divOtroTipoPrueba, false);
+    }
+}
+
+function otroTipoPrueba(){
+
+    const tipo = cbTipo.value;
+    const otroTipo = cbOtroTipo.value;
+    console.log(otroTipo);
+
+    if (tipo === '4' && otroTipo === '4'){//otroEspecial
+        console.log("if "+otroTipo);
+        mostrarBloque(divOtroTipoPrueba, true);
+    }else{
+        console.log("if "+otroTipo);
         mostrarBloque(divOtroTipoPrueba, false);
     }
 }
