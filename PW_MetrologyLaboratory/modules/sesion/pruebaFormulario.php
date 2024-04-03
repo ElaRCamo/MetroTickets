@@ -31,11 +31,11 @@
         </button>
     </h6>
 </div>
-<div class="row row-cols-xl-2 clearfix" id="elementosMaterial" style="display: block">
+<div class="row row-cols-xl-2 clearfix" id="newRow1">
     <div class="col-xl-8">
         <div class="row">
             <div class="col-sm-6">
-                <div class="form-group" id="div-OEM1" style="display: block">
+                <div class="form-group" id="div-OEM1">
                     <div class="help-block with-errors" id="divError1"></div>
                     <select id="cliente1" name="clientes[]" class="form-control"  onchange="llenarPlataforma(1)" required data-error="Por favor ingresa el area solicitante">
                         <option value="">Seleccione el cliente (OEM)*</option>
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group" id="plataformaDiv1" style="display: block">
+                <div class="form-group" id="plataformaDiv1">
                     <div class="help-block with-errors"></div>
                     <select id="plataforma1" name="plataformas[]" class="form-control"  onchange="llenarDescMaterial(1)" required data-error="Por favor ingresa la plataforma">
                         <option value="">Seleccione la plataforma*</option>
@@ -53,23 +53,23 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group" id="descripcionMaterial1" style="display: block">
+                <div class="form-group" id="descripcionMaterial1">
                     <div class="help-block with-errors"></div>
-                    <select id="descMaterial1" name="descripciones[]" class="form-control"  onchange="descripcionMaterial(1)" required data-error="Por favor ingresa la descripción del material">
+                    <select id="descMaterial1" name="descripciones[]" class="form-control"  onchange="descripcionMaterial(1); numeroDeParte(1);" required data-error="Por favor ingresa la descripción del material">
                         <option value="">Seleccione la descripción*</option>
                     </select>
                     <div class="input-group-icon"><i class="las la-cog"></i></div>
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group" id="numeroParte1" style="display: block">
+                <div class="form-group" id="numeroParte1">
                     <div class="help-block with-errors"></div>
-                    <input id="numParte1" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
+                    <input id="numParte1" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte" readonly>
                     <div class="input-group-icon"><i class="las la-cog"></i></div>
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-group" id="cantidadMaterial1" style="display: block">
+                <div class="form-group" id="cantidadMaterial1">
                     <div class="help-block with-errors"></div>
                     <input id="cdadMaterial1" name="cdadesMaterial[]" type="number" class="form-control"  placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
                     <div class="input-group-icon"><i class="las la-cog"></i></div>
@@ -77,13 +77,19 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-4 text-center contenedorImg" id="imgMaterial1">
+    <div class="col-xl-4 text-center" id="imgMaterial1">
         <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial1" alt="Imagen Material">
     </div>
 </div>
-<div class="form-group last col-sm-12 buttons" >
+</div>
+<div class="form-group col-sm-12" id="detallesPrueba">
+    <div class="help-block with-errors"></div>
+    <textarea type="text" class="form-control" id="especificaciones" placeholder="Especificaciones y detalles de la prueba*" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
+    <div class="input-group-icon"><i class="las la-file-alt"></i></div>
+</div>
+<div class="form-group last col-sm-12 buttons" style="display: block" >
     <button type="submit" id="submitRequest"  onclick="registrarSolicitud()" class="btn btn-custom" style="display: block"><i class='las la-paper-plane'></i> Enviar</button>
-    <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
+    <button type="reset" id="reset" class="btn btn-custom" style="display: block"><i class="las la-undo-alt"></i> Restaurar </button>
 </div><!-- end form-group -->
 <script type="text/javascript">
     var i = 1;

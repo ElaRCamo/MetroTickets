@@ -38,7 +38,7 @@ function RegistrarSolicitud($descMateriales, $cdadMateriales, $id_prueba)
         echo "DescMaterial: " . $descMateriales[$i] . "<br>";
         echo "CdadMaterial: " . $cdadMateriales[$i] . "<br>";
 
-        $insertMaterial = $conex->prepare("INSERT INTO `Material` (`id_prueba`, `cantidad`, `id_descripcion`) 
+        $insertMaterial = $conex->prepare("INSERT INTO `MaterialTest` (`id_prueba`, `cantidad`, `id_descripcion`) 
                                                  VALUES (?, ?, ?)");
 
         $insertMaterial->bind_param("sii", $id_prueba, $cdadMaterial, $descMaterial);
