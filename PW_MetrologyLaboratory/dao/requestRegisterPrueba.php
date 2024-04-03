@@ -13,13 +13,14 @@ if(isset($_POST['materiales'], $_POST['cantidades'], $_POST['id_prueba'])) {
     // Recibir los datos del formulario
     $descMateriales = $_POST['materiales'];
     $cantidades = $_POST['cantidades'];
+
     echo '<script>alert("$descMateriales: '.$descMateriales.'\n $cantidades: '.$cantidades.'")</script>';
 
     // Suponiendo que $descMateriales y $cantidades son strings separadas por comas, se converten en arrays usando explode
     $descMateriales = explode(', ', $_POST['materiales']);
     $cdadMateriales = explode(', ', $_POST['cantidades']);
-    echo '<script>alert("descMateriales:".$descMateriales."/n $cdadMateriales:".$cdadMateriales)</script>';
 
+    echo '<script>alert("descMateriales:".print_r($descMateriales, true)."\n cdadMateriales:".print_r($cdadMateriales, true))</script>';
 
     // Llamar a la función
     if(RegistrarSolicitud($descMateriales, $cantidades, $id_prueba)) {
@@ -65,5 +66,3 @@ function RegistrarSolicitud($descMateriales, $cdadMateriales, $id_prueba)
 //bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.
 //ssssssi": especifica el tipo de datos de los parámetros que se están vinculando(cada "s" indica que el parámetro es una cadena (string) y cada "i" indica que el parámetro es un entero (integer))
 ?>
-
-
