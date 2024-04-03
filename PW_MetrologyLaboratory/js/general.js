@@ -145,13 +145,10 @@ function banderaTipoPrueba() {
 
 function otroTipoPrueba(){
     const otroTipo = cbOtroTipo.value;
-    console.log("tipo:"+ tipo);
 
     if (tipo === '5' && otroTipo === '4'){//otroEspecial
-        console.log("if "+otroTipo);
         mostrarBloque(divOtroTipoPrueba, true);
     }else{
-        console.log("else "+otroTipo);
         mostrarBloque(divOtroTipoPrueba, false);
     }
 }
