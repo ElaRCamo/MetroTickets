@@ -82,22 +82,31 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
         $insertMaterial = $conex->prepare("INSERT INTO `Material` (`id_prueba`, `cantidad`, `id_descripcion`) 
                                                  VALUES (?, ?, ?)");
 
-        echo "query:".$insertMaterial;
-
         $insertMaterial->bind_param("sii", $id_prueba, $cdadMaterial, $descMaterial);
         $rInsertMaterial  = $insertMaterial->execute();
 
     }
 
-    if(!$rInsertSolicitud || !$rInsertMaterial) {
+    /*
+     *  if(!$rInsertSolicitud || !$rInsertMaterial) {
         echo "Los datos no se insertaron correctamente.";
         header("Location: newRequestIndex.php");
+
+        echo json_encode(array('error' => false));
         return false;
+    }
+     */
+
+    if(!$rInsertSolicitud || !$rInsertMaterial) {
+        echo "Los datos no se insertaron correctamente.";
+        echo json_encode(array('error' => true));
+    }else{
+        echo json_encode(array('error' => false));
     }
 
     $conex->close();
 
-    return true;
+    //return true;
 }
 //bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.
 //ssssssi": especifica el tipo de datos de los parámetros que se están vinculando(cada "s" indica que el parámetro es una cadena (string) y cada "i" indica que el parámetro es un entero (integer))
