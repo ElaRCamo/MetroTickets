@@ -11,14 +11,14 @@ if(isset($_POST['materiales'], $_POST['cantidades'], $_POST['id_prueba'])) {
     $id_prueba      = $_POST['id_prueba'];
 
     // Recibir los datos del formulario
-    $descMateriales = $_POST['materiales'];
+    $materiales = $_POST['materiales'];
     $cantidades = $_POST['cantidades'];
 
-    echo '<script>alert("$descMateriales: '.$descMateriales.'\n $cantidades: '.$cantidades.'")</script>';
+    echo '<script>alert("$descMateriales: '.$materiales.'\n $cantidades: '.$cantidades.'")</script>';
 
     // Suponiendo que $descMateriales y $cantidades son strings separadas por comas, se converten en arrays usando explode
-    //$descMateriales = explode(', ', $_POST['materiales']);
-    //$cdadMateriales = explode(', ', $_POST['cantidades']);
+    $descMateriales = explode(', ', $_POST['materiales']);
+    $cdadMateriales = explode(', ', $_POST['cantidades']);
 
     echo '<script>alert("descMateriales:".print_r($descMateriales, true)."\n cdadMateriales:".print_r($cdadMateriales, true))</script>';
 
