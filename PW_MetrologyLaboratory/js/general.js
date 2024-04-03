@@ -27,7 +27,7 @@ function banderaTipoEvaluacion(){
         divSelectTipoPrueba.style.display = "none";
     }
 }
-function banderaTipoPrueba(){
+/*function banderaTipoPrueba(){
     if(cbTipo.value === '4'){ //dureza FOAM
         divOEM.style.display = "block";
         divNormaNombre.style.display = "block";
@@ -40,12 +40,7 @@ function banderaTipoPrueba(){
         botonEnviar.style.display = "block";
         divPruebaEspecial.style.display = "none";
         divDetallesPrueba.style.display = "block";
-
-        if (cbOtroTipo.value === '4'){//otroEspecial
-            divOtroTipoPrueba.style.display = "block";
-        }else{
-            divOtroTipoPrueba.style.display = "none";
-        }
+        divOtroTipoPrueba.style.display = "block";
 
     }else if (cbTipo.value === '5'){ //especiales/otra
         divOEM.style.display = "block";
@@ -91,6 +86,62 @@ function banderaTipoPrueba(){
         divOtroTipoPrueba.style.display = "none";
     }
 
+}
+
+function otroTipoPrueba(){
+    if (cbOtroTipo.value === '4'){//otroEspecial
+        divOtroTipoPrueba.style.display = "block";
+    }else{
+        divOtroTipoPrueba.style.display = "none";
+    }
+}*/
+
+function banderaTipoPrueba() {
+    const mostrarBloque = (elemento, mostrar) => {
+        elemento.style.display = mostrar ? "block" : "none";
+    };
+
+    const tipo = cbTipo.value;
+    const otroTipo = cbOtroTipo.value;
+
+    mostrarBloque(divOEM, tipo !== '');
+    mostrarBloque(divAgregarNumParte, tipo !== '');
+    mostrarBloque(divNumeroParte, tipo !== '');
+    mostrarBloque(divDescripcionMaterial, tipo !== '');
+    mostrarBloque(divPlataforma, tipo !== '');
+    mostrarBloque(divCantidadMaterial, tipo !== '');
+
+    if (tipo === '4') { // dureza FOAM
+        mostrarBloque(divNormaNombre, true);
+        mostrarBloque(divNormaArchivo, true);
+        mostrarBloque(divAgregarNumParte, true);
+        mostrarBloque(divNumeroParte, true);
+        mostrarBloque(divDescripcionMaterial, true);
+        mostrarBloque(divPlataforma, true);
+        mostrarBloque(botonEnviar, true);
+        mostrarBloque(divPruebaEspecial, false);
+        mostrarBloque(divDetallesPrueba, true);
+        mostrarBloque(divOtroTipoPrueba, otroTipo === '4');
+    } else if (tipo === '5') { // especiales/otra
+        mostrarBloque(divNormaNombre, true);
+        mostrarBloque(divNormaArchivo, true);
+        mostrarBloque(divPruebaEspecial, true);
+        mostrarBloque(divDetallesPrueba, true);
+        mostrarBloque(divAgregarNumParte, true);
+        mostrarBloque(divNumeroParte, true);
+        mostrarBloque(divDescripcionMaterial, true);
+        mostrarBloque(divPlataforma, true);
+        mostrarBloque(botonEnviar, true);
+        mostrarBloque(divCantidadMaterial, true);
+        mostrarBloque(divOtroTipoPrueba, false);
+    } else { // otro caso
+        mostrarBloque(divNormaNombre, false);
+        mostrarBloque(divNormaArchivo, false);
+        mostrarBloque(divPruebaEspecial, false);
+        mostrarBloque(divDetallesPrueba, true);
+        mostrarBloque(botonEnviar, true);
+        mostrarBloque(divOtroTipoPrueba, false);
+    }
 }
 
 
