@@ -102,7 +102,7 @@ function banderaTipoPrueba() {
     };
 
     const tipo = cbTipo.value;
-    const otroTipo = cbOtroTipo.value;
+    const otroTipo = cbOtroTipo.value === '4';
 
     mostrarBloque(divOEM, tipo !== '');
     mostrarBloque(divAgregarNumParte, tipo !== '');
@@ -121,7 +121,7 @@ function banderaTipoPrueba() {
         mostrarBloque(botonEnviar, true);
         mostrarBloque(divPruebaEspecial, false);
         mostrarBloque(divDetallesPrueba, true);
-        mostrarBloque(divOtroTipoPrueba, otroTipo === '4');
+        mostrarBloque(divOtroTipoPrueba, otroTipo);
     } else if (tipo === '5') { // especiales/otra
         mostrarBloque(divNormaNombre, true);
         mostrarBloque(divNormaArchivo, true);
