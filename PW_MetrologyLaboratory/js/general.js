@@ -99,8 +99,9 @@ function otroTipoPrueba(){
         divOtroTipoPrueba.style.display = "none";
     }
 }*/
-const tipo = cbTipo.value;
+let tipo;
 function banderaTipoPrueba() {
+    tipo = cbTipo.value;
 
     mostrarBloque(divOEM, tipo !== '');
     mostrarBloque(divAgregarNumParte, tipo !== '');
@@ -144,7 +145,7 @@ function banderaTipoPrueba() {
 
 function otroTipoPrueba(){
     const otroTipo = cbOtroTipo.value;
-    console.log("tipo:"+tipo);
+    console.log("tipo:"+ tipo);
 
     if (tipo === '4' && otroTipo === '4'){//otroEspecial
         console.log("if "+otroTipo);
