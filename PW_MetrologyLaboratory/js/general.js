@@ -147,7 +147,7 @@ function otroTipoPrueba(){
     const otroTipo = cbOtroTipo.value;
     console.log("tipo:"+ tipo);
 
-    if (tipo === '4' && otroTipo === '4'){//otroEspecial
+    if (tipo === '5' && otroTipo === '4'){//otroEspecial
         console.log("if "+otroTipo);
         mostrarBloque(divOtroTipoPrueba, true);
     }else{
