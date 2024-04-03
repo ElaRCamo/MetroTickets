@@ -84,14 +84,8 @@
 </div>
 </div>
 </div>
-<div class="form-group col-sm-12" id="detallesPrueba" style="display: block" >
-    <div class="help-block with-errors"></div>
-    <textarea type="text" class="form-control" id="especificaciones" placeholder="Especificaciones y detalles de la prueba*" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
-    <div class="input-group-icon"><i class="las la-file-alt"></i></div>
-</div>
 <div class="form-group last col-sm-12 buttons" style="display: block" >
     <button type="submit" id="submitRequest"  onclick="registrarSolicitud()" class="btn btn-custom" style="display: block"><i class='las la-paper-plane'></i> Enviar</button>
-    <button type="reset" id="reset" class="btn btn-custom" style="display: block"><i class="las la-undo-alt"></i> Restaurar </button>
 </div><!-- end form-group -->
 <script type="text/javascript">
     var i = 1;
