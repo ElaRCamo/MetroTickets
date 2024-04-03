@@ -81,19 +81,24 @@
         <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial1" alt="Imagen Material">
     </div>
 </div>
+<div class="form-group last col-sm-12 buttons" >
+    <button type="submit" id="submitRequest"  onclick="registrarSolicitud()" class="btn btn-custom" style="display: block"><i class='las la-paper-plane'></i> Enviar</button>
+    <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
+</div><!-- end form-group -->
 <script type="text/javascript">
+    var i = 1;
     $(document).ready(function() {
-        var i = 1;
 
-        $('#addNumParte').click(function() {
+        $(document).on('click', '[id^="addNumParte"]', function() {
             i++;
-            var newRow = $('<div id="newRow' + i + '" class="row row-cols-xl-2 clearfix">'
+
+            var newRow = $('<div id="newRow' + i + '" class="row row-cols-xl-3 clearfix">'
                 + '<div class="col-xl-8">'
                 + '<div class="row">'
                 + '<div class="col-sm-6">'
                 + '<div class="form-group" id="div-OEM' + i + '">'
                 + '<div class="help-block with-errors" id="divError' + i + '"></div>'
-                + '<select id="cliente' + i + '" name="clientes[]" class="form-control" onchange="llenarPlataforma(' + i + ')" required data-error="Por favor ingresa el area solicitante">'
+                + '<select id="cliente' + i + '" name="clientes[]" class="form-control" onclick="" onchange="llenarPlataforma(' + i + ')" required data-error="Por favor ingresa el area solicitante">'
                 + '<option value="">Seleccione el cliente (OEM)*</option>'
                 + '</select>'
                 + '<div class="input-group-icon"><i class="las la-screwdriver"></i></div>'
@@ -111,7 +116,7 @@
                 + '<div class="col-sm-6">'
                 + '<div class="form-group" id="descripcionMaterial' + i + '">'
                 + '<div class="help-block with-errors"></div>'
-                + '<select id="descMaterial' + i + '" name="descripciones[]" class="form-control" onchange="descripcionMaterial(' + i + ')" required data-error="Por favor ingresa la descripción del material">'
+                + '<select id="descMaterial' + i + '" name="descripciones[]" class="form-control" onchange="descripcionMaterial(' + i + '); numeroDeParte(' + i + ');" required data-error="Por favor ingresa la descripción del material">'
                 + '<option value="">Seleccione la descripción*</option>'
                 + '</select>'
                 + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
@@ -120,7 +125,7 @@
                 + '<div class="col-sm-6">'
                 + '<div class="form-group" id="numeroParte' + i + '">'
                 + '<div class="help-block with-errors"></div>'
-                + '<input id="numParte' + i + '" name="numPartes[]" type="text" class="form-control" onchange="llenarCliente(' + i + ')" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">'
+                + '<input id="numParte' + i + '" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte" readonly>'
                 + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
                 + '</div>'
                 + '</div>'
@@ -133,14 +138,21 @@
                 + '</div>'
                 + '<div class="col-sm-6">'
                 + '<a href="#" class="btn btn-danger remove-lnk" id="' + i + '">Eliminar</a>'
+                + '<button type="button" class="btn btn-success" id="addNumParte' + i + '"><i class="las la-plus-square"></i></button>'
                 + '</div>'
                 + '</div>'
-                + '<div class="col-xl-4 text-center contenedorImg" id="imgMaterial' + i + '">'
+                + '</div>'
+                + '<div class="col-xl-4 text-center">'
+                + '<div id="imgMaterial' + i + '">'
                 + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial' + i + '" alt="Imagen Material">'
                 + '</div>'
                 + '</div>'
                 + '</div>');
-            newRow.appendTo('#elementosMaterial');
+
+
+            newRow.appendTo('#contenedorFormulario');
+            llenarCliente( i );
+            console.log("valor de i:"+i);
         });
 
         $(document).on('click', '.remove-lnk', function(e) {
@@ -148,7 +160,7 @@
             var id = $(this).attr("id");
             $('#newRow' + id).remove();
         });
-    });
+    })
 </script>
 <script src="../../js/general.js"></script>
 <script src="../../js/cargarDatos.js"></script>
