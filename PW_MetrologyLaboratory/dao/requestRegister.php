@@ -45,10 +45,8 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
     $cantidades = $_POST['cantidades'];
 
     // Suponiendo que $descMateriales y $cantidades son strings separadas por comas, se converten en arrays usando explode
-    $descMateriales = explode(', ', $_POST['materiales']);
-    $cdadMateriales = explode(', ', $_POST['cantidades']);
-
-
+    //$descMateriales = explode(', ', $_POST['materiales']);
+    //$cdadMateriales = explode(', ', $_POST['cantidades']);
 
 
     // Llamar a la función
