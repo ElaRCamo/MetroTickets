@@ -102,7 +102,8 @@ function banderaTipoPrueba() {
     };
 
     const tipo = cbTipo.value;
-    const otroTipo = cbOtroTipo.value === '4';
+    const otroTipo = cbOtroTipo.value === '4'; // se pasa a boleano
+    console.log(otroTipo);
 
     mostrarBloque(divOEM, tipo !== '');
     mostrarBloque(divAgregarNumParte, tipo !== '');
@@ -112,6 +113,8 @@ function banderaTipoPrueba() {
     mostrarBloque(divCantidadMaterial, tipo !== '');
 
     if (tipo === '4') { // dureza FOAM
+        console.log("if "+otroTipo);
+        mostrarBloque(divOtroTipoPrueba, otroTipo);
         mostrarBloque(divNormaNombre, true);
         mostrarBloque(divNormaArchivo, true);
         mostrarBloque(divAgregarNumParte, true);
@@ -121,7 +124,7 @@ function banderaTipoPrueba() {
         mostrarBloque(botonEnviar, true);
         mostrarBloque(divPruebaEspecial, false);
         mostrarBloque(divDetallesPrueba, true);
-        mostrarBloque(divOtroTipoPrueba, otroTipo);
+
     } else if (tipo === '5') { // especiales/otra
         mostrarBloque(divNormaNombre, true);
         mostrarBloque(divNormaArchivo, true);
