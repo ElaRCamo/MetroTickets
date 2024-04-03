@@ -99,10 +99,8 @@ function otroTipoPrueba(){
         divOtroTipoPrueba.style.display = "none";
     }
 }*/
-
+const tipo = cbTipo.value;
 function banderaTipoPrueba() {
-
-    const tipo = cbTipo.value;
 
     mostrarBloque(divOEM, tipo !== '');
     mostrarBloque(divAgregarNumParte, tipo !== '');
@@ -145,16 +143,14 @@ function banderaTipoPrueba() {
 }
 
 function otroTipoPrueba(){
-
-    const tipo = cbTipo.value;
     const otroTipo = cbOtroTipo.value;
-    console.log(otroTipo);
+    console.log("tipo:"+tipo);
 
     if (tipo === '4' && otroTipo === '4'){//otroEspecial
         console.log("if "+otroTipo);
         mostrarBloque(divOtroTipoPrueba, true);
     }else{
-        console.log("if "+otroTipo);
+        console.log("else "+otroTipo);
         mostrarBloque(divOtroTipoPrueba, false);
     }
 }
