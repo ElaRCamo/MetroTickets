@@ -10,10 +10,12 @@ if(isset($_POST['materiales'], $_POST['cantidades'], $_POST['id_prueba'])) {
     // Recibir los datos del formulario
     $descMateriales = $_POST['materiales'];
     $cantidades = $_POST['cantidades'];
+    echo '<script>alert("$descMateriales: '.$descMateriales.'\n $cantidades: '.$cantidades.'")</script>';
 
     // Suponiendo que $descMateriales y $cantidades son strings separadas por comas, se converten en arrays usando explode
     $descMateriales = explode(', ', $_POST['materiales']);
     $cdadMateriales = explode(', ', $_POST['cantidades']);
+    echo '<script>alert("descMateriales:".$descMateriales."/n $cdadMateriales:".$cdadMateriales)</script>';
 
 
     // Llamar a la función
