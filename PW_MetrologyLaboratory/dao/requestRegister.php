@@ -57,13 +57,16 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     $con = new LocalConector();
     $conex = $con->conectar();
 
+    // Iniciar transacción
+    $conex->begin_transaction();
+
     // Consulta preparada para evitar inyección SQL
     $insertSolicitud = $conex->prepare("INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `id_pruebaEspecial`, `otroTipoEspecial`) 
                                               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $insertSolicitud->bind_param("ssssssiis", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $tipoPruebaEspecial, $otroPrueba);
     $rInsertSolicitud = $insertSolicitud->execute();
 
-    $rInsertMaterial = false;
+    $rInsertMaterial = true;
 
     for ($i = 0; $i < count($descMateriales); $i++) {
         $descMaterial = $descMateriales[$i];
@@ -73,33 +76,25 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
                                                  VALUES (?, ?, ?)");
 
         $insertMaterial->bind_param("sii", $id_prueba, $cdadMaterial, $descMaterial);
-        $rInsertMaterial  = $insertMaterial->execute();
-
+        $rInsertMaterial = $rInsertMaterial && $insertMaterial->execute();
     }
 
-    /*
-     *  if(!$rInsertSolicitud || !$rInsertMaterial) {
-        echo "Los datos no se insertaron correctamente.";
-        header("Location: newRequestIndex.php");
-
-        echo json_encode(array('error' => false));
-        return false;
-    }
-     */
-    $conex->close();
-
+    // Confirmar o hacer rollback de la transacción
     if(!$rInsertSolicitud || !$rInsertMaterial) {
+        $conex->rollback();
         echo "Los datos no se insertaron correctamente.";
         echo json_encode(array('error' => true));
         return false;
-    }else{
+    } else {
+        $conex->commit();
         echo json_encode(array('error' => false));
         return true;
     }
 
-
-    //return true;
+    // Cerrar la conexión
+    $conex->close();
 }
+
 //bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.
 //ssssssi": especifica el tipo de datos de los parámetros que se están vinculando(cada "s" indica que el parámetro es una cadena (string) y cada "i" indica que el parámetro es un entero (integer))
 ?>
