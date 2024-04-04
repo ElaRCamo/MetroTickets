@@ -36,7 +36,7 @@ SELECT DISTINCT
     u_solic.nombreUsuario AS nombreSolic, 
     tu_solic.descripcionTipo AS tipoSolic
 FROM  
-    SolicitudPrueba s
+    Prueba s
 LEFT JOIN 
     Usuario u_admin ON s.id_administrador = u_admin.id_usuario
 LEFT JOIN 

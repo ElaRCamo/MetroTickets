@@ -110,7 +110,7 @@ function banderaTipoPrueba() {
     mostrarBloque(divPlataforma, tipo !== '');
     mostrarBloque(divCantidadMaterial, tipo !== '');
 
-    if (tipo === '4') { // dureza FOAM
+    if (tipo === '4' || tipo === '3') { // dureza FOAM || dureza insitu
         mostrarBloque(divNormaNombre, true);
         mostrarBloque(divNormaArchivo, true);
         mostrarBloque(divAgregarNumParte, true);

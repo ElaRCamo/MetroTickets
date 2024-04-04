@@ -1,13 +1,15 @@
 Pendientes del Proyecto del Laboratorio de Metrología:
 
  1. ¿Has olvidado la contraseña?
- 2. En registro, validar si el usuario ya existe
+✓ 2. En registro, validar si el usuario ya existe (01/04/2024)
+  2.1 Si el usuario ya existe, no se registra y reedirecciona a registrarse nuevamente pero no envia aviso.
 ✓ 3. Cerrar sesión correctamente (27/03/2024)
 ✓ 3.1 Cuando cierra sesión, deja "enviar" formulario pero no llega a la BD (27/03/2024)
   3.2 Se permite el llenado del formulario pero al seleccionar "Enviar" redirecciona
-  4. Una vez que se carga el archivo de la norma, ya no deja modificarlo
+✓ 4. Una vez que se carga el archivo de la norma, ya no deja modificarlo
   5. ¿Qué fecha de respuesta estaria por default?
-  6. Cuando se registre un usuario la contraseña se guarde en SHA1
+	Fecha de duracion de la prueba *dos dias posteriores
+✓ 6. Cuando se registre un usuario la contraseña se guarde en SHA1 (01/04/2024)
 ✓ 7. Poner nombre archivo de la norma (25/03/2024)
 ✓ 7.1 Considerar nombres de archivos cuando hay espacios (26/03/2024)
   8. Validaciones del formulario 
@@ -16,7 +18,33 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 ✓ 10.1 Validar inputs en requestRegister.php (26/03/2024)
 	-----Nota---- Si se hacen más cambios en el formulario, se requiere revisar nuevamente esta sección
 ✓ 11. Centrar imagen en el formulario y dar formato a inputs(27/03/2024)
-  12. Que se permita registrar más de un material
+✓ 12. Que se permita registrar más de un material(03/04/2024)
+✓ 12.1 Se insertan datos del formulario como transaccion
+✓ 13. El input de otro(tipo de prueba especial) se queda visible aunque se cambie el tipo de prueba(03/04/2024)
+✓ 14. Agregar funcion js para clonar divs para agregar material(02/04/2024)
+  14.1 Acomodar nuevos divs generados (02/04/2024)
+  14.2 Visualizacion de imagen(oculatar div nuevo)
+✓  15. Número de parte se carga al final (02/04/2024)
+✓  15.1 Hacer cambios en la base de datos(cargar los num de parte y eliminar de la tabla correspondiente)(02/04/2024)
+✓  15.2 Eliminar el numero de parte al insertar datos en el formulario(dao y js)(02/04/2024)
+✓  15.3 Crear funcion para cargar el numero de parte(02/04/2024)
+   16. Validar porque al introducior Otro tipo de prueba ya no funciona
+      (ni siquiera entra a la funcion y restaura todo el formulario)
 
   99.El boton de la regla en solicitudes tiene asignada if function
   100. Asignar valores por default en la BD
+
+
+Pruea dureza insitu*agregar norma
+Especificaciones para todos
+Quitar cantidad de piezas el de despues de norma
+
+Que administrador pueda revisar contrase;as
+
+Actualizaciones solo para el administrador
+
+Asignar por default a> Adrian *input editable
+Fecha> 18 abril
+Observaciones
+Estatus la solicitud
+Prioridades
