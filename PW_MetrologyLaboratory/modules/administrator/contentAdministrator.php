@@ -47,6 +47,30 @@
                         <td>Descripción de la Prueba 2</td>
                         <!-- Otros datos de la tabla según las columnas -->
                     </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Prueba 1</td>
+                        <td>Descripción de la Prueba 1</td>
+                        <!-- Otros datos de la tabla según las columnas -->
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Prueba 2</td>
+                        <td>Descripción de la Prueba 2</td>
+                        <!-- Otros datos de la tabla según las columnas -->
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Prueba 1</td>
+                        <td>Descripción de la Prueba 1</td>
+                        <!-- Otros datos de la tabla según las columnas -->
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Prueba 2</td>
+                        <td>Descripción de la Prueba 2</td>
+                        <!-- Otros datos de la tabla según las columnas -->
+                    </tr>
                     <!-- Repite estas filas para cada registro de la tabla -->
                     </tbody>
                 </table>
@@ -81,6 +105,30 @@
                     <!-- Cuerpo de la tabla -->
                     <tbody>
                     <!-- Aquí se mostrarían los datos de la tabla de Pruebas -->
+                    <tr>
+                        <td>1</td>
+                        <td>Prueba 1</td>
+                        <td>Descripción de la Prueba 1</td>
+                        <!-- Otros datos de la tabla según las columnas -->
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Prueba 2</td>
+                        <td>Descripción de la Prueba 2</td>
+                        <!-- Otros datos de la tabla según las columnas -->
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Prueba 1</td>
+                        <td>Descripción de la Prueba 1</td>
+                        <!-- Otros datos de la tabla según las columnas -->
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Prueba 2</td>
+                        <td>Descripción de la Prueba 2</td>
+                        <!-- Otros datos de la tabla según las columnas -->
+                    </tr>
                     <tr>
                         <td>1</td>
                         <td>Prueba 1</td>

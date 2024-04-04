@@ -8,6 +8,10 @@
     --blue_70: #A4C6E2;
     --blue_45: #C4DAEC;
 }
+body {
+    margin: 0;
+    padding: 0;
+}
 nav {
     background-color: var(--main-color);
     padding: 10px;
