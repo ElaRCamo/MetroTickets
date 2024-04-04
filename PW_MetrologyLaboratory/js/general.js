@@ -16,13 +16,21 @@ var cbTipoEva          = id("tipoEvaluacion");
 var divSelectTipoPrueba= id("selectTipoPrueba");
 var  cbOtroTipo        = id("tipoPruebaEspecial");
 var divOtroTipoPrueba  = id("otroTipoPrueba");
-var cbDescMaterial     = id("descMaterial");
-var divImgMaterial     = id("imgMaterial1");
+var cbDescMaterial     = id("descMaterial"+i);
+var divImgMaterial     = id("imgMaterial"+i);
 var botonEnviar        = id("submitRequest");
 
 const mostrarBloque = (elemento, mostrar) => {
     elemento.style.display = mostrar ? "block" : "none";
 };
+
+function mostrarDivImagen(){
+    if (cbDescMaterial.value !== ''){
+        mostrarBloque(divImgMaterial, true);
+    }else{
+        mostrarBloque(divImgMaterial, false);
+    }
+}
 
 function banderaTipoEvaluacion(){
     if (cbTipoEva.value !== ''){

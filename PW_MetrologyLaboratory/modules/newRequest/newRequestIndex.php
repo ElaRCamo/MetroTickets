@@ -121,6 +121,7 @@
 
                 newRow.appendTo('#contenedorFormulario');
                 llenarCliente( i );
+                mostrarDivImagen();
             });
 
             $(document).on('click', '.remove-lnk', function(e) {
