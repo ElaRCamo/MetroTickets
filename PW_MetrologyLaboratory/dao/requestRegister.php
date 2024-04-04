@@ -7,7 +7,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
     $tipoPrueba     = $_POST['tipoPrueba'];
     $id_prueba      = $_POST['id_prueba'];
 
-    if($tipoPrueba == 4 || $tipoPrueba == 5){ //si se requiere norma por tipo de prueba
+    if($tipoPrueba == 3 || $tipoPrueba == 4 || $tipoPrueba == 5){ //si se requiere norma por tipo de prueba
         $norma          = $_POST['norma'];
         //guardar los archivos de la norma
         $target_dir     = "../archivos/";
