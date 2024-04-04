@@ -9,7 +9,7 @@
     --blue_45: #C4DAEC;
 }
 nav {
-    background-color: #333;
+    background-color: var(--main-color);
     padding: 10px;
 }
 nav ul {
