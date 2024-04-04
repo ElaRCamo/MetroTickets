@@ -16,15 +16,16 @@ var cbTipoEva          = id("tipoEvaluacion");
 var divSelectTipoPrueba= id("selectTipoPrueba");
 var  cbOtroTipo        = id("tipoPruebaEspecial");
 var divOtroTipoPrueba  = id("otroTipoPrueba");
-var cbDescMaterial     = id("descMaterial"+i);
-var divImgMaterial     = id("imgMaterial"+i);
 var botonEnviar        = id("submitRequest");
 
 const mostrarBloque = (elemento, mostrar) => {
     elemento.style.display = mostrar ? "block" : "none";
 };
 
-function mostrarDivImagen(){
+function mostrarDivImagen( j ){
+    var cbDescMaterial     = id("descMaterial" + j);
+    var divImgMaterial     = id("imgMaterial" + j);
+
     if (cbDescMaterial.value !== ''){
         mostrarBloque(divImgMaterial, true);
     }else{
