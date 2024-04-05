@@ -152,9 +152,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalToggleLabel">Resumen de Solicitud de Prueba Metrologica</h5><br>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div>
                 <!-- Mensaje de confirmación -->
                 <small>Se ha enviado un mensaje de confirmación al correo electrónico asociado a su cuenta con la siguiente información:</small>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
@@ -163,9 +165,13 @@
                 <p><strong>Solicitante:</strong> <?php echo $idUsuario; ?></p>
                 <p><strong>Tipo de Prueba:</strong> ?php echo $tipoPrueba; ?></p>
                 <p><strong>Observaciones:</strong> ?php echo $especificaciones; ?></p>
-                <p><strong>Materiales a medir:</strong></p>
+                <p><strong>Estatus de la solicitud:</strong> Pendiente de revisión </p><br>
+
                 <table class="table">
                     <thead>
+                    <tr>
+                        <th colspan="2">Material para medición</th>
+                    </tr>
                     <tr>
                         <th>Material</th>
                         <th>Cantidad</th>
@@ -179,10 +185,11 @@
                         </tr>
                     ?php } ?>
                     </tbody>
-                </table><br>
+                </table>
+
 
                 <!-- Mensaje de espera -->
-                <small>Por favor, espere a que su solicitud sea revisada y aprobada por nuestro equipo de laboratorio. Le notificaremos cualquier cambio en el estado de su solicitud. ¡Gracias por su paciencia y confianza en nuestros servicios!</small>
+                <br><small>Por favor, espere a que su solicitud sea revisada y aprobada por nuestro equipo de laboratorio. Le notificaremos cualquier cambio en el estado de su solicitud. ¡Gracias por su paciencia y confianza en nuestros servicios!</small>
             </div>
 
             <div class="modal-footer">
