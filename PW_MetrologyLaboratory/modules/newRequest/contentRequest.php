@@ -129,7 +129,6 @@
                                         <div class="form-group last col-sm-12 buttons" >
                                             <button type="submit" id="submitRequest"  onclick="registrarSolicitud()" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
                                             <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
-                                            <a class="btn btn-primary" data-bs-toggle="modal" href="#RequestReview" role="button">Open first modal</a>
                                         </div><!-- end form-group -->
                                         <div class="sub-text">* Campos requeridos</div>
                                         <div class="clearfix"></div>
@@ -159,11 +158,11 @@
                     <!-- Mensaje de confirmación -->
                     <small>   Se ha enviado un mensaje de confirmación al correo electrónico asociado a su cuenta con la siguiente información:</small><br>
 
-                    <p><strong>No. de solicitud:</strong> <script>id_prueba</script></p>
-                    <p><strong>Fecha de Solicitud:</strong> ?php echo $fechaSolicitud; ?></p>
-                    <p><strong>Solicitante:</strong> <?php echo $idUsuario; ?></p>
-                    <p><strong>Tipo de Prueba:</strong> ?php echo $tipoPrueba; ?></p>
-                    <p><strong>Observaciones:</strong> </p><script>id ("especificaciones")</script></p>
+                    <p><strong>No. de solicitud:</strong> <span id="id_prueba"></span></p>
+                    <p><strong>Fecha de Solicitud:</strong></p>
+                    <p><strong>Solicitante:</strong> <?php echo $nombreUser; ?></p>
+                    <p><strong>Tipo de Prueba:</strong> </p>
+                    <p><strong>Observaciones:</strong> </p></p>
                     <p><strong>Estatus de la solicitud:</strong> Pendiente de revisión </p><br>
 
                     <table class="table">

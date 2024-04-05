@@ -149,6 +149,7 @@ async function registrarSolicitud() {
                     if (response.ok) { //respuesta
                         // Mostrar la ventana modal con id RequestReview
                         $('#RequestReview').modal('show');
+                            id('id_prueba').textContent = id_prueba;
 
                         //window.location.href = "../requests/requestsIndex.php";
                         //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 10000);
