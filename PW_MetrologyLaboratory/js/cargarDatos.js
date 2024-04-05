@@ -128,17 +128,9 @@ function descripcionMaterial(i){
 }
 
 function resumenPrueba(id_prueba) {
-    console.log("ejecutando...resumenPrueba("+id_prueba+");");
-    alert("ejecutando...resumenPrueba("+id_prueba+");");
+
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + id_prueba, function (response) {
         var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
-
-        console.log('ID de prueba:', data.id_prueba);
-        console.log('Fecha de Solicitud:', data.fechaSolicitud);
-        console.log('Solicitante:', data.nombreSolic);
-        console.log('Tipo de Prueba:', data.descripcionPrueba);
-        console.log('Observaciones:', data.especificaciones);
-        console.log('Estatus de la solicitud:', data.descripcionEstatus);
 
         // Actualizar el contenido de la ventana modal con los datos obtenidos
         $('#solicitudNumero').text(data.id_prueba);
