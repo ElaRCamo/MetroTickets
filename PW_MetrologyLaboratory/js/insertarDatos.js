@@ -150,6 +150,7 @@ async function registrarSolicitud() {
                         // Mostrar la ventana modal con id RequestReview
                         $('#RequestReview').modal('show');
                             id('id_prueba').textContent = id_prueba;
+                            id('fechaSolicitud').textContent = fechaFormateada;
 
                         //window.location.href = "../requests/requestsIndex.php";
                         //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 10000);

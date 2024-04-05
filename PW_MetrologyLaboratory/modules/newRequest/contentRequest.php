@@ -159,7 +159,7 @@
                     <small>   Se ha enviado un mensaje de confirmación al correo electrónico asociado a su cuenta con la siguiente información:</small><br>
 
                     <p><strong>No. de solicitud:</strong> <span id="id_prueba"></span></p>
-                    <p><strong>Fecha de Solicitud:</strong></p>
+                    <p><strong>Fecha de Solicitud:</strong><span id="fechaFormateada"></span></p>
                     <p><strong>Solicitante:</strong> <?php echo $nombreUser; ?></p>
                     <p><strong>Tipo de Prueba:</strong> </p>
                     <p><strong>Observaciones:</strong> </p></p>
