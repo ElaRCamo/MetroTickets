@@ -127,7 +127,7 @@ function descripcionMaterial(i){
     }
 }
 
-function resumenPrueba(id_prueba) {
+/*function resumenPrueba(id_prueba) {
     console.log("ejecutando...resumenPrueba("+id_prueba+");");
     alert("ejecutando...resumenPrueba("+id_prueba+");");
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoImgMaterial.php?id_descripcion=' + id_prueba, function (response) {
@@ -151,6 +151,17 @@ function resumenPrueba(id_prueba) {
         // Mostrar la ventana modal con id RequestReview
         $('#RequestReview').modal('show');
     });
-}
+}*/
+function resumenPrueba(id_prueba) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoImgMaterial.php?id_descripcion=' + id_prueba, function (response) {
+        var data = response.data[0]; // Acceder al primer objeto dentro de 'data'
 
+        if (data && data.id_prueba) {
+            console.log('ID de prueba:', data.id_prueba);
+            // Resto del código para procesar la respuesta...
+        } else {
+            console.error('Error: El objeto data o la propiedad id_prueba son undefined.');
+        }
+    });
+}
 
