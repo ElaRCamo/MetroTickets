@@ -147,7 +147,6 @@ async function registrarSolicitud() {
             })
                 .then(function (response) {
                     if (response.ok) { //respuesta
-                        id('id_prueba').textContent = id_prueba;
                         resumenPrueba(id_prueba);
 
                         //window.location.href = "../requests/requestsIndex.php";
