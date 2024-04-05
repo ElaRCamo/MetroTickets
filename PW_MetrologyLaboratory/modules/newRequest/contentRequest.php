@@ -155,6 +155,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <!-- Mensaje de confirmación -->
+                <p>Se ha enviado un mensaje de confirmación al correo electrónico asociado a su cuenta con la siguiente información:</p>
                 <p><strong>No. de solicitud:</strong> ?php echo $id_prueba; ?></p>
                 <p><strong>Fecha de Solicitud:</strong> ?php echo $fechaSolicitud; ?></p>
                 <p><strong>Solicitante:</strong> <?php echo $idUsuario; ?></p>
@@ -178,8 +180,12 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- Mensaje de espera -->
+            <p>Por favor, espere a que su solicitud sea revisada y aprobada por nuestro equipo de laboratorio. Le notificaremos cualquier cambio en el estado de su solicitud. ¡Gracias por su paciencia y confianza en nuestros servicios!</p>
+        </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
