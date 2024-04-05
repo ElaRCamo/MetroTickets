@@ -161,8 +161,8 @@
                     <p><strong>No. de solicitud:       </strong><span id="solicitudNumero"></span></p>
                     <p><strong>Fecha de Solicitud:     </strong><span id="fechaSolicitud"></span></p>
                     <p><strong>Solicitante:            </strong><span id="solicitante"></span></p>
-                    <p><strong>Tipo de Prueba:         </strong><span id="tipoPrueba"></span></p>
-                    <p><strong>Observaciones:          </strong><span id="observaciones"></span></p>
+                    <p><strong>Tipo de Prueba:         </strong><span id="tipoPruebaSolicitud"></span></p>
+                    <p><strong>Observaciones:          </strong><span id="observacionesSolicitud"></span></p>
                     <p><strong>Estatus de la solicitud:</strong><span id="estatusSolicitud"></p><br>
 
                     <table class="table">

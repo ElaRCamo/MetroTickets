@@ -136,8 +136,8 @@ function resumenPrueba(id_prueba) {
         $('#solicitudNumero').text(data.id_prueba);
         $('#fechaSolicitud').text(data.fechaSolicitud);
         $('#solicitante').text(data.nombreSolic);
-        $('#tipoPrueba').text(data.descripcionPrueba);
-        $('#observaciones').text(data.especificaciones);
+        $('#tipoPruebaSolicitud').text(data.descripcionPrueba);
+        $('#observacionesSolicitud').text(data.especificaciones);
         $('#estatusSolicitud').text(data.descripcionEstatus);
 
         // Mostrar la ventana modal con id RequestReview
