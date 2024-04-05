@@ -153,8 +153,7 @@ function descripcionMaterial(i){
     });
 }*/
 function resumenPrueba(id_prueba) {
-    console.log('Tipo de dato de id_prueba:', typeof id_prueba);
-    console.log('Valor de id_prueba:', id_prueba);
+
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + id_prueba, function (response) {
         var data = response.data[0]; // Acceder al primer objeto dentro de 'data'
 
