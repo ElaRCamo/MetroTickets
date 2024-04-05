@@ -144,60 +144,61 @@
             </div><!--End row -->
         </div><!--End container -->
     </section>
-</main>
 
-<!-- Modal 1 -->
-<div class="modal fade modal-lg" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalToggleLabel">Resumen de Solicitud de Prueba Metrologica</h5><br>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div>
-                <!-- Mensaje de confirmación -->
-                <small>   Se ha enviado un mensaje de confirmación al correo electrónico asociado a su cuenta con la siguiente información:</small><br>
-            </div>
-            <div class="modal-body">
 
-                <p><strong>No. de solicitud:</strong> ?php echo $id_prueba; ?></p>
-                <p><strong>Fecha de Solicitud:</strong> ?php echo $fechaSolicitud; ?></p>
-                <p><strong>Solicitante:</strong> <?php echo $idUsuario; ?></p>
-                <p><strong>Tipo de Prueba:</strong> ?php echo $tipoPrueba; ?></p>
-                <p><strong>Observaciones:</strong> ?php echo $especificaciones; ?></p>
-                <p><strong>Estatus de la solicitud:</strong> Pendiente de revisión </p><br>
+    <!-- Modal 1 -->
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">Resumen de Solicitud de Prueba Metrologica</h5><br>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div>
+                    <!-- Mensaje de confirmación -->
+                    <small>   Se ha enviado un mensaje de confirmación al correo electrónico asociado a su cuenta con la siguiente información:</small><br>
+                </div>
+                <div class="modal-body">
 
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th colspan="2">Material para medición</th>
-                    </tr>
-                    <tr>
-                        <th>Material</th>
-                        <th>Cantidad</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    ?php for ($i = 0; $i < count($descMateriales); $i++) { ?>
+                    <p><strong>No. de solicitud:</strong> ?php echo $id_prueba; ?></p>
+                    <p><strong>Fecha de Solicitud:</strong> ?php echo $fechaSolicitud; ?></p>
+                    <p><strong>Solicitante:</strong> <?php echo $idUsuario; ?></p>
+                    <p><strong>Tipo de Prueba:</strong> ?php echo $tipoPrueba; ?></p>
+                    <p><strong>Observaciones:</strong> ?php echo $especificaciones; ?></p>
+                    <p><strong>Estatus de la solicitud:</strong> Pendiente de revisión </p><br>
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th colspan="2">Material para medición</th>
+                        </tr>
+                        <tr>
+                            <th>Material</th>
+                            <th>Cantidad</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        ?php for ($i = 0; $i < count($descMateriales); $i++) { ?>
                         <tr>
                             <td>?php echo $descMateriales[$i]; ?></td>
                             <td>?php echo $cdadMateriales[$i]; ?></td>
                         </tr>
-                    ?php } ?>
-                    </tbody>
-                </table>
+                        ?php } ?>
+                        </tbody>
+                    </table>
 
+                    <!-- Mensaje de espera -->
+                    <br><small>Por favor, espere a que su solicitud sea revisada y aprobada por nuestro equipo de laboratorio. Le notificaremos cualquier cambio en el estado de su solicitud. ¡Gracias por su paciencia y confianza en nuestros servicios!</small>
+                </div>
 
-                <!-- Mensaje de espera -->
-                <br><small>Por favor, espere a que su solicitud sea revisada y aprobada por nuestro equipo de laboratorio. Le notificaremos cualquier cambio en el estado de su solicitud. ¡Gracias por su paciencia y confianza en nuestros servicios!</small>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+        </div>
     </div>
-</div>
-</div>
+</main>
+
 
 
 
