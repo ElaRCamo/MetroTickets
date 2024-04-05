@@ -83,11 +83,13 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
         $conex->rollback();
         echo "Los datos no se insertaron correctamente.";
         echo json_encode(array('error' => true));
-        return false;
+        exit;
+        //return false;
     } else {
         $conex->commit();
         echo json_encode(array('error' => false));
-        return true;
+        exit;
+        //return true;
     }
 
     // Cerrar la conexión
