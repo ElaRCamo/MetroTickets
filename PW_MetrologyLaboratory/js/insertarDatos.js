@@ -147,7 +147,11 @@ async function registrarSolicitud() {
             })
                 .then(function (response) {
                     if (response.ok) { //respuesta
+                        console.log("resumenPrueba("+id_prueba+");");
+                        alert("resumenPrueba("+id_prueba+");");
                         resumenPrueba(id_prueba);
+                        console.log("resumenPrueba("+id_prueba+");");
+                        alert("resumenPrueba("+id_prueba+");");
 
                         //window.location.href = "../requests/requestsIndex.php";
                         //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 10000);
