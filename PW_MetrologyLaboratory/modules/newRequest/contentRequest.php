@@ -158,11 +158,11 @@
                     <!-- Mensaje de confirmación -->
                     <small>   Se ha enviado un mensaje de confirmación al correo electrónico asociado a su cuenta con la siguiente información:</small><br>
 
-                    <p><strong>No. de solicitud:</strong> <span id="id_prueba"></span></p>
-                    <p><strong>Fecha de Solicitud:</strong><span id="fechaSolicitud"></span></p>
-                    <p><strong>Solicitante:</strong> <?php echo $nombreUser; ?></p>
-                    <p><strong>Tipo de Prueba:</strong> </p>
-                    <p><strong>Observaciones:</strong> </p></p>
+                    <p><strong>No. de solicitud:       </strong><span id="id_prueba"></span></p>
+                    <p><strong>Fecha de Solicitud:     </strong><span id="fechaSolicitud"></span></p>
+                    <p><strong>Solicitante:            </strong><span id="idUsuario"></span></p>
+                    <p><strong>Tipo de Prueba:         </strong><span id="tipoPrueba"></span></p>
+                    <p><strong>Observaciones:          </strong><span id="especificaciones"></span></p>
                     <p><strong>Estatus de la solicitud:</strong> Pendiente de revisión </p><br>
 
                     <table class="table">
