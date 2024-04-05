@@ -129,7 +129,17 @@ function descripcionMaterial(i){
 
 function resumenPrueba(id_prueba){
 
-    // Mostrar la ventana modal con id RequestReview
-    $('#RequestReview').modal('show');
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoImgMaterial.php?id_descripcion=' + id_prueba, function (data) {
+        // Actualizar el contenido de la ventana modal con los datos obtenidos
+        $('#solicitudNumero').text(data.id_prueba);
+        $('#fechaSolicitud').text(data.fechaSolicitud);
+        $('#solicitante').text(data.nombreSolic);
+        $('#tipoPrueba').text(data.descripcionPrueba);
+        $('#observaciones').text(data.especificaciones);
+        $('#estatusSolicitud').text(data.descripcionEstatus);
+
+        // Mostrar la ventana modal con id RequestReview
+        $('#RequestReview').modal('show');
+    });
 }
 

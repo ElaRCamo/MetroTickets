@@ -52,7 +52,6 @@ function resumenPrueba($id_prueba){
                         ) AS prueba ON m.id_prueba = prueba.id_prueba;
 ");
 
-
     $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
 

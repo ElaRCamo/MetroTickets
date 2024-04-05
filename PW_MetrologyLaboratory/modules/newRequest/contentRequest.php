@@ -158,12 +158,12 @@
                     <!-- Mensaje de confirmación -->
                     <small>   Se ha enviado un mensaje de confirmación al correo electrónico asociado a su cuenta con la siguiente información:</small><br>
 
-                    <p><strong>No. de solicitud:       </strong><span id="id_prueba"></span></p>
+                    <p><strong>No. de solicitud:       </strong><span id="solicitudNumero"></span></p>
                     <p><strong>Fecha de Solicitud:     </strong><span id="fechaSolicitud"></span></p>
-                    <p><strong>Solicitante:            </strong><span id="idUsuario"></span></p>
+                    <p><strong>Solicitante:            </strong><span id="solicitante"></span></p>
                     <p><strong>Tipo de Prueba:         </strong><span id="tipoPrueba"></span></p>
-                    <p><strong>Observaciones:          </strong><span id="especificaciones"></span></p>
-                    <p><strong>Estatus de la solicitud:</strong><span id="estatus"></p><br>
+                    <p><strong>Observaciones:          </strong><span id="observaciones"></span></p>
+                    <p><strong>Estatus de la solicitud:</strong><span id="estatusSolicitud"></p><br>
 
                     <table class="table">
                         <thead>
