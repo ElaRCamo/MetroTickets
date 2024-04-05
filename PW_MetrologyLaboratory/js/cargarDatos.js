@@ -130,7 +130,7 @@ function descripcionMaterial(i){
 /*function resumenPrueba(id_prueba) {
     console.log("ejecutando...resumenPrueba("+id_prueba+");");
     alert("ejecutando...resumenPrueba("+id_prueba+");");
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoImgMaterial.php?id_descripcion=' + id_prueba, function (response) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + id_prueba, function (response) {
         var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
 
         console.log('ID de prueba:', data.id_prueba);
