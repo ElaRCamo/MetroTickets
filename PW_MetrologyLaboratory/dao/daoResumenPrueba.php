@@ -52,7 +52,10 @@ function resumenPrueba($id_prueba){
                         ) AS prueba ON m.id_prueba = prueba.id_prueba;
 ");
 
-    $datos = mysqli_query($conex, $datosPrueba);
+    $datosPrueba->bind_param("i", $id_prueba);
+    $datosPrueba->execute();
+    $datos = $datosPrueba->get_result();
+
 
     $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
