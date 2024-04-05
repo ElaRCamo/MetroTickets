@@ -151,8 +151,8 @@ async function registrarSolicitud() {
                         $('#RequestReview').modal('show');
                             id('id_prueba').textContent = id_prueba;
                             id('fechaSolicitud').textContent = fechaFormateada;
-                            id('idUsuario').textContent = idNomina.toString();
-                            id('tipoPrueba').textContent = tipoPrueba.toString();
+                            id('idUsuario').value = idNomina;
+                            id('tipoPrueba').text = tipoPrueba.toString();
                             id('especificaciones').value = especificaciones;
 
                         //window.location.href = "../requests/requestsIndex.php";
