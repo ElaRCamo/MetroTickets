@@ -147,13 +147,8 @@ async function registrarSolicitud() {
             })
                 .then(function (response) {
                     if (response.ok) { //respuesta
-                        // Mostrar la ventana modal con id RequestReview
-                        $('#RequestReview').modal('show');
-                            id('id_prueba').textContent = id_prueba;
-                            id('fechaSolicitud').textContent = fechaFormateada;
-                            id('idUsuario').value = idNomina;
-                            id('tipoPrueba').text = tipoPrueba.toString();
-                            id('especificaciones').value = especificaciones;
+                        id('id_prueba').textContent = id_prueba;
+                        resumenPrueba(id_prueba);
 
                         //window.location.href = "../requests/requestsIndex.php";
                         //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 10000);

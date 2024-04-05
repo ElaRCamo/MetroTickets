@@ -163,7 +163,7 @@
                     <p><strong>Solicitante:            </strong><span id="idUsuario"></span></p>
                     <p><strong>Tipo de Prueba:         </strong><span id="tipoPrueba"></span></p>
                     <p><strong>Observaciones:          </strong><span id="especificaciones"></span></p>
-                    <p><strong>Estatus de la solicitud:</strong> Pendiente de revisión </p><br>
+                    <p><strong>Estatus de la solicitud:</strong><span id="estatus"></p><br>
 
                     <table class="table">
                         <thead>

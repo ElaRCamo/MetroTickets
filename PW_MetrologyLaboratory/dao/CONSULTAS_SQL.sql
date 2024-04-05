@@ -8,15 +8,23 @@ AND   p.id_prioridad     = s.id_prioridad
 AND   u.id_tipoUsuario   = tu.id_tipoUsuario
 
 -- Consulta para seleccionar todo el material correspondiente a un número de prueba en especifico
-SELECT m.numDeParte, m.cantidad, dm.descripcionMaterial, dm.imgMaterial, c.descripcionCliente, p.descripcionPlataforma
+SELECT dm.numeroDeParte, m.cantidad, dm.descripcionMaterial, dm.imgMaterial, c.descripcionCliente, p.descripcionPlataforma
 FROM   Material m, DescripcionMaterial dm, Plataforma p, Cliente c, EstatusMaterial em
 WHERE  m.id_descripcion = dm.id_descripcion
-AND    dm.id_plataforma = p.id_plataforma
-AND    p.id_cliente = c.id_cliente
-AND    m.id_estatusMaterial = em.id_estatusMaterial
-AND    m.id_prueba = '2024-0001'
+  AND    dm.id_plataforma = p.id_plataforma
+  AND    p.id_cliente = c.id_cliente
+  AND    m.id_estatusMaterial = em.id_estatusMaterial
+  AND    m.id_prueba = '2024-0001'
 
-
+    SELECT id_prueba, fechaSolicitud, descripcionEstatus, descripcionPrueba,especificaciones,
+                                                s.id_metrologo, u_metro.nombreUsuario AS nombreMetro,
+                                                s.id_solicitante, u_solic.nombreUsuario AS nombreSolic
+                                            FROM Prueba s
+                                            LEFT JOIN  Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
+                                            LEFT JOIN  Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
+                                            LEFT JOIN  TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
+                                            LEFT JOIN  EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
+                                            WHERE id_prueba = '$id_prueba'
 
 -- Colsulta para seleccionar los datos principales de una prueba
 SELECT DISTINCT 
@@ -55,6 +63,25 @@ LEFT JOIN
     Prioridad p ON s.id_prioridad = p.id_prioridad
 LEFT JOIN 
     EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba;
+
+
+
+
+$datosPrueba = $conex->prepare("SELECT id_prueba, fechaSolicitud, fechaRespuesta, descripcionEstatus, descripcionPrueba, descripcionPrioridad,
+                                                s.id_administrador, u_admin.nombreUsuario AS nombreAdmin, tu_admin.descripcionTipo AS tipoAdmin,
+                                                s.id_metrologo, u_metro.nombreUsuario AS nombreMetro, tu_metro.descripcionTipo AS tipoMetro,
+                                                s.id_solicitante, u_solic.nombreUsuario AS nombreSolic, tu_solic.descripcionTipo AS tipoSolic
+                                            FROM Prueba s
+                                            LEFT JOIN  Usuario u_admin ON s.id_administrador = u_admin.id_usuario
+                                            LEFT JOIN  TipoUsuario tu_admin ON u_admin.id_tipoUsuario = tu_admin.id_tipoUsuario
+                                            LEFT JOIN  Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
+                                            LEFT JOIN  TipoUsuario tu_metro ON u_metro.id_tipoUsuario = tu_metro.id_tipoUsuario
+                                            LEFT JOIN  Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
+                                            LEFT JOIN  TipoUsuario tu_solic ON u_solic.id_tipoUsuario = tu_solic.id_tipoUsuario
+                                            LEFT JOIN  TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
+                                            LEFT JOIN  Prioridad p ON s.id_prioridad = p.id_prioridad
+                                            LEFT JOIN  EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
+                                            WHERE id_prueba = '$id_prueba';");
 
 --Asignar valor predeterminado
 ALTER TABLE Prueba

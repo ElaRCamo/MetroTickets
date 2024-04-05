@@ -127,4 +127,9 @@ function descripcionMaterial(i){
     }
 }
 
+function resumenPrueba(id_prueba){
+
+    // Mostrar la ventana modal con id RequestReview
+    $('#RequestReview').modal('show');
+}
 
