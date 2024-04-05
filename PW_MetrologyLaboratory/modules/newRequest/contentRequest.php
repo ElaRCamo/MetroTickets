@@ -147,7 +147,7 @@
 </main>
 
 <!-- Modal 1 -->
-<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-dialog modal-lg" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+<div class="modal modal-dialog modal-dialog-centered modal-dialog-scrollable modal-dialog modal-lg" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -156,7 +156,7 @@
             </div>
             <div>
                 <!-- Mensaje de confirmación -->
-                <small>Se ha enviado un mensaje de confirmación al correo electrónico asociado a su cuenta con la siguiente información:</small>
+                <small>Se ha enviado un mensaje de confirmación al correo electrónico asociado a su cuenta con la siguiente información:</small><br>
             </div>
             <div class="modal-body">
 
