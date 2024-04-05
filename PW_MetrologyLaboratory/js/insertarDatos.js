@@ -152,8 +152,8 @@ async function registrarSolicitud() {
                             id('id_prueba').textContent = id_prueba;
                             id('fechaSolicitud').textContent = fechaFormateada;
                             id('idUsuario').textContent = idNomina.toString();
-                            id('especificaciones').value = especificaciones;
                             id('tipoPrueba').textContent = tipoPrueba.toString();
+                            id('especificaciones').value = especificaciones;
 
                         //window.location.href = "../requests/requestsIndex.php";
                         //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 10000);
