@@ -131,20 +131,20 @@ function resumenPrueba(id_prueba) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoImgMaterial.php?id_descripcion=' + id_prueba, function (response) {
         var data = response.data[0];
 
-        console.log('ID de prueba:', data.id_prueba);
-        console.log('Fecha de Solicitud:', data.fechaSolicitud);
-        console.log('Solicitante:', data.nombreSolic);
-        console.log('Tipo de Prueba:', data.descripcionPrueba);
-        console.log('Observaciones:', data.especificaciones);
-        console.log('Estatus de la solicitud:', data.descripcionEstatus);
+        console.log('ID de prueba:', data.data[0].id_prueba);
+        console.log('Fecha de Solicitud:', data.data[0].fechaSolicitud);
+        console.log('Solicitante:', data.data[0].nombreSolic);
+        console.log('Tipo de Prueba:', data.data[0].descripcionPrueba);
+        console.log('Observaciones:', data.data[0].especificaciones);
+        console.log('Estatus de la solicitud:', data.data[0].descripcionEstatus);
 
         // Actualizar el contenido de la ventana modal con los datos obtenidos
-        $('#solicitudNumero').text(data.id_prueba);
-        $('#fechaSolicitud').text(data.fechaSolicitud);
-        $('#solicitante').text(data.nombreSolic);
-        $('#tipoPrueba').text(data.descripcionPrueba);
-        $('#observaciones').text(data.especificaciones);
-        $('#estatusSolicitud').text(data.descripcionEstatus);
+        $('#solicitudNumero').text(data.data[0].id_prueba);
+        $('#fechaSolicitud').text(data.data[0].fechaSolicitud);
+        $('#solicitante').text(data.data[0].nombreSolic);
+        $('#tipoPrueba').text(data.data[0].descripcionPrueba);
+        $('#observaciones').text(data.data[0].especificaciones);
+        $('#estatusSolicitud').text(data.data[0].descripcionEstatus);
 
         // Mostrar la ventana modal con id RequestReview
         $('#RequestReview').modal('show');
