@@ -159,7 +159,9 @@ function resumenPrueba(id_prueba) {
         if (data && data.id_prueba) {
             console.log('ID de prueba:', data.id_prueba);
             // Resto del código para procesar la respuesta...
-        } else {
+        } else if(data) {
+            console.log('Datos json:', data);
+        }else{
             console.error('Error: El objeto data o la propiedad id_prueba son undefined.');
         }
     });
