@@ -129,7 +129,7 @@
                                         <div class="form-group last col-sm-12 buttons" >
                                             <button type="submit" id="submitRequest"  onclick="registrarSolicitud()" class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
                                             <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
-                                            <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+                                            <a class="btn btn-primary" data-bs-toggle="modal" href="#RequestReview" role="button">Open first modal</a>
                                         </div><!-- end form-group -->
                                         <div class="sub-text">* Campos requeridos</div>
                                         <div class="clearfix"></div>
@@ -146,25 +146,24 @@
     </section>
 
 
-    <!-- Modal 1 -->
-    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <!-- Modal RequestReview-->
+    <div class="modal fade" id="RequestReview" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
         <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalToggleLabel">Resumen de Solicitud de Prueba Metrologica</h5><br>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div>
+
+                <div class="modal-body">
                     <!-- Mensaje de confirmación -->
                     <small>   Se ha enviado un mensaje de confirmación al correo electrónico asociado a su cuenta con la siguiente información:</small><br>
-                </div>
-                <div class="modal-body">
 
                     <p><strong>No. de solicitud:</strong> ?php echo $id_prueba; ?></p>
                     <p><strong>Fecha de Solicitud:</strong> ?php echo $fechaSolicitud; ?></p>
                     <p><strong>Solicitante:</strong> <?php echo $idUsuario; ?></p>
                     <p><strong>Tipo de Prueba:</strong> ?php echo $tipoPrueba; ?></p>
-                    <p><strong>Observaciones:</strong> ?php echo $especificaciones; ?></p>
+                    <p><strong>Observaciones:</strong> <?php echo $especificaciones; ?></p>
                     <p><strong>Estatus de la solicitud:</strong> Pendiente de revisión </p><br>
 
                     <table class="table">
@@ -192,7 +191,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="redirectToRequestsIndex()">Close</button>
                 </div>
             </div>
         </div>

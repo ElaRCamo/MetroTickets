@@ -117,3 +117,8 @@ document.getElementById("cerrarS").addEventListener("click", function(event) {
     cerrarSesion();
 });
 
+function redirectToRequestsIndex() {
+    window.location.href = "../requests/requestsIndex.php";
+}
+
+

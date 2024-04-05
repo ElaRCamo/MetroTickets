@@ -51,8 +51,10 @@
 
         # Content section
             require_once('contentRequest.php');
-        # Content section
             require_once('../../footer.php');
+
+        # Variables
+        require_once('../../dao/requestRegisterPrueba.php');
     ?>
     <script type="text/javascript">
         var i = 1;

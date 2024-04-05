@@ -147,8 +147,11 @@ async function registrarSolicitud() {
             })
                 .then(function (response) {
                     if (response.ok) { //respuesta
+                        // Mostrar la ventana modal con id RequestReview
+                        $('#RequestReview').modal('show');
+
                         //window.location.href = "../requests/requestsIndex.php";
-                        setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 10000);
+                        //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 10000);
                     } else {
                         throw "Error en la llamada Ajax";
                     }
