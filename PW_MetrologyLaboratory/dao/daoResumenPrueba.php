@@ -8,7 +8,7 @@ function resumenPrueba($id_prueba){
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $datosPrueba = $conex->prepare(
+    $datosPrueba =  mysqli_query($conex,
         "SELECT dm.numeroDeParte, 
                         m.cantidad, 
                         dm.descripcionMaterial, 
@@ -48,17 +48,14 @@ function resumenPrueba($id_prueba){
                                 LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
                                 LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
                             WHERE 
-                                id_prueba = ?
+                                id_prueba = '$id_prueba'
                         ) AS prueba ON m.id_prueba = prueba.id_prueba;
 ");
 
-    $datosPrueba->bind_param("i", $id_prueba);
-    $datosPrueba->execute();
-    $datos = $datosPrueba->get_result();
 
-
-    $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
+    $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
+
 }
 
 ?>
