@@ -146,22 +146,46 @@
     </section>
 </main>
 
+<!-- Modal 1 -->
 <div class="modal fade modal-dialog modal-dialog-scrollable" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+                <h5 class="modal-title" id="exampleModalToggleLabel">Resumen de Solicitud de Prueba Metrologica</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Show a second modal and hide this one with the button below.
+                <p><strong>No. de solicitud:</strong> ?php echo $id_prueba; ?></p>
+                <p><strong>Fecha de Solicitud:</strong> ?php echo $fechaSolicitud; ?></p>
+                <p><strong>Solicitante:</strong> <?php echo $idUsuario; ?></p>
+                <p><strong>Tipo de Prueba:</strong> ?php echo $tipoPrueba; ?></p>
+                <p><strong>Observaciones:</strong> ?php echo $especificaciones; ?></p>
+                <p><strong>Materiales a medir:</strong></p>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Material</th>
+                        <th>Cantidad</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    ?php for ($i = 0; $i < count($descMateriales); $i++) { ?>
+                        <tr>
+                            <td>?php echo $descMateriales[$i]; ?></td>
+                            <td>?php echo $cdadMateriales[$i]; ?></td>
+                        </tr>
+                    ?php } ?>
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Siguiente</button>
             </div>
         </div>
     </div>
 </div>
+
+
 
 
 
