@@ -128,11 +128,8 @@ function descripcionMaterial(i){
 }
 
 function resumenPrueba(id_prueba) {
-    console.log('Valor de id_prueba:', id_prueba); // Verifica el valor de id_prueba
-
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoImgMaterial.php?id_descripcion=' + id_prueba, function (data) {
-        // Actualizar el contenido de la ventana modal con los datos obtenidos
-        console.log('Datos recibidos:', data); // Verifica los datos recibidos
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoImgMaterial.php?id_descripcion=' + id_prueba, function (response) {
+        var data = response.data[0];
 
         console.log('ID de prueba:', data.id_prueba);
         console.log('Fecha de Solicitud:', data.fechaSolicitud);
@@ -141,7 +138,7 @@ function resumenPrueba(id_prueba) {
         console.log('Observaciones:', data.especificaciones);
         console.log('Estatus de la solicitud:', data.descripcionEstatus);
 
-        // Actualiza los elementos HTML dentro de la ventana modal
+        // Actualizar el contenido de la ventana modal con los datos obtenidos
         $('#solicitudNumero').text(data.id_prueba);
         $('#fechaSolicitud').text(data.fechaSolicitud);
         $('#solicitante').text(data.nombreSolic);
