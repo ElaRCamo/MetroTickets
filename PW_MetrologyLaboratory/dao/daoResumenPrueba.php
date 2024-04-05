@@ -48,7 +48,7 @@ function resumenPrueba($id_prueba){
                                 LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
                                 LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
                             WHERE 
-                                id_prueba = '$id_prueba'
+                                id_prueba = ?
                         ) AS prueba ON m.id_prueba = prueba.id_prueba;
 ");
 
