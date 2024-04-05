@@ -147,8 +147,8 @@
 </main>
 
 <!-- Modal 1 -->
-<div class="modal fade modal-dialog modal-dialog-centered modal-dialog-scrollable modal-dialog modal-lg" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
+<div class="modal fade modal-lg" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalToggleLabel">Resumen de Solicitud de Prueba Metrologica</h5><br>
