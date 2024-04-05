@@ -152,7 +152,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalToggleLabel">Resumen de Solicitud de Prueba Metrologica</h5><br>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="redirectToRequestsIndex()" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
@@ -163,7 +163,7 @@
                     <p><strong>Fecha de Solicitud:</strong> ?php echo $fechaSolicitud; ?></p>
                     <p><strong>Solicitante:</strong> <?php echo $idUsuario; ?></p>
                     <p><strong>Tipo de Prueba:</strong> ?php echo $tipoPrueba; ?></p>
-                    <p><strong>Observaciones:</strong> <?php echo $especificaciones; ?></p>
+                    <p><strong>Observaciones:</strong> </p><script>id ("especificaciones")</script></p>
                     <p><strong>Estatus de la solicitud:</strong> Pendiente de revisión </p><br>
 
                     <table class="table">

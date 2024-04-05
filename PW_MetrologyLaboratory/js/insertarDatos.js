@@ -95,7 +95,7 @@ async function registrarSolicitud() {
         return;
     }
         try {
-            let id_prueba = await obtenerNuevoId(); // Esperar a que se resuelva la promesa y obtener el nuevo ID
+            var id_prueba = await obtenerNuevoId(); // Esperar a que se resuelva la promesa y obtener el nuevo ID
             const dataForm = new FormData();
 
             var tipoPrueba         = id("tipoPrueba");
