@@ -148,19 +148,19 @@ function resumenPrueba(id_prueba) {
         tbody.innerHTML = '';
 
         // Iterar sobre los materiales y crear filas y celdas de tabla
-        for (var i = 0; i < data.data.length; i++) {
+        for (var j = 0; j < data.data.length; j++) {
             var fila = document.createElement("tr");
 
             var numeroDeParteT = document.createElement("td");
-            numeroDeParteT.textContent = materiales[i].numeroDeParte;
+            numeroDeParteT.textContent = data.data[j].numeroDeParte;
             fila.appendChild(numeroDeParteT);
 
             var descMaterialesT = document.createElement("td");
-            descMaterialesT.textContent = materiales[i].descripcionMaterial;
+            descMaterialesT.textContent = data.data[j].descripcionMaterial;
             fila.appendChild(descMaterialesT);
 
             var cdadMaterialesT = document.createElement("td");
-            cdadMaterialesT.textContent = materiales[i].cantidad;
+            cdadMaterialesT.textContent = data.data[j].cantidad;
             fila.appendChild(cdadMaterialesT);
 
             tbody.appendChild(fila);
