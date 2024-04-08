@@ -150,14 +150,17 @@ function resumenPrueba(id_prueba) {
             var numeroDeParteT = document.createElement("td");
             numeroDeParteT.textContent = data[i].numeroDeParte;
             fila.appendChild(numeroDeParteT);
+            console.log(numeroDeParteT)
 
             var descMaterialesT = document.createElement("td");
             descMaterialesT.textContent = data[i].descripcionMaterial;
             fila.appendChild(descMaterialesT);
+            console.log(descMaterialesT)
 
             var cdadMaterialesT = document.createElement("td");
             cdadMaterialesT.textContent = data[i].cantidad;
             fila.appendChild(cdadMaterialesT);
+            console.log(cdadMaterialesT)
 
             tbody.appendChild(fila);
         }

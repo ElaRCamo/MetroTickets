@@ -168,7 +168,7 @@
                     <table class="table" id="materialesSolicitud">
                         <thead>
                         <tr>
-                            <th colspan="2">Material para medición</th>
+                            <th colspan="3">Material para medición</th>
                         </tr>
                         <tr>
                             <th>No. de Parte</th>
