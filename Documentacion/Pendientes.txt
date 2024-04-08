@@ -17,34 +17,47 @@ Pendientes del Proyecto del Laboratorio de Metrología:
   10. Corregir registro de la solicitud
 ✓ 10.1 Validar inputs en requestRegister.php (26/03/2024)
 	-----Nota---- Si se hacen más cambios en el formulario, se requiere revisar nuevamente esta sección
-✓ 11. Centrar imagen en el formulario y dar formato a inputs(27/03/2024)
-✓ 12. Que se permita registrar más de un material(03/04/2024)
-✓ 12.1 Se insertan datos del formulario como transaccion
-✓ 13. El input de otro(tipo de prueba especial) se queda visible aunque se cambie el tipo de prueba(03/04/2024)
-✓ 14. Agregar funcion js para clonar divs para agregar material(02/04/2024)
-  14.1 Acomodar nuevos divs generados (02/04/2024)
-  14.2 Visualizacion de imagen(oculatar div nuevo)
+✓  11. Centrar imagen en el formulario y dar formato a inputs(27/03/2024)
+✓  12. Que se permita registrar más de un material(03/04/2024)
+✓  12.1 Se insertan datos del formulario como transaccion
+✓  13. El input de otro(tipo de prueba especial) se queda visible aunque se cambie el tipo de prueba(03/04/2024)
+✓  14. Agregar funcion js para clonar divs para agregar material(02/04/2024)
+✓  14.1 Acomodar nuevos divs generados (02/04/2024)
+✓  14.2 Visualizacion de imagen(oculatar div nuevo) (04/04/2024)
 ✓  15. Número de parte se carga al final (02/04/2024)
 ✓  15.1 Hacer cambios en la base de datos(cargar los num de parte y eliminar de la tabla correspondiente)(02/04/2024)
 ✓  15.2 Eliminar el numero de parte al insertar datos en el formulario(dao y js)(02/04/2024)
 ✓  15.3 Crear funcion para cargar el numero de parte(02/04/2024)
    16. Validar porque al introducior Otro tipo de prueba ya no funciona
       (ni siquiera entra a la funcion y restaura todo el formulario)
+✓  17. Estructura preeliminar del espacio para el administrador(04/04/2024)
+   17. Mejorar estructura> https://www.youtube.com/watch?v=ghbWKVlJ3X8
+   18. Envio de correo electronico de confirmación
+	https://www.youtube.com/watch?v=q9t_b83yR9o&t=0s
+	https://www.youtube.com/watch?v=1kQm2SSD4SY
+   19. Ventana modal para confirmar envio (05/04/2024)
+   19.1 Crear dao para la consulta de los datos(05/04/2024)
+   19.2 Se crea funcion para hacer la insercion de datos en la ventana modal(05/04/2024)
+   19.3 Generar tabla con los materiales
+   19.4 Tipo de Prueba no se carga.
+   20. Crear cuenta pora generar correo en hostinguer
+   
+      
 
   99.El boton de la regla en solicitudes tiene asignada if function
   100. Asignar valores por default en la BD
 
+Reunion 02/04/2024 
+✓  1. Prueba dureza insitu > agregar norma
+✓ 2. Especificaciones para todos (03/04/2024)
+✓ 3. Quitar cantidad de piezas el de despues de norma(03/04/2024)
+  4. Que administrador pueda revisar contraseñas
+  5. Actualizaciones solo para el administrador
+  6. Asignar por default a Adrian para este tipo de pruebas *input editable
+     Fecha> 18 abril
+     Observaciones
+     Estatus la solicitud
+     Prioridades
 
-Pruea dureza insitu*agregar norma
-Especificaciones para todos
-Quitar cantidad de piezas el de despues de norma
 
-Que administrador pueda revisar contrase;as
 
-Actualizaciones solo para el administrador
-
-Asignar por default a> Adrian *input editable
-Fecha> 18 abril
-Observaciones
-Estatus la solicitud
-Prioridades

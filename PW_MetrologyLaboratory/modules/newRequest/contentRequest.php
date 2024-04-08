@@ -165,23 +165,19 @@
                     <p><strong>Observaciones:          </strong><span id="observacionesSolicitud"></span></p>
                     <p><strong>Estatus de la solicitud:</strong><span id="estatusSolicitud"></p><br>
 
-                    <table class="table">
+                    <table class="table" id="materialesSolicitud">
                         <thead>
                         <tr>
                             <th colspan="2">Material para medición</th>
                         </tr>
                         <tr>
+                            <th>No. de Parte</th>
                             <th>Material</th>
                             <th>Cantidad</th>
                         </tr>
                         </thead>
                         <tbody>
-                        ?php for ($i = 0; $i < count($descMateriales); $i++) { ?>
-                        <tr>
-                            <td>?php echo $descMateriales[$i]; ?></td>
-                            <td>?php echo $cdadMateriales[$i]; ?></td>
-                        </tr>
-                        ?php } ?>
+
                         </tbody>
                     </table>
 

@@ -140,6 +140,28 @@ function resumenPrueba(id_prueba) {
         $('#observacionesSolicitud').text(data.especificaciones);
         $('#estatusSolicitud').text(data.descripcionEstatus);
 
+        var tabla = document.getElementById("materialesSolicitud");
+        var tbody = tabla.getElementsByTagName("tbody")[0];
+
+        // Iterar sobre los datos y crear filas y celdas de tabla
+        for (var i = 0; i < data.length; i++) {
+            var fila = document.createElement("tr");
+
+            var numeroDeParteT = document.createElement("td");
+            numeroDeParteT.textContent = data[i].numeroDeParte;
+            fila.appendChild(numeroDeParteT);
+
+            var descMaterialesT = document.createElement("td");
+            descMaterialesT.textContent = data[i].descripcionMaterial;
+            fila.appendChild(descMaterialesT);
+
+            var cdadMaterialesT = document.createElement("td");
+            cdadMaterialesT.textContent = data[i].cantidad;
+            fila.appendChild(cdadMaterialesT);
+
+            tbody.appendChild(fila);
+        }
+
         // Mostrar la ventana modal con id RequestReview
         $('#RequestReview').modal('show');
     });
