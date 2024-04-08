@@ -140,27 +140,28 @@ function resumenPrueba(id_prueba) {
         $('#observacionesSolicitud').text(data.especificaciones);
         $('#estatusSolicitud').text(data.descripcionEstatus);
 
+
         var tabla = document.getElementById("materialesSolicitud");
         var tbody = tabla.getElementsByTagName("tbody")[0];
 
-        // Iterar sobre los datos y crear filas y celdas de tabla
-        for (var i = 0; i < data.length; i++) {
+        // Limpiar contenido previo de la tabla
+        tbody.innerHTML = '';
+
+        // Iterar sobre los materiales y crear filas y celdas de tabla
+        for (var i = 0; i < data.data.length; i++) {
             var fila = document.createElement("tr");
 
             var numeroDeParteT = document.createElement("td");
-            numeroDeParteT.textContent = data[i].numeroDeParte;
+            numeroDeParteT.textContent = materiales[i].numeroDeParte;
             fila.appendChild(numeroDeParteT);
-            console.log(numeroDeParteT)
 
             var descMaterialesT = document.createElement("td");
-            descMaterialesT.textContent = data[i].descripcionMaterial;
+            descMaterialesT.textContent = materiales[i].descripcionMaterial;
             fila.appendChild(descMaterialesT);
-            console.log(descMaterialesT)
 
             var cdadMaterialesT = document.createElement("td");
-            cdadMaterialesT.textContent = data[i].cantidad;
+            cdadMaterialesT.textContent = materiales[i].cantidad;
             fila.appendChild(cdadMaterialesT);
-            console.log(cdadMaterialesT)
 
             tbody.appendChild(fila);
         }
