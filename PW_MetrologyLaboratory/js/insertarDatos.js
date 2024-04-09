@@ -179,7 +179,7 @@ function enviarCorreoNuevaSolicitud(id_prueba, id_solicitante, emailUsuario){
     })
         .then(function (response){
             if (response.ok){
-
+                console.log("Correos enviados");
             }else{
                 throw "Error en la llamada Ajax";
             }
