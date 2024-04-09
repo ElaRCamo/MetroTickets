@@ -12,7 +12,7 @@ include_once('Produccion/ML/PW_MetrologyLaboratory/dao/connection.php');
 session_start();
 $id_prueba=$_POST['id_prueba'];
 $emailSolicitante=$_POST['emailUsuario'];
-$Solicitante = $_SESSION['solicitante'];
+$Solicitante = $_SESSION['nombreUsuario'];
 
 emailSolicitud($id_prueba,$emailSolicitante,$Solicitante);
 
@@ -41,7 +41,7 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                     <body>
                         <p>¡Hola $Solicitante!</p>
                     
-                        <h1 style='color: green;'>Le informamos qeue su solicitud con FOLIO: <b style='font-weight: bold;'>$id_prueba</b> ha sido recibida.</h1> 
+                        <h1 style='color: green;'>Le informamos que su solicitud con FOLIO: <b style='font-weight: bold;'>$id_prueba</b> ha sido recibida.</h1> 
                         <p></p>
                         <h2>Le enviaremos una notificación tan pronto como haya novedades.</h2>
                 
