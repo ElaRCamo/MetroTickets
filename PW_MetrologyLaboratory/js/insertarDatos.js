@@ -140,13 +140,14 @@ async function registrarSolicitud() {
             //alert("Materiales son: " + materiales + "\nCantidades con: " + cantidades );
 
             //alert("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&tipoPruebaEspecial="+tipoPruebaEspecial.value+"&otroEspecial="+otroPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&idNomina="+idNomina.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
-
+            alert('antes fetc: prueba: ' +id_prueba+ 'user: ' +idNomina+'email: ' + emailUsuario);
             fetch('../../dao/requestRegister.php', {
                 method: 'POST',
                 body: dataForm
             })
                 .then(function (response) {
                     if (response.ok) { //respuesta
+                        alert('prueba: ' +id_prueba+ 'user: ' +idNomina+'email: ' + emailUsuario);
                         enviarCorreoNuevaSolicitud(id_prueba, idNomina, emailUsuario);
                         resumenPrueba(id_prueba);
                         //window.location.href = "../requests/requestsIndex.php";
