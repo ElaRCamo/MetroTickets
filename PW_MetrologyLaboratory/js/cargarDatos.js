@@ -200,25 +200,25 @@ function TablaPruebasSolicitante(id_solicitante) {
             descripcionEstatusL.textContent = response.data[j].descripcionEstatus;
             fila.appendChild(descripcionEstatusL);
 
-            var descripcionPrioridadL = document.createElement("td");
-            descripcionPrioridadL.textContent = response.data[j].descripcionPrioridad;
-            fila.appendChild(descripcionPrioridadL);
-
             var descripcionPruebaL = document.createElement("td");
             descripcionPruebaL.textContent = response.data[j].descripcionPrueba;
             fila.appendChild(descripcionPruebaL);
 
-            var especificacionesL = document.createElement("td");
-            especificacionesL.textContent = response.data[j].especificaciones;
-            fila.appendChild(especificacionesL);
+            var descripcionPrioridadL = document.createElement("td");
+            descripcionPrioridadL.textContent = response.data[j].descripcionPrioridad;
+            fila.appendChild(descripcionPrioridadL);
+
+            var nombreSolicL = document.createElement("td");
+            nombreSolicL.textContent = response.data[j].nombreSolic;
+            fila.appendChild(nombreSolicL);
 
             var nombreMetroL = document.createElement("td");
             nombreMetroL.textContent = response.data[j].nombreMetro;
             fila.appendChild(nombreMetroL);
 
-            var nombreSolicL = document.createElement("td");
-            nombreSolicL.textContent = response.data[j].nombreSolic;
-            fila.appendChild(nombreSolicL);
+            var especificacionesL = document.createElement("td");
+            especificacionesL.textContent = response.data[j].especificaciones;
+            fila.appendChild(especificacionesL);
 
             tbody.appendChild(fila);
         }
