@@ -9,11 +9,10 @@ require 'Phpmailer/PHPMailer.php';
 require 'Phpmailer/SMTP.php';
 
 include_once('Produccion/ML/PW_MetrologyLaboratory/dao/connection.php');
-
+session_start();
 $id_prueba=$_POST['id_prueba'];
 $emailSolicitante=$_POST['emailSolicitante'];
-$Solicitante = $_POST['Solicitante'];
-
+$Solicitante = $_SESSION['nombreUsuario'];
 
 emailSolicitud($id_prueba,$emailSolicitante,$Solicitante);
 
@@ -107,7 +106,7 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                         </style>
                     </head>
                     <body>
-                        <h1 style='color: green;'>Se ha recivido una nueva solicitud, con FOLIO: <b style='font-weight: bold;'>$id_prueba</b>.</h1> 
+                        <h1 style='color: green;'>Se ha recibido una nueva solicitud, con FOLIO: <b style='font-weight: bold;'>$id_prueba</b>.</h1> 
                         <p></p>                
                         <p>Para administrar o responder esta solicitud, visite: <a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/newRequest/newRequestIndex.php'>Solicitudes</a></p>
                         <p></p>
