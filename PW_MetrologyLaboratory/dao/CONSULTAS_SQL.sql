@@ -199,3 +199,54 @@ DELIMITER ;
 
 INSERT INTO `Usuario` (`id_usuario`, `nombreUsuario`, `correoElectronico`, `passwordHash`, `id_tipoUsuario`, `id_areaTrabajo`, `puesto`)
 VALUES ('00030293', 'Mariela Reyes Camo', 'extern.mariela.reyes@grammer.com', '123456', '1', '3', 'Trainee');
+
+
+
+
+//Consulta para saber todos los datos de la prueba (09/04/2024):
+SELECT prueba.id_prueba,
+       prueba.fechaSolicitud,
+       prueba.fechaRespuesta,
+       prueba.descripcionEstatus,
+       prueba.descripcionPrueba,
+       prueba.descripcionPrioridad,
+       prueba.id_solicitante,
+       prueba.nombreSolic,
+       prueba.id_metrologo,
+       prueba.especificaciones,
+       prueba.nombreMetro,
+       dm.numeroDeParte,
+       m.cantidad,
+       dm.descripcionMaterial,
+       dm.imgMaterial,
+       c.descripcionCliente,
+       p.descripcionPlataforma
+FROM
+    Material m
+        JOIN DescripcionMaterial dm ON m.id_descripcion = dm.id_descripcion
+        JOIN Plataforma p ON dm.id_plataforma = p.id_plataforma
+        JOIN Cliente c ON p.id_cliente = c.id_cliente
+        JOIN EstatusMaterial em ON m.id_estatusMaterial = em.id_estatusMaterial
+        JOIN (
+            SELECT
+                id_prueba,
+                fechaSolicitud,
+                fechaRespuesta,
+                descripcionEstatus,
+                descripcionPrioridad,
+                descripcionPrueba,
+                especificaciones,
+                s.id_metrologo,
+                u_metro.nombreUsuario AS nombreMetro,
+                s.id_solicitante,
+                u_solic.nombreUsuario AS nombreSolic
+            FROM
+                Prueba s
+                    LEFT JOIN Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
+                    LEFT JOIN Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
+                    LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
+                    LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
+                    LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
+            WHERE
+                id_solicitante = '$id_solicitante'
+    ) AS prueba ON m.id_prueba = prueba.id_prueba;

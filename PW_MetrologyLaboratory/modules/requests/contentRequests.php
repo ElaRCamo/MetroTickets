@@ -31,106 +31,39 @@
                 </div>
             </div>
             <div class="table-Conteiner">
-                <table class="tableSearch">
+                <table class="tableSearch" id="listadoPruebas">
                     <thead>
-                    <tr>
-                        <th >FOLIO</th>
-                        <th >FECHA</th>
-                        <th >PRIORIDAD</th>
-                        <th >ESTATUS </th>
-                        <th >SOLICITANTE </th>
-                        <th >ASIGNADO </th>
-                        <th >OEM </th>
-                        <th >PLATAFORMA </th>
-                        <th >NÚM. PARTE </th>
-                        <th >TIPO DE PRUEBA</th>
-                        <th >GESTIONAR</th>
-                    </tr>
+                        <tr>
+                            <th >FOLIO</th>
+                            <th >FECHA DE SOLICITUD</th>
+                            <th >FECHA DE RESPUESTA</th>
+                            <th >ESTATUS </th>
+                            <th >TIPO DE PRUEBA</th>
+                            <th >PRIORIDAD</th>
+                            <th >SOLICITANTE </th>
+                            <th >METRÓLOGO </th>
+                            <th >ESPECIFÍCACIONES </th>
+                            <th >VER MÁS...</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>6097</td>
-                        <td>05/07/23</td>
-                        <td>Urgente</td>
-                        <td>Cerrada</td>
-                        <td>Aracely</td>
-                        <td>Adrian</td>
-                        <td>BMW</td>
-                        <td>G05 frontal</td>
-                        <td>12345678</td>
-                        <td>Dimensional</td>
-                        <td>Ver más...</td>
-                    </tr>
-                    <tr>
-                        <td>6097</td>
-                        <td>05/07/23</td>
-                        <td>Urgente</td>
-                        <td>Cerrada</td>
-                        <td>Aracely</td>
-                        <td>Adrian</td>
-                        <td>BMW</td>
-                        <td>G05 frontal</td>
-                        <td>12345678</td>
-                        <td>Dimensional</td>
-                        <td>
-                            <a href="../review/index.php">
-                                <span class="las la-eye"></span>
-                                <small>Ver más...</small>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>6097</td>
-                        <td>05/07/23</td>
-                        <td>Urgente</td>
-                        <td>Cerrada</td>
-                        <td>Aracely</td>
-                        <td>Adrian</td>
-                        <td>BMW</td>
-                        <td>G05 frontal</td>
-                        <td>12345678</td>
-                        <td>Dimensional</td>
-                        <td>Ver más...</td>
-                    </tr>
-                    <tr>
-                        <td>6097</td>
-                        <td>05/07/23</td>
-                        <td>Urgente</td>
-                        <td>Cerrada</td>
-                        <td>Aracely</td>
-                        <td>Adrian</td>
-                        <td>BMW</td>
-                        <td>G05 frontal</td>
-                        <td>12345678</td>
-                        <td>Dimensional</td>
-                        <td>Ver más...</td>
-                    </tr>
-                    <tr>
-                        <td>6097</td>
-                        <td>05/07/23</td>
-                        <td>Urgente</td>
-                        <td>Cerrada</td>
-                        <td>Aracely</td>
-                        <td>Adrian</td>
-                        <td>BMW</td>
-                        <td>G05 frontal</td>
-                        <td>12345678</td>
-                        <td>Dimensional</td>
-                        <td>Ver más...</td>
-                    </tr>
-                    <tr>
-                        <td>6097</td>
-                        <td>05/07/23</td>
-                        <td>Urgente</td>
-                        <td>Cerrada</td>
-                        <td>Aracely</td>
-                        <td>Adrian</td>
-                        <td>BMW</td>
-                        <td>G05 frontal</td>
-                        <td>12345678</td>
-                        <td>Dimensional</td>
-                        <td>Ver más...</td>
-                    </tr>
+                        <tr>
+                            <td>2024-0001</td>
+                            <td>05/07/23</td>
+                            <td>05/07/23</td>
+                            <td>Cerrada</td>
+                            <td>Dimensional</td>
+                            <td>Normal</td>
+                            <td>Aracely</td>
+                            <td>Adrian</td>
+                            <td>Ninguna</td>
+                            <td>
+                                <a href="../review/index.php">
+                                    <span class="las la-eye"></span>
+                                    <small>Ver más...</small>
+                                </a>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
