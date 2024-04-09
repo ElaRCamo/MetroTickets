@@ -19,7 +19,7 @@ function emailSolicitud($id_prueba,$Solicitante )
 {
 
     $MENSAJE_LABORATORIO = "<!DOCTYPE html>
-                    <html lang='en'>
+                    <html lang='es'>
                     <head>
                         <link rel='preconnect' href='https://fonts.googleapis.com'>
                         <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
@@ -40,7 +40,7 @@ function emailSolicitud($id_prueba,$Solicitante )
                     <body>
                         <h1 style='color: green;'>Se ha recibido la solicitud con FOLIO: <b style='font-weight: bold;'>$id_prueba</b> de <b style='font-weight: bold;'>$Solicitante</b.</h1> 
                         <p></p>                
-                        <p>Para administrar o responder esta solicitud, visite: <a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/newRequest/newRequestIndex.php'>Solicitudes</a></p>
+                        <p>Para administrar o responder esta solicitud, visite: <a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></p>
                         <p></p>
                         <p><b>Laboratorio de Metrología.</b></p>
                         <p><b>Grammer Automotive Puebla S.A de C.V.</b></p>

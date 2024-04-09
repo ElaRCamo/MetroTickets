@@ -138,17 +138,15 @@ async function registrarSolicitud() {
             dataForm.append('cantidades', cantidades.join(', '));
 
             //alert("Materiales son: " + materiales + "\nCantidades con: " + cantidades );
-
             //alert("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&tipoPruebaEspecial="+tipoPruebaEspecial.value+"&otroEspecial="+otroPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&idNomina="+idNomina.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
 
-            alert('antes fetc: prueba: ' +id_prueba+ 'user: ' + solicitante +'email: ' + emailUsuario);
             fetch('../../dao/requestRegister.php', {
                 method: 'POST',
                 body: dataForm
             })
                 .then(function (response) {
                     if (response.ok) { //respuesta
-                        alert('prueba: ' +id_prueba+ 'user: ' + solicitante+'email: ' + emailUsuario);
+                        alert('registrarSolicitud: prueba: ' +id_prueba+ 'user: ' + solicitante +' email: ' + emailUsuario);
                         enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario);
                         resumenPrueba(id_prueba);
                         //window.location.href = "../requests/requestsIndex.php";
@@ -181,6 +179,7 @@ function enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario){
     })
         .then(function (response){
             if (response.ok){
+                alert('Correo Solicitante: prueba: ' +id_prueba+ 'user: ' + solicitante +' email: ' + emailUsuario);
                 enviarCorreoNuevaSolicitudLab(id_prueba, solicitante);
             }else{
                 throw "Error en la llamada Ajax";
@@ -199,7 +198,6 @@ function enviarCorreoNuevaSolicitudLab(id_prueba, solicitante){
 
     data.append('id_prueba',id_prueba);
     data.append('solicitante',solicitante);
-    data.append('emailUsuario',emailUsuario);
 
     fetch('https://arketipo.mx/MailerSolicitudPruebaLab.php',{
         method: 'POST',
@@ -207,6 +205,7 @@ function enviarCorreoNuevaSolicitudLab(id_prueba, solicitante){
     })
         .then(function (response){
             if (response.ok){
+                alert('Correo Lab: prueba: ' +id_prueba+ 'user: ' + solicitante);
                 console.log("Correos enviados");
             }else{
                 throw "Error en la llamada Ajax";

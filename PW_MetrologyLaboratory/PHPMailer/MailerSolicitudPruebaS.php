@@ -20,7 +20,7 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
 {
 
     $MENSAJE_SOLICITANTE = "<!DOCTYPE html>
-                    <html lang='en'>
+                    <html lang='es'>
                     <head>
                         <link rel='preconnect' href='https://fonts.googleapis.com'>
                         <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
@@ -39,7 +39,9 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                         </style>
                     </head>
                     <body>
-                        <h1 style='color: green;'>Su solicitud con FOLIO: <b style='font-weight: bold;'>$id_prueba</b> ha sido recibida.</h1> 
+                        <p>¡Hola $Solicitante!</p>
+                    
+                        <h1 style='color: green;'>Le informamos qeue su solicitud con FOLIO: <b style='font-weight: bold;'>$id_prueba</b> ha sido recibida.</h1> 
                         <p></p>
                         <h2>Le enviaremos una notificación tan pronto como haya novedades.</h2>
                 
