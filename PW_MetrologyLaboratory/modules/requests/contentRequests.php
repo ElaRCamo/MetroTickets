@@ -23,7 +23,6 @@
                     <input type="search" placeholder="Buscar" class="record-search">
                     <select name="" id="">
                         <option value="numFolio">Folio</option>
-                        <option value="fechaSolitud">Fecha</option>
                         <option value="estadoSolitud">Estado</option>
                         <option value="prioridadSolitud">Prioridad</option>
                     </select>
@@ -47,7 +46,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>2024-0001</td>
+                            <td>2024-0001 <a href="../review/index.php"></a></td>
                             <td>05/07/23</td>
                             <td>05/07/23</td>
                             <td>Cerrada</td>
@@ -56,9 +55,6 @@
                             <td>Aracely</td>
                             <td>Adrian</td>
                             <td>Ninguna</td>
-                            <td>
-                                <a href="../review/index.php"></a>
-                            </td>
                         </tr>
                     </tbody>
                 </table>

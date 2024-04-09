@@ -147,6 +147,7 @@ async function registrarSolicitud() {
             })
                 .then(function (response) {
                     if (response.ok) { //respuesta
+                        enviarCorreoNuevaSolicitud(id_prueba, idNomina, emailUsuario);
                         resumenPrueba(id_prueba);
                         //window.location.href = "../requests/requestsIndex.php";
                         //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 10000);
@@ -164,4 +165,29 @@ async function registrarSolicitud() {
         } catch (error) {
             console.error("Error al registrar la solicitud:", error);
         }
+}
+function enviarCorreoNuevaSolicitud(id_prueba, id_solicitante, emailUsuario){
+    const data = new FormData();
+
+    data.append('id_prueba',id_prueba);
+    data.append('id_solicitante',id_solicitante);
+    data.append('emailUsuario',emailUsuario);
+
+    fetch('https://arketipo.mx/MailerSolicitudPrueba.php',{
+        method: 'POST',
+        body: data
+    })
+        .then(function (response){
+            if (response.ok){
+
+            }else{
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
 }

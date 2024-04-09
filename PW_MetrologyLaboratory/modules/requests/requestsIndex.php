@@ -41,7 +41,7 @@
     ?>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var id_solicitante = <?php echo json_encode($_SESSION['nomina']); ?>;
+            let id_solicitante = <?php echo json_encode($_SESSION['nomina']); ?>;
             console.log("El id del solicitante es: " + id_solicitante);
             TablaPruebasSolicitante(id_solicitante);
         });

@@ -19,6 +19,7 @@ if(isset($_POST['iniciarSesionBtn'])){
         $_SESSION['nombreUsuario']= $resultado['nombreUsuario'];
         $_SESSION['tipoUsuario']= $resultado['tipoUsuario'];
         $_SESSION['nomina']= $resultado['idUser'];
+        $_SESSION['emailUsuario']= $resultado['emailUsuario'];
 
         $password_bd = $resultado['password_bd'];
         $tipoUsuario = $_SESSION['tipoUsuario'];

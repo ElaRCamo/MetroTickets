@@ -6,7 +6,7 @@ function Usuario($Nomina){
     $con = new LocalConector();
     $conexion=$con->conectar();
 
-    $consP="SELECT id_usuario, nombreUsuario, passwordHash, id_tipoUsuario FROM Usuario WHERE id_usuario = '$Nomina'";
+    $consP="SELECT id_usuario, nombreUsuario, passwordHash, id_tipoUsuario,correoElectronico FROM Usuario WHERE id_usuario = '$Nomina'";
     $rsconsPro=mysqli_query($conexion,$consP);
 
     mysqli_close($conexion);
@@ -18,7 +18,8 @@ function Usuario($Nomina){
             'tipoUsuario' => $row['id_tipoUsuario'],
             'password_bd' => $row['passwordHash'],
             'nombreUsuario' => $row['nombreUsuario'],
-            'idUser' => $row['id_usuario']
+            'idUser' => $row['id_usuario'],
+            'emailUsuario' => $row['correoElectronico']
         );
     }
     else{
