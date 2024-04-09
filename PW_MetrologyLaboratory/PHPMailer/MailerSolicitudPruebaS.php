@@ -11,8 +11,8 @@ require 'Phpmailer/SMTP.php';
 include_once('Produccion/ML/PW_MetrologyLaboratory/dao/connection.php');
 session_start();
 $id_prueba=$_POST['id_prueba'];
-$emailSolicitante=$_POST['emailSolicitante'];
-$Solicitante = $_SESSION['nombreUsuario'];
+$emailSolicitante=$_POST['emailUsuario'];
+$Solicitante = $_SESSION['solicitante'];
 
 emailSolicitud($id_prueba,$emailSolicitante,$Solicitante);
 
