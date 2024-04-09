@@ -38,7 +38,7 @@ function emailSolicitud($id_prueba,$Solicitante )
                         </style>
                     </head>
                     <body>
-                        <h1 style='color: green;'>Se ha recibido la solicitud con FOLIO: <b style='font-weight: bold;'>$id_prueba</b> de <b style='font-weight: bold;'>$Solicitante</b.</h1> 
+                        <h1 style='color: green;'>Se ha recibido la solicitud con FOLIO: <b style='font-weight: bold;'>$id_prueba</b> de <b style='font-weight: bold;'>$Solicitante</b>.</h1> 
                         <p></p>                
                         <p>Para administrar o responder esta solicitud, visite: <a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></p>
                         <p></p>
@@ -62,7 +62,7 @@ function emailSolicitud($id_prueba,$Solicitante )
         $mail->Username = 'LaboratorioMetrologiaGrammer@arketipo.mx'; //Correo de quien envia el email
         $mail->Password = 'LMGrammer2024#';
         $mail->SMTPSecure = 'ssl';
-        $mail->setFrom('LaboratorioMetrologiaGrammer@arketipo.mx', 'Laboratorio de Metrología Grammer Automotive Puebla S.A de C.V.');
+        $mail->setFrom('LaboratorioMetrologiaGrammer@arketipo.mx', 'Laboratorio de Metrolog\u{00ED}a Grammer Automotive Puebla S.A de C.V.');
 
 
         //Laboratorio de Metrología

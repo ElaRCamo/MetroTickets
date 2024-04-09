@@ -73,7 +73,7 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
         $mail->addAddress($emailSolicitante, $Solicitante); //Quién recibirá correo
         $mail->addBCC('LaboratorioMetrologiaGrammer@arketipo.mx', 'LMGrammer');
 
-        $mail->Subject = 'Confirmación de solicitud.';
+        $mail->Subject = 'Confirmaci\u{00F3}n de solicitud.';
         $mail->isHTML(true);
         $mail->Body = $contenido;
 
