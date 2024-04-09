@@ -168,14 +168,40 @@ async function registrarSolicitud() {
             console.error("Error al registrar la solicitud:", error);
         }
 }
-function enviarCorreoNuevaSolicitud(id_prueba, id_solicitante, emailUsuario){
+function enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario){
     const data = new FormData();
 
     data.append('id_prueba',id_prueba);
-    data.append('id_solicitante',id_solicitante);
+    data.append('solicitante',solicitante);
     data.append('emailUsuario',emailUsuario);
 
-    fetch('https://arketipo.mx/MailerSolicitudPrueba.php',{
+    fetch('https://arketipo.mx/MailerSolicitudPruebaS.php',{
+        method: 'POST',
+        body: data
+    })
+        .then(function (response){
+            if (response.ok){
+                enviarCorreoNuevaSolicitudLab(id_prueba, solicitante);
+            }else{
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}
+
+function enviarCorreoNuevaSolicitudLab(id_prueba, solicitante){
+    const data = new FormData();
+
+    data.append('id_prueba',id_prueba);
+    data.append('solicitante',solicitante);
+    data.append('emailUsuario',emailUsuario);
+
+    fetch('https://arketipo.mx/MailerSolicitudPruebaLab.php',{
         method: 'POST',
         body: data
     })
