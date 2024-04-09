@@ -43,7 +43,6 @@
                             <th >SOLICITANTE </th>
                             <th >METRÓLOGO </th>
                             <th >ESPECIFÍCACIONES </th>
-                            <th >VER MÁS...</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,10 +57,7 @@
                             <td>Adrian</td>
                             <td>Ninguna</td>
                             <td>
-                                <a href="../review/index.php">
-                                    <span class="las la-eye"></span>
-                                    <small>Ver más...</small>
-                                </a>
+                                <a href="../review/index.php"></a>
                             </td>
                         </tr>
                     </tbody>

@@ -185,7 +185,12 @@ function TablaPruebasSolicitante(id_solicitante) {
             var fila = document.createElement("tr");
 
             var id_pruebaL = document.createElement("td");
-            id_pruebaL.textContent = response.data[j].id_prueba;
+            var enlacePrueba = document.createElement("a");// Crear el enlace <a>
+            enlacePrueba.href = "../review/index.php"; // Asignar la URL al atributo href del enlace
+            enlacePrueba.textContent = response.data[j].id_prueba; // Contenido del enlace
+            id_pruebaL.appendChild(enlacePrueba);// Agregar el enlace al td
+
+
             fila.appendChild(id_pruebaL);
 
             var fechaSolicitudL = document.createElement("td");
