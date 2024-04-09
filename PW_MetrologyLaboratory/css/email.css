@@ -1,15 +1,16 @@
-/*Colores principales*/
+
+/* Colores principales */
 :root {
     --main-color: #005195;
     --color_gold: #B4AA9B;
     --gold_70: #CAC2B6;
-
     --color-sky: #82AFD7;
     --blue_70: #A4C6E2;
     --blue_45: #C4DAEC;
     --blue_20: #E5EEF7;
 }
-/*Formato general*/
+
+/* Formato general */
 * {
     margin: 0;
     padding: 0;
@@ -19,61 +20,55 @@
     font-family: 'Assistant', sans-serif;
     text-size-adjust: 100%;
 }
-/* Estilos generales */
-* {
-    box-sizing: border-box;
-    font-size: 14px;
+
+/* Estilo específico para el cuerpo del correo */
+body {
+    background-color: var(--blue_20);
+    margin-top:20px;
 }
 
-.body-wrap {
+/* Estilo para el contenedor principal */
+.table.body-wrap {
     width: 100%;
-    background-color: #f6f6f6;
-    margin: 0;
+    background-color: var(--blue_20);
 }
 
-/* Contenedor principal */
-.container {
-    max-width: 600px;
-    display: block;
-    margin: 0 auto;
-    clear: both;
-}
-
-/* Contenido */
-.content {
-    max-width: 600px;
-    display: block;
-    margin: 0 auto;
+/* Estilo para el contenedor del contenido */
+.table.container {
+    width: 600px;
     padding: 20px;
+    background-color: var(--color_gold);
 }
 
-/* Contenido principal */
-.main {
-    border-radius: 3px;
-    background-color: #fff;
-    border: 1px solid #e9e9e9;
-    margin: 0;
-}
-
-/* Pie de página */
-.footer {
-    width: 100%;
-    clear: both;
-    color: var(--gold_70);
-    margin: 0;
-    padding: 20px;
-}
-
-/* Bloque de contenido */
-.content-block {
-    margin: 0;
-    padding: 0 0 20px;
-}
-
-/* Alineación central */
-.aligncenter {
-    color: var(--blue_45);
+/* Estilo para el encabezado principal */
+h1 {
+    color: var(--main-color);
+    font-size: 24px;
     text-align: center;
-    margin: 0;
-    padding: 0 0 20px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los enlaces */
+a {
+    color: var(--main-color);
+}
+
+a:hover {
+    color: var(--color-sky);
+}
+
+/* Estilo para el bloque de contenido */
+.content-block {
+    margin-bottom: 10px;
+}
+
+/* Estilo para el pie de página */
+.footer {
+    background-color: var(--blue_45);
+    padding: 10px;
+    text-align: center;
+}
+
+.footer a {
+    color: var(--color-sky);
 }
