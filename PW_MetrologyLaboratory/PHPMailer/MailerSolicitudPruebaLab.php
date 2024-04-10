@@ -19,48 +19,48 @@ function emailSolicitud($id_prueba,$Solicitante )
 {
 
     $MENSAJE_LABORATORIO = "<!DOCTYPE html>
-                    <html lang='es'>
-                    <head>
-                        <link rel='preconnect' href='https://fonts.googleapis.com'>
-                        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
-                        <link href='https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap' rel='stylesheet'>
-                        <meta charset='UTF-8'>
-                        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-                        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-						<title>Document</title>
-						<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN' crossorigin='anonymous'>
-						<style>
-                        *{margin:0;padding:0;box-sizing:border-box;font-family:'Assistant',sans-serif}
-                        body{margin-top:20px;color:#005195}
-                        .body-wrap,.container,.content,.main,.footer,.content-block{box-sizing:border-box}
-                        .body-wrap{width:100%;background-color:#f6f6f6;margin:0}
-                        .container{vertical-align:top;display:block;max-width:600px;clear:both;margin:0 auto}
-                        .content{max-width:600px;display:block;margin:0 auto;padding:20px}
-                        .main{border-radius:3px;background-color:#fff;margin:0;border:1px solid #e9e9e9}
-                        .footer{width:100%;margin:0;padding:20px;color:#CAC2B6;display:flex;justify-content:center;align-items:center;height:50%}
-                        .content-block{vertical-align:top;margin:0;padding:5%;width:100%}
-                        .title{padding:5%;text-align:center}
-                        .mensaje{vertical-align:top;text-align:center;padding:2%}
-                        .logoGrammer2-img{height:100px;width:100px;display:block;margin:auto}
-                        #attn{text-align:center;padding:2%}
-                        #logo{background-color:#005195;padding-top:4%}
-                        .link{color:#CAC2B6}
-                        .aligncenter{box-sizing:border-box;font-size:12px;padding:0 0 20px;margin:0 auto}
-                        .aligncenter a{text-decoration:none;color:#82AFD7;float:none;vertical-align:middle}
-                        </style>
-                    </head>
-                    <body>
-						<table class='body-wrap'><tbody><tr><td></td><td class='container'><div class='content'>
-											<table class='main'><tbody>
-													<tr><td id='logo'><a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png'></a> <br>												</td></tr>
-													<tr><td class='title'><h2 class='h2'>Se ha recibido la solicitud con el <br><b>Folio: $id_prueba<b>,<br> enviada por $Solicitante.</h2></td></tr>
-													<tr><td class='content-wrap'><table><tbody><tr><td class='content-block mensaje'>
-													    <p class='lead'>Para gestionar o responder a esta solicitud, por favor visite:
-                                                        <b><a  class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></p>
-                                                        </td></tr><tr><td class='content-block' id='attn'><p class='lead'><b>Laboratorio de Metrología</b><br><b>Grammer Automotive Puebla S.A de C.V.</b></p></td></tr>
-                                                        </tbody></table></td></tr></tbody></table>
-                                                        <div class='footer'><table><tbody><tr><td class='aligncenter content-block'><a href='#'>© Grammer Querétaro.</a></td></tr></tbody></table></div></div></td><td></td>
-                                                    </tr></tbody></table>
+                                <html lang='es'>
+                                <head>
+                                    <link rel='preconnect' href='https://fonts.googleapis.com'>
+                                    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+                                    <link href='https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap' rel='stylesheet'>
+                                    <meta charset='UTF-8'>
+                                    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+                                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                                    <title>Document</title>
+                                    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN' crossorigin='anonymous'>
+                                    <style>
+                                        *{margin:0;padding:0;box-sizing:border-box;font-family:'Assistant',sans-serif}
+                                        body{margin-top:20px;color:#005195}
+                                        .body-wrap,.container,.content,.main,.footer,.content-block{box-sizing:border-box}
+                                        .body-wrap{width:100%;background-color:#f6f6f6;margin:0}
+                                        .container{vertical-align:top;display:block;max-width:600px;clear:both;margin:0 auto}
+                                        .content{max-width:600px;display:block;margin:0 auto;padding:20px}
+                                        .main{border-radius:3px;background-color:#fff;margin:0;border:1px solid #e9e9e9}
+                                        .footer{width:100%;margin:0;padding:20px;color:#CAC2B6;display:flex;justify-content:center;align-items:center;height:50%}
+                                        .content-block{vertical-align:top;margin:0;padding:5%;width:100%}
+                                        .title{padding:5%;text-align:center}
+                                        .mensaje{vertical-align:top;text-align:center;padding:2%}
+                                        .logoGrammer2-img{height:100px;width:100px;padding:1%;display:block;margin:auto}
+                                        #attn{text-align:center;padding:2%}
+                                        #logo{background-color:#005195;padding-top:4%}
+                                        .link{color:#CAC2B6}
+                                        .aligncenter{box-sizing:border-box;font-size:12px;padding:0 0 20px;margin:0 auto}
+                                        .aligncenter a{text-decoration:none;color:#82AFD7;float:none;vertical-align:middle}
+                                    </style>
+                                </head>
+                                <body>
+                                <table class='body-wrap'><tbody><tr><td></td><td class='container'><div class='content'>
+                                    <table class='main'><tbody>
+                                    <tr><td id='logo'><a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/logoWhite.png'></a> <br></td></tr>
+                                    <h2 class='h2'>Se ha recibido la solicitud con el <br><b>Folio: $id_prueba<b>,<br> enviada por $Solicitante.</h2></td></tr>
+                                    <tr><td class='content-wrap'><table><tbody><tr><td class='content-block mensaje'>
+                                        <p class='lead'>Para gestionar o responder a esta solicitud, por favor visita:
+                                            <b><a  class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/newRequest/newRequestIndex.php'>Solicitudes</a></b></p>
+                                    </td></tr><tr><td class='content-block' id='attn'><p class='lead'><b>Laboratorio de Metrología</b><br><b>Grammer Automotive Puebla S.A de C.V.</b></p></td></tr>
+                                    </tbody></table></td></tr></tbody></table>
+                                    <div class='footer'><table><tbody><tr><td class='aligncenter content-block'><a href='#'>© Grammer Querétaro.</a></td></tr></tbody></table></div></div></td><td></td>
+                                </tr></tbody></table>
                     </body>
                     </html>";
 
