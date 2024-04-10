@@ -46,7 +46,7 @@ function emailSolicitud($id_prueba,$Solicitante )
                                 </tr>
                                 <tr>
                                     <td class='title' style='padding:5%; text-align:center;'>
-                                        <h1 class='h1'>Se ha recibido la solicitud con el <br><b>Folio: $id_prueba</b>, <br>enviada por $Solicitante.</h1>
+                                        <h2 class='h2'>Se ha recibido la solicitud con el <br><b>Folio: $id_prueba</b>, <br>enviada por $Solicitante.</h2>
                                     </td>
                                 </tr>
                                 <tr>
@@ -55,7 +55,7 @@ function emailSolicitud($id_prueba,$Solicitante )
                                             <tbody>
                                                 <tr>
                                                     <td class='content-block mensaje'>
-                                                        <h5 class='lead'>Para gestionar o responder a esta solicitud, por favor visite: <b><a class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></h5>
+                                                        <h5 class='lead' style='text-align:center; padding:2%; margin-bottom: 2%;'>Para gestionar o responder a esta solicitud, por favor visite: <b><a  style='color:#CAC2B6;' class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></h5>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -111,6 +111,7 @@ function emailSolicitud($id_prueba,$Solicitante )
 
         //Laboratorio de Metrología
         $mail->addAddress('LaboratorioMetrologiaGrammer@arketipo.mx', 'LMGrammer');
+        $mail->addBCC('extern.mariela.reyes@arketipo.mx', 'LMGrammer');
         $mail->addBCC('l22141412@queretaro.tecnm.mx', 'IT');
 
         $mail->Subject = 'Nueva solicitud.';
