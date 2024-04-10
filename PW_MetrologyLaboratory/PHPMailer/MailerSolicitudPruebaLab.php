@@ -29,41 +29,66 @@ function emailSolicitud($id_prueba,$Solicitante )
                         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 						<title>Document</title>
 						<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN' crossorigin='anonymous'>
-						<style>
-                        *{margin:0;padding:0;box-sizing:border-box;font-family:'Assistant',sans-serif}
-                        body{margin-top:20px;color:#005195}
-                        .body-wrap,.container,.content,.main,.footer,.content-block{box-sizing:border-box}
-                        .body-wrap{width:100%;background-color:#f6f6f6;margin:0}
-                        .container{vertical-align:top;display:block;max-width:600px;clear:both;margin:0 auto}
-                        .content{max-width:600px;display:block;margin:0 auto;padding:20px}
-                        .main{border-radius:3px;background-color:#fff;margin:0;border:1px solid #e9e9e9}
-                        .footer{width:100%;margin:0;padding:20px;color:#CAC2B6;display:flex;justify-content:center;align-items:center;height:50%}
-                        .content-block{vertical-align:top;margin:0;padding:5%;width:100%}
-                        .title{padding:5%;text-align:center}
-                        .mensaje{vertical-align:top;text-align:center;padding:2%}
-                        .logoGrammer2-img{height:100px;width:100px;display:block;margin:auto}
-                        #attn{text-align:center;padding:2%; margin-bottom: 2%;}
-                        #logo{background-color:#005195;padding-top:4%}
-                        .link{color:#CAC2B6}
-                        .aligncenter{box-sizing:border-box;font-size:12px;padding:0 0 20px;margin:0 auto}
-                        .aligncenter a{text-decoration:none;color:#82AFD7;float:none;vertical-align:middle}
-                        .lead{font-size: 1.3rem;}
-                        </style>
-                    </head>
-                    <body>
-						<table class='body-wrap'><tbody><tr><td></td><td class='container'><div class='content'>
-											<table class='main'><tbody>
-													<tr><td id='logo'><a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png'></a> <br>												</td></tr>
-													<tr><td class='title'><h1 class='h1'>Se ha recibido la solicitud con el <br><b>Folio: $id_prueba</b>, <br>enviada por $Solicitante.</h1></td></tr>
-													<tr><td class='content-wrap'><table><tbody><tr><td class='content-block mensaje'>
-													    <h5 class='lead'>Para gestionar o responder a esta solicitud, por favor visite:
-                                                        <b><a  class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></h5>
-                                                        </td></tr><tr><td class='content-block' id='attn'><h4 class='lead'><b>Laboratorio de Metrología</b><br><b>Grammer Automotive Puebla S.A de C.V.</b></h4></td></tr>
-                                                        </tbody></table></td></tr></tbody></table>
-                                                        <div class='footer'><table><tbody><tr><td class='aligncenter content-block'><a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php'>© Grammer Querétaro.</a></td></tr></tbody></table></div></div></td><td></td>
-                                                    </tr></tbody></table>
-                    </body>
-                    </html>";
+						</head>
+<body style='margin-top:20px; color:#005195;'>
+    <table class='body-wrap' style='width:100%; background-color:#f6f6f6; margin:0;'>
+        <tbody>
+            <tr>
+                <td></td>
+                <td class='container' style='vertical-align:top; display:block; max-width:600px; clear:both; margin:0 auto;'>
+                    <div class='content' style='max-width:600px; display:block; margin:0 auto; padding:20px;'>
+                        <table class='main' style='border-radius:3px; background-color:#fff; margin:0; border:1px solid #e9e9e9;'>
+                            <tbody>
+                                <tr>
+                                    <td id='logo' style='background-color:#005195; padding-top:4%;'>
+                                        <a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a> <br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='title' style='padding:5%; text-align:center;'>
+                                        <h1 class='h1'>Se ha recibido la solicitud con el <br><b>Folio: $id_prueba</b>, <br>enviada por $Solicitante.</h1>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='content-wrap'>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td class='content-block mensaje'>
+                                                        <h5 class='lead'>Para gestionar o responder a esta solicitud, por favor visite: <b><a class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></h5>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class='content-block' id='attn' style='text-align:center; padding:2%; margin-bottom: 2%;'>
+                                                        <h4 class='lead'><b>Laboratorio de Metrología</b><br><b>Grammer Automotive Puebla S.A de C.V.</b></h4>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class='footer' style='width:100%; margin:0; padding:20px; color:#CAC2B6; display:flex; justify-content:center; align-items:center; height:50%;'>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class='aligncenter content-block' style='box-sizing:border-box; font-size:12px; padding:0 0 20px; margin:0 auto;'>
+                                            <a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php' style='text-decoration:none; color:#82AFD7; float:none; vertical-align:middle;'>© Grammer Querétaro.</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+                    ";
 
 
     $contenido = $MENSAJE_LABORATORIO;
