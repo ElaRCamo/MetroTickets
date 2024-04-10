@@ -42,7 +42,7 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                                         .content-block{vertical-align:top;margin:0;padding:5%;width:100%}
                                         .title{padding:5%;text-align:center}
                                         .mensaje{vertical-align:top;text-align:center;padding:2%}
-                                        .logoGrammer2-img{height:100px;width:100px;padding:1%;display:block;margin:auto}
+                                        .logoGrammer2-img{height:100px;width:100px;display:block;margin:auto}
                                         #attn{text-align:center;padding:2%}
                                         #logo{background-color:#005195;padding-top:4%}
                                         .link{color:#CAC2B6}
@@ -53,7 +53,7 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                                 <body>
                                 <table class='body-wrap'><tbody><tr><td></td><td class='container'><div class='content'>
                                     <table class='main'><tbody>
-                                    <tr><td id='logo'><a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/logoWhite.png'></a> <br></td></tr>
+                                    <tr><td id='logo'><a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png'></a> <br></td></tr>
                                     <tr><td class='title'><p class='lead' >¡Hola $Solicitante!</p> <br> <h2 class='h2'>Te informamos que tu solicitud con <br><b>FOLIO: $id_prueba</b><br> ha sido recibida.</h2></td></tr>
                                     <tr><td class='content-wrap'><table><tbody><tr><td class='content-block mensaje'>
                                         <p class='lead'>Te enviaremos una notificación tan pronto como haya novedades. Si deseas consultar los detalles completos de tu solicitud, visita:
