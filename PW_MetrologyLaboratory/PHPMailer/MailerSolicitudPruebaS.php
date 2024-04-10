@@ -55,7 +55,7 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                                 <table class='body-wrap'><tbody><tr><td></td><td class='container'><div class='content'>
                                     <table class='main'><tbody>
                                     <tr><td id='logo'><a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png'></a> <br></td></tr>
-                                    <tr><td class='title'><h4 class='lead' >¡Hola $Solicitante!</h4> <br> <h1 class='h2'>Te informamos que tu solicitud con <br><b>FOLIO: $id_prueba</b><br> ha sido recibida.</h1></td></tr>
+                                    <tr><td class='title'><h4 class='lead' >¡Hola $Solicitante!</h4> <br> <h1 class='h2'>Te informamos que tu solicitud con <br><b>FOLIO: $id_prueba</b> <br>ha sido recibida.</h1></td></tr>
                                     <tr><td class='content-wrap'><table><tbody><tr><td class='content-block mensaje'>
                                         <h5 class='lead'>Te enviaremos una notificación tan pronto como haya novedades. Si deseas consultar los detalles completos de tu solicitud, visita:
                                             <b><a  class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/newRequest/newRequestIndex.php'>Mis solicitudes</a></b></h5>
