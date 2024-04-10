@@ -30,7 +30,7 @@ function emailSolicitud($id_prueba,$Solicitante )
 						<title>Document</title>
 						<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN' crossorigin='anonymous'>
 						</head>
-<body style='margin-top:20px; color:#005195;'>
+<body style='margin-top:20px; color:#005195; font-family: 'Assistant', sans-serif;'>
     <table class='body-wrap' style='width:100%; background-color:#f6f6f6; margin:0;'>
         <tbody>
             <tr>
@@ -87,6 +87,7 @@ function emailSolicitud($id_prueba,$Solicitante )
         </tbody>
     </table>
 </body>
+
 </html>
                     ";
 
