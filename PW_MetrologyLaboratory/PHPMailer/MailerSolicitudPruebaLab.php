@@ -27,24 +27,22 @@ function emailSolicitud($id_prueba,$Solicitante )
                         <meta charset='UTF-8'>
                         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
                         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                        <title>Document</title>
-                        <style>
-                        body{
-                            font-family: 'Source Sans Pro', sans-serif;
-                        }
-                        table{
-                            padding:5px;
-                        }
-                        </style>
+						<title>Document</title>
+						<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN' crossorigin='anonymous'>
+						<link rel='stylesheet' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/css/email.css'>
                     </head>
                     <body>
-                        <h1 style='color: green;'>Se ha recibido la solicitud con FOLIO: <b style='font-weight: bold;'>$id_prueba</b> de <b style='font-weight: bold;'>$Solicitante</b>.</h1> 
-                        <p></p>                
-                        <p>Para administrar o responder esta solicitud, visite: <a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></p>
-                        <p></p>
-                        <p><b>Laboratorio de Metrología.</b></p>
-                        <p><b>Grammer Automotive Puebla S.A de C.V.</b></p>
-                        
+						<table class='body-wrap'><tbody><tr><td></td><td class='container'><div class='content'>
+											<table class='main'><tbody>
+													<tr><td id='logo'><a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/Produccion/ML\PW_MetrologyLaboratory\imgs\logoWhite.png'></a> <br>												</td></tr>
+													<tr><td class='title'><h2 class='h2'>Se ha recibido la solicitud con el <b>Folio: $id_prueba</b>, enviada por $Solicitante.</h2></td></tr>
+													<tr><td class='content-wrap'><table><tbody><tr><td class='content-block mensaje'>
+																				<p class='lead'>Para gestionar o responder a esta solicitud, por favor visite:
+																				<b><a  class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></p>
+																		</td></tr><tr><td class='content-block' id='attn'><p class='lead'><b>Laboratorio de Metrología</b><br><b>Grammer Automotive Puebla S.A de C.V.</b></p></td></tr>
+																	</tbody></table></td></tr></tbody></table>
+											<div class='footer'><table><tbody><tr><td class='aligncenter content-block'><a href='#>© Grammer Querétaro.</a></td></tr></tbody></table></div></div></td><td></td>
+								</tr></tbody></table>
                     </body>
                     </html>";
 
