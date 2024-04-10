@@ -52,15 +52,15 @@ function emailSolicitud($id_prueba,$Solicitante )
                     <body>
 						<table class='body-wrap'><tbody><tr><td></td><td class='container'><div class='content'>
 											<table class='main'><tbody>
-													<tr><td id='logo'><a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='logoWhite.png'></a> <br>												</td></tr>
-													<tr><td class='title'><h2 class='h2'>Se ha recibido la solicitud con el <b>Folio: $id_prueba</b>, enviada por $Solicitante.</h2></td></tr>
+													<tr><td id='logo'><a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png'></a> <br>												</td></tr>
+													<tr><td class='title'><h2 class='h2'>Se ha recibido la solicitud con el <br><b>Folio: $id_prueba<b>,<br> enviada por $Solicitante.</h2></td></tr>
 													<tr><td class='content-wrap'><table><tbody><tr><td class='content-block mensaje'>
-																				<p class='lead'>Para gestionar o responder a esta solicitud, por favor visite:
-																				<b><a  class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></p>
-																		</td></tr><tr><td class='content-block' id='attn'><p class='lead'><b>Laboratorio de Metrología</b><br><b>Grammer Automotive Puebla S.A de C.V.</b></p></td></tr>
-																	</tbody></table></td></tr></tbody></table>
-											<div class='footer'><table><tbody><tr><td class='aligncenter content-block'><a href='#'>© Grammer Querétaro.</a></td></tr></tbody></table></div></div></td><td></td>
-								</tr></tbody></table>
+													    <p class='lead'>Para gestionar o responder a esta solicitud, por favor visite:
+                                                        <b><a  class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></p>
+                                                        </td></tr><tr><td class='content-block' id='attn'><p class='lead'><b>Laboratorio de Metrología</b><br><b>Grammer Automotive Puebla S.A de C.V.</b></p></td></tr>
+                                                        </tbody></table></td></tr></tbody></table>
+                                                        <div class='footer'><table><tbody><tr><td class='aligncenter content-block'><a href='#'>© Grammer Querétaro.</a></td></tr></tbody></table></div></div></td><td></td>
+                                                    </tr></tbody></table>
                     </body>
                     </html>";
 
