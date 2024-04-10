@@ -30,7 +30,7 @@ function emailSolicitud($id_prueba,$Solicitante )
 						<title>Document</title>
 						<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN' crossorigin='anonymous'>
 						</head>
-<body style='margin-top:20px; color:#005195; font-family: 'Assistant', sans-serif;'>
+<body style='margin-top:20px; font-family: 'Assistant', sans-serif;'>
     <table class='body-wrap' style='width:100%; background-color:#f6f6f6; margin:0;'>
         <tbody>
             <tr>
@@ -45,7 +45,7 @@ function emailSolicitud($id_prueba,$Solicitante )
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class='title' style='padding:5%; text-align:center;'>
+                                    <td class='title' style='padding:5%; text-align:center; color:#005195; font-family: 'Assistant', sans-serif;'>
                                         <h2 class='h2'>Se ha recibido la solicitud con el <br><b>Folio: $id_prueba</b>, <br>enviada por $Solicitante.</h2>
                                     </td>
                                 </tr>
@@ -55,11 +55,11 @@ function emailSolicitud($id_prueba,$Solicitante )
                                             <tbody>
                                                 <tr>
                                                     <td class='content-block mensaje'>
-                                                        <h5 class='lead' style='text-align:center; padding:2%; margin-bottom: 2%;'>Para gestionar o responder a esta solicitud, por favor visite: <b><a  style='color:#CAC2B6;' class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></h5>
+                                                        <h5 class='lead' style='font-family: 'Assistant', sans-serif; text-align:center; padding:2%; color:#005195; margin-bottom: 2%;'>Para gestionar o responder a esta solicitud, por favor visite: <b><a  style='color:#CAC2B6;' class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></h5>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class='content-block' id='attn' style='text-align:center; padding:2%; margin-bottom: 2%;'>
+                                                    <td class='content-block' id='attn' style='text-align:center; padding:2%; margin-bottom: 2%; color:#005195;'>
                                                         <h4 class='lead'><b>Laboratorio de Metrología</b><br><b>Grammer Automotive Puebla S.A de C.V.</b></h4>
                                                     </td>
                                                 </tr>
