@@ -30,7 +30,25 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                                     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                                     <title>Document</title>
                                     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN' crossorigin='anonymous'>
-                                    <link rel='stylesheet' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/css/email.css'>
+                                    <style>
+                                        *{margin:0;padding:0;box-sizing:border-box;font-family:'Assistant',sans-serif}
+                                        body{margin-top:20px;color:#005195}
+                                        .body-wrap,.container,.content,.main,.footer,.content-block{box-sizing:border-box}
+                                        .body-wrap{width:100%;background-color:#f6f6f6;margin:0}
+                                        .container{vertical-align:top;display:block;max-width:600px;clear:both;margin:0 auto}
+                                        .content{max-width:600px;display:block;margin:0 auto;padding:20px}
+                                        .main{border-radius:3px;background-color:#fff;margin:0;border:1px solid #e9e9e9}
+                                        .footer{width:100%;margin:0;padding:20px;color:#CAC2B6;display:flex;justify-content:center;align-items:center;height:50%}
+                                        .content-block{vertical-align:top;margin:0;padding:5%;width:100%}
+                                        .title{padding:5%;text-align:center}
+                                        .mensaje{vertical-align:top;text-align:center;padding:2%}
+                                        .logoGrammer2-img{height:100px;width:100px;display:block;margin:auto}
+                                        #attn{text-align:center;padding:2%}
+                                        #logo{background-color:#005195;padding-top:4%}
+                                        .link{color:#CAC2B6}
+                                        .aligncenter{box-sizing:border-box;font-size:12px;padding:0 0 20px;margin:0 auto}
+                                        .aligncenter a{text-decoration:none;color:#82AFD7;float:none;vertical-align:middle}
+                                    </style>
                                 </head>
                                 <body>
                                 <table class='body-wrap'><tbody><tr><td></td><td class='container'><div class='content'>
@@ -60,13 +78,13 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
         $mail->Username = 'LaboratorioMetrologiaGrammer@arketipo.mx'; //Correo de quien envia el email
         $mail->Password = 'LMGrammer2024#';
         $mail->SMTPSecure = 'ssl';
-        $mail->setFrom('LaboratorioMetrologiaGrammer@arketipo.mx', 'Laboratorio de Metrología Grammer Automotive Puebla S.A de C.V.');
+        $mail->setFrom('LaboratorioMetrologiaGrammer@arketipo.mx', 'Laboratorio de Metrolog&iacute;a Grammer Automotive Puebla S.A de C.V.');
 
         //Solicitante
         $mail->addAddress($emailSolicitante, $Solicitante); //Quién recibirá correo
         $mail->addBCC('LaboratorioMetrologiaGrammer@arketipo.mx', 'LMGrammer');
 
-        $mail->Subject = 'Confirmaci\u{00F3}n de solicitud.';
+        $mail->Subject = 'Confirmaci&oacute;n de solicitud.';
         $mail->isHTML(true);
         $mail->Body = $contenido;
 
