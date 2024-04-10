@@ -48,6 +48,7 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                                         .link{color:#CAC2B6}
                                         .aligncenter{box-sizing:border-box;font-size:12px;padding:0 0 20px;margin:0 auto}
                                         .aligncenter a{text-decoration:none;color:#82AFD7;float:none;vertical-align:middle}
+                                        .lead{font-size: 1.3rem;}
                                     </style>
                                 </head>
                                 <body>
@@ -65,7 +66,7 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                     </body>
                     </html>";
 
-    $contenido = utf8_decode($MENSAJE_SOLICITANTE);
+    $contenido = $MENSAJE_SOLICITANTE;
     $mail = new PHPMailer(true);
 
     try {
@@ -78,13 +79,14 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
         $mail->Username = 'LaboratorioMetrologiaGrammer@arketipo.mx'; //Correo de quien envia el email
         $mail->Password = 'LMGrammer2024#';
         $mail->SMTPSecure = 'ssl';
-        $mail->setFrom('LaboratorioMetrologiaGrammer@arketipo.mx', 'Laboratorio de Metrolog&iacute;a Grammer Automotive Puebla S.A de C.V.');
+        $mail->setFrom('LaboratorioMetrologiaGrammer@arketipo.mx', 'Laboratorio de Metrología Grammer Automotive Puebla S.A de C.V.');
+        $mail->CharSet = 'UTF-8';
 
         //Solicitante
         $mail->addAddress($emailSolicitante, $Solicitante); //Quién recibirá correo
         $mail->addBCC('LaboratorioMetrologiaGrammer@arketipo.mx', 'LMGrammer');
 
-        $mail->Subject = 'Confirmaci&oacute;n de solicitud.';
+        $mail->Subject = 'Confirmación de solicitud.';
         $mail->isHTML(true);
         $mail->Body = $contenido;
 

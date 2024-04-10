@@ -47,6 +47,7 @@ function emailSolicitud($id_prueba,$Solicitante )
                         .link{color:#CAC2B6}
                         .aligncenter{box-sizing:border-box;font-size:12px;padding:0 0 20px;margin:0 auto}
                         .aligncenter a{text-decoration:none;color:#82AFD7;float:none;vertical-align:middle}
+                        .lead{font-size: 1.3rem;}
                         </style>
                     </head>
                     <body>
@@ -65,7 +66,7 @@ function emailSolicitud($id_prueba,$Solicitante )
                     </html>";
 
 
-    $contenido = utf8_decode($MENSAJE_LABORATORIO);
+    $contenido = $MENSAJE_LABORATORIO;
     $mail = new PHPMailer(true);
 
     try {
@@ -78,7 +79,8 @@ function emailSolicitud($id_prueba,$Solicitante )
         $mail->Username = 'LaboratorioMetrologiaGrammer@arketipo.mx'; //Correo de quien envia el email
         $mail->Password = 'LMGrammer2024#';
         $mail->SMTPSecure = 'ssl';
-        $mail->setFrom('LaboratorioMetrologiaGrammer@arketipo.mx', 'Laboratorio de Metrolog&iacute;a Grammer Automotive Puebla S.A de C.V.');
+        $mail->setFrom('LaboratorioMetrologiaGrammer@arketipo.mx', 'Laboratorio de Metrología Grammer Automotive Puebla S.A de C.V.');
+        $mail->CharSet = 'UTF-8';
 
 
         //Laboratorio de Metrología
