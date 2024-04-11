@@ -46,7 +46,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>2024-0001 <a href="../review/index.php"></a></td>
+                            <td class="folios">2024-0001 <a href="../review/index.php"></a></td>
                             <td>05/07/23</td>
                             <td>05/07/23</td>
                             <td>Cerrada</td>
@@ -54,7 +54,7 @@
                             <td>Normal</td>
                             <td>Aracely</td>
                             <td>Adrian</td>
-                            <td class="textVerMas" >Lorem Ipsum is simply dummy</td>
+                            <td class="textVerMas">Lorem Ipsum is simply dummy</td>
                         </tr>
                     </tbody>
                 </table>

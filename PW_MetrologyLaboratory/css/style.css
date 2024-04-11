@@ -669,9 +669,8 @@ table tbody tr {
 
 #listadoPruebas td{
     font-size: 0.9rem;
-    color: #0066D6;
+    color: var(--main-color);
 }
 #listadoPruebas #folio{
-    font-size: 1rem;
     width: 6.8rem;
 }
