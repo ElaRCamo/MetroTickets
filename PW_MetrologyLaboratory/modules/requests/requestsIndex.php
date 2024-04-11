@@ -46,13 +46,6 @@
             console.log("El id del solicitante es: " + id_solicitante);
             TablaPruebasSolicitante(id_solicitante);
         });
-
-
-    </script>
-    <script>
-        // Obtener el valor de la variable PHP e imprimirlo en la consola
-        var fotoUsuario = "<?php echo $fotoUsuario; ?>";
-        console.log("La foto del usuario es: " + fotoUsuario);
     </script>
     <script src="../../js/cargarDatos.js"></script>
     <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/general.js"></script>

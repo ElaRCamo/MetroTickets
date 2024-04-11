@@ -15,6 +15,19 @@
     <!--Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/css/style.css">
+    <?php
+        session_start();
+        $nombreUser = $_SESSION['nombreUsuario'];
+        $tipoUser = $_SESSION['tipoUsuario'];
+        $idUsuario = $_SESSION['nomina'];
+        $fotoUsuario = $_SESSION['fotoUsuario'];
+        if ($tipoUser == null){
+            header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
+        }elseif($tipoUser == 3){
+            echo "<script>alert('Permisos Insuficientes')</script>";
+            echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php'>";
+        }
+    ?>
 </head>
 <body>
     <?php
