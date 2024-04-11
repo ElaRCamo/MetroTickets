@@ -3,7 +3,7 @@
     <div class="page-header row headerLogo">
         <div class="col divTitle">
             <h1> Solicitar una prueba </h1>
-            <h5>Bienvenido(a) <?php echo $nombreUser; ?></h5><input type="hidden" id="idUsuario" value="<?php echo $idUsuario; ?>">
+            <h5>Bienvenido(a) <?php global $nombreUser; echo $nombreUser; ?></h5><input type="hidden" id="idUsuario" value="<?php global $idUsuario; echo $idUsuario; ?>">
             <small>Favor de registrar los datos siguientes:</small>
         </div>
         <div class="logoRight col-sm-3">

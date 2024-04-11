@@ -5,11 +5,12 @@
                 <span class="las la-bars"></span>
             </label>
             <div class="header-menu">
-                    <span class="las la-search"></span>
+                    <!--<span class="las la-search"></span>
                 <div class="notify-icon">
                     <span class="las la-bell"></span>
                     <span class="notify">3</span>
-                </div>
+                </div>-->
+                <div class="user"><input type="text" id="nombreUser" value="<?php global $nombreUser; echo $nombreUser; ?>"></div>
                 <div class="user">
                     <div><img class="user-img bg-img" alt="User" src="<?php global $fotoUsuario; echo $fotoUsuario; ?>"></div>
                 </div>
