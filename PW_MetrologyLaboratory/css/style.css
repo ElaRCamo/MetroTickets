@@ -679,3 +679,6 @@ table tbody tr {
     font-weight: bold;
     width: auto;
 }
+#cerrarSesion:hover  {
+    text-decoration: none;
+}
