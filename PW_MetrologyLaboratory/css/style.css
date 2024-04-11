@@ -682,3 +682,6 @@ table tbody tr {
 #cerrarSesion:hover  {
     text-decoration: none;
 }
+#cerrarSesion, #cerrarS{
+    cursor: pointer;
+}
