@@ -674,3 +674,8 @@ table tbody tr {
 #listadoPruebas #folio{
     width: 6.8rem;
 }
+#nombreUser{
+    background-color: var(--blue_20);
+    border:none;
+    color: var(--main-color);
+}
