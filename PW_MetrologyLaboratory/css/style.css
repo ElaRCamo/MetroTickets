@@ -679,7 +679,6 @@ table tbody tr {
     border:none;
     color: var(--main-color);
     font-weight: bold;
+    width: auto;
 }
-.userDiv{
-    text-align: left;
-}
+
