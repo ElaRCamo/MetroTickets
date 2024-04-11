@@ -44,6 +44,7 @@
             let id_solicitante = <?php echo json_encode($_SESSION['nomina']); ?>;
             console.log("El id del solicitante es: " + id_solicitante);
             TablaPruebasSolicitante(id_solicitante);
+            ocultarContenido("textVerMas",40);
         });
     </script>
     <script src="../../js/cargarDatos.js"></script>

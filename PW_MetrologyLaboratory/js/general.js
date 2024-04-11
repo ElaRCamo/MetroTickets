@@ -124,7 +124,7 @@ function redirectToRequestsIndex() {
 }
 
 function ocultarContenido(clase,limiteCaracteres){
-    var especificaciones = document.querySelectorAll("."+clase);
+    var especificaciones = document.querySelectorAll("."+ clase);
     especificaciones.forEach(function(especificacion) {
         var contenido = especificacion.textContent;
         if (contenido.length > limiteCaracteres) {
