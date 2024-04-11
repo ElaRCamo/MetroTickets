@@ -40,8 +40,9 @@ function emailSolicitud($id_prueba,$Solicitante )
                                                     <table class='main' style='border-radius:3px; background-color:#fff; margin:0; border:1px solid #e9e9e9;'>
                                                         <tbody>
                                                             <tr>
-                                                                <td id='logo' style='background-color:#005195; padding-top:4%;'>
-                                                                    <a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a> <br>
+                                                                <td id='logo' style='background-color:#005195; padding-top:4%; text-align:center;'>
+                                                                    <a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a><br>
+                                                                    <span style='padding:3%; display: block; color:#fff; font-weight: bold;'>GRAMMER</span><br>
                                                                 </td>
                                                             </tr>
                                                             <tr>
