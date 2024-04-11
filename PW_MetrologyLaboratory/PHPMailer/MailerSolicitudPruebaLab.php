@@ -27,22 +27,24 @@ function emailSolicitud($id_prueba,$Solicitante )
                         <meta charset='UTF-8'>
                         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
                         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-						<title>Document</title>
+						<title>Nueva solicitud</title>
 						<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN' crossorigin='anonymous'>
-						</head>
-                            <body style='margin-top:20px; font-family: 'Assistant', sans-serif;'>
+						<style>body {font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;}</style>
+                        </head>
+                            <body style='margin-top:20px; text-align:center;'>
                                 <table class='body-wrap' style='width:100%; background-color:#f6f6f6; margin:0;'>
                                     <tbody>
                                         <tr>
                                             <td></td>
-                                            <td class='container' style='vertical-align:top; display:block; max-width:600px; clear:both; margin:0 auto;'>
+                                            <td class='container' style='vertical-align:top; display:block; max-width:600px; clear:both; margin:0 auto; text-align:center;'>
                                                 <div class='content' style='max-width:600px; display:block; margin:0 auto; padding:20px;'>
-                                                    <table class='main' style='border-radius:3px; background-color:#fff; margin:0; border:1px solid #e9e9e9;'>
+                                                    <table class='main' style='border-radius:3px; background-color:#fff; margin:0; border:1px solid #e9e9e9; text-align:center;'>
                                                         <tbody>
                                                             <tr>
-                                                                <td id='logo' style='background-color:#005195; padding-top:4%; text-align:center;'>
-                                                                    <a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a><br>
-                                                                    <span style='padding:3%; display: block; color:#fff; font-weight: bold;'>GRAMMER</span><br>
+                                                                <td id='logo' style='background-color:#005195; padding-top:3%; padding-bottom:3%; text-align:center;'>
+                                                                    <a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php'>
+                                                                    <img class='logoGrammer2-img' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a><br>
+                                                                    <h3 style='padding:3%; display: block; color:#fff; font-weight: bold;'>GRAMMER</h3><br>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -56,7 +58,7 @@ function emailSolicitud($id_prueba,$Solicitante )
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td class='content-block mensaje' style='text-align:center; padding:2%; color:#005195; margin-bottom: 2%;'>
-                                                                                    <h5 class='lead' >Para gestionar o responder a esta solicitud, por favor visite: <b><a  style='color:#CAC2B6;' class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></h5>
+                                                                                    <h4 class='lead' >Para gestionar o responder a esta solicitud, por favor visite: <b><a  style='color:#CAC2B6;' class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></h4>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
