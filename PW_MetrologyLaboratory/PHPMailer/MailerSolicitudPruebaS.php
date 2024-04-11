@@ -59,7 +59,7 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                                                 <tbody>
                                                     <tr>
                                                         <td class='content-block mensaje' style='text-align:center; padding:2%; color:#005195; margin-bottom: 2%; font-size: 1.2rem;'>
-                                                            <h4 class='lead'>Te enviaremos una notificación tan pronto como haya novedades. Si deseas consultar los detalles completos de tu solicitud, visita:
+                                                            <h4 class='lead'>Te enviaremos una notificación tan pronto como haya novedades. <br>Si deseas consultar los detalles completos de tu solicitud, visita:<br>
                                                             <b><a  style='color:#CAC2B6;' class='btn btn-lg btn-primary' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></h4>
                                                         </td>
                                                     </tr>
