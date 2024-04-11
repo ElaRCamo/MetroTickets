@@ -227,7 +227,6 @@ function TablaPruebasSolicitante(id_solicitante) {
             tbody.appendChild(fila);
         }
     });
-    ocultarContenido("textVerMas",40);
 }
 
 
