@@ -678,6 +678,8 @@ table tbody tr {
     color: var(--main-color);
     font-weight: bold;
     width: auto;
+    text-align: end;
+    margin-right: 0.5rem;
 }
 #cerrarSesion:hover  {
     text-decoration: none;
