@@ -23,7 +23,6 @@
         $nombreUser = $_SESSION['nombreUsuario'];
         $tipoUser = $_SESSION['tipoUsuario'];
         $idUsuario = $_SESSION['nomina'];
-        global $fotoUsuario;
         $fotoUsuario = $_SESSION['fotoUsuario'];
         if ($tipoUser == null){
             header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
@@ -49,6 +48,11 @@
         });
 
 
+    </script>
+    <script>
+        // Obtener el valor de la variable PHP e imprimirlo en la consola
+        var fotoUsuario = "<?php echo $fotoUsuario; ?>";
+        console.log("La foto del usuario es: " + fotoUsuario);
     </script>
     <script src="../../js/cargarDatos.js"></script>
     <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/general.js"></script>
