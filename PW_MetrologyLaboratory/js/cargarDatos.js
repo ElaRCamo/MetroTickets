@@ -224,7 +224,7 @@ function TablaPruebasSolicitante(id_solicitante) {
             especificacionesL.textContent = response.data[j].especificaciones;
             especificacionesL.classList.add("textVerMas");
             fila.appendChild(especificacionesL);
-            ocultarContenido("textVerMas");
+            ocultarContenido("textVerMas",40);
 
             tbody.appendChild(fila);
         }
