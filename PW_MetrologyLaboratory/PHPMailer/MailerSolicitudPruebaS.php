@@ -29,42 +29,75 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                                     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
                                     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                                     <title>Document</title>
-                                    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN' crossorigin='anonymous'>
-                                    <style>
-                                        *{margin:0;padding:0;box-sizing:border-box;font-family:'Assistant',sans-serif}
-                                        body{margin-top:20px;color:#005195}
-                                        .body-wrap,.container,.content,.main,.footer,.content-block{box-sizing:border-box}
-                                        .body-wrap{width:100%;background-color:#f6f6f6;margin:0}
-                                        .container{vertical-align:top;display:block;max-width:600px;clear:both;margin:0 auto}
-                                        .content{max-width:600px;display:block;margin:0 auto;padding:20px}
-                                        .main{border-radius:3px;background-color:#fff;margin:0;border:1px solid #e9e9e9}
-                                        .footer{width:100%;margin:0;padding:20px;color:#CAC2B6;display:flex;justify-content:center;align-items:center;height:50%}
-                                        .content-block{vertical-align:top;margin:0;padding:5%;width:100%}
-                                        .title{padding:5%;text-align:center}
-                                        .mensaje{vertical-align:top;text-align:center;padding:2%}
-                                        .logoGrammer2-img{height:100px;width:100px;display:block;margin:auto}
-                                        #attn{text-align:center;padding:2%; margin-bottom: 2%;}
-                                        #logo{background-color:#005195;padding-top:4%}
-                                        .link{color:#CAC2B6}
-                                        .aligncenter{box-sizing:border-box;font-size:12px;padding:0 0 20px;margin:0 auto}
-                                        .aligncenter a{text-decoration:none;color:#82AFD7;float:none;vertical-align:middle}
-                                        .lead{font-size: 1.3rem;}
-                                    </style>
                                 </head>
                                 <body>
-                                <table class='body-wrap'><tbody><tr><td></td><td class='container'><div class='content'>
-                                    <table class='main'><tbody>
-                                    <tr><td id='logo'><a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png'></a> <br></td></tr>
-                                    <tr><td class='title'><h4 class='lead' >¡Hola $Solicitante!</h4> <br> <h1 class='h2'>Te informamos que tu solicitud con <br><b>FOLIO: $id_prueba</b> <br>ha sido recibida.</h1></td></tr>
-                                    <tr><td class='content-wrap'><table><tbody><tr><td class='content-block mensaje'>
-                                        <h5 class='lead'>Te enviaremos una notificación tan pronto como haya novedades. Si deseas consultar los detalles completos de tu solicitud, visita:
-                                            <b><a  class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/newRequest/newRequestIndex.php'>Mis solicitudes</a></b></h5>
-                                    </td></tr><tr><td class='content-block' id='attn'><h4 class='lead'><b>Laboratorio de Metrología</b><br><b>Grammer Automotive Puebla S.A de C.V.</b></h4></td></tr>
-                                    </tbody></table></td></tr></tbody></table>
-                                    <div class='footer'><table><tbody><tr><td class='aligncenter content-block'><a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php'>© Grammer Querétaro.</a></td></tr></tbody></table></div></div></td><td></td>
-                                </tr></tbody></table>
-                    </body>
-                    </html>";
+                                     <table class='body-wrap' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; background-color: #f6f6f6; margin: 0;' bgcolor='#f6f6f6'>
+                                            <tbody>
+                                            <tr style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;'>
+                                                <td style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0;' valign='top'></td>
+                                                <td class='container' width='600' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto;'
+                                                    valign='top'>
+                                                    <div class='content' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; max-width: 600px; display: block; margin: 0 auto; padding: 20px;'>
+                                                        <table class='main' width='100%' cellpadding='0' cellspacing='0' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; border-radius: 3px; background-color: #fff; margin: 0; border: 1px solid #e9e9e9;'
+                                                               bgcolor='#fff'>
+                                                            <tbody>
+                                                            <tr style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;'>
+                                                                <td class='' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 16px; vertical-align: top; color: #fff; font-weight: 500; text-align: center; border-radius: 3px 3px 0 0; background-color: #005195; margin: 0; padding: 20px;'
+                                                                    align='center' bgcolor='#71b6f9' valign='top'>
+                                                                    <a href='#' style='font-size:32px;color:#fff; text-decoration:none;'>GRAMMER</a> <br>
+                                                                    <span style='margin-top: 10px;display: block;'>¡Hola $Solicitante!</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;'>
+                                                                <td class='content-wrap' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 20px;' valign='top'>
+                                                                    <table width='100%' cellpadding='0' cellspacing='0' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;'>
+                                                                        <tbody>
+                                                                        <tr style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;'>
+                                                                            <td class='content-block' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; text-align:center; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;' valign='top'>
+                                                                                Te informamos que tu solicitud con  <strong style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;'>
+                                                                                FOLIO: $id_prueba</strong> ha sido recibida.
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;'>
+                                                                            <td class='content-block' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; text-align:center;box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;' valign='top'>
+                                                                                Te enviaremos una notificación tan pronto como haya novedades. Si deseas consultar los detalles completos de tu solicitud, visita:
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;'>
+                                                                            <td class='content-block' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; text-align:center; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;' valign='top'>
+                                                                                <a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/newRequest/newRequestIndex.php' class='btn-primary' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; color: #FFF; text-decoration: none; line-height: 2em; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 5px; text-transform: capitalize; background-color: #005195; margin: 0; border-color: #005195; border-style: solid; border-width: 8px 16px;'>
+                                                                                    Mis solicitudes </a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; text-align:center; box-sizing: border-box; font-size: 14px; margin: 0;'>
+                                                                            <td class='content-block' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;' valign='top'>
+                                                                                Laboratorio de Metrología<br><b>Grammer Automotive Puebla S.A de C.V.</b>
+                                                                            </td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <div class='footer' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; clear: both; color: #CAC2B6; margin: 0; padding: 20px;'>
+                                                            <table width='100%' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;'>
+                                                                <tbody>
+                                                                <tr style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;'>
+                                                                    <td class='aligncenter content-block' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 12px; vertical-align: top; color: #CAC2B6; text-align: center; margin: 0; padding: 0 0 20px;' align='center' valign='top'><a href='#' style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 12px; color: #999; text-decoration: underline; margin: 0;'>© Grammer Querétaro.</a>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td style='font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0;' valign='top'></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                </body>
+                                </html>";
 
     $contenido = $MENSAJE_SOLICITANTE;
     $mail = new PHPMailer(true);
