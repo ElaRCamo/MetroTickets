@@ -25,6 +25,7 @@
     $nombreUser = $_SESSION['nombreUsuario'];
     $tipoUser = $_SESSION['tipoUsuario'];
     $idUsuario = $_SESSION['nomina'];
+    $fotoUsuario = $_SESSION['fotoUsuario'];
     if ($tipoUser == null){
         header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
     }elseif($tipoUser == 2){
