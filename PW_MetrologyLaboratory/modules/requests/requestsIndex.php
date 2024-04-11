@@ -46,7 +46,7 @@
             TablaPruebasSolicitante(id_solicitante);
         });
 
-        ocultarContenido("textVerMas",40);
+
     </script>
     <script src="../../js/cargarDatos.js"></script>
     <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/general.js"></script>
