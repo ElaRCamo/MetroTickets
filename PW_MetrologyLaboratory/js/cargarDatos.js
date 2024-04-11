@@ -225,11 +225,9 @@ function TablaPruebasSolicitante(id_solicitante) {
             especificacionesL.classList.add("textVerMas");
             fila.appendChild(especificacionesL);
             ocultarContenido("textVerMas",40);
-
             tbody.appendChild(fila);
         }
     });
-
 }
 
 
