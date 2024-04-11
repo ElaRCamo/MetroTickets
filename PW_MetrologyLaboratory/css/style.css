@@ -653,3 +653,16 @@ table tbody tr {
     background-color: #fff;
     color: var(--main-color);
 }
+.btn-ver-mas {
+    border: none;
+    background-color: var(--blue_20);
+    border-radius: 0.25rem;
+    color: var(--color_gold);
+    padding: 0.1rem 0.5rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}

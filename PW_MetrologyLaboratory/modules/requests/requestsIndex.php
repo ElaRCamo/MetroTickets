@@ -45,7 +45,33 @@
             console.log("El id del solicitante es: " + id_solicitante);
             TablaPruebasSolicitante(id_solicitante);
         });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var especificaciones = document.querySelectorAll(".textVerMas");
+            especificaciones.forEach(function(especificacion) {
+                var contenido = especificacion.textContent;
+                var limiteCaracteres = 40;
+                if (contenido.length > limiteCaracteres) {
+                    var contenidoRecortado = contenido.substring(0, limiteCaracteres);
+                    var contenidoRestante = contenido.substring(limiteCaracteres, contenido.length);
+                    especificacion.innerHTML = contenidoRecortado + '<span class="hidden">' + contenidoRestante + '</span><button class="btn-ver-mas">Ver más...</button>';
+                }
+            });
 
+            var botonesVerMas = document.querySelectorAll(".btn-ver-mas");
+            botonesVerMas.forEach(function(boton) {
+                boton.addEventListener("click", function() {
+                    var contenidoOculto = this.previousElementSibling;
+                    contenidoOculto.classList.toggle("hidden");
+                    if (this.textContent === "Ver más...") {
+                        this.textContent = "Ver menos";
+                    } else {
+                        this.textContent = "Ver más...";
+                    }
+                });
+            });
+        });
     </script>
     <script src="../../js/cargarDatos.js"></script>
     <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/general.js"></script>

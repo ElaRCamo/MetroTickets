@@ -223,6 +223,7 @@ function TablaPruebasSolicitante(id_solicitante) {
 
             var especificacionesL = document.createElement("td");
             especificacionesL.textContent = response.data[j].especificaciones;
+            especificacionesL.classList.add("textVerMas");
             fila.appendChild(especificacionesL);
 
             tbody.appendChild(fila);
