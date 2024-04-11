@@ -229,5 +229,3 @@ function TablaPruebasSolicitante(id_solicitante) {
         ocultarContenido("textVerMas",40);
     });
 }
-
-

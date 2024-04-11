@@ -20,6 +20,7 @@ if(isset($_POST['iniciarSesionBtn'])){
         $_SESSION['tipoUsuario']= $resultado['tipoUsuario'];
         $_SESSION['nomina']= $resultado['idUser'];
         $_SESSION['emailUsuario']= $resultado['emailUsuario'];
+        $_SESSION['fotoUsuario']= $resultado['foto'];
 
         $password_bd = $resultado['password_bd'];
         $tipoUsuario = $_SESSION['tipoUsuario'];
