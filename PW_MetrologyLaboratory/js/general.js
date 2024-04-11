@@ -123,8 +123,8 @@ function redirectToRequestsIndex() {
     window.location.href = "../requests/requestsIndex.php";
 }
 
-function ocultarContenido(){
-    var especificaciones = document.querySelectorAll(".textVerMas");
+function ocultarContenido(clase){
+    var especificaciones = document.querySelectorAll("."+clase);
     especificaciones.forEach(function(especificacion) {
         var contenido = especificacion.textContent;
         var limiteCaracteres = 40;
@@ -146,6 +146,7 @@ function ocultarContenido(){
                 this.textContent = "Ver más...";
             }
         });
+    });
 }
 
 
