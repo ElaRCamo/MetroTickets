@@ -569,6 +569,9 @@ table tbody tr {
         font-size: 0.7rem;
         text-align: center;
     }
+    #listadoPruebas #folio{
+        width: 6.5rem;
+    }
     .search input{
         width: 120px;
     }
