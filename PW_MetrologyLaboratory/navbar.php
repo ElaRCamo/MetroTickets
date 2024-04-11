@@ -1,7 +1,3 @@
-<?php
-session_start();
-$fotoUsuario = $_SESSION['fotoUsuario'];
-?>
 <div class="main-content">
     <header>
         <div class="header-content">
@@ -15,7 +11,7 @@ $fotoUsuario = $_SESSION['fotoUsuario'];
                     <span class="notify">3</span>
                 </div>
                 <div class="user">
-                    <div><img class="user-img bg-img" alt="User" src="<?php echo $fotoUsuario; ?>"></div>
+                    <div><img class="user-img bg-img" alt="User" src="<?php global $fotoUsuario;  echo $fotoUsuario; ?>"></div>
                 </div>
                 <div class="bg-img" id="cerrarS">
                     <span class="las la-power-off"></span>
