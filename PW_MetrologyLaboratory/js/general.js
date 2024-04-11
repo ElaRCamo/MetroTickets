@@ -106,7 +106,7 @@ function cerrarSesion() {
             window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php";
         }
     };
-    xhttp.open("POST", "../../dao/login.php", true);
+    xhttp.open("POST", "dao/login.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("cerrarSesion=true");
 }
