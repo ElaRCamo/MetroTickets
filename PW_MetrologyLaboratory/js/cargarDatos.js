@@ -224,12 +224,13 @@ function TablaPruebasSolicitante(id_solicitante) {
             especificacionesL.textContent = response.data[j].especificaciones;
             especificacionesL.classList.add("textVerMas");
             fila.appendChild(especificacionesL);
+            ocultarContenido();
 
             tbody.appendChild(fila);
         }
     });
 
-    ocultarContenido();
+
 }
 
 
