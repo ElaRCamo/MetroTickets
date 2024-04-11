@@ -10,7 +10,9 @@
                     <span class="las la-bell"></span>
                     <span class="notify">3</span>
                 </div>-->
-                <div class="user"><input type="text" id="nombreUser" value="<?php global $nombreUser; echo $nombreUser; ?>"></div>
+                <<div class="user">
+                    <?php global $nombreUser; echo '<input type="text" id="nombreUser" value="' . $nombreUser . '">'; ?>
+                </div>
                 <div class="user">
                     <div><img class="user-img bg-img" alt="User" src="<?php global $fotoUsuario; echo $fotoUsuario; ?>"></div>
                 </div>
