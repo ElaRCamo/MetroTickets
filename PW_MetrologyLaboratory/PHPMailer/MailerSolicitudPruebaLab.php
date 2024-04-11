@@ -44,7 +44,7 @@ function emailSolicitud($id_prueba,$Solicitante )
                                                                 <td id='logo' style='background-color:#005195; padding-top:3%; padding-bottom:3%; text-align:center;'>
                                                                     <a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php'>
                                                                     <img class='logoGrammer2-img' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a><br>
-                                                                    <h3 style='padding-top:3%; display: block; color:#fff; font-weight: bold;'>GRAMMER</h3><br>
+                                                                    <h2 style='padding-top:3%; display: block; color:#fff; font-weight: bold;'>GRAMMER</h2><br>
                                                                 </td>
                                                             </tr>
                                                             <tr>
