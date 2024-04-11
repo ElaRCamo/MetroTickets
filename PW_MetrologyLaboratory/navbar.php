@@ -1,3 +1,7 @@
+<?php
+session_start();
+$fotoUsuario = $_SESSION['fotoUsuario'];
+?>
 <div class="main-content">
     <header>
         <div class="header-content">
