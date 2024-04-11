@@ -50,7 +50,7 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                                     <tr>
                                         <td class='title' style='padding:5%; text-align:center; color:#005195;'>
                                             <h2 class='h2'> 
-                                            Te informamos que tu solicitud con  <strong>FOLIO: $id_prueba</strong> ha sido recibida.
+                                            Te informamos que tu solicitud con <br><strong>FOLIO: $id_prueba</strong><br> ha sido recibida.
                                         </td>
                                     </tr>
                                     <tr>
