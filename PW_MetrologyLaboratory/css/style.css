@@ -678,4 +678,6 @@ table tbody tr {
     background-color: var(--blue_20);
     border:none;
     color: var(--main-color);
+    text-align: left;
+    font-weight: bold;
 }
