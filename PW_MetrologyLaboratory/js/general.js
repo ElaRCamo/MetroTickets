@@ -123,19 +123,17 @@ function redirectToRequestsIndex() {
     window.location.href = "../requests/requestsIndex.php";
 }
 
-function ocultarContenido(clase, limiteCaracteres) {
-    var especificaciones = document.querySelectorAll("." + clase);
+function ocultarContenido(clase,limiteCaracteres){
+    var especificaciones = document.querySelectorAll("."+clase);
     especificaciones.forEach(function(especificacion) {
         var contenido = especificacion.textContent;
         if (contenido.length > limiteCaracteres) {
             var contenidoRecortado = contenido.substring(0, limiteCaracteres);
             var contenidoRestante = contenido.substring(limiteCaracteres, contenido.length);
-            especificacion.innerHTML = contenidoRecortado + '<span class="hidden">' + contenidoRestante + '</span><button class="btn-ver-mas" onclick="VerMas()">Ver más...</button>';
+            especificacion.innerHTML = contenidoRecortado + '<span class="hidden">' + contenidoRestante + '</span><button class="btn-ver-mas">Ver más...</button>';
         }
     });
-}
 
-function VerMas() {
     var botonesVerMas = document.querySelectorAll(".btn-ver-mas");
     botonesVerMas.forEach(function(boton) {
         boton.addEventListener("click", function() {
@@ -149,6 +147,5 @@ function VerMas() {
         });
     });
 }
-
 
 
