@@ -10,7 +10,7 @@
                     <span class="las la-bell"></span>
                     <span class="notify">3</span>
                 </div>-->
-                <<div class="user">
+                <div class="user">
                     <?php global $nombreUser; echo '<input type="text" id="nombreUser" value="' . $nombreUser . '">'; ?>
                 </div>
                 <div class="user">
