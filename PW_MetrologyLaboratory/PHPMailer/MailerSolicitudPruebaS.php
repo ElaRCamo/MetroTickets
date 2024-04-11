@@ -42,13 +42,13 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                                     <tr>
                                         <td id='logo' style='background-color:#005195; padding-top:4%; text-align:center;'>
                                             <a href='#'><img class='logoGrammer2-img img-responsive' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a><br>
-                                            <span style='margin-top: 10px;display: block;'>¡Hola $Solicitante!</span><br>
+                                            <span style='margin-top: 10px; margin-bottom: 10px; display: block; color:#fff; font-weight: bold;'>¡Hola $Solicitante!</span><br>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class='title' style='padding:5%; text-align:center; color:#005195;'>
                                             <h2 class='h2'> 
-                                            Te informamos que tu solicitud con  <strong style='box-sizing: border-box; font-size: 14px; margin: 0;'> FOLIO: $id_prueba</strong> ha sido recibida.
+                                            Te informamos que tu solicitud con  <strong>FOLIO: $id_prueba</strong> ha sido recibida.
                                         </td>
                                     </tr>
                                     <tr>
