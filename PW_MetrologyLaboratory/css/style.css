@@ -677,7 +677,7 @@ table tbody tr {
 #nombreUser{
     background-color: var(--blue_20);
     border:none;
-    color: var(--color_gold);
+    color: var(--main-color);
     font-weight: bold;
 }
 .userDiv{
