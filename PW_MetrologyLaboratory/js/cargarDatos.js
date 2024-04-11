@@ -190,7 +190,6 @@ function TablaPruebasSolicitante(id_solicitante) {
             enlacePrueba.textContent = response.data[j].id_prueba; // Contenido del enlace
             id_pruebaL.appendChild(enlacePrueba);// Agregar el enlace al td
 
-
             fila.appendChild(id_pruebaL);
 
             var fechaSolicitudL = document.createElement("td");
@@ -229,6 +228,8 @@ function TablaPruebasSolicitante(id_solicitante) {
             tbody.appendChild(fila);
         }
     });
+
+    ocultarContenido();
 }
 
 
