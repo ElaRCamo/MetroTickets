@@ -33,7 +33,7 @@
                 <table class="tableSearch" id="listadoPruebas">
                     <thead>
                         <tr>
-                            <th >FOLIO</th>
+                            <th id="folio">FOLIO</th>
                             <th >FECHA DE SOLICITUD</th>
                             <th >FECHA DE RESPUESTA</th>
                             <th >ESTATUS </th>
