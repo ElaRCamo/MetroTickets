@@ -666,3 +666,8 @@ table tbody tr {
 .hidden {
     display: none;
 }
+
+#listadoPruebas td{
+    font-size: 0.9rem;
+    color: var(--main-color);
+}
