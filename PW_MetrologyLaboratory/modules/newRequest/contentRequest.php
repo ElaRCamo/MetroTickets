@@ -150,7 +150,7 @@
         <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="titleResumen">Resumen de Solicitud de Prueba Metrologica</h5><br>
+                    <h5 class="modal-title" id="titleResumenMain">Resumen de Solicitud de Prueba Metrologica</h5><br>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="redirectToRequestsIndex()" aria-label="Close"></button>
                 </div>
 
@@ -168,25 +168,26 @@
                         <p><strong>Documento de la norma:  </strong><span ><a id="archivoNormaSol" href="">Archivo pdf</a></span></p>                            </a></span></p>
                         <p><strong>Estatus de la solicitud:</strong><span id="estatusSolicitud"></p><br>
                     </div>
-                    <div class="p-3 ">
-                        <p><strong>Observaciones:          </strong><span id="observacionesSolicitud"></span></p>
+                    <div class="">
+                        <p><strong>Observaciones:          </strong><span id="observacionesSolicitud"></span></p><br>
                     </div>
+                    <div class="row">
+                        <h5 id="titleResumen">MATERIAL PARA MEDICIÓN</h5>
+                        <div id="divTableSol">
+                            <table class="table" id="materialesSolicitud">
+                                <thead>
+                                <tr>
+                                    <th>No. de Parte</th>
+                                    <th>Material</th>
+                                    <th>Cantidad</th>
+                                </tr>
+                                </thead>
+                                <tbody>
 
-                    <table class="table" id="materialesSolicitud">
-                        <thead>
-                        <tr>
-                            <th colspan="3">Material para medición</th>
-                        </tr>
-                        <tr>
-                            <th>No. de Parte</th>
-                            <th>Material</th>
-                            <th>Cantidad</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
                     <!-- Mensaje de espera -->
                     <br><small>Por favor, espere a que su solicitud sea revisada y aprobada por nuestro equipo de laboratorio. Le notificaremos cualquier cambio en el estado de su solicitud. ¡Gracias por su paciencia y confianza en nuestros servicios!</small>
