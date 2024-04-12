@@ -131,7 +131,7 @@ body{
     font-size: 3.7em;
     padding-bottom: 1%;
     color: transparent;
-    -webkit-text-stroke: 2px var(--color_white);
+    -webkit-text-stroke: 2px #005195;
     background: url("../imgs/back.png") 0 0;
     -webkit-background-clip: text;
     animation: back 60s linear infinite;
