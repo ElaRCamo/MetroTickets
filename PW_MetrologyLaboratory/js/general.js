@@ -148,4 +148,13 @@ function ocultarContenido(clase,limiteCaracteres){
     });
 }
 
+function mostrarTextoEnlace(ID){
+    var archivoNormaSol = id(ID);
+    if (archivoNormaSol.getAttribute('href') === 'No aplica') {
+        archivoNormaSol.textContent = 'No aplica';
+    }
+}
+
+
+
 

@@ -156,7 +156,7 @@
 
                 <div class="modal-body row">
                     <!-- Mensaje de confirmación -->
-                    <small>   Se ha enviado un mensaje de confirmación al correo electrónico asociado a su cuenta con la siguiente información:</small><br>
+                    <small>   Se ha enviado un mensaje de confirmación al correo electrónico asociado a tu cuenta con la siguiente información:</small><br>
                     <div class="col p-3 ">
                         <p><strong>No. de solicitud:       </strong><span id="solicitudNumero"></span></p>
                         <p><strong>Fecha de Solicitud:     </strong><span id="fechaSolicitud"></span></p>
@@ -165,32 +165,34 @@
                     </div>
                     <div class="col p-3 ">
                         <p><strong>Norma:                  </strong><span id="normaNombreSol"></span></p>
-                        <p><strong>Documento de la norma:  </strong><span ><a id="archivoNormaSol" href="">Archivo pdf</a></span></p>                            </a></span></p>
+                        <p><strong>Documento de la norma:  </strong><span ><a id="archivoNormaSol" href="">Archivo pdf</a></span></p>
                         <p><strong>Estatus de la solicitud:</strong><span id="estatusSolicitud"></p><br>
                     </div>
                     <div class="">
                         <p><strong>Observaciones:          </strong><span id="observacionesSolicitud"></span></p><br>
                     </div>
                     <div class="row">
-                        <h5 id="titleResumen">MATERIAL PARA MEDICIÓN</h5>
                         <div id="divTableSol">
-                            <table class="table table-striped table-responsive" id="materialesSolicitud">
-                                <thead>
-                                <tr>
-                                    <th>No. de Parte</th>
-                                    <th>Material</th>
-                                    <th>Cantidad</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                            <h5 id="titleResumen">MATERIAL PARA MEDICIÓN</h5>
+                            <div id="divTableSol">
+                                <table class="table table-striped table-responsive" id="materialesSolicitud">
+                                    <thead>
+                                    <tr>
+                                        <th>No. de Parte</th>
+                                        <th>Material</th>
+                                        <th>Cantidad</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Mensaje de espera -->
-                    <br><small>Por favor, espere a que su solicitud sea revisada y aprobada por nuestro equipo de laboratorio. Le notificaremos cualquier cambio en el estado de su solicitud. ¡Gracias por su paciencia y confianza en nuestros servicios!</small>
+                    <br><small>Por favor, espera a que tu solicitud sea revisada y aprobada por nuestro equipo de laboratorio. Te notificaremos cualquier cambio en el estado de tu solicitud. ¡Gracias por tu paciencia y confianza en nuestros servicios!</small>
                 </div>
 
                 <div class="modal-footer">
