@@ -154,16 +154,21 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="redirectToRequestsIndex()" aria-label="Close"></button>
                 </div>
 
-                <div class="modal-body">
+                <div class="modal-body row">
                     <!-- Mensaje de confirmación -->
                     <small>   Se ha enviado un mensaje de confirmación al correo electrónico asociado a su cuenta con la siguiente información:</small><br>
-
-                    <p><strong>No. de solicitud:       </strong><span id="solicitudNumero"></span></p>
-                    <p><strong>Fecha de Solicitud:     </strong><span id="fechaSolicitud"></span></p>
-                    <p><strong>Solicitante:            </strong><span id="solicitante"></span></p>
-                    <p><strong>Tipo de Prueba:         </strong><span id="tipoPruebaSolicitud"></span></p>
-                    <p><strong>Observaciones:          </strong><span id="observacionesSolicitud"></span></p>
-                    <p><strong>Estatus de la solicitud:</strong><span id="estatusSolicitud"></p><br>
+                    <div class="col p-3 ">
+                        <p><strong>No. de solicitud:       </strong><span id="solicitudNumero"></span></p>
+                        <p><strong>Fecha de Solicitud:     </strong><span id="fechaSolicitud"></span></p>
+                        <p><strong>Solicitante:            </strong><span id="solicitante"></span></p>
+                        <p><strong>Tipo de Prueba:         </strong><span id="tipoPruebaSolicitud"></span></p>
+                    </div>
+                    <div class="col p-3 ">
+                        <p><strong>Norma:                  </strong><span id="normaNombreSol"></span></p>
+                        <p><strong>Documento de la norma:  </strong><span id="archivoNormaSol"></span></p>
+                        <p><strong>Observaciones:          </strong><span id="observacionesSolicitud"></span></p>
+                        <p><strong>Estatus de la solicitud:</strong><span id="estatusSolicitud"></p><br>
+                    </div>
 
                     <table class="table" id="materialesSolicitud">
                         <thead>

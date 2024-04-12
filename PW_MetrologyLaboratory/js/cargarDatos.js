@@ -139,6 +139,8 @@ function resumenPrueba(id_prueba) {
         $('#tipoPruebaSolicitud').text(data.descripcionPrueba);
         $('#observacionesSolicitud').text(data.especificaciones);
         $('#estatusSolicitud').text(data.descripcionEstatus);
+        $('#archivoNormaSol').text(data.normaNombre);
+        $('#estatusSolicitud').text(data.normaArchivo);
 
 
         var tabla = document.getElementById("materialesSolicitud");
