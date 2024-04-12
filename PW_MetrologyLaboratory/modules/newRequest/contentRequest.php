@@ -150,7 +150,7 @@
         <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="titleResumenMain">Resumen de Solicitud de Prueba Metrologica</h5><br>
+                    <h5 class="modal-title" id="titleResumenMain">Resumen de Solicitud de Prueba Metrológica</h5><br>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="redirectToRequestsIndex()" aria-label="Close"></button>
                 </div>
 
@@ -166,7 +166,7 @@
                     <div class="col p-3 ">
                         <p><strong>Fecha de Solicitud:     </strong><span id="fechaSolicitud"></span></p>
                         <p><strong>Solicitante:            </strong><span id="solicitante"></span></p>
-                        <p class="obs"><strong>Observaciones:          </strong><span id="observacionesSolicitud"></span></p>
+                        <p><strong>Observaciones:          </strong><span class="obs" id="observacionesSolicitud"></span></p>
                         <p class="resumenHidden"><strong>Documento de la norma:  </strong><span ><a id="archivoNormaSol" href="">Archivo pdf</a></span></p><br>
                     </div>
                     <div class="">
