@@ -151,7 +151,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="titleResumenMain">Resumen de Solicitud de Prueba Metrológica</h5><br>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="redirectToRequestsIndex()" aria-label="Close"></button>
+                    <button type="button" class="btn-close" id="btnClose" data-bs-dismiss="modal" onclick="redirectToRequestsIndex()" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body row">
