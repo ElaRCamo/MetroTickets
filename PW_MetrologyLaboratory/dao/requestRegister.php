@@ -15,12 +15,13 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
         $nombreArchivo  = $_FILES["normaFile"]["name"];
         $normaFileName  = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
         $normaFile      = $target_dir . $normaFileName;
+        $moverNormaFile = "../archivos/" . $normaFileName;
 
         if ($_FILES["normaFile"]["error"] > 0) {
             echo "Error: " . $_FILES["normaFile"]["error"];
         } else {
             // mover el archivo cargado a la ubicación deseada
-            if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $normaFile)) {
+            if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile)) {
                 echo "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente.";
             } else {
                 echo "Hubo un error al subir el archivo.";
