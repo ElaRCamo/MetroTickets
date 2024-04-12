@@ -149,12 +149,11 @@ function ocultarContenido(clase,limiteCaracteres){
 }
 
 function mostrarOpciones(TP){
-    var opcionNormaN = id('normaNombreSol');
-    var opcionNormaA = id('archivoNormaSol');
-
     if (TP!==3 || TP !== 4 || TP !== 5 ) {
-        mostrarBloque(opcionNormaN, false);
-        mostrarBloque(opcionNormaA, false);
+        var elementosOcultos = document.querySelectorAll('.resumenHidden');
+        elementosOcultos.forEach(function(elemento) {
+            elemento.style.display = 'none';
+        });
     }
 }
 

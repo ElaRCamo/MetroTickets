@@ -159,14 +159,15 @@
                     <small>   Se ha enviado un mensaje de confirmación al correo electrónico asociado a tu cuenta con la siguiente información:</small><br>
                     <div class="col p-3 ">
                         <p><strong>No. de solicitud:       </strong><span id="solicitudNumero"></span></p>
-                        <p><strong>Fecha de Solicitud:     </strong><span id="fechaSolicitud"></span></p>
-                        <p><strong>Solicitante:            </strong><span id="solicitante"></span></p>
+                        <p><strong>Estatus de la solicitud:</strong><span id="estatusSolicitud"></p><br>
                         <p><strong>Tipo de Prueba:         </strong><span id="tipoPruebaSolicitud"></span></p>
                     </div>
                     <div class="col p-3 ">
-                        <p><strong>Norma:                  </strong><span id="normaNombreSol"></span></p>
-                        <p><strong>Documento de la norma:  </strong><span ><a id="archivoNormaSol" href="">Archivo pdf</a></span></p>
-                        <p><strong>Estatus de la solicitud:</strong><span id="estatusSolicitud"></p><br>
+                        <p><strong>Fecha de Solicitud:     </strong><span id="fechaSolicitud"></span></p>
+                        <p><strong>Solicitante:            </strong><span id="solicitante"></span></p>
+                        <p class="resumenHidden"><strong>Norma:                  </strong><span id="normaNombreSol"></span></p>
+                        <p class="resumenHidden"><strong>Documento de la norma:  </strong><span ><a id="archivoNormaSol" href="">Archivo pdf</a></span></p>
+
                     </div>
                     <div class="">
                         <p><strong>Observaciones:          </strong><span id="observacionesSolicitud"></span></p><br>
