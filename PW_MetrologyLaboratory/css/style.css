@@ -576,7 +576,6 @@ table tbody tr {
 
 /*Boton guardar*/
 .container-fluid button{
-    background: var(--main-color);
     justify-content: flex-end;
     box-shadow: 0 5px 5px -5px rgb(0 0 0 / 50%);
 }
