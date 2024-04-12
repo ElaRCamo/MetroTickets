@@ -149,10 +149,14 @@ function ocultarContenido(clase,limiteCaracteres){
 }
 
 function mostrarOpciones(TP){
+    var elementosOcultos = document.querySelectorAll('.resumenHidden');
     if (TP!==3 || TP !== 4 || TP !== 5 ) {
-        var elementosOcultos = document.querySelectorAll('.resumenHidden');
         elementosOcultos.forEach(function(elemento) {
             elemento.style.display = 'none';
+        });
+    }else{
+        elementosOcultos.forEach(function(elemento) {
+            elemento.style.display = 'block';
         });
     }
 }
