@@ -165,7 +165,7 @@
                     </div>
                     <div class="col p-3 ">
                         <p><strong>Norma:                  </strong><span id="normaNombreSol"></span></p>
-                        <p><strong>Documento de la norma:  </strong><span id="archivoNormaSol"></span></p>
+                        <p><strong>Documento de la norma:  </strong><span ><a id="archivoNormaSol">Archivo pdf</a></span></p>                            </a></span></p>
                         <p><strong>Observaciones:          </strong><span id="observacionesSolicitud"></span></p>
                         <p><strong>Estatus de la solicitud:</strong><span id="estatusSolicitud"></p><br>
                     </div>
