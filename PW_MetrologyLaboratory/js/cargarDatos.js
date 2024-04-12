@@ -140,7 +140,7 @@ function resumenPrueba(id_prueba) {
         $('#observacionesSolicitud').text(data.especificaciones);
         $('#estatusSolicitud').text(data.descripcionEstatus);
         $('#normaNombreSol').text(data.normaNombre);
-        $('#archivoNormaSol').href(data.normaArchivo);
+        id("archivoNormaSol").href = data.normaArchivo;
 
         var tabla = document.getElementById("materialesSolicitud");
         var tbody = tabla.getElementsByTagName("tbody")[0];
