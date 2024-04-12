@@ -171,7 +171,9 @@ function resumenPrueba(id_prueba) {
         // Mostrar la ventana modal con id RequestReview
         $('#RequestReview').modal('show');
         mostrarOpciones(TP);
+        ocultarContenido("obs",20);
     });
+
 }
 
 function TablaPruebasSolicitante(id_solicitante) {
