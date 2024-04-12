@@ -690,20 +690,20 @@ table tbody tr {
 #containerPruebaR{
     padding: 2% 5%;
 }
-#containerPruebaR p,#containerPruebaR span{
+#containerPruebaR p,#containerPruebaR span, #RequestReview p, #RequestReview span{
     color:var(--main-color);
     font-size: 1.2rem;
 }
-#materialRTittle{
+#materialRTittle, #titleResumen{
     color:var(--gold_70);
     text-align: center;
     background-color: var(--main-color);
     padding: 0.5%;
 }
-#materialesResumen th{
+#materialesResumen th, #materialesSolicitud th{
     color: var(--main-color);
 }
-#materialesResumen thead th {
+#materialesResumen thead th, materialesSolicitud thead th {
     padding: 0.3rem;
     text-align: center;
     font-size: 1rem;
