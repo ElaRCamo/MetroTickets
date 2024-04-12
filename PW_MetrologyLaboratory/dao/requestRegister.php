@@ -10,7 +10,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
     if($tipoPrueba == 3 || $tipoPrueba == 4 || $tipoPrueba == 5){ //si se requiere norma por tipo de prueba
         $norma          = $_POST['norma'];
         //guardar los archivos de la norma
-        $target_dir     = "../archivos/";
+        $target_dir     = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/archivos/";
         //Quitar espacios del nombre del archivo:
         $nombreArchivo  = $_FILES["normaFile"]["name"];
         $normaFileName  = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);

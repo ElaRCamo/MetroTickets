@@ -687,3 +687,24 @@ table tbody tr {
 #cerrarSesion, #cerrarS{
     cursor: pointer;
 }
+#containerPruebaR{
+    padding: 2% 5%;
+}
+#containerPruebaR p,#containerPruebaR span{
+    color:var(--main-color);
+    font-size: 1.2rem;
+}
+#materialRTittle{
+    color:var(--gold_70);
+    text-align: center;
+    background-color: var(--main-color);
+    padding: 0.5%;
+}
+#materialesResumen th{
+    color: var(--main-color);
+}
+#materialesResumen thead th {
+    padding: 0.3rem;
+    text-align: center;
+    font-size: 1rem;
+}

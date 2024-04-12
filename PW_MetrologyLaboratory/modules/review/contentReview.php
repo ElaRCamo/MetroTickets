@@ -33,10 +33,10 @@
                 <p><strong>Estatus de la solicitud:</strong><span id="estatusSolicitudR"></p>
                 <p><strong>Prioridad:              </strong><span id="prioridadR"></p><br>
             </div>
-            <div class="">
-                <div class="">
-                    <h3>Material para medición</h3>
-                    <table class="table table-striped" id="materialesResumen">
+            <div class="row">
+                <div id="divTableResume">
+                    <h5 id="materialRTittle">MATERIAL PARA MEDICIÓN</h5>
+                    <table class="table table-striped table-responsive" id="materialesResumen">
                         <thead>
                             <tr>
                                 <th>No. de Parte</th>
@@ -44,13 +44,11 @@
                                 <th>Cantidad</th>
                             </tr>
                         </thead>
-                        <tbody>
-
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
-
                 <div class=""></div>
             </div>
         </div>
+    </div>
 </main>
