@@ -690,8 +690,11 @@ table tbody tr {
 #containerPruebaR{
     padding: 2% 5%;
 }
-#containerPruebaR p,#containerPruebaR span, #RequestReview p, #RequestReview span{
+#containerPruebaR p,#containerPruebaR span, #RequestReview p, #RequestReview span,
+#materialesResumen th, #materialesSolicitud th{
     color:var(--main-color);
+}
+#containerPruebaR p,#containerPruebaR span{
     font-size: 1.2rem;
 }
 #materialRTittle, #titleResumen{
@@ -700,11 +703,11 @@ table tbody tr {
     background-color: var(--main-color);
     padding: 0.5%;
 }
-#materialesResumen th, #materialesSolicitud th{
-    color: var(--main-color);
-}
-#materialesResumen thead th, materialesSolicitud thead th {
+#materialesResumen thead th, #materialesSolicitud thead th {
     padding: 0.3rem;
     text-align: center;
+    font-size: 1rem;
+}
+#RequestReview small{
     font-size: 1rem;
 }
