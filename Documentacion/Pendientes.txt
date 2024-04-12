@@ -31,17 +31,29 @@ Pendientes del Proyecto del Laboratorio de Metrología:
    16. Validar porque al introducior Otro tipo de prueba ya no funciona
       (ni siquiera entra a la funcion y restaura todo el formulario)
 ✓  17. Estructura preeliminar del espacio para el administrador(04/04/2024)
-   17. Mejorar estructura> https://www.youtube.com/watch?v=ghbWKVlJ3X8
-   18. Envio de correo electronico de confirmación
+   17.1 Mejorar estructura> https://www.youtube.com/watch?v=ghbWKVlJ3X8
+✓   18. Envio de correo electronico de confirmación(09/04/2024)
 	https://www.youtube.com/watch?v=q9t_b83yR9o&t=0s
 	https://www.youtube.com/watch?v=1kQm2SSD4SY
-   19. Ventana modal para confirmar envio (05/04/2024)
-   19.1 Crear dao para la consulta de los datos(05/04/2024)
-   19.2 Se crea funcion para hacer la insercion de datos en la ventana modal(05/04/2024)
-   19.3 Generar tabla con los materiales
+✓   18.1 Formato del correo electronico de confirmación(10/04/2024)
+✓   19. Ventana modal para confirmar envio (05/04/2024)
+✓   19.1 Crear dao para la consulta de los datos(05/04/2024)
+✓   19.2 Se crea funcion para hacer la insercion de datos en la ventana modal(05/04/2024)
+✓   19.3 Generar tabla con los materiales(05/04/2024)
    19.4 Tipo de Prueba no se carga.
-   20. Crear cuenta pora generar correo en hostinguer
-   
+✓  20. Crear cuenta pora generar correo en hostinguer(09/04/2024)
+	LaboratorioMetrologiaGrammer@arketipo.mx
+	LMGrammer2024#
+   21. Cargar los datos de la tabla de solicitudes
+✓  21.1 Se cargan los datos por id_usuario a la tabla de listado de pruebas(09/04/2024)
+   21.2 Agregar especificaciones para rol de metrologo y administrador
+   21.3 Agregar las imagenes
+✓   22. Limitar el número de caracteres en la celda de especificaciones (11/04/2024)
+   23. Darle valor por default a observaciones
+✓   24. Cerrar sesion para administrador/metrologo no funciona(11/04/2024)
+✓   25. Agregar en el header el nombre del usuario(11/04/2024)
+✓   25.1 Agregar foto del usuario(11/04/2024)
+
       
 
   99.El boton de la regla en solicitudes tiene asignada if function
@@ -60,4 +72,7 @@ Reunion 02/04/2024
      Prioridades
 
 
+
+Lorem ipsum dolor sit amet consectetur, adipiscing elit mauris vel. Torquent fusce erat sociosqu tempus mi curae tempor sollicitudin bibendum dapibus vehicula, donec cubilia cursus viverra dignissim morbi justo facilisis diam volutpat litora tincidunt, dictumst magnis primis faucibus est pharetra ante per neque suscipit. Bibendum venenatis metus dictum dapibus id, ac et eros purus aptent, arcu erat senectus nam.
+148.244.250.101
 

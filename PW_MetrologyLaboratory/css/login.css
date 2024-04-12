@@ -16,7 +16,7 @@ body{
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
     background-size: cover;
-    background: url('../imgs/grammer_background4.jpg') fixed center;
+    background: url('../imgs/grammer_background4.png') fixed center;
 }
 /*contenedor del form*/
 .wrapper{
