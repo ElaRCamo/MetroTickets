@@ -146,7 +146,7 @@
 
 
     <!-- Modal RequestReview-->
-    <div class="modal fade" id="RequestReview" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal fade container-fluid" id="RequestReview" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
         <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
             <div class="modal-content">
                 <div class="modal-header">
@@ -174,7 +174,7 @@
                     <div class="row">
                         <h5 id="titleResumen">MATERIAL PARA MEDICIÓN</h5>
                         <div id="divTableSol">
-                            <table class="table" id="materialesSolicitud">
+                            <table class="table table-striped table-responsive" id="materialesSolicitud">
                                 <thead>
                                 <tr>
                                     <th>No. de Parte</th>
