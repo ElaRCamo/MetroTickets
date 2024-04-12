@@ -148,10 +148,13 @@ function ocultarContenido(clase,limiteCaracteres){
     });
 }
 
-function mostrarTextoEnlace(ID){
-    var archivoNormaSol = id(ID);
-    if (archivoNormaSol.getAttribute('href') === 'No aplica') {
-        archivoNormaSol.textContent = 'No aplica';
+function mostrarOpciones(TP){
+    var opcionNormaN = id('normaNombreSol');
+    var opcionNormaA = id('archivoNormaSol');
+
+    if (TP!==3 || TP !== 4 || TP !== 5 ) {
+        mostrarBloque(opcionNormaN, false);
+        mostrarBloque(opcionNormaA, false);
     }
 }
 

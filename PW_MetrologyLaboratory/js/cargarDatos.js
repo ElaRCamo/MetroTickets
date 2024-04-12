@@ -131,6 +131,7 @@ function resumenPrueba(id_prueba) {
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + id_prueba, function (response) {
         var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
+        let TP = data.id_tipoPrueba;
 
         // Actualizar el contenido de la ventana modal con los datos obtenidos
         $('#solicitudNumero').text(data.id_prueba);
@@ -169,10 +170,8 @@ function resumenPrueba(id_prueba) {
 
         // Mostrar la ventana modal con id RequestReview
         $('#RequestReview').modal('show');
+        mostrarOpciones(TP);
     });
-
-    mostrarTextoEnlace("archivoNormaSol");
-
 }
 
 function TablaPruebasSolicitante(id_solicitante) {
