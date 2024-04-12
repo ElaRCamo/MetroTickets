@@ -128,14 +128,13 @@ body{
 }
 
 .text-box h1{
-    font-size: 3.8em;
-    padding-bottom: 5%;
+    font-size: 3.7em;
+    padding-bottom: 1%;
     color: transparent;
-    -webkit-text-stroke: 2px #005195;
+    -webkit-text-stroke: 2px var(--color_white);
     background: url("../imgs/back.png") 0 0;
     -webkit-background-clip: text;
     animation: back 60s linear infinite;
-
 }
 
 @keyframes back{
@@ -215,4 +214,9 @@ body{
 .register-link {
     margin-top: 0;
     margin-bottom: 0;
+}
+#logoInicio{
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 1rem;
 }

@@ -2,6 +2,9 @@
     <div class="page-content">
         <div id="tittle">
             <div class="LAB">
+                <img id="logoInicio" src="../../imgs/Grammer_Logo.ico">
+            </div>
+            <div class="LAB">
                 <h1 class="">LABORATORIO DE</h1>
             </div>
             <div class="text-box">
