@@ -18,28 +18,28 @@
         <div class="row">
             <div id="divTablePrueba">
                 <h5 id="titleTablaP">DATOS GENERALES</h5>
-                <table class="table table-bordered table-hover table-sm table-responsive">
+                <table class="table table-bordered table-hover table-sm table-responsive" id="datosGeneralesTable">
                     <tbody>
                         <tr class="bg-primary">
-                            <th class="p-2 mb-2 bg-secondary text-white">No. de solicitud: </th>
+                            <th class="p-2 mb-2">No. de solicitud: </th>
                             <td id="numeroPruebaR"> </td>
-                            <th class="p-2 mb-2 bg-secondary text-white" > Fecha de Solicitud: </th>
+                            <th class="p-2 mb-2" > Fecha de Solicitud: </th>
                             <td id="fechaSolicitudR"> </td>
                         </tr>
                         <tr>
-                            <th class="p-2 mb-2 bg-secondary text-white">Tipo de Prueba: </th>
+                            <th class="p-2 mb-2">Tipo de Prueba: </th>
                             <td id="tipoPruebaSolicitudR" ></td>
-                            <th class="p-2 mb-2 bg-secondary text-white"> Solicitante:</th>
+                            <th class="p-2 mb-2"> Solicitante:</th>
                             <td id="solicitanteR"> </td>
                         </tr>
                         <tr>
-                            <th class="p-2 mb-2 bg-secondary text-white">Norma: </th>
+                            <th class="p-2 mb-2">Norma: </th>
                             <td id="normaNombreR"></td>
-                            <th class="p-2 mb-2 bg-secondary text-white">Documento de la norma: </th>
+                            <th class="p-2 mb-2">Documento de la norma: </th>
                             <td><a id="archivoNormaR" href="">Archivo pdf</a></td>
                         </tr>
                         <tr>
-                            <th class="p-2 mb-2 bg-secondary text-white">Observaciones del solicitante:</th>
+                            <th class="p-2 mb-2">Observaciones del solicitante:</th>
                             <td id="observacionesSolR" colspan="3"></td>
                         </tr>
 
@@ -61,26 +61,26 @@
             </div>
             <div id="divTablePrueba">
                 <h5 id="titleTablaP">RESULTADOS</h5>
-                <table class="table table-bordered table-hover table-sm table-responsive">
+                <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTable">
                     <tbody>
                     <tr>
-                        <th class="p-2 mb-2 bg-secondary text-white">Fecha de Respuesta:</th>
+                        <th class="p-2 mb-2 ">Fecha de Respuesta:</th>
                         <td id="fechaRespuestaR"></td>
-                        <th class="p-2 mb-2 bg-secondary text-white">Metrólogo:</th>
+                        <th class="p-2 mb-2 ">Metrólogo:</th>
                         <td id="metrologoR"> </td>
                     </tr>
                     <tr>
-                        <th class="p-2 mb-2 bg-secondary text-white">Estatus: </th>
+                        <th class="p-2 mb-2">Estatus: </th>
                         <td id="estatusSolicitudR" ></td>
-                        <th class="p-2 mb-2 bg-secondary text-white">Prioridad:</th>
+                        <th class="p-2 mb-2 ">Prioridad:</th>
                         <td id="prioridadR"> </td>
                     </tr>
                     <tr>
-                        <th class="p-2 mb-2 bg-secondary text-white">Observaciones del laboratorio:</th>
+                        <th class="p-2 mb-2">Observaciones del laboratorio:</th>
                         <td id="observacionesLabR" colspan="3"></td>
                     </tr>
                     <tr>
-                        <th class="p-2 mb-2 bg-secondary text-white">Resultados:</th>
+                        <th class="p-2 mb-2">Resultados:</th>
                         <td id="rutaResultadosR"  colspan="3"></td>
                     </tr>
                     </tbody>
