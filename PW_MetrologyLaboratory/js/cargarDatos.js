@@ -259,8 +259,6 @@ function resumenPrueba(ID_PRUEBA){
         $('#observacionesLabR').text(data.especificacionesLab);
         $('#rutaResultadosR').text(data.rutaResultados);
 
-        alert("fechaRespuesta: "+ data.fechaRespuesta);
-        console.log("fechaRespuesta: "+ data.fechaRespuesta);
 
         var tabla = document.getElementById("materialesResumen");
         var tbody = tabla.getElementsByTagName("tbody")[0];

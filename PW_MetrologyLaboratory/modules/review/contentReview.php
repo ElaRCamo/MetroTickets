@@ -16,9 +16,9 @@
 
     <div class="container-fluid" id="containerPruebaR" >
         <div class="row">
-            <div id="divTablePrueba">
-                <h5 id="titleTablaP">DATOS GENERALES</h5>
-                <table class="table table-bordered table-hover table-sm table-responsive" id="datosGeneralesTable">
+            <h5 id="titleTablaP">DATOS GENERALES</h5>
+            <div id="divTablePrueba" class="table-responsive">
+                <table class="table table-bordered table-hover table-sm e" id="datosGeneralesTable">
                     <tbody>
                         <tr class="bg-primary">
                             <th class="p-2 mb-2">No. de solicitud: </th>
@@ -46,9 +46,9 @@
                     </tbody>
                 </table>
             </div>
-            <div id="divTableResume">
+            <div id="divTableResume" class="table-responsive">
                 <h5 id="materialRTittle">MATERIAL PARA MEDICIÓN</h5>
-                <table class="table table-striped table-responsive" id="materialesResumen">
+                <table class="table table-striped" id="materialesResumen">
                     <thead>
                     <tr>
                         <th>No. de Parte</th>
@@ -59,7 +59,7 @@
                     <tbody></tbody>
                 </table>
             </div>
-            <div id="divTablePrueba">
+            <div id="divTablePrueba" class="table-responsive">
                 <h5 id="titleTablaP">RESULTADOS</h5>
                 <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTable">
                     <tbody>
