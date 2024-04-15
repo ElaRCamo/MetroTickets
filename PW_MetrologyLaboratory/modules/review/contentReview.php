@@ -21,25 +21,25 @@
                 <table class="table table-bordered table-hover table-sm">
                     <tbody>
                         <tr class="bg-primary">
-                            <th scope="row">No. de solicitud: </th>
+                            <th class="p-3 mb-2 bg-secondary text-white" scope="row">No. de solicitud: </th>
                             <td id="numeroPruebaR"> </td>
-                            <th scope="row"> Fecha de Solicitud: </th>
+                            <th class="p-3 mb-2 bg-secondary text-white" scope="row"> Fecha de Solicitud: </th>
                             <td id="fechaSolicitudR"> </td>
                         </tr>
                         <tr>
-                            <th scope="row">Tipo de Prueba: </th>
-                            <td id="tipoPruebaSolicitudR" class="bg-success"></td>
+                            <th class="p-3 mb-2 bg-secondary text-white" scope="row">Tipo de Prueba: </th>
+                            <td id="tipoPruebaSolicitudR" ></td>
                             <th scope="row"> Solicitante:</th>
                             <td id="solicitanteR"> </td>
                         </tr>
                         <tr>
-                            <th scope="row">Norma: </th>
-                            <td id="normaNombreR" class="bg-success"></td>
+                            <th class="p-3 mb-2 bg-secondary text-white" scope="row">Norma: </th>
+                            <td id="normaNombreR"></td>
                             <th scope="row">Documento de la norma: </th>
                             <td><a id="archivoNormaR" href="">Archivo pdf</a></td>
                         </tr>
                         <tr>
-                            <th scope="row" >Observaciones del solicitante:</th>
+                            <th class="p-3 mb-2 bg-secondary text-white" scope="row" >Observaciones del solicitante:</th>
                             <td id="observacionesSolR" colspan="3"></td>
                         </tr>
 
@@ -69,24 +69,24 @@
                 <table class="table table-bordered table-hover table-sm">
                     <tbody>
                     <tr>
-                        <th scope="row">Fecha de Respuesta:</th>
-                        <td id="fechaRespuestaR" class="bg-success"></td>
-                        <th scope="row">Metrólogo:</th>
+                        <th class="p-3 mb-2 bg-secondary text-white" scope="row">Fecha de Respuesta:</th>
+                        <td id="fechaRespuestaR" ></td>
+                        <th class="p-3 mb-2 bg-secondary text-white" scope="row">Metrólogo:</th>
                         <td id="metrologoR"> </td>
                     </tr>
                     <tr>
-                        <th "estatusSolicitudR" scope="row">Estatus: </th>
-                        <td class="bg-success"></td>
-                        <th scope="row">Prioridad:</th>
+                        <th class="p-3 mb-2 bg-secondary text-white" scope="row">Estatus: </th>
+                        <td id="estatusSolicitudR" ></td>
+                        <th class="p-3 mb-2 bg-secondary text-white" scope="row">Prioridad:</th>
                         <td id="prioridadR"> </td>
                     </tr>
                     <tr>
-                        <th id="observacionesLabR" scope="row" >Observaciones del laboratorio:</th>
-                        <td colspan="3"></td>
+                        <th class="p-3 mb-2 bg-secondary text-white" scope="row" >Observaciones del laboratorio:</th>
+                        <td id="observacionesLabR" colspan="3"></td>
                     </tr>
                     <tr>
-                        <th id="rutaResultadosR" scope="row">Resultados:</th>
-                        <td colspan="3"></td>
+                        <th class="p-3 mb-2 bg-secondary text-white" scope="row">Resultados:</th>
+                        <td id="rutaResultadosR"  colspan="3"></td>
                     </tr>
                     </tbody>
                 </table>
