@@ -190,6 +190,7 @@ function TablaPruebasSolicitante(id_solicitante) {
             var fila = document.createElement("tr");
 
             var id_pruebaL = document.createElement("td");
+            id_pruebaL.textContent = response.data[j].id_prueba;
             id_pruebaL.setAttribute("onclick", "resumenPrueba('" + id_pruebaL.textContent + "')");
             fila.appendChild(id_pruebaL);
 
