@@ -749,14 +749,6 @@ table tbody tr {
     background-color: var(--main-color);
     color:#fff;
     width: 25%;
-    white-space: nowrap; /* Evita que el texto se ajuste automáticamente */
-    overflow: hidden; /* Oculta el texto que excede el ancho máximo */
-    text-overflow: ellipsis; /* Muestra puntos suspensivos (...) para indicar texto cortado */
+    word-wrap: break-word; /* o overflow-wrap: break-word; */
 }
-#datosGeneralesTable td, #resultadosTable td{
-    color:var(--main-color);
-    width: 25%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+
