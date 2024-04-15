@@ -175,7 +175,7 @@
                     <div class="row">
                         <div id="divTableSol">
                             <h5 id="titleResumen">MATERIAL PARA MEDICIÓN</h5>
-                            <div id="divTableSol">
+                            <div id="divTableSol2">
                                 <table class="table table-striped table-responsive" id="materialesSolicitud">
                                     <thead>
                                     <tr>

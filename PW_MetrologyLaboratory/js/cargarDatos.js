@@ -283,8 +283,5 @@ function resumenPrueba(ID_PRUEBA){
 
             tbody.appendChild(fila);
         }
-        mostrarOpciones(TP);
-        ocultarContenido("obs",20);
     });
-    console.log("Resumen de la prueba con folio: " + ID_PRUEBA);
 }

@@ -696,7 +696,7 @@ table tbody tr {
 #containerPruebaR p,#containerPruebaR span{
     font-size: 1.2rem;
 }
-#materialRTittle, #titleResumen{
+#materialRTittle, #titleResumen, #titleTablaP{
     color:var(--gold_70);
     text-align: center;
     background-color: var(--main-color);
