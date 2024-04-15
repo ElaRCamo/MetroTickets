@@ -26,7 +26,7 @@
         }
         ?>
 </head>
-<body>
+<body >
 <?php
     # Header section
     require_once('../../header.php');
@@ -37,6 +37,17 @@
     # Content section
     require_once('../../footer.php')
     ?>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Obtener el valor de id_prueba de la URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var id_prueba = urlParams.get('id_prueba');
+
+        // Llamar a la función resumenPrueba con el id_prueba obtenido
+        if (id_prueba) {
+            resumenPrueba(id_prueba);
+    });
+</script>
 <script src="../../js/cargarDatos.js"></script>
 <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/general.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
