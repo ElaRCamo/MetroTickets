@@ -192,7 +192,9 @@ function TablaPruebasSolicitante(id_solicitante) {
             var id_pruebaL = document.createElement("td");
             id_pruebaL.textContent = response.data[j].id_prueba;
             id_pruebaL.setAttribute("onclick", "resumenPrueba('" + id_pruebaL.textContent + "')");
+            id_pruebaL.classList.add("idEnlace");
             fila.appendChild(id_pruebaL);
+
 
             var fechaSolicitudL = document.createElement("td");
             fechaSolicitudL.textContent = response.data[j].fechaSolicitud;

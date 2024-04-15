@@ -714,3 +714,11 @@ table tbody tr {
     background-color: #fff;
     color: var(--color_gold);
 }
+.idEnlace{
+    cursor: pointer;
+}
+.idEnlace hover{
+    text-decoration: underline;
+    color: var(--color_gold);
+    font-size: 1.2rem;
+}
