@@ -247,13 +247,13 @@ function resumenPrueba(ID_PRUEBA){
 
         $('#numeroPruebaR').text(data.id_prueba);
         $('#fechaSolicitudR').text(data.fechaSolicitud);
-        $('#fechaRespuestaR').text(data.fechaRespuestad);
+        $('#fechaRespuestaR').text(data.fechaRespuesta);
         $('#solicitanteR').text(data.nombreSolic);
         $('#metrologoR').text(data.nombreMetro);
         $('#tipoPruebaSolicitudR').text(data.descripcionPrueba);
         $('#observacionesSolR').text(data.especificaciones);
         $('#estatusSolicitudR').text(data.descripcionEstatus);
-        $('#prioridadR').text(data.descripcionEstatus);
+        $('#prioridadR').text(data.descripcionPrioridad);
         $('#normaNombreR').text(data.normaNombre);
         id("archivoNormaR").href = data.normaArchivo;
         $('#observacionesLabR').text(data.especificacionesLab);

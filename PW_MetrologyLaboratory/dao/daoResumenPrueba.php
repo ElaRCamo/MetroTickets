@@ -12,7 +12,8 @@ function resumenPrueba($id_prueba){
         "SELECT   prueba.id_prueba, 
                         prueba.fechaSolicitud, 
                         prueba.fechaRespuesta, 
-                        prueba.descripcionEstatus, 
+                        prueba.descripcionEstatus,
+                        prueba.descripcionPrioridad,
                         prueba.descripcionPrueba, 
                         prueba.especificaciones,
                         prueba.especificacionesLab,
@@ -40,7 +41,8 @@ function resumenPrueba($id_prueba){
                                 id_prueba, 
                                 fechaSolicitud, 
                                 fechaRespuesta,
-                                descripcionEstatus, 
+                                descripcionEstatus,
+                                descripcionPrioridad,
                                 descripcionPrueba,
                                 especificaciones,
                                 especificacionesLab,
@@ -57,6 +59,7 @@ function resumenPrueba($id_prueba){
                                 LEFT JOIN Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
                                 LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
                                 LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
+                                LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
                             WHERE 
                                 id_prueba = '$id_prueba'
                         ) AS prueba ON m.id_prueba = prueba.id_prueba;
