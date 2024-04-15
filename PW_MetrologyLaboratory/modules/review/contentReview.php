@@ -1,6 +1,6 @@
 <main>
     <div class="page-header row headerLogo">
-        <div class="col divTitle">
+        <div class="col divTitle" id="divResSol">
             <h1>Resumen de Solicitud </h1>
             <button type="button" class="btnPDF" onclick="descargarPDF()">Descargar solicitud en pdf</button>
         </div>

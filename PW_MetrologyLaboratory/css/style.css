@@ -650,7 +650,7 @@ table tbody tr {
     background-color: #fff;
     color: var(--main-color);
 }
-.btn-ver-mas, .btnPDF {
+.btn-ver-mas{
     border: none;
     background-color: var(--blue_20);
     border-radius: 0.25rem;
@@ -658,6 +658,18 @@ table tbody tr {
     padding: 0.1rem 0.5rem;
     text-decoration: none;
     cursor: pointer;
+}
+.btnPDF {
+    border: none;
+    background-color: transparent;
+    color: var(--blue_70);
+    text-decoration: none;
+    cursor: pointer;
+    max-width: 175px;
+}
+.btnPDF:hover{
+    color: var(--color_gold);
+    text-decoration: underline;
 }
 
 .hidden {
@@ -723,4 +735,7 @@ table tbody tr {
 }
 .thPrueba{
     background-image: var(--bs-gradient);.
+}
+#divResSol{
+    text-align: left;
 }
