@@ -16,8 +16,8 @@
 
     <div class="container-fluid" id="containerPruebaR" >
         <div class="row">
-            <h5 id="titleTablaP">DATOS GENERALES</h5>
             <div id="divTablePrueba" class="table-responsive">
+                <h5 id="titleTablaP">DATOS GENERALES</h5>
                 <table class="table table-bordered table-hover table-sm e" id="datosGeneralesTable">
                     <tbody>
                         <tr class="bg-primary">

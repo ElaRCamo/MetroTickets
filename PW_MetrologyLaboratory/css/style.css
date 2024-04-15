@@ -563,12 +563,18 @@ table tbody tr {
     table thead th {
         font-size: 0.7rem;
     }
+    #datosGeneralesTable th, #resultadosTable th{
+        font-size: 0.7rem;
+    }
     td{
         font-size: 0.7rem;
         text-align: center;
     }
     .search input{
         width: 120px;
+    }
+    h5{
+        font-size: 1.1rem;
     }
 }
 
@@ -746,5 +752,4 @@ table tbody tr {
     white-space: nowrap; /* Evita que el texto se ajuste automáticamente */
     overflow: hidden; /* Oculta el texto que excede el ancho máximo */
     text-overflow: ellipsis; /* Muestra puntos suspensivos (...) para indicar texto cortado */
-    font-size: 1rem;
 }
