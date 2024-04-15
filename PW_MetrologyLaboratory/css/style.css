@@ -746,4 +746,5 @@ table tbody tr {
     white-space: nowrap; /* Evita que el texto se ajuste automáticamente */
     overflow: hidden; /* Oculta el texto que excede el ancho máximo */
     text-overflow: ellipsis; /* Muestra puntos suspensivos (...) para indicar texto cortado */
+    font-size: 1rem;
 }
