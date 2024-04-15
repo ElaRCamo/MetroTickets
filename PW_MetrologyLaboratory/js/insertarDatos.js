@@ -146,9 +146,8 @@ async function registrarSolicitud() {
             })
                 .then(function (response) {
                     if (response.ok) { //respuesta
-                        alert('registrarSolicitud: prueba: ' +id_prueba+ 'user: ' + solicitante +' email: ' + emailUsuario);
                         enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario);
-                        resumenPrueba(id_prueba);
+                        resumenSolicitud(id_prueba);
                         //window.location.href = "../requests/requestsIndex.php";
                         //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 10000);
                     } else {

@@ -127,7 +127,7 @@ function descripcionMaterial(i){
     }
 }
 
-function resumenPrueba(id_prueba) {
+function resumenSolicitud(id_prueba) {
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + id_prueba, function (response) {
         var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
@@ -233,5 +233,6 @@ function TablaPruebasSolicitante(id_solicitante) {
 }
 
 function resumenPrueba(ID){
+
     console.log("Resumen de la prueba con folio: " + ID);
 }
