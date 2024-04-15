@@ -235,10 +235,9 @@ function TablaPruebasSolicitante(id_solicitante) {
 
 function resumenPrueba(ID_PRUEBA){
 
-
-
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + ID_PRUEBA, function (response) {
-        window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/index.php";
+
+        console.log("Resumen de la prueba con folio: " + ID);
 
         var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
         let TP = data.id_tipoPrueba;
@@ -281,11 +280,9 @@ function resumenPrueba(ID_PRUEBA){
 
             tbody.appendChild(fila);
         }
-
+        window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/index.php?id_prueba=" + ID_PRUEBA;
         mostrarOpciones(TP);
         ocultarContenido("obs",20);
     });
-
-
-    console.log("Resumen de la prueba con folio: " + ID);
+    console.log("Resumen de la prueba con folio: " + ID_PRUEBA);
 }
