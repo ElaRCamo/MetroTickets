@@ -27,11 +27,15 @@
             </div>
             <div class="col p-3">
                 <!--2 of 2-->
-                <p><strong>Norma:                  </strong><span id="normaNombreR"></span></p>
-                <p><strong>Documento de la norma:  </strong><span id="archivoNormaR"></span></p>
-                <p><strong>Observaciones:          </strong><span id="observacionesSolicitudR"></span></p>
-                <p><strong>Estatus de la solicitud:</strong><span id="estatusSolicitudR"></p>
-                <p><strong>Prioridad:              </strong><span id="prioridadR"></p><br>
+                <p><strong>Norma:                           </strong><span id="normaNombreR"></span></p>
+                <p><strong>Documento de la norma:           </strong><span id="archivoNormaR"></span></p>
+                <p><strong>Observaciones del solicitante:   </strong><span id="observacionesSolR"></span></p>
+                <p><strong>Estatus de la solicitud:         </strong><span id="estatusSolicitudR"></p>
+                <p><strong>Prioridad:                       </strong><span id="prioridadR"></p><br>
+            </div>
+            <div class="row">
+                <p><strong>Observaciones del laboratorio:  </strong><span id="observacionesLabR"></span></p>
+                <p><strong>Resultados:                     </strong><span id="rutaResultadosR"></span></p>
             </div>
             <div class="row">
                 <div id="divTableResume">

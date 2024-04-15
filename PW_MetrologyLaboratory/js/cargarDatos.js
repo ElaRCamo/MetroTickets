@@ -129,7 +129,7 @@ function descripcionMaterial(i){
 
 function resumenSolicitud(id_prueba) {
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + id_prueba, function (response) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSolicitudPrueba.php?id_prueba=' + id_prueba, function (response) {
         var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
         let TP = data.id_tipoPrueba;
 
@@ -234,7 +234,57 @@ function TablaPruebasSolicitante(id_solicitante) {
     });
 }
 
-function resumenPrueba(ID){
+function resumenPrueba(ID_PRUEBA){
+
+    window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/index.php";
+
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + ID_PRUEBA, function (response) {
+        var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
+        let TP = data.id_tipoPrueba;
+
+        $('#numeroPruebaR').text(data.id_prueba);
+        $('#fechaSolicitudR').text(data.fechaSolicitud);
+        $('#fechaRespuestaR').text(data.fechaRespuestad);
+        $('#solicitanteR').text(data.nombreSolic);
+        $('#metrologoR').text(data.nombreMetro);
+        $('#tipoPruebaSolicitudR').text(data.descripcionPrueba);
+        $('#observacionesSolR').text(data.especificaciones);
+        $('#estatusSolicitudR').text(data.descripcionEstatus);
+        $('#prioridadR').text(data.descripcionEstatus);
+        $('#normaNombreR').text(data.normaNombre);
+        id("archivoNormaR").href = data.normaArchivo;
+        $('#observacionesLabR').text(data.especificacionesLab);
+        $('#rutaResultadosR').text(data.rutaResultados);
+
+        var tabla = document.getElementById("materialesResumen");
+        var tbody = tabla.getElementsByTagName("tbody")[0];
+
+        // Limpiar contenido previo de la tabla
+        tbody.innerHTML = '';
+
+        // Iterar sobre los materiales y crear filas y celdas de tabla
+        for (var j = 0; j < response.data.length; j++) {
+            var fila = document.createElement("tr");
+
+            var numeroDeParteT = document.createElement("td");
+            numeroDeParteT.textContent = response.data[j].numeroDeParte;
+            fila.appendChild(numeroDeParteT);
+
+            var descMaterialesT = document.createElement("td");
+            descMaterialesT.textContent = response.data[j].descripcionMaterial;
+            fila.appendChild(descMaterialesT);
+
+            var cdadMaterialesT = document.createElement("td");
+            cdadMaterialesT.textContent = response.data[j].cantidad;
+            fila.appendChild(cdadMaterialesT);
+
+            tbody.appendChild(fila);
+        }
+
+        mostrarOpciones(TP);
+        ocultarContenido("obs",20);
+    });
+
 
     console.log("Resumen de la prueba con folio: " + ID);
 }

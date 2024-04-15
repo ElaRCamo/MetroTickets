@@ -719,6 +719,5 @@ table tbody tr {
 }
 .idEnlace:hover{
     text-decoration: underline;
-    color: var(--color_gold);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
