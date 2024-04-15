@@ -28,7 +28,7 @@
             <div class="col p-3">
                 <!--2 of 2-->
                 <p><strong>Norma:                           </strong><span id="normaNombreR"></span></p>
-                <p><strong>Documento de la norma:           </strong><span id="archivoNormaR"></span></p>
+                <p class="resumenHidden"><strong>Documento de la norma:  </strong><span ><a id="archivoNormaR" href="">Archivo pdf</a></span></p><br>
                 <p><strong>Observaciones del solicitante:   </strong><span id="observacionesSolR"></span></p>
                 <p><strong>Estatus de la solicitud:         </strong><span id="estatusSolicitudR"></p>
                 <p><strong>Prioridad:                       </strong><span id="prioridadR"></p><br>
