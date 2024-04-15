@@ -662,7 +662,7 @@ table tbody tr {
 .btnPDF {
     border: none;
     background-color: transparent;
-    color: var(--blue_70);
+    color: var(--main-color);
     text-decoration: none;
     cursor: pointer;
     max-width: 175px;
