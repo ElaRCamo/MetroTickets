@@ -1,7 +1,7 @@
 <main>
     <div class="page-header row headerLogo">
         <div class="col divTitle">
-            <h1>Resumen de Solicitud ____ID_PRUEBA___</h1>
+            <h1>Resumen de Solicitud </h1>
             <button type="button" class="btn btn-secondary" onclick="descargarPDF()">Descargar solicitud en pdf</button>
         </div>
         <div class="logoRight col-sm-3">
