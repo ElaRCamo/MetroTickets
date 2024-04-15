@@ -198,6 +198,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="redirectToRequestsIndex()">Close</button>
+                    <button type="button" class="btn btn-secondary" onclick="descargarPDF()">Descargar solicitud en pdf</button>
                 </div>
             </div>
         </div>

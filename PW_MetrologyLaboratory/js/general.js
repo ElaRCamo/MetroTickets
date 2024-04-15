@@ -161,6 +161,10 @@ function mostrarOpciones(TP){
     }
 }
 
+function descargarPDF(){
+    console.log("PDF descargado exitosamente");
+}
+
 
 
 

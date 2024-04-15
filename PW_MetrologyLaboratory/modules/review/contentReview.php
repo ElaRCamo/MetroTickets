@@ -1,8 +1,8 @@
 <main>
     <div class="page-header row headerLogo">
         <div class="col divTitle">
-            <h1>Resumen de Solicitud 2024-00223</h1>
-            <!--<small>Descargar resumen en pdf</small>-->
+            <h1>Resumen de Solicitud ____ID_PRUEBA___</h1>
+            <button type="button" class="btn btn-secondary" onclick="descargarPDF()">Descargar solicitud en pdf</button>
         </div>
         <div class="logoRight col-sm-3">
             <div>

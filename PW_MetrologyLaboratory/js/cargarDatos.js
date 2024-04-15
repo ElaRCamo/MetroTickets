@@ -190,10 +190,12 @@ function TablaPruebasSolicitante(id_solicitante) {
             var fila = document.createElement("tr");
 
             var id_pruebaL = document.createElement("td");
-            var enlacePrueba = document.createElement("a");// Crear el enlace <a>
-            enlacePrueba.href = "../review/index.php"; // Asignar la URL al atributo href del enlace
-            enlacePrueba.textContent = response.data[j].id_prueba; // Contenido del enlace
-            id_pruebaL.appendChild(enlacePrueba);// Agregar el enlace al td
+            id_pruebaL.textContent = response.data[j].id_prueba;
+
+            id_pruebaL.addEventListener("click", function() {
+                var idP = id_pruebaL.textContent;
+                resumenPrueba(idP);
+            });
 
             fila.appendChild(id_pruebaL);
 
@@ -233,4 +235,8 @@ function TablaPruebasSolicitante(id_solicitante) {
         }
         ocultarContenido("textVerMas",40);
     });
+}
+
+function resumenPrueba(ID){
+    console.log("Resumen de la prueba con folio: " + ID);
 }
