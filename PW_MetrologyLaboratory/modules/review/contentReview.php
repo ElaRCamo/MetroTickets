@@ -18,7 +18,7 @@
         <div class="row">
             <div id="divTablePrueba">
                 <h5 id="titleTablaP">DATOS GENERALES</h5>
-                <table class="table table-bordered table-hover table-sm">
+                <table class="table table-bordered table-hover table-sm table-responsive">
                     <tbody>
                         <tr class="bg-primary">
                             <th class="p-2 mb-2 bg-secondary text-white">No. de solicitud: </th>
@@ -61,7 +61,7 @@
             </div>
             <div id="divTablePrueba">
                 <h5 id="titleTablaP">RESULTADOS</h5>
-                <table class="table table-bordered table-hover table-sm">
+                <table class="table table-bordered table-hover table-sm table-responsive">
                     <tbody>
                     <tr>
                         <th class="p-2 mb-2 bg-secondary text-white">Fecha de Respuesta:</th>
