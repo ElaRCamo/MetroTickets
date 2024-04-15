@@ -34,7 +34,7 @@
         }
     ?>
 </head>
-<body>
+<body onload="llenarEvaluacion()">
     <?php
         # Header section
             require_once('../../header.php');
