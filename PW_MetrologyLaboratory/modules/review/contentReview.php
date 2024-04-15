@@ -39,7 +39,7 @@
                             <td><a id="archivoNormaR" href="">Archivo pdf</a></td>
                         </tr>
                         <tr>
-                            <th class="p-2 mb-2">Observaciones del solicitante:</th>
+                            <th class="p-2 mb-2">Especifícaciones: </th>
                             <td id="observacionesSolR" colspan="3"></td>
                         </tr>
 
@@ -76,7 +76,7 @@
                         <td id="prioridadR"> </td>
                     </tr>
                     <tr>
-                        <th class="p-2 mb-2">Observaciones del laboratorio:</th>
+                        <th class="p-2 mb-2">Observaciones:</th>
                         <td id="observacionesLabR" colspan="3"></td>
                     </tr>
                     <tr>

@@ -742,7 +742,7 @@ table tbody tr {
 #datosGeneralesTable th, #resultadosTable th{
     background-color: var(--main-color);
     color:#fff;
-    max-width: 100px; /* Ajusta este valor según tu preferencia */
+    max-width: 30vh; /* Ajusta este valor según tu preferencia */
     white-space: nowrap; /* Evita que el texto se ajuste automáticamente */
     overflow: hidden; /* Oculta el texto que excede el ancho máximo */
     text-overflow: ellipsis; /* Muestra puntos suspensivos (...) para indicar texto cortado */
