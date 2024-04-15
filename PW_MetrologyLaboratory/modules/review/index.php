@@ -46,7 +46,8 @@
         // Llamar a la función resumenPrueba con el id_prueba obtenido
         if (id_prueba) {
             resumenPrueba(id_prueba);
-    })
+        }
+    });
 </script>
 <script src="../../js/cargarDatos.js"></script>
 <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/general.js"></script>
