@@ -717,7 +717,7 @@ table tbody tr {
 .idEnlace{
     cursor: pointer;
 }
-.idEnlace hover{
+.idEnlace:hover{
     text-decoration: underline;
     color: var(--color_gold);
     font-size: 1.2rem;
