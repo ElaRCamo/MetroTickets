@@ -18,7 +18,7 @@
         <div class="row">
             <div id="divTablePrueba" class="table-responsive">
                 <h5 id="titleTablaP">DATOS GENERALES</h5>
-                <table class="table table-bordered table-hover table-sm e" id="datosGeneralesTable">
+                <table class="table table-bordered table-hover table-sm  table-responsive" id="datosGeneralesTable">
                     <tbody>
                         <tr class="bg-primary">
                             <th class="p-2 mb-2">No. de solicitud: </th>
@@ -42,7 +42,6 @@
                             <th class="p-2 mb-2">Especifícaciones: </th>
                             <td id="observacionesSolR" colspan="3"></td>
                         </tr>
-
                     </tbody>
                 </table>
             </div>
@@ -86,7 +85,6 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 </main>
