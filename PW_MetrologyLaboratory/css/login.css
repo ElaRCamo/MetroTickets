@@ -16,8 +16,8 @@ body{
     align-items: center;
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
+    background: url('../imgs/background.png') fixed center;
     background-size: cover;
-    background: url('../imgs/grammer_background4.png') fixed center;
 }
 /*contenedor del form*/
 .wrapper{
