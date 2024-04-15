@@ -650,7 +650,7 @@ table tbody tr {
     background-color: #fff;
     color: var(--main-color);
 }
-.btn-ver-mas {
+.btn-ver-mas, .btnPDF {
     border: none;
     background-color: var(--blue_20);
     border-radius: 0.25rem;
