@@ -1,4 +1,3 @@
-llenarEvaluacion();
 function llenarEvaluacion(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoEvaluacion.php', function (data){
         var selectS = id("tipoEvaluacion");
