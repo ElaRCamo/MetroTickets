@@ -45,6 +45,7 @@
 
         // Llamar a la función resumenPrueba con el id_prueba obtenido
         if (id_prueba) {
+            alert("id:"+id_prueba);
             resumenPrueba(id_prueba);
         }
     });
