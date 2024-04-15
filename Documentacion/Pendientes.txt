@@ -53,6 +53,9 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 ✓   24. Cerrar sesion para administrador/metrologo no funciona(11/04/2024)
 ✓   25. Agregar en el header el nombre del usuario(11/04/2024)
 ✓   25.1 Agregar foto del usuario(11/04/2024)
+✓   26 Agregar logo de Grammer al inicio de sesión(12/04/2024)
+✓   27 Desarrollar historia de usuario de resumen de prueba
+    27.1 Front: html y css(12/04/2024)
 
       
 
@@ -70,6 +73,9 @@ Reunion 02/04/2024
      Observaciones
      Estatus la solicitud
      Prioridades
+Agregar apartado de observaciones para admin
+apartado de la ruta de reusltados
+resumen a pdf
 
 
 
