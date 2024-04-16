@@ -45,7 +45,7 @@
     document.addEventListener("DOMContentLoaded", function() {
         // Obtener el valor de id_prueba de la URL
         var urlParams = new URLSearchParams(window.location.search);
-        var id_prueba = urlParams.get('id_prueba');
+        let id_prueba = urlParams.get('id_prueba');
 
         // Llamar a la función resumenPrueba con el id_prueba obtenido
         if (id_prueba) {
