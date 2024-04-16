@@ -1,8 +1,3 @@
-<?php
-ob_start();
-
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -71,23 +66,3 @@ ob_start();
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
 </html>
-<?php
-$html=ob_get_clean();
-//echo $html;
-
-require_once '../../librerias/dompdf/autoload.inc.php';
-use Dompdf\Dompdf;
-$dompdf = new Dompdf();
-
-$options = $dompdf -> getOptions();
-$options->set(array('isRemoteEnabled' => true));
-$dompdf->setOptions($options);
-
-$dompdf->loadHtml("Reporte de Solicitud");
-
-$dompdf->setPaper('letter');
-
-$dompdf->render();
-
-$dompdf->stream("reporte_solicitud.pdf", array("Attachment" => false));
-?>
