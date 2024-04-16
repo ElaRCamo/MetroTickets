@@ -109,9 +109,9 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
         <div class="col divTitle" id="divResSol">
             <h1>Resumen de Solicitud <?php echo $resultados[0]['id_prueba'];?></h1>
         </div>
-        <div class="logoRight col-sm-3">
+        <div class="logoRight col-sm-3" style="float: right;">
             <div>
-                <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/logoGrammer.png"><br>
+                <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/logoGrammer.png" style="width: 100px; height: 100px"><br>
             </div>
             <div>
                 <span><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></span>
