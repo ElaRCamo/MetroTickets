@@ -10,7 +10,7 @@
     color: #005195;
 }
 body{
-    background-color: pink;
+    background-color: #f1f4f9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +34,7 @@ a:link, a:visited, a:active {
 }
 
 .page-header h1 {
-    color: #005195;
+    color: red;
 }
 .headerLogo{
     display: flex;
@@ -103,7 +103,6 @@ table tbody tr {
     color:#B4AA9B;
     text-align: center;
     background-color: #005195;
-    padding: 0.5%;
 }
 #materialesResumenPDF thead th{
     font-size: 0.9rem;
