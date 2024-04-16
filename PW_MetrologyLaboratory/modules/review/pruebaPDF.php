@@ -1,5 +1,15 @@
 
 <?php
+namespace resumenPrueba;
+session_start();
+$nombreUser = $_SESSION['nombreUsuario'];
+$tipoUser = $_SESSION['tipoUsuario'];
+$idUsuario = $_SESSION['nomina'];
+$fotoUsuario = $_SESSION['fotoUsuario'];
+if ($tipoUser == null){
+    header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
+}
+
 ob_start();
 
 ?>
@@ -24,27 +34,100 @@ ob_start();
     <!-- -Archivos de jQuery-->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener el valor de id_prueba de la URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var id_prueba = urlParams.get('id_prueba');
 
-    <?php
-    session_start();
-    $nombreUser = $_SESSION['nombreUsuario'];
-    $tipoUser = $_SESSION['tipoUsuario'];
-    $idUsuario = $_SESSION['nomina'];
-    $fotoUsuario = $_SESSION['fotoUsuario'];
-    if ($tipoUser == null){
-        header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
-    }
-    ?>
+            if (id_prueba) {
+                resumenPrueba(id_prueba);
+
+                var titulo = document.querySelector("h1");
+                if (titulo) {
+                    titulo.textContent = "Resumen de Solicitud " + id_prueba;
+                }
+            }
+        });
+    </script>
 </head>
 <body >
+<?php
+include_once('../../dao/connection.php');
+$id_prueba = $_GET['id_prueba'];
+resumenPrueba($id_prueba);
+
+function resumenPrueba($id_prueba){
+$con = new LocalConector();
+$conex = $con->conectar();
+
+$datosPrueba =  mysqli_query($conex,
+    "SELECT   prueba.id_prueba, 
+                        prueba.fechaSolicitud, 
+                        prueba.fechaRespuesta, 
+                        prueba.descripcionEstatus,
+                        prueba.descripcionPrioridad,
+                        prueba.descripcionPrueba, 
+                        prueba.especificaciones,
+                        prueba.especificacionesLab,
+                        prueba.normaNombre,
+                        prueba.normaArchivo,
+                        prueba.rutaResultados,
+                        prueba.id_metrologo, 
+                        prueba.nombreMetro,  
+                        prueba.id_solicitante, 
+                        prueba.nombreSolic,
+                        dm.numeroDeParte, 
+                        m.cantidad, 
+                        dm.descripcionMaterial, 
+                        dm.imgMaterial, 
+                        c.descripcionCliente, 
+                        p.descripcionPlataforma
+                    FROM   
+                        Material m
+                        JOIN DescripcionMaterial dm ON m.id_descripcion = dm.id_descripcion
+                        JOIN Plataforma p ON dm.id_plataforma = p.id_plataforma
+                        JOIN Cliente c ON p.id_cliente = c.id_cliente
+                        JOIN EstatusMaterial em ON m.id_estatusMaterial = em.id_estatusMaterial
+                        JOIN (
+                            SELECT 
+                                id_prueba, 
+                                fechaSolicitud, 
+                                fechaRespuesta,
+                                descripcionEstatus,
+                                descripcionPrioridad,
+                                descripcionPrueba,
+                                especificaciones,
+                                especificacionesLab,
+                                normaNombre,
+                                normaArchivo,
+                                rutaResultados,
+                                s.id_metrologo, 
+                                u_metro.nombreUsuario AS nombreMetro,
+                                s.id_solicitante, 
+                                u_solic.nombreUsuario AS nombreSolic
+                            FROM 
+                                Prueba s
+                                LEFT JOIN Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
+                                LEFT JOIN Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
+                                LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
+                                LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
+                                LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
+                            WHERE 
+                                id_prueba = '$id_prueba'
+                        ) AS prueba ON m.id_prueba = prueba.id_prueba;
+");
+$resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
+
+?>
 <main>
     <div class="page-header row headerLogo">
         <div class="col divTitle" id="divResSol">
-            <h1>Resumen de Solicitud </h1>
+            <h1>Resumen de Solicitud <?php echo $id_prueba;?></h1>
         </div>
         <div class="logoRight col-sm-3">
             <div>
-                <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="https://<?php echo $_SERVER['HTTP_HOST'];?>/arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\imgs\logoGrammer.png"><br>
+                <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="https://<?php echo $_SERVER['HTTP_HOST'];?>/arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/logoGrammer.png"><br>
             </div>
             <div>
                 <span><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></span>
@@ -60,7 +143,7 @@ ob_start();
                     <tbody>
                     <tr class="bg-primary">
                         <th class="p-2 mb-2">No. de solicitud: </th>
-                        <td id="numeroPruebaR"> </td>
+                        <td id="numeroPruebaR"> <?php echo $id_prueba;?> </td>
                         <th class="p-2 mb-2" > Fecha de Solicitud: </th>
                         <td id="fechaSolicitudR"> </td>
                     </tr>
@@ -126,30 +209,6 @@ ob_start();
         </div>
     </div>
 </main>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Obtener el valor de id_prueba de la URL
-        var urlParams = new URLSearchParams(window.location.search);
-        var id_prueba = urlParams.get('id_prueba');
-        alert("id que llega:"+ id_prueba+ " id_review:" + id_review);
-
-        // Llamar a la función resumenPrueba con el id_prueba obtenido
-        if (id_review) {
-            resumenPrueba(id_review);
-
-            var titulo = document.querySelector("h1");
-            if (titulo) {
-                titulo.textContent = "Resumen de Solicitud " + id_review;
-            }
-        }
-    });
-</script>
-<script src="../../js/cargarDatos.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/general.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
 </html>
 <?php
