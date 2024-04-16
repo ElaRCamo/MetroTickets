@@ -16,7 +16,6 @@ parse_str($url_parts['query'], $query_params);// Obtener los parámetros de cons
 $id_prueba = $query_params['id_prueba'];// Extraer el ID de la prueba
 
 ob_start();
-
 ?>
 
 <!doctype html>
@@ -42,7 +41,6 @@ ob_start();
 </head>
 <body >
 <?php
-
 include_once('../../dao/connection.php');
 $con = new LocalConector();
 $conex = $con->conectar();
@@ -224,5 +222,11 @@ $dompdf->setPaper('letter');
 
 $dompdf->render();
 
+$f = null;
+$l = null;
+if(headers_sent($f,$l)){
+    echo $f,'<br/>',$l,'<br/>';
+    die('se detecto linea');
+}
 $dompdf->stream("reporte_solicitud.pdf", array("Attachment" => false));
 ?>
