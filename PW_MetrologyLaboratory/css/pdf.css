@@ -113,12 +113,13 @@ table tbody tr {
     background-color: transparent;
     padding-left: 25px;
     padding-right: 25px;
+    padding-top: 10px;
 }
 .footer_section{
     color: #005195;
     font-weight: bold;
     padding: 1%;
-    margin-top: auto;
+    margin-bottom: auto;
     bottom:0;
 }
 h5{
