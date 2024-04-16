@@ -242,5 +242,5 @@ if(headers_sent($f,$l)){
     echo $f,'<br/>',$l,'<br/>';
     die('se detecto linea');
 }*/
-$dompdf->stream("LM-Prueba_.$id_prueba.pdf", array("Attachment" => false));
+$dompdf->stream("LM-Prueba_$id_prueba.pdf", array("Attachment" => false));
 ?>
