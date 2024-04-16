@@ -31,7 +31,7 @@ a:link, a:visited, a:active {
 }
 
 .page-header h1 {
-    color: orange;
+    color: dodgerblue;
 }
 .headerLogo{
     display: flex;
@@ -63,7 +63,7 @@ td{
 }
 th{
     font-size: 0.9rem;
-    padding: 3%;
+    padding: 1%;
 }
 
 table tbody tr {
