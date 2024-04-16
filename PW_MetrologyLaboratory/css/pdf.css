@@ -59,9 +59,11 @@ table tbody td {
 td{
     font-size: 0.9rem;
     text-align: center;
+    padding: 1%;
 }
 th{
     font-size: 0.9rem;
+    padding: 3%;
 }
 
 table tbody tr {
@@ -89,7 +91,7 @@ table tbody tr {
     bottom:0;
 }
 #containerPruebaPDF{
-    padding: 2% 5%;
+    padding: 3% 5%;
 }
 #divRespdf{
     text-align: left;
