@@ -32,7 +32,7 @@ a:link, a:visited, a:active {
 }
 
 .page-header h1 {
-    color: red;
+    color: pink;
 }
 .headerLogo{
     display: flex;
@@ -111,4 +111,7 @@ table tbody tr {
     color:#fff;
     width: 25%;
     word-wrap: break-word;
+}
+#tableTitle{
+    background-color: transparent;
 }

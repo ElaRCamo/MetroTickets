@@ -100,14 +100,22 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
 ?>
 <main>
     <div class="page-header row headerLogo">
-        <div class="col divTitle" id="divRespdf">
-            <small>LABORATORIO DE METROLOGÍA</small><BR>
-            <h1>Resumen de Solicitud <?php echo $resultados[0]['id_prueba'];?></h1>
-        </div>
-        <div class="col">
-            <img class="logoGrammer2-img logoR" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/Grammer_Logo2.png"><br>
-            <small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small>
-        </div>
+        <table id="tableTitle">
+            <tr class="">
+                <th class="">
+                    <div class="col divTitle" id="divRespdf">
+                        <h6>LABORATORIO DE METROLOGÍA</h6><BR>
+                        <h1>Resumen de Solicitud <?php echo $resultados[0]['id_prueba'];?></h1>
+                    </div>
+                </th>
+                <td>
+                    <div class="col">
+                        <img class="logoGrammer2-img logoR" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/Grammer_Logo2.png"><br>
+                        <small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
 
     <div class="container-fluid" id="containerPruebaPDF" >
