@@ -107,7 +107,9 @@ table tbody tr {
     color:#fff;
     width: 25%;
     word-wrap: break-word;
+    padding-left: 1rem;
 }
 #tableTitle{
     background-color: transparent;
+    margin-left: 50px;
 }
