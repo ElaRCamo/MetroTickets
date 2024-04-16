@@ -1,11 +1,19 @@
 
 <?php
+header_remove();
 session_start();
-$nombreUser = $_SESSION['nombreUsuario'];
-$tipoUser = $_SESSION['tipoUsuario'];
-if ($tipoUser == null){
+
+if (!isset($_SESSION['tipoUsuario'])){
     header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
+}else{
+    if($_SESSION['tipoUsuario']=="ok"){
+        $nombreUser = $_SESSION['nombreUsuario'];
+    }
 }
+$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$url_parts = parse_url($actual_link);// Obtener las partes de la URL
+parse_str($url_parts['query'], $query_params);// Obtener los parámetros de consulta
+$id_prueba = $query_params['id_prueba'];// Extraer el ID de la prueba
 
 ob_start();
 
@@ -34,12 +42,6 @@ ob_start();
 </head>
 <body >
 <?php
-
-$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-$url_parts = parse_url($actual_link);// Obtener las partes de la URL
-parse_str($url_parts['query'], $query_params);// Obtener los parámetros de consulta
-$id_prueba = $query_params['id_prueba'];// Extraer el ID de la prueba
-
 
 include_once('../../dao/connection.php');
 $con = new LocalConector();
