@@ -25,22 +25,16 @@ ob_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="../../imgs/Grammer_Logo.ico" type="image/x-icon">
     <title>Consultar una prueba</title>
-
-    <!--Enlace de iconos: icons8, licencia con mención -->
-    <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
-    <!--Fuente -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!--Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/style.css">
-    <!-- -Archivos de jQuery-->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body >
 <?php
+$css=file_get_contents("../../css/style.css");
 include_once('../../dao/connection.php');
 $con = new LocalConector();
 $conex = $con->conectar();
@@ -111,7 +105,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
         </div>
         <div class="logoRight col-sm-3" style="float: right;">
             <div>
-                <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/logoGrammer.png" style="width: 100px; height: 100px"><br>
+                <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/Grammer_Logo2.png" style="width: 100px; height: 100px"><br>
             </div>
             <div>
                 <span><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></span>
@@ -212,6 +206,9 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
 <?php
 $html=ob_get_clean();
 //echo $html;
+
+// Incorpora los estilos CSS al HTML
+$html = "<style>" . $css . "</style>" . $html;
 
 require_once '../../librerias/dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
