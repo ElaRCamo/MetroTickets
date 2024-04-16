@@ -205,9 +205,9 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
     <div class="container-fluid">
         <div class="row" >
             <div class="col-sm-4 text-center">
-                <strong><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></strong>
                 <small> Laboratorio de Metrología </small><br>
                 <small> laboratoriometrologia@arketipo.com.mx </small>
+                <strong><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></strong><br>
             </div>
         </div>
     </div>
