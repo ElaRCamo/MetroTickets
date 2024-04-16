@@ -9,7 +9,6 @@
     color: #005195;
 }
 body{
-    background-color: #f1f4f9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,6 +30,9 @@ a:link, a:visited, a:active {
 }
 
 .page-header h1 {
+    color: #005195;
+}
+h6, #divRespdf small{
     color: #B4AA9B;
 }
 .headerLogo{
@@ -96,12 +98,17 @@ table tbody tr {
 #materialesResumenPDF thead th{
     font-size: 0.9rem;
 }
-#datosGeneralesTablePDF th, #resultadosTablePDF th{
+#datosGeneralesTablePDF th, #resultadosTablePDF th, materialPDF th{
     background-color: #005195;
     color:#fff;
     width: 25%;
     word-wrap: break-word;
     padding-left: 1rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.3rem;
+}
+#datosGeneralesTablePDF td, #resultadosTablePDF td, materialPDF td{
+    word-wrap: break-word;
     padding-bottom: 0.5rem;
     padding-top: 0.3rem;
 }

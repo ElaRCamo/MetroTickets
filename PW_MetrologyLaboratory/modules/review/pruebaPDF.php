@@ -113,7 +113,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                 <td>
                     <div class="col">
                         <img class="logoGrammer2-img logoR" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/Grammer_Logo2.png"><br>
-                        <small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small>
+                        <strong><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></strong>
                     </div>
                 </td>
             </tr>
