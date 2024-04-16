@@ -24,14 +24,14 @@ a:link, a:visited, a:active {
 }
 
 .page-header {
-    padding: 1.3rem 1rem;
+    padding: 1.3rem 1.3rem;
     background: #E9edf2;
     border-bottom: 1px solid #dee2e8;
     margin:0;
 }
 
 .page-header h1 {
-    color: greenyellow;
+    color: orange;
 }
 .headerLogo{
     display: flex;
@@ -47,14 +47,12 @@ table thead tr {
 }
 
 table thead th {
-    padding: 1rem 0.3rem;
     text-align: center;
     color:#005195;
     font-size: .9rem;
 }
 
 table tbody td {
-    padding: 1rem 0.3rem;
     color: #444;
 }
 
@@ -103,7 +101,6 @@ table tbody tr {
 }
 #materialesResumenPDF thead th{
     font-size: 0.9rem;
-    padding: 1rem 1rem;
 }
 #datosGeneralesTablePDF th, #resultadosTablePDF th{
     background-color: #005195;
