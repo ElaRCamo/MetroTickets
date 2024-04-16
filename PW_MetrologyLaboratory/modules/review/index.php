@@ -73,5 +73,21 @@ ob_start();
 </html>
 <?php
 $html=ob_get_clean();
-echo $html;
+//echo $html;
+
+require_once '../../librerias/dompdf/autoload.inc.php';
+use Dompdf\Dompdf;
+$dompdf = new Dompdf();
+
+$options = $dompdf -> getOptions();
+$options->set(array('isRemoteEnabled' => true));
+$dompdf->setOptions($options);
+
+$dompdf->loadHtml("Reporte de Solicitud");
+
+$dompdf->setPaper('letter');
+
+$dompdf->render();
+
+$dompdf->stream("reporte_solicitud.pdf", array("Attachment" => false));
 ?>
