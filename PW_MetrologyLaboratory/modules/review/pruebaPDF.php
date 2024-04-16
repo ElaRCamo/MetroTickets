@@ -24,7 +24,7 @@ ob_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="../../imgs/Grammer_Logo.ico" type="image/x-icon">
-    <title>Consultar una prueba</title>
+    <title>Prueba <?php echo $id_prueba?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -235,12 +235,12 @@ $dompdf->loadHtml($html);
 $dompdf->setPaper('letter');
 
 $dompdf->render();
-
+/*
 $f = null;
 $l = null;
 if(headers_sent($f,$l)){
     echo $f,'<br/>',$l,'<br/>';
     die('se detecto linea');
-}
-$dompdf->stream("reporte_solicitud.pdf", array("Attachment" => false));
+}*/
+$dompdf->stream("LM-Prueba_.$id_prueba.pdf", array("Attachment" => false));
 ?>

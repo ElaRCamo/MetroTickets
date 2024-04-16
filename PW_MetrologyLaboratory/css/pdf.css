@@ -23,16 +23,16 @@ a:link, a:visited, a:active {
 }
 
 .page-header {
-    padding: 1.3rem 1.3rem;
+    padding: 1.3rem 0.3rem;
     background: #E9edf2;
     border-bottom: 1px solid #dee2e8;
     margin:0;
 }
 
-.page-header h1 {
+.page-header h1, h6 {
     color: #005195;
 }
-h6, #divRespdf small{
+ #divRespdf small{
     color: #B4AA9B;
 }
 .headerLogo{
@@ -47,17 +47,14 @@ table {
 table thead tr {
     background: #E5EEF7;
 }
-
 table thead th {
     text-align: center;
     color:#005195;
     font-size: .9rem;
 }
-
 table tbody td {
     color: #444;
 }
-
 td{
     font-size: 0.9rem;
     text-align: center;
