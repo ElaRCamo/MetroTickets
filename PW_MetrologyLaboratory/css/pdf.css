@@ -23,7 +23,7 @@ a:link, a:visited, a:active {
 }
 
 .page-header {
-    padding: 1.3rem 0.3rem;
+    padding: 0.5rem 1.3rem;
     background: #E9edf2;
     border-bottom: 1px solid #dee2e8;
     margin:0;
