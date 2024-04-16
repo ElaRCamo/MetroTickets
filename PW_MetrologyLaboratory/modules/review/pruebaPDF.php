@@ -163,7 +163,7 @@ $options = $dompdf -> getOptions();
 $options->set(array('isRemoteEnabled' => true));
 $dompdf->setOptions($options);
 
-$dompdf->loadHtml($html);
+$dompdf->loadHtml("Resumen");
 
 $dompdf->setPaper('letter');
 
