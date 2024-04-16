@@ -244,7 +244,7 @@ function resumenPrueba(ID_PRUEBA){
        //codigo para actualizar campos
         var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
         let TP = data.id_tipoPrueba;
-
+        id_review = data.id_prueba;
         $('#numeroPruebaR').text(data.id_prueba);
         $('#fechaSolicitudR').text(data.fechaSolicitud);
         $('#fechaRespuestaR').text(data.fechaRespuesta);
@@ -284,6 +284,7 @@ function resumenPrueba(ID_PRUEBA){
 
             tbody.appendChild(fila);
         }
+
     });
 }
 
