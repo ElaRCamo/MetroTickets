@@ -206,7 +206,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
 
 <?php
 $html=ob_get_clean();
-echo $html;
+//echo $html;
 
 require_once '../../librerias/dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
