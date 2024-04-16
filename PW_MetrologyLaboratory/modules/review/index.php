@@ -42,18 +42,20 @@
     require_once('../../footer.php')
     ?>
 <script>
+    let id_review;
     document.addEventListener("DOMContentLoaded", function() {
         // Obtener el valor de id_prueba de la URL
         var urlParams = new URLSearchParams(window.location.search);
-        let id_prueba = urlParams.get('id_prueba');
+
+        id_review = urlParams.get('id_prueba');
 
         // Llamar a la función resumenPrueba con el id_prueba obtenido
-        if (id_prueba) {
-            resumenPrueba(id_prueba);
+        if (id_review) {
+            resumenPrueba(id_review);
 
             var titulo = document.querySelector("h1");
             if (titulo) {
-                titulo.textContent = "Resumen de Solicitud " + id_prueba;
+                titulo.textContent = "Resumen de Solicitud " + id_review;
             }
         }
     });

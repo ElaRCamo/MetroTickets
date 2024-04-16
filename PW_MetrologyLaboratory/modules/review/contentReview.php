@@ -2,7 +2,7 @@
     <div class="page-header row headerLogo">
         <div class="col divTitle" id="divResSol">
             <h1>Resumen de Solicitud </h1>
-            <a onclick="reviewPDF(id_prueba)" class="btnPDF">Descargar solicitud en pdf</a>
+            <a onclick="reviewPDF(id_review)" class="btnPDF">Descargar solicitud en pdf</a>
             <!--<button type="button" class="btnPDF" onclick="descargarPDF()">Descargar solicitud en pdf</button>-->
         </div>
         <div class="logoRight col-sm-3">
