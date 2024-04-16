@@ -81,13 +81,7 @@ table tbody tr {
     flex-direction: column;
     align-content: flex-end;
 }
-.footer_section{
-    color: #005195;
-    font-weight: bold;
-    padding: 1%;
-    margin-top: auto;
-    bottom:0;
-}
+
 #containerPruebaPDF{
     padding: 3% 5%;
 }
@@ -109,10 +103,17 @@ table tbody tr {
     word-wrap: break-word;
     padding-left: 1rem;
     padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
+    padding-top: 0.3rem;
 }
 #tableTitle{
     background-color: transparent;
     padding-left: 25px;
     padding-right: 25px;
+}
+.footer_section{
+    color: #005195;
+    font-weight: bold;
+    padding: 1%;
+    margin-top: auto;
+    bottom:0;
 }

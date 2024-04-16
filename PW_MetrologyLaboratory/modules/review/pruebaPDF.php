@@ -205,16 +205,9 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
 <footer class="footer_section">
     <div class="container-fluid">
         <div class="row" >
-            <div class="col-sm-4 text-center" >
-                <small> © Grammer Querétaro </small>
-            </div>
             <div class="col-sm-4 text-center">
                 <small> Laboratorio de Metrología </small><br>
                 <small> laboratoriometrologia@arketipo.com.mx </small>
-            </div>
-            <div class="col-sm-4 text-center">
-                <small> Soporte </small><br>
-                <small> IT@grammer.com </small>
             </div>
         </div>
     </div>
