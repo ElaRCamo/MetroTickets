@@ -57,20 +57,13 @@ table thead th:first-child {
 }
 
 table tbody td {
-    padding: 1rem 0.3rem;
+    padding: 0.5rem 0.3rem;
     color: #444;
 }
 
 td{
     font-size: 1rem;
     text-align: center;
-}
-
-table tbody td:first-child {
-    padding-left: 1rem;
-    color: #005195;
-    font-weight: 600;
-    font-size: .8rem;
 }
 
 table tbody tr {

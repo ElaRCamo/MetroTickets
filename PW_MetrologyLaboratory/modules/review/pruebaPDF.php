@@ -116,25 +116,25 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                 <table class="table table-bordered table-hover table-sm  table-responsive" id="datosGeneralesTablePDF">
                     <tbody>
                     <tr class="bg-primary">
-                        <th class="p-2 mb-2">No. de solicitud: </th>
+                        <th class="">No. de solicitud: </th>
                         <td> <?php echo $resultados[0]['id_prueba'];?> </td>
-                        <th class="p-2 mb-2" > Fecha de Solicitud: </th>
+                        <th class="" > Fecha de Solicitud: </th>
                         <td><?php echo $resultados[0]['fechaSolicitud'];?></td>
                     </tr>
                     <tr>
-                        <th class="p-2 mb-2">Tipo de Prueba: </th>
+                        <th class="">Tipo de Prueba: </th>
                         <td><?php echo $resultados[0]['descripcionPrueba'];?></td>
-                        <th class="p-2 mb-2"> Solicitante:</th>
+                        <th class=""> Solicitante:</th>
                         <td><?php echo $resultados[0]['nombreSolic'];?> </td>
                     </tr>
                     <tr>
-                        <th class="p-2 mb-2">Norma: </th>
+                        <th class="">Norma: </th>
                         <td><?php echo $resultados[0]['normaNombre'];?></td>
-                        <th class="p-2 mb-2">Documento de la norma: </th>
+                        <th class="">Documento de la norma: </th>
                         <td><a href="<?php echo $resultados[0]['normaArchivo'];?>">Archivo pdf</a></td>
                     </tr>
                     <tr>
-                        <th class="p-2 mb-2">Especifícaciones: </th>
+                        <th class="">Especifícaciones: </th>
                         <td colspan="3"><?php echo $resultados[0]['especificaciones'];?></td>
                     </tr>
                     </tbody>
@@ -166,23 +166,23 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                 <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTablePDF">
                     <tbody>
                     <tr>
-                        <th class="p-2 mb-2 ">Fecha de Respuesta:</th>
+                        <th class="">Fecha de Respuesta:</th>
                         <td id=""><?php echo $resultados[0]['fechaRespuesta'];?></td>
-                        <th class="p-2 mb-2 ">Metrólogo:</th>
+                        <th class="">Metrólogo:</th>
                         <td id=""><?php echo $resultados[0]['nombreMetro'];?> </td>
                     </tr>
                     <tr>
-                        <th class="p-2 mb-2">Estatus: </th>
+                        <th class="">Estatus: </th>
                         <td id="" ><?php echo $resultados[0]['descripcionEstatus'];?></td>
-                        <th class="p-2 mb-2 ">Prioridad:</th>
+                        <th class="">Prioridad:</th>
                         <td id=""> <?php echo $resultados[0]['descripcionPrioridad'];?></td>
                     </tr>
                     <tr>
-                        <th class="p-2 mb-2">Observaciones:</th>
+                        <th class="">Observaciones:</th>
                         <td id="" colspan="3"><?php echo $resultados[0]['especificacionesLab'];?></td>
                     </tr>
                     <tr>
-                        <th class="p-2 mb-2">Resultados:</th>
+                        <th class="">Resultados:</th>
                         <td id=""  colspan="3"><?php echo $resultados[0]['rutaResultados'];?></td>
                     </tr>
                     </tbody>
@@ -195,14 +195,14 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
     <div class="container-fluid">
         <div class="row" >
             <div class="col-sm-4 text-center" >
-                <small> © Grammer Querétaro. </small>
+                <small> © Grammer Querétaro </small>
             </div>
             <div class="col-sm-4 text-center">
                 <small> Laboratorio de Metrología </small><br>
                 <small> laboratoriometrologia@arketipo.com.mx </small>
             </div>
             <div class="col-sm-4 text-center">
-                <small> Soporte </small>
+                <small> Soporte </small><br>
                 <small> IT@grammer.com </small>
             </div>
         </div>
