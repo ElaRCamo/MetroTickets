@@ -1,11 +1,8 @@
 
 <?php
-namespace resumenPrueba;
 session_start();
 $nombreUser = $_SESSION['nombreUsuario'];
 $tipoUser = $_SESSION['tipoUsuario'];
-$idUsuario = $_SESSION['nomina'];
-$fotoUsuario = $_SESSION['fotoUsuario'];
 if ($tipoUser == null){
     header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
 }
@@ -34,25 +31,18 @@ ob_start();
     <!-- -Archivos de jQuery-->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Obtener el valor de id_prueba de la URL
-            var urlParams = new URLSearchParams(window.location.search);
-            var id_prueba = urlParams.get('id_prueba');
-
-            if (id_prueba) {
-                resumenPrueba(id_prueba);
-
-                var titulo = document.querySelector("h1");
-                if (titulo) {
-                    titulo.textContent = "Resumen de Solicitud " + id_prueba;
-                }
-            }
-        });
-    </script>
 </head>
 <body >
 <?php
+
+$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$url_parts = parse_url($actual_link);// Obtener las partes de la URL
+parse_str($url_parts['query'], $query_params);// Obtener los parámetros de consulta
+$id_prueba = $query_params['id_prueba'];// Extraer el ID de la prueba
+
+echo "El ID de la prueba es: $id_prueba";
+/*
+
 include_once('../../dao/connection.php');
 $id_prueba = $_GET['id_prueba'];
 resumenPrueba($id_prueba);
@@ -118,7 +108,7 @@ $datosPrueba =  mysqli_query($conex,
                         ) AS prueba ON m.id_prueba = prueba.id_prueba;
 ");
 $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
-
+*/
 ?>
 <main>
     <div class="page-header row headerLogo">
