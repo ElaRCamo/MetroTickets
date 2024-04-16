@@ -101,14 +101,14 @@ $datosPrueba =  mysqli_query($conex,
                                                             id_prueba = '$id_prueba'
                                                     ) AS prueba ON m.id_prueba = prueba.id_prueba;");
 
-$resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
+$resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
 
 
 ?>
 <main>
     <div class="page-header row headerLogo">
         <div class="col divTitle" id="divResSol">
-            <h1>Resumen de Solicitud <?php echo $resultado[0]['id_prueba'];?></h1>
+            <h1>Resumen de Solicitud <?php echo $resultados[0]['id_prueba'];?></h1>
         </div>
         <div class="logoRight col-sm-3">
             <div>
@@ -128,25 +128,25 @@ $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     <tbody>
                     <tr class="bg-primary">
                         <th class="p-2 mb-2">No. de solicitud: </th>
-                        <td id="numeroPruebaR"> <?php echo $resultado[0]['id_prueba'];?> </td>
+                        <td id="numeroPruebaR"> <?php echo $resultados[0]['id_prueba'];?> </td>
                         <th class="p-2 mb-2" > Fecha de Solicitud: </th>
-                        <td id="fechaSolicitudR"><?php echo $resultado[0]['fechaSolicitud']; ?></td>
+                        <td id="fechaSolicitudR"><?php echo $resultados[0]['fechaSolicitud']; ?></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Tipo de Prueba: </th>
-                        <td id="tipoPruebaSolicitudR" ><?php echo $resultado[0]['descripcionPrueba']; ?></td>
+                        <td id="tipoPruebaSolicitudR" ><?php echo $resultados[0]['descripcionPrueba']; ?></td>
                         <th class="p-2 mb-2"> Solicitante:</th>
-                        <td id="solicitanteR"><?php echo $resultado[0]['nombreSolic']; ?> </td>
+                        <td id="solicitanteR"><?php echo $resultados[0]['nombreSolic']; ?> </td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Norma: </th>
-                        <td id="normaNombreR"><?php echo $resultado[0]['normaNombre']; ?></td>
+                        <td id="normaNombreR"><?php echo $resultados[0]['normaNombre']; ?></td>
                         <th class="p-2 mb-2">Documento de la norma: </th>
-                        <td><a id="archivoNormaR" href="<?php echo $resultado[0]['normaArchivo']; ?>">Archivo pdf</a></td>
+                        <td><a id="archivoNormaR" href="<?php echo $resultados[0]['normaArchivo']; ?>">Archivo pdf</a></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Especifícaciones: </th>
-                        <td id="observacionesSolR" colspan="3"><?php echo $resultado[0]['especificaciones']; ?></td>
+                        <td id="observacionesSolR" colspan="3"><?php echo $resultados[0]['especificaciones']; ?></td>
                     </tr>
                     </tbody>
                 </table>
@@ -161,7 +161,15 @@ $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                         <th>Cantidad</th>
                     </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                        <?php foreach ($resultados as $resultado){?>
+                        <tr>
+                            <td><?php echo $resultado['numeroDeParte']; ?> </td>
+                            <td><?php echo $resultado['descripcionMaterial']; ?></td>
+                            <td><?php echo $resultado['cantidad']; ?></td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
                 </table>
             </div>
             <div id="divTablePrueba" class="table-responsive">
@@ -170,23 +178,23 @@ $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     <tbody>
                     <tr>
                         <th class="p-2 mb-2 ">Fecha de Respuesta:</th>
-                        <td id="fechaRespuestaR"><?php echo $resultado[0]['fechaRespuesta']; ?></td>
+                        <td id="fechaRespuestaR"><?php echo $resultados[0]['fechaRespuesta']; ?></td>
                         <th class="p-2 mb-2 ">Metrólogo:</th>
-                        <td id="metrologoR"><?php echo $resultado[0]['nombreMetro']; ?> </td>
+                        <td id="metrologoR"><?php echo $resultados[0]['nombreMetro']; ?> </td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Estatus: </th>
-                        <td id="estatusSolicitudR" ><?php echo $resultado[0]['descripcionEstatus']; ?></td>
+                        <td id="estatusSolicitudR" ><?php echo $resultados[0]['descripcionEstatus']; ?></td>
                         <th class="p-2 mb-2 ">Prioridad:</th>
-                        <td id="prioridadR"> <?php echo $resultado[0]['descripcionPrioridad']; ?></td>
+                        <td id="prioridadR"> <?php echo $resultados[0]['descripcionPrioridad']; ?></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Observaciones:</th>
-                        <td id="observacionesLabR" colspan="3"><?php echo $resultado[0]['especificacionesLab']; ?></td>
+                        <td id="observacionesLabR" colspan="3"><?php echo $resultados[0]['especificacionesLab']; ?></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Resultados:</th>
-                        <td id="rutaResultadosR"  colspan="3"><?php echo $resultado[0]['rutaResultados']; ?></td>
+                        <td id="rutaResultadosR"  colspan="3"><?php echo $resultados[0]['rutaResultados']; ?></td>
                     </tr>
                     </tbody>
                 </table>
