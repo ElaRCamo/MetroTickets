@@ -112,7 +112,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
     <div class="container-fluid" id="containerPruebaPDF" >
         <div class="row">
             <div class="table-responsive">
-                <h5 id="titleTablaPDF">DATOS GENERALES</h5>
+                <h5 id="titleTablaPDFg">DATOS GENERALES</h5>
                 <table class="table table-bordered table-hover table-sm  table-responsive" id="datosGeneralesTablePDF">
                     <tbody>
                     <tr class="bg-primary">
