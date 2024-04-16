@@ -112,8 +112,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                 </th>
                 <td>
                     <div class="col">
-                        <img class="logoGrammer2-img logoR" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/Grammer_Logo2.png"><br>
-                        <strong><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></strong>
+                        <img class="logoGrammer2-img logoR" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/logoGrammer.png"><br>
                     </div>
                 </td>
             </tr>
@@ -206,6 +205,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
     <div class="container-fluid">
         <div class="row" >
             <div class="col-sm-4 text-center">
+                <strong><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></strong>
                 <small> Laboratorio de Metrología </small><br>
                 <small> laboratoriometrologia@arketipo.com.mx </small>
             </div>
