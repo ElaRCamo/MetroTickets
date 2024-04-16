@@ -34,7 +34,7 @@ ob_start();
 </head>
 <body >
 <?php
-$date = date('Y-m-d H:i:s');
+$date = date('Y-m-d H:i');
 $css=file_get_contents("../../css/pdf.css");
 include_once('../../dao/connection.php');
 $con = new LocalConector();

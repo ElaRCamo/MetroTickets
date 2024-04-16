@@ -124,3 +124,7 @@ table tbody tr {
     margin-top: auto;
     bottom:0;
 }
+h5{
+    padding-bottom: 0.5rem;
+    font-weight: bold;
+}
