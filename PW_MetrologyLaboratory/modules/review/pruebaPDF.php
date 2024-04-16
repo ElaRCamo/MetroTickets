@@ -34,6 +34,7 @@ ob_start();
 </head>
 <body >
 <?php
+$date = date('Y-m-d H:i:s');
 $css=file_get_contents("../../css/pdf.css");
 include_once('../../dao/connection.php');
 $con = new LocalConector();
@@ -104,8 +105,9 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
             <tr class="">
                 <th class="">
                     <div class="col divTitle" id="divRespdf">
-                        <h6>LABORATORIO DE METROLOGÍA</h6><BR>
-                        <h1>Resumen de Solicitud <?php echo $resultados[0]['id_prueba'];?></h1>
+                        <h1>Resumen de Solicitud <?php echo $resultados[0]['id_prueba'];?></h1><br>
+                        <h6>LABORATORIO DE METROLOGÍA</h6>
+                        <?php echo "<small>Fecha: $date</small>";?>
                     </div>
                 </th>
                 <td>
