@@ -40,75 +40,74 @@ $url_parts = parse_url($actual_link);// Obtener las partes de la URL
 parse_str($url_parts['query'], $query_params);// Obtener los parámetros de consulta
 $id_prueba = $query_params['id_prueba'];// Extraer el ID de la prueba
 
-echo "El ID de la prueba es: $id_prueba";
-/*
 
 include_once('../../dao/connection.php');
-$id_prueba = $_GET['id_prueba'];
-resumenPrueba($id_prueba);
-
-function resumenPrueba($id_prueba){
 $con = new LocalConector();
 $conex = $con->conectar();
 
 $datosPrueba =  mysqli_query($conex,
-    "SELECT   prueba.id_prueba, 
-                        prueba.fechaSolicitud, 
-                        prueba.fechaRespuesta, 
-                        prueba.descripcionEstatus,
-                        prueba.descripcionPrioridad,
-                        prueba.descripcionPrueba, 
-                        prueba.especificaciones,
-                        prueba.especificacionesLab,
-                        prueba.normaNombre,
-                        prueba.normaArchivo,
-                        prueba.rutaResultados,
-                        prueba.id_metrologo, 
-                        prueba.nombreMetro,  
-                        prueba.id_solicitante, 
-                        prueba.nombreSolic,
-                        dm.numeroDeParte, 
-                        m.cantidad, 
-                        dm.descripcionMaterial, 
-                        dm.imgMaterial, 
-                        c.descripcionCliente, 
-                        p.descripcionPlataforma
-                    FROM   
-                        Material m
-                        JOIN DescripcionMaterial dm ON m.id_descripcion = dm.id_descripcion
-                        JOIN Plataforma p ON dm.id_plataforma = p.id_plataforma
-                        JOIN Cliente c ON p.id_cliente = c.id_cliente
-                        JOIN EstatusMaterial em ON m.id_estatusMaterial = em.id_estatusMaterial
-                        JOIN (
-                            SELECT 
-                                id_prueba, 
-                                fechaSolicitud, 
-                                fechaRespuesta,
-                                descripcionEstatus,
-                                descripcionPrioridad,
-                                descripcionPrueba,
-                                especificaciones,
-                                especificacionesLab,
-                                normaNombre,
-                                normaArchivo,
-                                rutaResultados,
-                                s.id_metrologo, 
-                                u_metro.nombreUsuario AS nombreMetro,
-                                s.id_solicitante, 
-                                u_solic.nombreUsuario AS nombreSolic
-                            FROM 
-                                Prueba s
-                                LEFT JOIN Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
-                                LEFT JOIN Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
-                                LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
-                                LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
-                                LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
-                            WHERE 
-                                id_prueba = '$id_prueba'
-                        ) AS prueba ON m.id_prueba = prueba.id_prueba;
-");
+                                "SELECT   prueba.id_prueba, 
+                                                    prueba.fechaSolicitud, 
+                                                    prueba.fechaRespuesta, 
+                                                    prueba.descripcionEstatus,
+                                                    prueba.descripcionPrioridad,
+                                                    prueba.descripcionPrueba, 
+                                                    prueba.especificaciones,
+                                                    prueba.especificacionesLab,
+                                                    prueba.normaNombre,
+                                                    prueba.normaArchivo,
+                                                    prueba.rutaResultados,
+                                                    prueba.id_metrologo, 
+                                                    prueba.nombreMetro,  
+                                                    prueba.id_solicitante, 
+                                                    prueba.nombreSolic,
+                                                    dm.numeroDeParte, 
+                                                    m.cantidad, 
+                                                    dm.descripcionMaterial, 
+                                                    dm.imgMaterial, 
+                                                    c.descripcionCliente, 
+                                                    p.descripcionPlataforma
+                                                FROM   
+                                                    Material m
+                                                    JOIN DescripcionMaterial dm ON m.id_descripcion = dm.id_descripcion
+                                                    JOIN Plataforma p ON dm.id_plataforma = p.id_plataforma
+                                                    JOIN Cliente c ON p.id_cliente = c.id_cliente
+                                                    JOIN EstatusMaterial em ON m.id_estatusMaterial = em.id_estatusMaterial
+                                                    JOIN (
+                                                        SELECT 
+                                                            id_prueba, 
+                                                            fechaSolicitud, 
+                                                            fechaRespuesta,
+                                                            descripcionEstatus,
+                                                            descripcionPrioridad,
+                                                            descripcionPrueba,
+                                                            especificaciones,
+                                                            especificacionesLab,
+                                                            normaNombre,
+                                                            normaArchivo,
+                                                            rutaResultados,
+                                                            s.id_metrologo, 
+                                                            u_metro.nombreUsuario AS nombreMetro,
+                                                            s.id_solicitante, 
+                                                            u_solic.nombreUsuario AS nombreSolic
+                                                        FROM 
+                                                            Prueba s
+                                                            LEFT JOIN Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
+                                                            LEFT JOIN Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
+                                                            LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
+                                                            LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
+                                                            LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
+                                                        WHERE 
+                                                            id_prueba = '$id_prueba'
+                                                    ) AS prueba ON m.id_prueba = prueba.id_prueba;");
+
 $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
-*/
+
+// Verificar si se obtuvieron resultados
+if (mysqli_num_rows($datosPrueba) > 0) {
+
+    while ($fila = mysqli_fetch_assoc($datosPrueba)) {
+
 ?>
 <main>
     <div class="page-header row headerLogo">
@@ -117,7 +116,7 @@ $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
         </div>
         <div class="logoRight col-sm-3">
             <div>
-                <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="https://<?php echo $_SERVER['HTTP_HOST'];?>/arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/logoGrammer.png"><br>
+                <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/logoGrammer.png"><br>
             </div>
             <div>
                 <span><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></span>
@@ -133,25 +132,25 @@ $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     <tbody>
                     <tr class="bg-primary">
                         <th class="p-2 mb-2">No. de solicitud: </th>
-                        <td id="numeroPruebaR"> <?php echo $id_prueba;?> </td>
+                        <td id="numeroPruebaR"> <?php echo $fila['id_prueba'] ;?> </td>
                         <th class="p-2 mb-2" > Fecha de Solicitud: </th>
-                        <td id="fechaSolicitudR"> </td>
+                        <td id="fechaSolicitudR"><?php echo $fila['fechaSolicitud']; ?></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Tipo de Prueba: </th>
-                        <td id="tipoPruebaSolicitudR" ></td>
+                        <td id="tipoPruebaSolicitudR" ><?php echo $fila['descripcionPrueba']; ?></td>
                         <th class="p-2 mb-2"> Solicitante:</th>
-                        <td id="solicitanteR"> </td>
+                        <td id="solicitanteR"><?php echo $fila['nombreSolic']; ?> </td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Norma: </th>
-                        <td id="normaNombreR"></td>
+                        <td id="normaNombreR"><?php echo $fila['normaNombre']; ?></td>
                         <th class="p-2 mb-2">Documento de la norma: </th>
-                        <td><a id="archivoNormaR" href="">Archivo pdf</a></td>
+                        <td><a id="archivoNormaR" href="<?php echo $fila['normaArchivo']; ?>">Archivo pdf</a></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Especifícaciones: </th>
-                        <td id="observacionesSolR" colspan="3"></td>
+                        <td id="observacionesSolR" colspan="3"><?php echo $fila['especificaciones']; ?></td>
                     </tr>
                     </tbody>
                 </table>
@@ -201,7 +200,13 @@ $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
 </main>
 </body>
 </html>
+
 <?php
+}
+} else {
+    echo '<p>No se encontraron datos.</p>';
+}
+
 $html=ob_get_clean();
 //echo $html;
 
