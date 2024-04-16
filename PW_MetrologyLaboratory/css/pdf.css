@@ -36,6 +36,10 @@ a:link, a:visited, a:active {
 .page-header h1 {
     color: #005195;
 }
+.headerLogo{
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
 
 table {
     border-collapse: collapse;
@@ -63,7 +67,6 @@ td{
 }
 th{
     font-size: 0.9rem;
-    text-align: center;
 }
 
 table tbody tr {
@@ -103,8 +106,6 @@ table tbody tr {
     padding: 0.5%;
 }
 #materialesResumenPDF thead th{
-    padding: 0.1rem;
-    text-align: center;
     font-size: 0.9rem;
 }
 #datosGeneralesTablePDF th, #resultadosTablePDF th{
