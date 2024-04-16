@@ -103,16 +103,12 @@ $datosPrueba =  mysqli_query($conex,
 
 $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
 
-// Verificar si se obtuvieron resultados
-if (mysqli_num_rows($datosPrueba) > 0) {
-
-    while ($fila = mysqli_fetch_assoc($datosPrueba)) {
 
 ?>
 <main>
     <div class="page-header row headerLogo">
         <div class="col divTitle" id="divResSol">
-            <h1>Resumen de Solicitud <?php echo $id_prueba;?></h1>
+            <h1>Resumen de Solicitud <?php echo $resultado[0]['id_prueba'];?></h1>
         </div>
         <div class="logoRight col-sm-3">
             <div>
@@ -132,25 +128,25 @@ if (mysqli_num_rows($datosPrueba) > 0) {
                     <tbody>
                     <tr class="bg-primary">
                         <th class="p-2 mb-2">No. de solicitud: </th>
-                        <td id="numeroPruebaR"> <?php echo $fila['id_prueba'] ;?> </td>
+                        <td id="numeroPruebaR"> <?php echo $resultado[0]['id_prueba'];?> </td>
                         <th class="p-2 mb-2" > Fecha de Solicitud: </th>
-                        <td id="fechaSolicitudR"><?php echo $fila['fechaSolicitud']; ?></td>
+                        <td id="fechaSolicitudR"><?php echo $resultado[0]['fechaSolicitud']; ?></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Tipo de Prueba: </th>
-                        <td id="tipoPruebaSolicitudR" ><?php echo $fila['descripcionPrueba']; ?></td>
+                        <td id="tipoPruebaSolicitudR" ><?php echo $resultado[0]['descripcionPrueba']; ?></td>
                         <th class="p-2 mb-2"> Solicitante:</th>
-                        <td id="solicitanteR"><?php echo $fila['nombreSolic']; ?> </td>
+                        <td id="solicitanteR"><?php echo $resultado[0]['nombreSolic']; ?> </td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Norma: </th>
-                        <td id="normaNombreR"><?php echo $fila['normaNombre']; ?></td>
+                        <td id="normaNombreR"><?php echo $resultado[0]['normaNombre']; ?></td>
                         <th class="p-2 mb-2">Documento de la norma: </th>
-                        <td><a id="archivoNormaR" href="<?php echo $fila['normaArchivo']; ?>">Archivo pdf</a></td>
+                        <td><a id="archivoNormaR" href="<?php echo $resultado[0]['normaArchivo']; ?>">Archivo pdf</a></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Especifícaciones: </th>
-                        <td id="observacionesSolR" colspan="3"><?php echo $fila['especificaciones']; ?></td>
+                        <td id="observacionesSolR" colspan="3"><?php echo $resultado[0]['especificaciones']; ?></td>
                     </tr>
                     </tbody>
                 </table>
@@ -174,23 +170,23 @@ if (mysqli_num_rows($datosPrueba) > 0) {
                     <tbody>
                     <tr>
                         <th class="p-2 mb-2 ">Fecha de Respuesta:</th>
-                        <td id="fechaRespuestaR"></td>
+                        <td id="fechaRespuestaR"><?php echo $resultado[0]['fechaRespuesta']; ?></td>
                         <th class="p-2 mb-2 ">Metrólogo:</th>
-                        <td id="metrologoR"> </td>
+                        <td id="metrologoR"><?php echo $resultado[0]['nombreMetro']; ?> </td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Estatus: </th>
-                        <td id="estatusSolicitudR" ></td>
+                        <td id="estatusSolicitudR" ><?php echo $resultado[0]['descripcionEstatus']; ?></td>
                         <th class="p-2 mb-2 ">Prioridad:</th>
-                        <td id="prioridadR"> </td>
+                        <td id="prioridadR"> <?php echo $resultado[0]['descripcionPrioridad']; ?></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Observaciones:</th>
-                        <td id="observacionesLabR" colspan="3"></td>
+                        <td id="observacionesLabR" colspan="3"><?php echo $resultado[0]['especificacionesLab']; ?></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Resultados:</th>
-                        <td id="rutaResultadosR"  colspan="3"></td>
+                        <td id="rutaResultadosR"  colspan="3"><?php echo $resultado[0]['rutaResultados']; ?></td>
                     </tr>
                     </tbody>
                 </table>
@@ -202,13 +198,9 @@ if (mysqli_num_rows($datosPrueba) > 0) {
 </html>
 
 <?php
-}
-} else {
-    echo '<p>No se encontraron datos.</p>';
-}
 
 $html=ob_get_clean();
-//echo $html;
+echo $html;
 
 require_once '../../librerias/dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
