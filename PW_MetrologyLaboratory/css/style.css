@@ -749,6 +749,6 @@ table tbody tr {
     background-color: var(--main-color);
     color:#fff;
     width: 25%;
-    word-wrap: break-word; /* o overflow-wrap: break-word; */
+    word-wrap: break-word;
 }
 

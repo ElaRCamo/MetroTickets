@@ -34,7 +34,7 @@ ob_start();
 </head>
 <body >
 <?php
-$css=file_get_contents("../../css/style.css");
+$css=file_get_contents("../../css/pdf.css");
 include_once('../../dao/connection.php');
 $con = new LocalConector();
 $conex = $con->conectar();
@@ -100,12 +100,12 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
 ?>
 <main>
     <div class="page-header row headerLogo">
-        <div class="col divTitle" id="divResSol">
+        <div class="col divTitle" id="divRespdf">
             <h1>Resumen de Solicitud <?php echo $resultados[0]['id_prueba'];?></h1>
         </div>
-        <div class="logoRight col-sm-3" style="float: right;">
+        <div class="logoRight col-sm-3">
             <div>
-                <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/Grammer_Logo2.png" style="width: 100px; height: 100px"><br>
+                <img class="logoGrammer2-img logoR" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/Grammer_Logo2.png"><br>
             </div>
             <div>
                 <span><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></span>
@@ -113,40 +113,40 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
         </div>
     </div>
 
-    <div class="container-fluid" id="containerPruebaR" >
+    <div class="container-fluid" id="containerPruebaPDF" >
         <div class="row">
-            <div id="divTablePrueba" class="table-responsive">
-                <h5 id="titleTablaP">DATOS GENERALES</h5>
-                <table class="table table-bordered table-hover table-sm  table-responsive" id="datosGeneralesTable">
+            <div class="table-responsive">
+                <h5 id="titleTablaPDF">DATOS GENERALES</h5>
+                <table class="table table-bordered table-hover table-sm  table-responsive" id="datosGeneralesTablePDF">
                     <tbody>
                     <tr class="bg-primary">
                         <th class="p-2 mb-2">No. de solicitud: </th>
-                        <td id="numeroPruebaR"> <?php echo $resultados[0]['id_prueba'];?> </td>
+                        <td> <?php echo $resultados[0]['id_prueba'];?> </td>
                         <th class="p-2 mb-2" > Fecha de Solicitud: </th>
-                        <td id="fechaSolicitudR"><?php echo $resultados[0]['fechaSolicitud'];?></td>
+                        <td><?php echo $resultados[0]['fechaSolicitud'];?></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Tipo de Prueba: </th>
-                        <td id="tipoPruebaSolicitudR" ><?php echo $resultados[0]['descripcionPrueba'];?></td>
+                        <td><?php echo $resultados[0]['descripcionPrueba'];?></td>
                         <th class="p-2 mb-2"> Solicitante:</th>
-                        <td id="solicitanteR"><?php echo $resultados[0]['nombreSolic'];?> </td>
+                        <td><?php echo $resultados[0]['nombreSolic'];?> </td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Norma: </th>
-                        <td id="normaNombreR"><?php echo $resultados[0]['normaNombre'];?></td>
+                        <td><?php echo $resultados[0]['normaNombre'];?></td>
                         <th class="p-2 mb-2">Documento de la norma: </th>
-                        <td><a id="archivoNormaR" href="<?php echo $resultados[0]['normaArchivo'];?>">Archivo pdf</a></td>
+                        <td><a href="<?php echo $resultados[0]['normaArchivo'];?>">Archivo pdf</a></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Especifícaciones: </th>
-                        <td id="observacionesSolR" colspan="3"><?php echo $resultados[0]['especificaciones'];?></td>
+                        <td colspan="3"><?php echo $resultados[0]['especificaciones'];?></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-            <div id="divTableResume" class="table-responsive">
-                <h5 id="materialRTittle">MATERIAL PARA MEDICIÓN</h5>
-                <table class="table table-striped" id="materialesResumen">
+            <div id="" class="table-responsive">
+                <h5 id="materialPDF">MATERIAL PARA MEDICIÓN</h5>
+                <table class="table table-striped" id="materialesResumenPDF">
                     <thead>
                     <tr>
                         <th>No. de Parte</th>
@@ -165,29 +165,29 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     </tbody>
                 </table>
             </div>
-            <div id="divTablePrueba" class="table-responsive">
-                <h5 id="titleTablaP">RESULTADOS</h5>
-                <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTable">
+            <div id="" class="table-responsive">
+                <h5 id="titleTablaPDF">RESULTADOS</h5>
+                <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTablePDF">
                     <tbody>
                     <tr>
                         <th class="p-2 mb-2 ">Fecha de Respuesta:</th>
-                        <td id="fechaRespuestaR"><?php echo $resultados[0]['fechaRespuesta'];?></td>
+                        <td id=""><?php echo $resultados[0]['fechaRespuesta'];?></td>
                         <th class="p-2 mb-2 ">Metrólogo:</th>
-                        <td id="metrologoR"><?php echo $resultados[0]['nombreMetro'];?> </td>
+                        <td id=""><?php echo $resultados[0]['nombreMetro'];?> </td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Estatus: </th>
-                        <td id="estatusSolicitudR" ><?php echo $resultados[0]['descripcionEstatus'];?></td>
+                        <td id="" ><?php echo $resultados[0]['descripcionEstatus'];?></td>
                         <th class="p-2 mb-2 ">Prioridad:</th>
-                        <td id="prioridadR"> <?php echo $resultados[0]['descripcionPrioridad'];?></td>
+                        <td id=""> <?php echo $resultados[0]['descripcionPrioridad'];?></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Observaciones:</th>
-                        <td id="observacionesLabR" colspan="3"><?php echo $resultados[0]['especificacionesLab'];?></td>
+                        <td id="" colspan="3"><?php echo $resultados[0]['especificacionesLab'];?></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Resultados:</th>
-                        <td id="rutaResultadosR"  colspan="3"><?php echo $resultados[0]['rutaResultados'];?></td>
+                        <td id=""  colspan="3"><?php echo $resultados[0]['rutaResultados'];?></td>
                     </tr>
                     </tbody>
                 </table>
@@ -195,6 +195,23 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
         </div>
     </div>
 </main>
+<footer class="footer_section">
+    <div class="container-fluid">
+        <div class="row" >
+            <div class="col-sm-4 text-center">
+                <small> Laboratorio de Metrología </small>
+                <small> laboratoriometrologia@arketipo.com.mx </small>
+            </div>
+            <div class="col-sm-4 text-center" >
+                <small> © Grammer Querétaro. </small>
+            </div>
+            <div class="col-sm-4 text-center">
+                <small> Soporte </small>
+                <small> IT@grammer.com </small>
+            </div>
+        </div>
+    </div>
+</footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/general.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
