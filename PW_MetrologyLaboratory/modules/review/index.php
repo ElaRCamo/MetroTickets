@@ -73,4 +73,5 @@ ob_start();
 </html>
 <?php
 $html=ob_get_clean();
+echo $html;
 ?>
