@@ -34,7 +34,7 @@ ob_start();
 </head>
 <body >
 <?php
-$date = date('Y-m-d h:i A');
+$date = date('d-m-Y h:i A');
 $css=file_get_contents("../../css/pdf.css");
 include_once('../../dao/connection.php');
 $con = new LocalConector();
@@ -206,8 +206,8 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
         <div class="row" >
             <div class="col-sm-4 text-center">
                 <small> Laboratorio de Metrología </small><br>
-                <small> laboratoriometrologia@arketipo.com.mx </small>
-                <strong><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></strong><br>
+                <small> laboratoriometrologia@arketipo.com.mx </small><br>
+                <strong><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></strong>
             </div>
         </div>
     </div>
