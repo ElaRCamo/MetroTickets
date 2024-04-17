@@ -31,7 +31,8 @@ function resumenPrueba($id_solicitante){
                     LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
                     LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
             WHERE
-                id_solicitante = '$id_solicitante';
+                id_solicitante = '$id_solicitante'
+            ORDER BY id_prueba DESC;
 ");
 
     $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
