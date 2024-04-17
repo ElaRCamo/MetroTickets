@@ -167,9 +167,9 @@ async function registrarSolicitud() {
 }
 
 function registrarCliente(){
-    var clienteNuevo         = id("descClienteN");
+    var descClienteN= id("descClienteN");
     const dataForm = new FormData();
-    dataForm.append('descClienteN', clienteNuevo.value.trim());
+    dataForm.append('descClienteN', descClienteN.value.trim());
 
     fetch('../../dao/daoNuevoCliente.php', {
         method: 'POST',
