@@ -1,11 +1,12 @@
 <?php
 include_once('connection.php');
 
-if(isset($_POST['descClienteN'])){
-    $descCliente = $_POST['descClienteN'];
+if(isset($_POST['descPlataformaN'],$_POST['descPClienteN'] )){
+    $descPlataforma = $_POST['descPlataformaN'];
+    $idCliente = $_POST['descPClienteN'];
     // Llamar a la función
-    if(nuevoCliente($descCliente)) {
-        echo '<script>alert("Cliente registrado exitosamente")</script>';
+    if(nuevaPlataforma($descPlataforma,$idCliente)) {
+        echo '<script>alert("Plataforma registrada exitosamente")</script>';
     } else {
         echo '<script>alert("Error al registrar el cliente")</script>';
     }
@@ -13,12 +14,12 @@ if(isset($_POST['descClienteN'])){
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
 
-function nuevoCliente($descCliente){
+function nuevaPlataforma($descPlataforma,$idCliente){
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $insertCliente = $conex->prepare("INSERT INTO Cliente (descripcionCliente) VALUES (?)");
-    $insertCliente->bind_param("s", $descCliente);
+    $insertCliente = $conex->prepare("INSERT INTO Plataforma (descripcionPlataforma, id_cliente) VALUES (?,?)");
+    $insertCliente->bind_param("si", $descPlataforma,$idCliente);
     $resultado = $insertCliente->execute();
 
     if(!$resultado) {

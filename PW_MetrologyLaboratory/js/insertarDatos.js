@@ -165,31 +165,6 @@ async function registrarSolicitud() {
             console.error("Error al registrar la solicitud:", error);
         }
 }
-
-function registrarCliente(){
-    var descClienteN= id("descClienteN");
-    const dataForm = new FormData();
-    dataForm.append('descClienteN', descClienteN.value.trim());
-
-    fetch('../../dao/daoNuevoCliente.php', {
-        method: 'POST',
-        body: dataForm
-    })
-        .then(function (response) {
-            if (response.ok) { //respuesta
-                alert('Cliente agregado con exito');
-                window.location.href = "../administrator/administratorIndex.php";
-            } else {
-                throw "Error en la llamada Ajax";
-            }
-        })
-        .then(function (texto) {
-            console.log(texto);
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
-}
 function enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario){
     const data = new FormData();
 
@@ -232,6 +207,59 @@ function enviarCorreoNuevaSolicitudLab(id_prueba, solicitante){
                 //alert('Correo Lab: prueba: ' +id_prueba+ 'user: ' + solicitante);
                 console.log("Correos enviados");
             }else{
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}
+
+
+function registrarCliente(){
+    var descClienteN= id("descClienteN");
+    const dataForm = new FormData();
+    dataForm.append('descClienteN', descClienteN.value.trim());
+
+    fetch('../../dao/daoNuevoCliente.php', {
+        method: 'POST',
+        body: dataForm
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                alert('Cliente agregado con exito');
+                window.location.href = "../administrator/administratorIndex.php";
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}
+
+function registrarPlataforma(){
+    var descPlataformaN= id("descPlataformaN");
+    var descPClienteN =  id("descPClienteN");
+    const dataForm = new FormData();
+    dataForm.append('descPlataformaN', descPlataformaN.value.trim());
+    dataForm.append('descPClienteN', descPClienteN.value.trim());
+
+    fetch('../../dao/daoNuevaPlataforma.php', {
+        method: 'POST',
+        body: dataForm
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                alert('Plataforma agregado con exito');
+                window.location.href = "../administrator/administratorIndex.php";
+            } else {
                 throw "Error en la llamada Ajax";
             }
         })
