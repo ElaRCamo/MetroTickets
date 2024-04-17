@@ -239,6 +239,8 @@ function reviewPage(ID_PRUEBA){
 }
 
 function resumenPrueba(ID_PRUEBA){
+    id_review = ID_PRUEBA;
+    alert("id_review = ID_PRUEBA:"+id_review)
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + ID_PRUEBA, function (response) {
        //codigo para actualizar campos
@@ -284,8 +286,7 @@ function resumenPrueba(ID_PRUEBA){
             tbody.appendChild(fila);
         }
     });
-    id_review = ID_PRUEBA;
-    alert("id_review = ID_PRUEBA:"+id_review)
+
 }
 
 function reviewPDF(ID_PRUEBA){
