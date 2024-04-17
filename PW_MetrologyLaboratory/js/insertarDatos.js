@@ -257,7 +257,39 @@ function registrarPlataforma(){
     })
         .then(function (response) {
             if (response.ok) { //respuesta
-                alert('Plataforma agregado con exito');
+                alert('Plataforma agregada con exito');
+                window.location.href = "../administrator/administratorIndex.php";
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}
+
+function registrarMaterial(){
+    var descMaterialN= id("descMaterialN");
+    var numParteN =  id("numParteN");
+    var imgMaterialN= id("imgMaterialN");
+    var descMPlataformaN =  id("descMPlataformaN");
+
+    const dataForm = new FormData();
+    dataForm.append('descMaterialN', descMaterialN.value.trim());
+    dataForm.append('numParteN', numParteN.value.trim());
+    dataForm.append('imgMaterialN', imgMaterialN.files[0]);
+    dataForm.append('numParteN', descMPlataformaN.value.trim());
+
+    fetch('../../dao/daoNuevoMaterial.php', {
+        method: 'POST',
+        body: dataForm
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                alert('Material registrado con exito');
                 window.location.href = "../administrator/administratorIndex.php";
             } else {
                 throw "Error en la llamada Ajax";
