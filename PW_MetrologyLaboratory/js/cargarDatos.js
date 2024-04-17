@@ -285,6 +285,7 @@ function resumenPrueba(ID_PRUEBA){
         }
     });
     id_review = ID_PRUEBA;
+    alert("id_review = ID_PRUEBA:"+id_review)
 }
 
 function reviewPDF(ID_PRUEBA){
