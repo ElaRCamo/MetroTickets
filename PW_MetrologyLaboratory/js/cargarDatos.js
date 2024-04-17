@@ -110,14 +110,14 @@ function plataformaModal(){
         selectS.innerHTML = "";
 
         var createOptionDef = document.createElement("option");
-        createOptionDef.text = "Especifique el cliente*";
+        createOptionDef.text = "Especifique la plataforma*";
         createOptionDef.value = "";
         selectS.appendChild(createOptionDef);
 
         for (var j = 0; j < data.data.length; j++) {
             var createOption = document.createElement("option");
-            createOption.value = data.data[j].id_cliente;
-            createOption.text = data.data[j].descripcionCliente;
+            createOption.value = data.data[j].id_plataforma;
+            createOption.text = data.data[j].descripcionPlataforma;
             selectS.appendChild(createOption);
         }
     });
