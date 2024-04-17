@@ -177,6 +177,7 @@ function registrarCliente(){
     })
         .then(function (response) {
             if (response.ok) { //respuesta
+                alert('Cliente agregado con exito');
                 window.location.href = "../administrator/administratorIndex.php";
             } else {
                 throw "Error en la llamada Ajax";
@@ -202,7 +203,7 @@ function enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario){
     })
         .then(function (response){
             if (response.ok){
-                alert('Correo Solicitante: prueba: ' +id_prueba+ 'user: ' + solicitante +' email: ' + emailUsuario);
+                //alert('Correo Solicitante: prueba: ' +id_prueba+ 'user: ' + solicitante +' email: ' + emailUsuario);
                 enviarCorreoNuevaSolicitudLab(id_prueba, solicitante);
             }else{
                 throw "Error en la llamada Ajax";
@@ -228,7 +229,7 @@ function enviarCorreoNuevaSolicitudLab(id_prueba, solicitante){
     })
         .then(function (response){
             if (response.ok){
-                alert('Correo Lab: prueba: ' +id_prueba+ 'user: ' + solicitante);
+                //alert('Correo Lab: prueba: ' +id_prueba+ 'user: ' + solicitante);
                 console.log("Correos enviados");
             }else{
                 throw "Error en la llamada Ajax";
