@@ -11,7 +11,7 @@
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
                         <label for="descPlataformaN" class="form-label">Descripción de la plataforma: </label>
-                        <input type="text" name="descPlataformaN" id="descPlataformaN" class="form-control" required>
+                        <input type="text" name="descPlataformaN" id="descPlataformaN" class="form-control" onchange="clienteModal()" required>
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>

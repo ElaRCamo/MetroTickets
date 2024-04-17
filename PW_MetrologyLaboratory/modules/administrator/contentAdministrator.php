@@ -62,7 +62,7 @@
                 <h3>Materiales</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto">
-                        <a href="#" class="btn btn-primary"><i class="las la-plus-circle"></i>Nuevo material</a>
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoMaterial"><i class="las la-plus-circle"></i>Nuevo material</a>
                     </div>
                 </div>
 
