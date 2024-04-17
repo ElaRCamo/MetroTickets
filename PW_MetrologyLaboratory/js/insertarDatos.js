@@ -165,6 +165,30 @@ async function registrarSolicitud() {
             console.error("Error al registrar la solicitud:", error);
         }
 }
+
+function registrarCliente(){
+    var clienteNuevo         = id("descClienteN");
+    const dataForm = new FormData();
+    dataForm.append('descClienteN', clienteNuevo.value.trim());
+
+    fetch('../../dao/requestRegister.php', {
+        method: 'POST',
+        body: dataForm
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                window.location.href = "../administrator/administratorIndex.php";
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}
 function enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario){
     const data = new FormData();
 
