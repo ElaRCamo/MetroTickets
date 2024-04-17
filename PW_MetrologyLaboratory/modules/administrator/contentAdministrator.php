@@ -15,11 +15,11 @@
         <div class="container">
             <!-- Clientes -->
             <section id="clientes">
-                <h3>Tabla de clientes</h3>
+                <h3>Clientes</h3>
                 <div class="col-auto">
                     <a href="#" class="btn btn-primary"><i class="las la-plus-circle"></i>Nuevo cliente</a>
                 </div>
-                <table>
+                <table table table-sm table-striped table-hover>
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -34,11 +34,11 @@
 
             <!-- Plataformas -->
             <section id="plataformas">
-                <h3>Tabla de Plataformas</h3>
+                <h3>Plataformas</h3>
                 <div class="col-auto">
                     <a href="#" class="btn btn-primary"><i class="las la-plus-circle"></i>Nueva plataforma</a>
                 </div>
-                <table>
+                <table table table-sm table-striped table-hover>
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -54,11 +54,11 @@
 
             <!-- Materiales -->
             <section id="materiales">
-                <h3>Tabla de Materiales</h3>
+                <h3>Materiales</h3>
                 <div class="col-auto">
                     <a href="#" class="btn btn-primary"><i class="las la-plus-circle"></i>Nuevo material</a>
                 </div>
-                <table>
+                <table table table-sm table-striped table-hover>
                     <thead>
                     <tr>
                         <th>ID</th>
