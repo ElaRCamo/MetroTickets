@@ -171,7 +171,7 @@ function registrarCliente(){
     const dataForm = new FormData();
     dataForm.append('descClienteN', clienteNuevo.value.trim());
 
-    fetch('../../dao/requestRegister.php', {
+    fetch('../../dao/daoNuevoCliente.php', {
         method: 'POST',
         body: dataForm
     })
