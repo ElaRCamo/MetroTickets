@@ -2,7 +2,7 @@
         <div class="page-header row headerLogo">
             <div class="col divTitle">
                 <h1> Inicio </h1>
-                <small>Bienvenido(a) <?php echo $nombreUser; ?> </small>
+                <h5>¡Hola <?php global $nombreUser; echo $nombreUser; ?>!</h5>
             </div>
             <div class="logoRight col-sm-3">
                 <div>

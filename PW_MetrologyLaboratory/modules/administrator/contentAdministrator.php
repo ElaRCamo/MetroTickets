@@ -1,171 +1,78 @@
 <main>
     <div class="page-header">
         <h1>Administrar esta página</h1>
-        <small>Selecciona la acción a realizar</small>
+        <small>Selecciona la acción a realizar</small><br>
         <nav>
             <ul>
-                <li><a href="#pruebas">Pruebas</a></li>
-                <li><a href="#materiales">Materiales</a></li>
-                <li><a href="#usuarios">Usuarios</a></li>
-                <li><a href="#plataformas">Plataformas</a></li>
                 <li><a href="#clientes">Clientes</a></li>
+                <li><a href="#plataformas">Plataformas</a></li>
+                <li><a href="#materiales">Materiales</a></li>
             </ul>
         </nav>
     </div>
 
     <div class="page-content">
-
         <div class="container">
-            <!-- Contenido se cargaría aquí -->
-
-            <!-- Pruebas -->
-            <section id="pruebas">
-                <h2>Tabla de Pruebas</h2>
-                <!-- Aquí se mostraría la tabla de Pruebas -->
+            <!-- Clientes -->
+            <section id="clientes">
+                <h3>Tabla de clientes</h3>
+                <div class="col-auto">
+                    <a href="#" class="btn btn-primary"><i class="las la-plus-circle"></i>Nuevo cliente</a>
+                </div>
                 <table>
-                    <!-- Encabezados de la tabla -->
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
                         <th>Descripción</th>
-                        <!-- Otros encabezados según las columnas de tu tabla -->
+                        <th>Acciones</th>
                     </tr>
                     </thead>
-                    <!-- Cuerpo de la tabla -->
                     <tbody>
-                    <!-- Aquí se mostrarían los datos de la tabla de Pruebas -->
-                    <tr>
-                        <td>1</td>
-                        <td>Prueba 1</td>
-                        <td>Descripción de la Prueba 1</td>
-                        <!-- Otros datos de la tabla según las columnas -->
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Prueba 2</td>
-                        <td>Descripción de la Prueba 2</td>
-                        <!-- Otros datos de la tabla según las columnas -->
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Prueba 1</td>
-                        <td>Descripción de la Prueba 1</td>
-                        <!-- Otros datos de la tabla según las columnas -->
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Prueba 2</td>
-                        <td>Descripción de la Prueba 2</td>
-                        <!-- Otros datos de la tabla según las columnas -->
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Prueba 1</td>
-                        <td>Descripción de la Prueba 1</td>
-                        <!-- Otros datos de la tabla según las columnas -->
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Prueba 2</td>
-                        <td>Descripción de la Prueba 2</td>
-                        <!-- Otros datos de la tabla según las columnas -->
-                    </tr>
-                    <!-- Repite estas filas para cada registro de la tabla -->
                     </tbody>
                 </table>
+            </section>
 
-                <!-- Formulario para agregar o editar una Prueba -->
-                <h3>Agregar/Editar Prueba</h3>
-                <form action="guardar_prueba.php" method="POST">
-                    <!-- Campos del formulario -->
-                    <label for="nombre_prueba">Nombre:</label>
-                    <input type="text" id="nombre_prueba" name="nombre_prueba">
-                    <label for="descripcion_prueba">Descripción:</label>
-                    <textarea id="descripcion_prueba" name="descripcion_prueba"></textarea>
-                    <!-- Otros campos según las columnas de tu tabla -->
-                    <button type="submit">Guardar</button>
-                </form>
+            <!-- Plataformas -->
+            <section id="plataformas">
+                <h3>Tabla de Plataformas</h3>
+                <div class="col-auto">
+                    <a href="#" class="btn btn-primary"><i class="las la-plus-circle"></i>Nueva plataforma</a>
+                </div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descripción</th>
+                        <th>Cliente</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </section>
 
             <!-- Materiales -->
             <section id="materiales">
-                <h2>Tabla de Materiales</h2>
-                <!-- Aquí se mostraría la tabla de Pruebas -->
+                <h3>Tabla de Materiales</h3>
+                <div class="col-auto">
+                    <a href="#" class="btn btn-primary"><i class="las la-plus-circle"></i>Nuevo material</a>
+                </div>
                 <table>
-                    <!-- Encabezados de la tabla -->
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
                         <th>Descripción</th>
-                        <!-- Otros encabezados según las columnas de tu tabla -->
+                        <th>Plataforma</th>
+                        <th>Núm. de parte</th>
+                        <th>Imagen</th>
+                        <th>Acciones</th>
                     </tr>
                     </thead>
-                    <!-- Cuerpo de la tabla -->
                     <tbody>
-                    <!-- Aquí se mostrarían los datos de la tabla de Pruebas -->
-                    <tr>
-                        <td>1</td>
-                        <td>Prueba 1</td>
-                        <td>Descripción de la Prueba 1</td>
-                        <!-- Otros datos de la tabla según las columnas -->
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Prueba 2</td>
-                        <td>Descripción de la Prueba 2</td>
-                        <!-- Otros datos de la tabla según las columnas -->
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Prueba 1</td>
-                        <td>Descripción de la Prueba 1</td>
-                        <!-- Otros datos de la tabla según las columnas -->
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Prueba 2</td>
-                        <td>Descripción de la Prueba 2</td>
-                        <!-- Otros datos de la tabla según las columnas -->
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Prueba 1</td>
-                        <td>Descripción de la Prueba 1</td>
-                        <!-- Otros datos de la tabla según las columnas -->
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Prueba 2</td>
-                        <td>Descripción de la Prueba 2</td>
-                        <!-- Otros datos de la tabla según las columnas -->
-                    </tr>
-                    <!-- Repite estas filas para cada registro de la tabla -->
                     </tbody>
                 </table>
-
-                <!-- Formulario para agregar o editar una Prueba -->
-                <h3>Agregar/Editar Prueba</h3>
-                <form action="guardar_prueba.php" method="POST">
-                    <!-- Campos del formulario -->
-                    <label for="nombre_prueba">Nombre:</label>
-                    <input type="text" id="nombre_prueba" name="nombre_prueba">
-                    <label for="descripcion_prueba">Descripción:</label>
-                    <textarea id="descripcion_prueba" name="descripcion_prueba"></textarea>
-                    <!-- Otros campos según las columnas de tu tabla -->
-                    <button type="submit">Guardar</button>
-                </form>
             </section>
-            <!-- Usuarios -->
-            <!-- Plataformas -->
-            <!-- Clientes -->
-
-            <!-- Agrega scripts JavaScript si es necesario -->
-
         </div>
-
     </div>
 </main>
-</body>
-</html>
