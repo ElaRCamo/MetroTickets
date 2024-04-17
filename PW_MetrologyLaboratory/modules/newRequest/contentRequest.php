@@ -146,7 +146,7 @@
 
 
     <!-- Modal RequestReview-->
-    <div class="modal fade container-fluid" id="RequestReview" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal fade container-fluid" id="RequestReview" aria-hidden="true" aria-labelledby="titleResumenMain" tabindex="-1">
         <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
             <div class="modal-content">
                 <div class="modal-header">

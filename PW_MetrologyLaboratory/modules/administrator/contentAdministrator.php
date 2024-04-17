@@ -1,7 +1,6 @@
 <main>
     <div class="page-header">
         <h1>Administrar esta página</h1>
-        <small>Selecciona la acción a realizar</small><br>
         <nav>
             <ul>
                 <li><a href="#clientes">Clientes</a></li>
@@ -16,10 +15,13 @@
             <!-- Clientes -->
             <section id="clientes">
                 <h3>Clientes</h3>
-                <div class="col-auto">
-                    <a href="#" class="btn btn-primary"><i class="las la-plus-circle"></i>Nuevo cliente</a>
+                <div class="row justify-content-end">
+                    <div class="col-auto">
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoCliente"><i class="las la-plus-circle"></i>Nuevo cliente</a>
+                    </div>
                 </div>
-                <table table table-sm table-striped table-hover>
+
+                <table class="table table-sm table-striped table-hover mt-4">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -35,10 +37,13 @@
             <!-- Plataformas -->
             <section id="plataformas">
                 <h3>Plataformas</h3>
-                <div class="col-auto">
-                    <a href="#" class="btn btn-primary"><i class="las la-plus-circle"></i>Nueva plataforma</a>
+                <div class="row justify-content-end">
+                    <div class="col-auto">
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevaPlataforma"><i class="las la-plus-circle"></i>Nueva plataforma</a>
+                    </div>
                 </div>
-                <table table table-sm table-striped table-hover>
+
+                <table class="table table-sm table-striped table-hover mt-4">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -55,10 +60,13 @@
             <!-- Materiales -->
             <section id="materiales">
                 <h3>Materiales</h3>
-                <div class="col-auto">
-                    <a href="#" class="btn btn-primary"><i class="las la-plus-circle"></i>Nuevo material</a>
+                <div class="row justify-content-end">
+                    <div class="col-auto">
+                        <a href="#" class="btn btn-primary"><i class="las la-plus-circle"></i>Nuevo material</a>
+                    </div>
                 </div>
-                <table table table-sm table-striped table-hover>
+
+                <table class="table table-sm table-striped table-hover mt-4">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -76,3 +84,4 @@
         </div>
     </div>
 </main>
+

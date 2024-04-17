@@ -39,7 +39,11 @@
         # Content section
             require_once('contentAdministrator.php');
         # Content section
-            require_once('../../footer.php')
+            require_once('../../footer.php');
+        # Ventanas modales
+            include 'clientes.php';
+            include 'plataformas.php';
+            include 'materiales.php';
     ?>
 
     <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/general.js"></script>
