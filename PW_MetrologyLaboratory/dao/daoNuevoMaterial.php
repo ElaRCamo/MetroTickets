@@ -11,11 +11,12 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_POST['imgMaterialN'],$_PO
     $target_dir     = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
     //Quitar espacios del nombre del archivo:
     $nombreArchivo  = $_FILES["imgMaterialN"]["name"];
-    $imgFileName    = $idPlataforma.$descMaterial.$numParte;
+    $imgFileName    = $numParte. "-" . str_replace(' ', '-', $nombreArchivo);
+    $imgFileName    = str_replace(' ', '-', $imgFileName);
     $img            = $target_dir . $imgFileName;
     $moverNormaFile = "../imgs/materials/" . $imgFileName;
 
-    if ($_FILES["normaFile"]["error"] > 0) {
+    if ($_FILES["imgMaterialN"]["error"] > 0) {
         echo "Error: " . $_FILES["imgMaterialN"]["error"];
     } else {
         // mover el archivo cargado a la ubicación deseada
