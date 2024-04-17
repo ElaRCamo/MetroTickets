@@ -10,24 +10,24 @@
                 <form method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
-                        <label for="descMaterialN" class="form-label" onchange="plataformaModal()">Descripción del material: </label>
+                        <label for="descMaterialN" class="form-label">Descripción del material: </label>
                         <input type="text" name="descMaterialN" id="descMaterialN" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
-                        <label for="numParteN" class="form-label" ">Número de parte: </label>
-                        <input id="numParteN" name="numParteN" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte" readonly>
+                        <label for="numParteN" class="form-label">Número de parte: </label>
+                        <input id="numParteN" name="numParteN" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
                         <label for="imgMaterialN" class="form-label" >Imagen del material: </label>
-                        <input type="file" placeholder="Imagen del material" class="form-control" id="imgMaterialN" name="imgMaterialN" accept="image">
+                        <input type="file" placeholder="Imagen del material" class="form-control" onchange="plataformaModal()" id="imgMaterialN" name="imgMaterialN" accept="image">
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
                         <label for="descMPlataformaN" class="form-label">Plataforma: </label>
-                        <select class="form-control" id="descMPlataformaN" onchange=""  name="descMPlataformaN" title="Plataforma" required data-error="Por favor seleccione el cliente" >
+                        <select class="form-control" id="descMPlataformaN" name="descMPlataformaN" required data-error="Por favor seleccione el cliente" >
                             <option value="">Seleccione una plataforma*</option>
                         </select>
                     </div>
