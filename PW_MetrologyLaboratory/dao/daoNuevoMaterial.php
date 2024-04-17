@@ -4,8 +4,27 @@ include_once('connection.php');
 if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_POST['imgMaterialN'],$_POST['descMPlataformaN'] )){
     $descMaterial = $_POST['descMaterialN'];
     $numParte = $_POST['numParteN'];
-    $imgMaterial = $_POST['imgMaterialN'];
     $idPlataforma = $_POST['descMPlataformaN'];
+
+    //Se guarda ruta de la imagen
+    $imgMaterial    = $_POST['imgMaterialN'];
+    $target_dir     = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
+    //Quitar espacios del nombre del archivo:
+    $nombreArchivo  = $_FILES["imgMaterialN"]["name"];
+    $imgFileName    = $idPlataforma.$descMaterial.$numParte;
+    $img            = $target_dir . $imgFileName;
+    $moverNormaFile = "../imgs/materials/" . $imgFileName;
+
+    if ($_FILES["normaFile"]["error"] > 0) {
+        echo "Error: " . $_FILES["imgMaterialN"]["error"];
+    } else {
+        // mover el archivo cargado a la ubicación deseada
+        if (move_uploaded_file($_FILES["imgMaterialN"]["tmp_name"], $moverNormaFile)) {
+            echo "El archivo " . htmlspecialchars($imgFileName) . " ha sido subido correctamente.";
+        } else {
+            echo "Hubo un error al subir el archivo.";
+        }
+    }
 
     // Llamar a la función
     if(nuevoMaterial($descMaterial,$numParte,$imgMaterial,$idPlataforma)) {
