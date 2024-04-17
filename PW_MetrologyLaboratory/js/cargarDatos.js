@@ -166,6 +166,8 @@ function resumenSolicitud(id_prueba) {
 
             tbody.appendChild(fila);
         }
+        id_review = id_prueba;
+        alert("id_review = id_prueba:"+id_review)
 
         // Mostrar la ventana modal con id RequestReview
         $('#RequestReview').modal('show');
@@ -284,8 +286,6 @@ function resumenPrueba(ID_PRUEBA){
 
             tbody.appendChild(fila);
         }
-        id_review = ID_PRUEBA;
-        alert("id_review = ID_PRUEBA:"+id_review)
     });
 
 }
