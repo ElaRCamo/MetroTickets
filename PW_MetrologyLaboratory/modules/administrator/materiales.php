@@ -10,13 +10,13 @@
                 <form method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
-                        <label for="descMaterialN" class="form-label">Descripción del material: </label>
+                        <label for="descMaterialN" class="form-label" onchange="plataformaModal()">Descripción del material: </label>
                         <input type="text" name="descMaterialN" id="descMaterialN" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
-                        <label for="numParteN" class="form-label" onchange="plataformaModal()">Número de parte: </label>
+                        <label for="numParteN" class="form-label" ">Número de parte: </label>
                         <input id="numParteN" name="numParteN" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte" readonly>
                     </div>
                     <div class="mb-3">
