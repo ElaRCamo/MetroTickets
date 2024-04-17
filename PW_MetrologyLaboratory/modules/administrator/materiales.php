@@ -21,7 +21,7 @@
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
-                        <label for="imgMaterialN" class="form-label">Imagen del material: </label>
+                        <label for="imgMaterialN" class="form-label" onchange="plataformaModal()">Imagen del material: </label>
                         <input type="file" placeholder="Imagen del material" class="form-control" id="imgMaterialN" name="imgMaterialN" accept="image">
                     </div>
                     <div class="mb-3">

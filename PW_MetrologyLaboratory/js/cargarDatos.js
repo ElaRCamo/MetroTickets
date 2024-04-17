@@ -104,6 +104,24 @@ function llenarPlataforma(i) {
         }
     });
 }
+function plataformaModal(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasT.php', function (data){
+        var selectS = id("descMPlataformaN");
+        selectS.innerHTML = "";
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Especifique el cliente*";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[j].id_cliente;
+            createOption.text = data.data[j].descripcionCliente;
+            selectS.appendChild(createOption);
+        }
+    });
+}
 
 function llenarDescMaterial(i) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoDescMaterial.php?id_plataforma=' + id("plataforma" + i).value, function (data) {
