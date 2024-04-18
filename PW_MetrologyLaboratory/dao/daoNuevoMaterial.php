@@ -7,12 +7,8 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
     $idPlataforma = $_POST['descMPlataformaN'];
 
     //Se guarda ruta de la imagen
-    $imgMaterial    = $_POST['imgMaterialN'];
     $target_dir     = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
-    //Quitar espacios del nombre del archivo:
-    $nombreArchivo  = $_FILES["imgMaterialN"]["name"];
-    $imgFileName    = $numParte. "-" . str_replace(' ', '-', $nombreArchivo);
-    $imgFileName    = str_replace(' ', '-', $imgFileName);
+    $imgFileName    = $numParte;
     $img            = $target_dir . $imgFileName;
     $moverNormaFile = "../imgs/materials/" . $imgFileName;
 
@@ -27,7 +23,7 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
         }
 
     // Llamar a la función
-    if(nuevoMaterial($descMaterial,$numParte,$imgMaterial,$idPlataforma)) {
+    if(nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma)) {
         echo '<script>alert("Material registrado exitosamente")</script>';
     } else {
         echo '<script>alert("Error al registrar el material")</script>';
@@ -64,13 +60,13 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
 
-function nuevoMaterial($descMaterial,$numParte,$imgMaterial,$idPlataforma){
+function nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma){
     $con = new LocalConector();
     $conex = $con->conectar();
 
     $insertMaterial = $conex->prepare("INSERT INTO DescripcionMaterial (descripcionMaterial, numeroDeParte, imgMaterial, id_plataforma)
                                                     VALUES (?,?,?,?)");
-    $insertMaterial->bind_param("sssi", $descMaterial,$numParte,$imgMaterial,$idPlataforma);
+    $insertMaterial->bind_param("sssi", $descMaterial,$numParte,$img,$idPlataforma);
     $resultado = $insertMaterial->execute();
 
     $conex->close();
