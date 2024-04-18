@@ -2,7 +2,7 @@
 
 include_once('connection.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
     $id_cliente = $_POST["id_cliente"];
 
     $con = new LocalConector();
