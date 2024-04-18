@@ -328,3 +328,69 @@ function resumenPrueba(ID_PRUEBA){
 function reviewPDF(ID_PRUEBA){
     window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/pruebaPDF.php?id_prueba=" + ID_PRUEBA;
 }
+
+function TablasAdminClientes(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente', function (response) {
+        var tabla = id("tablaClientes");
+        var tbody = tabla.getElementsByTagName("tbody")[0];
+
+        // Limpiar contenido previo de la tabla
+        tbody.innerHTML = '';
+
+        // Iterar sobre los materiales y crear filas y celdas de tabla
+        for (var j = 0; j < response.data.length; j++) {
+            var fila = document.createElement("tr");
+
+            var idCliente = document.createElement("td");
+            idCliente.textContent = response.data[j].id_cliente;
+            fila.appendChild(idCliente);
+
+            var descripcionCliente = document.createElement("td");
+            descripcionCliente.textContent = response.data[j].descripcionCliente;
+            fila.appendChild(descripcionCliente);
+
+            var acciones = document.createElement("td");
+            // Botón de editar
+            var btnEditar = document.createElement("button");
+            btnEditar.textContent = "Editar";
+            btnEditar.classList.add("btn btn-warning btnEditar");
+            btnEditar.setAttribute("onclick", "editarCliente('" + id_cliente.textContent + "')");
+            // Botón de eliminar
+            var btnEliminar = document.createElement("button");
+            btnEliminar.textContent = "Eliminar";
+            btnEliminar.classList.add("btn btn-danger btnEliminar");
+            btnEliminar.setAttribute("onclick", "eliminarCliente('" + id_cliente.textContent + "')");
+            // Agregar los botones al td
+            acciones.appendChild(btnEditar);
+            acciones.appendChild(btnEliminar);
+            fila.appendChild(acciones);
+        }
+    });
+}
+
+function TablasAdminPlataformas(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente', function (response) {
+        var tabla = id("tablaClientes");
+        var tbody = tabla.getElementsByTagName("tbody")[0];
+
+        // Limpiar contenido previo de la tabla
+        tbody.innerHTML = '';
+
+        // Iterar sobre los materiales y crear filas y celdas de tabla
+        for (var j = 0; j < response.data.length; j++) {
+            var fila = document.createElement("tr");
+
+            var idCliente = document.createElement("td");
+            idCliente.textContent = response.data[j].id_cliente;
+            fila.appendChild(idCliente);
+
+            var descripcionCliente = document.createElement("td");
+            descripcionCliente.textContent = response.data[j].descripcionCliente;
+            fila.appendChild(descripcionCliente);
+
+            var descripcionCliente = document.createElement("td");
+
+
+        }
+    });
+}

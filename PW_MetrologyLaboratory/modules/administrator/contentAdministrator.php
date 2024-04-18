@@ -21,7 +21,7 @@
                     </div>
                 </div>
 
-                <table class="table table-sm table-striped table-hover mt-4">
+                <table class="table table-sm table-striped table-hover mt-4" id="tablaClientes">
                     <thead>
                     <tr>
                         <th>ID</th>
