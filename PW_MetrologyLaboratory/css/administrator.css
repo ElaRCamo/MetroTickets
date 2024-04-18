@@ -13,6 +13,10 @@ body {
     margin: 0;
     padding: 0;
 }
+#containerNavAdmin{
+    padding-top: 0;
+    padding-bottom: 0;
+}
 nav,#containerNavAdmin {
     background-color: var(--blue_20);
 }
