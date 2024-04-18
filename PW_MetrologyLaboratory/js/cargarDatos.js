@@ -330,7 +330,7 @@ function reviewPDF(ID_PRUEBA){
 }
 
 function TablasAdminClientes(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente', function (response) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (response) {
         var tabla = id("tablaClientes");
         var tbody = tabla.getElementsByTagName("tbody")[0];
 
