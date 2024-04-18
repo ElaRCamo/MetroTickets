@@ -353,12 +353,12 @@ function TablasAdminClientes(){
             // Botón de editar
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
-            btnEditar.classList.add("btn,btn-warning, btnEditar");
+            btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             btnEditar.setAttribute("onclick", "editarCliente('" + id_cliente.textContent + "')");
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
             btnEliminar.textContent = "Eliminar";
-            btnEliminar.classList.add("btn, btn-danger, btnEliminar");
+            btnEliminar.classList.add("btn", "btn-danger", "btnEliminar");
             btnEliminar.setAttribute("onclick", "eliminarCliente('" + id_cliente.textContent + "')");
             // Agregar los botones al td
             acciones.appendChild(btnEditar);
