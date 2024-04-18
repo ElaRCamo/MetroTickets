@@ -10,18 +10,20 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
     $archivo = $_FILES['imgMaterialN']['name'];
     //Si el archivo contiene algo y es diferente de vacio
     if (isset($archivo) && $archivo != "") {
-        //Obtenemos algunos datos necesarios sobre el archivo
         $tipo = $_FILES['imgMaterialN']['type'];
         $tamano = $_FILES['imgMaterialN']['size'];
         $temp = $_FILES['imgMaterialN']['tmp_name'];
         //Se comprueba si el archivo a cargar es correcto observando su extensión y tamaño
         if (!((strpos($tipo, "gif") || strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))) {
-            echo '<div><b>Error. La extensión o el tamaño de los archivos no es correcta.<br/>
-        - Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.</b></div>';
+
+            $mensaje = '<div><b>Error. La extensión o el tamaño de los archivos no es correcta.<br/>
+                        - Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.</b></div>';
+            echo json_encode($mensaje);
+
+
         } else {
             //Si la imagen es correcta en tamaño y tipo
             //Se intenta subir al servidor
-            echo 'antes del move';
             if (move_uploaded_file($temp, '../imgs/materials/' . $archivo)) {
                 //Cambiamos los permisos del archivo a 777 para poder modificarlo posteriormente
                 chmod('../imgs/materials/' . $archivo, 0777);
@@ -29,12 +31,25 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
                 echo '<div><b>Se ha subido correctamente la imagen.</b></div>';
                 //Mostramos la imagen subida
                 echo '<p><img src="../imgs/materials/' . $archivo . '"></p>';
+
+
+                $mensaje = '<div><b>Se ha subido correctamente la imagen.</b></div><br/>
+                            <p><img src="../imgs/materials/' . $archivo . '"></p>';
+                echo json_encode($mensaje);
+
+
+
                 $img = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/" . $numParte . $archivo;
                 // Llamar a la función solo si la subida del archivo es exitosa
                 nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
             } else {
                 //Si no se ha podido subir la imagen, mostramos un mensaje de error
                 echo '<div><b>Ocurrió algún error al subir el fichero. No pudo guardarse.</b></div>';
+
+
+                $mensaje = '<div><b>Ocurrió algún error al subir el fichero. No pudo guardarse.</b></div>';
+                echo json_encode($mensaje);
+
             }
         }
     }

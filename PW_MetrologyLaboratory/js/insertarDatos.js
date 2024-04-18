@@ -287,16 +287,20 @@ function registrarMaterial(){
         method: 'POST',
         body: dataForm
     })
+
         .then(function (response) {
-            if (response.ok) { //respuesta
-                alert('Material registrado con exito');
-                window.location.href = "../administrator/administratorIndex.php";
+            if (response.ok) {
+                return response.json(); // Convertir la respuesta JSON en un objeto JavaScript
             } else {
                 throw "Error en la llamada Ajax";
             }
+            //alert('Material registrado con exito');
+            //window.location.href = "../administrator/administratorIndex.php";
         })
-        .then(function (texto) {
-            console.log(texto);
+        .then(function (data) {
+            console.log(data.mensaje); // Mostrar el mensaje recibido en la consola
+            alert(data.mensaje); // Mostrar el mensaje en un alert
+            // Puedes agregar más código aquí para manejar la respuesta según tus necesidades
         })
         .catch(function (err) {
             console.log(err);
