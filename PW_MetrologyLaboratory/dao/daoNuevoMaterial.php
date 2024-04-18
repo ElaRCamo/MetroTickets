@@ -30,6 +30,8 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
                 //Mostramos la imagen subida
                 echo '<p><img src="../imgs/materials/' . $archivo . '"></p>';
                 $img = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/" . $numParte . $archivo;
+                // Llamar a la función solo si la subida del archivo es exitosa
+                nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
             } else {
                 //Si no se ha podido subir la imagen, mostramos un mensaje de error
                 echo '<div><b>Ocurrió algún error al subir el fichero. No pudo guardarse.</b></div>';
