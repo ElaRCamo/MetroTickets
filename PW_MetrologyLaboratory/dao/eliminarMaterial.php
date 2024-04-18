@@ -3,7 +3,7 @@
 include_once('connection.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id_descripcion = $_POST["id_descripcion"];
+    $id_cliente = $_POST["id_cliente"];
 
     $con = new LocalConector();
     $conex = $con->conectar();
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $stmt = $conex->prepare("DELETE FROM Cliente WHERE id_cliente = ?");
-    $stmt->bind_param("s", $id_descripcion);
+    $stmt->bind_param("s", $id_cliente);
 
     if ($stmt->execute()) {
         $respuesta = array("success" => true, "message" => "El registro se eliminó correctamente.");
