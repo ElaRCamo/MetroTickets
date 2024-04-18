@@ -1,7 +1,7 @@
 <?php
 include_once('connection.php');
 
-if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_POST['imgMaterialN'],$_POST['descMPlataformaN'] )){
+if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_POST['descMPlataformaN'] )){
     $descMaterial = $_POST['descMaterialN'];
     $numParte = $_POST['numParteN'];
     $idPlataforma = $_POST['descMPlataformaN'];
@@ -77,10 +77,10 @@ function nuevoMaterial($descMaterial,$numParte,$imgMaterial,$idPlataforma){
     $conex->close();
 
     if (!$resultado) {
-        echo '<script>alert("Error al registrar el usuario")</script>';
+        echo '<script>alert("Error al registrar el material")</script>';
         return 0;
     } else {
-        echo '<script>alert("Usuario registrado exitosamente")</script>';
+        echo '<script>alert("Material registrado exitosamente")</script>';
         return 1;
     }
 
