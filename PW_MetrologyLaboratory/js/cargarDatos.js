@@ -373,9 +373,7 @@ function TablaAdminClientes(){
 function editarCliente(id_cliente){
     console.log("id_cliente para editar: " + id_cliente);
 }
-function eliminarCliente(id_cliente){
-    console.log("id_cliente para eliminar: " + id_cliente);
-}
+
 
 function TablaAdminPlataformas(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasT.php', function (response) {
@@ -425,9 +423,7 @@ function TablaAdminPlataformas(){
 function editarPlataforma(id_plataforma){
     console.log("id_plataforma para editar: " + id_plataforma);
 }
-function eliminarPlataforma(id_plataforma){
-    console.log("id_plataforma para eliminar: " + id_plataforma);
-}
+
 
 function TablaAdminMateriales(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaMateriales.php', function (response) {
@@ -489,7 +485,4 @@ function TablaAdminMateriales(){
 
 function editarMaterial(id_descripcion){
     console.log("id_descripcion para editar: " + id_descripcion);
-}
-function eliminarMaterial(id_descripcion){
-    console.log("id_descripcion para eliminar: " + id_descripcion);
 }
