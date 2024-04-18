@@ -1,5 +1,5 @@
 <main>
-
+    <div class="page-header" id="containerNavAdmin">
         <nav>
             <ul>
                 <li><a href="#clientes"><h5>Clientes</h5></a></li>
@@ -7,6 +7,7 @@
                 <li><a href="#materiales"><h5>Materiales</h5></a></li>
             </ul>
         </nav>
+    </div>
 
     <div class="page-content">
         <div class="container table-responsive">

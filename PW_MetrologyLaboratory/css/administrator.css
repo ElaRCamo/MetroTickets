@@ -13,6 +13,10 @@ body {
     margin: 0;
     padding: 0;
 }
+#containerNavAdmin{
+    background-color: var(--blue_20);
+}
+
 nav {
     background-color: var(--blue_20);
     padding: 1rem;
@@ -22,10 +26,24 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    text-align: center;
 }
+
+/*
+nav {
+    background-color: var(--blue_20);
+    padding: 1rem;
+    position: fixed; /* Hace que el nav sea fijo en la pantalla
+width: 100%; /* Ajusta el ancho del nav al 100% del viewport
+top: 2.5rem; /* Fija el nav en la parte superior de la pantalla
+z-index: 1000; /* Ajusta el z-index para asegurarte de que el nav esté por encima de otros elementos
+}
+ */
 nav ul li {
-    float: left;
+    display: inline-block; /* Cambia float a inline-block para que los elementos se puedan centrar */
+    margin-right: 1rem; /* Añade un margen derecho entre los elementos para separarlos */
 }
+
 nav ul li a {
     display: block;
     color:var(--color-sky);
