@@ -354,18 +354,27 @@ function TablasAdminClientes(){
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
-            btnEditar.setAttribute("onclick", "editarCliente('" +  response.data[j].id_cliente + "')");
+            //btnEditar.setAttribute("onclick", "editarCliente('" +  response.data[j].id_cliente + "')");
+            btnEditar.onclick = function() { editarCliente(response.data[j].id_cliente);};
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
             btnEliminar.textContent = "Eliminar";
             btnEliminar.classList.add("btn", "btn-danger", "btnEliminar");
-            btnEliminar.setAttribute("onclick", "eliminarCliente('" +  response.data[j].id_cliente + "')");
+            btnEliminar.onclick = function() { eliminarCliente(response.data[j].id_cliente);};
+            //btnEliminar.setAttribute("onclick", "eliminarCliente('" +  response.data[j].id_cliente + "')");
             // Agregar los botones al td
             acciones.appendChild(btnEditar);
             acciones.appendChild(btnEliminar);
             fila.appendChild(acciones);
         }
     });
+}
+
+function editarCliente(id_cliente){
+    console.log("id_cliente para editar: " + id_cliente);
+}
+function eliminarCliente(id_cliente){
+    console.log("id_cliente para eliminar: " + id_cliente);
 }
 
 function TablasAdminPlataformas(){
