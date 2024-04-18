@@ -6,13 +6,38 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
     $numParte = $_POST['numParteN'];
     $idPlataforma = $_POST['descMPlataformaN'];
 
-    //Se guarda ruta de la imagen
-    $target_dir     = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
-    $imgFileName    = $numParte;
-    $img            = $target_dir . $imgFileName;
-    $moverNormaFile = "../imgs/materials/" . $imgFileName;
+    //Recogemos el archivo enviado por el formulario
+    $archivo = $_FILES['imgMaterialN']['name'];
+    //Si el archivo contiene algo y es diferente de vacio
+    if (isset($archivo) && $archivo != "") {
+        //Obtenemos algunos datos necesarios sobre el archivo
+        $tipo = $_FILES['imgMaterialN']['type'];
+        $tamano = $_FILES['imgMaterialN']['size'];
+        $temp = $_FILES['imgMaterialN']['tmp_name'];
+        //Se comprueba si el archivo a cargar es correcto observando su extensión y tamaño
+        if (!((strpos($tipo, "gif") || strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))) {
+            echo '<div><b>Error. La extensión o el tamaño de los archivos no es correcta.<br/>
+        - Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.</b></div>';
+        } else {
+            //Si la imagen es correcta en tamaño y tipo
+            //Se intenta subir al servidor
+            echo 'antes del move';
+            if (move_uploaded_file($temp, '../imgs/materials/' . $archivo)) {
+                //Cambiamos los permisos del archivo a 777 para poder modificarlo posteriormente
+                chmod('../imgs/materials/' . $archivo, 0777);
+                //Mostramos el mensaje de que se ha subido co éxito
+                echo '<div><b>Se ha subido correctamente la imagen.</b></div>';
+                //Mostramos la imagen subida
+                echo '<p><img src="../imgs/materials/' . $archivo . '"></p>';
+                $img = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/" . $numParte . $archivo;
+            } else {
+                //Si no se ha podido subir la imagen, mostramos un mensaje de error
+                echo '<div><b>Ocurrió algún error al subir el fichero. No pudo guardarse.</b></div>';
+            }
+        }
+    }
 
-    if ($_FILES["imgMaterialN"]["error"] > 0) {
+   /* if ($_FILES["imgMaterialN"]["error"] > 0) {
         echo "Error: " . $_FILES["imgMaterialN"]["error"];
     } else {
         // mover el archivo cargado a la ubicación deseada
@@ -30,7 +55,7 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
     }
     }
 
-    /* Validar el tipo y tamaño del archivo
+     Validar el tipo y tamaño del archivo
     $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
     $max_size = 10 * 1024 * 1024; // 10MB
 
