@@ -10,7 +10,8 @@ function todasLasPlataforma(){
 
     $sqlPlataforma =  mysqli_query($conex, "SELECT id_plataforma, descripcionPlataforma, descripcionCliente 
                                                     FROM Plataforma P,Cliente C 
-                                                    WHERE P.id_cliente = C.id_cliente;");
+                                                    WHERE P.id_cliente = C.id_cliente
+                                                    ORDER BY descripcionCliente;");
 
     $resultado= mysqli_fetch_all($sqlPlataforma, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
