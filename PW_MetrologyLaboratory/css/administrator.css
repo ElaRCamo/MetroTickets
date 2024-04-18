@@ -46,29 +46,29 @@ h3{
     padding: 0.5rem;
 }
 
-#tablaClientes,#tablaPlataformas,#tablaMateriales {
-    border-collapse: collapse;
-}
-
 #tablaClientes thead tr,#tablaPlataformas thead tr, #tablaMateriales thead tr {
-    background: #E5EEF7;
+    background: #EFEDE9;
 }
 #tablaClientes thead th,#tablaPlataformas thead th, #tablaMateriales thead th {
     text-align: center;
     color:#005195;
-    font-size: .9rem;
+    margin:0.5rem;
+    font-size: 1.3rem;
 }
 #tablaClientes tbody td,#tablaPlataformas tbody td, #tablaMateriales tbody td {
     color: #444;
 }
 td{
-    font-size: 0.9rem;
     text-align: center;
-}
-th{
-    font-size: 0.9rem;
 }
 
 #tablaClientes tbody tr,#tablaPlataformas tbody tr, #tablaMateriales tbody tr {
     border-bottom: 1px solid #dee2e8;
+}
+#tablaMateriales img{
+    width: 90px;
+    height: 60px;
+}
+.btnEliminar{
+    margin-left: 1rem;
 }
