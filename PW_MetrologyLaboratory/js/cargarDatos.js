@@ -354,8 +354,8 @@ function TablaAdminClientes(){
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
-            //btnEditar.setAttribute("onclick", "editarCliente('" +  response.data[j].id_cliente + "')");
-            btnEditar.onclick = function() { editarCliente(response.data[j].id_cliente);};
+            btnEditar.setAttribute("onclick", "editarCliente('" +  response.data[j].id_cliente + "')");
+            //btnEditar.onclick = function() { editarCliente(response.data[j].id_cliente);};
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
             btnEliminar.textContent = "Eliminar";
