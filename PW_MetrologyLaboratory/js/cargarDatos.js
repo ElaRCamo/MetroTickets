@@ -355,13 +355,11 @@ function TablaAdminClientes(){
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             btnEditar.setAttribute("onclick", "editarCliente('" +  response.data[j].id_cliente + "')");
-            //btnEditar.onclick = function() { editarCliente(response.data[j].id_cliente);};
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
             btnEliminar.textContent = "Eliminar";
             btnEliminar.classList.add("btn", "btn-danger", "btnEliminar");
-            btnEliminar.onclick = function() { eliminarCliente(response.data[j].id_cliente);};
-            //btnEliminar.setAttribute("onclick", "eliminarCliente('" +  response.data[j].id_cliente + "')");
+            btnEliminar.setAttribute("onclick", "eliminarCliente('" +  response.data[j].id_cliente + "')");
             // Agregar los botones al td
             acciones.appendChild(btnEditar);
             acciones.appendChild(btnEliminar);
@@ -408,12 +406,12 @@ function TablaAdminPlataformas(){
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
-            btnEditar.onclick = function() { editarPlataforma(response.data[j].id_plataforma);};
+            btnEditar.setAttribute("onclick", "editarPlataforma('" +  response.data[j].id_plataforma + "')");
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
             btnEliminar.textContent = "Eliminar";
             btnEliminar.classList.add("btn", "btn-danger", "btnEliminar");
-            btnEliminar.onclick = function() { eliminarPlataforma(response.data[j].id_plataforma);};
+            btnEliminar.setAttribute("onclick", "eliminarPlataforma('" +  response.data[j].id_plataforma + "')");
             // Agregar los botones al td
             acciones.appendChild(btnEditar);
             acciones.appendChild(btnEliminar);
@@ -471,12 +469,13 @@ function TablaAdminMateriales(){
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
-            btnEditar.onclick = function() { editarMaterial(response.data[j].id_descripcion);};
+            btnEditar.setAttribute("onclick", "editarMaterial('" +  response.data[j].id_descripcion + "')");
+
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
             btnEliminar.textContent = "Eliminar";
             btnEliminar.classList.add("btn", "btn-danger", "btnEliminar");
-            btnEliminar.onclick = function() { eliminarMaterial(response.data[j].id_descripcion);};
+            btnEliminar.setAttribute("onclick", "eliminarMaterial('" +  response.data[j].id_descripcion + "')");
             // Agregar los botones al td
             acciones.appendChild(btnEditar);
             acciones.appendChild(btnEliminar);
