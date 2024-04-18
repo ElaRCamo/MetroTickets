@@ -21,7 +21,7 @@
                     </div>
                 </div>
 
-                <table class="table mt-4" id="tablaClientes">
+                <table class="table mt-6" id="tablaClientes">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <table class="table mt-4" id="tablaPlataformas">
+                <table class="table mt-6" id="tablaPlataformas">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
 
-                <table class="table table-sm table-hover mt-4" id="tablaMateriales">
+                <table class="table table-sm table-hover mt-6" id="tablaMateriales">
                     <thead>
                     <tr>
                         <th>ID</th>

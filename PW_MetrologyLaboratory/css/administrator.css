@@ -41,25 +41,24 @@ nav ul li a:hover {
 }
 
 h3{
-    background-color: var(--color_gold);
     color: var(--main-color);
     font-weight: bold;
     padding: 0.5rem;
 }
 
-table {
+#tablaClientes,#tablaPlataformas,#tablaMateriales {
     border-collapse: collapse;
 }
 
-table thead tr {
+#tablaClientes thead tr,#tablaPlataformas thead tr, #tablaMateriales thead tr {
     background: #E5EEF7;
 }
-table thead th {
+#tablaClientes thead th,#tablaPlataformas thead th, #tablaMateriales thead th {
     text-align: center;
     color:#005195;
     font-size: .9rem;
 }
-table tbody td {
+#tablaClientes tbody td,#tablaPlataformas tbody td, #tablaMateriales tbody td {
     color: #444;
 }
 td{
@@ -70,6 +69,6 @@ th{
     font-size: 0.9rem;
 }
 
-table tbody tr {
+#tablaClientes tbody tr,#tablaPlataformas tbody tr, #tablaMateriales tbody tr {
     border-bottom: 1px solid #dee2e8;
 }
