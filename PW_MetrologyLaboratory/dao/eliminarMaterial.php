@@ -2,8 +2,8 @@
 
 include_once('connection.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
-    $id_cliente = $_POST["id_cliente"];
+
+    $id_cliente = $_GET["id_cliente"];
 
     $con = new LocalConector();
     $conex = $con->conectar();
@@ -27,9 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
     $stmt->close();
     $conex->close();
 
-} else {
-    $respuesta = array("success" => false, "message" => "Se esperaba una solicitud POST.");
-    echo json_encode($respuesta);
-}
+
+
 
 ?>

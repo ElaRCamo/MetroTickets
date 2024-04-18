@@ -251,7 +251,7 @@ function registrarPlataforma(){
     dataForm.append('descPlataformaN', descPlataformaN.value.trim());
     dataForm.append('descPClienteN', descPClienteN.value.trim());
 
-    fetch('../../dao/daoNuevaPlataforma.php', {
+    C('../../dao/daoNuevaPlataforma.php', {
         method: 'POST',
         body: dataForm
     })
@@ -298,9 +298,8 @@ function registrarMaterial(){
             //window.location.href = "../administrator/administratorIndex.php";
         })
         .then(function (data) {
-            console.log(data.mensaje); // Mostrar el mensaje recibido en la consola
-            alert(data.mensaje); // Mostrar el mensaje en un alert
-            // Puedes agregar más código aquí para manejar la respuesta según tus necesidades
+            console.log(data.mensaje);
+
         })
         .catch(function (err) {
             console.log(err);
