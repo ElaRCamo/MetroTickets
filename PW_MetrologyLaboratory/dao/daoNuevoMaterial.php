@@ -50,23 +50,17 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_POST['imgMaterialN'],$_PO
     } else {
         // Procede con la subida del archivo
         $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
-        $imgFileName = $numParte . "-" . str_replace(' ', '-', $nombreArchivo);
-        $imgFileName = str_replace(' ', '-', $imgFileName);
+        $imgFileName = $numParte;
         $img = $target_dir . $imgFileName;
         $moverNormaFile = "../imgs/materials/" . $imgFileName;
 
         if (move_uploaded_file($_FILES["imgMaterialN"]["tmp_name"], $moverNormaFile)) {
             // Llamar a la función solo si la subida del archivo es exitosa
-            if(nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma)) {
-                echo '<script>alert("Material registrado exitosamente")</script>';
-            } else {
-                echo '<script>alert("Error al registrar el material")</script>';
-            }
+            nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
         } else {
             echo '<script>alert("Hubo un error al subir el archivo.")</script>';
         }
     }
-
 } else {
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
@@ -80,19 +74,16 @@ function nuevoMaterial($descMaterial,$numParte,$imgMaterial,$idPlataforma){
     $insertMaterial->bind_param("sssi", $descMaterial,$numParte,$imgMaterial,$idPlataforma);
     $resultado = $insertMaterial->execute();
 
-    if(!$resultado) {
-        echo "Los datos no se insertaron correctamente.";
-        echo json_encode(array('error' => true));
-        exit;
-        //return false;
-    } else {
-        $conex->commit();
-        echo json_encode(array('error' => false));
-        exit;
-        //return true;
-    }
-    // Cerrar la conexión
     $conex->close();
+
+    if (!$resultado) {
+        echo '<script>alert("Error al registrar el usuario")</script>';
+        return 0;
+    } else {
+        echo '<script>alert("Usuario registrado exitosamente")</script>';
+        return 1;
+    }
+
 }
 
 ?>
