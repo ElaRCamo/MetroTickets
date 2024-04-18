@@ -5,13 +5,14 @@ function eliminarCliente(id_cliente) {
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/eliminarMaterial.php?id_cliente='+id_cliente,{
         method: 'DELETE'
         }).then(res => {
+            TablaAdminClientes();
             if(!res.ok){
             console.log('Problem');
             return;
         }
             return res.json();
         })
-        .then(data =>{
+        .then(data => {
             console.log('Success');
         })
         .catch(error =>{
