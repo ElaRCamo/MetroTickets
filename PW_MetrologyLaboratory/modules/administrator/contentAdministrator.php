@@ -21,7 +21,7 @@
                     </div>
                 </div>
 
-                <table class="table table-sm mt-4" id="tablaClientes">
+                <table class="table mt-4" id="tablaClientes">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <table class="table table-sm table-striped mt-4" id="tablaPlataformas">
+                <table class="table mt-4" id="tablaPlataformas">
                     <thead>
                     <tr>
                         <th>ID</th>
