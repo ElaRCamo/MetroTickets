@@ -102,7 +102,7 @@ function cerrarSesion() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            alert('Sesión cerrada exitosamente');
+            Swal.fire("¡Sesión cerrada exitosamente!");
             window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php";
         }
     };
