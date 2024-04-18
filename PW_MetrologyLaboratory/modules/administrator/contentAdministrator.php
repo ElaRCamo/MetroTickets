@@ -11,7 +11,7 @@
     </div>
 
     <div class="page-content">
-        <div class="container">
+        <div class="container table-responsive">
             <!-- Clientes -->
             <section id="clientes">
                 <h3>Clientes</h3>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
 
-                <table class="table table-sm table-striped table-hover mt-4" id="tablaClientes">
+                <table class="table table-sm mt-4" id="tablaClientes">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <table class="table table-sm table-striped table-hover mt-4">
+                <table class="table table-sm table-striped mt-4" id="tablaPlataformas">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
 
-                <table class="table table-sm table-striped table-hover mt-4">
+                <table class="table table-sm table-hover mt-4" id="tablaMateriales">
                     <thead>
                     <tr>
                         <th>ID</th>

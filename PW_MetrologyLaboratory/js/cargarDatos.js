@@ -379,9 +379,9 @@ function eliminarCliente(id_cliente){
     console.log("id_cliente para eliminar: " + id_cliente);
 }
 
-function TablasAdminPlataformas(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente', function (response) {
-        var tabla = id("tablaClientes");
+function TablaAdminPlataformas(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasT.php', function (response) {
+        var tabla = id("tablaPlataformas");
         var tbody = tabla.getElementsByTagName("tbody")[0];
 
         // Limpiar contenido previo de la tabla
@@ -391,17 +391,42 @@ function TablasAdminPlataformas(){
         for (var j = 0; j < response.data.length; j++) {
             var fila = document.createElement("tr");
 
-            var idCliente = document.createElement("td");
-            idCliente.textContent = response.data[j].id_cliente;
-            fila.appendChild(idCliente);
+            var idPlataforma = document.createElement("td");
+            idPlataforma.textContent = response.data[j].id_plataforma;
+            fila.appendChild(idPlataforma);
+
+            var descripcionPlataforma = document.createElement("td");
+            descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
+            fila.appendChild(descripcionPlataforma);
 
             var descripcionCliente = document.createElement("td");
             descripcionCliente.textContent = response.data[j].descripcionCliente;
             fila.appendChild(descripcionCliente);
 
-            var descripcionCliente = document.createElement("td");
+            var acciones = document.createElement("td");
+            // Botón de editar
+            var btnEditar = document.createElement("button");
+            btnEditar.textContent = "Editar";
+            btnEditar.classList.add("btn", "btn-warning", "btnEditar");
+            btnEditar.onclick = function() { editarPlataforma(response.data[j].id_plataforma);};
+            // Botón de eliminar
+            var btnEliminar = document.createElement("button");
+            btnEliminar.textContent = "Eliminar";
+            btnEliminar.classList.add("btn", "btn-danger", "btnEliminar");
+            btnEliminar.onclick = function() { eliminarPlataforma(response.data[j].id_plataforma);};
+            // Agregar los botones al td
+            acciones.appendChild(btnEditar);
+            acciones.appendChild(btnEliminar);
+            fila.appendChild(acciones);
 
-
+            tbody.appendChild(fila);
         }
     });
+}
+
+function editarPlataforma(id_plataforma){
+    console.log("id_plataforma para editar: " + id_plataforma);
+}
+function eliminarPlataforma(id_plataforma){
+    console.log("id_plataforma para eliminar: " + id_plataforma);
 }
