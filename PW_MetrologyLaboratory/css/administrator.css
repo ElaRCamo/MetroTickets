@@ -45,7 +45,7 @@ nav ul li {
 
 nav ul li a {
     display: block;
-    color:var(--color_gold);
+    color:#fff;
     text-align: center;
     text-decoration: none;
     padding: 14px 16px;
