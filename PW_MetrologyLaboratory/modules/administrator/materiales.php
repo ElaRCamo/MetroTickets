@@ -22,7 +22,7 @@
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
                         <label for="imgMaterialN" class="form-label" >Imagen del material: </label>
-                        <input type="file" placeholder="Imagen del material" class="form-control" onchange="plataformaModal()" id="imgMaterialN" name="imgMaterialN" accept="image">
+                        <input type="file" placeholder="Imagen del material" class="form-control" onchange="plataformaModal()" id="imgMaterialN" name="imgMaterialN">
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
@@ -34,7 +34,7 @@
                     <div class="row justify-content-end">
                         <div class="">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
-                            <button type="button" class="btn btn-secondary" onclick="registrarMaterial()"><i class="las la-save"></i>Guardar</button>
+                            <button type="submit" class="btn btn-secondary" onclick="registrarMaterial()"><i class="las la-save"></i>Guardar</button>
                         </div>
                     </div>
                 </form>
