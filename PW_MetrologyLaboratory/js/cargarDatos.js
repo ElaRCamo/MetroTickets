@@ -353,7 +353,7 @@ function TablaAdminClientes(){
             // Botón de editar
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
-            btnEditar.classList.add("btn", "btn-warning", "btnEditar");
+            btnEditar.classList.add("btn", "btn-secondary", "btnEditar");
             //btnEditar.setAttribute("onclick", "editarCliente('" +  response.data[j].id_cliente + "')");
             btnEditar.onclick = function() { editarCliente(response.data[j].id_cliente);};
             // Botón de eliminar
@@ -407,7 +407,7 @@ function TablaAdminPlataformas(){
             // Botón de editar
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
-            btnEditar.classList.add("btn", "btn-warning", "btnEditar");
+            btnEditar.classList.add("btn", "btn-secondary", "btnEditar");
             btnEditar.onclick = function() { editarPlataforma(response.data[j].id_plataforma);};
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
@@ -470,7 +470,7 @@ function TablaAdminMateriales(){
             // Botón de editar
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
-            btnEditar.classList.add("btn", "btn-warning", "btnEditar");
+            btnEditar.classList.add("btn", "btn-secondary", "btnEditar");
             btnEditar.onclick = function() { editarMaterial(response.data[j].id_descripcion);};
             // Botón de eliminar
             var btnEliminar = document.createElement("button");

@@ -41,6 +41,7 @@ nav ul li a:hover {
 }
 
 h3{
+    margin-top: 1rem;
     color: var(--main-color);
     font-weight: bold;
     padding: 0.5rem;
@@ -54,6 +55,7 @@ h3{
     color:#005195;
     margin:0.5rem;
     font-size: 1.3rem;
+    background-color: var(--blue_45);
 }
 #tablaClientes tbody td,#tablaPlataformas tbody td, #tablaMateriales tbody td {
     color: #444;

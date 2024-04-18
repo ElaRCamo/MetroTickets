@@ -21,13 +21,13 @@
                     </div>
                 </div>
 
-                <table class="table mt-6" id="tablaClientes">
+                <table class="table mt-4" id="tablaClientes">
                     <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Descripción</th>
-                        <th>Acciones</th>
-                    </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descripción</th>
+                            <th>Acciones</th>
+                        </tr>
                     </thead>
                     <tbody>
                     </tbody>
@@ -43,14 +43,14 @@
                     </div>
                 </div>
 
-                <table class="table mt-6" id="tablaPlataformas">
+                <table class="table mt-4" id="tablaPlataformas">
                     <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Descripción</th>
-                        <th>Cliente</th>
-                        <th>Acciones</th>
-                    </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descripción</th>
+                            <th>Cliente</th>
+                            <th>Acciones</th>
+                        </tr>
                     </thead>
                     <tbody>
                     </tbody>
@@ -66,16 +66,16 @@
                     </div>
                 </div>
 
-                <table class="table table-sm table-hover mt-6" id="tablaMateriales">
+                <table class="table table-sm table-hover mt-4" id="tablaMateriales">
                     <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Descripción</th>
-                        <th>Plataforma</th>
-                        <th>Núm. de parte</th>
-                        <th>Imagen</th>
-                        <th>Acciones</th>
-                    </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descripción</th>
+                            <th>Plataforma</th>
+                            <th>Núm. de parte</th>
+                            <th>Imagen</th>
+                            <th>Acciones</th>
+                        </tr>
                     </thead>
                     <tbody>
                     </tbody>
