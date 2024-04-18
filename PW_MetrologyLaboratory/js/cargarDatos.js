@@ -329,7 +329,7 @@ function reviewPDF(ID_PRUEBA){
     window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/pruebaPDF.php?id_prueba=" + ID_PRUEBA;
 }
 
-function TablasAdminClientes(){
+function TablaAdminClientes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (response) {
         var tabla = id("tablaClientes");
         var tbody = tabla.getElementsByTagName("tbody")[0];
@@ -366,6 +366,8 @@ function TablasAdminClientes(){
             acciones.appendChild(btnEditar);
             acciones.appendChild(btnEliminar);
             fila.appendChild(acciones);
+
+            tbody.appendChild(fila);
         }
     });
 }

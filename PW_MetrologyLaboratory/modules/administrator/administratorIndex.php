@@ -51,7 +51,7 @@
     ?>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            TablasAdminClientes();
+            TablaAdminClientes();
         });
     </script>
     <script src="../../js/cargarDatos.js"></script>
