@@ -70,9 +70,9 @@
                         <tr>
                             <th>ID</th>
                             <th>Descripción</th>
-                            <th>Plataforma</th>
                             <th>Núm. de parte</th>
                             <th>Imagen</th>
+                            <th>Plataforma</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>

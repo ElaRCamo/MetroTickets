@@ -453,16 +453,17 @@ function TablaAdminMateriales(){
             numeroDeParte.textContent = response.data[j].numeroDeParte;
             fila.appendChild(numeroDeParte);
 
-            var descripcionPlataforma = document.createElement("td");
-            descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
-            fila.appendChild(descripcionPlataforma);
-
             var imgMaterial = document.createElement("td");
             var imagen = document.createElement("img");
             imagen.src = response.data[j].imgMaterial;
             imagen.classList.add("col-md-6", "mb-3", "ms-md-3", "rounded", "img-fluid","img-thumbnail");
             imgMaterial.appendChild(imagen);
             fila.appendChild(imgMaterial);
+
+            var descripcionPlataforma = document.createElement("td");
+            descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
+            fila.appendChild(descripcionPlataforma);
+
 
             var acciones = document.createElement("td");
             // Botón de editar
