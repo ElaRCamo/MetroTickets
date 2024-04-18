@@ -13,13 +13,8 @@ body {
     margin: 0;
     padding: 0;
 }
-#containerNavAdmin{
+nav,#containerNavAdmin {
     background-color: var(--blue_20);
-}
-
-nav {
-    background-color: var(--blue_20);
-    padding: 1rem;
 }
 nav ul {
     list-style-type: none;
