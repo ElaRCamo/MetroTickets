@@ -6,19 +6,17 @@ function eliminarCliente(id_cliente) {
         id_descripcion: id_cliente
     };
 
-    // Realizar una solicitud AJAX para eliminar el registro
     $.ajax({
-        url: 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/eliminarMaterial.php',
+        url: 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/eliminarMaterial.php?id_prueba='+id_cliente,
         type: 'POST',
         dataType: 'json', // Esperamos una respuesta JSON del servidor
         contentType: 'application/json', // Especificamos el tipo de contenido que estamos enviando
         data: JSON.stringify(datos), // Convertimos el objeto a una cadena JSON
         success: function(response) {
-            // Manejar la respuesta del servidor aquí
-            console.log(response); // Puedes mostrar un mensaje de éxito o realizar alguna otra acción
+            alert(response); // Puedes mostrar un mensaje de éxito o realizar alguna otra acción
+            TablaAdminClientes();
         },
         error: function(xhr, status, error) {
-            // Manejar errores de la solicitud AJAX aquí
             console.error(xhr.responseText);
         }
     });
