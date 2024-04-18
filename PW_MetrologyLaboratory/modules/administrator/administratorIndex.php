@@ -52,6 +52,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             TablaAdminClientes();
+            TablaAdminPlataformas();
         });
     </script>
     <script src="../../js/cargarDatos.js"></script>
