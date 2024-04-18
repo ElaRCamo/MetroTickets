@@ -15,7 +15,7 @@ body {
 }
 nav {
     background-color: var(--blue_20);
-    padding: 10px;
+    padding: 1rem;
 }
 nav ul {
     list-style-type: none;
