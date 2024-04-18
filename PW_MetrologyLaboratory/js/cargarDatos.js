@@ -430,3 +430,66 @@ function editarPlataforma(id_plataforma){
 function eliminarPlataforma(id_plataforma){
     console.log("id_plataforma para eliminar: " + id_plataforma);
 }
+
+function TablaAdminMateriales(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaMateriales.php', function (response) {
+        var tabla = id("tablaMateriales");
+        var tbody = tabla.getElementsByTagName("tbody")[0];
+
+        // Limpiar contenido previo de la tabla
+        tbody.innerHTML = '';
+
+        // Iterar sobre los materiales y crear filas y celdas de tabla
+        for (var j = 0; j < response.data.length; j++) {
+            var fila = document.createElement("tr");
+
+            var idMaterial = document.createElement("td");
+            idMaterial.textContent = response.data[j].id_descripcion;
+            fila.appendChild(idMaterial);
+
+            var descripcionMaterial = document.createElement("td");
+            descripcionMaterial.textContent = response.data[j].descripcionMaterial;
+            fila.appendChild(descripcionMaterial);
+
+            var numeroDeParte = document.createElement("td");
+            numeroDeParte.textContent = response.data[j].numeroDeParte;
+            fila.appendChild(numeroDeParte);
+
+            var imgMaterial = document.createElement("td");
+            var imagen = document.createElement("img");
+            imagen.src = data.data[j].imgMaterial;
+            imagen.classList.add("col-md-6", "mb-3", "ms-md-3", "rounded", "img-fluid img-thumbnail");
+            imgMaterial.appendChild(imagen);
+            fila.appendChild(imgMaterial);
+
+            var descripcionPlataforma = document.createElement("td");
+            descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
+            fila.appendChild(descripcionPlataforma);
+
+            var acciones = document.createElement("td");
+            // Botón de editar
+            var btnEditar = document.createElement("button");
+            btnEditar.textContent = "Editar";
+            btnEditar.classList.add("btn", "btn-warning", "btnEditar");
+            btnEditar.onclick = function() { editarMaterial(response.data[j].id_descripcion);};
+            // Botón de eliminar
+            var btnEliminar = document.createElement("button");
+            btnEliminar.textContent = "Eliminar";
+            btnEliminar.classList.add("btn", "btn-danger", "btnEliminar");
+            btnEliminar.onclick = function() { eliminarMaterial(response.data[j].id_descripcion);};
+            // Agregar los botones al td
+            acciones.appendChild(btnEditar);
+            acciones.appendChild(btnEliminar);
+            fila.appendChild(acciones);
+
+            tbody.appendChild(fila);
+        }
+    });
+}
+
+function editarMaterial(id_descripcion){
+    console.log("id_descripcion para editar: " + id_descripcion);
+}
+function eliminarMaterial(id_descripcion){
+    console.log("id_descripcion para eliminar: " + id_descripcion);
+}

@@ -13,8 +13,8 @@
     <div class="page-content">
         <div class="container table-responsive">
             <!-- Clientes -->
-            <section id="clientes">
-                <h3>Clientes</h3>
+            <section >
+                <h3 id="clientes" >Clientes</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoCliente"><i class="las la-plus-circle"></i>Nuevo cliente</a>
@@ -35,8 +35,8 @@
             </section>
 
             <!-- Plataformas -->
-            <section id="plataformas">
-                <h3>Plataformas</h3>
+            <section >
+                <h3 id="plataformas" >Plataformas</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevaPlataforma"><i class="las la-plus-circle"></i>Nueva plataforma</a>
@@ -58,8 +58,8 @@
             </section>
 
             <!-- Materiales -->
-            <section id="materiales">
-                <h3>Materiales</h3>
+            <section >
+                <h3 id="materiales">Materiales</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoMaterial"><i class="las la-plus-circle"></i>Nuevo material</a>
