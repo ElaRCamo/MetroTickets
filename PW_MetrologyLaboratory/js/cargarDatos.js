@@ -353,7 +353,7 @@ function TablaAdminClientes(){
             // Botón de editar
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
-            btnEditar.classList.add("btn", "btn-secondary", "btnEditar");
+            btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             //btnEditar.setAttribute("onclick", "editarCliente('" +  response.data[j].id_cliente + "')");
             btnEditar.onclick = function() { editarCliente(response.data[j].id_cliente);};
             // Botón de eliminar
@@ -407,7 +407,7 @@ function TablaAdminPlataformas(){
             // Botón de editar
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
-            btnEditar.classList.add("btn", "btn-secondary", "btnEditar");
+            btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             btnEditar.onclick = function() { editarPlataforma(response.data[j].id_plataforma);};
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
@@ -455,6 +455,10 @@ function TablaAdminMateriales(){
             numeroDeParte.textContent = response.data[j].numeroDeParte;
             fila.appendChild(numeroDeParte);
 
+            var descripcionPlataforma = document.createElement("td");
+            descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
+            fila.appendChild(descripcionPlataforma);
+
             var imgMaterial = document.createElement("td");
             var imagen = document.createElement("img");
             imagen.src = response.data[j].imgMaterial;
@@ -462,15 +466,11 @@ function TablaAdminMateriales(){
             imgMaterial.appendChild(imagen);
             fila.appendChild(imgMaterial);
 
-            var descripcionPlataforma = document.createElement("td");
-            descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
-            fila.appendChild(descripcionPlataforma);
-
             var acciones = document.createElement("td");
             // Botón de editar
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
-            btnEditar.classList.add("btn", "btn-secondary", "btnEditar");
+            btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             btnEditar.onclick = function() { editarMaterial(response.data[j].id_descripcion);};
             // Botón de eliminar
             var btnEliminar = document.createElement("button");

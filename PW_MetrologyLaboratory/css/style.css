@@ -451,7 +451,6 @@ table tbody td:first-child {
     padding-left: 1rem;
     color: var(--main-color);
     font-weight: 600;
-    font-size: .8rem;
 }
 
 table tbody tr {

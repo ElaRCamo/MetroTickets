@@ -1,11 +1,10 @@
 <main>
     <div class="page-header">
-        <h1>Administrar esta página</h1>
         <nav>
             <ul>
-                <li><a href="#clientes">Clientes</a></li>
-                <li><a href="#plataformas">Plataformas</a></li>
-                <li><a href="#materiales">Materiales</a></li>
+                <li><a href="#clientes"><h5>Clientes</h5></a></li>
+                <li><a href="#plataformas"><h5>Plataformas</h5></a></li>
+                <li><a href="#materiales"><h5>Materiales</h5></a></li>
             </ul>
         </nav>
     </div>
