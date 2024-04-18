@@ -6,7 +6,7 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
     $numParte = $_POST['numParteN'];
     $idPlataforma = $_POST['descMPlataformaN'];
 
-    /*//Se guarda ruta de la imagen
+    //Se guarda ruta de la imagen
     $imgMaterial    = $_POST['imgMaterialN'];
     $target_dir     = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
     //Quitar espacios del nombre del archivo:
@@ -26,16 +26,15 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
             echo "Hubo un error al subir el archivo.";
         }
 
-
     // Llamar a la función
     if(nuevoMaterial($descMaterial,$numParte,$imgMaterial,$idPlataforma)) {
         echo '<script>alert("Material registrado exitosamente")</script>';
     } else {
         echo '<script>alert("Error al registrar el material")</script>';
     }
-    }*/
+    }
 
-    // Validar el tipo y tamaño del archivo
+    /* Validar el tipo y tamaño del archivo
     $allowed_types = array('jpg', 'jpeg', 'png', 'gif');
     $max_size = 10 * 1024 * 1024; // 10MB
 
@@ -60,7 +59,7 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
         } else {
             echo '<script>alert("Hubo un error al subir el archivo.")</script>';
         }
-    }
+    }*/
 } else {
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
