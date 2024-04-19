@@ -3,7 +3,7 @@
 include_once('connection.php');
 
 
-$id_cliente = $_GET["id_cliente"];
+$id_cliente = $_POST["id_cliente"];
 desactivarCliente($id_cliente);
 function desactivarCliente($id_cliente)
 {
@@ -13,10 +13,10 @@ function desactivarCliente($id_cliente)
     $stmt = $conex->prepare("UPDATE Cliente
                                       SET estatus = 0
                                     WHERE id_cliente = ?");
-    $stmt->bind_param("s", $id_cliente);
+    $stmt->bind_param("i", $id_cliente);
 
     if ($stmt->execute()) {
-        $respuesta = array("success" => true, "message" => "El registro se eliminó correctamente.");
+        $respuesta = array("success" => true, "message" => "Cliente desactivado");
         echo json_encode($respuesta);
     } else {
         $respuesta = array("success" => false, "message" => "Error al eliminar el registro.");

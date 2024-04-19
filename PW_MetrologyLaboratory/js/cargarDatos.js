@@ -357,9 +357,9 @@ function TablaAdminClientes(){
             btnEditar.setAttribute("onclick", "editarCliente('" +  response.data[j].id_cliente + "')");
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
-            btnEliminar.textContent = "Eliminar";
-            btnEliminar.classList.add("btn", "btn-danger", "btnEliminar");
-            btnEliminar.setAttribute("onclick", "eliminarCliente('" +  response.data[j].id_cliente + "')");
+            btnEliminar.textContent = "Desactivar";
+            btnEliminar.classList.add("btn", "btn-danger", "btnDesactivar");
+            btnEliminar.setAttribute("onclick", "desactivarCliente('" +  response.data[j].id_cliente + "')");
             // Agregar los botones al td
             acciones.appendChild(btnEditar);
             acciones.appendChild(btnEliminar);
@@ -407,9 +407,9 @@ function TablaAdminPlataformas(){
             btnEditar.setAttribute("onclick", "editarPlataforma('" +  response.data[j].id_plataforma + "')");
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
-            btnEliminar.textContent = "Eliminar";
-            btnEliminar.classList.add("btn", "btn-danger", "btnEliminar");
-            btnEliminar.setAttribute("onclick", "eliminarPlataforma('" +  response.data[j].id_plataforma + "')");
+            btnEliminar.textContent = "Desactivar";
+            btnEliminar.classList.add("btn", "btn-danger", "btnDesactivar");
+            btnEliminar.setAttribute("onclick", "desactivarPlataforma('" +  response.data[j].id_plataforma + "')");
             // Agregar los botones al td
             acciones.appendChild(btnEditar);
             acciones.appendChild(btnEliminar);
@@ -470,9 +470,9 @@ function TablaAdminMateriales(){
 
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
-            btnEliminar.textContent = "Eliminar";
-            btnEliminar.classList.add("btn", "btn-danger", "btnEliminar");
-            btnEliminar.setAttribute("onclick", "eliminarMaterial('" +  response.data[j].id_descripcion + "')");
+            btnEliminar.textContent = "Desactivar";
+            btnEliminar.classList.add("btn", "btn-danger", "btnDesactivar");
+            btnEliminar.setAttribute("onclick", "desactivarMaterial('" +  response.data[j].id_descripcion + "')");
             // Agregar los botones al td
             acciones.appendChild(btnEditar);
             acciones.appendChild(btnEliminar);
