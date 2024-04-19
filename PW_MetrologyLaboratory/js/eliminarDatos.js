@@ -9,7 +9,7 @@ function desactivarCliente(id_cliente) {
 
     swalWithBootstrapButtons.fire({
         title: "¿Estás seguro(a)?",
-        text: "Todas plataformas y materiales asociados a este cliente también se desactivarán.",
+        text: "Todas las plataformas y materiales asociados a este cliente también se desactivarán.",
         icon: "warning",
         showCancelButton: true,
         confirmButtonText: "¡Sí, desactivar!",
@@ -65,7 +65,7 @@ function desactivarPlataforma(id_plataforma) {
 
     swalWithBootstrapButtons.fire({
         title: "¿Estás seguro(a)?",
-        text: "Todas plataformas y materiales asociados a este cliente también se desactivarán.",
+        text: "Todos los materiales asociados a esta plataforma también se desactivarán.",
         icon: "warning",
         showCancelButton: true,
         confirmButtonText: "¡Sí, desactivar!",
@@ -91,7 +91,7 @@ function desactivarPlataforma(id_plataforma) {
                     console.log('Success');
                     swalWithBootstrapButtons.fire({
                         title: "¡Desactivado!",
-                        text: "El cliente ha sido desactivado.",
+                        text: "La plataforma ha sido desactivada.",
                         icon: "success"
                     });
                 })
@@ -103,7 +103,7 @@ function desactivarPlataforma(id_plataforma) {
         ) {
             swalWithBootstrapButtons.fire({
                 title: "Cancelado",
-                text: "El cliente sigue activo y visible para todos.",
+                text: "La plataforma sigue activa y visible para todos.",
                 icon: "error"
             });
         }
