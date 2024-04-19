@@ -1,14 +1,38 @@
-<main>
-    <div class="page-header" id="containerNavAdmin">
-        <nav>
-            <ul>
-                <li><a href="#clientes"><h5>Clientes</h5></a></li>
-                <li><a href="#plataformas"><h5>Plataformas</h5></a></li>
-                <li><a href="#materiales"><h5>Materiales</h5></a></li>
-            </ul>
-        </nav>
-    </div>
+<div class="main-content">
+    <header class="row">
+        <div class="header-content">
+            <label for="menu-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            <div class="header-menu">
+                <!--<span class="las la-search"></span>
+            <div class="notify-icon">
+                <span class="las la-bell"></span>
+                <span class="notify">3</span>
+            </div>-->
+                <div class="userDiv">
+                    <?php global $nombreUser; echo '<input type="text" id="nombreUser" value="' . $nombreUser . '">'; ?>
+                </div>
+                <div class="user">
+                    <div><img class="user-img bg-img" alt="User" src="<?php global $fotoUsuario; echo $fotoUsuario; ?>"></div>
+                </div>
+                <div class="bg-img" id="cerrarS">
+                    <span class="las la-power-off"></span>
+                </div>
+            </div>
+        </div>
+        <div class="page-header" id="containerNavAdmin">
+            <nav>
+                <ul>
+                    <li><a href="#clientes"><h5>Clientes</h5></a></li>
+                    <li><a href="#plataformas"><h5>Plataformas</h5></a></li>
+                    <li><a href="#materiales"><h5>Materiales</h5></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <main>
     <div class="page-content">
         <div class="container table-responsive">
             <!-- Clientes -->
