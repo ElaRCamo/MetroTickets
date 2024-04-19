@@ -287,7 +287,7 @@ function registrarMaterial(){
     dataForm.append('descMaterialN', descMaterialN.value.trim());
     dataForm.append('numParteN', numParteN.value.trim());
     dataForm.append('imgMaterialN', imgMaterialN.files[0]);
-    dataForm.append('numParteN', descMPlataformaN.value.trim());
+    dataForm.append('descMPlataformaN', descMPlataformaN.value.trim());
 
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
         method: 'POST',
