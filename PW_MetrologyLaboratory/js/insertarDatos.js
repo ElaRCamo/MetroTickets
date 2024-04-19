@@ -231,11 +231,8 @@ function registrarCliente(){
         .then(function (response) {
             if (response.ok) { //respuesta
                 Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Cliente agregado exitosamente",
-                    showConfirmButton: false,
-                    timer: 1500
+                    title: "¡Cliente agregado exitosamente!",
+                    icon: "success"
                 });
             } else {
                 throw "Error en la llamada Ajax";
