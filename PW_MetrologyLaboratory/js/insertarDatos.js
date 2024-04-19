@@ -230,8 +230,13 @@ function registrarCliente(){
     })
         .then(function (response) {
             if (response.ok) { //respuesta
-                alert('Cliente agregado con exito');
-                window.location.href = "../administrator/administratorIndex.php";
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Cliente agregado exitosamente",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             } else {
                 throw "Error en la llamada Ajax";
             }
