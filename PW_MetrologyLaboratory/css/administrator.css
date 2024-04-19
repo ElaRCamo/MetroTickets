@@ -17,6 +17,7 @@ body {
     padding-top: 0;
     padding-bottom: 0;
     margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
 }
 nav,#containerNavAdmin {
     background-color: var(--main-color);
@@ -51,7 +52,7 @@ nav ul li a:hover {
 }
 
 h3{
-    margin-top: 2rem;
+    margin-top: 4rem;
     color: var(--main-color);
     font-weight: bold;
     padding: 0.5rem;
@@ -91,7 +92,4 @@ td{
 .btn-primary{
     background-color: var(--main-color);
     border-color: var(--main-color);
-}
-#sectionClientes{
-    margin-top: 10rem;
 }
