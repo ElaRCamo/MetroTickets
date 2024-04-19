@@ -1,13 +1,15 @@
 
 function desactivarCliente(id_cliente) {
     console.log("id_cliente para eliminar: " + id_cliente);
-    var id_clienteD = id_cliente;
     const data = new FormData();
-    data.append('id_cliente', id_clienteD)
+    data.append('id_cliente', id_cliente)
 
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/desactivarCliente.php?id_cliente='+id_cliente,{
         method: 'POST',
-        body: data
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(id_cliente)
     }).then(res => {
             TablaAdminClientes();
             if(!res.ok){
