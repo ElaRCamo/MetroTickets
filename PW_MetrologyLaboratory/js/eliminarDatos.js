@@ -54,7 +54,7 @@ function desactivarCliente(id_cliente) {
     });
 }
 
-function eliminarPlataforma(id_plataforma) {
+function desactivarPlataforma(id_plataforma) {
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             confirmButton: "btn btn-success",
