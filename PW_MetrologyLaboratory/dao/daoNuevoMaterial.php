@@ -1,7 +1,7 @@
 <?php
 include_once('connection.php');
 
-if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_POST['descMPlataformaN'] )){
+//if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_POST['descMPlataformaN'] )){
     $descMaterial = $_POST['descMaterialN'];
     $numParte = $_POST['numParteN'];
     $idPlataforma = $_POST['descMPlataformaN'];
@@ -45,7 +45,7 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
 
             }
         }
-    }
+    //}
 
    /* if ($_FILES["imgMaterialN"]["error"] > 0) {
         echo "Error: " . $_FILES["imgMaterialN"]["error"];
