@@ -29,16 +29,6 @@ nav ul {
     text-align: center;
 }
 
-/*
-nav {
-    background-color: var(--blue_20);
-    padding: 1rem;
-    position: fixed; /* Hace que el nav sea fijo en la pantalla
-width: 100%; /* Ajusta el ancho del nav al 100% del viewport
-top: 2.5rem; /* Fija el nav en la parte superior de la pantalla
-z-index: 1000; /* Ajusta el z-index para asegurarte de que el nav esté por encima de otros elementos
-}
- */
 nav ul li {
     display: inline-block; /* Cambia float a inline-block para que los elementos se puedan centrar */
     margin-right: 1rem; /* Añade un margen derecho entre los elementos para separarlos */
@@ -101,4 +91,7 @@ td{
 .btn-primary{
     background-color: var(--main-color);
     border-color: var(--main-color);
+}
+#sectionClientes{
+    margin-top: 0.5rem;
 }

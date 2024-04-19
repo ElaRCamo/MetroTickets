@@ -37,7 +37,7 @@
     <div class="page-content">
         <div class="container table-responsive">
             <!-- Clientes -->
-            <section >
+            <section id="sectionClientes">
                 <h3 id="clientes" >Clientes</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto">
