@@ -1,5 +1,5 @@
 <div class="main-content">
-    <header class="row">
+    <header >
         <div class="header-content">
             <label for="menu-toggle">
                 <span class="las la-bars"></span>
@@ -30,6 +30,7 @@
                 </ul>
             </nav>
         </div>
+
     </header>
 
     <main>
