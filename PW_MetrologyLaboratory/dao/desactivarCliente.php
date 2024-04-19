@@ -2,18 +2,15 @@
 
 include_once('connection.php');
 
-$inputJSON = file_get_contents('php://input');
-// Decodifica los datos JSON en un array asociativo
-$input = json_decode($inputJSON, TRUE);
+// Verifica si el parámetro id_cliente se ha enviado en la URL
+if(isset($_GET['id_cliente'])) {
+    // Obtiene el valor del parámetro id_cliente
+    $id_cliente = $_GET['id_cliente'];
 
-// Verifica si el id_cliente está presente en los datos recibidos
-if(isset($input["id_cliente"])){
-    $id_cliente = $input["id_cliente"];
-    desactivarCliente($id_cliente);
+    // Puedes usar $id_cliente en tus operaciones de PHP
+    echo "El ID del cliente es: " . $id_cliente;
 } else {
-    // Si el id_cliente no está presente en los datos recibidos, envía una respuesta de error
-    $respuesta = array("success" => false, "message" => "ID de cliente no proporcionado.");
-    echo json_encode($respuesta);
+    echo "No se ha proporcionado un ID de cliente";
 }
 
 function desactivarCliente($id_cliente)
