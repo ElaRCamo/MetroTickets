@@ -2,13 +2,10 @@
 include_once('connection.php');
 
 //if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_POST['descMPlataformaN'] )){
-   // $descMaterial = $_POST['descMaterialN'];
-    //$numParte = $_POST['numParteN'];
-    //$idPlataforma = $_POST['descMPlataformaN'];
+   $descMaterial = $_POST['descMaterialN'];
+   $numParte = $_POST['numParteN'];
+   $idPlataforma = $_POST['descMPlataformaN'];
 
-$descMaterial = 'holis';
-$numParte = '1234566';
-$idPlataforma = '26';
 $img ='img';
 nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma);
 /*
