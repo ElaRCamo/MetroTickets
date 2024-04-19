@@ -2,10 +2,16 @@
 include_once('connection.php');
 
 //if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_POST['descMPlataformaN'] )){
-    $descMaterial = $_POST['descMaterialN'];
-    $numParte = $_POST['numParteN'];
-    $idPlataforma = $_POST['descMPlataformaN'];
+   // $descMaterial = $_POST['descMaterialN'];
+    //$numParte = $_POST['numParteN'];
+    //$idPlataforma = $_POST['descMPlataformaN'];
 
+$descMaterial = 'holis';
+$numParte = '1234566';
+$idPlataforma = '26';
+$img ='img';
+nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma);
+/*
     //Recogemos el archivo enviado por el formulario
     $archivo = $_FILES['imgMaterialN']['name'];
     //Si el archivo contiene algo y es diferente de vacio
@@ -44,7 +50,7 @@ include_once('connection.php');
                 echo json_encode($respuesta);
 
             }
-        }
+        }*/
     //}
 
    /* if ($_FILES["imgMaterialN"]["error"] > 0) {
@@ -90,10 +96,10 @@ include_once('connection.php');
         } else {
             echo '<script>alert("Hubo un error al subir el archivo.")</script>';
         }
-    }*/
+    }
 } else {
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
-}
+}*/
 
 function nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma){
     $con = new LocalConector();
