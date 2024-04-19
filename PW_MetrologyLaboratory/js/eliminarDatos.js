@@ -80,7 +80,7 @@ function desactivarPlataforma(id_plataforma) {
                 },
                 body: JSON.stringify(id_plataforma)
             }).then(res => {
-                TablaAdminClientes();
+                TablaAdminPlataformas();
                 if(!res.ok){
                     console.log('Problem');
                     return;
