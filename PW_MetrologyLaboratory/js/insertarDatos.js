@@ -293,7 +293,7 @@ function registrarMaterial(){
         method: 'POST',
         body: dataForm
     }).then(res => {
-        TablaAdminPlataformas();
+        TablaAdminMateriales();
         if(!res.ok){
             console.log('Problem');
             return;
