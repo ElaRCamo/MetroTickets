@@ -264,7 +264,7 @@ function registrarPlataforma(){
                     title: "¡Plataforma agregada con éxito!",
                     icon: "success"
                 });
-                window.location.href = "../administrator/administratorIndex.php";
+                TablaAdminPlataformas();
             } else {
                 throw "Error en la llamada Ajax";
             }
@@ -292,16 +292,36 @@ function registrarMaterial(){
     fetch('../../dao/daoNuevoMaterial.php', {
         method: 'POST',
         body: dataForm
+    }).then(res => {
+        TablaAdminPlataformas();
+        if(!res.ok){
+            console.log('Problem');
+            return;
+        }
+        return res.json();
     })
+        .then(data => {
+            console.log('Success');
+            Swal.fire({
+                title: "¡Material registrado con exito!",
+                icon: "success"
+            });
+        })
+        .catch(error =>{
+            console.log(error);
+        });
 
-        .then(function (response) {
+        /*.then(function (response) {
             if (response.ok) {
                 return response.json(); // Convertir la respuesta JSON en un objeto JavaScript
+                Swal.fire({
+                    title: "¡Material registrado con exito!",
+                    icon: "success"
+                });
+                TablaAdminClientes();
             } else {
                 throw "Error en la llamada Ajax";
             }
-            //alert('Material registrado con exito');
-            //window.location.href = "../administrator/administratorIndex.php";
         })
         .then(function (data) {
             console.log(data.mensaje);
@@ -309,5 +329,7 @@ function registrarMaterial(){
         })
         .catch(function (err) {
             console.log(err);
-        });
+        });*/
+
+
 }
