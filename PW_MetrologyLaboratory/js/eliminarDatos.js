@@ -136,7 +136,7 @@ function desactivarMaterial(id_descripcion){
                 },
                 body: JSON.stringify(id_descripcion)
             }).then(res => {
-                TablaAdminPlataformas();
+                TablaAdminMateriales();
                 if(!res.ok){
                     console.log('Problem');
                     return;
