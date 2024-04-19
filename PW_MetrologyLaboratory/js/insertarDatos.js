@@ -234,6 +234,7 @@ function registrarCliente(){
                     title: "¡Cliente agregado exitosamente!",
                     icon: "success"
                 });
+                TablaAdminClientes();
             } else {
                 throw "Error en la llamada Ajax";
             }
