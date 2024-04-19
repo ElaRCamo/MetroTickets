@@ -2,8 +2,8 @@
 function eliminarCliente(id_cliente) {
     console.log("id_cliente para eliminar: " + id_cliente);
 
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/eliminarMaterial.php?id_cliente='+id_cliente,{
-        method: 'DELETE'
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/desactivarCliente.php?id_cliente='+id_cliente,{
+        method: 'POST'
         }).then(res => {
             TablaAdminClientes();
             if(!res.ok){

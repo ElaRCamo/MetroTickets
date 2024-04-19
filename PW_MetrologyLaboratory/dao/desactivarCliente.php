@@ -3,18 +3,16 @@
 include_once('connection.php');
 
 
-    $id_cliente = $_GET["id_cliente"];
-
+$id_cliente = $_GET["id_cliente"];
+desactivarCliente($id_cliente);
+function desactivarCliente($id_cliente)
+{
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    if (!$conex) {   // Verificar la conexión a la base de datos
-        $respuesta = array("success" => false, "message" => "Error al conectar a la base de datos.");
-        echo json_encode($respuesta);
-        exit;
-    }
-
-    $stmt = $conex->prepare("DELETE FROM Cliente WHERE id_cliente = ?");
+    $stmt = $conex->prepare("UPDATE Cliente
+                                      SET estatus = 0
+                                    WHERE id_cliente = ?");
     $stmt->bind_param("s", $id_cliente);
 
     if ($stmt->execute()) {
@@ -27,7 +25,6 @@ include_once('connection.php');
     $stmt->close();
     $conex->close();
 
-
-
+}
 
 ?>
