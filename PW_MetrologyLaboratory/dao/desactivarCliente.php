@@ -2,7 +2,6 @@
 
 include_once('connection.php');
 
-
 $id_cliente = $_POST["id_cliente"];
 desactivarCliente($id_cliente);
 function desactivarCliente($id_cliente)
