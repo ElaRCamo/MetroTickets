@@ -234,11 +234,6 @@ function registrarCliente(){
                     title: "¡Cliente agregado exitosamente!",
                     icon: "success"
                 });
-                // Cerrar la ventana modal eliminándola del DOM
-                var modal = document.querySelector('.modal');
-                modal.parentNode.removeChild(modal);
-                var modalBackdrop = document.querySelector('.modal-backdrop');
-                modalBackdrop.parentNode.removeChild(modalBackdrop);
                 TablaAdminClientes();
             } else {
                 throw "Error en la llamada Ajax";
@@ -265,7 +260,10 @@ function registrarPlataforma(){
     })
         .then(function (response) {
             if (response.ok) { //respuesta
-                alert('Plataforma agregada con exito');
+                Swal.fire({
+                    title: "¡Plataforma agregada con éxito!",
+                    icon: "success"
+                });
                 window.location.href = "../administrator/administratorIndex.php";
             } else {
                 throw "Error en la llamada Ajax";
