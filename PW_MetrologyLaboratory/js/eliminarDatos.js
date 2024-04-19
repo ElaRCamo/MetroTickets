@@ -110,6 +110,58 @@ function desactivarPlataforma(id_plataforma) {
     });
 }
 
-function eliminarMaterial(id_descripcion){
-    console.log("id_descripcion para eliminar: " + id_descripcion);
+function desactivarMaterial(id_descripcion){
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: "btn btn-success",
+            cancelButton: "btn btn-danger"
+        },
+        buttonsStyling: false
+    });
+
+    swalWithBootstrapButtons.fire({
+        title: "¿Estás seguro(a)?",
+        text: "Al desactivar el material ya no estará disponible para solicitudes.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "¡Sí, desactivar!",
+        cancelButtonText: "¡No, cancelar!",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/desactivarMaterial.php?id_descripcion='+id_descripcion,{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(id_descripcion)
+            }).then(res => {
+                TablaAdminPlataformas();
+                if(!res.ok){
+                    console.log('Problem');
+                    return;
+                }
+                return res.json();
+            })
+                .then(data => {
+                    console.log('Success');
+                    swalWithBootstrapButtons.fire({
+                        title: "¡Desactivado!",
+                        text: "El material ha sido desactivado.",
+                        icon: "success"
+                    });
+                })
+                .catch(error =>{
+                    console.log(error);
+                });
+        } else if (
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire({
+                title: "Cancelado",
+                text: "El material sigue activo y visible para todos.",
+                icon: "error"
+            });
+        }
+    });
 }

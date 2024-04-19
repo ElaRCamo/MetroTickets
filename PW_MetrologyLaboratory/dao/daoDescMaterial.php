@@ -12,7 +12,7 @@ function contadorPlataforma($id_plataforma ){
     $sqlDescMaterial =  mysqli_query($conex, "SELECT id_descripcion,descripcionMaterial 
                                                     FROM DescripcionMaterial 
                                                     WHERE id_plataforma='$id_plataforma' 
-                                                      AND id_descripcion = 1
+                                                      AND estatus = 1
                                                     ORDER BY descripcionMaterial;");
     $resultado= mysqli_fetch_all($sqlDescMaterial, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
