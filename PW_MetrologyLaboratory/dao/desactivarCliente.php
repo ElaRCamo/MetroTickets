@@ -2,8 +2,20 @@
 
 include_once('connection.php');
 
-$id_cliente = $_POST["id_cliente"];
-desactivarCliente($id_cliente);
+$inputJSON = file_get_contents('php://input');
+// Decodifica los datos JSON en un array asociativo
+$input = json_decode($inputJSON, TRUE);
+
+// Verifica si el id_cliente está presente en los datos recibidos
+if(isset($input["id_cliente"])){
+    $id_cliente = $input["id_cliente"];
+    desactivarCliente($id_cliente);
+} else {
+    // Si el id_cliente no está presente en los datos recibidos, envía una respuesta de error
+    $respuesta = array("success" => false, "message" => "ID de cliente no proporcionado.");
+    echo json_encode($respuesta);
+}
+
 function desactivarCliente($id_cliente)
 {
     $con = new LocalConector();
