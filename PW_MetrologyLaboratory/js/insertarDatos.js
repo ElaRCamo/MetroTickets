@@ -234,11 +234,12 @@ function registrarCliente(){
                     title: "¡Cliente agregado exitosamente!",
                     icon: "success"
                 });
-                TablaAdminClientes();
-                // Cerrar la ventana modal
+                // Cerrar la ventana modal eliminándola del DOM
                 var modal = document.querySelector('.modal');
-                var modalInstance = bootstrap.Modal.getInstance(modal);
-                modalInstance.hide();
+                modal.parentNode.removeChild(modal);
+                var modalBackdrop = document.querySelector('.modal-backdrop');
+                modalBackdrop.parentNode.removeChild(modalBackdrop);
+                TablaAdminClientes();
             } else {
                 throw "Error en la llamada Ajax";
             }
