@@ -11,7 +11,7 @@ function todasLasPlataforma(){
     $sqlPlataforma =  mysqli_query($conex, "SELECT id_plataforma, descripcionPlataforma, descripcionCliente 
                                                     FROM Plataforma P,Cliente C 
                                                     WHERE P.id_cliente = C.id_cliente
-                                                      AND estatus = 1
+                                                      AND P.estatus = 1
                                                     ORDER BY descripcionCliente;");
 
     $resultado= mysqli_fetch_all($sqlPlataforma, MYSQLI_ASSOC);
