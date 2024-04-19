@@ -289,9 +289,12 @@ function registrarMaterial(){
     dataForm.append('imgMaterialN', imgMaterialN.files[0]);
     dataForm.append('numParteN', descMPlataformaN.value.trim());
 
-    fetch('../../dao/daoNuevoMaterial.php', {
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
         method: 'POST',
-        body: dataForm
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dataForm)
     }).then(res => {
         TablaAdminMateriales();
         if(!res.ok){
