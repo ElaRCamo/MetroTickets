@@ -8,6 +8,26 @@ include_once('connection.php');
    $img = $_FILES['imgMaterialN']['name'];
 
 nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
+function nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma){
+    $con = new LocalConector();
+    $conex = $con->conectar();
+
+    $insertMaterial = $conex->prepare("INSERT INTO DescripcionMaterial (descripcionMaterial, numeroDeParte, imgMaterial, id_plataforma)
+                                                    VALUES (?,?,?,?)");
+    $insertMaterial->bind_param("sssi", $descMaterial,$numParte,$img,$idPlataforma);
+    $resultado = $insertMaterial->execute();
+
+    $conex->close();
+
+    if (!$resultado) {
+        echo '<script>alert("Error al registrar el material")</script>';
+        return 0;
+    } else {
+        echo '<script>alert("Material registrado exitosamente")</script>';
+        return 1;
+    }
+}
+
 /*
     //Recogemos el archivo enviado por el formulario
     $archivo = $_FILES['imgMaterialN']['name'];
@@ -95,25 +115,8 @@ nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }*/
 
-function nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma){
-    $con = new LocalConector();
-    $conex = $con->conectar();
-
-    $insertMaterial = $conex->prepare("INSERT INTO DescripcionMaterial (descripcionMaterial, numeroDeParte, imgMaterial, id_plataforma)
-                                                    VALUES (?,?,?,?)");
-    $insertMaterial->bind_param("sssi", $descMaterial,$numParte,$img,$idPlataforma);
-    $resultado = $insertMaterial->execute();
-
-    $conex->close();
-
-    if (!$resultado) {
-        echo '<script>alert("Error al registrar el material")</script>';
-        return 0;
-    } else {
-        echo '<script>alert("Material registrado exitosamente")</script>';
-        return 1;
-    }
-
-}
 
 ?>
+
+
+

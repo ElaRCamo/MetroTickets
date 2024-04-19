@@ -278,24 +278,27 @@ function registrarPlataforma(){
 }
 
 function registrarMaterial(){
-    var descMaterialN= id("descMaterialN");
-    var numParteN =  id("numParteN");
-    var imgMaterialN= id("imgMaterialN");
-    var descMPlataformaN =  id("descMPlataformaN");
+    var descMaterialN = id("descMaterialN");
+    var numParteN = id("numParteN");
+    var imgMaterialN = id("imgMaterialN");
+    var descMPlataformaN = id("descMPlataformaN");
 
     const dataForm = new FormData();
     dataForm.append('descMaterialN', descMaterialN.value.trim());
     dataForm.append('numParteN', numParteN.value.trim());
-    dataForm.append('imgMaterialN', imgMaterialN.files[0]);
+    dataForm.append('imgMaterialN', imgMaterialN.files[0]); // ¿Estás seguro de que es imgMaterialN.img[0]?
     dataForm.append('descMPlataformaN', descMPlataformaN.value.trim());
+
+    console.log("DataForm enviado:", dataForm); // Agrega esta línea para ver lo que estás enviando
 
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/json' -> No es necesario cuando envías FormData
         },
-        body: JSON.stringify(dataForm)
+        body: dataForm // No es necesario convertir a JSON cuando envías FormData
     }).then(res => {
+        console.log("Respuesta del servidor:", res); // Agrega esta línea para ver la respuesta del servidor
         TablaAdminMateriales();
         if(!res.ok){
             console.log('Problem');
@@ -306,13 +309,14 @@ function registrarMaterial(){
         .then(data => {
             console.log('Success');
             Swal.fire({
-                title: "¡Material registrado con exito!",
+                title: "¡Material registrado con éxito!",
                 icon: "success"
             });
         })
         .catch(error =>{
             console.log(error);
         });
+
 
         /*.then(function (response) {
             if (response.ok) {
