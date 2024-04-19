@@ -5,10 +5,10 @@ include_once('connection.php');
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_GET['id_cliente'])){
         // Obtiene el valor del parámetro id_cliente
-        $id_cliente = $_GET['id_cliente'];
-        desactivarCliente($id_cliente);
+        $id_plataforma = $_GET['id_plataforma'];
+        desactivarPlataforma($id_plataforma);
     }else{
-        $respuesta = array("success" => false, "message" => "ID de cliente no proporcionado.");
+        $respuesta = array("success" => false, "message" => "ID de la plataforma no proporcionado.");
         echo json_encode($respuesta);
     }
 } else {
@@ -16,18 +16,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     echo json_encode($respuesta);
 }
 
-function desactivarCliente($id_cliente)
+function desactivarPlataforma($id_plataforma)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $stmt = $conex->prepare("UPDATE Cliente
+    $stmt = $conex->prepare("UPDATE Plataforma
                                       SET estatus = 0
-                                    WHERE id_cliente = ?");
-    $stmt->bind_param("i", $id_cliente);
+                                    WHERE id_plataforma = ?");
+    $stmt->bind_param("i", $id_plataforma);
 
     if ($stmt->execute()) {
-        $respuesta = array("success" => true, "message" => "Cliente desactivado");
+        $respuesta = array("success" => true, "message" => "Plataforma desactivada");
         echo json_encode($respuesta);
     } else {
         $respuesta = array("success" => false, "message" => "Error.");
