@@ -1,61 +1,62 @@
-
 function desactivarCliente(id_cliente) {
-    console.log("id_cliente para eliminar: " + id_cliente);
-
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/desactivarCliente.php?id_cliente='+id_cliente,{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: "btn btn-success",
+            cancelButton: "btn btn-danger"
         },
-        body: JSON.stringify(id_cliente)
-    }).then(res => {
-            TablaAdminClientes();
-            if(!res.ok){
-            console.log('Problem');
-            return;
+        buttonsStyling: false
+    });
+
+    swalWithBootstrapButtons.fire({
+        title: "¿Estás seguro(a)?",
+        text: "Todas plataformas y materiales asociados a este cliente también se desactivarán.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "¡Sí, desactivar!",
+        cancelButtonText: "¡No, cancelar!",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/desactivarCliente.php?id_cliente='+id_cliente,{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(id_cliente)
+            }).then(res => {
+                TablaAdminClientes();
+                if(!res.ok){
+                    console.log('Problem');
+                    return;
+                }
+                return res.json();
+            })
+                .then(data => {
+                    console.log('Success');
+                    swalWithBootstrapButtons.fire({
+                        title: "¡Desactivado!",
+                        text: "El cliente ha sido desactivado.",
+                        icon: "success"
+                    });
+                })
+                .catch(error =>{
+                    console.log(error);
+                });
+        } else if (
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire({
+                title: "Cancelado",
+                text: "El cliente sigue activo y visible para todos.",
+                icon: "error"
+            });
         }
-            return res.json();
-        })
-        .then(data => {
-            console.log('Success');
-        })
-        .catch(error =>{
-            console.log(error);
-        });
+    });
 }
+
 /*
-const swalWithBootstrapButtons = Swal.mixin({
-  customClass: {
-    confirmButton: "btn btn-success",
-    cancelButton: "btn btn-danger"
-  },
-  buttonsStyling: false
-});
-swalWithBootstrapButtons.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonText: "Yes, delete it!",
-  cancelButtonText: "No, cancel!",
-  reverseButtons: true
-}).then((result) => {
-  if (result.isConfirmed) {
-    swalWithBootstrapButtons.fire({
-      title: "Deleted!",
-      text: "Your file has been deleted.",
-      icon: "success"
-    });
-  } else if (
-result.dismiss === Swal.DismissReason.cancel
-) {
-    swalWithBootstrapButtons.fire({
-        title: "Cancelled",
-        text: "Your imaginary file is safe :)",
-        icon: "error"
-    });
-}
-});
+
+
  */
 function eliminarPlataforma(id_plataforma){
     console.log("id_plataforma para eliminar: " + id_plataforma);
