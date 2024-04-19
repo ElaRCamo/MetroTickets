@@ -2,15 +2,18 @@
 
 include_once('connection.php');
 
-// Verifica si el parámetro id_cliente se ha enviado en la URL
-if(isset($_GET['id_cliente'])) {
-    // Obtiene el valor del parámetro id_cliente
-    $id_cliente = $_GET['id_cliente'];
-
-    // Puedes usar $id_cliente en tus operaciones de PHP
-    echo "El ID del cliente es: " . $id_cliente;
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    if(isset($_GET['id_cliente'])){
+        // Obtiene el valor del parámetro id_cliente
+        $id_cliente = $_GET['id_cliente'];
+        desactivarCliente($id_cliente);
+    }else{
+        $respuesta = array("success" => false, "message" => "ID de cliente no proporcionado.");
+        echo json_encode($respuesta);
+    }
 } else {
-    echo "No se ha proporcionado un ID de cliente";
+    $respuesta = array("success" => false, "message" => "Se esperaba REQUEST_METHOD");
+    echo json_encode($respuesta);
 }
 
 function desactivarCliente($id_cliente)
