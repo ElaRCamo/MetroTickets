@@ -254,7 +254,7 @@ function registrarPlataforma(){
     dataForm.append('descPlataformaN', descPlataformaN.value.trim());
     dataForm.append('descPClienteN', descPClienteN.value.trim());
 
-    C('../../dao/daoNuevaPlataforma.php', {
+    fetch('../../dao/daoNuevaPlataforma.php', {
         method: 'POST',
         body: dataForm
     })
