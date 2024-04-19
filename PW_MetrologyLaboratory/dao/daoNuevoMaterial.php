@@ -3,14 +3,11 @@ include_once('connection.php');
 
 //if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_POST['descMPlataformaN'] )){
    $descMaterial = $_POST['descMaterialN'];
-   //$numParte = $_POST['numParteN'];
-   //$idPlataforma = $_POST['descMPlataformaN'];
+   $numParte = $_POST['numParteN'];
+   $idPlataforma = $_POST['descMPlataformaN'];
+   $img = $_FILES['imgMaterialN']['name'];
 
-
-$numParte = '1234566';
-$idPlataforma = '26';
-$img ='img';
-nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma);
+nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
 /*
     //Recogemos el archivo enviado por el formulario
     $archivo = $_FILES['imgMaterialN']['name'];
@@ -21,11 +18,8 @@ nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma);
         $temp = $_FILES['imgMaterialN']['tmp_name'];
         //Se comprueba si el archivo a cargar es correcto observando su extensión y tamaño
         if (!((strpos($tipo, "gif") || strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))) {
-
             $respuesta = array("success" => false, "message" => "Error. La extensión o el tamaño de los archivos no es correcta.Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.");
             echo json_encode($respuesta);
-
-
         } else {
             //Si la imagen es correcta en tamaño y tipo
             //Se intenta subir al servidor
@@ -50,7 +44,7 @@ nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma);
                 echo json_encode($respuesta);
 
             }
-        }*/
+        }
     //}
 
    /* if ($_FILES["imgMaterialN"]["error"] > 0) {
