@@ -230,10 +230,7 @@ function registrarCliente(){
     })
         .then(function (response) {
             if (response.ok) { //respuesta
-                Swal.fire({
-                    title: "¡Cliente agregado exitosamente!",
-                    icon: "success"
-                });
+
                 TablaAdminClientes();
             } else {
                 throw "Error en la llamada Ajax";
@@ -245,6 +242,10 @@ function registrarCliente(){
         .catch(function (err) {
             console.log(err);
         });
+    Swal.fire({
+        title: "¡Cliente agregado exitosamente!",
+        icon: "success"
+    });
 }
 
 function registrarPlataforma(){
