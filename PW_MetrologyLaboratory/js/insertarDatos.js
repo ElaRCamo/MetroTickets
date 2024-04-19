@@ -230,8 +230,15 @@ function registrarCliente(){
     })
         .then(function (response) {
             if (response.ok) { //respuesta
-
+                Swal.fire({
+                    title: "¡Cliente agregado exitosamente!",
+                    icon: "success"
+                });
                 TablaAdminClientes();
+                // Cerrar la ventana modal
+                var modal = document.querySelector('.modal');
+                var modalInstance = bootstrap.Modal.getInstance(modal);
+                modalInstance.hide();
             } else {
                 throw "Error en la llamada Ajax";
             }
@@ -242,10 +249,6 @@ function registrarCliente(){
         .catch(function (err) {
             console.log(err);
         });
-    Swal.fire({
-        title: "¡Cliente agregado exitosamente!",
-        icon: "success"
-    });
 }
 
 function registrarPlataforma(){
