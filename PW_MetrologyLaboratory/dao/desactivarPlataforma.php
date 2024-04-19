@@ -3,7 +3,7 @@
 include_once('connection.php');
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_GET['id_cliente'])){
+    if(isset($_GET['id_plataforma'])){
         // Obtiene el valor del parámetro id_cliente
         $id_plataforma = $_GET['id_plataforma'];
         desactivarPlataforma($id_plataforma);
