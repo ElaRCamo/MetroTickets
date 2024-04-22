@@ -65,9 +65,154 @@
         </div>
     </div>
 </div>
-<script src="../../js/cargarDatos.js"></script>
-<script src="../../js/insertarDatos.js"></script>
-<script src="../../js/general.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+    const id = str => document.getElementById(str);
+    function registrarMaterial(){
+        var descMaterialN = id("descMaterialN");
+        var numParteN = id("numParteN");
+        var imgMaterialN = id("imgMaterialN");
+        var descMPlataformaN = id("descMPlataformaN");
+
+        const dataForm = new FormData();
+        dataForm.append('descMaterialN', descMaterialN.value.trim());
+        dataForm.append('numParteN', numParteN.value.trim());
+        dataForm.append('imgMaterialN', imgMaterialN.files[0]);
+        dataForm.append('descMPlataformaN', descMPlataformaN.value.trim());
+
+        console.log("DataForm enviado:", dataForm); // Agrega esta línea para ver lo que estás enviando
+        console.log("Valor de descMaterialN:", descMaterialN.value.trim());
+        console.log("Valor de numParteN:", numParteN.value.trim());
+        console.log("Valor de imgMaterialN:", imgMaterialN.files[0]); // imgMaterialN debería ser un elemento de tipo archivo
+        console.log("Valor de descMPlataformaN:", descMPlataformaN.value.trim());
+
+
+        fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
+            method: 'POST',
+            body: dataForm
+        }).then(res => {
+            console.log("Respuesta del servidor:", res);
+            TablaAdminMateriales();
+            if(!res.ok){
+                console.log('Problem');
+                return;
+            }
+            return res.json();
+        })
+            .then(data => {
+                console.log('Success');
+                Swal.fire({
+                    title: "¡Material registrado con éxito!",
+                    icon: "success"
+                });
+            })
+            .catch(error =>{
+                console.log(error);
+            });
+
+
+        /*.then(function (response) {
+            if (response.ok) {
+                return response.json(); // Convertir la respuesta JSON en un objeto JavaScript
+                Swal.fire({
+                    title: "¡Material registrado con exito!",
+                    icon: "success"
+                });
+                TablaAdminClientes();
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (data) {
+            console.log(data.mensaje);
+
+        })
+        .catch(function (err) {
+            console.log(err);
+        });*/
+
+
+    }
+
+    function TablaAdminMateriales(){
+        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaMateriales.php', function (response) {
+            var tabla = id("tablaMateriales");
+            var tbody = tabla.getElementsByTagName("tbody")[0];
+
+            // Limpiar contenido previo de la tabla
+            tbody.innerHTML = '';
+
+            // Iterar sobre los materiales y crear filas y celdas de tabla
+            for (var j = 0; j < response.data.length; j++) {
+                var fila = document.createElement("tr");
+
+                var idMaterial = document.createElement("td");
+                idMaterial.textContent = response.data[j].id_descripcion;
+                fila.appendChild(idMaterial);
+
+                var descripcionMaterial = document.createElement("td");
+                descripcionMaterial.textContent = response.data[j].descripcionMaterial;
+                fila.appendChild(descripcionMaterial);
+
+                var numeroDeParte = document.createElement("td");
+                numeroDeParte.textContent = response.data[j].numeroDeParte;
+                fila.appendChild(numeroDeParte);
+
+                var imgMaterial = document.createElement("td");
+                var imagen = document.createElement("img");
+                imagen.src = response.data[j].imgMaterial;
+                imagen.classList.add("col-md-6", "mb-3", "ms-md-3", "rounded", "img-fluid","img-thumbnail");
+                imgMaterial.appendChild(imagen);
+                fila.appendChild(imgMaterial);
+
+                var descripcionPlataforma = document.createElement("td");
+                descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
+                fila.appendChild(descripcionPlataforma);
+
+
+                var acciones = document.createElement("td");
+                // Botón de editar
+                var btnEditar = document.createElement("button");
+                btnEditar.textContent = "Editar";
+                btnEditar.classList.add("btn", "btn-warning", "btnEditar");
+                btnEditar.setAttribute("onclick", "editarMaterial('" +  response.data[j].id_descripcion + "')");
+
+                // Botón de eliminar
+                var btnEliminar = document.createElement("button");
+                btnEliminar.textContent = "Desactivar";
+                btnEliminar.classList.add("btn", "btn-danger", "btnDesactivar");
+                btnEliminar.setAttribute("onclick", "desactivarMaterial('" +  response.data[j].id_descripcion + "')");
+                // Agregar los botones al td
+                acciones.appendChild(btnEditar);
+                acciones.appendChild(btnEliminar);
+                fila.appendChild(acciones);
+
+                tbody.appendChild(fila);
+            }
+        });
+    }
+
+    function plataformaModal(){
+        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasT.php', function (data){
+            var selectS = id("descMPlataformaN");
+            selectS.innerHTML = "";
+
+            var createOptionDef = document.createElement("option");
+            createOptionDef.text = "Especifique la plataforma*";
+            createOptionDef.value = "";
+            selectS.appendChild(createOptionDef);
+
+            for (var j = 0; j < data.data.length; j++) {
+                var createOption = document.createElement("option");
+                createOption.value = data.data[j].id_plataforma;
+                createOption.text = data.data[j].descripcionPlataforma;
+                selectS.appendChild(createOption);
+            }
+        });
+    }
+
+</script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>

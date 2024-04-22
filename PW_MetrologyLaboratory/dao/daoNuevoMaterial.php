@@ -5,9 +5,44 @@ include_once('connection.php');
    $descMaterial = $_POST['descMaterialN'];
    $numParte = $_POST['numParteN'];
    $idPlataforma = $_POST['descMPlataformaN'];
-   $img = $_FILES['imgMaterialN']['name'];
 
-nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
+   //Recogemos el archivo enviado por el formulario
+    $archivo = $_FILES['imgMaterialN']['name'];
+    //Si el archivo contiene algo y es diferente de vacio
+    if (isset($archivo) && $archivo != "") {
+        $tipo = $_FILES['imgMaterialN']['type'];
+        $tamano = $_FILES['imgMaterialN']['size'];
+        $temp = $_FILES['imgMaterialN']['tmp_name'];
+        //Se comprueba si el archivo a cargar es correcto observando su extensión y tamaño
+        if (!((strpos($tipo, "gif") || strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))) {
+            $respuesta = array("success" => false, "message" => "Error. La extensión o el tamaño de los archivos no es correcta.Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.");
+            echo json_encode($respuesta);
+        } else {
+            //Si la imagen es correcta en tamaño y tipo
+            //Se intenta subir al servidor
+            if (move_uploaded_file($temp, '../imgs/materials/' . $archivo)) {
+                //Cambiamos los permisos del archivo a 777 para poder modificarlo posteriormente
+                //chmod('../imgs/materials/' . $archivo, 0777);
+                //Mostramos el mensaje de que se ha subido co éxito
+                //echo '<div><b>Se ha subido correctamente la imagen.</b></div>';
+                //Mostramos la imagen subida
+                //echo '<p><img src="../imgs/materials/' . $archivo . '"></p>';
+
+                $respuesta = array("success" => false, "message" => "Se ha subido correctamente la imagen");
+                echo json_encode($respuesta);
+
+                $img = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/" . $numParte . $archivo;
+                // Llamar a la función solo si la subida del archivo es exitosa
+                nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
+            } else {
+                //Si no se ha podido subir la imagen, mostramos un mensaje de error
+                //echo '<div><b>Ocurrió algún error al subir el fichero. No pudo guardarse.</b></div>';
+                $respuesta = array("success" => false, "message" => "Ocurrió algún error al subir el fichero. No pudo guardarse.");
+                echo json_encode($respuesta);
+
+            }
+        }
+    }
 function nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma){
     $con = new LocalConector();
     $conex = $con->conectar();
