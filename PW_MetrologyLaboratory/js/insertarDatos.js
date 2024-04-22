@@ -235,25 +235,23 @@ function registrarMaterial() {
     fetch('../../dao/daoNuevoMaterial.php', {
         method: 'POST',
         body: dataForm
-    }).then(res => {
-        console.log("Respuesta del servidor:", res);
-        Swal.fire({
-            title: "¡Material registrado con éxito!",
-            icon: "success"
-        });
-        TablaAdminMateriales();
-        if(!res.ok){
-            console.log('Problem');
-            return;
+    }).then(function (response) {
+        if (response.ok) { //respuesta
+            Swal.fire({
+                title: "¡Material registrado con éxito!",
+                icon: "success"
+            });
+            console.log("¡Material registrado con éxito!")
+            TablaAdminMateriales();
+        } else {
+            throw "Error en la llamada Ajax";
         }
-        return res.json();
     })
-        .then(data => {
-            console.log('Success');
-
+        .then(function (texto) {
+            console.log(texto);
         })
-        .catch(error =>{
-            console.log(error);
+        .catch(function (err) {
+            console.log(err);
         });
 }
 
