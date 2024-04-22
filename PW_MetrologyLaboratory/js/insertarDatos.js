@@ -217,7 +217,43 @@ function enviarCorreoNuevaSolicitudLab(id_prueba, solicitante){
             console.log(err);
         });
 }
+function registrarMaterial() {
+    var descMaterialN = id("descMaterialN");
+    var numParteN = id("numParteN");
+    var imgMaterialN = id("imgMaterialN");
+    var descMPlataformaN = id("descMPlataformaN");
 
+    const dataForm = new FormData();
+    dataForm.append('descMaterialN', descMaterialN.value.trim());
+    dataForm.append('numParteN', numParteN.value.trim());
+    dataForm.append('imgMaterialN', imgMaterialN.files[0]);
+    dataForm.append('descMPlataformaN', descMPlataformaN.value.trim());
+
+    //console.log("DataForm enviado:", dataForm);
+
+
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
+        method: 'POST',
+        body: dataForm
+    }).then(function (response) {
+        if (response.ok) { //respuesta
+            /*Swal.fire({
+                title: "¡Material registrado con éxito!",
+                icon: "success"
+            });*/
+            console.log("¡Material registrado con éxito!")
+            TablaAdminMateriales();
+        } else {
+            throw "Error en la llamada Ajax";
+        }
+    })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}
 
 function registrarCliente(){
     var descClienteN= id("descClienteN");
@@ -274,44 +310,3 @@ function registrarPlataforma(){
     });
 }
 
-function registrarMaterial() {
-    var descMaterialN = id("descMaterialN");
-    var numParteN = id("numParteN");
-    var imgMaterialN = id("imgMaterialN");
-    var descMPlataformaN = id("descMPlataformaN");
-
-    const dataForm = new FormData();
-    dataForm.append('descMaterialN', descMaterialN.value.trim());
-    dataForm.append('numParteN', numParteN.value.trim());
-    dataForm.append('imgMaterialN', imgMaterialN.files[0]);
-    dataForm.append('descMPlataformaN', descMPlataformaN.value.trim());
-
-    console.log("DataForm enviado:", dataForm); // Agrega esta línea para ver lo que estás enviando
-    console.log("Valor de descMaterialN:", descMaterialN.value.trim());
-    console.log("Valor de numParteN:", numParteN.value.trim());
-    console.log("Valor de imgMaterialN:", imgMaterialN.files[0]); // imgMaterialN debería ser un elemento de tipo archivo
-    console.log("Valor de descMPlataformaN:", descMPlataformaN.value.trim());
-
-
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
-        method: 'POST',
-        body: dataForm
-    }).then(function (response) {
-        if (response.ok) { //respuesta
-            /*Swal.fire({
-                title: "¡Material registrado con éxito!",
-                icon: "success"
-            });*/
-            console.log("¡Material registrado con éxito!")
-            TablaAdminMateriales();
-        } else {
-            throw "Error en la llamada Ajax";
-        }
-    })
-        .then(function (texto) {
-            console.log(texto);
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
-}
