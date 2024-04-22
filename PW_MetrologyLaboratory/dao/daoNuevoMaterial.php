@@ -8,6 +8,11 @@ include_once('connection.php');
 
    //Recogemos el archivo enviado por el formulario
     $archivo = $_FILES['imgMaterialN']['name'];
+    $img = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/" . $numParte . $archivo;
+    // Llamar a la función solo si la subida del archivo es exitosa
+    nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
+
+    /*
     //Si el archivo contiene algo y es diferente de vacio
     if (isset($archivo) && $archivo != "") {
         $tipo = $_FILES['imgMaterialN']['type'];
@@ -42,7 +47,7 @@ include_once('connection.php');
 
             }
         }
-    }
+    }*/
 function nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma){
     $con = new LocalConector();
     $conex = $con->conectar();
