@@ -402,7 +402,7 @@ function TablaAdminPlataformas(){
             var acciones = document.createElement("td");
             // Botón de editar
             var btnEditar = document.createElement("button");
-            btnEditar.textContent = "Editar";
+            btnEditar.textContent = "Editar <i class=\"las la-edit\"></i>";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             btnEditar.setAttribute("onclick", "editarPlataforma('" +  response.data[j].id_plataforma + "')");
             // Botón de eliminar
