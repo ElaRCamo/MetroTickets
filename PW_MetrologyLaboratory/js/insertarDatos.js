@@ -243,7 +243,6 @@ function registrarMaterial() {
                 showConfirmButton: false,
                 timer: 3000
             });
-            TablaAdminMateriales();
         } else {
             throw "Error en la llamada Ajax";
         }
