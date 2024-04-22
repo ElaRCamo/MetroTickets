@@ -85,16 +85,17 @@
         console.log("Valor de imgMaterialN:", imgMaterialN.files[0]); // imgMaterialN debería ser un elemento de tipo archivo
         console.log("Valor de descMPlataformaN:", descMPlataformaN.value.trim());
 
-        fetch('../../dao/daoNuevoMaterial.php', {
+        fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
             method: 'POST',
             body: dataForm
         }).then(function (response) {
                 if (response.ok) { //respuesta
                     Swal.fire({
                         icon: "success",
-                        title: "Material guardado con éxito"
+                        title: "Material guardado con éxito",
+                        showConfirmButton: false,
+                        timer: 3000
                     });
-                    TablaAdminMateriales();
                 } else {
                     throw "Error en la llamada Ajax";
                 }
