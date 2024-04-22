@@ -217,6 +217,18 @@ function enviarCorreoNuevaSolicitudLab(id_prueba, solicitante){
             console.log(err);
         });
 }
+function validarImagen(file) {
+    const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+    if (!allowedExtensions.exec(file.name)) {
+        throw "Solo se permiten archivos de imagen con extensiones .jpg, .jpeg, .png, o .gif";
+    }
+
+    const maxSizeInBytes = 10 * 1024 * 1024; // 10 MB
+    if (file.size > maxSizeInBytes) {
+        throw "El tamaño del archivo es demasiado grande. Por favor seleccione una imagen más pequeña (menos de 10 MB).";
+    }
+}
+
 function registrarMaterial() {
     var descMaterialN = id("descMaterialN");
     var numParteN = id("numParteN");
@@ -226,9 +238,16 @@ function registrarMaterial() {
     const dataForm = new FormData();
     dataForm.append('descMaterialN', descMaterialN.value.trim());
     dataForm.append('numParteN', numParteN.value.trim());
-    dataForm.append('imgMaterialN', imgMaterialN.files[0]);
-    dataForm.append('descMPlataformaN', descMPlataformaN.value.trim());
 
+    // Validar la imagen antes de adjuntarla al FormData
+    if (imgMaterialN.files.length > 0) {
+        validarImagen(imgMaterialN.files[0]);
+        dataForm.append('imgMaterialN', imgMaterialN.files[0]);
+    } else {
+        throw "Por favor seleccione una imagen";
+    }
+
+    dataForm.append('descMPlataformaN', descMPlataformaN.value.trim());
     //console.log("DataForm enviado:", dataForm);
 
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
