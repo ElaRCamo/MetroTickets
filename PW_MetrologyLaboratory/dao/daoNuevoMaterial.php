@@ -6,11 +6,29 @@ include_once('connection.php');
    $numParte = $_POST['numParteN'];
    $idPlataforma = $_POST['descMPlataformaN'];
 
+
+
+    $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
    //Recogemos el archivo enviado por el formulario
     $archivo = $_FILES['imgMaterialN']['name'];
-    $img = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/" . $numParte . $archivo;
-    // Llamar a la función solo si la subida del archivo es exitosa
-    nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
+    $imgName = $numParte . "-" . str_replace(' ', '-',$archivo);
+    $img =  $target_dir . $imgName;
+    $temp = $_FILES['imgMaterialN']['tmp_name'];
+    $moverImgFile = "../imgs/materials/" . $imgName;
+
+
+if ($_FILES["imgMaterialN"]["error"] > 0) {
+    echo "Error: " . $_FILES["imgMaterialN"]["error"];
+} else {
+    // mover el archivo cargado a la ubicación deseada
+    if (move_uploaded_file($temp, $moverImgFile)) {
+        echo "El archivo " . htmlspecialchars($imgName) . " ha sido subido correctamente.";
+        nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
+    } else {
+        echo "Hubo un error al subir el archivo.";
+    }
+}
+
 
     /*
     //Si el archivo contiene algo y es diferente de vacio
