@@ -320,25 +320,7 @@ function registrarMaterial(){
         });
 
 
-        /*.then(function (response) {
-            if (response.ok) {
-                return response.json(); // Convertir la respuesta JSON en un objeto JavaScript
-                Swal.fire({
-                    title: "¡Material registrado con exito!",
-                    icon: "success"
-                });
-                TablaAdminClientes();
-            } else {
-                throw "Error en la llamada Ajax";
-            }
-        })
-        .then(function (data) {
-            console.log(data.mensaje);
 
-        })
-        .catch(function (err) {
-            console.log(err);
-        });*/
 
 
 }

@@ -22,7 +22,6 @@ if ($_FILES["imgMaterialN"]["error"] > 0) {
     $moverImgFile = "../imgs/materials/" . $imgName;
 
     $extension = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
-    // Lista de extensiones permitidas
     $extensionesPermitidas = array("gif", "jpeg", "jpg", "png");
 
    if (in_array($extension, $extensionesPermitidas) ) {
@@ -33,7 +32,10 @@ if ($_FILES["imgMaterialN"]["error"] > 0) {
            echo "Hubo un error al subir la imagen.";
        }
     } else {
-        echo "Error. La extensión o el tamaño de los archivos no es correcta. Se permiten archivos .gif, .jpg, .png y un tamaño máximo de 2 MB.";
+       $mensaje = array("success" => false, "message" => "Error. La extensión del archivo no es correcta. Se permiten archivos .gif, .jpg, .png.");
+       echo json_encode($mensaje);
+
+       echo "Error. La extensión o el tamaño de los archivos no es correcta. Se permiten archivos .gif, .jpg, .png y un tamaño máximo de 2 MB.";
     }
 }
 
