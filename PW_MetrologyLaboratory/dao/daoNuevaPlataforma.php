@@ -22,19 +22,18 @@ function nuevaPlataforma($descPlataforma,$idCliente){
     $insertPlataforma->bind_param("si", $descPlataforma,$idCliente);
     $resultado = $insertPlataforma->execute();
 
+    // Cerrar la conexión
+    $conex->close();
+
     if(!$resultado) {
         echo "Los datos no se insertaron correctamente.";
         echo json_encode(array('error' => true));
         exit;
-        //return false;
     } else {
-        $conex->commit();
         echo json_encode(array('error' => false));
         exit;
-        //return true;
     }
-    // Cerrar la conexión
-    $conex->close();
+
 }
 
 ?>
