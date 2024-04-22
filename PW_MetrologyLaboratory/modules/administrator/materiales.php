@@ -22,7 +22,7 @@
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
                         <label for="imgMaterialN" class="form-label" >Imagen del material: </label>
-                        <input type="file" placeholder="Imagen del material" class="form-control" onchange="plataformaModal()" id="imgMaterialN" name="imgMaterialN">
+                        <input type="file" placeholder="Imagen del material" class="form-control" onchange="plataformaModal()" id="imgMaterialN" name="imgMaterialN" required>
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>

@@ -11,7 +11,6 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
         echo "Error: " . $_FILES["imgMaterialN"]["error"];
     } else {
         $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
-        //Recogemos el archivo enviado por el formulario
         $archivo = $_FILES['imgMaterialN']['name'];
         $imgName = $numParte . "-" . str_replace(' ', '-', $archivo);
         $img = $target_dir . $imgName;
