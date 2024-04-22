@@ -238,10 +238,10 @@ function registrarMaterial() {
     }).then(function (response) {
         if (response.ok) { //respuesta
             Swal.fire({
-                title: "¡Material registrado con éxito!",
-                icon: "success"
+                icon: "success",
+                title: "¡Material guardado con éxito!",
+                showConfirmButton: true
             });
-            console.log("¡Material registrado con éxito!")
             TablaAdminMateriales();
         } else {
             throw "Error en la llamada Ajax";
