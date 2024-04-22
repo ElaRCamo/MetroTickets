@@ -7,9 +7,11 @@ include_once('connection.php');
    $idPlataforma = $_POST['descMPlataformaN'];
 
 
-
+if ($_FILES["imgMaterialN"]["error"] > 0) {
+    echo "Error: " . $_FILES["imgMaterialN"]["error"];
+} else {
     $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
-   //Recogemos el archivo enviado por el formulario
+    //Recogemos el archivo enviado por el formulario
     $archivo = $_FILES['imgMaterialN']['name'];
     $imgName = $numParte . "-" . str_replace(' ', '-',$archivo);
     $img =  $target_dir . $imgName;
@@ -19,21 +21,25 @@ include_once('connection.php');
     $temp = $_FILES['imgMaterialN']['tmp_name'];
     $moverImgFile = "../imgs/materials/" . $imgName;
 
+    $extension = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
+    // Lista de extensiones permitidas
+    $extensionesPermitidas = array("gif", "jpeg", "jpg", "png");
 
-if ($_FILES["imgMaterialN"]["error"] > 0) {
-    echo "Error: " . $_FILES["imgMaterialN"]["error"];
-} else if (!((strpos($tipo, "gif") || strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))){
-    $respuesta = array("success" => false, "message" => "Error. La extensión o el tamaño de los archivos no es correcta.Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.");
-    echo json_encode($respuesta);
-}else{
-    // mover el archivo cargado a la ubicación deseada
-    if (move_uploaded_file($temp, $moverImgFile)) {
-        echo "La imagen " . htmlspecialchars($imgName) . " ha sido subida correctamente.";
-        nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
+    // Verificar si la extensión está permitida y el tamaño es adecuado
+    if (in_array($extension, $extensionesPermitidas) && $tamano < 2000000) {
+        // mover el archivo cargado a la ubicación deseada
+        if (move_uploaded_file($temp, $moverImgFile)) {
+            echo "La imagen " . htmlspecialchars($imgName) . " ha sido subida correctamente.";
+            nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
+        } else {
+            echo "Hubo un error al subir la imagen.";
+        }
     } else {
-        echo "Hubo un error al subir la imagen.";
+        $respuesta = array("success" => false, "message" => "Error. La extensión o el tamaño de los archivos no es correcta. Se permiten archivos .gif, .jpg, .png y un tamaño máximo de 2 MB.");
+        echo json_encode($respuesta);
     }
 }
+
 
 
 
