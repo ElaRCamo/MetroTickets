@@ -232,26 +232,28 @@ function registrarMaterial() {
     //console.log("DataForm enviado:", dataForm);
 
 
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
+    fetch('../../dao/daoNuevoMaterial.php', {
         method: 'POST',
         body: dataForm
-    }).then(function (response) {
-        if (response.ok) { //respuesta
-            Swal.fire({
-                icon: "success",
-                title: "Material guardado con éxito",
-                showConfirmButton: false,
-                timer: 3000
-            });
-        } else {
-            throw "Error en la llamada Ajax";
+    }).then(res => {
+        console.log("Respuesta del servidor:", res);
+        Swal.fire({
+            title: "¡Material registrado con éxito!",
+            icon: "success"
+        });
+        TablaAdminMateriales();
+        if(!res.ok){
+            console.log('Problem');
+            return;
         }
+        return res.json();
     })
-        .then(function (texto) {
-            console.log(texto);
+        .then(data => {
+            console.log('Success');
+
         })
-        .catch(function (err) {
-            console.log(err);
+        .catch(error =>{
+            console.log(error);
         });
 }
 
