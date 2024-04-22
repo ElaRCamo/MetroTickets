@@ -237,10 +237,10 @@ function registrarMaterial() {
         body: dataForm
     }).then(function (response) {
         if (response.ok) { //respuesta
-            /*Swal.fire({
+            Swal.fire({
                 title: "¡Material registrado con éxito!",
                 icon: "success"
-            });*/
+            });
             console.log("¡Material registrado con éxito!")
             TablaAdminMateriales();
         } else {
