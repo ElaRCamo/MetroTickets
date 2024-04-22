@@ -89,17 +89,18 @@
             method: 'POST',
             body: dataForm
         }).then(function (response) {
-                if (response.ok) { //respuesta
-                    Swal.fire({
-                        icon: "success",
-                        title: "Material guardado con éxito",
-                        showConfirmButton: false,
-                        timer: 3000
-                    });
-                } else {
-                    throw "Error en la llamada Ajax";
-                }
-            })
+            if (response.ok) { //respuesta
+                Swal.fire({
+                    icon: "success",
+                    title: "¡Material guardado con éxito!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                TablaAdminMateriales();
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
             .then(function (texto) {
                 console.log(texto);
             })
