@@ -89,32 +89,46 @@
         fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
             method: 'POST',
             body: dataForm
+        }).then(res => {
+            console.log("Respuesta del servidor:", res);
+            TablaAdminMateriales();
+            if(!res.ok){
+                console.log('Problem');
+                return;
+            }
+            return res.json();
         })
-            .then(function (response) {
-                if (response.ok) {
-                    return response.json(); // Convertir la respuesta JSON en un objeto JavaScript
-                } else {
-                    throw "Error en la llamada Ajax";
-                }
+            .then(data => {
+                console.log('Success');
+                Swal.fire({
+                    title: "¡Material registrado con éxito!",
+                    icon: "success"
+                });
             })
-            .then(function (data) {
-                if (data.success) {
-                    Swal.fire({
-                        title: "¡Material registrado con éxito!",
-                        icon: "success"
-                    });
-                    TablaAdminClientes();
-                } else {
-                    Swal.fire({
-                        title: "Error",
-                        text: data.message,
-                        icon: "error"
-                    });
-                }
-            })
-            .catch(function (err) {
-                console.log(err);
+            .catch(error =>{
+                console.log(error);
             });
+
+
+        /*.then(function (response) {
+            if (response.ok) {
+                return response.json(); // Convertir la respuesta JSON en un objeto JavaScript
+                Swal.fire({
+                    title: "¡Material registrado con exito!",
+                    icon: "success"
+                });
+                TablaAdminClientes();
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (data) {
+            console.log(data.mensaje);
+
+        })
+        .catch(function (err) {
+            console.log(err);
+        });*/
 
 
     }

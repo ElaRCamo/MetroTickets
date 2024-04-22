@@ -32,9 +32,6 @@ if ($_FILES["imgMaterialN"]["error"] > 0) {
            echo "Hubo un error al subir la imagen.";
        }
     } else {
-       $mensaje = array("success" => false, "message" => "Error. La extensión del archivo no es correcta. Se permiten archivos .gif, .jpg, .png.");
-       echo json_encode($mensaje);
-
        echo "Error. La extensión o el tamaño de los archivos no es correcta. Se permiten archivos .gif, .jpg, .png y un tamaño máximo de 2 MB.";
     }
 }
