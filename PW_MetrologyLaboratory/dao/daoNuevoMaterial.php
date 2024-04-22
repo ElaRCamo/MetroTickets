@@ -12,7 +12,7 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
     } else {
         $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
         $archivo = $_FILES['imgMaterialN']['name'];
-        $imgName = $numParte . "-" . $descMaterial;
+        $imgName = $numParte . "-" . str_replace(' ', '-',$descMaterial);
         $img = $target_dir . $imgName;
 
         $tipo = $_FILES['imgMaterialN']['type'];
