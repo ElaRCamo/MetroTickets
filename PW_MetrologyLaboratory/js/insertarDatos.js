@@ -301,11 +301,11 @@ function registrarMaterial(){
         body: dataForm
     }).then(function (response) {
         if (response.ok) { //respuesta
-            TablaAdminMateriales();
             Swal.fire({
                 title: "¡Material registrado con éxito!",
                 icon: "success"
             });
+            TablaAdminMateriales();
         } else {
             throw "Error en la llamada Ajax";
         }
