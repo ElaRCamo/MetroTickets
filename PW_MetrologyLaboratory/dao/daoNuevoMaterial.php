@@ -35,6 +35,8 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
             echo "Error. La extensión o el tamaño de los archivos no es correcta. Se permiten archivos .gif, .jpg, .png y un tamaño máximo de 2 MB.";
         }
     }
+}else {
+    echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
 
 function nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma){
