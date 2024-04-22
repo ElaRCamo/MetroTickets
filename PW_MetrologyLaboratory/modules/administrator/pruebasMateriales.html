@@ -85,16 +85,35 @@
         console.log("Valor de imgMaterialN:", imgMaterialN.files[0]); // imgMaterialN debería ser un elemento de tipo archivo
         console.log("Valor de descMPlataformaN:", descMPlataformaN.value.trim());
 
-
         fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
+            method: 'POST',
+            body: dataForm
+        }).then(function (response) {
+                if (response.ok) { //respuesta
+                    Swal.fire({
+                        icon: "success",
+                        title: "Material guardado con éxito",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                } else {
+                    throw "Error en la llamada Ajax";
+                }
+            })
+            .then(function (texto) {
+                console.log(texto);
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+
+
+
+        /*fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
             method: 'POST',
             body: dataForm
         }).then(res => {
             console.log("Respuesta del servidor:", res);
-            Swal.fire({
-                title: "¡Material registrado con éxito!",
-                icon: "success"
-            });
             TablaAdminMateriales();
             if(!res.ok){
                 console.log('Problem');
@@ -103,33 +122,16 @@
             return res.json();
         })
             .then(data => {
-                console.log('Success');
-
+                Swal.fire({
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             })
             .catch(error =>{
                 console.log(error);
-            });
-
-
-        /*.then(function (response) {
-            if (response.ok) {
-                return response.json(); // Convertir la respuesta JSON en un objeto JavaScript
-                Swal.fire({
-                    title: "¡Material registrado con exito!",
-                    icon: "success"
-                });
-                TablaAdminClientes();
-            } else {
-                throw "Error en la llamada Ajax";
-            }
-        })
-        .then(function (data) {
-            console.log(data.mensaje);
-
-        })
-        .catch(function (err) {
-            console.log(err);
-        });*/
+            });*/
 
 
     }
