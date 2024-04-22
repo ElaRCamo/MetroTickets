@@ -25,20 +25,16 @@ if ($_FILES["imgMaterialN"]["error"] > 0) {
     // Lista de extensiones permitidas
     $extensionesPermitidas = array("gif", "jpeg", "jpg", "png");
 
-    if (move_uploaded_file($temp, $moverImgFile)) {
-        echo "La imagen " . htmlspecialchars($imgName) . " ha sido subida correctamente.";
-        nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
-    } else {
-        echo "Hubo un error al subir la imagen.";
-    }
-
-    // Verificar si la extensión está permitida y el tamaño es adecuado
-   /* if (in_array($extension, $extensionesPermitidas) && $tamano < 2000000) {
-        // mover el archivo cargado a la ubicación deseada
-
+   if (in_array($extension, $extensionesPermitidas) ) {
+       if (move_uploaded_file($temp, $moverImgFile)) {
+           echo "La imagen " . htmlspecialchars($imgName) . " ha sido subida correctamente.";
+           nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
+       } else {
+           echo "Hubo un error al subir la imagen.";
+       }
     } else {
         echo "Error. La extensión o el tamaño de los archivos no es correcta. Se permiten archivos .gif, .jpg, .png y un tamaño máximo de 2 MB.";
-    }*/
+    }
 }
 
     /*
