@@ -355,6 +355,9 @@ function TablaAdminClientes(){
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             btnEditar.setAttribute("onclick", "editarCliente('" +  response.data[j].id_cliente + "')");
+            var iconoEditar = document.createElement("i");
+            iconoEditar.classList.add("fas", "fa-edit");
+            btnEditar.prepend(iconoEditar);
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
             btnEliminar.textContent = "Desactivar";
@@ -373,8 +376,7 @@ function TablaAdminClientes(){
 function editarCliente(id_cliente){
     console.log("id_cliente para editar: " + id_cliente);
 }
-let iconoEditar = document.createElement("i");
-iconoEditar.classList.add("fas", "fa-edit");
+
 
 function TablaAdminPlataformas(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasT.php', function (response) {
@@ -406,6 +408,8 @@ function TablaAdminPlataformas(){
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             btnEditar.setAttribute("onclick", "editarPlataforma('" +  response.data[j].id_plataforma + "')");
+            var iconoEditar = document.createElement("i");
+            iconoEditar.classList.add("fas", "fa-edit");
             btnEditar.prepend(iconoEditar);
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
@@ -465,6 +469,8 @@ function TablaAdminMateriales(){
 
             var acciones = document.createElement("td");
             // Botón de editar
+            var iconoEditar = document.createElement("i");
+            iconoEditar.classList.add("fas", "fa-edit");
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
