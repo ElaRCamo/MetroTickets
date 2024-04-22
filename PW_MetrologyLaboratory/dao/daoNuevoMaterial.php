@@ -22,7 +22,10 @@ include_once('connection.php');
 
 if ($_FILES["imgMaterialN"]["error"] > 0) {
     echo "Error: " . $_FILES["imgMaterialN"]["error"];
-} else {
+} else if (!((strpos($tipo, "gif") || strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))){
+    $respuesta = array("success" => false, "message" => "Error. La extensión o el tamaño de los archivos no es correcta.Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.");
+    echo json_encode($respuesta);
+}else{
     // mover el archivo cargado a la ubicación deseada
     if (move_uploaded_file($temp, $moverImgFile)) {
         echo "La imagen " . htmlspecialchars($imgName) . " ha sido subida correctamente.";
@@ -31,6 +34,7 @@ if ($_FILES["imgMaterialN"]["error"] > 0) {
         echo "Hubo un error al subir la imagen.";
     }
 }
+
 
 
     /*
