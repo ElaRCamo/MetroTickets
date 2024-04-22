@@ -90,22 +90,19 @@
             method: 'POST',
             body: dataForm
         }).then(res => {
-            console.log("Respuesta del servidor:", res);
+            Swal.fire({
+                title: "¡Material registrado con éxito!",
+                icon: "success"
+            });
             TablaAdminMateriales();
             if(!res.ok){
                 console.log('Problem');
                 return;
             }
             return res.json();
-        })
-            .then(data => {
+        }).then(data => {
                 console.log('Success');
-                Swal.fire({
-                    title: "¡Material registrado con éxito!",
-                    icon: "success"
-                });
-            })
-            .catch(error =>{
+        }).catch(error =>{
                 console.log(error);
             });
 
