@@ -13,6 +13,9 @@ include_once('connection.php');
     $archivo = $_FILES['imgMaterialN']['name'];
     $imgName = $numParte . "-" . str_replace(' ', '-',$archivo);
     $img =  $target_dir . $imgName;
+
+    $tipo = $_FILES['imgMaterialN']['type'];
+    $tamano = $_FILES['imgMaterialN']['size'];
     $temp = $_FILES['imgMaterialN']['tmp_name'];
     $moverImgFile = "../imgs/materials/" . $imgName;
 
@@ -22,10 +25,10 @@ if ($_FILES["imgMaterialN"]["error"] > 0) {
 } else {
     // mover el archivo cargado a la ubicación deseada
     if (move_uploaded_file($temp, $moverImgFile)) {
-        echo "El archivo " . htmlspecialchars($imgName) . " ha sido subido correctamente.";
+        echo "La imagen " . htmlspecialchars($imgName) . " ha sido subida correctamente.";
         nuevoMaterial($descMaterial, $numParte, $img, $idPlataforma);
     } else {
-        echo "Hubo un error al subir el archivo.";
+        echo "Hubo un error al subir la imagen.";
     }
 }
 
