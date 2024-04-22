@@ -232,7 +232,7 @@ function registrarMaterial() {
     //console.log("DataForm enviado:", dataForm);
 
 
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
+    fetch('../../dao/daoNuevoMaterial.php', {
         method: 'POST',
         body: dataForm
     }).then(function (response) {
