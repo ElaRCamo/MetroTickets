@@ -53,10 +53,11 @@ function nuevoMaterial($descMaterial,$numParte,$img,$idPlataforma){
     if (!$resultado) {
         echo "Los datos no se insertaron correctamente.";
         echo json_encode(array('error' => true));
+        exit;
     } else {
         echo json_encode(array('error' => false));
+        exit;
     }
-    exit;
 }
 ?>
 
