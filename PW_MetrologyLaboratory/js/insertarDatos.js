@@ -257,8 +257,7 @@ function registrarPlataforma(){
     fetch('../../dao/daoNuevaPlataforma.php', {
         method: 'POST',
         body: dataForm
-    })
-        .then(function (response) {
+    }).then(function (response) {
             if (response.ok) { //respuesta
                 Swal.fire({
                     title: "¡Plataforma agregada con éxito!",
@@ -268,13 +267,11 @@ function registrarPlataforma(){
             } else {
                 throw "Error en la llamada Ajax";
             }
-        })
-        .then(function (texto) {
+    }).then(function (texto) {
             console.log(texto);
-        })
-        .catch(function (err) {
+    }).catch(function (err) {
             console.log(err);
-        });
+    });
 }
 
 function registrarMaterial(){
@@ -289,12 +286,7 @@ function registrarMaterial(){
     dataForm.append('imgMaterialN', imgMaterialN.files[0]);
     dataForm.append('descMPlataformaN', descMPlataformaN.value.trim());
 
-    console.log("DataForm enviado:", dataForm); // Agrega esta línea para ver lo que estás enviando
-    console.log("Valor de descMaterialN:", descMaterialN.value.trim());
-    console.log("Valor de numParteN:", numParteN.value.trim());
-    console.log("Valor de imgMaterialN:", imgMaterialN.files[0]); // imgMaterialN debería ser un elemento de tipo archivo
-    console.log("Valor de descMPlataformaN:", descMPlataformaN.value.trim());
-
+    //console.log("DataForm enviado:", dataForm); // Agrega esta línea para ver lo que estás enviando
 
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
         method: 'POST',
@@ -309,11 +301,9 @@ function registrarMaterial(){
         } else {
             throw "Error en la llamada Ajax";
         }
-    })
-        .then(function (texto) {
+    }).then(function (texto) {
             console.log(texto);
-        })
-        .catch(function (err) {
+    }).catch(function (err) {
             console.log(err);
-        });
+    });
 }

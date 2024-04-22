@@ -89,21 +89,22 @@
         fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNuevoMaterial.php', {
             method: 'POST',
             body: dataForm
-        }).then(res => {
-            Swal.fire({
-                title: "¡Material registrado con éxito!",
-                icon: "success"
-            });
-            TablaAdminMateriales();
-            if(!res.ok){
-                console.log('Problem');
-                return;
+        }).then(function (response) {
+            if (response.ok) { //respuesta
+                Swal.fire({
+                    title: "¡Material registrado con éxito!",
+                    icon: "success"
+                });
+                TablaAdminMateriales();
+            } else {
+                throw "Error en la llamada Ajax";
             }
-            return res.json();
-        }).then(data => {
-                console.log('Success');
-        }).catch(error =>{
-                console.log(error);
+        })
+            .then(function (texto) {
+                console.log(texto);
+            })
+            .catch(function (err) {
+                console.log(err);
             });
 
 
