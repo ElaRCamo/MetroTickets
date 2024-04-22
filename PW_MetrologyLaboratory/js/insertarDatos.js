@@ -223,7 +223,7 @@ function validarImagen(file) {
         throw "Solo se permiten archivos de imagen con extensiones .jpg, .jpeg, .png, o .gif";
     }
 
-    const maxSizeInBytes = 10 * 1024 * 1024; // 10 MB
+    const maxSizeInBytes = 5 * 1024 * 1024; // 10 MB
     if (file.size > maxSizeInBytes) {
         throw "El tamaño del archivo es demasiado grande. Por favor seleccione una imagen más pequeña (menos de 10 MB).";
     }
