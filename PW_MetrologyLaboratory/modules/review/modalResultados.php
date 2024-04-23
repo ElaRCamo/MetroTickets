@@ -10,8 +10,8 @@
                 <form method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
-                        <label for="estatusAdmin" class="form-label">Estatus: </label>
-                        <select class="form-control" id="estatusAdmin" onchange=""  name="estatusAdmin" title="" required data-error="Por favor seleccione el estatus" >
+                        <label for="estatusPruebaAdmin" class="form-label">Estatus: </label>
+                        <select class="form-control" id="estatusPruebaAdmin" onchange="" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus" >
                             <option value="">Seleccione estatus de la prueba*</option>
                         </select>
                     </div>

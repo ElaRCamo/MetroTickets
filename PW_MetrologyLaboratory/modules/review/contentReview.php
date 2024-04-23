@@ -3,7 +3,7 @@
         <div class="col divTitle" id="divResSol">
             <h1>Resumen de Solicitud </h1>
             <a onclick="reviewPDF(id_review)" class="btnPDF">Descargar solicitud en pdf</a>
-            <a id="updateBtnP" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalResultados">Actualizar</a>
+            <a onclick="updatePrueba()" id="updateBtnP" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalResultados">Actualizar</a>
         </div>
         <div class="logoRight col-sm-3">
             <div>

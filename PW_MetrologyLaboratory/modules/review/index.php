@@ -65,11 +65,14 @@
         }
     });
 
-    function updatePrueba(){
+    function updatePrueba()){
+
         <?php if ($tipoUser== 2){ ?>
+
             updatePruebaSol(id_review);
         <?php
         } else if($tipoUser== 1 || $tipoUser== 3){?>
+            llenarEstatusPrueba();
             updatePruebaAdmin(id_review);
         <?php } ?>
     }

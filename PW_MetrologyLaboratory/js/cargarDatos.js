@@ -484,11 +484,6 @@ function TablaAdminPlataformas(){
     });
 }
 
-function editarPlataforma(id_plataforma){
-    console.log("id_plataforma para editar: " + id_plataforma);
-}
-
-
 function TablaAdminMateriales(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaMateriales.php', function (response) {
         var tabla = id("tablaMateriales");
@@ -550,6 +545,17 @@ function TablaAdminMateriales(){
     });
 }
 
-function editarMaterial(id_descripcion){
-    console.log("id_descripcion para editar: " + id_descripcion);
+
+
+function llenarEstatusPrueba(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPrueba.php', function (data){
+        var selectS = id("estatusPruebaAdmin");
+
+        for (var i = 0; i < data.data.length; i++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[i].id_estatusPrueba;
+            createOption.text = data.data[i].descripcionEstatus;
+            selectS.appendChild(createOption);
+        }
+    });
 }
