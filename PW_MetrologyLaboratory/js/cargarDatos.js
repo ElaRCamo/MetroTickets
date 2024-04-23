@@ -387,6 +387,10 @@ function resumenPrueba(ID_PRUEBA){
             cdadMaterialesT.textContent = response.data[j].cantidad;
             fila.appendChild(cdadMaterialesT);
 
+            var estatusMaterialT = document.createElement("td");
+            estatusMaterialT.textContent = response.data[j].estatusMaterial;
+            fila.appendChild(estatusMaterialT);
+
             tbody.appendChild(fila);
         }
     });

@@ -31,7 +31,8 @@ function resumenPrueba($id_prueba){
                         dm.descripcionMaterial, 
                         dm.imgMaterial, 
                         c.descripcionCliente, 
-                        p.descripcionPlataforma
+                        p.descripcionPlataforma,
+                        em.descripcionEstatus AS estatusMaterial
                     FROM   
                         Material m
                         JOIN DescripcionMaterial dm ON m.id_descripcion = dm.id_descripcion

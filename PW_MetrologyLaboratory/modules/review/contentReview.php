@@ -54,6 +54,7 @@
                         <th>No. de Parte</th>
                         <th>Material</th>
                         <th>Cantidad</th>
+                        <th>Estatus</th>
                     </tr>
                     </thead>
                     <tbody></tbody>
