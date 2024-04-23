@@ -8,26 +8,28 @@
             </div>
             <div class="modal-body row">
                 <form method="POST" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <div class="help-block with-errors"></div>
-                        <label for="estatusPruebaAdmin" class="form-label">Estatus: </label>
-                        <select class="form-control" id="estatusPruebaAdmin" onchange="" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus" >
-                            <option value="">Seleccione estatus de la prueba*</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <div class="help-block with-errors"></div>
-                        <label for="prioridadPruebaAdmin" class="form-label">Prioridad: </label>
-                        <select class="form-control" id="prioridadPruebaAdmin" onchange=""  name="prioridadPruebaAdmin" title="" required data-error="Por favor seleccione la prioridad" >
-                            <option value="">Seleccione la prioridad de la prueba*</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <div class="help-block with-errors"></div>
-                        <label for="metrologoAdmin" class="form-label">Metrólogo: </label>
-                        <select class="form-control" id="metrologoAdmin" onchange=""  name="metrologoAdmin" title="" required data-error="Por favor asigne la prueba" >
-                            <option value="">Asignar prueba*</option>
-                        </select>
+                    <div class="row align-items-start">
+                        <div class="mb-3 col">
+                            <div class="help-block with-errors"></div>
+                            <label for="estatusPruebaAdmin" class="form-label">Estatus: </label>
+                            <select class="form-control" id="estatusPruebaAdmin" onchange="" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus" >
+                                <option value="">Seleccione estatus de la prueba*</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col">
+                            <div class="help-block with-errors"></div>
+                            <label for="prioridadPruebaAdmin" class="form-label">Prioridad: </label>
+                            <select class="form-control" id="prioridadPruebaAdmin" onchange=""  name="prioridadPruebaAdmin" title="" required data-error="Por favor seleccione la prioridad" >
+                                <option value="">Seleccione la prioridad de la prueba*</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col">
+                            <div class="help-block with-errors"></div>
+                            <label for="metrologoAdmin" class="form-label">Metrólogo: </label>
+                            <select class="form-control" id="metrologoAdmin" onchange=""  name="metrologoAdmin" title="" required data-error="Por favor asigne la prueba" >
+                                <option value="">Asignar prueba*</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
