@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $id_resultados = $_POST['resultadosAdmin'];
         $fechaUpdate = $_POST['fechaUpdate'];
 
-        actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $id_observaciones, $id_resultados);
+        actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $id_observaciones, $id_resultados, $fechaUpdate);
     }else{
         $respuesta = array("success" => false, "message" => "Faltan datos en el formulario.");
         echo json_encode($respuesta);
@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     echo json_encode($respuesta);
 }
 
-function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $id_observaciones, $id_resultados) {
+function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $id_observaciones, $id_resultados, $fechaUpdate) {
     $con = new LocalConector();
     $conex = $con->conectar();
 

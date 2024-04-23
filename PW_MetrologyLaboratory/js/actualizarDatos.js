@@ -8,8 +8,6 @@ function  updatePruebaAdmin(id_review){
 
     var fechaUpdate= new Date();
     var fechaFormateada = fechaUpdate.getFullYear() + '-' + (fechaUpdate.getMonth() + 1) + '-' + fechaUpdate.getDate();
-    alert(fechaFormateada);
-
 
     const data = new FormData();
     data.append('estatusPruebaAdmin', estatusPruebaAdmin.value.trim());
@@ -18,7 +16,7 @@ function  updatePruebaAdmin(id_review){
     data.append('observacionesAdmin', observacionesAdmin.value.trim());
     data.append('resultadosAdmin', resultadosAdmin.value.trim());
     data.append('fechaUpdate', fechaFormateada);
-    alert("data enviada: "+data);
+    alert("estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultadosAdmin.value.trim()+", fechaUpdate "+ fechaFormateada);
 
 
     const swalWithBootstrapButtons = Swal.mixin({
