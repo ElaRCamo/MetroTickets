@@ -54,11 +54,23 @@
             resumenPrueba(id_review);
 
             var titulo = document.querySelector("h1");
+            var titulo5 = document.querySelector("h5");
             if (titulo) {
                 titulo.textContent = "Resumen de Solicitud " + id_review;
+            }else if (titulo5){
+                titulo.textContent = "Responder solicitud " + id_review;
             }
         }
     });
+
+    function updatePrueba(){
+        <?php if ($tipoUser== 2){ ?>
+            updatePruebaSol(id_review);
+        <?php
+        } else if($tipoUser== 1 || $tipoUser== 3){?>
+            updatePruebaAdmin(id_review);
+        <?php } ?>
+    }
 </script>
 <script src="../../js/cargarDatos.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>

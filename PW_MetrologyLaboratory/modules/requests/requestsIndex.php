@@ -50,7 +50,6 @@
             } else if($tipoUser== 1 || $tipoUser== 3){?>
                 TablaPruebasAdmin();
             <?php } ?>
-
         });
     </script>
     <script src="../../js/cargarDatos.js"></script>
