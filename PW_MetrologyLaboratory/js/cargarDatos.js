@@ -545,16 +545,14 @@ function TablaAdminMateriales(){
     });
 }
 
-
-
 function llenarEstatusPrueba(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPrueba.php', function (data){
         var selectS = id("estatusPruebaAdmin");
 
-        for (var i = 0; i < data.data.length; i++) {
+        for (var j = 0; j < data.data.length; j++) {
             var createOption = document.createElement("option");
-            createOption.value = data.data[i].id_estatusPrueba;
-            createOption.text = data.data[i].descripcionEstatus;
+            createOption.value = data.data[j].id_estatusPrueba;
+            createOption.text = data.data[j].descripcionEstatus;
             selectS.appendChild(createOption);
         }
     });

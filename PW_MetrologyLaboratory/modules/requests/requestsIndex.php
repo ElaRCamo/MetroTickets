@@ -42,12 +42,12 @@
     ?>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            <?php if ($tipoUser== 2){ ?>
+            <?php if ($tipoUser== 3){ ?>
                 let id_solicitante = <?php echo json_encode($_SESSION['nomina']); ?>;
                 console.log("El id del solicitante es: " + id_solicitante);
                 TablaPruebasSolicitante(id_solicitante);
             <?php
-            } else if($tipoUser== 1 || $tipoUser== 3){?>
+            } else if($tipoUser== 1 || $tipoUser== 2){?>
                 TablaPruebasAdmin();
             <?php } ?>
         });
