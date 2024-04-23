@@ -8,6 +8,7 @@ function  updatePruebaAdmin(id_review){
 
     var fechaUpdate= new Date();
     var fechaFormateada = fechaUpdate.getFullYear() + '-' + (fechaUpdate.getMonth() + 1) + '-' + fechaUpdate.getDate();
+    alert(fechaFormateada);
 
 
     const data = new FormData();
@@ -17,6 +18,7 @@ function  updatePruebaAdmin(id_review){
     data.append('observacionesAdmin', observacionesAdmin.value.trim());
     data.append('resultadosAdmin', resultadosAdmin.value.trim());
     data.append('fechaUpdate', fechaFormateada);
+    alert("data enviada: "+data);
 
 
     const swalWithBootstrapButtons = Swal.mixin({
