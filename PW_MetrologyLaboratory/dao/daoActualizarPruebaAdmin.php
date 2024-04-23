@@ -29,7 +29,7 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
     $stmt = $conex->prepare("UPDATE Prueba
                                       SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?
                                     WHERE id_prueba = ?");
-    $stmt->bind_param("iisssi", $id_estatus, $id_prioridad, $id_metrologo, $id_observaciones,$id_resultados, $fechaUpdate, $id_prueba);
+    $stmt->bind_param("iissssi", $id_estatus, $id_prioridad, $id_metrologo, $id_observaciones,$id_resultados, $fechaUpdate, $id_prueba);
 
     if ($stmt->execute()) {
         $respuesta = array("success" => true, "message" => "Prueba actualizada");
