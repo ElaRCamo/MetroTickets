@@ -39,7 +39,7 @@
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
                         <label for="resultadosAdmin" class="form-label">Resultados: </label>
-                        <input type="text" name="resultadosAdmin" id="resultadosAdmin" class="form-control" onchange="" required>
+                        <input type="text" name="resultadosAdmin" id="resultadosAdmin" class="form-control" onchange="" >
                     </div>
                     <div class="row justify-content-end">
                         <div class="">

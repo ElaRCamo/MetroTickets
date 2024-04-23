@@ -332,6 +332,7 @@ function reviewPage(ID_PRUEBA){
 
     window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/index.php?id_prueba=" + ID_PRUEBA;
 }
+let id_estatusSol;
 
 function resumenPrueba(ID_PRUEBA){
 
@@ -353,6 +354,8 @@ function resumenPrueba(ID_PRUEBA){
         id("archivoNormaR").href = data.normaArchivo;
         $('#observacionesLabR').text(data.especificacionesLab);
         $('#rutaResultadosR').text(data.rutaResultados);
+
+        id_estatusSol = data.id_estatusPrueba;
 
 
         var tabla = document.getElementById("materialesResumen");
@@ -554,6 +557,10 @@ function llenarEstatusPrueba(){
             createOption.value = data.data[j].id_estatusPrueba;
             createOption.text = data.data[j].descripcionEstatus;
             selectS.appendChild(createOption);
+            // Si el valor actual coincide con id_estatusSol, se selecciona por defecto
+            if (data.data[j].id_estatusPrueba === id_estatusSol) {
+                createOption.selected = true;
+            }
         }
     });
 }
