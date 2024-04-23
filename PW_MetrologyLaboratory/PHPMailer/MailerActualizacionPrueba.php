@@ -10,7 +10,7 @@ require 'Phpmailer/SMTP.php';
 
 include_once('Produccion/ML/PW_MetrologyLaboratory/dao/connection.php');
 session_start();
-$id_prueba=$_POST['id_review'];
+$id_prueba=$_POST['id_prueba'];
 $emailSolicitante=$_POST['emailUsuario'];
 $Solicitante = $_SESSION['nombreUsuario'];
 
@@ -68,7 +68,7 @@ function emailUpdate($id_prueba,$emailSolicitante,$Solicitante )
         //Solicitante
         $mail->addAddress($emailSolicitante, $Solicitante); //Quién recibirá correo
         $mail->addBCC('LaboratorioMetrologiaGrammer@arketipo.mx', 'LMGrammer');
-        $mail->addBCC('extern.mariela.reyes@arketipo.mx', 'IT');
+        $mail->addBCC('extern.mariela.reyes@grammer.com', 'IT');
 
         $mail->Subject = 'Actualización de solicitud.';
         $mail->isHTML(true);
