@@ -81,3 +81,7 @@ function editarMaterial(id_descripcion){
 function editarPlataforma(id_plataforma){
     console.log("id_plataforma para editar: " + id_plataforma);
 }
+
+function editarCliente(id_cliente){
+    console.log("id_cliente para editar: " + id_cliente);
+}

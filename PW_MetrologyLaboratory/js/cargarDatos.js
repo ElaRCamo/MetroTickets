@@ -445,11 +445,6 @@ function TablaAdminClientes(){
     });
 }
 
-function editarCliente(id_cliente){
-    console.log("id_cliente para editar: " + id_cliente);
-}
-
-
 function TablaAdminPlataformas(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasT.php', function (response) {
         var tabla = id("tablaPlataformas");

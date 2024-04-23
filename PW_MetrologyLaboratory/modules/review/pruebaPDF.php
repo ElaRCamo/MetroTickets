@@ -61,7 +61,8 @@ $datosPrueba =  mysqli_query($conex,
                                                     dm.descripcionMaterial, 
                                                     dm.imgMaterial, 
                                                     c.descripcionCliente, 
-                                                    p.descripcionPlataforma
+                                                    p.descripcionPlataforma,
+                                                    em.descripcionEstatus AS estatusMaterial
                                                 FROM   
                                                     Material m
                                                     JOIN DescripcionMaterial dm ON m.id_descripcion = dm.id_descripcion
@@ -166,6 +167,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                             <td><?php echo $resultado['numeroDeParte'];?> </td>
                             <td><?php echo $resultado['descripcionMaterial'];?></td>
                             <td><?php echo $resultado['cantidad'];?></td>
+                            <td><?php echo $resultado['estatusMaterial'];?></td>
                         </tr>
                         <?php }?>
                     </tbody>
