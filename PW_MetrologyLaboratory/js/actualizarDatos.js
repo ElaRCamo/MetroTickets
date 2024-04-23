@@ -49,6 +49,7 @@ function  updatePruebaAdmin(id_review, id_user){
             })
                 .then(data => {
                     console.log('Success');
+                    correoActualizacionPrueba(id_review, solicitante, emailUsuario);
                     swalWithBootstrapButtons.fire({
                         title: "¡Prueba actualizada!",
                         text: "Se han guardado los cambios.",

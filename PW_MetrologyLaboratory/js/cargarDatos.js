@@ -605,3 +605,21 @@ function consultarMetrologos(){
         }
     });
 }
+
+/*Queda pendiente de integracion*/
+function estatusMateriales(k){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusMaterial.php', function (data){
+        var selectS = id("selEstMat" + k);
+        selectS.innerHTML = ""; //limpiar contenido
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[j].id_estatusMaterial;
+            createOption.text = data.data[j].descripcionEstatus;
+            selectS.appendChild(createOption);
+            if (data.data[j].id_estatusMaterial === id_metrologoSol) {
+                createOption.selected = true;
+            }
+        }
+    });
+}
