@@ -45,6 +45,8 @@
     ?>
 <script>
     let id_review;
+    let id_user = <?php echo json_encode($_SESSION['nomina']); ?>;
+
     document.addEventListener("DOMContentLoaded", function() {
         // Obtener el valor de id_prueba de la URL
         var urlParams = new URLSearchParams(window.location.search);

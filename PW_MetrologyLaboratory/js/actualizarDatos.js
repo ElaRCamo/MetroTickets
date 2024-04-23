@@ -1,11 +1,10 @@
-function  updatePruebaAdmin(id_review){
+function  updatePruebaAdmin(id_review, id_user){
 
     var estatusPruebaAdmin = id("estatusPruebaAdmin");
     var prioridadPruebaAdmin = id("prioridadPruebaAdmin");
     var metrologoAdmin = id("metrologoAdmin");
     var observacionesAdmin = id("observacionesAdmin");
     var resultadosAdmin = id("resultadosAdmin");
-
     var fechaUpdate= new Date();
     var fechaFormateada = fechaUpdate.getFullYear() + '-' + (fechaUpdate.getMonth() + 1) + '-' + fechaUpdate.getDate();
 
@@ -16,8 +15,8 @@ function  updatePruebaAdmin(id_review){
     data.append('observacionesAdmin', observacionesAdmin.value.trim());
     data.append('resultadosAdmin', resultadosAdmin.value.trim());
     data.append('fechaUpdate', fechaFormateada);
-    alert("estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultadosAdmin.value.trim()+", fechaUpdate "+ fechaFormateada);
-
+    data.append('id_user', id_user);
+    //alert("estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultadosAdmin.value.trim()+", fechaUpdate "+ fechaFormateada);
 
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {

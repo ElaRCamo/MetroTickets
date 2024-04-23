@@ -44,7 +44,7 @@
                     <div class="row justify-content-end">
                         <div class="">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
-                            <button type="button" class="btn btn-secondary" onclick="updatePruebaAdmin(id_review)"><i class="las la-save"></i>Guardar</button>
+                            <button type="button" class="btn btn-secondary" onclick="updatePruebaAdmin(id_review,id_user)"><i class="las la-save"></i>Guardar</button>
                         </div>
                     </div>
                 </form>

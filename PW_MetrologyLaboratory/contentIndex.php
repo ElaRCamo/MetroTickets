@@ -28,7 +28,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card">
                     <div class="card-head">
                         <h2>12</h2>
