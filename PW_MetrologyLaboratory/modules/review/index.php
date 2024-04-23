@@ -68,12 +68,10 @@
     function updatePrueba()){
 
         <?php if ($tipoUser== 3){ ?>
-
             updatePruebaSol(id_review);
         <?php
         } else if($tipoUser== 1 || $tipoUser== 2){?>
             llenarEstatusPrueba();
-            updatePruebaAdmin(id_review);
         <?php } ?>
     }
 </script>
