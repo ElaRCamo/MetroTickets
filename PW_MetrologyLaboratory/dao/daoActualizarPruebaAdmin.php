@@ -4,7 +4,7 @@ include_once('connection.php');
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_GET['id_prueba'], $_POST['estatusPruebaAdmin'], $_POST['prioridadPruebaAdmin'], $_POST['metrologoAdmin'], $_POST['observacionesAdmin'], $_POST['resultadosAdmin'])){
-        $id_prueba = $_GET['id_prueba'];
+        $id_pruebaAct = $_GET['id_prueba'];
         $id_estatus = $_POST['estatusPruebaAdmin'];
         $id_prioridad = $_POST['prioridadPruebaAdmin'];
         $id_metrologo = $_POST['metrologoAdmin'];
@@ -13,7 +13,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $fechaUpdate = $_POST['fechaUpdate'];
         $id_admin = $_POST['id_user'];
 
-        actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $id_observaciones, $id_resultados, $fechaUpdate, $id_admin);
+        actualizarPrueba($id_pruebaAct,$id_estatus,$id_prioridad, $id_metrologo, $id_observaciones, $id_resultados, $fechaUpdate, $id_admin);
     }else{
         $respuesta = array("success" => false, "message" => "Faltan datos en el formulario.");
         echo json_encode($respuesta);
@@ -23,14 +23,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     echo json_encode($respuesta);
 }
 
-function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $id_observaciones, $id_resultados, $fechaUpdate, $id_admin) {
+function actualizarPrueba($id_pruebaAct,$id_estatus,$id_prioridad, $id_metrologo, $id_observaciones, $id_resultados, $fechaUpdate, $id_admin) {
     $con = new LocalConector();
     $conex = $con->conectar();
 
     $stmt = $conex->prepare("UPDATE Prueba
                                       SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, id_administrador = ?
                                     WHERE id_prueba = ?");
-    $stmt->bind_param("iisssssi", $id_estatus, $id_prioridad, $id_metrologo, $id_observaciones,$id_resultados, $fechaUpdate, $id_admin, $id_prueba);
+    $stmt->bind_param("iisssssi", $id_estatus, $id_prioridad, $id_metrologo, $id_observaciones,$id_resultados, $fechaUpdate, $id_admin, $id_pruebaAct);
 
     if ($stmt->execute()) {
         $respuesta = array("success" => true, "message" => "Prueba actualizada");
