@@ -17,8 +17,8 @@
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
-                        <label for="prioridadAdmin" class="form-label">Prioridad: </label>
-                        <select class="form-control" id="prioridadAdmin" onchange=""  name="prioridadAdmin" title="" required data-error="Por favor seleccione la prioridad" >
+                        <label for="prioridadPruebaAdmin" class="form-label">Prioridad: </label>
+                        <select class="form-control" id="prioridadPruebaAdmin" onchange=""  name="prioridadPruebaAdmin" title="" required data-error="Por favor seleccione la prioridad" >
                             <option value="">Seleccione la prioridad de la prueba*</option>
                         </select>
                     </div>

@@ -557,3 +557,16 @@ function llenarEstatusPrueba(){
         }
     });
 }
+
+function llenarPrioridadPrueba(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPrioridadPrueba.php', function (data){
+        var selectS = id("prioridadPruebaAdmin");
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[j].id_prioridad;
+            createOption.text = data.data[j].descripcionPrioridad;
+            selectS.appendChild(createOption);
+        }
+    });
+}

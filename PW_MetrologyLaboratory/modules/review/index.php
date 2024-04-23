@@ -71,6 +71,7 @@
         <?php
         } else if($tipoUser== 1 || $tipoUser== 2){?>
             llenarEstatusPrueba();
+            llenarPrioridadPrueba();
         <?php } ?>
     }
 </script>
