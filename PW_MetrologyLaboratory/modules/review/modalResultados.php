@@ -49,4 +49,11 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var titulo5 = document.querySelector("h5");
+            if (titulo5) {
+                titulo5.textContent = "Resumen de Solicitud " + id_review;
+            }
+    </script>
 </div>

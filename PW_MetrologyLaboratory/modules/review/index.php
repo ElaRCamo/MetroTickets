@@ -54,13 +54,9 @@
         // Llamar a la función resumenPrueba con el id_prueba obtenido
         if (id_review) {
             resumenPrueba(id_review);
-
             var titulo = document.querySelector("h1");
-            var titulo5 = document.querySelector("h5");
             if (titulo) {
                 titulo.textContent = "Resumen de Solicitud " + id_review;
-            }else if (titulo5){
-                titulo.textContent = "Responder solicitud " + id_review;
             }
         }
     });
