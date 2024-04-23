@@ -42,9 +42,15 @@
     ?>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let id_solicitante = <?php echo json_encode($_SESSION['nomina']); ?>;
-            console.log("El id del solicitante es: " + id_solicitante);
-            TablaPruebasSolicitante(id_solicitante);
+            <?php if ($tipoUser== 2){ ?>
+                let id_solicitante = <?php echo json_encode($_SESSION['nomina']); ?>;
+                console.log("El id del solicitante es: " + id_solicitante);
+                TablaPruebasSolicitante(id_solicitante);
+            <?php
+            } else if($tipoUser== 1 || $tipoUser== 3){?>
+                TablaPruebasAdmin();
+            <?php } ?>
+
         });
     </script>
     <script src="../../js/cargarDatos.js"></script>

@@ -270,6 +270,64 @@ function TablaPruebasSolicitante(id_solicitante) {
     });
 }
 
+function TablaPruebasAdmin() {
+
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasAdmin.php', function (response) {
+        var tabla = id("listadoPruebas");
+        var tbody = tabla.getElementsByTagName("tbody")[0];
+
+        // Limpiar contenido previo de la tabla
+        tbody.innerHTML = '';
+
+        // Iterar sobre los materiales y crear filas y celdas de tabla
+        for (var j = 0; j < response.data.length; j++) {
+            var fila = document.createElement("tr");
+
+            var id_pruebaL = document.createElement("td");
+            id_pruebaL.textContent = response.data[j].id_prueba;
+            id_pruebaL.setAttribute("onclick", "reviewPage('" + id_pruebaL.textContent + "')");
+            id_pruebaL.classList.add("idEnlace");
+            fila.appendChild(id_pruebaL);
+
+
+            var fechaSolicitudL = document.createElement("td");
+            fechaSolicitudL.textContent = response.data[j].fechaSolicitud;
+            fila.appendChild(fechaSolicitudL);
+
+            var fechaRespuestaL = document.createElement("td");
+            fechaRespuestaL.textContent = response.data[j].fechaRespuesta;
+            fila.appendChild(fechaRespuestaL);
+
+            var descripcionEstatusL = document.createElement("td");
+            descripcionEstatusL.textContent = response.data[j].descripcionEstatus;
+            fila.appendChild(descripcionEstatusL);
+
+            var descripcionPruebaL = document.createElement("td");
+            descripcionPruebaL.textContent = response.data[j].descripcionPrueba;
+            fila.appendChild(descripcionPruebaL);
+
+            var descripcionPrioridadL = document.createElement("td");
+            descripcionPrioridadL.textContent = response.data[j].descripcionPrioridad;
+            fila.appendChild(descripcionPrioridadL);
+
+            var nombreSolicL = document.createElement("td");
+            nombreSolicL.textContent = response.data[j].nombreSolic;
+            fila.appendChild(nombreSolicL);
+
+            var nombreMetroL = document.createElement("td");
+            nombreMetroL.textContent = response.data[j].nombreMetro;
+            fila.appendChild(nombreMetroL);
+
+            var especificacionesL = document.createElement("td");
+            especificacionesL.textContent = response.data[j].especificaciones;
+            especificacionesL.classList.add("textVerMas");
+            fila.appendChild(especificacionesL);
+            tbody.appendChild(fila);
+        }
+        ocultarContenido("textVerMas",40);
+    });
+}
+
 function reviewPage(ID_PRUEBA){
 
     window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/index.php?id_prueba=" + ID_PRUEBA;
