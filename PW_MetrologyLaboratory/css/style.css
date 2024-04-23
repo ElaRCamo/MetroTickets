@@ -670,7 +670,7 @@ table tbody tr {
     color: var(--main-color);
     text-decoration: none;
     cursor: pointer;
-    max-width: 175px;
+    max-width: 185px;
 }
 .btnPDF:hover{
     color: var(--color_gold);
