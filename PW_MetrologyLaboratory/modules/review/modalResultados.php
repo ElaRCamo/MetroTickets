@@ -34,7 +34,7 @@
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
                         <label for="observacionesAdmin" class="form-label">Observaciones: </label>
-                        <input type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control" onchange="" required>
+                        <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
