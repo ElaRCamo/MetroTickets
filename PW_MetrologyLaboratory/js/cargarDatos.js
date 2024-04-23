@@ -570,3 +570,16 @@ function llenarPrioridadPrueba(){
         }
     });
 }
+
+function consultarMetrologos(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoMetrologos.php', function (data){
+        var selectS = id("metrologoAdmin");
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[j].id_usuario;
+            createOption.text = data.data[j].nombreUsuario;
+            selectS.appendChild(createOption);
+        }
+    });
+}
