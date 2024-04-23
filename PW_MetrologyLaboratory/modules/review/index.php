@@ -65,8 +65,7 @@
         }
     });
 
-    function updatePrueba()){
-
+    function updatePrueba(){
         <?php if ($tipoUser== 3){ ?>
             updatePruebaSol(id_review);
         <?php

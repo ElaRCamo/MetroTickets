@@ -2,8 +2,8 @@
     <div class="page-header row headerLogo">
         <div class="col divTitle" id="divResSol">
             <h1>Resumen de Solicitud </h1>
-            <a onclick="reviewPDF(id_review)" class="btnPDF">Descargar solicitud en pdf</a>
-            <a onclick="updatePrueba()" id="updateBtnP" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalResultados">Actualizar</a>
+            <a onclick="reviewPDF(id_review)" class="btnPDF"><i class="las la-file-pdf"></i>Descargar solicitud en pdf</a>
+            <a onclick="updatePrueba()" id="updateBtnP" class="btnPDF" data-bs-toggle="modal" data-bs-target="#modalResultados"><i class="lar la-edit"></i>Actualizar</a>
         </div>
         <div class="logoRight col-sm-3">
             <div>
