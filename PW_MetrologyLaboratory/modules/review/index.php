@@ -60,6 +60,12 @@
             }
         }
     });
+    function actualizarTitulo() {
+        var titulo5 = document.querySelector("#modalResultados h5");
+        if (titulo5) {
+            titulo5.textContent = "Responder Solicitud " + id_review;
+        }
+    }
 
     function updatePrueba(){
         <?php if ($tipoUser== 3){ ?>
@@ -68,6 +74,7 @@
         } else if($tipoUser== 1 || $tipoUser== 2){?>
             llenarEstatusPrueba();
             llenarPrioridadPrueba();
+            consultarMetrologos();
         <?php } ?>
     }
 </script>
