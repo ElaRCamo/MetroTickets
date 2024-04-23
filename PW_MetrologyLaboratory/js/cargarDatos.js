@@ -558,6 +558,7 @@ function TablaAdminMateriales(){
 function llenarEstatusPrueba(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPrueba.php', function (data){
         var selectS = id("estatusPruebaAdmin");
+        selectS.innerHTML = ""; //limpiar contenido
 
         for (var j = 0; j < data.data.length; j++) {
             var createOption = document.createElement("option");
@@ -575,6 +576,7 @@ function llenarEstatusPrueba(){
 function llenarPrioridadPrueba(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPrioridadPrueba.php', function (data){
         var selectS = id("prioridadPruebaAdmin");
+        selectS.innerHTML = ""; //limpiar contenido
 
         for (var j = 0; j < data.data.length; j++) {
             var createOption = document.createElement("option");
@@ -591,6 +593,7 @@ function llenarPrioridadPrueba(){
 function consultarMetrologos(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoMetrologos.php', function (data){
         var selectS = id("metrologoAdmin");
+        selectS.innerHTML = ""; //limpiar contenido
 
         for (var j = 0; j < data.data.length; j++) {
             var createOption = document.createElement("option");

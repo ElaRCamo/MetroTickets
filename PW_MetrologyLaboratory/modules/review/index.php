@@ -72,10 +72,10 @@
             updatePruebaSol(id_review);
         <?php
         } else if($tipoUser== 1 || $tipoUser== 2){?>
+            //Se cargan los valores que ya se definieron
             llenarEstatusPrueba();
             llenarPrioridadPrueba();
             consultarMetrologos();
-
             document.getElementById("observacionesAdmin").value = obs_Solicitud;
             document.getElementById("resultadosAdmin").value = resultadosSol;
         <?php } ?>
