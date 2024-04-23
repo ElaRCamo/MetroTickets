@@ -75,6 +75,9 @@
             llenarEstatusPrueba();
             llenarPrioridadPrueba();
             consultarMetrologos();
+
+            document.getElementById("observacionesAdmin").value = obs_Solicitud;
+            document.getElementById("resultadosAdmin").value = resultadosSol;
         <?php } ?>
     }
 </script>
