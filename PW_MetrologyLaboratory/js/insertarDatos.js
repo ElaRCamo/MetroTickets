@@ -336,14 +336,14 @@ function correoActualizacionPrueba(id_prueba, solicitante, emailUsuario){
     data.append('solicitante',solicitante);
     data.append('emailUsuario',emailUsuario);
 
-    fetch('https://arketipo.mx/MailerSolicitudPruebaS.php',{
+    fetch('https://arketipo.mx/MailerActualizacionPrueba.php',{
         method: 'POST',
         body: data
     })
         .then(function (response){
             if (response.ok){
-                //alert('Correo Solicitante: prueba: ' +id_prueba+ 'user: ' + solicitante +' email: ' + emailUsuario);
-                enviarCorreoNuevaSolicitudLab(id_prueba, solicitante);
+                alert('Correo Actualizacion: prueba: ' +id_prueba+ 'user: ' + solicitante +' email: ' + emailUsuario);
+
             }else{
                 throw "Error en la llamada Ajax";
             }
