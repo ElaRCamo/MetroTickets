@@ -144,7 +144,7 @@ body{
     }
 }
 
-#logoInicio, #logoInicio2, #logoInicio3{
+#logoInicio, #logoInicio2, #logoInicio3,#logoInicio4 {
     width: 6rem;
     height: 6rem;
     margin-bottom: 1rem;
@@ -159,13 +159,13 @@ body{
     bottom: 0;
     width: 100%;
 }
-#tittle,#tittle2,#tittle3,#logoInicio2 {
+#tittle,#tittle2,#tittle3,#tittle4,#logoInicio2 {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-#h2RecuperarP{
+#h2RecuperarP, #h2ActualizarP{
     font-size: 1.5rem;
     margin-top: 1.5rem;
 }
@@ -209,7 +209,7 @@ body{
     margin: 15px 0;
     height: 40px;
 }
-#registrarseForm, #recuperarPasswordForm {
+#registrarseForm, #recuperarPasswordForm, #actualizarPasswordFor {
     margin: auto;
 }
 
@@ -232,4 +232,7 @@ body{
 }
 #divFormRecuperar{
     width: 525px;
+}
+#actualizarPassword{
+    margin-bottom: 1.5rem;
 }
