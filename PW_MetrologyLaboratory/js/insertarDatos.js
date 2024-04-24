@@ -334,7 +334,7 @@ function correoActualizacionPrueba(id_prueba, solicitantePrueba, emailSolicitant
 
     data.append('id_prueba',id_prueba);
     data.append('solicitante',solicitantePrueba);
-    data.append('emailUsuario',emailSolicitante);
+    data.append('emailSolicitante',emailSolicitante);
 
     fetch('https://arketipo.mx/MailerActualizacionPrueba.php',{
         method: 'POST',
