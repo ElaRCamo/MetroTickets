@@ -1,4 +1,4 @@
-
+<?php global $tipoUser; if($tipoUser == 3){ ?>
 <input type="checkbox" id="menu-toggle" title="visibilidadMenu">
 <div class="sidebar">
     <div class="side-header">
@@ -17,7 +17,7 @@
                         <small>Inicio</small>
                     </a>
                 </li>
-                <?php global $tipoUser; if($tipoUser == 3){ ?>
+
                 <li>
                     <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\newRequest\newRequestIndex.php" class="optionMenu">
                         <span class="lar la-edit"></span>
@@ -50,8 +50,9 @@
                         <small>Cerrar sesión</small>
                     </a>
                 </li>
-                <?php }?>
+
             </ul>
         </div>
     </div>
 </div>
+<?php }?>
