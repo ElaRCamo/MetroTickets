@@ -176,31 +176,6 @@ body{
     align-items: center;
     height: 100%;
 }
-
-@media (max-width: 425px){
-    .wrapper{
-        width: 300px;
-        font-size: 0.8rem;
-        padding: 7% 5% 5%;
-    }
-    .wrapper input{
-        font-size: 0.9rem;
-    }
-
-    .text-box h1{
-        font-size: 2.8em;
-    }
-
-    .wrapper .remember-forgot{
-        font-size: 0.7rem;
-        margin-left: 5px;
-        margin-right: 5px;
-        margin-top: 1px;
-    }
-    .wrapper .input-box {
-        margin: 25px 0;
-    }
-}
 .wrapper-register{
     padding: 1% 10% 2%;
 }
@@ -235,4 +210,32 @@ body{
 }
 #actualizarPassword{
     margin-bottom: 1.5rem;
+}
+
+@media (max-width: 425px){
+    .wrapper{
+        width: 300px;
+        font-size: 0.8rem;
+        padding: 7% 5% 5%;
+    }
+    .wrapper input{
+        font-size: 0.9rem;
+    }
+
+    .text-box h1{
+        font-size: 2.8em;
+    }
+
+    .wrapper .remember-forgot{
+        font-size: 0.7rem;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 1px;
+    }
+    .wrapper .input-box {
+        margin: 25px 0;
+    }
+    #divFormRecuperar{
+        width: 300px;
+    }
 }
