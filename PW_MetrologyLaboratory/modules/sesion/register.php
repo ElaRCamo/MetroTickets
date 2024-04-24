@@ -49,7 +49,7 @@
                 </div>
                 <div class="input-box">
                     <input type="text" id="nomina" name="numNomina" placeholder="No. de nómina" required>
-                    <i class="las la-user"></i>
+                    <i class="las la-briefcase"></i>
                 </div>
                 <div class="input-box">
                     <input type="password" id="password" name="password" placeholder="Contraseña" required>
