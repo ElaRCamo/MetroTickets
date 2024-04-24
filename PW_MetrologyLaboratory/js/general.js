@@ -104,7 +104,6 @@ function cerrarSesion() {
         if (this.readyState == 4 && this.status == 200) {
             Swal.fire("¡Sesión cerrada exitosamente!");
             window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php";
-            Swal.fire("¡Sesión cerrada exitosamente!");
         }
     };
     xhttp.open("POST", "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/login.php", true);
