@@ -19,12 +19,14 @@
                     </a>
                 </li>
                 <?php }?>
+                <?php global $tipoUser; if($tipoUser == 3){ ?>
                 <li>
                     <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\newRequest\newRequestIndex.php" class="optionMenu">
                         <span class="lar la-edit"></span>
                         <small>Nueva solicitud</small>
                     </a>
                 </li>
+                <?php }?>
                 <li>
                     <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\requests\requestsIndex.php" class="optionMenu">
                         <span class="las la-list-ol"></span>
