@@ -68,7 +68,7 @@ function emailUpdate($id_prueba,$emailSolicitante,$Solicitante )
         //Solicitante
         $mail->addAddress($emailSolicitante, $Solicitante); //Quién recibirá correo
         $mail->addBCC('LaboratorioMetrologiaGrammer@arketipo.mx', 'LMGrammer');
-        $mail->addBCC('extern.mariela.reyes@grammer.com', 'IT');
+        $mail->addBCC('aleiram.rcamo@gmail.com', 'TI');
 
         $mail->Subject = 'Actualización de solicitud.';
         $mail->isHTML(true);

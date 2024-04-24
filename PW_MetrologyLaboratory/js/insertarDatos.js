@@ -329,12 +329,12 @@ function registrarPlataforma(){
     });
 }
 
-function correoActualizacionPrueba(id_prueba, solicitante, emailUsuario){
+function correoActualizacionPrueba(id_prueba, solicitantePrueba, emailSolicitante){
     const data = new FormData();
 
     data.append('id_prueba',id_prueba);
-    data.append('solicitante',solicitante);
-    data.append('emailUsuario',emailUsuario);
+    data.append('solicitante',solicitantePrueba);
+    data.append('emailUsuario',emailSolicitante);
 
     fetch('https://arketipo.mx/MailerActualizacionPrueba.php',{
         method: 'POST',
@@ -342,8 +342,7 @@ function correoActualizacionPrueba(id_prueba, solicitante, emailUsuario){
     })
         .then(function (response){
             if (response.ok){
-                alert('Correo Actualizacion: prueba: ' +id_prueba+ 'user: ' + solicitante +' email: ' + emailUsuario);
-
+                alert('Correo Actualizacion: prueba: ' +id_prueba+ 'user: ' + solicitantePrueba +' email: ' + emailSolicitante);
             }else{
                 throw "Error en la llamada Ajax";
             }

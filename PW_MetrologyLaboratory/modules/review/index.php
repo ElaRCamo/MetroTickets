@@ -46,8 +46,6 @@
 <script>
     let id_review;
     let id_user = <?php echo json_encode($_SESSION['nomina']); ?>;
-    let emailUsuario = <?php echo json_encode($_SESSION['emailUsuario']); ?>;
-    let solicitante = <?php echo json_encode($_SESSION['nombreUsuario']); ?>;
 
     document.addEventListener("DOMContentLoaded", function() {
         // Obtener el valor de id_prueba de la URL

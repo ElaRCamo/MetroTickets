@@ -337,6 +337,8 @@ let id_prioridadSol;
 let id_metrologoSol;
 let obs_Solicitud;
 let resultadosSol;
+let solicitantePrueba;
+let emailSolicitante;
 
 function resumenPrueba(ID_PRUEBA){
 
@@ -364,6 +366,8 @@ function resumenPrueba(ID_PRUEBA){
         id_metrologoSol = data.id_metrologo;
         obs_Solicitud = data.especificacionesLab;
         resultadosSol = data.rutaResultados;
+        solicitantePrueba = data.nombreSolic;
+        emailSolicitante = data.correoSolic;
 
         var tabla = document.getElementById("materialesResumen");
         var tbody = tabla.getElementsByTagName("tbody")[0];

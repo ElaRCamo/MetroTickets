@@ -26,6 +26,7 @@ function resumenPrueba($id_prueba){
                         prueba.nombreMetro,  
                         prueba.id_solicitante, 
                         prueba.nombreSolic,
+                        prueba.correoSolic,
                         dm.numeroDeParte, 
                         m.cantidad, 
                         dm.descripcionMaterial, 
@@ -57,7 +58,8 @@ function resumenPrueba($id_prueba){
                                 s.id_metrologo, 
                                 u_metro.nombreUsuario AS nombreMetro,
                                 s.id_solicitante, 
-                                u_solic.nombreUsuario AS nombreSolic
+                                u_solic.nombreUsuario AS nombreSolic,
+                                u_solic.correoElectronico AS correoSolic
                             FROM 
                                 Prueba s
                                 LEFT JOIN Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
