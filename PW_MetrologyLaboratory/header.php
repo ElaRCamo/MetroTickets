@@ -1,4 +1,4 @@
-<?php global $tipoUser; if($tipoUser == 3){ ?>
+
 <input type="checkbox" id="menu-toggle" title="visibilidadMenu">
 <div class="sidebar">
     <div class="side-header">
@@ -11,13 +11,14 @@
         </div>
         <div class="side-menu" id="menuLateral">
             <ul >
+                <?php global $tipoUser; if($tipoUser == 1 || $tipoUser == 2){ ?>
                 <li>
                     <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\index.php" class="optionMenu">
                         <span class="las la-home"></span>
                         <small>Inicio</small>
                     </a>
                 </li>
-
+                <?php }?>
                 <li>
                     <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\newRequest\newRequestIndex.php" class="optionMenu">
                         <span class="lar la-edit"></span>
@@ -30,7 +31,8 @@
                         <small>Solicitudes</small>
                     </a>
                 </li>
-                <?php }?>
+
+                <?php if($tipoUser == 1 || $tipoUser == 2){ ?>
                 <li>
                     <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/reports/reportsIndex.php" class="optionMenu">
                         <span class="las la-book"></span>
@@ -43,16 +45,14 @@
                         <small>Administrar</small>
                     </a>
                 </li>
-                <?php if($tipoUser == 3){ ?>
+                <?php }?>
                 <li>
                     <a class="optionMenu" id="cerrarSesion">
                         <span class="las la-power-off"></span>
                         <small>Cerrar sesión</small>
                     </a>
                 </li>
-
             </ul>
         </div>
     </div>
 </div>
-<?php }?>
