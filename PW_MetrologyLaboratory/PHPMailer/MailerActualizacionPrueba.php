@@ -12,7 +12,7 @@ include_once('Produccion/ML/PW_MetrologyLaboratory/dao/connection.php');
 session_start();
 $id_prueba=$_POST['id_prueba'];
 $emailSolicitante=$_POST['emailSolicitante'];
-$Solicitante = $_SESSION['nombreUsuario'];
+$Solicitante = $_POST['solicitante'];
 
 emailUpdate($id_prueba,$emailSolicitante,$Solicitante);
 
@@ -37,7 +37,7 @@ function emailUpdate($id_prueba,$emailSolicitante,$Solicitante )
                 <tr>
                     <td></td>
                     <td class='container' style='vertical-align:top; display:block; max-width:600px; clear:both; margin:0 auto; text-align:center;'>
-                        <div class='content' style='max-width:600px; display:block; margin:0 auto; padding:20px;'>
+                        <div class='content' style='max-width:500px; display:block; margin:0 auto; padding:20px;'>
                             <table class='main' style='border-radius:3px; background-color:#fff; margin:0; border:1px solid #e9e9e9;'>
                                 <tbody>
                                     <tr>
@@ -53,11 +53,11 @@ function emailUpdate($id_prueba,$emailSolicitante,$Solicitante )
                                             Te informamos que tu solicitud con <br><strong>FOLIO: $id_prueba</strong><br> ha sido actualizada.
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class='content-wrap'>
-                                            <table>
-                                                <tbody>
-                                                    <tr>
+                                    <tr style='text-align:center;'>
+                                        <td class='content-wrap' style='text-align:center;'>
+                                            <table style='text-align:center;'>
+                                                <tbody style='text-align:center;'>
+                                                    <tr  style='text-align:center;'>
                                                         <td class='content-block mensaje' style='text-align:center; padding:2%; color:#005195; margin-bottom: 2%; font-size: 1.2rem;'>
                                                             <h4 class='lead'> Para consultar los detalles, visita:<br>
                                                             <b><a  style='color:#CAC2B6;' class='btn btn-lg btn-primary' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/index.php?id_prueba=$id_prueba'>Solicitud $id_prueba</a></b></h4>

@@ -58,7 +58,7 @@ function emailSolicitud($id_prueba,$Solicitante )
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td class='content-block mensaje' style='text-align:center; padding:2%; color:#005195; margin-bottom: 2%;'>
-                                                                                    <h4 class='lead' >Para gestionar o responder a esta solicitud, por favor visita: <br><b><a  style='color:#CAC2B6;' class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestIndex.php'>Solicitudes</a></b></h4>
+                                                                                    <h4 class='lead' >Para gestionar o responder a esta solicitud, por favor visita: <br><b><a  style='color:#CAC2B6;' class='link' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/index.php?id_prueba=$id_prueba'>Solicitud $id_prueba</a></b></h4>
                                                                                 </td>
                                                                             </tr>
                                                                             <tr>
