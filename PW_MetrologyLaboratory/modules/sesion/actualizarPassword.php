@@ -40,14 +40,14 @@
                 <div id=avisoR style='align-content:center;'></div>
 
                 <div class="input-box">
-                    <input type="password" name="password"  id="password1" placeholder="Contraseña" required>
+                    <input type="password" name="password"  id="password1" placeholder="Nueva contraseña" required>
                     <i class="las la-lock"></i>
                 </div>
                 <div class="input-box">
                     <input type="password" name="password"  id="password2" placeholder="Confirmar contraseña" required>
                     <i class="las la-lock"></i>
                 </div>
-                <button type="submit" id="actualizarPassword" name="actualizarPassword"  class="btn login" onclick="recuperarPassword()">Actualizar Contraseña</button>
+                <button type="submit" id="actualizarPassword" name="actualizarPassword"  class="btn login" onclick="recuperarPassword()">Actualizar</button>
             </form>
         </div>
     </div>

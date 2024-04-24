@@ -27,6 +27,7 @@
                     <li><a href="#clientes"><h5>Clientes</h5></a></li>
                     <li><a href="#plataformas"><h5>Plataformas</h5></a></li>
                     <li><a href="#materiales"><h5>Materiales</h5></a></li>
+                    <li><a href="#usuarios"><h5>Usuarios</h5></a></li>
                 </ul>
             </nav>
         </div>
@@ -100,6 +101,23 @@
                             <th>Plataforma</th>
                             <th>Acciones</th>
                         </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Usuarios -->
+            <section >
+                <h3 id="usuarios">Usuarios</h3>
+                <table class="table table-sm table-hover mt-4" id="tablaUsuarios">
+                    <thead>
+                    <tr>
+                        <th>Núm. nómina</th>
+                        <th>Nombre</th>
+                        <th>Tipo de usuario</th>
+                        <th>Acciones</th>
+                    </tr>
                     </thead>
                     <tbody>
                     </tbody>

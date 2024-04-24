@@ -59,17 +59,20 @@ h3{
     text-align: center;
 }
 
-#tablaClientes thead tr,#tablaPlataformas thead tr, #tablaMateriales thead tr {
+#tablaClientes thead tr,#tablaPlataformas thead tr,
+#tablaMateriales thead tr,  #tablaUsuarios thead tr {
     background: #EFEDE9;
 }
-#tablaClientes thead th,#tablaPlataformas thead th, #tablaMateriales thead th {
+#tablaClientes thead th,#tablaPlataformas thead th,
+#tablaMateriales thead th, #tablaUsuarios thead th  {
     text-align: center;
     color:#EFEDE9;
     margin:0.5rem;
     font-size: 1.3rem;
     background-color: var(--main-color);
 }
-#tablaClientes tbody td,#tablaPlataformas tbody td, #tablaMateriales tbody td {
+#tablaClientes tbody td,#tablaPlataformas tbody td,
+#tablaMateriales tbody td, #tablaUsuarios tbody td {
     color: #444;
     text-align: center; /* Centrado horizontal */
     vertical-align: middle; /* Centrado vertical */
@@ -78,7 +81,8 @@ td{
     text-align: center;
 }
 
-#tablaClientes tbody tr,#tablaPlataformas tbody tr, #tablaMateriales tbody tr {
+#tablaClientes tbody tr,#tablaPlataformas tbody tr,
+#tablaMateriales tbody tr, #tablaUsuarios tbody tr {
     border-bottom: 1px solid #dee2e8;
 }
 #tablaMateriales img{
