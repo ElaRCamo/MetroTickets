@@ -152,7 +152,7 @@ body{
     bottom: 0;
     width: 100%;
 }
-#tittle,#tittle2 {
+#tittle,#tittle2,#tittle3 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -222,7 +222,7 @@ body{
     margin-top: 0;
     margin-bottom: 0;
 }
-#logoInicio{
+#logoInicio, #logoInicio2, #logoInicio3{
     width: 6rem;
     height: 6rem;
     margin-bottom: 1rem;

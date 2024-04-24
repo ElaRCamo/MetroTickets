@@ -24,6 +24,9 @@
 <body>
 <main>
     <div class="page-content">
+        <div class="LAB">
+            <img id="logoInicio2" src="../../imgs/Grammer_Logo.ico">
+        </div>
         <div id="tittle2">
             <div class="LAB">
                 <h1 class="">LABORATORIO DE</h1>
