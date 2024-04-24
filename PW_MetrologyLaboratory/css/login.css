@@ -152,11 +152,18 @@ body{
     bottom: 0;
     width: 100%;
 }
-#tittle{
+#tittle,#tittle2 {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+#tittle2{
+    margin-bottom: 2rem;
+}
+#h2RecuperarP{
+    font-size: 1.5rem;
+    margin-top: 2rem;
 }
 .LAB{
     color:var(--color_white);
@@ -194,19 +201,19 @@ body{
     margin: 15px 0;
     height: 40px;
 }
-#registrarseForm {
+#registrarseForm, #recuperarPasswordForm {
     margin: auto;
 }
 
 #nombreUsuario,
-#correo,
-#nomina,
+#correo, #correoR
+#nomina, #nominaR,
 #password {
     margin-bottom: 0;
     font-size: 0.9rem;
 }
 
-#registrarse {
+#registrarse, #recuperarP {
     padding: 10px;
     margin-bottom: 0;
 }

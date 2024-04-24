@@ -24,13 +24,13 @@
                 </div>
                 <div class="remember-forgot">
                     <label><input type="checkbox">Recuérdame</label>
-                    <a href="#">¿Has olvidado la contraseña?</a>
+                    <a href="recordarPassword.php">¿Has olvidado la contraseña?</a>
                 </div>
 
                 <button type="submit" class="btn login" name="iniciarSesionBtn">Iniciar Sesión</button>
 
                 <div class="register-link">
-                    <p>¿No tienes cuenta? <a href="Register.php">REGÍSTRATE</a> </p>
+                    <p>¿No tienes cuenta? <a href="register.php">REGÍSTRATE</a> </p>
                 </div>
             </form>
         </div>

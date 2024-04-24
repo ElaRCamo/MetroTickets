@@ -627,3 +627,7 @@ function estatusMateriales(k){
         }
     });
 }
+
+function recuperarPassword(){
+
+}
