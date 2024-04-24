@@ -35,7 +35,7 @@
                 <h1 class="">METROLOGÍA</h1>
             </div>
         </div>
-        <div class="wrapper wrapper-register">
+        <div class="wrapper wrapper-register" >
             <form id="registrarseForm" method="POST">
                 <h2 id="registrarse">Regístrarse</h2>
                 <div id=aviso style='align-content:center;'></div>

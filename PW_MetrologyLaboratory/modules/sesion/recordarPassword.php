@@ -35,7 +35,7 @@
                 <h1 class="">METROLOGÍA</h1>
             </div>
         </div>
-        <div class="wrapper wrapper-register">
+        <div class="wrapper wrapper-register" id="divFormRecuperar">
             <form id="recuperarPasswordForm" method="POST">
                 <h2 id="h2RecuperarP">Recuperar contraseña</h2>
                 <div id=avisoR style='align-content:center;'></div>
