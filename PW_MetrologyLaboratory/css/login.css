@@ -29,6 +29,7 @@ body{
     border: 2px solid rgba(255,255,255,0.2);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin-bottom: 5%;
 }
 
 .wrapper h2{
@@ -143,6 +144,12 @@ body{
     }
 }
 
+#logoInicio, #logoInicio2, #logoInicio3{
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 1rem;
+}
+
 .footer_section{
     background-color:transparent;
     color: #fff;
@@ -152,21 +159,22 @@ body{
     bottom: 0;
     width: 100%;
 }
-#tittle,#tittle2,#tittle3 {
+#tittle,#tittle2,#tittle3,#logoInicio2 {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-#tittle2{
-    margin-bottom: 2rem;
-}
 #h2RecuperarP{
     font-size: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 .LAB{
     color:var(--color_white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 @media (max-width: 425px){
@@ -213,7 +221,7 @@ body{
     font-size: 0.9rem;
 }
 
-#registrarse, #recuperarP {
+#recuperarP,#registrarse {
     padding: 10px;
     margin-bottom: 0;
 }
@@ -221,9 +229,4 @@ body{
 .register-link {
     margin-top: 0;
     margin-bottom: 0;
-}
-#logoInicio, #logoInicio2, #logoInicio3{
-    width: 6rem;
-    height: 6rem;
-    margin-bottom: 1rem;
 }

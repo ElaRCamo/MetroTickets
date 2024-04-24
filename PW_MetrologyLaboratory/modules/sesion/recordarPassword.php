@@ -25,7 +25,7 @@
 <main>
     <div class="page-content">
         <div class="LAB">
-            <img id="logoInicio2" src="../../imgs/Grammer_Logo.ico">
+            <img id="logoInicio2" src="../../imgs/Grammer_Logo.ico" alt="Logo Grammer">
         </div>
         <div id="tittle2">
             <div class="LAB">
@@ -39,10 +39,6 @@
             <form id="recuperarPasswordForm" method="POST">
                 <h2 id="h2RecuperarP">Recuperar contraseña</h2>
                 <div id=avisoR style='align-content:center;'></div>
-                <div class="input-box">
-                    <input type="text" id="nominaR" name="nominaR" placeholder="No. de nómina" required>
-                    <i class="las la-user"></i>
-                </div>
                 <div class="input-box">
                     <input type="text" id="correoR" name="correoR"  placeholder="Correo electrónico" required>
                     <i class="las la-envelope"></i>

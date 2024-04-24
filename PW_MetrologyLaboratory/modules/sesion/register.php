@@ -26,7 +26,7 @@
     <div class="page-content">
         <div id="tittle3">
             <div class="LAB">
-                <img id="logoInicio3" src="../../imgs/Grammer_Logo.ico">
+                <img id="logoInicio3" src="../../imgs/Grammer_Logo.ico" alt="Logo Grammer">
             </div>
             <div class="LAB">
                 <h1 class="">LABORATORIO DE</h1>
