@@ -128,12 +128,16 @@ function activarPlataforma(id_plataforma){
 }
 
 function editarCliente(id_cliente){
-    var btnActualizarCliente = document.getElementById('btn-updCliente');
 
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnCliente.php?id_cliente=' + id_cliente, function (data) {
+        var inputCliente = id("descClienteE");
+        inputCliente.value = data.data[0].descripcionCliente;
+    });
+
+    var btnActualizarCliente = document.getElementById('btn-updCliente');
     btnActualizarCliente.onclick = function() {
         actualizarCliente(id_cliente);
     };
-
 }
 function actualizarCliente(id_cliente){
     console.log("id_cliente para editar: " + id_cliente);
