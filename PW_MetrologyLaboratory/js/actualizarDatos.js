@@ -128,6 +128,21 @@ function activarPlataforma(id_plataforma){
 }
 
 function editarCliente(id_cliente){
+    //que abra la ventana modal con id editarCliente
+    //que al boton de la ventana modal con id btn-updCliente le pase el id_cliente para onclick="actualizarCliente(id_cliente)
+
+    var modal = document.getElementById('editarClienteModal');
+    modal.style.display = 'block';
+
+    var btnActualizarCliente = document.getElementById('btn-updCliente');
+
+    btnActualizarCliente.onclick = function() {
+        actualizarCliente(id_cliente);
+        modal.style.display = 'none';
+    };
+
+}
+function actualizarCliente(id_cliente){
     console.log("id_cliente para editar: " + id_cliente);
 }
 function activarCliente(id_cliente){
