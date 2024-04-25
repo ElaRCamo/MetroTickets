@@ -745,8 +745,8 @@ function TablaAdminUsuarios(){
             tbody.appendChild(fila);
         }
     });
-    showButton("btn-usuariosAct");
-    hideButton("btn-usuariosDes");
+    showButton("btn-usuariosDes");
+    hideButton("btn-usuariosAct");
 }
 function TablaAdminUsuariosDes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaUsuariosDes.php', function (response) {
@@ -788,8 +788,8 @@ function TablaAdminUsuariosDes(){
         }
 
     });
-    showButton("btn-usuariosDes");
-    hideButton("btn-usuariosAct");
+    showButton("btn-usuariosAct");
+    hideButton("btn-usuariosDes");
 }
 function llenarEstatusPrueba(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPrueba.php', function (data){
