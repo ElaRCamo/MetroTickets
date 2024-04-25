@@ -86,7 +86,7 @@ function activarMaterial(id_descripcion){
         },
         body: JSON.stringify(id_descripcion)
     }).then(res => {
-        TablaAdminMateriales();
+        TablaAdminMaterialesDes();
         if(!res.ok){
             console.log('Problem');
             return;
@@ -94,7 +94,7 @@ function activarMaterial(id_descripcion){
         return res.json();
     })
         .then(data => {
-            console.log('Success');
+            alert('Material activado');
         })
         .catch(error =>{
             console.log(error);
