@@ -161,9 +161,17 @@ function mostrarOpciones(TP){
     }
 }
 
-function descargarPDF(){
-    console.log("PDF descargado exitosamente");
+function showButton(id_button){
+    var button = id(id_button);
+    button.style.display = "block";
 }
+
+function hideButton(id_button){
+    var button = id(id_button);
+    button.style.display = "none";
+}
+
+
 
 
 

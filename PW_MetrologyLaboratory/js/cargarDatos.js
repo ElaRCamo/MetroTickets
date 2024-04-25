@@ -447,6 +447,8 @@ function TablaAdminClientes(){
             tbody.appendChild(fila);
         }
     });
+    showButton("btn-clientesDes");
+    hideButton("btn-clientesAct");
 }
 
 function TablaAdminClientesDes(){
@@ -486,6 +488,8 @@ function TablaAdminClientesDes(){
             tbody.appendChild(fila);
         }
     });
+    showButton("btn-clientesAct");
+    hideButton("btn-clientesDes");
 }
 
 function TablaAdminPlataformas(){
