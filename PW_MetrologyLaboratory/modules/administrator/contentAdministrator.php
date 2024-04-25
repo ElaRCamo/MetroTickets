@@ -49,7 +49,7 @@
                 <table class="table mt-4" id="tablaClientes">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Identificador</th>
                             <th>Cliente</th>
                             <th>Acciones</th>
                         </tr>
@@ -71,7 +71,7 @@
                 <table class="table mt-4" id="tablaPlataformas">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Identificador</th>
                             <th>Plataforma</th>
                             <th>Cliente</th>
                             <th>Acciones</th>
@@ -94,7 +94,7 @@
                 <table class="table table-sm table-hover mt-4" id="tablaMateriales">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Identificador</th>
                             <th>Descripción</th>
                             <th>Núm. de parte</th>
                             <th>Imagen</th>
@@ -113,8 +113,8 @@
                 <table class="table table-sm table-hover mt-4" id="tablaUsuarios">
                     <thead>
                     <tr>
-                        <th>Núm. nómina</th>
                         <th>Nombre</th>
+                        <th>Correo electrónico</th>
                         <th>Tipo de usuario</th>
                         <th>Acciones</th>
                     </tr>

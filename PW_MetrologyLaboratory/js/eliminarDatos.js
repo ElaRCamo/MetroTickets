@@ -165,3 +165,7 @@ function desactivarMaterial(id_descripcion){
         }
     });
 }
+
+function desactivarUsuario(id_usuario){
+
+}

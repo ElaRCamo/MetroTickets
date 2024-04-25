@@ -53,6 +53,7 @@
             TablaAdminClientes();
             TablaAdminPlataformas();
             TablaAdminMateriales();
+            TablaAdminUsuarios();
         });
     </script>
     <script src="../../js/cargarDatos.js"></script>

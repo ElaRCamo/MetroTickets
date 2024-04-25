@@ -86,3 +86,7 @@ function editarPlataforma(id_plataforma){
 function editarCliente(id_cliente){
     console.log("id_cliente para editar: " + id_cliente);
 }
+
+function editarUsuario(id_usuario){
+    console.log("id_usuario para editar: " + id_usuario);
+}

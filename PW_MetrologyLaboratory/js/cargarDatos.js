@@ -532,7 +532,6 @@ function TablaAdminMateriales(){
             descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
             fila.appendChild(descripcionPlataforma);
 
-
             var acciones = document.createElement("td");
             // Botón de editar
             var iconoEditar = document.createElement("i");
@@ -558,6 +557,55 @@ function TablaAdminMateriales(){
     });
 }
 
+function TablaAdminUsuarios(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaUsuarios.php', function (response) {
+        var tabla = id("tablaUsuarios");
+        var tbody = tabla.getElementsByTagName("tbody")[0];
+
+        // Limpiar contenido previo de la tabla
+        tbody.innerHTML = '';
+
+        // Iterar sobre los materiales y crear filas y celdas de tabla
+        for (var j = 0; j < response.data.length; j++) {
+            var fila = document.createElement("tr");
+
+            var nombreUsuario = document.createElement("td");
+            nombreUsuario.textContent = response.data[j].nombreUsuario;
+            fila.appendChild(nombreUsuario);
+
+            var correo = document.createElement("td");
+            correo.textContent = response.data[j].correoElectronico;
+            fila.appendChild(correo);
+
+            var tipoUsuario = document.createElement("td");
+            tipoUsuario.textContent = response.data[j].descripcionTipo;
+            fila.appendChild(tipoUsuario);
+
+            var acciones = document.createElement("td");
+            // Botón de editar
+            var iconoEditar = document.createElement("i");
+            iconoEditar.classList.add("fas", "fa-edit");
+            var btnEditar = document.createElement("button");
+            btnEditar.textContent = "Editar";
+            btnEditar.classList.add("btn", "btn-warning", "btnEditar");
+            btnEditar.setAttribute("onclick", "editarUsuario('" +  response.data[j].id_usuario + "')");
+            btnEditar.prepend(iconoEditar);
+
+            // Botón de eliminar
+            var btnEliminar = document.createElement("button");
+            btnEliminar.textContent = "Desactivar";
+            btnEliminar.classList.add("btn", "btn-danger", "btnDesactivar");
+            btnEliminar.setAttribute("onclick", "desactivarUsuario('" +  response.data[j].id_usuario + "')");
+            // Agregar los botones al td
+            acciones.appendChild(btnEditar);
+            acciones.appendChild(btnEliminar);
+            fila.appendChild(acciones);
+
+            tbody.appendChild(fila);
+        }
+
+    });
+}
 function llenarEstatusPrueba(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPrueba.php', function (data){
         var selectS = id("estatusPruebaAdmin");
