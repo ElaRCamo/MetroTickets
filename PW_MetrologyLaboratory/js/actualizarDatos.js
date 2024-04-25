@@ -143,7 +143,9 @@ function actualizarCliente(id_cliente){
     console.log("id_cliente para editar: " + id_cliente);
     var descClienteE= id("descClienteE");
     const data = new FormData();
-    data.append('descClienteE',descClienteE);
+    data.append('descClienteE',descClienteE.value.trim());
+
+    alert ("id:"+id_cliente+" desc: "+descClienteE.value.trim())
 
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarCliente.php?id_cliente='+id_cliente,{
         method: 'POST',
