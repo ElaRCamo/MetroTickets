@@ -112,7 +112,7 @@ function activarPlataforma(id_plataforma){
         },
         body: JSON.stringify(id_plataforma)
     }).then(res => {
-        TablaAdminMaterialesDes();
+        TablaAdminPlataformasDes();
         if(!res.ok){
             console.log('Problem');
             return;
@@ -178,7 +178,7 @@ function activarCliente(id_cliente){
         },
         body: JSON.stringify(id_cliente)
     }).then(res => {
-        TablaAdminMaterialesDes();
+        TablaAdminClientesDes();
         if(!res.ok){
             console.log('Problem');
             return;
@@ -205,7 +205,7 @@ function activarUsuario(id_usuario){
         },
         body: JSON.stringify(id_usuario)
     }).then(res => {
-        TablaAdminMaterialesDes();
+        TablaAdminUsuariosDes();
         if(!res.ok){
             console.log('Problem');
             return;
