@@ -92,8 +92,8 @@
                 <div class="row justify-content-end">
                     <div class="col-auto">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoMaterial"><i class="las la-plus-circle"></i>Nuevo material</a>
-                        <a href="#" class="btn btn-secondary" id="btn-materialesDes" onclick="TablaAdminMaterialesDes()"><i class="las la-eye"></i> Desactivados</a>
-                        <a href="#" class="btn btn-secondary" id="btn-materialesAct" onclick="TablaAdminMateriales()"><i class="las la-eye"></i> Activados</a>
+                        <a href="#materiales" class="btn btn-secondary" id="btn-materialesDes" onclick="TablaAdminMaterialesDes()"><i class="las la-eye"></i> Desactivados</a>
+                        <a href="#materiales" class="btn btn-secondary" id="btn-materialesAct" onclick="TablaAdminMateriales()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
 
@@ -118,8 +118,8 @@
                 <h3 id="usuarios">Usuarios</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto">
-                        <a href="#" class="btn btn-secondary" id="btn-usuariosDes" onclick="TablaAdminUsuariosDes()"><i class="las la-eye"></i> Desactivados</a>
-                        <a href="#" class="btn btn-secondary" id="btn-usuariosAct" onclick="TablaAdminUsuarios()"><i class="las la-eye"></i> Activados</a>
+                        <a href="#usuarios" class="btn btn-secondary" id="btn-usuariosDes" onclick="TablaAdminUsuariosDes()"><i class="las la-eye"></i> Desactivados</a>
+                        <a href="#usuarios" class="btn btn-secondary" id="btn-usuariosAct" onclick="TablaAdminUsuarios()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
                 <table class="table table-sm table-hover mt-4" id="tablaUsuarios">
