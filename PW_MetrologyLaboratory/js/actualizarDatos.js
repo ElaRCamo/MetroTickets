@@ -132,8 +132,6 @@ function editarCliente(id_cliente){
     //que al boton de la ventana modal con id btn-updCliente le pase el id_cliente para onclick="actualizarCliente(id_cliente)
 
     var modal = document.getElementById('editarClienteModal');
-    modal.style.display = 'block';
-
     var btnActualizarCliente = document.getElementById('btn-updCliente');
 
     btnActualizarCliente.onclick = function() {

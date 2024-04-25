@@ -431,9 +431,12 @@ function TablaAdminClientes(){
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             btnEditar.setAttribute("onclick", "editarCliente('" +  response.data[j].id_cliente + "')");
+            btnEditar.setAttribute("data-bs-toggle", "modal");
+            btnEditar.setAttribute("data-bs-target", "#nuevaPlataforma");
             var iconoEditar = document.createElement("i");
             iconoEditar.classList.add("fas", "fa-edit");
             btnEditar.prepend(iconoEditar);
+
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
             btnEliminar.textContent = "Desactivar";
