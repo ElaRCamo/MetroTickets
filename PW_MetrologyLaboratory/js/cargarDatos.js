@@ -432,9 +432,9 @@ function TablaAdminClientes(){
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             btnEditar.setAttribute("onclick", "editarCliente('" +  response.data[j].id_cliente + "')");
             btnEditar.setAttribute("data-bs-toggle", "modal");
-            btnEditar.setAttribute("data-bs-target", "#nuevaPlataforma");
+            btnEditar.setAttribute("data-bs-target", "#editarClienteModal");
             var iconoEditar = document.createElement("i");
-            iconoEditar.classList.add("fas", "fa-edit");
+            iconoEditar.classList.add("las", "la-edit");
             btnEditar.prepend(iconoEditar);
 
             // Botón de eliminar
@@ -442,6 +442,9 @@ function TablaAdminClientes(){
             btnEliminar.textContent = "Desactivar";
             btnEliminar.classList.add("btn", "btn-danger", "btnDesactivar");
             btnEliminar.setAttribute("onclick", "desactivarCliente('" +  response.data[j].id_cliente + "')");
+            var iconoDesactivar = document.createElement("i");
+            iconoDesactivar.classList.add("las", "la-times-circle");
+            btnEliminar.prepend(iconoDesactivar);
             // Agregar los botones al td
             acciones.appendChild(btnEditar);
             acciones.appendChild(btnEliminar);
@@ -482,7 +485,7 @@ function TablaAdminClientesDes(){
             btnActivar.classList.add("btn", "btn-success", "btnActivar");
             btnActivar.setAttribute("onclick", "activarCliente('" + response.data[j].id_cliente + "')");
             var iconoActivar = document.createElement("i");
-            iconoActivar.classList.add("las", "la-check-circle");
+            iconoActivar.classList.add("las", "la-power-off");
             btnActivar.prepend(iconoActivar);
             // Agregar los botones al td
             acciones.appendChild(btnActivar);
