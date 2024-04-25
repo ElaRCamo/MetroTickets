@@ -143,7 +143,7 @@ function actualizarCliente(id_cliente){
     console.log("id_cliente para editar: " + id_cliente);
     var descClienteE= id("descClienteE");
     const data = new FormData();
-    data.append('id_cliente',id_cliente.value.trim());
+    data.append('id_cliente',id_cliente);
     data.append('descClienteE',descClienteE.value.trim());
 
     alert ("id:"+id_cliente+" desc: "+descClienteE.value.trim())
