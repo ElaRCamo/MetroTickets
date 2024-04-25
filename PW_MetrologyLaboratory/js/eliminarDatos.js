@@ -167,5 +167,57 @@ function desactivarMaterial(id_descripcion){
 }
 
 function desactivarUsuario(id_usuario){
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: "btn btn-success",
+            cancelButton: "btn btn-danger"
+        },
+        buttonsStyling: false
+    });
 
+    swalWithBootstrapButtons.fire({
+        title: "¿Estás seguro(a)?",
+        text: "Al desactivar el perfil del usuario ya no podrá hacer solicitudes.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "¡Sí, desactivar!",
+        cancelButtonText: "¡No, cancelar!",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/desactivarUsuario.php?id_usuario='+id_usuario,{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(id_usuario)
+            }).then(res => {
+                TablaAdminMateriales();
+                if(!res.ok){
+                    console.log('Problem');
+                    return;
+                }
+                return res.json();
+            })
+                .then(data => {
+                    console.log('Success');
+                    swalWithBootstrapButtons.fire({
+                        title: "¡Desactivado!",
+                        text: "El perfil del usuario ha sido desactivado.",
+                        icon: "success"
+                    });
+                })
+                .catch(error =>{
+                    console.log(error);
+                });
+        } else if (
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire({
+                title: "Cancelado",
+                text: "El perfil del usuario sigue activo.",
+                icon: "error"
+            });
+        }
+    });
 }
