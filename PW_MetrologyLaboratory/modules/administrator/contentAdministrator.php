@@ -44,6 +44,7 @@
                     <div class="col-auto">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoCliente"><i class="las la-plus-circle"></i>Nuevo cliente</a>
                         <a href="#" class="btn btn-secondary" onclick="TablaAdminClientesDes()"><i class="las la-eye"></i> Desactivados</a>
+                        <a href="#" class="btn btn-secondary" onclick="TablaAdminClientes()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
 
@@ -67,6 +68,7 @@
                     <div class="col-auto">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevaPlataforma"><i class="las la-plus-circle"></i>Nueva plataforma</a>
                         <a href="#" class="btn btn-secondary" onclick="TablaAdminPlataformasDes()"><i class="las la-eye"></i> Desactivadas</a>
+                        <a href="#" class="btn btn-secondary" onclick="TablaAdminPlataformas()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
 
@@ -91,6 +93,7 @@
                     <div class="col-auto">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoMaterial"><i class="las la-plus-circle"></i>Nuevo material</a>
                         <a href="#" class="btn btn-secondary" onclick="TablaAdminMaterialesDes()"><i class="las la-eye"></i> Desactivados</a>
+                        <a href="#" class="btn btn-secondary" onclick="TablaAdminMateriales()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
 
@@ -116,6 +119,7 @@
                 <div class="row justify-content-end">
                     <div class="col-auto">
                         <a href="#" class="btn btn-secondary" onclick="TablaAdminUsuariosDes()"><i class="las la-eye"></i> Desactivados</a>
+                        <a href="#" class="btn btn-secondary" onclick="TablaAdminUsuarios()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
                 <table class="table table-sm table-hover mt-4" id="tablaUsuarios">
