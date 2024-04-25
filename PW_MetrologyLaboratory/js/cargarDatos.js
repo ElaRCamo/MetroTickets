@@ -529,13 +529,16 @@ function TablaAdminPlataformas(){
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             btnEditar.setAttribute("onclick", "editarPlataforma('" +  response.data[j].id_plataforma + "')");
             var iconoEditar = document.createElement("i");
-            iconoEditar.classList.add("fas", "fa-edit");
+            iconoEditar.classList.add("las", "la-edit");
             btnEditar.prepend(iconoEditar);
             // Botón de eliminar
             var btnEliminar = document.createElement("button");
             btnEliminar.textContent = "Desactivar";
             btnEliminar.classList.add("btn", "btn-danger", "btnDesactivar");
             btnEliminar.setAttribute("onclick", "desactivarPlataforma('" +  response.data[j].id_plataforma + "')");
+            var iconoDesactivar = document.createElement("i");
+            iconoDesactivar.classList.add("las", "la-times-circle");
+            btnEliminar.prepend(iconoDesactivar);
             // Agregar los botones al td
             acciones.appendChild(btnEditar);
             acciones.appendChild(btnEliminar);
@@ -627,7 +630,7 @@ function TablaAdminMateriales(){
             var acciones = document.createElement("td");
             // Botón de editar
             var iconoEditar = document.createElement("i");
-            iconoEditar.classList.add("fas", "fa-edit");
+            iconoEditar.classList.add("las", "la-edit");
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
@@ -639,6 +642,9 @@ function TablaAdminMateriales(){
             btnEliminar.textContent = "Desactivar";
             btnEliminar.classList.add("btn", "btn-danger", "btnDesactivar");
             btnEliminar.setAttribute("onclick", "desactivarMaterial('" +  response.data[j].id_descripcion + "')");
+            var iconoDesactivar = document.createElement("i");
+            iconoDesactivar.classList.add("las", "la-times-circle");
+            btnEliminar.prepend(iconoDesactivar);
             // Agregar los botones al td
             acciones.appendChild(btnEditar);
             acciones.appendChild(btnEliminar);
@@ -731,7 +737,7 @@ function TablaAdminUsuarios(){
             var acciones = document.createElement("td");
             // Botón de editar
             var iconoEditar = document.createElement("i");
-            iconoEditar.classList.add("fas", "fa-edit");
+            iconoEditar.classList.add("las", "la-edit");
             var btnEditar = document.createElement("button");
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
@@ -743,6 +749,9 @@ function TablaAdminUsuarios(){
             btnEliminar.textContent = "Desactivar";
             btnEliminar.classList.add("btn", "btn-danger", "btnDesactivar");
             btnEliminar.setAttribute("onclick", "desactivarUsuario('" +  response.data[j].id_usuario + "')");
+            var iconoDesactivar = document.createElement("i");
+            iconoDesactivar.classList.add("las", "la-times-circle");
+            btnEliminar.prepend(iconoDesactivar);
             // Agregar los botones al td
             acciones.appendChild(btnEditar);
             acciones.appendChild(btnEliminar);
