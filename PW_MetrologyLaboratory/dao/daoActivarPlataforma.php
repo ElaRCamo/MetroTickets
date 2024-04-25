@@ -3,12 +3,12 @@
 include_once('connection.php');
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_GET['id_descripcion'])){
+    if(isset($_GET['id_plataforma'])){
         // Obtiene el valor del parámetro id_cliente
-        $id_descripcion = $_GET['id_descripcion'];
-        desactivarMaterial($id_descripcion);
+        $id_plataforma = $_GET['id_plataforma'];
+        desactivarPlataforma($id_plataforma);
     }else{
-        $respuesta = array("success" => false, "message" => "ID del material no proporcionado.");
+        $respuesta = array("success" => false, "message" => "ID de la plataforma no proporcionado.");
         echo json_encode($respuesta);
     }
 } else {
@@ -16,18 +16,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     echo json_encode($respuesta);
 }
 
-function desactivarMaterial($id_descripcion)
+function desactivarPlataforma($id_plataforma)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $stmt = $conex->prepare("UPDATE DescripcionMaterial
+    $stmt = $conex->prepare("UPDATE Plataforma
                                       SET estatus = 1
-                                    WHERE id_descripcion = ?");
-    $stmt->bind_param("i", $id_descripcion);
+                                    WHERE id_plataforma = ?");
+    $stmt->bind_param("i", $id_plataforma);
 
     if ($stmt->execute()) {
-        $respuesta = array("success" => true, "message" => "Material activado");
+        $respuesta = array("success" => true, "message" => "Plataforma activada");
         echo json_encode($respuesta);
     } else {
         $respuesta = array("success" => false, "message" => "Error.");

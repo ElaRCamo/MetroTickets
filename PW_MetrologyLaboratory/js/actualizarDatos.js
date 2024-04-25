@@ -94,7 +94,7 @@ function activarMaterial(id_descripcion){
         return res.json();
     })
         .then(data => {
-            alert('Material activado');
+            Swal.fire("¡Material activado!");
         })
         .catch(error =>{
             console.log(error);
@@ -104,15 +104,53 @@ function activarMaterial(id_descripcion){
 function editarPlataforma(id_plataforma){
     console.log("id_plataforma para editar: " + id_plataforma);
 }
-function activarPlataforma(){
-
+function activarPlataforma(id_plataforma){
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarPlataforma.php?id_plataforma='+id_plataforma,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(id_plataforma)
+    }).then(res => {
+        TablaAdminMaterialesDes();
+        if(!res.ok){
+            console.log('Problem');
+            return;
+        }
+        return res.json();
+    })
+        .then(data => {
+            Swal.fire("¡Plataforma activada!");
+        })
+        .catch(error =>{
+            console.log(error);
+        });
 }
 
 function editarCliente(id_cliente){
     console.log("id_cliente para editar: " + id_cliente);
 }
 function activarCliente(id_cliente){
-
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarCliente.php?id_cliente='+id_cliente,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(id_cliente)
+    }).then(res => {
+        TablaAdminMaterialesDes();
+        if(!res.ok){
+            console.log('Problem');
+            return;
+        }
+        return res.json();
+    })
+        .then(data => {
+            Swal.fire("¡Cliente activado!");
+        })
+        .catch(error =>{
+            console.log(error);
+        });
 }
 
 function editarUsuario(id_usuario){
@@ -120,5 +158,24 @@ function editarUsuario(id_usuario){
 }
 
 function activarUsuario(id_usuario){
-
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarUsuario.php?id_usuario='+id_usuario,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(id_usuario)
+    }).then(res => {
+        TablaAdminMaterialesDes();
+        if(!res.ok){
+            console.log('Problem');
+            return;
+        }
+        return res.json();
+    })
+        .then(data => {
+            Swal.fire("¡Perfil de usuario activado!");
+        })
+        .catch(error =>{
+            console.log(error);
+        });
 }
