@@ -141,6 +141,27 @@ function editarCliente(id_cliente){
 }
 function actualizarCliente(id_cliente){
     console.log("id_cliente para editar: " + id_cliente);
+    var descClienteE= id("descClienteE");
+    const data = new FormData();
+    data.append('descClienteE',descClienteE);
+
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarCliente.php?id_cliente='+id_cliente,{
+        method: 'POST',
+        body: data
+    }).then(res => {
+        TablaAdminMateriales();
+        if(!res.ok){
+            console.log('Problem');
+            return;
+        }
+        return res.json();
+    })
+        .then(data => {
+            Swal.fire("¡Cliente actualizado!");
+        })
+        .catch(error =>{
+            console.log(error);
+        });
 }
 function activarCliente(id_cliente){
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarCliente.php?id_cliente='+id_cliente,{
