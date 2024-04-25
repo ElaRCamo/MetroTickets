@@ -192,7 +192,7 @@ function desactivarUsuario(id_usuario){
                 },
                 body: JSON.stringify(id_usuario)
             }).then(res => {
-                TablaAdminMateriales();
+                TablaAdminUsuarios();
                 if(!res.ok){
                     console.log('Problem');
                     return;

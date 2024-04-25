@@ -449,6 +449,44 @@ function TablaAdminClientes(){
     });
 }
 
+function TablaAdminClientesDes(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoClienteDes.php', function (response) {
+        var tabla = id("tablaClientes");
+        var tbody = tabla.getElementsByTagName("tbody")[0];
+
+        // Limpiar contenido previo de la tabla
+        tbody.innerHTML = '';
+
+        // Iterar sobre los materiales y crear filas y celdas de tabla
+        for (var j = 0; j < response.data.length; j++) {
+            var fila = document.createElement("tr");
+
+            var idCliente = document.createElement("td");
+            idCliente.textContent = response.data[j].id_cliente;
+            fila.appendChild(idCliente);
+
+            var descripcionCliente = document.createElement("td");
+            descripcionCliente.textContent = response.data[j].descripcionCliente;
+            fila.appendChild(descripcionCliente);
+
+            var acciones = document.createElement("td");
+            // Botón de editar
+            var btnActivar = document.createElement("button");
+            btnActivar.textContent = "Activar";
+            btnActivar.classList.add("btn", "btn-success", "btnActivar");
+            btnActivar.setAttribute("onclick", "activarCliente('" + response.data[j].id_cliente + "')");
+            var iconoActivar = document.createElement("i");
+            iconoActivar.classList.add("las", "la-check-circle");
+            btnActivar.prepend(iconoActivar);
+            // Agregar los botones al td
+            acciones.appendChild(btnActivar);
+            fila.appendChild(acciones);
+
+            tbody.appendChild(fila);
+        }
+    });
+}
+
 function TablaAdminPlataformas(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasT.php', function (response) {
         var tabla = id("tablaPlataformas");
