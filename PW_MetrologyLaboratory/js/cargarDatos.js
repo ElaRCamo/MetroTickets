@@ -635,6 +635,55 @@ function TablaAdminMateriales(){
     });
 }
 function TablaAdminMaterialesDes(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaMaterialesDes.php', function (response) {
+        var tabla = id("tablaMateriales");
+        var tbody = tabla.getElementsByTagName("tbody")[0];
+
+        // Limpiar contenido previo de la tabla
+        tbody.innerHTML = '';
+
+        // Iterar sobre los materiales y crear filas y celdas de tabla
+        for (var j = 0; j < response.data.length; j++) {
+            var fila = document.createElement("tr");
+
+            var idMaterial = document.createElement("td");
+            idMaterial.textContent = response.data[j].id_descripcion;
+            fila.appendChild(idMaterial);
+
+            var descripcionMaterial = document.createElement("td");
+            descripcionMaterial.textContent = response.data[j].descripcionMaterial;
+            fila.appendChild(descripcionMaterial);
+
+            var numeroDeParte = document.createElement("td");
+            numeroDeParte.textContent = response.data[j].numeroDeParte;
+            fila.appendChild(numeroDeParte);
+
+            var imgMaterial = document.createElement("td");
+            var imagen = document.createElement("img");
+            imagen.src = response.data[j].imgMaterial;
+            imagen.classList.add("col-md-6", "mb-3", "ms-md-3", "rounded", "img-fluid","img-thumbnail");
+            imgMaterial.appendChild(imagen);
+            fila.appendChild(imgMaterial);
+
+            var descripcionPlataforma = document.createElement("td");
+            descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
+            fila.appendChild(descripcionPlataforma);
+
+            var acciones = document.createElement("td");
+            // Botón activar
+            var btnActivar = document.createElement("button");
+            btnActivar.textContent = "Activar";
+            btnActivar.classList.add("btn", "btn-success", "btnActivar");
+            btnActivar.setAttribute("onclick", "activarMaterial('" + response.data[j].id_descripcion + "')");
+            var iconoActivar = document.createElement("i");
+            iconoActivar.classList.add("las", "la-check-circle");
+            btnActivar.prepend(iconoActivar);
+            // Agregar los botones al td
+            acciones.appendChild(btnActivar);
+            fila.appendChild(acciones);
+            tbody.appendChild(fila);
+        }
+    });
 
 }
 
@@ -688,6 +737,45 @@ function TablaAdminUsuarios(){
     });
 }
 function TablaAdminUsuariosDes(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaUsuariosDes.php', function (response) {
+        var tabla = id("tablaUsuarios");
+        var tbody = tabla.getElementsByTagName("tbody")[0];
+
+        // Limpiar contenido previo de la tabla
+        tbody.innerHTML = '';
+
+        // Iterar sobre los materiales y crear filas y celdas de tabla
+        for (var j = 0; j < response.data.length; j++) {
+            var fila = document.createElement("tr");
+
+            var nombreUsuario = document.createElement("td");
+            nombreUsuario.textContent = response.data[j].nombreUsuario;
+            fila.appendChild(nombreUsuario);
+
+            var correo = document.createElement("td");
+            correo.textContent = response.data[j].correoElectronico;
+            fila.appendChild(correo);
+
+            var tipoUsuario = document.createElement("td");
+            tipoUsuario.textContent = response.data[j].descripcionTipo;
+            fila.appendChild(tipoUsuario);
+
+            var acciones = document.createElement("td");
+            // Botón activar
+            var btnActivar = document.createElement("button");
+            btnActivar.textContent = "Activar";
+            btnActivar.classList.add("btn", "btn-success", "btnActivar");
+            btnActivar.setAttribute("onclick", "activarUsuario('" + response.data[j].id_usuario + "')");
+            var iconoActivar = document.createElement("i");
+            iconoActivar.classList.add("las", "la-check-circle");
+            btnActivar.prepend(iconoActivar);
+            // Agregar los botones al td
+            acciones.appendChild(btnActivar);
+            fila.appendChild(acciones);
+            tbody.appendChild(fila);
+        }
+
+    });
 
 }
 function llenarEstatusPrueba(){
