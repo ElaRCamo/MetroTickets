@@ -3,10 +3,10 @@
 include_once('connection.php');
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_GET['id_cliente']) && $_POST['descClienteE']){
-        $descripcion = $_GET['descClienteE'];
+    if(isset($_POST['id_cliente']) && $_POST['descClienteE']){
+        $descripcion = $_POST['descClienteE'];
         // Obtiene el valor del parámetro id_cliente
-        $id_cliente = $_GET['id_cliente'];
+        $id_cliente = $_POST['id_cliente'];
         desactivarCliente($id_cliente, $descripcion);
     }else{
         $respuesta = array("success" => false, "message" => "Faltan datos");

@@ -143,26 +143,31 @@ function actualizarCliente(id_cliente){
     console.log("id_cliente para editar: " + id_cliente);
     var descClienteE= id("descClienteE");
     const data = new FormData();
+    data.append('id_cliente',id_cliente.value.trim());
     data.append('descClienteE',descClienteE.value.trim());
 
     alert ("id:"+id_cliente+" desc: "+descClienteE.value.trim())
 
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarCliente.php?id_cliente='+id_cliente,{
+        fetch('../../dao/daoActualizarCliente.php', {
         method: 'POST',
-        body: data
-    }).then(res => {
-        TablaAdminMateriales();
-        if(!res.ok){
-            console.log('Problem');
-            return;
-        }
-        return res.json();
+            body: data
     })
-        .then(data => {
-            Swal.fire("¡Cliente actualizado!");
+    .then(function (response) {
+        if (response.ok) { //respuesta
+            Swal.fire({
+                title: "¡Cliente actualizado exitosamente!",
+                icon: "success"
+            });
+            TablaAdminClientes();
+        } else {
+            throw "Error en la llamada Ajax";
+        }
+    })
+        .then(function (texto) {
+            console.log(texto);
         })
-        .catch(error =>{
-            console.log(error);
+        .catch(function (err) {
+            console.log(err);
         });
 }
 function activarCliente(id_cliente){
