@@ -470,7 +470,8 @@ function TablaAdminClientesDes(){
             fila.appendChild(descripcionCliente);
 
             var acciones = document.createElement("td");
-            // Botón de editar
+
+            // Botón activar
             var btnActivar = document.createElement("button");
             btnActivar.textContent = "Activar";
             btnActivar.classList.add("btn", "btn-success", "btnActivar");
@@ -534,7 +535,46 @@ function TablaAdminPlataformas(){
         }
     });
 }
+function TablaAdminPlataformasDes(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasTDes.php', function (response) {
+        var tabla = id("tablaPlataformas");
+        var tbody = tabla.getElementsByTagName("tbody")[0];
 
+        // Limpiar contenido previo de la tabla
+        tbody.innerHTML = '';
+
+        // Iterar sobre los materiales y crear filas y celdas de tabla
+        for (var j = 0; j < response.data.length; j++) {
+            var fila = document.createElement("tr");
+
+            var idPlataforma = document.createElement("td");
+            idPlataforma.textContent = response.data[j].id_plataforma;
+            fila.appendChild(idPlataforma);
+
+            var descripcionPlataforma = document.createElement("td");
+            descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
+            fila.appendChild(descripcionPlataforma);
+
+            var descripcionCliente = document.createElement("td");
+            descripcionCliente.textContent = response.data[j].descripcionCliente;
+            fila.appendChild(descripcionCliente);
+
+            var acciones = document.createElement("td");
+            // Botón activar
+            var btnActivar = document.createElement("button");
+            btnActivar.textContent = "Activar";
+            btnActivar.classList.add("btn", "btn-success", "btnActivar");
+            btnActivar.setAttribute("onclick", "activarPlataforma('" + response.data[j].id_plataforma + "')");
+            var iconoActivar = document.createElement("i");
+            iconoActivar.classList.add("las", "la-check-circle");
+            btnActivar.prepend(iconoActivar);
+            // Agregar los botones al td
+            acciones.appendChild(btnActivar);
+            fila.appendChild(acciones);
+            tbody.appendChild(fila);
+        }
+    });
+}
 function TablaAdminMateriales(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaMateriales.php', function (response) {
         var tabla = id("tablaMateriales");
@@ -594,6 +634,9 @@ function TablaAdminMateriales(){
         }
     });
 }
+function TablaAdminMaterialesDes(){
+
+}
 
 function TablaAdminUsuarios(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaUsuarios.php', function (response) {
@@ -643,6 +686,9 @@ function TablaAdminUsuarios(){
         }
 
     });
+}
+function TablaAdminUsuariosDes(){
+
 }
 function llenarEstatusPrueba(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPrueba.php', function (data){
