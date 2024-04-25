@@ -538,6 +538,8 @@ function TablaAdminPlataformas(){
             tbody.appendChild(fila);
         }
     });
+    hideButton("btn-plataformasAct");
+    showButton("btn-plataformasDes");
 }
 function TablaAdminPlataformasDes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasTDes.php', function (response) {
@@ -578,6 +580,8 @@ function TablaAdminPlataformasDes(){
             tbody.appendChild(fila);
         }
     });
+    showButton("btn-plataformasAct");
+    hideButton("btn-plataformasDes");
 }
 function TablaAdminMateriales(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaMateriales.php', function (response) {
@@ -637,6 +641,8 @@ function TablaAdminMateriales(){
             tbody.appendChild(fila);
         }
     });
+    hideButton("btn-materialesAct");
+    showButton("btn-materialesDes");
 }
 function TablaAdminMaterialesDes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaMaterialesDes.php', function (response) {
@@ -688,7 +694,8 @@ function TablaAdminMaterialesDes(){
             tbody.appendChild(fila);
         }
     });
-
+    showButton("btn-materialesAct");
+    hideButton("btn-materialesDes");
 }
 
 function TablaAdminUsuarios(){
@@ -737,8 +744,9 @@ function TablaAdminUsuarios(){
 
             tbody.appendChild(fila);
         }
-
     });
+    showButton("btn-usuariosAct");
+    hideButton("btn-usuariosDes");
 }
 function TablaAdminUsuariosDes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaUsuariosDes.php', function (response) {
@@ -780,7 +788,8 @@ function TablaAdminUsuariosDes(){
         }
 
     });
-
+    showButton("btn-usuariosDes");
+    hideButton("btn-usuariosAct");
 }
 function llenarEstatusPrueba(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPrueba.php', function (data){

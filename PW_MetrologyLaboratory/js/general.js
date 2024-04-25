@@ -163,7 +163,7 @@ function mostrarOpciones(TP){
 
 function showButton(id_button){
     var button = id(id_button);
-    button.style.display = "block";
+    button.style.display = "inline-block";
 }
 
 function hideButton(id_button){

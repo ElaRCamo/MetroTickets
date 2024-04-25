@@ -43,8 +43,8 @@
                 <div class="row justify-content-end">
                     <div class="col-auto">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoCliente"><i class="las la-plus-circle"></i>Nuevo cliente</a>
-                        <a href="#" class="btn btn-secondary" id="btn-clientesDes" onclick="TablaAdminClientesDes()"><i class="las la-eye"></i> Desactivados</a>
-                        <a href="#" class="btn btn-secondary" id="btn-clientesAct" onclick="TablaAdminClientes()"><i class="las la-eye"></i> Activados</a>
+                        <a href="#tablaClientes" class="btn btn-secondary" id="btn-clientesDes" onclick="TablaAdminClientesDes()"><i class="las la-eye"></i> Desactivados</a>
+                        <a href="#tablaClientes" class="btn btn-secondary" id="btn-clientesAct" onclick="TablaAdminClientes()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
 
@@ -67,8 +67,8 @@
                 <div class="row justify-content-end">
                     <div class="col-auto">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevaPlataforma"><i class="las la-plus-circle"></i>Nueva plataforma</a>
-                        <a href="#" class="btn btn-secondary" id="btn-plataformasDes" onclick="TablaAdminPlataformasDes()"><i class="las la-eye"></i> Desactivadas</a>
-                        <a href="#" class="btn btn-secondary" id="btn-plataformasAct" onclick="TablaAdminPlataformas()"><i class="las la-eye"></i> Activados</a>
+                        <a href="#plataformas" class="btn btn-secondary" id="btn-plataformasDes" onclick="TablaAdminPlataformasDes()"><i class="las la-eye"></i> Desactivadas</a>
+                        <a href="#plataformas" class="btn btn-secondary" id="btn-plataformasAct" onclick="TablaAdminPlataformas()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
 
