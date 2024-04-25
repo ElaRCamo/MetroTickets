@@ -78,15 +78,47 @@ function updatePruebaSol(id_review){
 function editarMaterial(id_descripcion){
     console.log("id_descripcion para editar: " + id_descripcion);
 }
+function activarMaterial(id_descripcion){
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarMaterial.php?id_descripcion='+id_descripcion,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(id_descripcion)
+    }).then(res => {
+        TablaAdminMateriales();
+        if(!res.ok){
+            console.log('Problem');
+            return;
+        }
+        return res.json();
+    })
+        .then(data => {
+            console.log('Success');
+        })
+        .catch(error =>{
+            console.log(error);
+        });
+}
 
 function editarPlataforma(id_plataforma){
     console.log("id_plataforma para editar: " + id_plataforma);
+}
+function activarPlataforma(){
+
 }
 
 function editarCliente(id_cliente){
     console.log("id_cliente para editar: " + id_cliente);
 }
+function activarCliente(id_cliente){
+
+}
 
 function editarUsuario(id_usuario){
     console.log("id_usuario para editar: " + id_usuario);
+}
+
+function activarUsuario(id_usuario){
+
 }
