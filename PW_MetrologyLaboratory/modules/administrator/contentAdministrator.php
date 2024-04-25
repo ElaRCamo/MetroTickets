@@ -113,8 +113,12 @@
             <!-- Usuarios -->
             <section >
                 <h3 id="usuarios">Usuarios</h3>
+                <div class="row justify-content-end">
+                    <div class="col-auto">
+                        <a href="#" class="btn btn-secondary" onclick="TablaAdminUsuariosDes()"><i class="las la-eye"></i> Desactivados</a>
+                    </div>
+                </div>
                 <table class="table table-sm table-hover mt-4" id="tablaUsuarios">
-                    <a href="#" class="btn btn-secondary" onclick="TablaAdminUsuariosDes()"><i class="las la-eye"></i> Desactivados</a>
                     <thead>
                     <tr>
                         <th>Nombre</th>
