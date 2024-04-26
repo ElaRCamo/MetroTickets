@@ -864,7 +864,7 @@ function consultarMetrologos(){
     });
 }
 
-/*Queda pendiente de integracion 23/04/2024*/
+/*Queda pendiente de integracion 23/04/2024
 function estatusMateriales(k){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusMaterial.php', function (data){
         var selectS = id("selEstMat" + k);
@@ -884,4 +884,4 @@ function estatusMateriales(k){
 
 function recuperarPassword(){
 
-}
+}*/

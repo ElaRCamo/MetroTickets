@@ -132,7 +132,7 @@ function editarPlataforma(id_plataforma){
         }
     });
 
-    var btnActualizarPlataforma = document.getElementById('btn-updCliente');
+    var btnActualizarPlataforma = document.getElementById('btn-updPlataforma');
     btnActualizarPlataforma.onclick = function() {
         actualizarPlataforma(id_plataforma);
     };
