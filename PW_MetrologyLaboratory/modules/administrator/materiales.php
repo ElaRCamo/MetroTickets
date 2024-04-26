@@ -64,12 +64,6 @@
                             <label for="numParteE" class="form-label">Número de parte: </label>
                             <input id="numParteE" name="numParteE" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-4 text-center justify-content-center col" id="divImagenMaterialE">
-                            <label for="imgMaterialE" class="form-label" >Imagen del material: </label>
-                            <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterialE" alt="Imagen Material">
-                        </div>
                         <div class="mb-3 col">
                             <div class="help-block with-errors"></div>
                             <label for="descMPlataformaE" class="form-label">Plataforma: </label>
@@ -78,7 +72,11 @@
                             </select>
                         </div>
                     </div>
-                    <div class="mb-3 col">
+                    <div class="col-xl-4 text-center justify-content-center " id="divImagenMaterialE">
+                        <label for="imgMaterialE" class="form-label" >Imagen del material: </label>
+                        <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterialE" alt="Imagen Material">
+                    </div>
+                    <div class="mb-3 ">
                         <div class="help-block with-errors"></div>
                         <label for="imgMaterialE" class="form-label" >Nueva imagen: </label>
                         <input type="file" placeholder="Imagen del material" class="form-control" id="imgMaterialE" name="imgMaterialE" required>
