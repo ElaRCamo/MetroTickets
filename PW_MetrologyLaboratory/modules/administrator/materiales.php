@@ -53,17 +53,19 @@
             </div>
             <div class="modal-body row">
                 <form method="POST" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <div class="help-block with-errors"></div>
-                        <label for="descMaterialE" class="form-label">Descripción del material: </label>
-                        <input type="text" name="descMaterialE" id="descMaterialE" class="form-control" required>
+                    <div class="row">
+                        <div class="mb-3 col">
+                            <div class="help-block with-errors"></div>
+                            <label for="descMaterialE" class="form-label">Descripción del material: </label>
+                            <input type="text" name="descMaterialE" id="descMaterialE" class="form-control" required>
+                        </div>
+                        <div class="mb-3 col">
+                            <div class="help-block with-errors"></div>
+                            <label for="numParteE" class="form-label">Número de parte: </label>
+                            <input id="numParteE" name="numParteE" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <div class="help-block with-errors"></div>
-                        <label for="numParteE" class="form-label">Número de parte: </label>
-                        <input id="numParteE" name="numParteE" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
-                    </div>
-                    <div class="col-xl-4 text-center" id="divImagenMaterialE">
+                    <div class="col-xl-4 text-center justify-content-center" id="divImagenMaterialE">
                         <label for="imgMaterialE" class="form-label" >Imagen del material: </label>
                         <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterialE" alt="Imagen Material">
                     </div>
