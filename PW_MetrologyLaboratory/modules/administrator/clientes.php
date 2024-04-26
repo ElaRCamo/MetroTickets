@@ -37,7 +37,7 @@
                 <form method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
-                        <label for="descClienteN" class="form-label">Descripción del cliente: </label>
+                        <label for="descClienteE" class="form-label">Descripción del cliente: </label>
                         <input type="text" name="descClienteE" id="descClienteE" class="form-control" required>
                     </div>
                     <div class="row justify-content-end">

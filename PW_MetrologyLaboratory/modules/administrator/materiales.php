@@ -44,7 +44,7 @@
 </div>
 
 <!-- Modal EditarMaterial-->
-<div class="modal fade container-fluid" id="editarMaterial" aria-hidden="true" aria-labelledby="editarMateriallLabel" tabindex="-1">
+<div class="modal fade container-fluid" id="editarMaterialModal" aria-hidden="true" aria-labelledby="editarMateriallLabel" tabindex="-1">
     <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
         <div class="modal-content">
             <div class="modal-header">

@@ -33,7 +33,7 @@
 </div>
 
 <!-- Modal EditarPlataforma-->
-<div class="modal fade container-fluid" id="editarPlataforma" aria-hidden="true" aria-labelledby="editarPlataformaLabel" tabindex="-1">
+<div class="modal fade container-fluid" id="editarPlataformaModal" aria-hidden="true" aria-labelledby="editarPlataformaLabel" tabindex="-1">
     <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
         <div class="modal-content">
             <div class="modal-header">

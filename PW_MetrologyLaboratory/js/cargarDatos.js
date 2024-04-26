@@ -528,6 +528,8 @@ function TablaAdminPlataformas(){
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             btnEditar.setAttribute("onclick", "editarPlataforma('" +  response.data[j].id_plataforma + "')");
+            btnEditar.setAttribute("data-bs-toggle", "modal");
+            btnEditar.setAttribute("data-bs-target", "#editarPlataformaModal");
             var iconoEditar = document.createElement("i");
             iconoEditar.classList.add("las", "la-edit");
             btnEditar.prepend(iconoEditar);
@@ -635,6 +637,8 @@ function TablaAdminMateriales(){
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             btnEditar.setAttribute("onclick", "editarMaterial('" +  response.data[j].id_descripcion + "')");
+            btnEditar.setAttribute("data-bs-toggle", "modal");
+            btnEditar.setAttribute("data-bs-target", "#editarMaterialModal");
             btnEditar.prepend(iconoEditar);
 
             // Botón de eliminar
@@ -742,6 +746,8 @@ function TablaAdminUsuarios(){
             btnEditar.textContent = "Editar";
             btnEditar.classList.add("btn", "btn-warning", "btnEditar");
             btnEditar.setAttribute("onclick", "editarUsuario('" +  response.data[j].id_usuario + "')");
+            btnEditar.setAttribute("data-bs-toggle", "modal");
+            btnEditar.setAttribute("data-bs-target", "#editarUsuarioModal");
             btnEditar.prepend(iconoEditar);
 
             // Botón de eliminar
