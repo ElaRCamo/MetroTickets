@@ -86,7 +86,7 @@ function editarMaterial(id_descripcion){
         inputNumParte.value = data.data[0].descripcionPlataforma;
 
         //imgActual
-        id("imgMaterialE").src = data.data[0].imgMaterial;
+        id("imagenMaterialE").src = data.data[0].imgMaterial;
 
         var selectS = id("descMPlataformaE");
         selectS.innerHTML = ""; //limpiar contenido
