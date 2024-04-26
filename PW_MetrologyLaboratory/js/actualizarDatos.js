@@ -83,7 +83,7 @@ function editarMaterial(id_descripcion){
         inputMaterial.value = data.data[0].descripcionMaterial;
 
         var inputNumParte = id("numParteE");
-        inputNumParte.value = data.data[0].descripcionPlataforma;
+        inputNumParte.value = data.data[0].numeroDeParte;
 
         //imgActual
         id("imagenMaterialE").src = data.data[0].imgMaterial;
@@ -96,7 +96,7 @@ function editarMaterial(id_descripcion){
             createOption.value = data.data[j].id_plataforma;
             createOption.text = data.data[j].descripcionPlataforma;
             selectS.appendChild(createOption);
-            if (data.data[j].id_descripcion === id_descripcion) {
+            if (data.data[0].id_plataforma) {
                 createOption.selected = true;
             }
         }
