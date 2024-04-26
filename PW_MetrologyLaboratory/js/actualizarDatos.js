@@ -96,7 +96,7 @@ function editarMaterial(id_descripcion){
             createOption.value = data.data[j].id_plataforma;
             createOption.text = data.data[j].descripcionPlataforma;
             selectS.appendChild(createOption);
-            if (data.data[0].id_plataforma) {
+            if (data.data[j].id_descripcion === id_descripcion) {
                 createOption.selected = true;
             }
         }
