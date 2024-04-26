@@ -76,18 +76,42 @@ function updatePruebaSol(id_review){
 }
 
 function editarMaterial(id_descripcion){
-    console.log("id_descripcion para editar: " + id_descripcion);
-/*
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnCliente.php?id_cliente=' + id_descripcion, function (data) {
-        var inputCliente = id("descClienteE");
-        inputCliente.value = data.data[0].descripcionCliente;
+    console.log("para editar: " + id_descripcion);
+
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnaMaterial.php?id_descripcion=' + id_descripcion, function (data) {
+        var inputMaterial = id("descMaterialE");
+        inputMaterial.value = data.data[0].descripcionMaterial;
+
+        var inputNumParte = id("numParteE");
+        inputNumParte.value = data.data[0].descripcionPlataforma;
+
+        //imgActual
+        id("imgMaterialE").src = data.data[0].imgMaterial;
+
+        var selectS = id("descMPlataformaE");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[j].id_plataforma;
+            createOption.text = data.data[j].descripcionPlataforma;
+            selectS.appendChild(createOption);
+            if (data.data[j].id_plataforma === id_plataforma) {
+                createOption.selected = true;
+            }
+        }
     });
 
-    var btnActualizarCliente = document.getElementById('btn-updCliente');
-    btnActualizarCliente.onclick = function() {
-        actualizarMaterial(id_descripcion);
-    };*/
+    var btnActualizarMaterial = document.getElementById('btn-updMaterial');
+    if (btnActualizarMaterial) { // Verifica que el botón exista en el DOM
+        btnActualizarMaterial.onclick = function() {
+            actualizarPlataforma(id_descripcion);
+        };
+    }
 
+}
+function actualizarMaterial(id_descripcion){
+    console.log("ACTUALIZAR: " + id_descripcion);
 }
 function activarMaterial(id_descripcion){
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarMaterial.php?id_descripcion='+id_descripcion,{
