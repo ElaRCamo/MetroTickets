@@ -133,9 +133,11 @@ function editarPlataforma(id_plataforma){
     });
 
     var btnActualizarPlataforma = document.getElementById('btn-updPlataforma');
-    btnActualizarPlataforma.onclick = function() {
-        actualizarPlataforma(id_plataforma);
-    };
+    if (btnActualizarPlataforma) { // Verifica que el botón exista en el DOM
+        btnActualizarPlataforma.onclick = function() {
+            actualizarPlataforma(id_plataforma);
+        };
+    }
 }
 function  actualizarPlataforma(id_plataforma){
     console.log("id_plataforma para actualizar: " + id_plataforma);
@@ -172,9 +174,11 @@ function editarCliente(id_cliente){
     });
 
     var btnActualizarCliente = document.getElementById('btn-updCliente');
-    btnActualizarCliente.onclick = function() {
-        actualizarCliente(id_cliente);
-    };
+    if (btnActualizarCliente) { // Verifica que el botón exista en el DOM
+        btnActualizarCliente.onclick = function () {
+            actualizarCliente(id_cliente);
+        };
+    }
 }
 function actualizarCliente(id_cliente){
     console.log("id_cliente para editar: " + id_cliente);
