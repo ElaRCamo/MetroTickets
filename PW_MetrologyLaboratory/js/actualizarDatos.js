@@ -77,6 +77,17 @@ function updatePruebaSol(id_review){
 
 function editarMaterial(id_descripcion){
     console.log("id_descripcion para editar: " + id_descripcion);
+/*
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnCliente.php?id_cliente=' + id_descripcion, function (data) {
+        var inputCliente = id("descClienteE");
+        inputCliente.value = data.data[0].descripcionCliente;
+    });
+
+    var btnActualizarCliente = document.getElementById('btn-updCliente');
+    btnActualizarCliente.onclick = function() {
+        actualizarMaterial(id_descripcion);
+    };*/
+
 }
 function activarMaterial(id_descripcion){
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarMaterial.php?id_descripcion='+id_descripcion,{
@@ -103,6 +114,32 @@ function activarMaterial(id_descripcion){
 
 function editarPlataforma(id_plataforma){
     console.log("id_plataforma para editar: " + id_plataforma);
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnaPlataforma.php?id_plataforma=' + id_plataforma, function (data) {
+        var inputPlataforma = id("descPlataformaE");
+        inputPlataforma.value = data.data[0].descripcionPlataforma;
+
+        var selectS = id("descPClienteE");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[j].id_cliente;
+            createOption.text = data.data[j].descripcionCliente;
+            selectS.appendChild(createOption);
+            if (data.data[j].id_plataforma === id_plataforma) {
+                createOption.selected = true;
+            }
+        }
+    });
+
+    var btnActualizarPlataforma = document.getElementById('btn-updCliente');
+    btnActualizarPlataforma.onclick = function() {
+        actualizarPlataforma(id_plataforma);
+    };
+}
+function  actualizarPlataforma(id_plataforma){
+    console.log("id_plataforma para actualizar: " + id_plataforma);
+
 }
 function activarPlataforma(id_plataforma){
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarPlataforma.php?id_plataforma='+id_plataforma,{

@@ -66,7 +66,6 @@ function llenarCliente(i){
         }
     });
 }
-
 function clienteModal(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
         var selectS = id("descPClienteN");
@@ -82,6 +81,7 @@ function clienteModal(){
             createOption.value = data.data[j].id_cliente;
             createOption.text = data.data[j].descripcionCliente;
             selectS.appendChild(createOption);
+
         }
     });
 }
