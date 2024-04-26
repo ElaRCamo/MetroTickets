@@ -11,7 +11,8 @@ function seleccionarPlataforma($id_plataforma){
     $datos = mysqli_query($conex, "SELECT C.id_cliente, C.descripcionCliente, P.id_plataforma, P.descripcionPlataforma
                                            FROM Cliente C
                                       LEFT JOIN Plataforma P ON C.id_cliente = P.id_cliente
-                                            AND P.id_plataforma = '$id_plataforma'");
+                                            AND P.id_plataforma = '$id_plataforma'
+                                       ORDER BY (P.id_plataforma = '$id_plataforma') DESC");
 
     $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
