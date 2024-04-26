@@ -47,6 +47,7 @@
             include 'clientes.php';
             include 'plataformas.php';
             include 'materiales.php';
+            include 'usuarios.php';
     ?>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
