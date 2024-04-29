@@ -271,9 +271,8 @@ function editarMaterial(id_descripcion){
                 createOptionC.selected = true;
             }
         }
-       // var cliente = = data.data[0].id_cliente;
+
     });
-    //cargarClientes(cliente);
 
     var btnActualizarMaterial = document.getElementById('btn-updMaterial');
     if (btnActualizarMaterial) { // Verifica que el botón exista en el DOM
