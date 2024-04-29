@@ -390,7 +390,7 @@ function actualizarUsuario(id_usuario){
                     title: "¡Usuario actualizado exitosamente!",
                     icon: "success"
                 });
-                TablaAdminClientes();
+                TablaAdminUsuarios();
             } else {
                 throw "Error en la llamada Ajax";
             }
