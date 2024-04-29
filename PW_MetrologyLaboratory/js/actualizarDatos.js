@@ -260,8 +260,42 @@ function activarCliente(id_cliente){
 
 function editarUsuario(id_usuario){
     console.log("id_usuario para editar: " + id_usuario);
-}
 
+
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnUsuario.php?id_usuario=' + id_usuario, function (data) {
+        var inputNombre = id("nombreUsuarioE");
+        inputNombre.value = data.data[0].nombreUsuario;
+
+        var inputCorreo = id("correoE");
+        inputCorreo.value = data.data[0].correoElectronico;
+
+        //imgActual
+        id("fotoUsuarioE").src = data.data[0].foto;
+
+        var selectS = id("tipoDeUsuarioE");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[j].id_tipoUsuario;
+            createOption.text = data.data[j].descripcionTipo;
+            selectS.appendChild(createOption);
+            if (data.data[j].id_usuario === id_usuario) {
+                createOption.selected = true;
+            }
+        }
+    });
+
+    var btnActualizarUsuario = document.getElementById('btn-updUsuario');
+    if (btnActualizarUsuario) { // Verifica que el botón exista en el DOM
+        btnActualizarUsuario.onclick = function() {
+            actualizarUsuario(id_usuario);
+        };
+    }
+}
+function actualizarUsuario(id_usuario){
+    console.log("actualizar user: " + id_usuario);
+}
 function activarUsuario(id_usuario){
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarUsuario.php?id_usuario='+id_usuario,{
         method: 'POST',

@@ -1,84 +1,120 @@
 Pendientes del Proyecto del Laboratorio de Metrología:
 
- 1. ¿Has olvidado la contraseña?
+✗ 1. ¿Has olvidado la contraseña?
 ✓ 2. En registro, validar si el usuario ya existe (01/04/2024)
-  2.1 Si el usuario ya existe, no se registra y reedirecciona a registrarse nuevamente pero no envia aviso.
-✓ 3. Cerrar sesión correctamente (27/03/2024)
-✓ 3.1 Cuando cierra sesión, deja "enviar" formulario pero no llega a la BD (27/03/2024)
-  3.2 Se permite el llenado del formulario pero al seleccionar "Enviar" redirecciona
+✗ 	2.1 Si el usuario ya existe, no se registra y reedirecciona a registrarse nuevamente pero no envia aviso.
+✗ 3. Cerrar sesión correctamente (27/03/2024)
+✓ 	3.1 Cuando cierra sesión, deja "enviar" formulario pero no llega a la BD (27/03/2024)
+✗ 	3.2 Se permite el llenado del formulario pero al seleccionar "Enviar" redirecciona
 ✓ 4. Una vez que se carga el archivo de la norma, ya no deja modificarlo
-  5. ¿Qué fecha de respuesta estaria por default?
-	Fecha de duracion de la prueba *dos dias posteriores
+✗ 5. ¿Qué fecha de respuesta estaria por default?
+✗	Fecha de duracion de la prueba *dos dias posteriores
 ✓ 6. Cuando se registre un usuario la contraseña se guarde en SHA1 (01/04/2024)
 ✓ 7. Poner nombre archivo de la norma (25/03/2024)
-✓ 7.1 Considerar nombres de archivos cuando hay espacios (26/03/2024)
-  8. Validaciones del formulario 
+✓ 	7.1 Considerar nombres de archivos cuando hay espacios (26/03/2024)
+✗ 8. Validaciones del formulario 
+✗	https://www.youtube.com/watch?v=IJpqkXZ5YNg&list=PL-Mlm_HYjCo8nCJIpVJKxU7otoAIgPx9i
 ✓ 9. Agregar a la bd la opcion otro cuando es prueba especial (26/03/24)
-  10. Corregir registro de la solicitud
-✓ 10.1 Validar inputs en requestRegister.php (26/03/2024)
-	-----Nota---- Si se hacen más cambios en el formulario, se requiere revisar nuevamente esta sección
+✗ 10. Corregir registro de la solicitud
+✓ 	10.1 Validar inputs en requestRegister.php (26/03/2024)
+✗	-----Nota---- Si se hacen más cambios en el formulario, se requiere revisar nuevamente esta sección
 ✓  11. Centrar imagen en el formulario y dar formato a inputs(27/03/2024)
 ✓  12. Que se permita registrar más de un material(03/04/2024)
-✓  12.1 Se insertan datos del formulario como transaccion
+✓  	12.1 Se insertan datos del formulario como transaccion
 ✓  13. El input de otro(tipo de prueba especial) se queda visible aunque se cambie el tipo de prueba(03/04/2024)
 ✓  14. Agregar funcion js para clonar divs para agregar material(02/04/2024)
-✓  14.1 Acomodar nuevos divs generados (02/04/2024)
-✓  14.2 Visualizacion de imagen(oculatar div nuevo) (04/04/2024)
+✓  	14.1 Acomodar nuevos divs generados (02/04/2024)
+✓  	14.2 Visualizacion de imagen(oculatar div nuevo) (04/04/2024)
 ✓  15. Número de parte se carga al final (02/04/2024)
-✓  15.1 Hacer cambios en la base de datos(cargar los num de parte y eliminar de la tabla correspondiente)(02/04/2024)
-✓  15.2 Eliminar el numero de parte al insertar datos en el formulario(dao y js)(02/04/2024)
-✓  15.3 Crear funcion para cargar el numero de parte(02/04/2024)
-   16. Validar porque al introducior Otro tipo de prueba ya no funciona
-      (ni siquiera entra a la funcion y restaura todo el formulario)
+✓  	15.1 Hacer cambios en la base de datos(cargar los num de parte y eliminar de la tabla correspondiente)(02/04/2024)
+✓  	15.2 Eliminar el numero de parte al insertar datos en el formulario(dao y js)(02/04/2024)
+✓  	15.3 Crear funcion para cargar el numero de parte(02/04/2024)
+✗  16. Validar porque al introducior Otro tipo de prueba ya no funciona
+✗     (ni siquiera entra a la funcion y restaura todo el formulario)
 ✓  17. Estructura preeliminar del espacio para el administrador(04/04/2024)
-   17.1 Mejorar estructura> https://www.youtube.com/watch?v=ghbWKVlJ3X8
-✓   18. Envio de correo electronico de confirmación(09/04/2024)
+✓  	17.1 Mejorar estructura> https://www.youtube.com/watch?v=ghbWKVlJ3X8
+✓  18. Envio de correo electronico de confirmación(09/04/2024)
 	https://www.youtube.com/watch?v=q9t_b83yR9o&t=0s
 	https://www.youtube.com/watch?v=1kQm2SSD4SY
-✓   18.1 Formato del correo electronico de confirmación(10/04/2024)
-✓   19. Ventana modal para confirmar envio (05/04/2024)
-✓   19.1 Crear dao para la consulta de los datos(05/04/2024)
-✓   19.2 Se crea funcion para hacer la insercion de datos en la ventana modal(05/04/2024)
-✓   19.3 Generar tabla con los materiales(05/04/2024)
-   19.4 Tipo de Prueba no se carga.
+✓   	18.1 Formato del correo electronico de confirmación(10/04/2024)
+✓  19. Ventana modal para confirmar envio (05/04/2024)
+✓  	19.1 Crear dao para la consulta de los datos(05/04/2024)
+✓  	19.2 Se crea funcion para hacer la insercion de datos en la ventana modal(05/04/2024)
+✓  	19.3 Generar tabla con los materiales(05/04/2024)
+✓  	19.4 Tipo de Prueba no se carga.
 ✓  20. Crear cuenta pora generar correo en hostinguer(09/04/2024)
 	LaboratorioMetrologiaGrammer@arketipo.mx
 	LMGrammer2024#
-   21. Cargar los datos de la tabla de solicitudes
-✓  21.1 Se cargan los datos por id_usuario a la tabla de listado de pruebas(09/04/2024)
-   21.2 Agregar especificaciones para rol de metrologo y administrador
-   21.3 Agregar las imagenes
-✓   22. Limitar el número de caracteres en la celda de especificaciones (11/04/2024)
-   23. Darle valor por default a observaciones
-✓   24. Cerrar sesion para administrador/metrologo no funciona(11/04/2024)
-✓   25. Agregar en el header el nombre del usuario(11/04/2024)
-✓   25.1 Agregar foto del usuario(11/04/2024)
-✓   26 Agregar logo de Grammer al inicio de sesión(12/04/2024)
-✓   27 Desarrollar historia de usuario de resumen de prueba
-    27.1 Front: html y css(12/04/2024)
+✓  21. Cargar los datos de la tabla de solicitudes(09/04/2024)
+✓  	21.1 Se cargan los datos por id_usuario a la tabla de listado de pruebas(09/04/2024)
+✓  	21.2 Agregar especificaciones para rol de metrologo y administrador(23/04/2024)
+✓  22. Limitar el número de caracteres en la celda de especificaciones (11/04/2024)
+✗  23. Darle valor por default a observaciones
+✓  24. Cerrar sesion para administrador/metrologo no funciona(11/04/2024)
+✓  25. Agregar en el header el nombre del usuario(11/04/2024)
+✓  	25.1 Agregar foto del usuario(11/04/2024)
+✓  26 Agregar logo de Grammer al inicio de sesión(12/04/2024)
+✓  27 Desarrollar historia de usuario de resumen de prueba (15/04/2024)
+✓  	27.1 Front: html y css(12/04/2024)
+✓  28. Agregar a la tabla de materiales el estatus(23/04/2024)
+✗  29. Personalizar colores de Boostrap
+✓  30. Generar pdf(16/04/2024)
+✓  	30.1 Dar estilos al pdf(16/04/2024)
+✓  	30.1 Asignar pdf en la ventana modal(17/04/2024)
+✓  31 Panel de administrador 
+✓  	31.1 Crear cliente (17/04/2024)
+✓   	31.2 Crear plataforma(17/04/2024)
+✓   	31.3 Crear material (22/04/2024)
+✗   		31.3.1 En materiales, si la imagen es grande no se guarda
+✓   	31.4 Consultar clientes (18/04/2024)
+✓   		31.4.1 Consultar clientes activados/desactivados(25/04/2024)
+✓   	31.5 Consultar plataformas(18/04/2024)
+✓        	31.5.1 Consultar plataformasactivados/desactivados(25/04/2024)
+✓   	31.6 Consultar materiales(18/04/2024)
+✓        	31.6.1 Consultar materialesactivados/desactivados(25/04/2024)
+✗		31.5 mostrar clientes de los materiales
+✓   32 Funciones de cambio de estado para cliente, plataforma y materiales
+✗    	32.1 Hacer cambio de estado en cascada
+✓   33 Agregar modalResultados(23/04/2024)
+✗    	33.2 Agregar estilos
+✓   	33.3 Guardar la actualizacion en la bd(23/04/2024)
+✓   		33.3.1 al actualizar una prueba, se actualizan todas(24/04/2024)
+✓   	33.4 Mandar correo de notificación(24/04/2024)
+✗    	33.5 Actualizar estatus de material
+✗   34 Actualizar datos generales
+✗   35. Fecha de respuesta y actualización que se asignen correctamente
+✓   36. Limitar las opciones del menú segun el tipo de usuario(24/04/2024)
+✓   37. Añadir al panel de administrador que el usuario pueda actualizar el tipo de usuario
+	37.1 Se añade tabla (24/04/2024)
 
-      
+    
 
-  99.El boton de la regla en solicitudes tiene asignada if function
-  100. Asignar valores por default en la BD
+
+
+✗  98. Al cargar la base de datos cargar el usuario "Sin Asignar" con id_usuario="00000000" por default
+✗  99.El boton de la regla en solicitudes tiene asignada if function
+✗  100. Asignar valores por default en la BD
 
 Reunion 02/04/2024 
 ✓  1. Prueba dureza insitu > agregar norma
 ✓ 2. Especificaciones para todos (03/04/2024)
 ✓ 3. Quitar cantidad de piezas el de despues de norma(03/04/2024)
-  4. Que administrador pueda revisar contraseñas
-  5. Actualizaciones solo para el administrador
-  6. Asignar por default a Adrian para este tipo de pruebas *input editable
+✗  4. Que administrador pueda revisar contraseñas
+     ---Se cambia por *Recuperart contraseña* ---
+✗  5. Actualizaciones solo para el administrador
+✗  6. Asignar por default a Adrian para este tipo de pruebas *input editable
      Fecha> 18 abril
      Observaciones
      Estatus la solicitud
      Prioridades
-Agregar apartado de observaciones para admin
-apartado de la ruta de reusltados
-resumen a pdf
+
+Reunion 12/04/2024 
+✓ Agregar apartado de observaciones para admin
+✓ apartado de la ruta de reusltados
+✓ resumen a pdf
 
 
 
 Lorem ipsum dolor sit amet consectetur, adipiscing elit mauris vel. Torquent fusce erat sociosqu tempus mi curae tempor sollicitudin bibendum dapibus vehicula, donec cubilia cursus viverra dignissim morbi justo facilisis diam volutpat litora tincidunt, dictumst magnis primis faucibus est pharetra ante per neque suscipit. Bibendum venenatis metus dictum dapibus id, ac et eros purus aptent, arcu erat senectus nam.
-148.244.250.101
+
 

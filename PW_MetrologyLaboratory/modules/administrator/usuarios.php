@@ -8,15 +8,19 @@
             </div>
             <div class="modal-body row">
                 <form method="POST" enctype="multipart/form-data">
+                    <div class="col-xl-4 text-center justify-content-center " id="divImagenMaterialE">
+                        <label for="fotoUsuarioE" class="form-label" ></label>
+                        <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="fotoUsuarioE" alt="Foto de perfil">
+                    </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
                         <label for="nombreUsuarioE" class="form-label">Nombre:  </label>
-                        <input type="text" name="nombreUsuarioE" id="nombreUsuarioE" class="form-control" >
+                        <input type="text" name="nombreUsuarioE" id="nombreUsuarioE" class="form-control" readonly>
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
                         <label for="correoE" class="form-label">Correo electrónico: </label>
-                        <input type="text" name="correoE" id="correoE" class="form-control" >
+                        <input type="text" name="correoE" id="correoE" class="form-control" readonly>
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
