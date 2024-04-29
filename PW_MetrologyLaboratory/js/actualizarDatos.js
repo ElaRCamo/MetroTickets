@@ -172,7 +172,7 @@ function  actualizarPlataforma(id_plataforma){
     const data = new FormData();
     data.append('id_plataforma',id_plataforma);
     data.append('descPlataformaE',descPlataformaE.value.trim());
-    data.append('descClienteE',descPClienteE.value.trim());
+    data.append('descPClienteE',descPClienteE.value.trim());
 
     alert ("id:"+id_plataforma+" desc Plata: "+descPlataformaE.value.trim()+" desc cliente: "+descPClienteE.value.trim())
 
@@ -186,7 +186,7 @@ function  actualizarPlataforma(id_plataforma){
                     title: "¡Plataforma actualizada exitosamente!",
                     icon: "success"
                 });
-                TablaAdminClientes();
+                TablaAdminPlataformas();
             } else {
                 throw "Error en la llamada Ajax";
             }
