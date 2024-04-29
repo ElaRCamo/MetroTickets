@@ -53,34 +53,45 @@
             </div>
             <div class="modal-body row">
                 <form method="POST" enctype="multipart/form-data">
-                    <div class="col-xl-4 text-center justify-content-center " id="divImagenMaterialE">
-                        <label for="imgMaterialE" class="form-label" >Imagen del material: </label>
-                        <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterialE" alt="Imagen Material">
-                    </div>
+
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr class="align-middle">
+                            <th rowspan="3" >
+                                <div class="col-xl-4 text-center justify-content-center " id="divImagenMaterialE">
+                                    <label for="imgMaterialE" class="form-label" >Imagen del material: </label>
+                                    <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterialE" alt="Imagen Material">
+                                </div>
+                                <div class="mb-3 col">
+                                    <div class="help-block with-errors"></div>
+                                    <label for="descMaterialE" class="form-label">Descripción del material: </label>
+                                    <input type="text" name="descMaterialE" id="descMaterialE" class="form-control" required>
+                                </div>
+                        </tr>
+                        <tr class="align-middle">
+                            <th>
+                                <div class="mb-3 col">
+                                    <div class="help-block with-errors"></div>
+                                    <label for="numParteE" class="form-label">Número de parte: </label>
+                                    <input id="numParteE" name="numParteE" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
+                                </div>
+                                <div class="mb-3 col">
+                                    <div class="help-block with-errors"></div>
+                                    <label for="descMPlataformaE" class="form-label">Plataforma: </label>
+                                    <select class="form-control" id="descMPlataformaE" name="descMPlataformaE" required data-error="Por favor seleccione el cliente" >
+                                        <option value="">Seleccione una plataforma*</option>
+                                    </select>
+                                </div>
+                            </th>
+                        </tr>
+                        </tbody>
+                    </table>
                     <div class="mb-3 ">
                         <div class="help-block with-errors"></div>
                         <label for="imgMaterialE" class="form-label" >Nueva imagen: </label>
                         <input type="file" placeholder="Imagen del material" class="form-control" id="imgMaterialE" name="imgMaterialE" required>
                     </div>
-                    <div class="row">
-                        <div class="mb-3 col">
-                            <div class="help-block with-errors"></div>
-                            <label for="descMaterialE" class="form-label">Descripción del material: </label>
-                            <input type="text" name="descMaterialE" id="descMaterialE" class="form-control" required>
-                        </div>
-                        <div class="mb-3 col">
-                            <div class="help-block with-errors"></div>
-                            <label for="numParteE" class="form-label">Número de parte: </label>
-                            <input id="numParteE" name="numParteE" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
-                        </div>
-                        <div class="mb-3 col">
-                            <div class="help-block with-errors"></div>
-                            <label for="descMPlataformaE" class="form-label">Plataforma: </label>
-                            <select class="form-control" id="descMPlataformaE" name="descMPlataformaE" required data-error="Por favor seleccione el cliente" >
-                                <option value="">Seleccione una plataforma*</option>
-                            </select>
-                        </div>
-                    </div>
+
                     <div class="row justify-content-end">
                         <div class="">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
