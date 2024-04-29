@@ -375,7 +375,7 @@ function actualizarUsuario(id_usuario){
 
     var tipoDeUsuarioE= id("tipoDeUsuarioE");
     const data = new FormData();
-    data.append('id_cliente',id_usuario);
+    data.append('id_usuario',id_usuario);
     data.append('tipoDeUsuarioE',tipoDeUsuarioE.value.trim());
 
     alert ("id:"+id_usuario+" tipoDeUsuarioE: "+tipoDeUsuarioE.value.trim())
