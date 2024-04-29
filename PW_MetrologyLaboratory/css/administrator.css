@@ -119,11 +119,9 @@ td{
     max-width: 200px;
 }
 #imgMaterialE{
-    max-width: 300px;
+    max-width: 400px;
 }
-#divCambiarImg{
-    display: none;
-}
+
 #divImagenMaterialE {
     position: relative;
 }
@@ -157,4 +155,7 @@ td{
 }
 .form-label {
     margin-right: 10px;
+}
+#divCambiarImg{
+    display: none;
 }

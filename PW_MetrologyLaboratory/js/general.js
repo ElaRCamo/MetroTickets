@@ -173,7 +173,7 @@ function hideButton(id_button){
 
 function cambiarImg(){
     var divImg = id("divCambiarImg");
-    divImg.style.display = "block";
+    divImg.style.display = "inline-block";
 }
 function hideImg(){
     var divImg = id("divCambiarImg");
