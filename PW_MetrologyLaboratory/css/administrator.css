@@ -108,8 +108,6 @@ td{
     border: none;
     color: var(--main-color);
     font-weight: bold;
-    width: auto;
-    text-align: end;
     margin-right: 0.5rem;
 }
 
