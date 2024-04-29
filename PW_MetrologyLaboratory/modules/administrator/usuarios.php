@@ -17,8 +17,6 @@
                                     <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="fotoUsuarioE" alt="Foto de perfil">
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
                             <td>
                                 <div class="mb-3">
                                     <div class="help-block with-errors"></div>
