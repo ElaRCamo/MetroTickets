@@ -92,7 +92,7 @@
                             </th>
                         </tr>
                         <tr class="align-middle" id="divCambiarImg">
-                            <th>
+                            <th colspan="2">
                                 <div class="mb-3" >
                                     <div class="help-block with-errors"></div>
                                     <a id="aHideImg" onclick="hideImg()"><i class="las la-times"></i></a>
