@@ -264,7 +264,7 @@ function editarMaterial(id_descripcion){
             var createOptionC = document.createElement("option");
             createOptionC.value = data.data[j].id_cliente;
             createOptionC.text = data.data[j].descripcionCliente;
-            selectC.appendChild(createOption);
+            selectC.appendChild(createOptionC);
             if (data.data[j].id_plataforma === plataforma) {
                 createOptionC.selected = true;
             }
