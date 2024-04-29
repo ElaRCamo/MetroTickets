@@ -372,6 +372,35 @@ function editarUsuario(id_usuario){
 }
 function actualizarUsuario(id_usuario){
     console.log("actualizar user: " + id_usuario);
+
+    var tipoDeUsuarioE= id("tipoDeUsuarioE");
+    const data = new FormData();
+    data.append('id_cliente',id_usuario);
+    data.append('tipoDeUsuarioE',tipoDeUsuarioE.value.trim());
+
+    alert ("id:"+id_usuario+" tipoDeUsuarioE: "+tipoDeUsuarioE.value.trim())
+
+    fetch('../../dao/daoActualizarUsuario.php', {
+        method: 'POST',
+        body: data
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                Swal.fire({
+                    title: "¡Usuario actualizado exitosamente!",
+                    icon: "success"
+                });
+                TablaAdminClientes();
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
 }
 function activarUsuario(id_usuario){
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarUsuario.php?id_usuario='+id_usuario,{
