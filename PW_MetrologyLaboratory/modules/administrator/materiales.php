@@ -60,7 +60,7 @@
                             <th rowspan="3" >
                                 <div class="text-center justify-content-center " id="divImagenMaterialE">
                                     <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterialE" alt="Imagen Material">
-                                    <a id="aCambiarImg" onclick="cambiarImg()"><i class="las la-pencil-alt"></i></a>
+                                    <a id="aCambiarImg" onclick="cambiarImg()"><i class="las la-edit"></i></a>
                                 </div>
                             </th>
                             <th>
@@ -95,7 +95,7 @@
                             <th colspan="2">
                                 <div class="mb-3" id="divCambiarImg">
                                     <div class="help-block with-errors"></div>
-                                    <label for="imgMaterialE" class="form-label" >Nueva imagen: </label>
+                                    <a id="aHideImg" onclick="hideImg()"><i class="las la-times"></i></a><label for="imgMaterialE" class="form-label" >Nueva imagen: </label>
                                     <input type="file" placeholder="Imagen del material" class="form-control" id="imgMaterialE" name="imgMaterialE" required>
                                 </div>
                             </th>

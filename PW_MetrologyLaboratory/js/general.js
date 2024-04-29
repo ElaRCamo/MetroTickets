@@ -175,7 +175,7 @@ function cambiarImg(){
     var divImg = id("divCambiarImg");
     divImg.style.display = "block";
 }
-function noCambiarImg(){
+function hideImg(){
     var divImg = id("divCambiarImg");
     divImg.style.display = "none";
 }
