@@ -116,3 +116,7 @@ td{
 .borderless td, .borderless th {
     border: none;
 }
+
+#fotoUsuarioE{
+    max-width: 100px;
+}
