@@ -12,9 +12,9 @@
                         <tbody>
                         <tr class="align-middle">
                             <th rowspan="2" >
-                                <div class="col-xl-4 text-center justify-content-center " id="divImagenMaterialE">
+                                <div class="text-center justify-content-center " id="divImagenMaterialE">
                                     <label for="fotoUsuarioE" class="form-label" ></label>
-                                    <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="fotoUsuarioE" alt="Foto de perfil">
+                                    <img src="" class="mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="fotoUsuarioE" alt="Foto de perfil">
                                 </div>
                             </th>
                             <th>
