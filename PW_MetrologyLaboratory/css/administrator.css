@@ -118,3 +118,6 @@ td{
 #fotoUsuarioE, #imgMaterialE{
     max-width: 200px;
 }
+#divCambiarImg{
+    display: none;
+}

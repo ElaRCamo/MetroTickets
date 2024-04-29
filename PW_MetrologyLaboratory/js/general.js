@@ -171,7 +171,14 @@ function hideButton(id_button){
     button.style.display = "none";
 }
 
-
+function cambiarImg(){
+    var divImg = id(divCambiarImg);
+    divImg.style.display = "block";
+}
+function noCambiarImg(){
+    var divImg = id(divCambiarImg);
+    divImg.style.display = "none";
+}
 
 
 
