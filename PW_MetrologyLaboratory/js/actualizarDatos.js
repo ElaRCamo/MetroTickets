@@ -75,53 +75,61 @@ function updatePruebaSol(id_review){
 
 }
 
-function editarMaterial(id_descripcion){
-    console.log("para editar: " + id_descripcion);
+function editarCliente(id_cliente){
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnaMaterial.php?id_descripcion=' + id_descripcion, function (data) {
-        var inputMaterial = id("descMaterialE");
-        inputMaterial.value = data.data[0].descripcionMaterial;
-
-        var inputNumParte = id("numParteE");
-        inputNumParte.value = data.data[0].numeroDeParte;
-
-        //imgActual
-        id("imagenMaterialE").src = data.data[0].imgMaterial;
-
-        var selectS = id("descMPlataformaE");
-        selectS.innerHTML = ""; //limpiar contenido
-
-        for (var j = 0; j < data.data.length; j++) {
-            var createOption = document.createElement("option");
-            createOption.value = data.data[j].id_plataforma;
-            createOption.text = data.data[j].descripcionPlataforma;
-            selectS.appendChild(createOption);
-            if (data.data[j].id_descripcion === id_descripcion) {
-                createOption.selected = true;
-            }
-        }
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnCliente.php?id_cliente=' + id_cliente, function (data) {
+        var inputCliente = id("descClienteE");
+        inputCliente.value = data.data[0].descripcionCliente;
     });
 
-    var btnActualizarMaterial = document.getElementById('btn-updMaterial');
-    if (btnActualizarMaterial) { // Verifica que el botón exista en el DOM
-        btnActualizarMaterial.onclick = function() {
-            actualizarPlataforma(id_descripcion);
+    var btnActualizarCliente = document.getElementById('btn-updCliente');
+    if (btnActualizarCliente) { // Verifica que el botón exista en el DOM
+        btnActualizarCliente.onclick = function () {
+            actualizarCliente(id_cliente);
         };
     }
+}
 
+function actualizarCliente(id_cliente){
+    console.log("id_cliente para editar: " + id_cliente);
+    var descClienteE= id("descClienteE");
+    const data = new FormData();
+    data.append('id_cliente',id_cliente);
+    data.append('descClienteE',descClienteE.value.trim());
+
+    alert ("id:"+id_cliente+" desc: "+descClienteE.value.trim())
+
+    fetch('../../dao/daoActualizarCliente.php', {
+        method: 'POST',
+        body: data
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                Swal.fire({
+                    title: "¡Cliente actualizado exitosamente!",
+                    icon: "success"
+                });
+                TablaAdminClientes();
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
 }
-function actualizarMaterial(id_descripcion){
-    console.log("ACTUALIZAR: " + id_descripcion);
-}
-function activarMaterial(id_descripcion){
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarMaterial.php?id_descripcion='+id_descripcion,{
+function activarCliente(id_cliente){
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarCliente.php?id_cliente='+id_cliente,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(id_descripcion)
+        body: JSON.stringify(id_cliente)
     }).then(res => {
-        TablaAdminMaterialesDes();
+        TablaAdminClientesDes();
         if(!res.ok){
             console.log('Problem');
             return;
@@ -129,7 +137,7 @@ function activarMaterial(id_descripcion){
         return res.json();
     })
         .then(data => {
-            Swal.fire("¡Material activado!");
+            Swal.fire("¡Cliente activado!");
         })
         .catch(error =>{
             console.log(error);
@@ -222,40 +230,77 @@ function activarPlataforma(id_plataforma){
         });
 }
 
-function editarCliente(id_cliente){
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnCliente.php?id_cliente=' + id_cliente, function (data) {
-        var inputCliente = id("descClienteE");
-        inputCliente.value = data.data[0].descripcionCliente;
+function editarMaterial(id_descripcion){
+    console.log("para editar: " + id_descripcion);
+
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnaMaterial.php?id_descripcion=' + id_descripcion, function (data) {
+        var inputMaterial = id("descMaterialE");
+        inputMaterial.value = data.data[0].descripcionMaterial;
+
+        var inputNumParte = id("numParteE");
+        inputNumParte.value = data.data[0].numeroDeParte;
+
+        //imgActual
+        id("imagenMaterialE").src = data.data[0].imgMaterial;
+
+        var selectS = id("descMPlataformaE");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[j].id_plataforma;
+            createOption.text = data.data[j].descripcionPlataforma;
+            selectS.appendChild(createOption);
+            if (data.data[j].id_descripcion === id_descripcion) {
+                createOption.selected = true;
+            }
+        }
     });
 
-    var btnActualizarCliente = document.getElementById('btn-updCliente');
-    if (btnActualizarCliente) { // Verifica que el botón exista en el DOM
-        btnActualizarCliente.onclick = function () {
-            actualizarCliente(id_cliente);
+    var btnActualizarMaterial = document.getElementById('btn-updMaterial');
+    if (btnActualizarMaterial) { // Verifica que el botón exista en el DOM
+        btnActualizarMaterial.onclick = function() {
+            actualizarPlataforma(id_descripcion);
         };
     }
+
 }
-function actualizarCliente(id_cliente){
-    console.log("id_cliente para editar: " + id_cliente);
-    var descClienteE= id("descClienteE");
-    const data = new FormData();
-    data.append('id_cliente',id_cliente);
-    data.append('descClienteE',descClienteE.value.trim());
+function actualizarMaterial(id_descripcion){
+    console.log("ACTUALIZAR: " + id_descripcion);
 
-    alert ("id:"+id_cliente+" desc: "+descClienteE.value.trim())
+    var descMaterialE = id("descMaterialE");
+    var numParteE = id("numParteE");
+    var imgMaterialE = id("imgMaterialE");
+    var descMPlataformaE = id("descMPlataformaE");
 
-        fetch('../../dao/daoActualizarCliente.php', {
+    const dataForm = new FormData();
+    dataForm.append('id_descripcion', id_descripcion);
+    dataForm.append('descMaterialE', descMaterialE.value.trim());
+    dataForm.append('numParteE', numParteE.value.trim());
+
+    // Validar la imagen antes de adjuntarla al FormData
+    if (imgMaterialE.files.length > 0) {
+        validarImagen(imgMaterialE.files[0]);
+        dataForm.append('imgMaterialE', imgMaterialE.files[0]);
+    } else {
+        throw "Por favor seleccione una imagen";
+    }
+
+    dataForm.append('descMPlataformaE', descMPlataformaE.value.trim());
+    console.log("DataForm paara actualizar:", dataForm);
+
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarMaterial.php', {
         method: 'POST',
-            body: data
-    })
-    .then(function (response) {
+        body: dataForm
+    }).then(function (response) {
         if (response.ok) { //respuesta
             Swal.fire({
-                title: "¡Cliente actualizado exitosamente!",
-                icon: "success"
+                icon: "success",
+                title: "¡Material actualizado con éxito!",
+                showConfirmButton: true
             });
-            TablaAdminClientes();
+            TablaAdminMateriales();
         } else {
             throw "Error en la llamada Ajax";
         }
@@ -267,15 +312,15 @@ function actualizarCliente(id_cliente){
             console.log(err);
         });
 }
-function activarCliente(id_cliente){
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarCliente.php?id_cliente='+id_cliente,{
+function activarMaterial(id_descripcion){
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarMaterial.php?id_descripcion='+id_descripcion,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(id_cliente)
+        body: JSON.stringify(id_descripcion)
     }).then(res => {
-        TablaAdminClientesDes();
+        TablaAdminMaterialesDes();
         if(!res.ok){
             console.log('Problem');
             return;
@@ -283,7 +328,7 @@ function activarCliente(id_cliente){
         return res.json();
     })
         .then(data => {
-            Swal.fire("¡Cliente activado!");
+            Swal.fire("¡Material activado!");
         })
         .catch(error =>{
             console.log(error);

@@ -1,25 +1,24 @@
 <?php
 include_once('connection.php');
 
-if(isset($_POST['id_descripcion'],$_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_POST['descMPlataformaN'] )) {
-    $id_descripcion = $_POST['id_descripcion'];
-    $descMaterial = $_POST['descMaterialN'];
-    $numParte = $_POST['numParteN'];
-    $idPlataforma = $_POST['descMPlataformaN'];
+if(isset($_POST['descMaterialE'],$_POST['numParteN'],$_FILES['imgMaterialE'],$_POST['descMPlataformaE'] )) {
+    $descMaterial = $_POST['descMaterialE'];
+    $numParte = $_POST['numParteE'];
+    $idPlataforma = $_POST['descMPlataformaE'];
 
 
-    if ($_FILES["imgMaterialN"]["error"] > 0) {
-        echo "Error: " . $_FILES["imgMaterialN"]["error"];
+    if ($_FILES["imgMaterialE"]["error"] > 0) {
+        echo "Error: " . $_FILES["imgMaterialE"]["error"];
     } else {
         $fechaActual = date('Y-m-d_H-i-s');
         $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
-        $archivo = $_FILES['imgMaterialN']['name'];
+        $archivo = $_FILES['imgMaterialE']['name'];
         $imgName = $fechaActual . '-' . $numParte . '-' . str_replace(' ', '-', $descMaterial);
         $img = $target_dir . $imgName;
 
-        $tipo = $_FILES['imgMaterialN']['type'];
-        $tamano = $_FILES['imgMaterialN']['size'];
-        $temp = $_FILES['imgMaterialN']['tmp_name'];
+        $tipo = $_FILES['imgMaterialE']['type'];
+        $tamano = $_FILES['imgMaterialE']['size'];
+        $temp = $_FILES['imgMaterialE']['tmp_name'];
         $moverImgFile = "../imgs/materials/" . $imgName;
 
         $extension = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
@@ -28,7 +27,7 @@ if(isset($_POST['id_descripcion'],$_POST['descMaterialN'],$_POST['numParteN'],$_
         if (in_array($extension, $extensionesPermitidas)) {
             if (move_uploaded_file($temp, $moverImgFile)) {
                 echo "La imagen " . htmlspecialchars($imgName) . " ha sido subida correctamente.";
-                nuevoMaterial($id_descripcion,$descMaterial, $numParte, $img, $idPlataforma);
+                actualizarMaterial($descMaterial, $numParte, $img, $idPlataforma);
             } else {
                 echo "Hubo un error al subir la imagen.";
             }
@@ -40,14 +39,13 @@ if(isset($_POST['id_descripcion'],$_POST['descMaterialN'],$_POST['numParteN'],$_
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
 
-function nuevoMaterial($id_descripcion,$descMaterial,$numParte,$img,$idPlataforma){
+function actualizarMaterial($descMaterial,$numParte,$img,$idPlataforma){
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $insertMaterial = $conex->prepare("UPDATE DescripcionMaterial 
-                                                SET descripcionMaterial = ?, numeroDeParte = ?, imgMaterial = ?, id_plataforma = ?
-                                             WHERE id_descripcion = ?");
-    $insertMaterial->bind_param("sssii", $descMaterial,$numParte,$img,$idPlataforma,$id_descripcion);
+    $insertMaterial = $conex->prepare("INSERT INTO DescripcionMaterial (descripcionMaterial, numeroDeParte, imgMaterial, id_plataforma)
+                                                    VALUES (?,?,?,?)");
+    $insertMaterial->bind_param("sssi", $descMaterial,$numParte,$img,$idPlataforma);
     $resultado = $insertMaterial->execute();
 
     $conex->close();
@@ -61,6 +59,5 @@ function nuevoMaterial($id_descripcion,$descMaterial,$numParte,$img,$idPlataform
     exit;
 }
 ?>
-
 
 
