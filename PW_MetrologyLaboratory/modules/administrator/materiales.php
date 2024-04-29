@@ -104,7 +104,7 @@
                                 <div class="mb-3">
                                     <div class="help-block with-errors"></div>
                                     <label for="descMClienteE" class="form-label">Cliente: </label>
-                                    <select class="form-control" id="descMClienteE" name="descMClienteE" required data-error="Por favor seleccione el cliente" >
+                                    <select class="form-control" id="descMClienteE" name="descMClienteE" onchange="consultarPlataformas()" required data-error="Por favor seleccione el cliente" >
                                         <option value="">Seleccione una cliente*</option>
                                     </select>
                                 </div>
