@@ -26,6 +26,8 @@
                                     <input type="text" name="nombreUsuarioE" id="nombreUsuarioE" class="form-control" readonly>
                                 </div>
                             </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <div class="mb-3">
                                     <div class="help-block with-errors"></div>
