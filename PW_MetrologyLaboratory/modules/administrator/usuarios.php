@@ -14,13 +14,13 @@
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
-                        <label for="nombreUsuarioE" class="form-label">Nombre:  </label>
-                        <input type="text" name="nombreUsuarioE" id="nombreUsuarioE" class="form-control" readonly>
+                        <label for="nombreUsuarioE" class="form-label">Nombre:  <input type="text" name="nombreUsuarioE" id="nombreUsuarioE" class="form-control" readonly></label>
+
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
-                        <label for="correoE" class="form-label">Correo electrónico: </label>
-                        <input type="text" name="correoE" id="correoE" class="form-control" readonly>
+                        <label for="correoE" class="form-label">Correo electrónico: <input type="text" name="correoE" id="correoE" class="form-control" readonly></label>
+
                     </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
