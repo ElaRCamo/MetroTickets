@@ -172,11 +172,11 @@ function hideButton(id_button){
 }
 
 function cambiarImg(){
-    var divImg = id(divCambiarImg);
+    var divImg = id("divCambiarImg");
     divImg.style.display = "block";
 }
 function noCambiarImg(){
-    var divImg = id(divCambiarImg);
+    var divImg = id("divCambiarImg");
     divImg.style.display = "none";
 }
 

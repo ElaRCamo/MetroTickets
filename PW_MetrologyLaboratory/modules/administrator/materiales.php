@@ -62,11 +62,14 @@
                                     <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterialE" alt="Imagen Material">
                                     <a onclick="cambiarImg()"><i class="las la-pencil-alt"></i></a>
                                 </div>
+                            </th>
+                            <th>
                                 <div class="mb-3">
                                     <div class="help-block with-errors"></div>
                                     <label for="descMaterialE" class="form-label">Descripción del material: </label>
                                     <input type="text" name="descMaterialE" id="descMaterialE" class="form-control" required>
                                 </div>
+                            </th>
                         </tr>
                         <tr class="align-middle">
                             <th>
