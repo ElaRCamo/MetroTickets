@@ -166,6 +166,38 @@ function editarPlataforma(id_plataforma){
 function  actualizarPlataforma(id_plataforma){
     console.log("id_plataforma para actualizar: " + id_plataforma);
 
+    var descPlataformaE= id("descPlataformaE");
+    var descPClienteE= id("descPClienteE");
+
+    const data = new FormData();
+    data.append('id_plataforma',id_plataforma);
+    data.append('descPlataformaE',descPlataformaE.value.trim());
+    data.append('descClienteE',descPClienteE.value.trim());
+
+    alert ("id:"+id_plataforma+" desc Plata: "+descPlataformaE.value.trim()+" desc cliente: "+descPClienteE.value.trim())
+
+    fetch('../../dao/daoActualizarPlataforma.php', {
+        method: 'POST',
+        body: data
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                Swal.fire({
+                    title: "¡Plataforma actualizada exitosamente!",
+                    icon: "success"
+                });
+                TablaAdminClientes();
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+
 }
 function activarPlataforma(id_plataforma){
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarPlataforma.php?id_plataforma='+id_plataforma,{
