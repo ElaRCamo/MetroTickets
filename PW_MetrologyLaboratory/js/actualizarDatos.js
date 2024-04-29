@@ -234,7 +234,7 @@ function activarPlataforma(id_plataforma){
 function editarMaterial(id_descripcion){
     console.log("para editar: " + id_descripcion);
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnaMaterial.php?id_descripcion=' + id_descripcion, function (data) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnMaterial.php?id_descripcion=' + id_descripcion, function (data) {
         var inputMaterial = id("descMaterialE");
         inputMaterial.value = data.data[0].descripcionMaterial;
 
