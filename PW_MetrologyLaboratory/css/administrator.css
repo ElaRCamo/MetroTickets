@@ -121,3 +121,17 @@ td{
 #divCambiarImg{
     display: none;
 }
+#divImagenMaterialE {
+    position: relative;
+}
+
+#divImagenMaterialE a {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--main-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
