@@ -8,23 +8,37 @@
             </div>
             <div class="modal-body row">
                 <form method="POST" enctype="multipart/form-data">
-                    <div class="col-xl-4 text-center justify-content-center " id="divImagenMaterialE">
-                        <label for="fotoUsuarioE" class="form-label" ></label>
-                        <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="fotoUsuarioE" alt="Foto de perfil">
-                    </div>
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                            <td rowspan="2">
+                                <div class="col-xl-4 text-center justify-content-center " id="divImagenMaterialE">
+                                    <label for="fotoUsuarioE" class="form-label" ></label>
+                                    <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="fotoUsuarioE" alt="Foto de perfil">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="mb-3">
+                                    <div class="help-block with-errors"></div>
+                                    <label for="nombreUsuarioE" class="form-label">Nombre </label>
+                                    <input type="text" name="nombreUsuarioE" id="nombreUsuarioE" class="form-control" readonly>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mb-3">
+                                    <div class="help-block with-errors"></div>
+                                    <label for="correoE" class="form-label">Correo electrónico</label>
+                                    <input type="text" name="correoE" id="correoE" class="form-control" readonly>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
-                        <label for="nombreUsuarioE" class="form-label">Nombre:  <input type="text" name="nombreUsuarioE" id="nombreUsuarioE" class="form-control" readonly></label>
-
-                    </div>
-                    <div class="mb-3">
-                        <div class="help-block with-errors"></div>
-                        <label for="correoE" class="form-label">Correo electrónico: <input type="text" name="correoE" id="correoE" class="form-control" readonly></label>
-
-                    </div>
-                    <div class="mb-3">
-                        <div class="help-block with-errors"></div>
-                        <label for="tipoDeUsuarioE" class="form-label">Tipo de usuario: </label>
+                        <label for="tipoDeUsuarioE" class="form-label">Tipo de usuario</label>
                         <select class="form-control" id="tipoDeUsuarioE" name="tipoDeUsuarioE"></select>
                     </div>
                     <div class="row justify-content-end">
