@@ -91,16 +91,16 @@
                                 </div>
                             </th>
                         </tr>
-                        <tr class="align-middle" id="divCambiarImg">
-                            <th colspan="2">
-                                <div class="mb-3" >
+                        <tr class="align-middle" >
+                            <th>
+                                <div class="mb-3" id="divCambiarImg">
                                     <div class="help-block with-errors"></div>
                                     <a id="aHideImg" onclick="hideImg()"><i class="las la-times"></i></a>
                                     <label for="imgMaterialE" class="form-label" >Nueva imagen: </label>
                                 </div>
                             </th>
                             <th>
-                                <div class="mb-3" >
+                                <div class="mb-3" id="divCambiarImg2">
                                     <input type="file" placeholder="Imagen del material" class="form-control" id="imgMaterialE" name="imgMaterialE" required>
                                 </div>
                             </th>

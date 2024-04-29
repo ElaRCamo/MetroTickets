@@ -118,10 +118,6 @@ td{
 #fotoUsuarioE{
     max-width: 200px;
 }
-#imgMaterialE{
-    max-width: 400px;
-}
-
 #divImagenMaterialE {
     position: relative;
 }
@@ -156,6 +152,6 @@ td{
 .form-label {
     margin-right: 10px;
 }
-#divCambiarImg{
+#divCambiarImg, #divCambiarImg2{
     display: none;
 }
