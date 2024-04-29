@@ -250,6 +250,8 @@ function editarMaterial(id_descripcion){
         var selectC = id("descMClienteE");
         selectC.innerHTML = ""; //limpiar contenido
 
+        let plataforma;
+
         for (var j = 0; j < data.data.length; j++) {
             var createOption = document.createElement("option");
             createOption.value = data.data[j].id_plataforma;
@@ -258,9 +260,8 @@ function editarMaterial(id_descripcion){
 
             if (data.data[j].id_descripcion === id_descripcion) {
                 createOption.selected = true;
-                var plataforma = data.data[j].id_descripcion;
+                plataforma = data.data[j].id_descripcion;
             }
-
 
             var createOptionC = document.createElement("option");
             createOptionC.value = data.data[j].id_cliente;
