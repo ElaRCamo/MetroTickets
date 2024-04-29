@@ -1,7 +1,8 @@
 <?php
 include_once('connection.php');
 
-if(isset($_POST['descMaterialE'],$_POST['numParteN'],$_FILES['imgMaterialE'],$_POST['descMPlataformaE'] )) {
+if(isset($_POST['id_descripcion'],$_POST['descMaterialE'],$_POST['numParteN'],$_FILES['imgMaterialE'],$_POST['descMPlataformaE'] )) {
+    $id_descripcion = $_POST['id_descripcion'];
     $descMaterial = $_POST['descMaterialE'];
     $numParte = $_POST['numParteE'];
     $idPlataforma = $_POST['descMPlataformaE'];
@@ -27,7 +28,7 @@ if(isset($_POST['descMaterialE'],$_POST['numParteN'],$_FILES['imgMaterialE'],$_P
         if (in_array($extension, $extensionesPermitidas)) {
             if (move_uploaded_file($temp, $moverImgFile)) {
                 echo "La imagen " . htmlspecialchars($imgName) . " ha sido subida correctamente.";
-                actualizarMaterial($descMaterial, $numParte, $img, $idPlataforma);
+                actualizarMaterial($id_descripcion,$descMaterial, $numParte, $img, $idPlataforma);
             } else {
                 echo "Hubo un error al subir la imagen.";
             }
@@ -39,13 +40,17 @@ if(isset($_POST['descMaterialE'],$_POST['numParteN'],$_FILES['imgMaterialE'],$_P
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
 
-function actualizarMaterial($descMaterial,$numParte,$img,$idPlataforma){
+function actualizarMaterial($id_descripcion,$descMaterial,$numParte,$img,$idPlataforma){
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $insertMaterial = $conex->prepare("INSERT INTO DescripcionMaterial (descripcionMaterial, numeroDeParte, imgMaterial, id_plataforma)
-                                                    VALUES (?,?,?,?)");
-    $insertMaterial->bind_param("sssi", $descMaterial,$numParte,$img,$idPlataforma);
+
+
+
+    $insertMaterial = $conex->prepare("UPDATE DescripcionMaterial 
+                                                SET descripcionMaterial = ?, numeroDeParte = ?, imgMaterial = ?, id_plataforma = ?
+                                             WHERE id_descripcion = ?");
+    $insertMaterial->bind_param("sssii", $descMaterial,$numParte,$img,$idPlataforma,$id_descripcion);
     $resultado = $insertMaterial->execute();
 
     $conex->close();
