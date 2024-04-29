@@ -115,6 +115,6 @@ td{
     border: none;
 }
 
-#fotoUsuarioE{
+#fotoUsuarioE, #imgMaterialE{
     max-width: 200px;
 }

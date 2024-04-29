@@ -75,6 +75,9 @@
                                     <label for="numParteE" class="form-label">Número de parte: </label>
                                     <input id="numParteE" name="numParteE" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte">
                                 </div>
+                            </th>
+                        </tr>
+                        <tr class="align-middle">
                                 <div class="mb-3 col">
                                     <div class="help-block with-errors"></div>
                                     <label for="descMPlataformaE" class="form-label">Plataforma: </label>
