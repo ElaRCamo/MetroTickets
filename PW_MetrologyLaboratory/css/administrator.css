@@ -115,8 +115,11 @@ td{
     border: none;
 }
 
-#fotoUsuarioE, #imgMaterialE{
+#fotoUsuarioE{
     max-width: 200px;
+}
+#imgMaterialE{
+    max-width: 300px;
 }
 #divCambiarImg{
     display: none;
@@ -124,9 +127,10 @@ td{
 #divImagenMaterialE {
     position: relative;
 }
-
 #divImagenMaterialE a {
     position: absolute;
+}
+#divImagenMaterialE a, #aHideImg {
     bottom: 0;
     right: 0;
     background-color: var(--main-color);
@@ -137,9 +141,20 @@ td{
     margin-right: 4rem;
 }
 #aHideImg{
-    background-color: var(--main-color);
+    background-color: darkred;
+    bottom: 0;
+    right: 0;
     color: white;
     padding: 5px 10px;
-    border-radius: 2rem;
+    border-radius: 4rem;
     text-decoration: none;
+    margin-right: 1rem;
+}
+#divCambiarImg {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.form-label {
+    margin-right: 10px;
 }
