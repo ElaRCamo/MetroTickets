@@ -52,7 +52,7 @@
                 <button type="button" class="btn-close" id="" data-bs-dismiss="modal" onclick="" aria-label="Close"></button>
             </div>
             <div class="modal-body row">
-                <form method="POST" enctype="multipart/form-data">
+                <form method="POST" enctype="multipart/form-data" id="formEditarMaterial">
 
                     <table class="table table-borderless">
                         <tbody>
@@ -85,7 +85,7 @@
                                 <div class="mb-3">
                                     <div class="help-block with-errors"></div>
                                     <label for="descMPlataformaE" class="form-label">Plataforma: </label>
-                                    <select class="form-control" id="descMPlataformaE" name="descMPlataformaE" required data-error="Por favor seleccione el cliente" >
+                                    <select class="form-control" id="descMPlataformaE" name="descMPlataformaE" required data-error="Por favor seleccione la plataforma" >
                                         <option value="">Seleccione una plataforma*</option>
                                     </select>
                                 </div>
@@ -97,11 +97,16 @@
                                     <div class="help-block with-errors"></div>
                                     <a id="aHideImg" onclick="hideImg()"><i class="las la-times"></i></a>
                                     <label for="imgMaterialE" class="form-label" >Nueva imagen: </label>
+                                    <input type="file" placeholder="Imagen del material" class="form-control" id="imgMaterialE" name="imgMaterialE" required>
                                 </div>
                             </th>
                             <th>
-                                <div class="mb-3" id="divCambiarImg2">
-                                    <input type="file" placeholder="Imagen del material" class="form-control" id="imgMaterialE" name="imgMaterialE" required>
+                                <div class="mb-3">
+                                    <div class="help-block with-errors"></div>
+                                    <label for="descMClienteE" class="form-label">Cliente: </label>
+                                    <select class="form-control" id="descMClienteE" name="descMClienteE" required data-error="Por favor seleccione el cliente" >
+                                        <option value="">Seleccione una cliente*</option>
+                                    </select>
                                 </div>
                             </th>
                         </tr>

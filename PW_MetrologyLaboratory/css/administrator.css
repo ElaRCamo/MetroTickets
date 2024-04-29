@@ -152,6 +152,9 @@ td{
 .form-label {
     margin-right: 10px;
 }
+#formEditarMaterial input{
+    max-width: 500px;
+}
 #divCambiarImg, #divCambiarImg2{
     display: none;
 }

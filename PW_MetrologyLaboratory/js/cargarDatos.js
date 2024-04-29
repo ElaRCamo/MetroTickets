@@ -66,6 +66,28 @@ function llenarCliente(i){
         }
     });
 }
+/*
+function cargarClientes(cliente){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
+        var selectS = id("descMClienteE");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Especifique el cliente(OEM)*";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[j].id_cliente;
+            createOption.text = data.data[j].descripcionCliente;
+            selectS.appendChild(createOption);
+            if (data.data[j].id_cliente === cliente) {
+                createOption.selected = true;
+            }
+        }
+    });
+}*/
 function clienteModal(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
         var selectS = id("descPClienteN");

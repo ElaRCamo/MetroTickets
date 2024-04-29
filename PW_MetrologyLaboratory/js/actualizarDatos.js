@@ -247,16 +247,31 @@ function editarMaterial(id_descripcion){
         var selectS = id("descMPlataformaE");
         selectS.innerHTML = ""; //limpiar contenido
 
+        var selectC = id("descMClienteE");
+        selectC.innerHTML = ""; //limpiar contenido
+
         for (var j = 0; j < data.data.length; j++) {
             var createOption = document.createElement("option");
             createOption.value = data.data[j].id_plataforma;
             createOption.text = data.data[j].descripcionPlataforma;
             selectS.appendChild(createOption);
+
             if (data.data[j].id_descripcion === id_descripcion) {
                 createOption.selected = true;
+                plataforma = data.data[j].id_descripcion;
+            }
+
+            var createOptionC = document.createElement("option");
+            createOptionC.value = data.data[j].id_cliente;
+            createOptionC.text = data.data[j].descripcionCliente;
+            selectC.appendChild(createOption);
+            if (data.data[j].id_plataforma === plataforma) {
+                createOptionC.selected = true;
             }
         }
+       // var cliente = = data.data[0].id_cliente;
     });
+    //cargarClientes(cliente);
 
     var btnActualizarMaterial = document.getElementById('btn-updMaterial');
     if (btnActualizarMaterial) { // Verifica que el botón exista en el DOM
