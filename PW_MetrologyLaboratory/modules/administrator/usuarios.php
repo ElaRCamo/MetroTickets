@@ -10,29 +10,29 @@
                 <form method="POST" enctype="multipart/form-data">
                     <table class="table table-borderless">
                         <tbody>
-                        <tr>
-                            <td rowspan="2">
+                        <tr class="align-middle">
+                            <th rowspan="2" >
                                 <div class="col-xl-4 text-center justify-content-center " id="divImagenMaterialE">
                                     <label for="fotoUsuarioE" class="form-label" ></label>
                                     <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="fotoUsuarioE" alt="Foto de perfil">
                                 </div>
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 <div class="mb-3">
                                     <div class="help-block with-errors"></div>
                                     <label for="nombreUsuarioE" class="form-label">Nombre </label>
                                     <input type="text" name="nombreUsuarioE" id="nombreUsuarioE" class="form-control" readonly>
                                 </div>
-                            </td>
+                            </th>
                         </tr>
-                        <tr>
-                            <td>
+                        <tr class="align-middle">
+                            <th>
                                 <div class="mb-3">
                                     <div class="help-block with-errors"></div>
                                     <label for="correoE" class="form-label">Correo electrónico</label>
                                     <input type="text" name="correoE" id="correoE" class="form-control" readonly>
                                 </div>
-                            </td>
+                            </th>
                         </tr>
                         </tbody>
                     </table>

@@ -112,3 +112,7 @@ td{
     text-align: end;
     margin-right: 0.5rem;
 }
+
+.borderless td, .borderless th {
+    border: none;
+}
