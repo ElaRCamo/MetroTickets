@@ -288,7 +288,7 @@ function editarMaterial(descripcion){
     var btnActualizarMaterial = document.getElementById('btn-updMaterial');
     if (btnActualizarMaterial) { // Verifica que el botón exista en el DOM
         btnActualizarMaterial.onclick = function() {
-            actualizarMaterial(id_descripcion);
+            actualizarMaterial(descripcion);
         };
     }
 
