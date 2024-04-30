@@ -85,19 +85,18 @@
                                 <div class="mb-3">
                                     <div class="help-block with-errors"></div>
                                     <label for="descMPlataformaE" class="form-label">Plataforma: </label>
-                                    <select class="form-control" id="descMPlataformaE" name="descMPlataformaE" required data-error="Por favor seleccione la plataforma" >
-                                        <option value="">Seleccione una plataforma*</option>
+                                    <select class="form-control" id="descMPlataformaE" name="descMPlataformaE" required data-error="Por favor seleccione la plataforma">
                                     </select>
                                 </div>
                             </th>
                         </tr>
                         <tr class="align-middle" >
                             <th>
-                                <div class="mb-3" id="divCambiarImg">
+                                <div class="mb-3" >
                                     <div class="help-block with-errors"></div>
                                     <!--<a id="aHideImg"><i class="las la-times"></i></a>-->
-                                    <label for="imgMaterialE" class="form-label" >Nueva imagen: </label><br>
-                                    <input type="file" placeholder="Imagen del material" class="form-control" id="imgMaterialE" name="imgMaterialE">
+                                    <label for="imgMaterialE" class="form-label">Nueva imagen: </label>
+                                    <input type="file" class="form-control" id="imgMaterialE" name="imgMaterialE">
                                 </div>
                             </th>
                             <th>
@@ -105,7 +104,6 @@
                                     <div class="help-block with-errors"></div>
                                     <label for="descMClienteE" class="form-label">Cliente: </label>
                                     <select class="form-control" id="descMClienteE" name="descMClienteE" onchange="consultarPlataformas()" required data-error="Por favor seleccione el cliente" >
-                                        <option value="">Seleccione una cliente*</option>
                                     </select>
                                 </div>
                             </th>
