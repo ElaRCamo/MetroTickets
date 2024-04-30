@@ -45,9 +45,6 @@ function actualizarMaterial($id_descripcion,$descMaterial,$numParte,$img,$idPlat
     $con = new LocalConector();
     $conex = $con->conectar();
 
-
-
-
     $insertMaterial = $conex->prepare("UPDATE DescripcionMaterial 
                                                 SET descripcionMaterial = ?, numeroDeParte = ?, imgMaterial = ?, id_plataforma = ?
                                              WHERE id_descripcion = ?");
