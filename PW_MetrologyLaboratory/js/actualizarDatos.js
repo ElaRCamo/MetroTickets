@@ -243,7 +243,7 @@ function editarMaterial(descripcion){
         inputNumParte.value = data.data[0].numeroDeParte;
 
         //imgActual
-        id("imagenMaterialE").src = data.data[0].imgMaterial;
+        id("imagenActual").src = data.data[0].imgMaterial;
 
         var selectS = id("descMPlataformaE");
         selectS.innerHTML = ""; //limpiar contenido
