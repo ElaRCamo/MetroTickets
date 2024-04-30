@@ -292,8 +292,8 @@ function editarMaterial(descripcion){
     }
 
 }
-function actualizarMaterial(descripcion){
-    console.log("ACTUALIZAR: " + descripcion);
+function actualizarMaterial(id_descripcion){
+    console.log("ACTUALIZAR: " + id_descripcion);
 
     var descMaterialE = id("descMaterialE");
     var numParteE = id("numParteE");
@@ -302,7 +302,7 @@ function actualizarMaterial(descripcion){
     var imagenActualSrc = id('imagenActual').src;
 
     const dataForm = new FormData();
-    dataForm.append('id_descripcion', descripcion);
+    dataForm.append('id_descripcion', id_descripcion);
     dataForm.append('descMaterialE', descMaterialE.value.trim());
     dataForm.append('numParteE', numParteE.value.trim());
 

@@ -1,51 +1,38 @@
 <?php
 include_once('connection.php');
 
-if(isset($_POST['id_descripcion'],$_POST['descMaterialE'],$_POST['numParteE'],$_POST['descMPlataformaE'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Recibir los datos del formulario
     $id_descripcion = $_POST['id_descripcion'];
     $descMaterial = $_POST['descMaterialE'];
     $numParte = $_POST['numParteE'];
     $idPlataforma = $_POST['descMPlataformaE'];
 
-    // Verificar si los campos no están vacíos
-    if(empty($id_descripcion) || empty($descMaterial) || empty($numParte) || empty($idPlataforma)) {
-        echo "Error: Todos los campos son requeridos.";
+    // Manejar la imagen si se ha subido
+    if (isset($_FILES['imgMaterialE']) && $_FILES['imgMaterialE']['error'] === UPLOAD_ERR_OK) {
+        // Directorio de destino para la carga de archivos
+        $target_dir = "../imgs/materials/";
+
+        // Nombre y ruta del archivo
+        $fechaActual = date('Y-m-d_H-i-s');
+        $archivo = $_FILES['imgMaterialE']['name'];
+        $imgName = $fechaActual . '-' . $numParte . '-' . str_replace(' ', '-', $descMaterial);
+        $img = $target_dir . $imgName;
+
+        // Mover el archivo al directorio de destino
+        $temp = $_FILES['imgMaterialE']['tmp_name'];
+        $moverImgFile = $target_dir . $imgName;
+        move_uploaded_file($temp, $moverImgFile);
     } else {
-        if(isset($_FILES['imgMaterialE']) && $_FILES['imgMaterialE']['error'] === UPLOAD_ERR_OK) {
-            $fechaActual = date('Y-m-d_H-i-s');
-            $target_dir = "../imgs/materials/";
-            $archivo = $_FILES['imgMaterialE']['name'];
-            $imgName = $fechaActual . '-' . $numParte . '-' . str_replace(' ', '-', $descMaterial);
-            $img = $target_dir . $imgName;
-
-            $tipo = $_FILES['imgMaterialE']['type'];
-            $tamano = $_FILES['imgMaterialE']['size'];
-            $temp = $_FILES['imgMaterialE']['tmp_name'];
-            $moverImgFile = "../imgs/materials/" . $imgName;
-
-            $extension = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
-            $extensionesPermitidas = array("gif", "jpeg", "jpg", "png");
-
-            if (in_array($extension, $extensionesPermitidas)) {
-                if (move_uploaded_file($temp, $moverImgFile)) {
-                    echo "La imagen " . htmlspecialchars($imgName) . " ha sido subida correctamente.";
-                    // Llamar a la función actualizarMaterial()
-                    actualizarMaterial($id_descripcion,$descMaterial, $numParte, $img, $idPlataforma);
-                } else {
-                    echo "Hubo un error al subir la imagen.";
-                }
-            } else {
-                echo "Error: La extensión o el tamaño de los archivos no es correcta. Se permiten archivos .gif, .jpg, .png y un tamaño máximo de 2 MB.";
-            }
-        } else {
-            // Si no se sube una nueva imagen, utilizar la imagen actual
-            $img = $_POST['imagenActual'];
-            actualizarMaterial($id_descripcion,$descMaterial, $numParte, $img, $idPlataforma);
-        }
+        // Si no se sube una nueva imagen, utilizar la imagen actual
+        $img = $_POST['imagenActual'];
     }
+    actualizarMaterial($id_descripcion, $descMaterial, $numParte, $img, $idPlataforma);
 } else {
-    echo '<script>alert("Error: Faltan datos en el formulario")</script>';
+    // Si no se recibe una solicitud POST, mostrar un mensaje de error
+    echo "Error: Se esperaba una solicitud POST.";
 }
+
 //actualizarMaterial(131,"Test93/4","12345","https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/2024-04-22_19-05-12-12345678-Material65555",1);
 function actualizarMaterial($id_descripcion,$descMaterial,$numParte,$img,$idPlataforma){
     $con = new LocalConector();
