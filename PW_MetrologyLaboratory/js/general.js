@@ -170,7 +170,7 @@ function hideButton(id_button){
     var button = id(id_button);
     button.style.display = "none";
 }
-
+/*
 function cambiarImg(){
     var divImg = id("divCambiarImg");
     var divImg2 = id("divCambiarImg2");
@@ -183,7 +183,5 @@ function hideImg(){
     divImg.style.display = "none";
     divImg2.style.display = "none";
 }
-
-
-
+*/
 
