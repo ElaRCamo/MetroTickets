@@ -4,7 +4,7 @@ include_once('connection.php');
 if(isset($_POST['id_descripcion'],$_POST['descMaterialE'],$_POST['numParteE'],$_POST['descMPlataformaE'])) {
     $id_descripcion = $_POST['id_descripcion'];
     $descMaterial = $_POST['descMaterialE'];
-    $numParte = $_POST['numParteE']; // Aquí debería ser 'numParteN' según el formulario HTML
+    $numParte = $_POST['numParteE'];
     $idPlataforma = $_POST['descMPlataformaE'];
 
     // Verificar si los campos no están vacíos
