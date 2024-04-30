@@ -233,6 +233,7 @@ function activarPlataforma(id_plataforma){
 
 function editarMaterial(descripcion){
     console.log("para editar: " + descripcion);
+    let opcionesClientes= [];
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnMaterial.php?id_descripcion=' + descripcion, function (data) {
         var inputMaterial = id("descMaterialE");
@@ -269,7 +270,7 @@ function editarMaterial(descripcion){
                 }
             }
 
-            let opcionesClientes= [];
+
             var createOptionC = document.createElement("option");
             createOptionC.value = data.data[j].id_cliente;
             createOptionC.text = data.data[j].descripcionCliente;
@@ -277,15 +278,13 @@ function editarMaterial(descripcion){
             if( !opcionesClientes.includes(createOptionC.value)){
                 selectC.appendChild(createOptionC);
                 opcionesClientes.push(createOptionC.value);
-            }
-
-            if (data.data[j].id_plataforma === plataforma) {
-                createOptionC.selected = true;
+                if (data.data[j].id_plataforma === plataforma) {
+                    createOptionC.selected = true;
+                }
             }
         }
-
+        alert(opcionesClientes);
     });
-
     var btnActualizarMaterial = document.getElementById('btn-updMaterial');
     if (btnActualizarMaterial) { // Verifica que el botón exista en el DOM
         btnActualizarMaterial.onclick = function() {
