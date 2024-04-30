@@ -1,16 +1,14 @@
 <?php
 include_once('connection.php');
 
-if(isset($_POST['id_descripcion'],$_POST['descMaterialE'],$_POST['numParteN'],$_FILES['imgMaterialE'],$_POST['descMPlataformaE'] )) {
+if(isset($_POST['id_descripcion'],$_POST['descMaterialE'],$_POST['numParteN'],$_POST['descMPlataformaE'] )) {
     $id_descripcion = $_POST['id_descripcion'];
     $descMaterial = $_POST['descMaterialE'];
     $numParte = $_POST['numParteE'];
     $idPlataforma = $_POST['descMPlataformaE'];
 
+    if(isset($_FILES['imgMaterialE']) && $_FILES['imgMaterialE']['error'] === UPLOAD_ERR_OK) {
 
-    if ($_FILES["imgMaterialE"]["error"] > 0) {
-        echo "Error: " . $_FILES["imgMaterialE"]["error"];
-    } else {
         $fechaActual = date('Y-m-d_H-i-s');
         $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
         $archivo = $_FILES['imgMaterialE']['name'];
@@ -35,6 +33,9 @@ if(isset($_POST['id_descripcion'],$_POST['descMaterialE'],$_POST['numParteN'],$_
         } else {
             echo "Error. La extensión o el tamaño de los archivos no es correcta. Se permiten archivos .gif, .jpg, .png y un tamaño máximo de 2 MB.";
         }
+    } else {
+        $img = $_POST['imagenActual'];
+        actualizarMaterial($id_descripcion,$descMaterial, $numParte, $img, $idPlataforma);
     }
 }else {
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';

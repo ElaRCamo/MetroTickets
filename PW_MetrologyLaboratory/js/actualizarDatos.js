@@ -269,8 +269,7 @@ function editarMaterial(descripcion){
                     createOption.selected = true;
                 }
             }
-
-
+        //Si el cliente no tiene asignada una plataforma, no saldra en el listado, ya que tampoco se podra asignar material.
             var createOptionC = document.createElement("option");
             createOptionC.value = data.data[j].id_cliente;
             createOptionC.text = data.data[j].descripcionCliente;
@@ -283,7 +282,7 @@ function editarMaterial(descripcion){
                 }
             }
         }
-        alert(opcionesClientes);
+        //alert(opcionesClientes);
     });
     var btnActualizarMaterial = document.getElementById('btn-updMaterial');
     if (btnActualizarMaterial) { // Verifica que el botón exista en el DOM
@@ -300,6 +299,7 @@ function actualizarMaterial(id_descripcion){
     var numParteE = id("numParteE");
     var imgMaterialE = id("imgMaterialE");
     var descMPlataformaE = id("descMPlataformaE");
+    var imagenActualSrc = id('imagenActual').src;
 
     const dataForm = new FormData();
     dataForm.append('id_descripcion', id_descripcion);
@@ -311,7 +311,7 @@ function actualizarMaterial(id_descripcion){
         validarImagen(imgMaterialE.files[0]);
         dataForm.append('imgMaterialE', imgMaterialE.files[0]);
     } else {
-        throw "Por favor seleccione una imagen";
+        dataForm.append('imagenActual', imagenActualSrc);
     }
 
     dataForm.append('descMPlataformaE', descMPlataformaE.value.trim());

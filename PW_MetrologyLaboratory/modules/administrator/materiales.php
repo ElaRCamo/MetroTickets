@@ -59,7 +59,7 @@
                         <tr class="align-middle">
                             <th rowspan="3" >
                                 <div class="text-center justify-content-center " id="divImagenMaterialE">
-                                    <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterialE" alt="Imagen Material">
+                                    <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenActual" alt="Imagen Material">
                                     <a id="aCambiarImg" onclick="cambiarImg()"><i class="las la-edit"></i></a>
                                 </div>
                             </th>
