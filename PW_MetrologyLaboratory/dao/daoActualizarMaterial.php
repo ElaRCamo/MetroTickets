@@ -1,7 +1,7 @@
 <?php
 include_once('connection.php');
 
-if(isset($_POST['id_descripcion'],$_POST['descMaterialE'],$_POST['numParteN'],$_POST['descMPlataformaE'])) {
+/*if(isset($_POST['id_descripcion'],$_POST['descMaterialE'],$_POST['numParteN'],$_POST['descMPlataformaE'])) {
     $id_descripcion = $_POST['id_descripcion'];
     $descMaterial = $_POST['descMaterialE'];
     $numParte = $_POST['numParteE']; // Aquí debería ser 'numParteN' según el formulario HTML
@@ -46,7 +46,7 @@ if(isset($_POST['id_descripcion'],$_POST['descMaterialE'],$_POST['numParteN'],$_
 } else {
     echo '<script>alert("Error: Faltan datos en el formulario")</script>';
 }
-
+*/actualizarMaterial(131,"Test93/4","12345","https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/2024-04-22_19-05-12-12345678-Material65555",1);
 function actualizarMaterial($id_descripcion,$descMaterial,$numParte,$img,$idPlataforma){
     $con = new LocalConector();
     $conex = $con->conectar();
