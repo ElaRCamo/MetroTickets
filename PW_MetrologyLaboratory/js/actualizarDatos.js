@@ -231,10 +231,10 @@ function activarPlataforma(id_plataforma){
 }
 
 
-function editarMaterial(id_descripcion){
-    console.log("para editar: " + id_descripcion);
+function editarMaterial(descripcion){
+    console.log("para editar: " + descripcion);
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnMaterial.php?id_descripcion=' + id_descripcion, function (data) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnMaterial.php?id_descripcion=' + descripcion, function (data) {
         var inputMaterial = id("descMaterialE");
         inputMaterial.value = data.data[0].descripcionMaterial;
 
@@ -250,17 +250,22 @@ function editarMaterial(id_descripcion){
         var selectC = id("descMClienteE");
         selectC.innerHTML = ""; //limpiar contenido
 
-        let plataforma;
+        let plataforma, cliente;
 
         for (var j = 0; j < data.data.length; j++) {
-            var createOption = document.createElement("option");
-            createOption.value = data.data[j].id_plataforma;
-            createOption.text = data.data[j].descripcionPlataforma;
-            selectS.appendChild(createOption);
+            if (data.data[j].id_descripcion === descripcion) {
+                plataforma = data.data[j].id_plataforma;
+                cliente = data.data[j].id_cliente;
+            }
 
-            if (data.data[j].id_descripcion === id_descripcion) {
-                createOption.selected = true;
-                plataforma = data.data[j].id_descripcion;
+            if (data.data[j].id_cliente === cliente){
+                var createOption = document.createElement("option");
+                createOption.value = data.data[j].id_plataforma;
+                createOption.text = data.data[j].descripcionPlataforma;
+                selectS.appendChild(createOption);
+                if (data.data[j].id_descripcion === descripcion) {
+                    createOption.selected = true;
+                }
             }
 
             var createOptionC = document.createElement("option");

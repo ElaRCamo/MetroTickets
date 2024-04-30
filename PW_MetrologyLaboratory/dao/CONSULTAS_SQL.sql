@@ -250,3 +250,89 @@ FROM
             WHERE
                 id_solicitante = '$id_solicitante'
     ) AS prueba ON m.id_prueba = prueba.id_prueba;
+
+
+
+SELECT P.id_plataforma,
+       P.descripcionPlataforma,
+       M.id_descripcion,
+       M.descripcionMaterial,
+       M.numeroDeParte,
+       M.imgMaterial,
+       C.id_cliente,
+       C.descripcionCliente
+FROM Plataforma P
+
+         LEFT JOIN Cliente C ON P.id_cliente = C.id_cliente
+WHERE P.estatus = 1
+  AND C.estatus = 1
+  AND (P.id_cliente = (SELECT id_cliente FROM Plataforma WHERE id_plataforma = $id_material) OR P.id_plataforma = $id_material)
+ORDER BY (M.id_descripcion = $id_material) DESC;
+
+
+
+//TOMA LOS DATOS DE UN UNICO REGISTRO
+SELECT
+    P.id_plataforma,
+    P.id_cliente ,
+    P.descripcionPlataforma,
+    M.id_descripcion,
+    M.descripcionMaterial,
+    M.numeroDeParte,
+    M.imgMaterial
+FROM
+    Plataforma P, DescripcionMaterial M
+WHERE M.id_plataforma = P.id_plataforma
+  AND M.id_descripcion = $id_material
+
+
+SELECT
+    P.id_plataforma,
+    P.id_cliente,
+    P.descripcionPlataforma,
+    M.id_descripcion,
+    M.descripcionMaterial,
+    M.numeroDeParte,
+    M.imgMaterial
+FROM
+    Plataforma P
+        LEFT JOIN  DescripcionMaterial M ON M.id_plataforma = P.id_plataforma
+        AND M.id_descripcion = $id_material
+
+
+SELECT P.id_plataforma,
+    P.descripcionPlataforma,
+    M.id_descripcion,
+    M.descripcionMaterial,
+    M.numeroDeParte,
+    M.imgMaterial,
+    C.id_cliente,
+    C.descripcionCliente
+FROM Plataforma P
+    LEFT JOIN DescripcionMaterial M ON P.id_plataforma = M.id_plataforma
+    AND M.id_descripcion = $id_material
+    LEFT JOIN Cliente C ON P.id_cliente = C.id_cliente
+WHERE P.estatus = 1
+  AND C.estatus = 1
+
+
+
+//da todas las plataformas, tosos los clientes y el registro consultado
+SELECT P.id_plataforma,
+       P.descripcionPlataforma,
+       M.id_descripcion,
+       M.descripcionMaterial,
+       M.numeroDeParte,
+       M.imgMaterial,
+       C.id_cliente,
+       C.descripcionCliente
+FROM Plataforma P
+         LEFT JOIN DescripcionMaterial M ON P.id_plataforma = M.id_plataforma
+    AND M.id_descripcion = $id_material
+         LEFT JOIN Cliente C ON P.id_cliente = C.id_cliente
+WHERE P.estatus = 1
+  AND C.estatus = 1
+ORDER BY (M.id_descripcion = $id_material) DESC;
+
+
+
