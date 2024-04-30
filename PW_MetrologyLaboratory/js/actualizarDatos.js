@@ -269,10 +269,16 @@ function editarMaterial(descripcion){
                 }
             }
 
+            let opcionesClientes= [];
             var createOptionC = document.createElement("option");
             createOptionC.value = data.data[j].id_cliente;
             createOptionC.text = data.data[j].descripcionCliente;
-            selectC.appendChild(createOptionC);
+
+            if( !opcionesClientes.includes(createOptionC)){
+                selectC.appendChild(createOptionC);
+                opcionesClientes.push(createOptionC);
+            }
+
             if (data.data[j].id_plataforma === plataforma) {
                 createOptionC.selected = true;
             }
