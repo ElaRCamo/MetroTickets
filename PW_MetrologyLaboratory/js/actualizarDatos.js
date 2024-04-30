@@ -258,6 +258,7 @@ function editarMaterial(descripcion){
                 cliente = data.data[j].id_cliente;
             }
 
+            //Solo se generan las plataformas que pertenezcan al mismo cliente que ya esta preseleccionado
             if (data.data[j].id_cliente === cliente){
                 var createOption = document.createElement("option");
                 createOption.value = data.data[j].id_plataforma;

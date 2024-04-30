@@ -437,9 +437,9 @@ function TablaAdminClientes(){
         for (var j = 0; j < response.data.length; j++) {
             var fila = document.createElement("tr");
 
-            var idCliente = document.createElement("td");
+            /*var idCliente = document.createElement("td");
             idCliente.textContent = response.data[j].id_cliente;
-            fila.appendChild(idCliente);
+            fila.appendChild(idCliente);*/
 
             var descripcionCliente = document.createElement("td");
             descripcionCliente.textContent = response.data[j].descripcionCliente;
@@ -489,9 +489,9 @@ function TablaAdminClientesDes(){
         for (var j = 0; j < response.data.length; j++) {
             var fila = document.createElement("tr");
 
-            var idCliente = document.createElement("td");
+            /*var idCliente = document.createElement("td");
             idCliente.textContent = response.data[j].id_cliente;
-            fila.appendChild(idCliente);
+            fila.appendChild(idCliente);*/
 
             var descripcionCliente = document.createElement("td");
             descripcionCliente.textContent = response.data[j].descripcionCliente;
@@ -530,9 +530,9 @@ function TablaAdminPlataformas(){
         for (var j = 0; j < response.data.length; j++) {
             var fila = document.createElement("tr");
 
-            var idPlataforma = document.createElement("td");
+            /*var idPlataforma = document.createElement("td");
             idPlataforma.textContent = response.data[j].id_plataforma;
-            fila.appendChild(idPlataforma);
+            fila.appendChild(idPlataforma);*/
 
             var descripcionPlataforma = document.createElement("td");
             descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
@@ -584,9 +584,9 @@ function TablaAdminPlataformasDes(){
         for (var j = 0; j < response.data.length; j++) {
             var fila = document.createElement("tr");
 
-            var idPlataforma = document.createElement("td");
+            /*var idPlataforma = document.createElement("td");
             idPlataforma.textContent = response.data[j].id_plataforma;
-            fila.appendChild(idPlataforma);
+            fila.appendChild(idPlataforma);*/
 
             var descripcionPlataforma = document.createElement("td");
             descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
@@ -626,9 +626,9 @@ function TablaAdminMateriales(){
         for (var j = 0; j < response.data.length; j++) {
             var fila = document.createElement("tr");
 
-            var idMaterial = document.createElement("td");
+            /*var idMaterial = document.createElement("td");
             idMaterial.textContent = response.data[j].id_descripcion;
-            fila.appendChild(idMaterial);
+            fila.appendChild(idMaterial);*/
 
             var descripcionMaterial = document.createElement("td");
             descripcionMaterial.textContent = response.data[j].descripcionMaterial;
@@ -648,6 +648,10 @@ function TablaAdminMateriales(){
             var descripcionPlataforma = document.createElement("td");
             descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
             fila.appendChild(descripcionPlataforma);
+
+            var descripcionCliente = document.createElement("td");
+            descripcionCliente.textContent = response.data[j].descripcionCliente;
+            fila.appendChild(descripcionCliente);
 
             var acciones = document.createElement("td");
             // Botón de editar
