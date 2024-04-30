@@ -274,9 +274,9 @@ function editarMaterial(descripcion){
             createOptionC.value = data.data[j].id_cliente;
             createOptionC.text = data.data[j].descripcionCliente;
 
-            if( !opcionesClientes.includes(createOptionC)){
+            if( !opcionesClientes.includes(createOptionC.value)){
                 selectC.appendChild(createOptionC);
-                opcionesClientes.push(createOptionC);
+                opcionesClientes.push(createOptionC.value);
             }
 
             if (data.data[j].id_plataforma === plataforma) {
