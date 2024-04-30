@@ -306,10 +306,17 @@ function actualizarMaterial(id_descripcion){
     dataForm.append('descMaterialE', descMaterialE.value.trim());
     dataForm.append('numParteE', numParteE.value.trim());
 
-    // Validar la imagen antes de adjuntarla al FormData
-    if (imgMaterialE.files.length > 0) {
-        validarImagen(imgMaterialE.files[0]);
-        dataForm.append('imgMaterialE', imgMaterialE.files[0]);
+
+    var estilo = window.getComputedStyle(imgMaterialE);
+
+    if (estilo.display !== "none") {
+        // Validar la imagen antes de adjuntarla al FormData
+        if (imgMaterialE.files.length > 0) {
+            validarImagen(imgMaterialE.files[0]);
+            dataForm.append('imgMaterialE', imgMaterialE.files[0]);
+        }else {
+            dataForm.append('imagenActual', imagenActualSrc);
+        }
     } else {
         dataForm.append('imagenActual', imagenActualSrc);
     }
