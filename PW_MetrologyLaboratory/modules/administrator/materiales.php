@@ -96,8 +96,8 @@
                                 <div class="mb-3" id="divCambiarImg">
                                     <div class="help-block with-errors"></div>
                                     <!--<a id="aHideImg"><i class="las la-times"></i></a>-->
-                                    <label for="imgMaterialE" class="form-label" >Nueva imagen: </label>
-                                    <input type="file" placeholder="Imagen del material" class="form-control" id="imgMaterialE" name="imgMaterialE" required>
+                                    <label for="imgMaterialE" class="form-label" >Nueva imagen: </label><br>
+                                    <input type="file" placeholder="Imagen del material" class="form-control" id="imgMaterialE" name="imgMaterialE">
                                 </div>
                             </th>
                             <th>
