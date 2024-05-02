@@ -4,7 +4,8 @@
         <div class="col divTitle">
             <h1> Solicitar una prueba </h1>
             <input type="hidden" id="idUsuario" value="<?php global $idUsuario; echo $idUsuario; ?>">
-            <small>Favor de registrar los datos siguientes:</small>
+            <?php global $tipoUser; if($tipoUser == 3){ ?><small> ¡Hola <?php global $nombreUser; echo $nombreUser; ?>! Favor de registrar los datos siguientes para tu solicitud:</small><?php }?>
+            <?php if($tipoUser == 1 || $tipoUser == 2){ ?><h5> ¡Hola <?php global $nombreUser;echo $nombreUser; ?>! Te recordamos que tu perfil no permite registrar solicitudes. </h5><?php }?>
         </div>
         <div class="logoRight col-sm-3">
             <div>

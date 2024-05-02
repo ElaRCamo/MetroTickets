@@ -23,8 +23,7 @@
                 <li>
                     <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\newRequest\newRequestIndex.php" class="optionMenu">
                         <span class="lar la-edit"></span>
-                        <?php global $tipoUser; if($tipoUser == 3){ ?><small>Nueva solicitud</small><?php }?>
-                        <?php if($tipoUser == 1 || $tipoUser == 2){ ?><h5> Tu perfil no permite registrar solicitudes. </h5><?php }?>
+                        <small>Nueva solicitud</small>
                     </a>
                 </li>
                 <li>
