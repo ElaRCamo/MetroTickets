@@ -136,9 +136,11 @@ function registrarSolicitud(nuevoId) {
             if(tipoPruebaEspecial && tipoPruebaEspecial.value === "4"){
                 otroPrueba = id("otroPrueba");
                 dataForm.append('otroPrueba', otroPrueba.value.trim());
+                alert("otroPrueba ="+otroPrueba.value.trim());
             }else{
                 otroPrueba = "No aplica xd";
                 dataForm.append('otroPrueba', otroPrueba);
+                alert("otroPrueba ="+otroPrueba);
             }
         }else{
             tipoPruebaEspecial = "No aplica xd";
@@ -148,7 +150,7 @@ function registrarSolicitud(nuevoId) {
         var materiales = [];
         var cantidades = [];
 
-        alert("otroPrueba ="+otroPrueba.value.trim());
+
 
         for (var k = 1; k <= i; k++) {
             // Para agregar material por número de parte
