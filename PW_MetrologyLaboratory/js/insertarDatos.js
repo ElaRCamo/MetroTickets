@@ -170,26 +170,30 @@ function registrarSolicitud(nuevoId) {
         }
         alert(formDataString);
 
-        fetch('../../dao/requestRegister.php', {
-            method: 'POST',
-            body: dataForm
+    fetch('../../dao/requestRegister.php', {
+        method: 'POST',
+        body: dataForm
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                return response.json(); // Parsear la respuesta como JSON
+            } else {
+                throw "Error en la llamada Ajax";
+            }
         })
-            .then(function (response) {
-                if (response.ok) { //respuesta
-                    enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
-                    resumenSolicitud(nuevoId);
-                    //window.location.href = "../requests/requestsIndex.php";
-                    //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 10000);
-                } else {
-                    throw "Error en la llamada Ajax";
-                }
-            })
-            .then(function (texto) {
-                console.log(texto);
-            })
-            .catch(function (err) {
-                console.log(err);
-            });
+        .then(function (data) {
+            // Verificar si hay algún error en la respuesta del servidor
+            if (data.error) {
+                throw "Los datos no se insertaron correctamente.";
+            } else {
+                // Si la inserción de datos fue exitosa, llamar a las funciones
+                enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
+                resumenSolicitud(nuevoId);
+            }
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
 }
 
 
