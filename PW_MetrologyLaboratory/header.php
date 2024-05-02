@@ -19,21 +19,20 @@
                     </a>
                 </li>
                 <?php }?>
-                <?php global $tipoUser; if($tipoUser == 3){ ?>
+
                 <li>
                     <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\newRequest\newRequestIndex.php" class="optionMenu">
                         <span class="lar la-edit"></span>
-                        <small>Nueva solicitud</small>
+                        <?php global $tipoUser; if($tipoUser == 3){ ?><small>Nueva solicitud</small><?php }?>
+                        <?php if($tipoUser == 1 || $tipoUser == 2){ ?><h5> Tu perfil no permite registrar solicitudes. </h5><?php }?>
                     </a>
                 </li>
-                <?php }?>
                 <li>
                     <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\requests\requestsIndex.php" class="optionMenu">
                         <span class="las la-list-ol"></span>
                         <small>Solicitudes</small>
                     </a>
                 </li>
-
                 <?php if($tipoUser == 1 || $tipoUser == 2){ ?>
                 <li>
                     <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/reports/reportsIndex.php" class="optionMenu">
