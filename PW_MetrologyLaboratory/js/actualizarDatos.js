@@ -324,11 +324,11 @@ function actualizarMaterial(id_descripcion){
         body: dataForm
     }).then(function (response) {
         if (response.ok) { //respuesta
-            /*Swal.fire({
+            Swal.fire({
                 icon: "success",
                 title: "¡Material actualizado con éxito!",
                 showConfirmButton: true
-            });*/
+            });
             TablaAdminMateriales();
         } else {
             throw "Error en la llamada Ajax";

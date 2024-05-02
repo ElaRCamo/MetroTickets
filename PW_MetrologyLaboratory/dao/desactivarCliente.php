@@ -21,21 +21,35 @@ function desactivarCliente($id_cliente)
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $stmt = $conex->prepare("UPDATE Cliente
-                                      SET estatus = 0
-                                    WHERE id_cliente = ?");
-    $stmt->bind_param("i", $id_cliente);
+    // Iniciar transacción
+    $conex->begin_transaction();
 
-    if ($stmt->execute()) {
+    $stmt1 = $conex->prepare("UPDATE Cliente SET estatus = 0 WHERE id_cliente = ?");
+    $stmt1->bind_param("i", $id_cliente);
+
+    $stmt2 = $conex->prepare("UPDATE Plataforma P
+                                    JOIN DescripcionMaterial M ON P.id_plataforma = M.id_plataforma
+                                    SET P.estatus = 0,
+                                        M.estatus = 0
+                                    WHERE P.id_cliente = ?");
+    $stmt2->bind_param("i", $id_cliente);
+
+    $success = $stmt1->execute() && $stmt2->execute();
+
+    if ($success) {
+        // Commit si todas las consultas se ejecutaron correctamente
+        $conex->commit();
         $respuesta = array("success" => true, "message" => "Cliente desactivado");
-        echo json_encode($respuesta);
     } else {
+        // Rollback en caso de error
+        $conex->rollback();
         $respuesta = array("success" => false, "message" => "Error.");
-        echo json_encode($respuesta);
     }
-    $stmt->close();
+
+    echo json_encode($respuesta);
+
+    $stmt1->close();
+    $stmt2->close();
     $conex->close();
-
 }
-
 ?>

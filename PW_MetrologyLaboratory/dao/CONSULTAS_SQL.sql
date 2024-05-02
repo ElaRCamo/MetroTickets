@@ -335,4 +335,10 @@ WHERE P.estatus = 1
 ORDER BY (M.id_descripcion = $id_material) DESC;
 
 
+//actualizacion multiple
+UPDATE Cliente
+    SET estatus = 0
+    WHERE id_cliente = ?
+
+
 
