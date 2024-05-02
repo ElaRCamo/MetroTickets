@@ -110,6 +110,8 @@ function actualizarCliente(id_cliente){
                     icon: "success"
                 });
                 TablaAdminClientes();
+                TablaAdminPlataformas();
+                TablaAdminMateriales();
             } else {
                 throw "Error en la llamada Ajax";
             }
@@ -197,6 +199,7 @@ function  actualizarPlataforma(id_plataforma){
                     icon: "success"
                 });
                 TablaAdminPlataformas();
+                TablaAdminMateriales();
             } else {
                 throw "Error en la llamada Ajax";
             }
@@ -218,6 +221,7 @@ function activarPlataforma(id_plataforma){
         body: JSON.stringify(id_plataforma)
     }).then(res => {
         TablaAdminPlataformasDes();
+        TablaAdminMaterialesDes();
         if(!res.ok){
             console.log('Problem');
             return;

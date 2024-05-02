@@ -26,7 +26,7 @@ function desactivarCliente(id_cliente) {
             }).then(res => {
                 TablaAdminClientes();
                 TablaAdminMateriales();
-                TablaAdminUsuarios();
+                TablaAdminPlataformas();
                 if(!res.ok){
                     console.log('Problem');
                     return;
