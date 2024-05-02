@@ -119,27 +119,31 @@ function registrarSolicitud(nuevoId) {
         var fechaSolicitud= new Date();
         var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
 
-        var tipoPruebaEspecial, otroPrueba;
-        if(tipoPrueba && tipoPrueba.value === "5"){
-            tipoPruebaEspecial = id("tipoPruebaEspecial");
 
-            if(tipoPruebaEspecial && tipoPruebaEspecial.value === "4"){
-                otroPrueba = id("otroPrueba");
-            }else{
-                otroPrueba = "No aplica xd";
-            }
-        }else{
-            tipoPruebaEspecial = "No aplica xd";
-        }
+        dataForm.append('id_prueba', nuevoId);
         dataForm.append('tipoPrueba', tipoPrueba.value.trim());
         dataForm.append('norma', norma.value.trim());
         dataForm.append('normaFile', inputArchivo.files[0]);
         dataForm.append('idUsuario', idNomina.value.trim());
-        dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value);
-        dataForm.append('otroPrueba', otroPrueba.value);
         dataForm.append('especificaciones', especificaciones.value.trim());
         dataForm.append('fechaSolicitud', fechaFormateada);
-        dataForm.append('id_prueba', nuevoId);
+
+        var tipoPruebaEspecial, otroPrueba;
+        if(tipoPrueba && tipoPrueba.value === "5"){
+            tipoPruebaEspecial = id("tipoPruebaEspecial");
+            dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
+
+            if(tipoPruebaEspecial && tipoPruebaEspecial.value === "4"){
+                otroPrueba = id("otroPrueba");
+                dataForm.append('otroPrueba', otroPrueba.value.trim());
+            }else{
+                otroPrueba = "No aplica xd";
+                dataForm.append('otroPrueba', otroPrueba);
+            }
+        }else{
+            tipoPruebaEspecial = "No aplica xd";
+            dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial);
+        }
 
         var materiales = [];
         var cantidades = [];
