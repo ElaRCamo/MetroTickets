@@ -76,6 +76,7 @@ function banderaTipoPrueba() {
         mostrarBloque(botonEnviar, true);
         mostrarBloque(divCantidadMaterial, true);
         mostrarBloque(divOtroTipoPrueba, false);
+        llenarPruebaEspecial();
     } else { // otro caso
         mostrarBloque(divNormaNombre, false);
         mostrarBloque(divNormaArchivo, false);
