@@ -164,7 +164,12 @@ function registrarSolicitud(nuevoId) {
         dataForm.append('cantidades', cantidades.join(', '));
 
         //alert("Materiales son: " + materiales + "\nCantidades con: " + cantidades );
-        alert("Formdata: " + dataForm)
+        let formDataString = "FormData: \n";
+        for (let pair of dataForm.entries()) {
+            formDataString += pair[0]+ ', ' + pair[1] + '\n';
+        }
+        alert(formDataString);
+
         fetch('../../dao/requestRegister.php', {
             method: 'POST',
             body: dataForm
