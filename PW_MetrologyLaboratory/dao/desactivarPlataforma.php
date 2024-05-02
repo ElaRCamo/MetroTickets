@@ -25,7 +25,7 @@ function desactivarPlataforma($id_plataforma)
                                     JOIN DescripcionMaterial M ON P.id_plataforma = M.id_plataforma
                                     SET P.estatus = 0,
                                         M.estatus = 0
-                                    WHERE id_plataforma = ?");
+                                    WHERE P.id_plataforma = ?");
     $stmt->bind_param("i", $id_plataforma);
 
     if ($stmt->execute()) {
