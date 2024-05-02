@@ -116,11 +116,15 @@ function registrarSolicitud(nuevoId) {
         var inputArchivo       = id('normaFile');
         var idNomina           = id("idUsuario");
         var tipoPruebaEspecial = id("tipoPruebaEspecial");
-        var otroPrueba         = id("otroPrueba");
         var especificaciones   = id ("especificaciones");
         var fechaSolicitud= new Date();
         var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
 
+        if(tipoPrueba.value.trim() === 5 && tipoPruebaEspecial.value.trim() ===4){
+            var otroPrueba         = id("otroPrueba");
+        }else{
+            var otroPrueba = "No aplica xd";
+        }
         dataForm.append('tipoPrueba', tipoPrueba.value.trim());
         dataForm.append('norma', norma.value.trim());
         dataForm.append('normaFile', inputArchivo.files[0]);
