@@ -135,8 +135,8 @@ function registrarSolicitud(nuevoId) {
         dataForm.append('norma', norma.value.trim());
         dataForm.append('normaFile', inputArchivo.files[0]);
         dataForm.append('idUsuario', idNomina.value.trim());
-        dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
-        dataForm.append('otroPrueba', otroPrueba.value.trim());
+        dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value);
+        dataForm.append('otroPrueba', otroPrueba.value);
         dataForm.append('especificaciones', especificaciones.value.trim());
         dataForm.append('fechaSolicitud', fechaFormateada);
         dataForm.append('id_prueba', nuevoId);
