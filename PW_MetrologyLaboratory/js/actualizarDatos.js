@@ -130,6 +130,8 @@ function activarCliente(id_cliente){
         body: JSON.stringify(id_cliente)
     }).then(res => {
         TablaAdminClientesDes();
+        TablaAdminPlataformasDes();
+        TablaAdminMaterialesDes();
         if(!res.ok){
             console.log('Problem');
             return;

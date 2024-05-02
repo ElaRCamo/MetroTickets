@@ -25,6 +25,8 @@ function desactivarCliente(id_cliente) {
                 body: JSON.stringify(id_cliente)
             }).then(res => {
                 TablaAdminClientes();
+                TablaAdminMateriales();
+                TablaAdminUsuarios();
                 if(!res.ok){
                     console.log('Problem');
                     return;
@@ -81,6 +83,7 @@ function desactivarPlataforma(id_plataforma) {
                 body: JSON.stringify(id_plataforma)
             }).then(res => {
                 TablaAdminPlataformas();
+                TablaAdminMateriales();
                 if(!res.ok){
                     console.log('Problem');
                     return;
