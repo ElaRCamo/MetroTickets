@@ -149,7 +149,7 @@ function registrarSolicitud(nuevoId) {
             dataForm.append('norma', norma.value.trim());
             dataForm.append('normaFile', inputArchivo.files[0]);
         }else{
-            tipoPruebaEspecial = "No aplica xd";
+            tipoPruebaEspecial = 5;
             dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial);
             norma              ="No aplica xd";
             inputArchivo      = "No aplica xd";
