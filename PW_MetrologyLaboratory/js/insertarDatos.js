@@ -84,6 +84,87 @@ function validarSesion() {
     });
 }
 
+async function validacionSolicitud(){
+    var nuevoId = await obtenerNuevoId();
+    var sesionIniciada = await validarSesion();
+    if (!sesionIniciada) {
+        // Si la sesión no está iniciada, redirigir al usuario a la página de inicio de sesión
+        Swal.fire("¡La sesión no está iniciada!");
+        window.location.replace("https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
+    }if(nuevoId != null){
+        registrarSolicitud(nuevoId);
+    }
+}
+
+function registrarSolicitud(nuevoId) {
+
+        const dataForm = new FormData();
+
+        var tipoPrueba         = id("tipoPrueba");
+        var norma              = id("norma");
+        var inputArchivo       = id('normaFile');
+        var idNomina           = id("idUsuario");
+        var tipoPruebaEspecial = id("tipoPruebaEspecial");
+        var otroPrueba         = id("otroPrueba");
+        var especificaciones   = id ("especificaciones");
+        var fechaSolicitud= new Date();
+        var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
+
+        dataForm.append('tipoPrueba', tipoPrueba.value.trim());
+        dataForm.append('norma', norma.value.trim());
+        dataForm.append('normaFile', inputArchivo.files[0]);
+        dataForm.append('idUsuario', idNomina.value.trim());
+        dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
+        dataForm.append('otroPrueba', otroPrueba.value.trim());
+        dataForm.append('especificaciones', especificaciones.value.trim());
+        dataForm.append('fechaSolicitud', fechaFormateada);
+        dataForm.append('id_prueba', nuevoId);
+
+        var materiales = [];
+        var cantidades = [];
+
+        alert("otroPrueba ="+otroPrueba.value.trim());
+
+        for (var k = 1; k <= i; k++) {
+            // Para agregar material por número de parte
+            var descMaterial       = id('descMaterial' + k);
+            var cdadMaterial       = id('cdadMaterial' + k);
+
+            // Añadimos los valores a los arrays correspondientes
+            materiales.push(descMaterial.value.trim());
+            cantidades.push(cdadMaterial.value.trim());
+        }
+        // Agregamos los arrays al FormData
+        dataForm.append('materiales', materiales.join(', '));
+        dataForm.append('cantidades', cantidades.join(', '));
+
+        //alert("Materiales son: " + materiales + "\nCantidades con: " + cantidades );
+        //alert("../../dao/requestRegister.php/?tipoPrueba="+tipoPrueba.value+"&tipoPruebaEspecial="+tipoPruebaEspecial.value+"&otroEspecial="+otroPrueba.value+"&norma="+norma.value+"&normaFile="+normaFile.value+"&idNomina="+idNomina.value+"&especificaciones="+especificaciones.value+"&numParte="+numParte.value+"&descMaterial="+descMaterial.value+"&cdadMaterial="+cdadMaterial+"&fechaSolicitud="+fechaFormateada+"&id_prueba="+id_prueba);
+
+        fetch('../../dao/requestRegister.php', {
+            method: 'POST',
+            body: dataForm
+        })
+            .then(function (response) {
+                if (response.ok) { //respuesta
+                    enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
+                    resumenSolicitud(nuevoId);
+                    //window.location.href = "../requests/requestsIndex.php";
+                    //setTimeout(function(){ window.location.href = '../requests/requestsIndex.php'; }, 10000);
+                } else {
+                    throw "Error en la llamada Ajax";
+                }
+            })
+            .then(function (texto) {
+                console.log(texto);
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+}
+
+
+/*
 async function registrarSolicitud() {
 
     var sesionIniciada = await validarSesion();
@@ -105,7 +186,6 @@ async function registrarSolicitud() {
             var tipoPruebaEspecial = id("tipoPruebaEspecial");
             var otroPrueba         = id("otroPrueba");
             var especificaciones   = id ("especificaciones");
-
             var fechaSolicitud= new Date();
             var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
 
@@ -164,7 +244,7 @@ async function registrarSolicitud() {
         } catch (error) {
             console.error("Error al registrar la solicitud:", error);
         }
-}
+}*/
 function enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario){
     const data = new FormData();
 
