@@ -84,15 +84,14 @@ function validarSesion() {
     });
 }
 
-async function validacionSolicitud(){
-    var nuevoId = await obtenerNuevoId();
-    var sesionIniciada = await validarSesion();
-    if (!sesionIniciada) {
+function validacionSolicitud(){
+    var id_prueba = obtenerNuevoId();
+    if (!validarSesion()) {
         // Si la sesión no está iniciada, redirigir al usuario a la página de inicio de sesión
         Swal.fire("¡La sesión no está iniciada!");
         window.location.replace("https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
-    }if(nuevoId != null){
-        registrarSolicitud(nuevoId);
+    }else{
+        registrarSolicitud(id_prueba);
     }
 }
 
