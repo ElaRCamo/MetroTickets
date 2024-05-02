@@ -120,10 +120,10 @@ function registrarSolicitud(nuevoId) {
         var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
 
         var tipoPruebaEspecial, otroPrueba;
-        if(tipoPrueba.value.trim() === 5){
+        if(tipoPrueba.value === 5){
             tipoPruebaEspecial = id("tipoPruebaEspecial");
 
-            if(tipoPruebaEspecial.value.trim() ===4){
+            if(tipoPruebaEspecial.value === 4){
                 otroPrueba = id("otroPrueba");
             }else{
                 otroPrueba = "No aplica xd";
