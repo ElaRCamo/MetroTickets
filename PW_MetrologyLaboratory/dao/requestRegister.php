@@ -24,9 +24,9 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
         } else {
             // mover el archivo cargado a la ubicación deseada
             if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile)) {
-                $response = array(
+               /* $response = array(
                     "message" => "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente."
-                );
+                );*/
             } else {
                 $response = array(
                     "error" => "Hubo un error al subir el archivo."
@@ -52,9 +52,9 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
 
     // Llamar a la función
     if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba)) {
-        $response = array(
+        /*$response = array(
             "message" => "Solicitud registrada exitosamente"
-        );
+        );*/
     } else {
         $response = array(
             "error" => "<script>alert(\"Error al registrar la solicitud\")</script>"
@@ -106,8 +106,6 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
         exit;
         //return true;
     }
-
-
 }
 
 //bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.
