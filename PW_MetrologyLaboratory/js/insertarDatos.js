@@ -112,8 +112,6 @@ function registrarSolicitud(nuevoId) {
         const dataForm = new FormData();
 
         var tipoPrueba         = id("tipoPrueba");
-        var norma              = id("norma");
-        var inputArchivo       = id('normaFile');
         var idNomina           = id("idUsuario");
         var especificaciones   = id ("especificaciones");
         var fechaSolicitud= new Date();
@@ -121,15 +119,18 @@ function registrarSolicitud(nuevoId) {
 
 
         dataForm.append('id_prueba', nuevoId);
+        dataForm.append('fechaSolicitud', fechaFormateada);
         dataForm.append('tipoPrueba', tipoPrueba.value.trim());
-        dataForm.append('norma', norma.value.trim());
-        dataForm.append('normaFile', inputArchivo.files[0]);
         dataForm.append('idUsuario', idNomina.value.trim());
         dataForm.append('especificaciones', especificaciones.value.trim());
-        dataForm.append('fechaSolicitud', fechaFormateada);
 
-        var tipoPruebaEspecial, otroPrueba;
+        var tipoPruebaEspecial, otroPrueba, norma, inputArchivo;
         if(tipoPrueba && tipoPrueba.value === "5"){
+            norma              = id("norma");
+            inputArchivo      = id('normaFile');
+            dataForm.append('norma', norma.value.trim());
+            dataForm.append('normaFile', inputArchivo.files[0]);
+
             tipoPruebaEspecial = id("tipoPruebaEspecial");
             dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
 
@@ -142,10 +143,19 @@ function registrarSolicitud(nuevoId) {
                 dataForm.append('otroPrueba', otroPrueba);
                 alert("otroPrueba ="+otroPrueba);
             }
+        }else if(tipoPrueba && tipoPrueba.value === "4" || tipoPrueba && tipoPrueba.value === "3"){
+            norma              = id("norma");
+            inputArchivo      = id('normaFile');
+            dataForm.append('norma', norma.value.trim());
+            dataForm.append('normaFile', inputArchivo.files[0]);
         }else{
             tipoPruebaEspecial = "No aplica xd";
             dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial);
-        }
+            norma              ="No aplica xd";
+            inputArchivo      = "No aplica xd";
+            dataForm.append('norma', norma);
+            dataForm.append('normaFile', inputArchivo);
+    }
 
         var materiales = [];
         var cantidades = [];
