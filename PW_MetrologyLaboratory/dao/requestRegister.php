@@ -28,9 +28,9 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
                     "message" => "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente."
                 );*/
             } else {
-                $response = array(
+               /* $response = array(
                     "error" => "Hubo un error al subir el archivo."
-                );
+                );*/echo json_encode(array('error' => true));
             }
         }
     }else{ //El tipo de prueba no requiere especificar norma
@@ -56,14 +56,14 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
             "message" => "Solicitud registrada exitosamente"
         );*/
     } else {
-        $response = array(
+        /*$response = array(
             "error" => "<script>alert(\"Error al registrar la solicitud\")</script>"
-        );
+        );*/echo json_encode(array('error' => true));
     }
 } else {
-    $response = array(
-        "error" => "<script>alert(\"Error: Faltan datos en el formulario\")</script>"
-    );
+    /*$response = array(
+        //"error" => "<script>alert(\"Error: Faltan datos en el formulario\")</script>"
+    );*/echo json_encode(array('error' => true));
 }
 
 function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba)
@@ -95,7 +95,7 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     if(!$rInsertSolicitud || !$rInsertMaterial) {
         $conex->rollback();
         $conex->close();
-        echo "Los datos no se insertaron correctamente.";
+        //echo "Los datos no se insertaron correctamente.";
         echo json_encode(array('error' => true));
         exit;
         //return false;
