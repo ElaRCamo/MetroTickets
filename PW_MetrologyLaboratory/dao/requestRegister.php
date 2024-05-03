@@ -51,15 +51,8 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
 
 
     // Llamar a la función
-    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba)) {
-        /*$response = array(
-            "message" => "Solicitud registrada exitosamente"
-        );*/
-    } else {
-        /*$response = array(
-            "error" => "<script>alert(\"Error al registrar la solicitud\")</script>"
-        );*/echo json_encode(array('error' => true));
-    }
+    RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba);
+
 } else {
     /*$response = array(
         //"error" => "<script>alert(\"Error: Faltan datos en el formulario\")</script>"
