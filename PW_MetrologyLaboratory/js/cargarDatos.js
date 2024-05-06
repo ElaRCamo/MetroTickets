@@ -370,6 +370,7 @@ function resumenPrueba(ID_PRUEBA){
         $('#numeroPruebaR').text(data.id_prueba);
         $('#fechaSolicitudR').text(data.fechaSolicitud);
         $('#fechaRespuestaR').text(data.fechaRespuesta);
+        $('#fechaUpdateR').text(data.fechaActualizacion);
         $('#solicitanteR').text(data.nombreSolic);
         $('#metrologoR').text(data.nombreMetro);
         $('#tipoPruebaSolicitudR').text(data.descripcionPrueba);
