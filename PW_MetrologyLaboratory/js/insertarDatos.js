@@ -186,15 +186,19 @@ function registrarSolicitud(nuevoId) {
     })
         .then(function (response) {
             if (response.ok) { //respuesta
+                pausarPagina();
                 return response.json(); // Parsear la respuesta como JSON
             } else {
+                pausarPagina();
                 throw "Error en la llamada Ajax";
             }
         })
         .then(function (data) {
             // Verificar si hay algún error en la respuesta del servidor
             if (data.error) {
+                pausarPagina();
                 throw "Los datos no se insertaron correctamente.";
+
             } else {
                 // Si la inserción de datos fue exitosa, llamar a las funciones
                 enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
@@ -205,6 +209,51 @@ function registrarSolicitud(nuevoId) {
             console.log(err);
         });
 }
+function pausarPagina() {
+    // Guardar el estado actual de la página
+    const estadoActual = {
+        scrollTop: window.scrollY,
+        archivosCargados: Array.from(document.querySelectorAll('input[type="file"]')).map(input => ({
+            nombre: input.name,
+            archivos: Array.from(input.files).map(file => ({ nombre: file.name, tamaño: file.size }))
+        }))
+    };
+
+    // Deshabilitar eventos de scroll
+    window.onscroll = function() {
+        window.scrollTo(0, estadoActual.scrollTop);
+    };
+
+    // Deshabilitar eventos de carga de archivos
+    Array.from(document.querySelectorAll('input[type="file"]')).forEach(input => {
+        input.setAttribute('disabled', 'disabled');
+    });
+
+    // Temporizador para reanudar la página después de 15 minutos
+    setTimeout(function() {
+        // Habilitar eventos de scroll
+        window.onscroll = null;
+
+        // Habilitar eventos de carga de archivos
+        Array.from(document.querySelectorAll('input[type="file"]')).forEach(input => {
+            input.removeAttribute('disabled');
+        });
+
+        // Restaurar el estado de la página
+        window.scrollTo(0, estadoActual.scrollTop);
+        estadoActual.archivosCargados.forEach(archivo => {
+            const input = document.querySelector(`input[name="${archivo.nombre}"]`);
+            archivo.archivos.forEach(file => {
+                const blob = new Blob([null], { type: 'application/octet-stream' });
+                blob.name = file.nombre;
+                blob.lastModifiedDate = new Date();
+                input.files = [...input.files, blob];
+            });
+        });
+    }, 15 * 60 * 1000); // 15 minutos en milisegundos
+}
+
+
 
 
 /*
