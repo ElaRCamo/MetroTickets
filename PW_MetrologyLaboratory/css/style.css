@@ -751,3 +751,7 @@ table tbody tr {
     word-wrap: break-word;
 }
 
+#nombreArchivo{
+    font-size: 1rem;
+    color: #444;
+}
