@@ -92,23 +92,16 @@ async function validacionSolicitud() {
         // Validar la sesión de forma asíncrona
         const sesionIniciada = await validarSesion();
         await Promise.all([id_prueba, sesionIniciada]);
-        alert("validacion de solicitud");
 
-        while(sesionIniciada===undefined || sesionIniciada===null){
-            await Promise.all([sesionIniciada]);
-            alert("validacion de solicitud: Promise.all([id_prueba, sesionIniciada]);");
-        }
-
-        if(sesionIniciada === true){
-            while(id_prueba === null && false){
-                await Promise.all([id_prueba]);
-            }
+        if (sesionIniciada === true && id_prueba === true)  {
+            // Si la sesión está iniciada, registrar la solicitud
             registrarSolicitud(id_prueba);
-        }else if(sesionIniciada === false){
+        }else if(!sesionIniciada === false){
             // Si la sesión no está iniciada, redirigir al usuario a la página de inicio de sesión
             Swal.fire("¡La sesión no está iniciada!");
             window.location.replace("https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
-
+        }else{
+            alert("esperando promesas");
         }
 
     } catch (error) {
