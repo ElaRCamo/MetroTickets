@@ -752,7 +752,7 @@ table tbody tr {
 }
 
 #archivoNormaR span, #archivoNormaR{
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #444;
 }
 #archivoNormaR span:hover{
