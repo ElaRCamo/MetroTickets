@@ -22,25 +22,25 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
                 "error" => "Error: " . $_FILES["normaFile"]["error"]
             );
         } else {
-            if(move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile)) {
+            // mover el archivo cargado a la ubicación deseada
+            if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile)) {
                 $response = array(
-                    "success" => "Archivo subido con éxito."
+                    "message" => "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente."
                 );
             } else {
                 $response = array(
-                    "error" => "Error al mover el archivo."
+                    "error" => "Hubo un error al subir el archivo."
                 );
             }
         }
-
     }else{ //El tipo de prueba no requiere especificar norma
         $norma     = 'No aplica';
         $normaFile = 'No aplica';
     }
 
     $idUsuario            = $_SESSION['nomina'];
-    $tipoPruebaEspecial   = ($_POST['tipoPrueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
-    //$tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
+    //$tipoPruebaEspecial   = ($_POST['tipoPrueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
+    $tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
     $otroPrueba           = ($tipoPruebaEspecial  != 4) ? 'No aplica xd' : $_POST['otroPrueba'] ;
     $especificaciones     = $_POST['especificaciones'];
     $fechaSolicitud       = $_POST['fechaSolicitud'];
@@ -51,12 +51,18 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
 
 
     // Llamar a la función
-    RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba);
-
+    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba)) {
+        $response = array(
+            "message" => "Solicitud registrada exitosamente"
+        );
+    } else {
+        echo '<script>alert("Error al registrar la solicitud")</script>';
+    }
 } else {
-    /*$response = array(
-        //"error" => "<script>alert(\"Error: Faltan datos en el formulario\")</script>"
-    );*/echo json_encode(array('error' => true));
+    $response = array(
+        "error" => "<script>alert('Error: Faltan datos en el formulario')</script>"
+    );
+
 }
 
 function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba)
@@ -88,7 +94,6 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     if(!$rInsertSolicitud || !$rInsertMaterial) {
         $conex->rollback();
         $conex->close();
-        //echo "Los datos no se insertaron correctamente.";
         echo json_encode(array('error' => true));
         exit;
         //return false;
@@ -99,6 +104,8 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
         exit;
         //return true;
     }
+
+
 }
 
 //bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.
