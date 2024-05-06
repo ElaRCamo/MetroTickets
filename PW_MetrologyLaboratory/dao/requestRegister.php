@@ -18,20 +18,16 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
         $moverNormaFile = "../archivos/" . $normaFileName;
 
         if ($_FILES["normaFile"]["error"] > 0) {
-            $response = array(
-                "error" => "Error: " . $_FILES["normaFile"]["error"]
-            );
+            echo json_encode(array("error" => "Error: " . $_FILES["normaFile"]["error"] ));
+            //$response = array( "error" => "Error: " . $_FILES["normaFile"]["error"] );
         } else {
             // mover el archivo cargado a la ubicación deseada
-            if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile)) {
-                $response = array(
-                    "message" => "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente."
-                );
-            } else {
-                $response = array(
-                    "error" => "Hubo un error al subir el archivo."
-                );
-            }
+            move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile);
+                //$response = array("message" => "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente.");
+            /*else {
+                echo json_encode(array("error" => "Hubo un error al subir el archivo."));
+                //$response = array("error" => "Hubo un error al subir el archivo.");
+            }*/
         }
     }else{ //El tipo de prueba no requiere especificar norma
         $norma     = 'No aplica';
@@ -49,19 +45,11 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
     $descMateriales = explode(', ', $_POST['materiales']);
     $cdadMateriales = explode(', ', $_POST['cantidades']);
 
+    RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba);
 
-    // Llamar a la función
-    if(RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba)) {
-        $response = array(
-            "message" => "Solicitud registrada exitosamente"
-        );
-    } else {
-        echo '<script>alert("Error al registrar la solicitud")</script>';
-    }
 } else {
-    $response = array(
-        "error" => "<script>alert('Error: Faltan datos en el formulario')</script>"
-    );
+    //$response = array("error" => "<script>alert('Error: Faltan datos en el formulario')</script>");
+    echo json_encode(array("error" => "<script>alert('Error: Faltan datos en el formulario')</script>"));
 
 }
 
