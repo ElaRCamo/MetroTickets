@@ -164,7 +164,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                                 }
                             ?>
                             <script>
-                                <?php if ($urlCompleta === 'No aplica'): ?>
+                                <?php if ($urlCompleta != 'No aplica'): ?>
                                 document.getElementById("archivoNormaR").style.pointerEvents = "none";
                                 <?php endif; ?>
                             </script>
