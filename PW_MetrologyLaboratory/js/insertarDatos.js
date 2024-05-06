@@ -184,78 +184,27 @@ function registrarSolicitud(nuevoId) {
         method: 'POST',
         body: dataForm
     })
-    /*.then(()=>{
-            alert("cargando datos")
-        })*/
         .then(function (response) {
-            if (response.ok) { //respuesta
-                console.log("Respuesta json: ", response.json());
-                //return response.json(); // Parsear la respuesta como JSON
-            } else {
-                throw "Error en la llamada Ajax";
-            }
+                if (!response.ok) {
+                    throw new Error('Server returned ' + response.status);
+                }
+                return response.json();
+
         })
         .then(function (data) {
-            // Verificar si hay algún error en la respuesta del servidor
-            if (data.error) {
-                throw "Los datos no se insertaron correctamente.";
-            } else {
                 // Si la inserción de datos fue exitosa, llamar a las funciones
                 enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
                 resumenSolicitud(nuevoId);
-            }
+
         })
         .catch(function (error) {
-
-            console.log("Error al insertar datos: ", error);
-
+            if (error instanceof TypeError && error.message.includes('Error')) {
+                console.error('Error en el procesamiento de datos:', error);
+            } else {
+                console.error('Error al insertar datos:', error);
+            }
         });
 }
-function pausarPagina() {
-    // Guardar el estado actual de la página
-    const estadoActual = {
-        scrollTop: window.scrollY,
-        archivosCargados: Array.from(document.querySelectorAll('input[type="file"]')).map(input => ({
-            nombre: input.name,
-            archivos: Array.from(input.files).map(file => ({ nombre: file.name, tamaño: file.size }))
-        }))
-    };
-
-    // Deshabilitar eventos de scroll
-    window.onscroll = function() {
-        window.scrollTo(0, estadoActual.scrollTop);
-    };
-
-    // Deshabilitar eventos de carga de archivos
-    Array.from(document.querySelectorAll('input[type="file"]')).forEach(input => {
-        input.setAttribute('disabled', 'disabled');
-    });
-
-    // Temporizador para reanudar la página después de 15 minutos
-    setTimeout(function() {
-        // Habilitar eventos de scroll
-        window.onscroll = null;
-
-        // Habilitar eventos de carga de archivos
-        Array.from(document.querySelectorAll('input[type="file"]')).forEach(input => {
-            input.removeAttribute('disabled');
-        });
-
-        // Restaurar el estado de la página
-        window.scrollTo(0, estadoActual.scrollTop);
-        estadoActual.archivosCargados.forEach(archivo => {
-            const input = document.querySelector(`input[name="${archivo.nombre}"]`);
-            archivo.archivos.forEach(file => {
-                const blob = new Blob([null], { type: 'application/octet-stream' });
-                blob.name = file.nombre;
-                blob.lastModifiedDate = new Date();
-                input.files = [...input.files, blob];
-            });
-        });
-    }, 15 * 60 * 1000); // 15 minutos en milisegundos
-}
-
-
 
 
 /*
