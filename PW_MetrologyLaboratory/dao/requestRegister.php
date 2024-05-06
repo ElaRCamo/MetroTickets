@@ -35,8 +35,8 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
     }
 
     $idUsuario            = $_SESSION['nomina'];
-    //$tipoPruebaEspecial   = ($_POST['tipoPrueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
-    $tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
+    $tipoPruebaEspecial   = ($_POST['tipoPrueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
+    //$tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
     $otroPrueba           = ($tipoPruebaEspecial  != 4) ? 'No aplica xd' : $_POST['otroPrueba'] ;
     $especificaciones     = $_POST['especificaciones'];
     $fechaSolicitud       = $_POST['fechaSolicitud'];
