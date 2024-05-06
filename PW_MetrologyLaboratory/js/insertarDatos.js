@@ -206,7 +206,9 @@ function registrarSolicitud(nuevoId) {
             }
         })
         .catch(function (err) {
+
             console.log(err);
+            pausarPagina();
         });
 }
 function pausarPagina() {
