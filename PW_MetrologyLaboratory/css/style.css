@@ -744,7 +744,7 @@ table tbody tr {
 #divResSol{
     text-align: left;
 }
-#datosGeneralesTable th, #resultadosTable th, #nombreArchivo{
+#datosGeneralesTable th, #resultadosTable th{
     background-color: var(--main-color);
     color:#fff;
     width: 25%;
