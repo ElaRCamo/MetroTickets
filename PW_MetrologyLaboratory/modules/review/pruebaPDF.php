@@ -163,6 +163,11 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                                     echo '<a href="' . $urlCompleta . '">' . $nombrePDF . '</a>';
                                 }
                             ?>
+                            <script>
+                                <?php if ($urlCompleta === 'No aplica'): ?>
+                                document.getElementById("archivoNormaR").style.pointerEvents = "none";
+                                <?php endif; ?>
+                            </script>
                     </tr>
                     <tr>
                         <th class="">Especifícaciones: </th>
