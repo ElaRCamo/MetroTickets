@@ -378,6 +378,16 @@ function resumenPrueba(ID_PRUEBA){
         $('#prioridadR').text(data.descripcionPrioridad);
         $('#normaNombreR').text(data.normaNombre);
         id("archivoNormaR").href = data.normaArchivo;
+
+
+        // Se agrega texto del enlace
+        var urlCompleta = data.normaArchivo;
+        var nombreArchivo = urlCompleta.substring(urlCompleta.lastIndexOf('/') + 1);
+        var numeroReferencia = nombreArchivo.split('-')[0];
+        document.getElementById("nombreArchivo").textContent = nombreArchivo.substring(numeroReferencia.length + 1);
+        document.getElementById("archivoNormaR").href = urlCompleta;
+
+
         $('#observacionesLabR').text(data.especificacionesLab);
         $('#rutaResultadosR').text(data.rutaResultados);
 

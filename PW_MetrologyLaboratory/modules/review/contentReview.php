@@ -34,10 +34,16 @@
                             <td id="solicitanteR"> </td>
                         </tr>
                         <tr>
+                            <th class="p-2 mb-2">Estatus: </th>
+                            <td id="estatusSolicitudR" ></td>
+                            <th class="p-2 mb-2 ">Prioridad:</th>
+                            <td id="prioridadR"> </td>
+                        </tr>
+                        <tr>
                             <th class="p-2 mb-2">Norma: </th>
                             <td id="normaNombreR"></td>
                             <th class="p-2 mb-2">Documento de la norma: </th>
-                            <td><a id="archivoNormaR" href="">Archivo pdf</a></td>
+                            <td><a id="archivoNormaR" href=""><i class="las la-file-pdf"><span id="nombreArchivo"></span></a></td>
                         </tr>
                         <tr>
                             <th class="p-2 mb-2">Especifícaciones: </th>
@@ -69,12 +75,6 @@
                         <td id="fechaRespuestaR"></td>
                         <th class="p-2 mb-2 ">Metrólogo:</th>
                         <td id="metrologoR"> </td>
-                    </tr>
-                    <tr>
-                        <th class="p-2 mb-2">Estatus: </th>
-                        <td id="estatusSolicitudR" ></td>
-                        <th class="p-2 mb-2 ">Prioridad:</th>
-                        <td id="prioridadR"> </td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Observaciones:</th>
