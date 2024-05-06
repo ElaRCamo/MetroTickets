@@ -755,6 +755,9 @@ table tbody tr {
     font-size: 1rem;
     color: #444;
 }
+#archivoNormaR span:hover{
+    color: var(--main-color);
+}
 #containerPruebaR td{
     color: #444;
 }
