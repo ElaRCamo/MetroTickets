@@ -91,16 +91,17 @@ async function validacionSolicitud() {
 
         // Validar la sesión de forma asíncrona
         const sesionIniciada = await validarSesion();
+        await Promise.all([id_prueba, sesionIniciada]);
         alert("validacion de solicitud");
 
         while(sesionIniciada===undefined || sesionIniciada===null){
-            await Promise.all([id_prueba, sesionIniciada]);
+            await Promise.all([sesionIniciada]);
             alert("validacion de solicitud: Promise.all([id_prueba, sesionIniciada]);");
         }
 
         if(sesionIniciada === true){
             while(id_prueba === null && false){
-                await Promise.all([id_prueba, sesionIniciada]);
+                await Promise.all([id_prueba]);
             }
             registrarSolicitud(id_prueba);
         }else if(sesionIniciada === false){
