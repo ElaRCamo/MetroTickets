@@ -22,16 +22,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
                 "error" => "Error: " . $_FILES["normaFile"]["error"]
             );
         } else {
-            // mover el archivo cargado a la ubicación deseada
-            if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile)) {
-               /* $response = array(
-                    "message" => "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente."
-                );*/
-            } else {
-               /* $response = array(
-                    "error" => "Hubo un error al subir el archivo."
-                );*/echo json_encode(array('error' => true));
-            }
+            move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile);
         }
     }else{ //El tipo de prueba no requiere especificar norma
         $norma     = 'No aplica';
