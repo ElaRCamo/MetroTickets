@@ -93,6 +93,32 @@ async function validacionSolicitud() {
         const sesionIniciada = await validarSesion();
 
         await Promise.all([id_prueba, sesionIniciada]);
+        if(await Promise.all([id_prueba, sesionIniciada])){
+            let timerInterval;
+            Swal.fire({
+                title: "Promise await!",
+                html: "I will close in <b></b> milliseconds.",
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                    const timer = Swal.getPopup().querySelector("b");
+                    timerInterval = setInterval(() => {
+                        timer.textContent = `${Swal.getTimerLeft()}`;
+                    }, 100);
+                },
+                willClose: () => {
+                    clearInterval(timerInterval);
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log("I was closed by the timer");
+                }
+            });
+        }
+
+
 
         if (sesionIniciada && id_prueba !== null && id_prueba !== undefined)  {
             // Si la sesión está iniciada, registrar la solicitud
@@ -114,8 +140,8 @@ function registrarSolicitud(nuevoId) {
         var idNomina           = id("idUsuario");
         var tipoPrueba         = id("tipoPrueba");
         var especificaciones   = id ("especificaciones");
-        var fechaSolicitud= new Date();
-        var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
+        var fechaSolicitud    = new Date();
+        var fechaFormateada  = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
 
 
         dataForm.append('id_prueba', nuevoId);
