@@ -43,7 +43,7 @@
                             <th class="p-2 mb-2">Norma: </th>
                             <td id="normaNombreR"></td>
                             <th class="p-2 mb-2">Documento de la norma: </th>
-                            <td><a id="archivoNormaR" href=""><i class="las la-file-pdf"><span id="nombreArchivo"></span></a></td>
+                            <td><a id="archivoNormaR" href=""><span id="nombreArchivo"></span></a></td>
                         </tr>
                         <tr>
                             <th class="p-2 mb-2">Especifícaciones: </th>

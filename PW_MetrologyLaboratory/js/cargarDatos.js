@@ -383,9 +383,11 @@ function resumenPrueba(ID_PRUEBA){
         // Se agrega texto del enlace
         var urlCompleta = data.normaArchivo;
         var nombreArchivo = urlCompleta.substring(urlCompleta.lastIndexOf('/') + 1);
-        var numeroReferencia = nombreArchivo.split('-')[0];
-        document.getElementById("nombreArchivo").textContent = nombreArchivo.substring(numeroReferencia.length + 1);
+        var numeroReferencia = nombreArchivo.split('-')[1];
+        var nombreArchivoSinPDF = nombreArchivo.substring(0, nombreArchivo.lastIndexOf('.')); // Eliminar la extensión .pdf
+        document.getElementById("nombreArchivo").textContent = nombreArchivoSinPDF.substring(numeroReferencia.length + 1);
         document.getElementById("archivoNormaR").href = urlCompleta;
+
 
 
         $('#observacionesLabR').text(data.especificacionesLab);
