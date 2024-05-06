@@ -93,41 +93,15 @@ async function validacionSolicitud() {
         const sesionIniciada = await validarSesion();
 
         await Promise.all([id_prueba, sesionIniciada]);
-        if(await Promise.all([id_prueba, sesionIniciada])){
-            let timerInterval;
-            Swal.fire({
-                title: "Promise await!",
-                html: "I will close in <b></b> milliseconds.",
-                timer: 2000,
-                timerProgressBar: true,
-                didOpen: () => {
-                    Swal.showLoading();
-                    const timer = Swal.getPopup().querySelector("b");
-                    timerInterval = setInterval(() => {
-                        timer.textContent = `${Swal.getTimerLeft()}`;
-                    }, 100);
-                },
-                willClose: () => {
-                    clearInterval(timerInterval);
-                }
-            }).then((result) => {
-                /* Read more about handling dismissals below */
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    console.log("I was closed by the timer");
-                }
-            });
-        }
 
-
-
-        if (sesionIniciada && id_prueba !== null && id_prueba !== undefined)  {
-            // Si la sesión está iniciada, registrar la solicitud
-            registrarSolicitud(id_prueba);
-        }else if(!sesionIniciada){
+        if(!sesionIniciada){
             // Si la sesión no está iniciada, redirigir al usuario a la página de inicio de sesión
             Swal.fire("¡La sesión no está iniciada!");
             window.location.replace("https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
         }
+
+        registrarSolicitud(id_prueba);
+
     } catch (error) {
         console.log("Error al validar la solicitud:", error);
     }
