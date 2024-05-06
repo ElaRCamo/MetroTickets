@@ -96,13 +96,9 @@ async function validacionSolicitud() {
             // Esperar a que se completen ambas promesas
             await Promise.all([id_prueba, sesionIniciada]);
 
-            if (sesionIniciada)  {
-                if(id_prueba !== null && id_prueba !== undefined){
-                    registrarSolicitud(id_prueba);
-                }else{
-                    alert("esperando id")
-                }
-
+            if (sesionIniciada && id_prueba !== null && id_prueba !== undefined)  {
+                // Si la sesión está iniciada, registrar la solicitud
+                registrarSolicitud(id_prueba);
             }else if(!sesionIniciada){
                 // Si la sesión no está iniciada, redirigir al usuario a la página de inicio de sesión
                 Swal.fire("¡La sesión no está iniciada!");
