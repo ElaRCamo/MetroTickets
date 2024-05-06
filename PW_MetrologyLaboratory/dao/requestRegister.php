@@ -22,16 +22,25 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
                 "error" => "Error: " . $_FILES["normaFile"]["error"]
             );
         } else {
-            move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile);
+            if(move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile)) {
+                $response = array(
+                    "success" => "Archivo subido con éxito."
+                );
+            } else {
+                $response = array(
+                    "error" => "Error al mover el archivo."
+                );
+            }
         }
+
     }else{ //El tipo de prueba no requiere especificar norma
         $norma     = 'No aplica';
         $normaFile = 'No aplica';
     }
 
     $idUsuario            = $_SESSION['nomina'];
-    //$tipoPruebaEspecial   = ($_POST['tipoPrueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
-    $tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
+    $tipoPruebaEspecial   = ($_POST['tipoPrueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
+    //$tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
     $otroPrueba           = ($tipoPruebaEspecial  != 4) ? 'No aplica xd' : $_POST['otroPrueba'] ;
     $especificaciones     = $_POST['especificaciones'];
     $fechaSolicitud       = $_POST['fechaSolicitud'];
