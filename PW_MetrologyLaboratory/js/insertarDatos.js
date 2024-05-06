@@ -185,7 +185,7 @@ function registrarSolicitud(nuevoId) {
         body: dataForm
     })
         .then(()=>{
-            console.log("cargando datos")
+            alert("cargando datos")
         })
         /*.then(function (response) {
             if (response.ok) { //respuesta
