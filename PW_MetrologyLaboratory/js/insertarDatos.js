@@ -184,21 +184,20 @@ function registrarSolicitud(nuevoId) {
         method: 'POST',
         body: dataForm
     })
-        .then(function (response) {
+        .then(()=>{
+            console.log("cargando datos")
+        })
+        /*.then(function (response) {
             if (response.ok) { //respuesta
-                pausarPagina();
                 return response.json(); // Parsear la respuesta como JSON
             } else {
-                pausarPagina();
                 throw "Error en la llamada Ajax";
             }
         })
         .then(function (data) {
             // Verificar si hay algún error en la respuesta del servidor
             if (data.error) {
-                pausarPagina();
                 throw "Los datos no se insertaron correctamente.";
-
             } else {
                 // Si la inserción de datos fue exitosa, llamar a las funciones
                 enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
@@ -207,9 +206,9 @@ function registrarSolicitud(nuevoId) {
         })
         .catch(function (err) {
 
-            console.log(err);
-            pausarPagina();
-        });
+            console.log("Error al insertar datos: ", err);
+
+        });*/
 }
 function pausarPagina() {
     // Guardar el estado actual de la página
