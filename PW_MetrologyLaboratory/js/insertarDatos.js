@@ -189,7 +189,8 @@ function registrarSolicitud(nuevoId) {
         })*/
         .then(function (response) {
             if (response.ok) { //respuesta
-                return response.json(); // Parsear la respuesta como JSON
+                console.log("Respuesta json: ", response.json());
+                //return response.json(); // Parsear la respuesta como JSON
             } else {
                 throw "Error en la llamada Ajax";
             }
