@@ -85,28 +85,42 @@ function validarSesion() {
 }
 
 async function validacionSolicitud() {
-    try {
-        // Obtener el nuevo ID de forma asíncrona
-        const id_prueba = await obtenerNuevoId();
+    async function validacionSolicitud() {
+        try {
+            // Obtener el nuevo ID de forma asíncrona
+            const id_prueba = await obtenerNuevoId();
 
-        // Validar la sesión de forma asíncrona
-        const sesionIniciada = await validarSesion();
-        await Promise.all([id_prueba, sesionIniciada]);
+            // Validar la sesión de forma asíncrona
+            const sesionIniciada = await validarSesion();
 
-        if (sesionIniciada === true && id_prueba !== null && id_prueba !== undefined)  {
-            // Si la sesión está iniciada, registrar la solicitud
-            registrarSolicitud(id_prueba);
-        }else if(sesionIniciada === false){
-            // Si la sesión no está iniciada, redirigir al usuario a la página de inicio de sesión
-            Swal.fire("¡La sesión no está iniciada!");
-            window.location.replace("https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
-        }else{
-            alert("esperando promesas");
+            // Esperar a que se completen ambas promesas
+            await Promise.all([id_prueba, sesionIniciada]);
+
+            // Verificar si la sesión está iniciada
+            if (sesionIniciada === false) {
+                // Si la sesión no está iniciada, redirigir al usuario a la página de inicio de sesión
+                Swal.fire("¡La sesión no está iniciada!");
+                window.location.replace("https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
+            } else if (sesionIniciada === true) {
+                // Verificar si el ID de prueba no es nulo
+                if (id_prueba !== null) {
+                    // Registrar la solicitud si el ID de prueba no es nulo
+                    registrarSolicitud(id_prueba);
+                } else {
+                    // Esperar hasta que el ID de prueba no sea nulo
+                    while (id_prueba === null) {
+                        await obtenerNuevoId();
+                    }
+                    // Registrar la solicitud una vez que el ID de prueba no sea nulo
+                    registrarSolicitud(id_prueba);
+                }
+            }
+
+        } catch (error) {
+            console.log("Error al validar la solicitud:", error);
         }
-
-    } catch (error) {
-        console.error("Error al validar la solicitud:", error);
     }
+
 }
 
 function registrarSolicitud(nuevoId) {
