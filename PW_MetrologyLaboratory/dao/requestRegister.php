@@ -18,7 +18,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
         $moverNormaFile = "../archivos/" . $normaFileName;
 
         if ($_FILES["normaFile"]["error"] > 0) {
-            echo json_encode(array("error" => "Error: " . $_FILES["normaFile"]["error"] ));
+            echo json_encode(array("error" => true, 'message' => "Error: " . $_FILES["normaFile"]["error"] ));
             //$response = array( "error" => "Error: " . $_FILES["normaFile"]["error"] );
         } else {
             // mover el archivo cargado a la ubicación deseada
@@ -48,7 +48,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
 
 } else {
     //$response = array("error" => "<script>alert('Error: Faltan datos en el formulario')</script>");
-    echo json_encode(array("error" => "<script>alert('Error: Faltan datos en el formulario')</script>"));
+    echo json_encode(array("error" => true, 'message' => "<script>alert('Error: Faltan datos en el formulario')</script>"));
 
 }
 

@@ -205,9 +205,9 @@ function registrarSolicitud(nuevoId) {
                 resumenSolicitud(nuevoId);
             }
         })
-        .catch(function (error) {
+        .catch(function (err) {
 
-            console.log("Error al insertar datos: ", error);
+            console.log("Error al insertar datos: ", err);
 
         });
 }
