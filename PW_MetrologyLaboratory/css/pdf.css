@@ -126,3 +126,13 @@ h5{
     padding-bottom: 0.5rem;
     font-weight: bold;
 }
+#archivoNormaR span, #archivoNormaR, #divUpdate span {
+    font-size: 0.9rem;
+    color: #444;
+}
+#archivoNormaR span:hover{
+    color: var(--main-color);
+}
+#containerPruebaR td{
+    color: #444;
+}

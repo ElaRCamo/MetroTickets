@@ -44,6 +44,7 @@ $datosPrueba =  mysqli_query($conex,
                                 "SELECT   prueba.id_prueba, 
                                                     prueba.fechaSolicitud, 
                                                     prueba.fechaRespuesta, 
+                                                    prueba.fechaActualizacion,
                                                     prueba.descripcionEstatus,
                                                     prueba.descripcionPrioridad,
                                                     prueba.descripcionPrueba, 
@@ -74,6 +75,7 @@ $datosPrueba =  mysqli_query($conex,
                                                             id_prueba, 
                                                             fechaSolicitud, 
                                                             fechaRespuesta,
+                                                            fechaActualizacion,
                                                             descripcionEstatus,
                                                             descripcionPrioridad,
                                                             descripcionPrueba,
@@ -139,6 +141,12 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                         <td><?php echo $resultados[0]['nombreSolic'];?> </td>
                     </tr>
                     <tr>
+                        <th class="">Estatus: </th>
+                        <td id="" ><?php echo $resultados[0]['descripcionEstatus'];?></td>
+                        <th class="">Prioridad:</th>
+                        <td id=""> <?php echo $resultados[0]['descripcionPrioridad'];?></td>
+                    </tr>
+                    <tr>
                         <th class="">Norma: </th>
                         <td><?php echo $resultados[0]['normaNombre'];?></td>
                         <th class="">Documento de la norma: </th>
@@ -185,12 +193,6 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                         <td id=""><?php echo $resultados[0]['nombreMetro'];?> </td>
                     </tr>
                     <tr>
-                        <th class="">Estatus: </th>
-                        <td id="" ><?php echo $resultados[0]['descripcionEstatus'];?></td>
-                        <th class="">Prioridad:</th>
-                        <td id=""> <?php echo $resultados[0]['descripcionPrioridad'];?></td>
-                    </tr>
-                    <tr>
                         <th class="">Observaciones:</th>
                         <td id="" colspan="3"><?php echo $resultados[0]['especificacionesLab'];?></td>
                     </tr>
@@ -200,6 +202,9 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     </tr>
                     </tbody>
                 </table>
+            </div>
+            <div  id="divUpdate">
+                <span >Ultima actualización: <span class="" id="fechaUpdateR"><?php echo $resultados[0]['fechaActualizacion'];?></span></span>
             </div>
         </div>
     </div>
