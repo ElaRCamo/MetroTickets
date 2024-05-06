@@ -105,7 +105,7 @@ async function validacionSolicitud() {
         }
 
     } catch (error) {
-        console.log("Error al validar la solicitud:", error);
+        console.error("Error al validar la solicitud:", error);
     }
 }
 
