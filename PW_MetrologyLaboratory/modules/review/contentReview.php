@@ -87,10 +87,8 @@
                     </tbody>
                 </table>
             </div>
-            <div class="row justify-content-end">
-                <small>Ultima actualización:
-                    <span id="fechaUpdateR"></span>
-                </small>
+            <div  id="divUpdate">
+                <span >Ultima actualización: <span class="" id="fechaUpdateR"></span></span>
             </div>
         </div>
     </div>
