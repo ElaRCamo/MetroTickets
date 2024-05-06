@@ -36,8 +36,7 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
 
     $idUsuario            = $_SESSION['nomina'];
     $tipoPruebaEspecial   = ($_POST['tipoPrueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
-    //$tipoPruebaEspecial   = $_POST['tipoPruebaEspecial'];
-    $otroPrueba           = ($tipoPruebaEspecial  != 4) ? 'No aplica xd' : $_POST['otroPrueba'] ;
+    $otroPrueba           = ($tipoPruebaEspecial  != 4) ? 'No aplica' : $_POST['otroPrueba'] ;
     $especificaciones     = $_POST['especificaciones'];
     $fechaSolicitud       = $_POST['fechaSolicitud'];
 
@@ -82,13 +81,13 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     if(!$rInsertSolicitud || !$rInsertMaterial) {
         $conex->rollback();
         $conex->close();
-        echo json_encode(array('error' => true));
+        echo json_encode(array('error' => true, 'message' => 'Error en RegistrarSolicitud'));
         exit;
         //return false;
     } else {
         $conex->commit();
         $conex->close();
-        echo json_encode(array('error' => false));
+        echo json_encode(array('error' => false, 'message' => 'Datos insertados correctamente'));
         exit;
         //return true;
     }
