@@ -111,8 +111,8 @@ function registrarSolicitud(nuevoId) {
 
         const dataForm = new FormData();
 
-        var tipoPrueba         = id("tipoPrueba");
         var idNomina           = id("idUsuario");
+        var tipoPrueba         = id("tipoPrueba");
         var especificaciones   = id ("especificaciones");
         var fechaSolicitud= new Date();
         var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
@@ -125,8 +125,8 @@ function registrarSolicitud(nuevoId) {
         dataForm.append('especificaciones', especificaciones.value.trim());
 
         var tipoPruebaEspecial, otroPrueba, norma, inputArchivo;
-        if(tipoPrueba && tipoPrueba.value === "5"){
-            norma              = id("norma");
+        if(tipoPrueba && tipoPrueba.value === '5'){
+            norma             = id("norma");
             inputArchivo      = id('normaFile');
             dataForm.append('norma', norma.value.trim());
             dataForm.append('normaFile', inputArchivo.files[0]);
@@ -134,28 +134,28 @@ function registrarSolicitud(nuevoId) {
             tipoPruebaEspecial = id("tipoPruebaEspecial");
             dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial.value.trim());
 
-            if(tipoPruebaEspecial && tipoPruebaEspecial.value === "4"){
+            if(tipoPruebaEspecial && tipoPruebaEspecial.value === '4'){
                 otroPrueba = id("otroPrueba");
                 dataForm.append('otroPrueba', otroPrueba.value.trim());
-                alert("otroPrueba ="+otroPrueba.value.trim());
+                alert("otroPrueba con tipoPruebaEspecial= 4 :"+otroPrueba.value.trim());
             }else{
-                otroPrueba = "No aplica xd";
-                dataForm.append('otroPrueba', otroPrueba);
+                otroPrueba = "No aplica";
+                dataForm.append('otroPrueba con tipoPruebaEspecial :', otroPrueba);
                 alert("otroPrueba ="+otroPrueba);
             }
-        }else if(tipoPrueba && tipoPrueba.value === "4" || tipoPrueba && tipoPrueba.value === "3"){
-            norma              = id("norma");
+        }else if((tipoPrueba && tipoPrueba.value === '4') || (tipoPrueba && tipoPrueba.value === '3')){
+            norma             = id("norma");
             inputArchivo      = id('normaFile');
             dataForm.append('norma', norma.value.trim());
             dataForm.append('normaFile', inputArchivo.files[0]);
         }else{
             tipoPruebaEspecial = 5;
-            dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial);
-            norma              ="No aplica xd";
-            inputArchivo      = "No aplica xd";
+            norma              = "No aplica";
+            inputArchivo       = "No aplica";
             dataForm.append('norma', norma);
             dataForm.append('normaFile', inputArchivo);
-    }
+            dataForm.append('tipoPruebaEspecial', tipoPruebaEspecial);
+        }
 
         var materiales = [];
         var cantidades = [];
