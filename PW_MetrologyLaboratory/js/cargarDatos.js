@@ -377,18 +377,22 @@ function resumenPrueba(ID_PRUEBA){
         $('#estatusSolicitudR').text(data.descripcionEstatus);
         $('#prioridadR').text(data.descripcionPrioridad);
         $('#normaNombreR').text(data.normaNombre);
-        id("archivoNormaR").href = data.normaArchivo;
 
-
-        // Se agrega texto del enlace
         var urlCompleta = data.normaArchivo;
-        var nombreArchivo = urlCompleta.substring(urlCompleta.lastIndexOf('/') + 1);
-        var numeroReferencia = nombreArchivo.split('-')[1];
-        var nombreArchivoSinPDF = nombreArchivo.substring(0, nombreArchivo.lastIndexOf('.')); // Eliminar la extensión .pdf
-        document.getElementById("nombreArchivo").textContent = nombreArchivoSinPDF.substring(numeroReferencia.length + 1);
-        document.getElementById("archivoNormaR").href = urlCompleta;
 
-
+        if (urlCompleta !== "No aplica") {
+            // Se agrega texto del enlace
+            id("archivoNormaR").href = urlCompleta;
+            var nombreArchivo = urlCompleta.substring(urlCompleta.lastIndexOf('/') + 1);
+            var numeroReferencia = nombreArchivo.split('-')[1];
+            var nombreArchivoSinPDF = nombreArchivo.substring(0, nombreArchivo.lastIndexOf('.')); // Eliminar la extensión .pdf
+            document.getElementById("nombreArchivo").textContent = nombreArchivoSinPDF.substring(numeroReferencia.length + 1);
+            document.getElementById("archivoNormaR").href = urlCompleta;
+        }else {
+            // Si "normaArchivo" es "No aplica", no se muestra ningún enlace
+            document.getElementById("archivoNormaR").textContent = "No aplica";
+            document.getElementById("archivoNormaR").style.pointerEvents = "none"; // Deshabilitar el clic en el enlace
+        }
 
         $('#observacionesLabR').text(data.especificacionesLab);
         $('#rutaResultadosR').text(data.rutaResultados);
