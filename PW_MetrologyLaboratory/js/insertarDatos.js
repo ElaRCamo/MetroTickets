@@ -184,10 +184,10 @@ function registrarSolicitud(nuevoId) {
         method: 'POST',
         body: dataForm
     })
-        .then(()=>{
+    /*.then(()=>{
             alert("cargando datos")
-        })
-        /*.then(function (response) {
+        })*/
+        .then(function (response) {
             if (response.ok) { //respuesta
                 return response.json(); // Parsear la respuesta como JSON
             } else {
@@ -208,7 +208,7 @@ function registrarSolicitud(nuevoId) {
 
             console.log("Error al insertar datos: ", err);
 
-        });*/
+        });
 }
 function pausarPagina() {
     // Guardar el estado actual de la página
