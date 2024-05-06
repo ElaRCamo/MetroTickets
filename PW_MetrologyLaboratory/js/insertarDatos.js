@@ -103,7 +103,7 @@ async function validacionSolicitud() {
             window.location.replace("https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
         }
     } catch (error) {
-        console.error("Error al validar la solicitud:", error);
+        console.log("Error al validar la solicitud:", error);
     }
 }
 
@@ -205,9 +205,9 @@ function registrarSolicitud(nuevoId) {
                 resumenSolicitud(nuevoId);
             }
         })
-        .catch(function (err) {
+        .catch(function (error) {
 
-            console.log("Error al insertar datos: ", err);
+            console.log("Error al insertar datos: ", error);
 
         });
 }
