@@ -77,15 +77,20 @@
                         <td id="metrologoR"> </td>
                     </tr>
                     <tr>
-                        <th class="p-2 mb-2">Observaciones:</th>
-                        <td id="observacionesLabR" colspan="3"></td>
-                    </tr>
-                    <tr>
                         <th class="p-2 mb-2">Resultados:</th>
                         <td id="rutaResultadosR"  colspan="3"></td>
                     </tr>
+                    <tr>
+                        <th class="p-2 mb-2">Observaciones:</th>
+                        <td id="observacionesLabR" colspan="3"></td>
+                    </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="row justify-content-end>
+                <small>Ultima actualización:
+                    <span></span>
+                </small>
             </div>
         </div>
     </div>
