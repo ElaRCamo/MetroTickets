@@ -751,7 +751,7 @@ table tbody tr {
     word-wrap: break-word;
 }
 
-#archivoNormaR span{
+#archivoNormaR span, #archivoNormaR{
     font-size: 1rem;
     color: #444;
 }

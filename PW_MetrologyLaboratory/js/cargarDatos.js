@@ -389,7 +389,6 @@ function resumenPrueba(ID_PRUEBA){
             document.getElementById("nombreArchivo").textContent = nombreArchivoSinPDF.substring(numeroReferencia.length + 1);
             document.getElementById("archivoNormaR").href = urlCompleta;
         }else {
-            // Si "normaArchivo" es "No aplica", no se muestra ningún enlace
             document.getElementById("archivoNormaR").textContent = "No aplica";
             document.getElementById("archivoNormaR").style.pointerEvents = "none"; // Deshabilitar el clic en el enlace
         }
