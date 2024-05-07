@@ -141,12 +141,6 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                         <td><?php echo $resultados[0]['nombreSolic'];?> </td>
                     </tr>
                     <tr>
-                        <th class="">Estatus: </th>
-                        <td id="" ><?php echo $resultados[0]['descripcionEstatus'];?></td>
-                        <th class="">Prioridad:</th>
-                        <td id=""> <?php echo $resultados[0]['descripcionPrioridad'];?></td>
-                    </tr>
-                    <tr>
                         <th class="">Norma: </th>
                         <td><?php echo $resultados[0]['normaNombre'];?></td>
                         <th class="">Documento de la norma: </th>
@@ -201,6 +195,12 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                         <td id=""><?php echo $resultados[0]['fechaRespuesta'];?></td>
                         <th class="">Metrólogo:</th>
                         <td id=""><?php echo $resultados[0]['nombreMetro'];?> </td>
+                    </tr>
+                    <tr>
+                        <th class="">Estatus: </th>
+                        <td id="" ><?php echo $resultados[0]['descripcionEstatus'];?></td>
+                        <th class="">Prioridad:</th>
+                        <td id=""> <?php echo $resultados[0]['descripcionPrioridad'];?></td>
                     </tr>
                     <tr>
                         <th class="">Observaciones:</th>
