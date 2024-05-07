@@ -448,11 +448,13 @@ function cargarDatosPrueba(id_update){
 
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
             if (tipoEvaluacion.options[i].value === data.id_tipoEvaluacion) {
-                tipoEvaluacion.selected =true;
+                tipoEvaluacion.selected = true;
+
+                console.log("CargarDatosPrueba: " + id_update);
             }
         }
 
-        console.log("cargarDatosPrueba: " + id_update);
+
 
 
         var tipoPrueba = id("tipoPrueba");
