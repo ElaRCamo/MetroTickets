@@ -251,7 +251,6 @@ function TablaPruebasSolicitante(id_solicitante) {
             id_pruebaL.classList.add("idEnlace");
             fila.appendChild(id_pruebaL);
 
-
             var fechaSolicitudL = document.createElement("td");
             fechaSolicitudL.textContent = response.data[j].fechaSolicitud;
             fila.appendChild(fechaSolicitudL);

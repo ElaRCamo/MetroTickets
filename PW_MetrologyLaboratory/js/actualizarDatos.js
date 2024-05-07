@@ -298,6 +298,17 @@ function editarMaterial(descripcion){
     }
 
 }
+function actualizarTituloH1() {
+    var titulo1 = document.querySelector("#divh1 h1");
+    var aviso = document.querySelector("#divh1 span");
+    if (titulo1) {
+        titulo1.textContent = "Actualizar Solicitud " + id_review;
+    }
+    if (aviso){
+        aviso.textContent = " ";
+    }
+}
+
 function actualizarMaterial(id_descripcion){
     console.log("ACTUALIZAR: " + id_descripcion);
 
