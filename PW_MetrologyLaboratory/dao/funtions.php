@@ -31,19 +31,20 @@ function generateToken()
     $gen = md5(uniqid(mt_rand(),false));
     return $gen;
 }
-/*
+
 function validaToken($id, $token)
 {
-    global mysqli;
+    global $mysqli;
 
-    $stmt = mysqli ->prepare ("SELECT activacion FROM usuarios WHERE id = ? AND token = ? LIMIT 1");
+    $stmt = $mysqli ->prepare ("SELECT activacion FROM usuarios WHERE id = ? AND token = ? LIMIT 1");
     $stmt->bind_param("is", $id, $token);
     $stmt->execute();
     $stmt->store_result();
     $rows = $stmt->num_rows;
 
+    $activacion = null;
     if($rows > 0){
-        $stmt->bin_result($activacion);
+        $stmt->bind_result($activacion);
         $stmt->fetch();
 
         if($activacion == 1){
@@ -60,9 +61,9 @@ function validaToken($id, $token)
 
 function activarUsuario($id)
 {
-    global mysqli;
+    global $mysqli;
 
-    $stmt = mysqli ->prepare ("UPDATE usuarios SET activacion=1 WHERE id= ?");
+    $stmt = $mysqli ->prepare ("UPDATE usuarios SET activacion=1 WHERE id= ?");
     $stmt->bind_param("s", $id);
     $result = $stmt->execute();
     $stmt->close();
@@ -80,5 +81,5 @@ function resultBlock($errors)
         echo "</ul>";
         echo "</div>";
     }
-}*/
+}
 ?>

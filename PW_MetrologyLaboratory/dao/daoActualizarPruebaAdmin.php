@@ -8,12 +8,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $id_estatus = $_POST['estatusPruebaAdmin'];
         $id_prioridad = $_POST['prioridadPruebaAdmin'];
         $id_metrologo = $_POST['metrologoAdmin'];
-        $id_observaciones = $_POST['observacionesAdmin'];
-        $id_resultados = $_POST['resultadosAdmin'];
+        $observaciones = $_POST['observacionesAdmin'];
+        $resultados = $_POST['resultadosAdmin'];
         $fechaUpdate = $_POST['fechaUpdate'];
         $id_admin = $_POST['id_user'];
 
-        actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $id_observaciones, $id_resultados, $fechaUpdate, $id_admin);
+        actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados, $fechaUpdate, $id_admin);
     }else{
         $respuesta = array("success" => false, "message" => "Faltan datos en el formulario.");
         echo json_encode($respuesta);
@@ -23,14 +23,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     echo json_encode($respuesta);
 }
 
-function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $id_observaciones, $id_resultados, $fechaUpdate, $id_admin) {
+function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados, $fechaUpdate, $id_admin) {
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $stmt = $conex->prepare("UPDATE Prueba
+    if($resultados !== "") {
+        $stmt = $conex->prepare("UPDATE Prueba
+                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, fechaRespuesta = ?, id_administrador = ?
+                                    WHERE id_prueba = ?");
+        $stmt->bind_param("iissssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $fechaUpdate, $fechaUpdate, $id_admin, $id_prueba);
+    }else{
+        $stmt = $conex->prepare("UPDATE Prueba
                                       SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, id_administrador = ?
                                     WHERE id_prueba = ?");
-    $stmt->bind_param("iissssss", $id_estatus, $id_prioridad, $id_metrologo, $id_observaciones,$id_resultados, $fechaUpdate, $id_admin, $id_prueba);
+
+        $stmt->bind_param("iissssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $fechaUpdate, $id_admin, $id_prueba);
+    }
 
     if ($stmt->execute()) {
         $respuesta = array("success" => true, "message" => "Prueba actualizada");
