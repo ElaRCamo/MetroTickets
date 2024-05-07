@@ -447,9 +447,11 @@ function cargarDatosPrueba(id_update){
         var tipoEvaluacion = id("tipoEvaluacion");
         var idEvaluacion = data.id_tipoEvaluacion;
 
+        console.log("tipoEvaluacion options " +  tipoEvaluacion.options.length);
+
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
 
-            console.log("tipoEvaluacion options " +  tipoEvaluacion.options.length);
+
 
             if (tipoEvaluacion.options[i].value === idEvaluacion) {
                 tipoEvaluacion.options[i].selected = true;
