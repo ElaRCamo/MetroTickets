@@ -436,6 +436,13 @@ function resumenPrueba(ID_PRUEBA){
 
 }
 
+function cargarDatosPrueba(id_update){
+
+    console.log("cargarDatosPrueba" + id_update);
+        //resumenPrueba(id_update);
+
+}
+
 function reviewPDF(ID_PRUEBA){
     window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/pruebaPDF.php?id_prueba=" + ID_PRUEBA;
 }
