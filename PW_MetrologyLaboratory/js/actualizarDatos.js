@@ -73,6 +73,18 @@ function  updatePruebaAdmin(id_review, id_user){
 
 function updatePruebaSol(id_review){
 
+
+
+}
+function actualizarTituloH1(id_update) {
+    var titulo1 = document.querySelector("#divh1 h1");
+    var aviso = document.querySelector("#divh1 span");
+    if (titulo1) {
+        titulo1.textContent = "Actualizar Solicitud " + id_update;
+    }
+    if (aviso){
+        aviso.textContent = " ";
+    }
 }
 
 function editarCliente(id_cliente){
@@ -298,16 +310,7 @@ function editarMaterial(descripcion){
     }
 
 }
-function actualizarTituloH1() {
-    var titulo1 = document.querySelector("#divh1 h1");
-    var aviso = document.querySelector("#divh1 span");
-    if (titulo1) {
-        titulo1.textContent = "Actualizar Solicitud " + id_review;
-    }
-    if (aviso){
-        aviso.textContent = " ";
-    }
-}
+
 
 function actualizarMaterial(id_descripcion){
     console.log("ACTUALIZAR: " + id_descripcion);

@@ -72,7 +72,7 @@
 
     function updatePrueba(){
         <?php if ($tipoUser== 3){ ?>
-            updatePruebaSol(id_review);
+            window.location.href = "../newRequest/newRequestIndex.php?id_update="+ id_review;
         <?php
         } else if($tipoUser== 1 || $tipoUser== 2){?>
             //Se cargan los valores que ya se definieron
