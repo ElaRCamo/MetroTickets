@@ -47,9 +47,12 @@
     <script>
         // ¿Se va actualizar una solicitud?
         const id_update = new URLSearchParams(window.location.search).get('id_update');
+        console.log("fuera del if:"+id_update);
 
         if (id_update !== null && id_update !== '') {
+            console.log("dentro del if:"+id_update);
             actualizarTituloH1(id_update);
+
             //updatePruebaSol(id_update);
         }
     </script>
