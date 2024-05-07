@@ -446,12 +446,11 @@ function cargarDatosPrueba(id_update){
 
         var tipoEvaluacion = id("tipoEvaluacion");
         var idEvaluacion = data.id_tipoEvaluacion;
-        console.log("idEvaluacion: " + idEvaluacion);
 
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
             if (tipoEvaluacion.options[i].value === idEvaluacion) {
                 tipoEvaluacion.options[i].selected = true;
-                console.log("tipoEvaluacion " +  tipoEvaluacion.options[i].selected +" , idEvaluacion: " + idEvaluacion);
+                console.log("tipoEvaluacion " +  tipoEvaluacion.options[i].value +" , idEvaluacion: " + idEvaluacion);
                 break;
             }
         }
