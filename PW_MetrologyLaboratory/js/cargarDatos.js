@@ -439,8 +439,23 @@ function resumenPrueba(ID_PRUEBA){
 function cargarDatosPrueba(id_update){
 
     console.log("cargarDatosPrueba" + id_update);
-        //resumenPrueba(id_update);
 
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + id_update, function (response) {
+
+        var data = response.data[0];
+
+        $('#tipoEvaluacion').text(data.id_prueba);
+        $('#tipoPrueba').text(data.descripcionPrueba);
+        $('#norma').text(data.normaNombre);
+        $('#tipoPruebaEspecial').text(data.descripcionPrueba);
+        $('#otroPrueba').text(data.nombreMetro);
+        $('#especificaciones').text(data.especificaciones);
+
+        for (var j = 0; j < response.data.length; j++) {
+
+
+        }
+    });
 }
 
 function reviewPDF(ID_PRUEBA){
