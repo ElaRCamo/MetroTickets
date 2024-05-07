@@ -50,8 +50,7 @@
 
         if (id_update !== null && id_update !== '') {
             actualizarTituloH1(id_update);
-
-            //updatePruebaSol(id_update);
+            updatePruebaSol(id_update);
         }
 
         function actualizarTituloH1(id_update) {
