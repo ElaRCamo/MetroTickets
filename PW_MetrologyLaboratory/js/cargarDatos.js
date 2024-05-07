@@ -441,16 +441,17 @@ function cargarDatosPrueba(id_update){
 
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update, function (response) {
-
+        console.log("CargarDatosPrueba: " + id_update);
         var data = response.data[0];
 
         var tipoEvaluacion = id("tipoEvaluacion");
+        var idEvaluacion = data.id_tipoEvaluacion;
+        console.log("idEvaluacion: " + idEvaluacion);
 
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
-            if (tipoEvaluacion.options[i].value === data.id_tipoEvaluacion) {
+            console.log("for" + i +" , idEvaluacion: " + idEvaluacion);
+            if (tipoEvaluacion.options[i].value === idEvaluacion) {
                 tipoEvaluacion.selected = true;
-
-                console.log("CargarDatosPrueba: " + id_update);
             }
         }
 
