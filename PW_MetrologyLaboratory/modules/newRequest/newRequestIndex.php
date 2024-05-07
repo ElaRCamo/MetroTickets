@@ -34,7 +34,7 @@
         }
     ?>
 </head>
-<body onload="llenarEvaluacion()">
+<body onload="llenarEvaluacion(); esActualizacionPrueba();">
     <?php
         # Header section
             require_once('../../header.php');
@@ -132,10 +132,12 @@
     <script type="text/javascript">
         // ¿Se va actualizar una solicitud?
         const id_update = new URLSearchParams(window.location.search).get('id_update');
+        function esActualizacionPrueba(){
+            if (id_update !== null && id_update !== '') {
+                actualizarTituloH1(id_update);
+                cargarDatosPrueba(id_update);
+            }
 
-        if (id_update !== null && id_update !== '') {
-            actualizarTituloH1(id_update);
-            cargarDatosPrueba(id_update);
         }
 
         function actualizarTituloH1(id_update) {
