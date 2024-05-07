@@ -449,9 +449,9 @@ function cargarDatosPrueba(id_update){
         console.log("idEvaluacion: " + idEvaluacion);
 
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
-            console.log("for" + i +" , idEvaluacion: " + idEvaluacion);
             if (tipoEvaluacion.options[i].value === idEvaluacion) {
                 tipoEvaluacion.options[i].selected = true;
+                console.log("tipoEvaluacion " +  tipoEvaluacion.options[i].selected +" , idEvaluacion: " + idEvaluacion);
                 break;
             }
         }
