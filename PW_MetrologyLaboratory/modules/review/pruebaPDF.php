@@ -152,7 +152,6 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                         <th class="">Documento de la norma: </th>
                         <td> <?php $urlCompleta = $resultados[0]['normaArchivo'];
                                 if($urlCompleta != 'No aplica'){
-                                    echo $urlCompleta;
                                     $nombreArchivo = substr($urlCompleta, strrpos($urlCompleta, '/') + 1);
                                     $numeroReferencia = explode('-', $nombreArchivo)[1];
                                     $nombreArchivoSinPDF = substr($nombreArchivo, 0, strrpos($nombreArchivo, '.')); // Eliminar la extensión .pdf
