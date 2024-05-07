@@ -77,8 +77,8 @@ function updatePruebaSol(id_review){
 
 }
 function actualizarTituloH1(id_update) {
-    var titulo1 = document.querySelector("#divh1 h1");
-    var aviso = document.querySelector("#divh1 span");
+    var titulo1 = document.querySelector("#divResSol h1");
+    var aviso = document.querySelector("#divResSol span");
     if (titulo1) {
         titulo1.textContent = "Actualizar Solicitud " + id_update;
     }
