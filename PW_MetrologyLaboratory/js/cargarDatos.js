@@ -440,16 +440,25 @@ function cargarDatosPrueba(id_update){
 
     console.log("cargarDatosPrueba" + id_update);
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + id_update, function (response) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update, function (response) {
 
         var data = response.data[0];
 
-        $('#tipoEvaluacion').text(data.id_prueba);
-        $('#tipoPrueba').text(data.descripcionPrueba);
-        $('#norma').text(data.normaNombre);
-        $('#tipoPruebaEspecial').text(data.descripcionPrueba);
-        $('#otroPrueba').text(data.nombreMetro);
-        $('#especificaciones').text(data.especificaciones);
+        var tipoEvaluacion = id("tipoEvaluacion");
+
+        for (var i = 0; i < tipoEvaluacion.options.length; i++) {
+            if (tipoEvaluacion.options[i].value == data.id_tipoEvaluacion) {
+                tipoEvaluacion.selectedIndex = i;
+                break;
+            }
+        }
+
+        var tipoPrueba = id("tipoPrueba");
+        var norma = id("norma");
+        var tipoPruebaEspecial = id("tipoPruebaEspecial");
+        var otroPrueba = id("otroPrueba");
+        var especificaciones = id("especificaciones");
+
 
         for (var j = 0; j < response.data.length; j++) {
 
