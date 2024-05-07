@@ -159,8 +159,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                                     $nombreArchivoMostrado = substr($nombreArchivoSinPDF, strlen($numeroReferencia) + 1);
                                     echo '<a href="' . $urlCompleta . '">' . $nombreArchivoMostrado . '</a>';
                                 }else{
-                                    $nombrePDF = 'No aplica';
-                                    echo  $nombrePDF;
+                                    echo $urlCompleta;
                                 }
                             ?>
                     </tr>
