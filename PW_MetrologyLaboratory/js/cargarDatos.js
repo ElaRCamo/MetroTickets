@@ -447,7 +447,7 @@ function cargarDatosPrueba(id_update){
         var tipoEvaluacion = id("tipoEvaluacion");
 
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
-            if (tipoEvaluacion.options[i].value == data.id_tipoEvaluacion) {
+            if (tipoEvaluacion.options[i].value === data.id_tipoEvaluacion) {
                 tipoEvaluacion.selectedIndex = i;
                 break;
             }
@@ -460,10 +460,7 @@ function cargarDatosPrueba(id_update){
         var especificaciones = id("especificaciones");
 
 
-        for (var j = 0; j < response.data.length; j++) {
-
-
-        }
+        //for (var j = 0; j < response.data.length; j++) {}
     });
 }
 
