@@ -387,11 +387,11 @@ function resumenPrueba(ID_PRUEBA){
             var nombreArchivo = urlCompleta.substring(urlCompleta.lastIndexOf('/') + 1);
             var numeroReferencia = nombreArchivo.split('-')[1];
             var nombreArchivoSinPDF = nombreArchivo.substring(0, nombreArchivo.lastIndexOf('.')); // Eliminar la extensión .pdf
-            document.getElementById("nombreArchivo").textContent = nombreArchivoSinPDF.substring(numeroReferencia.length + 1);
-            document.getElementById("archivoNormaR").href = urlCompleta;
+            id("nombreArchivo").textContent = nombreArchivoSinPDF.substring(numeroReferencia.length + 1);
+            id("archivoNormaR").href = urlCompleta;
         }else {
-            document.getElementById("archivoNormaR").textContent = "No aplica";
-            document.getElementById("archivoNormaR").style.pointerEvents = "none"; // Deshabilitar el clic en el enlace
+           id("archivoNormaR").textContent = "No aplica";
+           id("archivoNormaR").style.pointerEvents = "none"; // Deshabilitar el clic en el enlace
         }
 
         $('#observacionesLabR').text(data.especificacionesLab);
