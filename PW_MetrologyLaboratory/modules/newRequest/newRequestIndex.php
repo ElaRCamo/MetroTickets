@@ -44,7 +44,7 @@
             require_once('contentRequest.php');
             require_once('../../footer.php');
     ?>
-    <script>
+    <script type="text/javascript">
         // ¿Se va actualizar una solicitud?
         const id_update = new URLSearchParams(window.location.search).get('id_update');
 
