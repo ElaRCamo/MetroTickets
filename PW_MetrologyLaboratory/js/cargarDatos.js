@@ -445,20 +445,19 @@ function cargarDatosPrueba(id_update){
         var tipoEvaluacion = id("tipoEvaluacion");
         var idEvaluacion = data.id_tipoEvaluacion;
 
-        var tipoPrueba = id("tipoPrueba");
-        var idTipoPrueba = data.id_tipoPrueba;
+
 
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
             if (tipoEvaluacion.options[i].value === idEvaluacion) {
                 tipoEvaluacion.options[i].selected = true;
-                if(banderaTipoEvaluacion()){
-                    llenarTipoPrueba();
-                }
-
-                console.log("tipoPrueba options " +  tipoPrueba.options.length);
                 break;
             }
         }
+
+        banderaTipoEvaluacion();
+        llenarTipoPrueba();
+        var tipoPrueba = id("tipoPrueba");
+        var idTipoPrueba = data.id_tipoPrueba;
 
         console.log("tipoPrueba options " +  tipoPrueba.options.length);
 
@@ -473,9 +472,6 @@ function cargarDatosPrueba(id_update){
         }
 
 
-
-
-        var tipoPrueba = id("tipoPrueba");
         var norma = id("norma");
         var tipoPruebaEspecial = id("tipoPruebaEspecial");
         var otroPrueba = id("otroPrueba");
