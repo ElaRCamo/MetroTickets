@@ -540,14 +540,14 @@ function cargarDatosPrueba(id_update){
             }
 
             var numParte = id("numParte"+z);
-            numParte.value = response.data[l].id_descripcion;
+            numParte.value = response.data[l].numeroDeParte;
 
             var cdadMaterial = id("cdadMaterial"+z);
             cdadMaterial.value = response.data[l].cantidad;
 
             var divImgMaterial     = id("imgMaterial" + z);
             divImgMaterial.style.display = "block";
-            id("imagenMaterial"+ z).src = data.data[l].imgMaterial;
+            divImgMaterial.src = response.data[l].imgMaterial;
 
             if ((l+1) < response.data.length ){
                 agregarMaterial();
