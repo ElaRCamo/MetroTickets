@@ -451,22 +451,21 @@ function cargarDatosPrueba(id_update){
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
             if (tipoEvaluacion.options[i].value === idEvaluacion) {
                 tipoEvaluacion.options[i].selected = true;
-                banderaTipoEvaluacion();
-                llenarTipoPrueba();
+                if(banderaTipoEvaluacion()){
+                    llenarTipoPrueba();
+                }
+
                 console.log("tipoPrueba options " +  tipoPrueba.options.length);
                 break;
             }
         }
 
-
-
         console.log("tipoPrueba options " +  tipoPrueba.options.length);
 
-        for (var i = 0; i < tipoPrueba.options.length; i++) {
-
-            if (tipoPrueba.options[i].value === idTipoPrueba) {
-                tipoPrueba.options[i].selected = true;
-                console.log("tipoPrueba " +  tipoPrueba.options[i].value +" , idTipoPrueba: " + idTipoPrueba);
+        for (var j = 0; j < tipoPrueba.options.length; j++) {
+            if (tipoPrueba.options[j].value === idTipoPrueba) {
+                tipoPrueba.options[j].selected = true;
+                console.log("tipoPrueba " +  tipoPrueba.options[j].value +" , idTipoPrueba: " + idTipoPrueba);
                 banderaTipoPrueba();
                 llenarCliente(1);
                 break;
