@@ -477,7 +477,6 @@ function cargarDatosPrueba(id_update){
             for (var i = 0; i < tipoEvaluacion.options.length; i++) {
                 if (tipoEvaluacion.options[i].value === idEvaluacion) {
                     tipoEvaluacion.options[i].selected = true;
-                    llenarTipoPrueba();
                     break;
                 }
             }
