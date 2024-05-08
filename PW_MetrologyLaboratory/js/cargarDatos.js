@@ -474,17 +474,11 @@ function cargarDatosPrueba(id_update){
                 break;
             }
         }
-        console.log("idEvaluacionPrueba"+idEvaluacionPrueba);
+
         var idTipoPrueba = data.id_tipoPrueba;
-
-        console.log("tipoPrueba options?? " +  tipoPrueba.options.length);
-        console.log("idTipoPrueba " +  idTipoPrueba);
-
         for (var j = 0; j < tipoPrueba.options.length; j++) {
-            console.log("tipoPrueba value " + tipoPrueba.options[j].value);
             if (tipoPrueba.options[j].value === idTipoPrueba) {
                 tipoPrueba.options[j].selected = true;
-                console.log("tipoPrueba " + tipoPrueba.options[j].value + " , idTipoPrueba: " + idTipoPrueba);
                 break;
             }
         }
@@ -508,9 +502,14 @@ function cargarDatosPrueba(id_update){
         especificaciones.value = data.especificaciones;
 
 
-        for (var l = 1; l < response.data.length; l++) {
-            var cliente = id("cliente"+l);
+        for (var l = 0; l < response.data.length; l++) {
+            var cliente = id("cliente"+i);
             var idCliente = response.data[l].id_cliente;
+
+            console.log("cliente:"+cliente);
+            console.log("cliente:"+cliente);
+
+
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
@@ -524,7 +523,6 @@ function cargarDatosPrueba(id_update){
             var cdadMaterial = id("cdadMaterial"+l);
             var imagenMaterial = id("imagenMaterial"+l);
 
-            otroPrueba.value = data.otroTipoEspecial;
 
             if (l < response.data.length ){
                 agregarMaterial();
