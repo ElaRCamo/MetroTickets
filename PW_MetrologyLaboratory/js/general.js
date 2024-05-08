@@ -110,7 +110,6 @@ function todoVisible(){
     mostrarBloque(botonEnviar, true);
     mostrarBloque(divCantidadMaterial, true);
     mostrarBloque(divOtroTipoPrueba, true);
-
     cargarTodosLosDatos();
 }
 
