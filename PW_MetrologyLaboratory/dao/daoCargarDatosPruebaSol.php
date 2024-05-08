@@ -13,6 +13,7 @@ function resumenPrueba($id_prueba){
                         prueba.id_tipoEvaluacion,
                         prueba.id_tipoPrueba,
                         prueba.descripcionPrueba, 
+                        prueba.otroTipoEspecial,
                         prueba.especificaciones,
                         prueba.especificacionesLab,
                         prueba.normaNombre,
@@ -43,6 +44,7 @@ function resumenPrueba($id_prueba){
                                 especificacionesLab,
                                 normaNombre,
                                 normaArchivo,
+                                otroTipoEspecial,
                                 s.id_solicitante, 
                                 u_solic.nombreUsuario AS nombreSolic,
                                 u_solic.correoElectronico AS correoSolic

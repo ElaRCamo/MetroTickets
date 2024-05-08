@@ -476,9 +476,15 @@ function cargarDatosPrueba(id_update){
 
 
         var norma = id("norma");
+        norma.value = data.normaNombre;
+
         var tipoPruebaEspecial = id("tipoPruebaEspecial");
+
         var otroPrueba = id("otroPrueba");
+        otroPrueba.value = data.otroTipoEspecial;
+
         var especificaciones = id("especificaciones");
+        especificaciones.value = data.especificaciones;
 
 
         //for (var j = 0; j < response.data.length; j++) {}
