@@ -508,10 +508,27 @@ function cargarDatosPrueba(id_update){
         especificaciones.value = data.especificaciones;
 
 
-        for (var l = 0; l < response.data.length; l++) {
+        for (var l = 1; l < response.data.length; l++) {
+            var cliente = id("cliente"+l);
+            var idCliente = response.data[l].id_cliente;
+            for (var k = 0; k < cliente.options.length; k++) {
+                if (cliente.options[k].value === idCliente) {
+                    cliente.options[k].selected = true;
+                    break;
+                }
+            }
 
+            var plataforma = id("plataforma"+l);
+            var descMaterial = id("descMaterial"+l);
+            var numParte = id("numParte"+l);
+            var cdadMaterial = id("cdadMaterial"+l);
+            var imagenMaterial = id("imagenMaterial"+l);
 
+            otroPrueba.value = data.otroTipoEspecial;
 
+            if (l < response.data.length ){
+                agregarMaterial();
+            }
         }
 
     });
