@@ -459,21 +459,6 @@ function cargarDatosPrueba(id_update){
                 if (tipoEvaluacion.options[i].value === idEvaluacion) {
                     tipoEvaluacion.options[i].selected = true;
                     llenarTipoPrueba();
-                    if(llenarTipoPruebaEjecutada){
-                        console.log("tipoPrueba options " +  tipoPrueba.options.length);
-                        console.log("idTipoPrueba " +  idTipoPrueba);
-
-                        for (var j = 0; j < tipoPrueba.options.length; j++) {
-                            console.log("tipoPrueba value " + tipoPrueba.options[j].value);
-                            if (tipoPrueba.options[j].value === idTipoPrueba) {
-                                tipoPrueba.options[j].selected = true;
-                                console.log("tipoPrueba " + tipoPrueba.options[j].value + " , idTipoPrueba: " + idTipoPrueba);
-                                break;
-                            }
-                        }
-                    }else {
-                        console.log("Aún no se ha ejecutado llenarTipoPrueba()");
-                    }
                     break;
                 }
             }
@@ -499,6 +484,22 @@ function cargarDatosPrueba(id_update){
 
 
         //for (var j = 0; j < response.data.length; j++) {}
+
+        if(llenarTipoPruebaEjecutada){
+            console.log("tipoPrueba options " +  tipoPrueba.options.length);
+            console.log("idTipoPrueba " +  idTipoPrueba);
+
+            for (var j = 0; j < tipoPrueba.options.length; j++) {
+                console.log("tipoPrueba value " + tipoPrueba.options[j].value);
+                if (tipoPrueba.options[j].value === idTipoPrueba) {
+                    tipoPrueba.options[j].selected = true;
+                    console.log("tipoPrueba " + tipoPrueba.options[j].value + " , idTipoPrueba: " + idTipoPrueba);
+                    break;
+                }
+            }
+        }else {
+            console.log("Aún no se ha ejecutado llenarTipoPrueba()");
+        }
     });
 }
 
