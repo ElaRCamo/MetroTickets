@@ -24,9 +24,12 @@ function resumenPrueba($id_prueba){
                         prueba.correoSolic,
                         dm.numeroDeParte, 
                         m.cantidad, 
+                        m.id_descripcion,
                         dm.descripcionMaterial, 
                         dm.imgMaterial, 
+                        c.id_cliente,
                         c.descripcionCliente, 
+                        p.id_plataforma,
                         p.descripcionPlataforma,
                         em.descripcionEstatus AS estatusMaterial
                     FROM   

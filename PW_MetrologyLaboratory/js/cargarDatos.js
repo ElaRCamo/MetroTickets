@@ -508,7 +508,9 @@ function cargarDatosPrueba(id_update){
         especificaciones.value = data.especificaciones;
 
 
-        //for (var j = 0; j < response.data.length; j++) {}
+        for (var l = 0; l < response.data.length; l++) {
+
+        }
 
     });
 }
