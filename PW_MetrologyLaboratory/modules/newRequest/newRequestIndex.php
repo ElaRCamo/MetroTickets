@@ -54,7 +54,7 @@
             $(document).on('click', '[id^="addNumParte"]', function() {
                 agregarMaterial();
             });
-        }
+
 
             /*$(document).on('click', '[id^="addNumParte"]', function agregarMaterial() {
                 i++;
@@ -127,7 +127,7 @@
                 var id = $(this).attr("id");
                 $('#newRow' + id).remove();
             });
-        })
+        });
     </script>
     <script src="../../js/general.js"></script>
     <script src="../../js/actualizarDatos.js"></script>
