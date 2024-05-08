@@ -435,7 +435,11 @@ function resumenPrueba(ID_PRUEBA){
     });
 
 }
+function cargarTodosLosDatos(){
+    llenarTipoPrueba();
+    llenarPruebaEspecial();
 
+}
 
 function cargarDatosPrueba(id_update, callback){
     todoVisible();
@@ -450,7 +454,7 @@ function cargarDatosPrueba(id_update, callback){
             for (var i = 0; i < tipoEvaluacion.options.length; i++) {
                 if (tipoEvaluacion.options[i].value === idEvaluacion) {
                     tipoEvaluacion.options[i].selected = true;
-                    llenarTipoPrueba();
+
                     break;
                 }
             }

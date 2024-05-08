@@ -98,6 +98,7 @@ function otroTipoPrueba() {
 }
 function todoVisible(){
     divSelectTipoPrueba.style.display = "block";
+    mostrarBloque(divOEM, true);
     mostrarBloque(divNormaNombre, true);
     mostrarBloque(divNormaArchivo, true);
     mostrarBloque(divPruebaEspecial, true);
@@ -109,6 +110,8 @@ function todoVisible(){
     mostrarBloque(botonEnviar, true);
     mostrarBloque(divCantidadMaterial, true);
     mostrarBloque(divOtroTipoPrueba, true);
+
+    cargarTodosLosDatos();
 }
 
 // Función para cerrar sesión
