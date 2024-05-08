@@ -441,34 +441,23 @@ function cargarTodosLosDatos(){
     llenarCliente(1);
 
 }
-
+let idEvaluacion;
+let idTipoPrueba;
 function cargarDatosPrueba(id_update){
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update, function (response) {
         var data = response.data[0];
 
         var tipoEvaluacion = id("tipoEvaluacion");
-        var idEvaluacion = data.id_tipoEvaluacion;
+        idEvaluacion = data.id_tipoEvaluacion;
+
+
+        idTipoPrueba = data.id_tipoPrueba;
 
             for (var i = 0; i < tipoEvaluacion.options.length; i++) {
                 if (tipoEvaluacion.options[i].value === idEvaluacion) {
                     tipoEvaluacion.options[i].selected = true;
                     llenarTipoPrueba();
-                    var tipoPrueba = id("tipoPrueba");
-                    var idTipoPrueba = data.id_tipoPrueba;
-
-                    console.log("tipoPrueba options " +  tipoPrueba.options.length);
-                    console.log("idTipoPrueba " +  idTipoPrueba);
-
-                    for (var j = 0; j < tipoPrueba.options.length; j++) {
-                        console.log("tipoPrueba value " +  tipoPrueba.options[j].value);
-                        if (tipoPrueba.options[j].value === idTipoPrueba) {
-                            tipoPrueba.options[j].selected = true;
-                            console.log("tipoPrueba " +  tipoPrueba.options[j].value +" , idTipoPrueba: " + idTipoPrueba);
-                            break;
-                        }
-                    }
-
                     break;
                 }
             }
@@ -497,6 +486,19 @@ function cargarDatosPrueba(id_update){
 
         //for (var j = 0; j < response.data.length; j++) {}
     });
+
+    var tipoPrueba = id("tipoPrueba");
+    console.log("tipoPrueba options " +  tipoPrueba.options.length);
+    console.log("idTipoPrueba " +  idTipoPrueba);
+
+    for (var j = 0; j < tipoPrueba.options.length; j++) {
+        console.log("tipoPrueba value " +  tipoPrueba.options[j].value);
+        if (tipoPrueba.options[j].value === idTipoPrueba) {
+            tipoPrueba.options[j].selected = true;
+            console.log("tipoPrueba " +  tipoPrueba.options[j].value +" , idTipoPrueba: " + idTipoPrueba);
+            break;
+        }
+    }
 }
 
 function reviewPDF(ID_PRUEBA){
