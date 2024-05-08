@@ -485,8 +485,13 @@ function cargarDatosPrueba(id_update){
 
 
         //for (var j = 0; j < response.data.length; j++) {}
+
+
     });
 
+}
+
+function tipoPruebaUpdate(){
     var tipoPrueba = id("tipoPrueba");
     console.log("tipoPrueba options " +  tipoPrueba.options.length);
     console.log("idTipoPrueba " +  idTipoPrueba);

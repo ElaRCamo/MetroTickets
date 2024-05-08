@@ -138,6 +138,7 @@
                 cargarTodosLosDatos();
                 actualizarTituloH1(id_update);
                 cargarDatosPrueba(id_update);
+                tipoPruebaUpdate();
             }
 
         }
