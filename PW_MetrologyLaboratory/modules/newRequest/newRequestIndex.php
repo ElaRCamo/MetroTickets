@@ -34,7 +34,7 @@
         }
     ?>
 </head>
-<body onload="llenarEvaluacion(); llenarTipoPruebaUpdate(1); esActualizacionPrueba();">
+<body onload="llenarEvaluacion(); esActualizacionPrueba();">
     <?php
         # Header section
             require_once('../../header.php');
@@ -136,13 +136,14 @@
         function esActualizacionPrueba(){
             if (id_update !== null && id_update !== '') {
                 todoVisible();
+                llenarTipoPruebaUpdate(1);
                 cargarDatosPrueba(id_update);
                 cargarTodosLosDatos();
                 actualizarTituloH1(id_update);
                 if(tipoPrueba.options.length > 1){
                     cargarTipoPruebaUpdate(id_update);
                 }else{
-                    console.log("esperar :C")
+                    console.log("esperar :Z")
                 }
             }
         }
