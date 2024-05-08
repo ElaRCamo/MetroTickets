@@ -522,7 +522,7 @@ function cargarDatosPrueba(id_update){
             }
         }
         llenarTipoPruebaUpdate(idEvaluacionPrueba);
-
+        console.log("idEvaluacionPrueba"+idEvaluacionPrueba);
     });
 }
 
