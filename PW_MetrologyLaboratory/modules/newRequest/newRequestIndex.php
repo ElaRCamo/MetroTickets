@@ -136,7 +136,7 @@
         function esActualizacionPrueba(){
             if (id_update !== null && id_update !== '') {
                 todoVisible();
-                llenarTipoPruebaUpdate(1);
+                llenarTipoPruebaUpdate(4);
                 cargarTodosLosDatos();
                 cargarDatosPrueba(id_update);
                 actualizarTituloH1(id_update);
