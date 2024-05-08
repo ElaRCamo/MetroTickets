@@ -446,16 +446,28 @@ function cargarDatosPrueba(id_update){
 
         var tipoEvaluacion = id("tipoEvaluacion");
         var idEvaluacion = data.id_tipoEvaluacion;
-
-        console.log("tipoEvaluacion options " +  tipoEvaluacion.options.length);
-
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
 
             if (tipoEvaluacion.options[i].value === idEvaluacion) {
                 tipoEvaluacion.options[i].selected = true;
-                console.log("tipoEvaluacion " +  tipoEvaluacion.options[i].value +" , idEvaluacion: " + idEvaluacion);
                 banderaTipoEvaluacion();
                 llenarTipoPrueba();
+                break;
+            }
+        }
+
+
+        var tipoPrueba = id("tipoPrueba");
+        var idTipoPrueba = data.id_tipoPrueba;
+        console.log("tipoEvaluacion options " +  tipoEvaluacion.options.length);
+
+        for (var i = 0; i < tipoPrueba.options.length; i++) {
+
+            if (tipoPrueba.options[i].value === idTipoPrueba) {
+                tipoPrueba.options[i].selected = true;
+                console.log("tipoPrueba " +  tipoEvaluacion.options[i].value +" , idTipoPrueba: " + idTipoPrueba);
+                banderaTipoPrueba();
+                llenarCliente(1);
                 break;
             }
         }
