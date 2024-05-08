@@ -436,6 +436,7 @@ function resumenPrueba(ID_PRUEBA){
 
 }
 function cargarTodosLosDatos(){
+    banderaTipoEvaluacion();
     llenarTipoPrueba();
     llenarPruebaEspecial();
     llenarCliente(1);
