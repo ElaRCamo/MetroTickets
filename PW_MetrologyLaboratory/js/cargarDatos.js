@@ -461,23 +461,12 @@ function llenarTipoPruebaUpdate(idEvaluacion) {
         }
     });
 }
+let tipoPrueba;
 
-function cargarDatosPrueba(id_update){
+function cargarTipoPruebaUpdate(id_update){
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update, async function (response) {
         var data = response.data[0];
-
-        var tipoEvaluacion = id("tipoEvaluacion");
-        var idEvaluacion = data.id_tipoEvaluacion;
-
-        for (var i = 0; i < tipoEvaluacion.options.length; i++) {
-            if (tipoEvaluacion.options[i].value === idEvaluacion) {
-                tipoEvaluacion.options[i].selected = true;
-                await llenarTipoPruebaUpdate(idEvaluacion);
-                break;
-            }
-        }
-
 
         var tipoPrueba = id("tipoPrueba");
         var idTipoPrueba = data.id_tipoPrueba;
@@ -493,7 +482,24 @@ function cargarDatosPrueba(id_update){
                 break;
             }
         }
+    });
+}
 
+function cargarDatosPrueba(id_update){
+
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update, async function (response) {
+        var data = response.data[0];
+
+        var tipoEvaluacion = id("tipoEvaluacion");
+        var idEvaluacionPrueba = data.id_tipoEvaluacion;
+
+        for (var i = 0; i < tipoEvaluacion.options.length; i++) {
+            if (tipoEvaluacion.options[i].value === idEvaluacionPrueba) {
+                tipoEvaluacion.options[i].selected = true;
+                await llenarTipoPruebaUpdate(idEvaluacionPrueba);
+                break;
+            }
+        }
 
         var tipoPruebaEspecial = id("tipoPruebaEspecial");
         var idPruebaEspecial = data.id_pruebaEspecial;
