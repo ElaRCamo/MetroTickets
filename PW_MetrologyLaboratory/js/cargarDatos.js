@@ -504,34 +504,34 @@ function cargarDatosPrueba(id_update){
 
         for (var l = 0; l < response.data.length; l++) {
 
-            var cliente = id("cliente"+i);
+            var cliente = id("cliente"+z);
             var idCliente = response.data[l].id_cliente;
             console.log("cliente:"+cliente+i);
             console.log("cliente:"+idCliente);
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
-                    llenarPlataforma(i);
+                    llenarPlataforma(z);
                     break;
                 }
             }
 
-            var plataforma = id("plataforma"+i);
+            var plataforma = id("plataforma"+z);
             var idPlataforma = response.data[l].id_plataforma;
-            console.log("plataforma:"+plataforma+i);
+            console.log("plataforma:"+plataforma+z);
             console.log("idPlataforma:"+idPlataforma);
             for (var k = 0; k < plataforma.options.length; k++) {
                 if (plataforma.options[k].value === idPlataforma) {
                     plataforma.options[k].selected = true;
-                    llenarDescMaterial(i);
+                    llenarDescMaterial(z);
                     break;
                 }
             }
 
-            var descMaterial = id("descMaterial"+i);
-            var numParte = id("numParte"+i);
-            var cdadMaterial = id("cdadMaterial"+i);
-            var imagenMaterial = id("imagenMaterial"+i);
+            var descMaterial = id("descMaterial"+z);
+            var numParte = id("numParte"+z);
+            var cdadMaterial = id("cdadMaterial"+z);
+            var imagenMaterial = id("imagenMaterial"+z);
 
 
             if (l < response.data.length ){
@@ -545,69 +545,70 @@ function cargarDatosPrueba(id_update){
 
 
 function agregarMaterial() {
-    i++;
+    z++;
 
-    var newRow = $('<div id="newRow' + i + '" class="row row-cols-xl-3 clearfix">'
+    var newRow = $('<div id="newRow' + z + '" class="row row-cols-xl-3 clearfix">'
         + '<div class="col-xl-8">'
         + '<div class="row">'
         + '<div class="col-sm-6">'
-        + '<div class="form-group" id="div-OEM' + i + '">'
-        + '<div class="help-block with-errors" id="divError' + i + '"></div>'
-        + '<select id="cliente' + i + '" name="clientes[]" class="form-control" onclick="" onchange="llenarPlataforma(' + i + ')" required data-error="Por favor ingresa el area solicitante">'
+        + '<div class="form-group" id="div-OEM' + z + '">'
+        + '<div class="help-block with-errors" id="divError' + z + '"></div>'
+        + '<select id="cliente' + z + '" name="clientes[]" class="form-control" onclick="" onchange="llenarPlataforma(' + z + ')" required data-error="Por favor ingresa el area solicitante">'
         + '<option value="">Seleccione el cliente (OEM)*</option>'
         + '</select>'
         + '<div class="input-group-icon"><i class="las la-screwdriver"></i></div>'
         + '</div>'
         + '</div>'
         + '<div class="col-sm-6">'
-        + '<div class="form-group" id="plataformaDiv' + i + '">'
+        + '<div class="form-group" id="plataformaDiv' + z + '">'
         + '<div class="help-block with-errors"></div>'
-        + '<select id="plataforma' + i + '" name="plataformas[]" class="form-control" onchange="llenarDescMaterial(' + i + ')" required data-error="Por favor ingresa la plataforma">'
+        + '<select id="plataforma' + z + '" name="plataformas[]" class="form-control" onchange="llenarDescMaterial(' + z + ')" required data-error="Por favor ingresa la plataforma">'
         + '<option value="">Seleccione la plataforma*</option>'
         + '</select>'
         + '<div class="input-group-icon"><i class="las la-warehouse"></i></div>'
         + '</div>'
         + '</div>'
         + '<div class="col-sm-6">'
-        + '<div class="form-group" id="descripcionMaterial' + i + '">'
+        + '<div class="form-group" id="descripcionMaterial' + z + '">'
         + '<div class="help-block with-errors"></div>'
-        + '<select id="descMaterial' + i + '" name="descripciones[]" class="form-control" onchange="descripcionMaterial(' + i + '); numeroDeParte(' + i + ');" required data-error="Por favor ingresa la descripción del material">'
+        + '<select id="descMaterial' + z + '" name="descripciones[]" class="form-control" onchange="descripcionMaterial(' + z + '); numeroDeParte(' + z + ');" required data-error="Por favor ingresa la descripción del material">'
         + '<option value="">Seleccione la descripción*</option>'
         + '</select>'
         + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
         + '</div>'
         + '</div>'
         + '<div class="col-sm-6">'
-        + '<div class="form-group" id="numeroParte' + i + '">'
+        + '<div class="form-group" id="numeroParte' + z + '">'
         + '<div class="help-block with-errors"></div>'
-        + '<input id="numParte' + i + '" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte" readonly>'
+        + '<input id="numParte' + z + '" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte" readonly>'
         + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
         + '</div>'
         + '</div>'
         + '<div class="col-sm-6">'
-        + '<div class="form-group" id="cantidadMaterial' + i + '">'
+        + '<div class="form-group" id="cantidadMaterial' + z + '">'
         + '<div class="help-block with-errors"></div>'
-        + '<input id="cdadMaterial' + i + '" name="cdadesMaterial[]" type="number" class="form-control" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">'
+        + '<input id="cdadMaterial' + z + '" name="cdadesMaterial[]" type="number" class="form-control" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">'
         + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
         + '</div>'
         + '</div>'
         + '<div class="col-sm-6">'
-        + '<a href="#" class="btn btn-danger remove-lnk" id="' + i + '">Eliminar</a>'
-        + '<button type="button" class="btn btn-success" id="addNumParte' + i + '"><i class="las la-plus-square"></i></button>'
+        + '<a href="#" class="btn btn-danger remove-lnk" id="' + z + '">Eliminar</a>'
+        + '<button type="button" class="btn btn-success" id="addNumParte' + z + '"><i class="las la-plus-square"></i></button>'
         + '</div>'
         + '</div>'
         + '</div>'
         + '<div class="col-xl-4 text-center">'
-        + '<div id="imgMaterial' + i + '">'
-        + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial' + i + '" alt="Imagen Material">'
+        + '<div id="imgMaterial' + z + '">'
+        + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial' + z + '" alt="Imagen Material">'
         + '</div>'
         + '</div>'
         + '</div>');
 
 
     newRow.appendTo('#contenedorFormulario');
-    llenarCliente( i );
-    mostrarDivImagen( i );
+    llenarCliente(z);
+    mostrarDivImagen(z);
+
 }
 
 

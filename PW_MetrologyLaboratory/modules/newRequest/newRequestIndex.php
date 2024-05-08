@@ -46,13 +46,14 @@
     ?>
 
     <script type="text/javascript">
-        var i = 1;
+        let z = 1;
         let emailUsuario = <?php echo json_encode($_SESSION['emailUsuario']); ?>;
         let solicitante = <?php echo json_encode($_SESSION['nombreUsuario']); ?>;
 
         $(document).ready(function() {
-            $(document).on('click', '[id^="addNumParte"]', agregarMaterial);
-
+            $(document).on('click', '[id^="addNumParte"]', function() {
+                agregarMaterial();
+            });
         }
 
             /*$(document).on('click', '[id^="addNumParte"]', function agregarMaterial() {
