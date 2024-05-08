@@ -460,6 +460,26 @@ function llenarTipoPruebaUpdate(idEvaluacion) {
     });
 }
 
+function cargarDatosPrueba2(id_update){
+
+    var datosPrueba;
+
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
+
+        datosPrueba = response;
+
+        otraFuncion(datosPrueba);
+    });
+}
+
+function otraFuncion(datos) {
+    // Aquí puedes utilizar los datos como necesites
+    console.log(datos);
+    // Por ejemplo, puedes acceder a propiedades específicas del objeto JSON
+    console.log(datos.propiedad);
+}
+
+
 function cargarDatosPrueba(id_update){
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
@@ -554,6 +574,7 @@ function cargarDatosPrueba(id_update){
         }
 
     });
+    cargarDatosPrueba2(id_update);
 }
 
 function agregarMaterial() {
