@@ -503,13 +503,11 @@ function cargarDatosPrueba(id_update){
 
 
         for (var l = 0; l < response.data.length; l++) {
+
             var cliente = id("cliente"+i);
             var idCliente = response.data[l].id_cliente;
-
-            console.log("cliente:"+cliente);
-            console.log("cliente:"+cliente);
-
-
+            console.log("cliente:"+cliente+i);
+            console.log("cliente:"+idCliente);
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
@@ -517,11 +515,21 @@ function cargarDatosPrueba(id_update){
                 }
             }
 
-            var plataforma = id("plataforma"+l);
-            var descMaterial = id("descMaterial"+l);
-            var numParte = id("numParte"+l);
-            var cdadMaterial = id("cdadMaterial"+l);
-            var imagenMaterial = id("imagenMaterial"+l);
+            var plataforma = id("plataforma"+i);
+            var idPlataforma = response.data[l].id_plataforma;
+            console.log("plataforma:"+plataforma+i);
+            console.log("idPlataforma:"+idPlataforma);
+            for (var k = 0; k < plataforma.options.length; k++) {
+                if (plataforma.options[k].value === idPlataforma) {
+                    plataforma.options[k].selected = true;
+                    break;
+                }
+            }
+
+            var descMaterial = id("descMaterial"+i);
+            var numParte = id("numParte"+i);
+            var cdadMaterial = id("cdadMaterial"+i);
+            var imagenMaterial = id("imagenMaterial"+i);
 
 
             if (l < response.data.length ){
