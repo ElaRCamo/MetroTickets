@@ -437,10 +437,9 @@ function resumenPrueba(ID_PRUEBA){
 
 }
 function cargarTodosLosDatos(){
-
+    llenarTipoPrueba();
     llenarPruebaEspecial();
     llenarCliente(1);
-
 }
 
 function llenarTipoPruebaUpdate(idEvaluacion) {
@@ -481,7 +480,6 @@ function cargarTipoPruebaUpdate(id_update){
                 break;
             }
         }
-
 
         var tipoPruebaEspecial = id("tipoPruebaEspecial");
         var idPruebaEspecial = data.id_pruebaEspecial;
