@@ -124,6 +124,7 @@
                 $('#newRow' + id).remove();
             });
         })
+        let idEvaluacionSelect = id("tipoEvaluacion").value;
     </script>
     <script src="../../js/general.js"></script>
     <script src="../../js/actualizarDatos.js"></script>

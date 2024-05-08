@@ -12,7 +12,7 @@ function llenarEvaluacion(){
 }
 let llenarTipoPruebaEjecutada = false;
 
-let idEvaluacionSelect = id("tipoEvaluacion").value;
+
 function llenarTipoPrueba(idEvaluacion) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + idEvaluacion, function (data) {
         var selectS = id("tipoPrueba");
