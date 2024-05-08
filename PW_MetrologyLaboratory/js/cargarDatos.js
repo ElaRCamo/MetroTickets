@@ -454,6 +454,7 @@ function cargarDatosPrueba(id_update){
             if (tipoEvaluacion.options[i].value === idEvaluacion) {
                 tipoEvaluacion.options[i].selected = true;
                 console.log("tipoEvaluacion " +  tipoEvaluacion.options[i].value +" , idEvaluacion: " + idEvaluacion);
+                banderaTipoEvaluacion();
                 llenarTipoPrueba();
                 break;
             }
