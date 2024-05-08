@@ -10,7 +10,7 @@ function llenarEvaluacion(){
         }
     });
 }
-
+let llenarTipoPruebaEjecutada = false;
 function llenarTipoPrueba() {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + id("tipoEvaluacion").value, function (data) {
         var selectS = id("tipoPrueba");
@@ -27,6 +27,7 @@ function llenarTipoPrueba() {
             createOptionS.text = data.data[i].descripcionPrueba;
             selectS.appendChild(createOptionS);
         }
+        llenarTipoPruebaEjecutada = true;
     });
 }
 function llenarPruebaEspecial(){
@@ -458,23 +459,24 @@ function cargarDatosPrueba(id_update){
                 if (tipoEvaluacion.options[i].value === idEvaluacion) {
                     tipoEvaluacion.options[i].selected = true;
                     llenarTipoPrueba();
+                    if(llenarTipoPruebaEjecutada){
+                        console.log("tipoPrueba options " +  tipoPrueba.options.length);
+                        console.log("idTipoPrueba " +  idTipoPrueba);
 
-                    console.log("tipoPrueba options " +  tipoPrueba.options.length);
-                    console.log("idTipoPrueba " +  idTipoPrueba);
-
-                    for (var j = 0; j < tipoPrueba.options.length; j++) {
-                        console.log("tipoPrueba value " +  tipoPrueba.options[j].value);
-                        if (tipoPrueba.options[j].value === idTipoPrueba) {
-                            tipoPrueba.options[j].selected = true;
-                            console.log("tipoPrueba " +  tipoPrueba.options[j].value +" , idTipoPrueba: " + idTipoPrueba);
-                            break;
+                        for (var j = 0; j < tipoPrueba.options.length; j++) {
+                            console.log("tipoPrueba value " + tipoPrueba.options[j].value);
+                            if (tipoPrueba.options[j].value === idTipoPrueba) {
+                                tipoPrueba.options[j].selected = true;
+                                console.log("tipoPrueba " + tipoPrueba.options[j].value + " , idTipoPrueba: " + idTipoPrueba);
+                                break;
+                            }
                         }
+                    }else {
+                        console.log("Aún no se ha ejecutado llenarTipoPrueba()");
                     }
                     break;
                 }
             }
-
-
 
         var tipoPruebaEspecial = id("tipoPruebaEspecial");
         var idPruebaEspecial = data.id_pruebaEspecial;
