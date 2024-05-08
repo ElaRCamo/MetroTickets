@@ -529,14 +529,28 @@ function cargarDatosPrueba(id_update){
             }
 
             var descMaterial = id("descMaterial"+z);
-            var numParte = id("numParte"+z);
-            var cdadMaterial = id("cdadMaterial"+z);
-            var imagenMaterial = id("imagenMaterial"+z);
+            var idMaterial = response.data[l].id_descripcion;
+            console.log("descMaterial:"+descMaterial+z);
+            console.log("idMaterial:"+idMaterial);
+            for (var k = 0; k < descMaterial.options.length; k++) {
+                if (descMaterial.options[k].value === idMaterial) {
+                    descMaterial.options[k].selected = true;
+                    break;
+                }
+            }
 
+            var numParte = id("numParte"+z);
+            numParte.value = response.data[l].id_descripcion;
+
+            var cdadMaterial = id("cdadMaterial"+z);
+            cdadMaterial.value = response.data[l].cantidad;
+
+            var imagenMaterial = id("imagenMaterial"+z);
+            imagenMaterial.src = response.data[l].imgMaterial;
 
             if ((l+1) < response.data.length ){
                 agregarMaterial();
-                console.log("l es menor que data.lenght");
+                console.log("nuevo material");
             }
         }
 
