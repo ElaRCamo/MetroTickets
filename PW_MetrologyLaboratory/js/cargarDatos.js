@@ -510,6 +510,8 @@ function cargarDatosPrueba(id_update){
 
         for (var l = 0; l < response.data.length; l++) {
 
+
+
         }
 
     });

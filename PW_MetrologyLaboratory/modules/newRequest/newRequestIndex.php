@@ -52,7 +52,7 @@
 
         $(document).ready(function() {
 
-            $(document).on('click', '[id^="addNumParte"]', function() {
+            $(document).on('click', '[id^="addNumParte"]', function agregarMaterial() {
                 i++;
 
                 var newRow = $('<div id="newRow' + i + '" class="row row-cols-xl-3 clearfix">'
