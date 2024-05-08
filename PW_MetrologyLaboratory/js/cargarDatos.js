@@ -518,7 +518,6 @@ function cargarDatosPrueba(id_update){
                 break;
             }
         }
-        llenarTipoPruebaUpdate(idEvaluacionPrueba);
         console.log("idEvaluacionPrueba"+idEvaluacionPrueba);
     });
 }
