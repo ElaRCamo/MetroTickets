@@ -506,7 +506,6 @@ function cargarDatosPrueba(id_update){
 
             var cliente = id("cliente"+z);
             var idCliente = response.data[l].id_cliente;
-            console.log("cliente:"+cliente+z);
             console.log("cliente:"+idCliente);
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
@@ -518,7 +517,6 @@ function cargarDatosPrueba(id_update){
 
             var plataforma = id("plataforma"+z);
             var idPlataforma = response.data[l].id_plataforma;
-            console.log("plataforma:"+plataforma+z);
             console.log("idPlataforma:"+idPlataforma);
             for (var k = 0; k < plataforma.options.length; k++) {
                 if (plataforma.options[k].value === idPlataforma) {
@@ -530,7 +528,6 @@ function cargarDatosPrueba(id_update){
 
             var descMaterial = id("descMaterial"+z);
             var idMaterial = response.data[l].id_descripcion;
-            console.log("descMaterial:"+descMaterial+z);
             console.log("idMaterial:"+idMaterial);
             for (var k = 0; k < descMaterial.options.length; k++) {
                 if (descMaterial.options[k].value === idMaterial) {
@@ -550,17 +547,14 @@ function cargarDatosPrueba(id_update){
             id("imagenMaterial"+ z).src = response.data[l].imgMaterial;
 
 
-            console.log("img "+response.data[l].imgMaterial);
 
             if ((l+1) < response.data.length ){
                 agregarMaterial();
-                console.log("nuevo material");
             }
         }
 
     });
 }
-
 
 function agregarMaterial() {
     z++;
