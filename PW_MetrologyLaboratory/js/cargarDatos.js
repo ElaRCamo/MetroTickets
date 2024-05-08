@@ -462,11 +462,12 @@ function cargarDatosPrueba(id_update){
         console.log("tipoPrueba options " +  tipoPrueba.options.length);
 
         for (var j = 0; j < tipoPrueba.options.length; j++) {
+            console.log("tipoPrueba value " +  tipoPrueba.options[j].value);
             if (tipoPrueba.options[j].value === idTipoPrueba) {
                 tipoPrueba.options[j].selected = true;
                 console.log("tipoPrueba " +  tipoPrueba.options[j].value +" , idTipoPrueba: " + idTipoPrueba);
-                banderaTipoPrueba();
-                llenarCliente(1);
+                //banderaTipoPrueba();
+                //llenarCliente(1);
                 break;
             }
         }
