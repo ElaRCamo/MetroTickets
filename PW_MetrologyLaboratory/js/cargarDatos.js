@@ -511,6 +511,7 @@ function cargarDatosPrueba(id_update){
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
+                    llenarPlataforma(l);
                     break;
                 }
             }
