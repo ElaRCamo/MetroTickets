@@ -451,11 +451,10 @@ function cargarDatosPrueba(id_update){
 
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
 
-
-
             if (tipoEvaluacion.options[i].value === idEvaluacion) {
                 tipoEvaluacion.options[i].selected = true;
                 console.log("tipoEvaluacion " +  tipoEvaluacion.options[i].value +" , idEvaluacion: " + idEvaluacion);
+                llenarTipoPrueba();
                 break;
             }
         }
