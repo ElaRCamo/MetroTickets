@@ -549,6 +549,8 @@ function cargarDatosPrueba(id_update){
             divImgMaterial.style.display = "block";
             divImgMaterial.src = response.data[l].imgMaterial;
 
+            console.log("img"+response.data[l].imgMaterial);
+
             if ((l+1) < response.data.length ){
                 agregarMaterial();
                 console.log("nuevo material");
