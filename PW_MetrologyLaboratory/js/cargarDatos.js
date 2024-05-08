@@ -435,21 +435,56 @@ function resumenPrueba(ID_PRUEBA){
     });
 
 }
+let idEvaluacionU;
+function tipoEvaluacion(){
+    var tipoEvaluacion = id("tipoEvaluacion");
+
+
+    for (var i = 0; i < tipoEvaluacion.options.length; i++) {
+        if (tipoEvaluacion.options[i].value === idEvaluacionU) {
+            tipoEvaluacion.options[i].selected = true;
+            banderaTipoEvaluacion();
+            llenarTipoPrueba();
+            break;
+        }
+    }
+}
+let idTipoPruebaU;
+function tipoPruebaU(callback){
+    var tipoPrueba = id("tipoPrueba");
+
+    console.log("tipoPrueba options " +  tipoPrueba.options.length);
+
+    for (var j = 0; j < tipoPrueba.options.length; j++) {
+        console.log("tipoPrueba value " +  tipoPrueba.options[j].value);
+        if (tipoPrueba.options[j].value === idTipoPruebaU) {
+            tipoPrueba.options[j].selected = true;
+            console.log("tipoPrueba " + tipoPrueba.options[j].value + " , idTipoPrueba: " + idTipoPruebaU);
+            callback();
+            //banderaTipoPrueba();
+            //llenarCliente(1);
+            break;
+        }
+    }
+}
 
 function cargarDatosPrueba(id_update, callback){
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update, function (response) {
-        console.log("CargarDatosPrueba: " + id_update);
         var data = response.data[0];
+        idEvaluacionU = data.id_tipoEvaluacion;
+        idTipoPruebaU = data.id_tipoPrueba;
+
+        tipoPruebaU(tipoEvaluacion);
+
+        /*
+
 
         var tipoEvaluacion = id("tipoEvaluacion");
         var idEvaluacion = data.id_tipoEvaluacion;
 
 
 
-
-        setTimeout(function() {
-            console.log("La operación asincrónica ha sido completada.");
             for (var i = 0; i < tipoEvaluacion.options.length; i++) {
                 if (tipoEvaluacion.options[i].value === idEvaluacion) {
                     tipoEvaluacion.options[i].selected = true;
@@ -458,9 +493,6 @@ function cargarDatosPrueba(id_update, callback){
                     break;
                 }
             }
-            callback();
-        }, 2000);
-
 
         var tipoPrueba = id("tipoPrueba");
         var idTipoPrueba = data.id_tipoPrueba;
@@ -476,7 +508,7 @@ function cargarDatosPrueba(id_update, callback){
                 //llenarCliente(1);
                 break;
             }
-        }
+        }*/
 
 
         var norma = id("norma");
