@@ -447,15 +447,13 @@ function cargarDatosPrueba(id_update){
         var tipoEvaluacion = id("tipoEvaluacion");
         var idEvaluacion = data.id_tipoEvaluacion;
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
-
             if (tipoEvaluacion.options[i].value === idEvaluacion) {
                 tipoEvaluacion.options[i].selected = true;
-                banderaTipoEvaluacion();
-                llenarTipoPrueba();
                 break;
             }
         }
-
+        banderaTipoEvaluacion();
+        llenarTipoPrueba();
 
         var tipoPrueba = id("tipoPrueba");
         var idTipoPrueba = data.id_tipoPrueba;
