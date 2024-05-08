@@ -435,55 +435,21 @@ function resumenPrueba(ID_PRUEBA){
     });
 
 }
-let idEvaluacionU;
-let idTipoPruebaU;
-function primerBucle(callback) {
-    var tipoPrueba = id("tipoPrueba");
-    for (var j = 0; j < tipoPrueba.options.length; j++) {
-        console.log("tipoPrueba value " + tipoPrueba.options[j].value);
-        if (tipoPrueba.options[j].value === idTipoPruebaU) {
-            tipoPrueba.options[j].selected = true;
-            console.log("tipoPrueba " + tipoPrueba.options[j].value + " , idTipoPrueba: " + idTipoPruebaU);
-            callback(); // Llamamos al callback una vez que se ha encontrado el valor
-            break;
-        }
-    }
-}
 
-// Segundo bucle
-function segundoBucle() {
-    var tipoEvaluacion = id("tipoEvaluacion");
-    for (var i = 0; i < tipoEvaluacion.options.length; i++) {
-        if (tipoEvaluacion.options[i].value === idEvaluacionU) {
-            tipoEvaluacion.options[i].selected = true;
-            banderaTipoEvaluacion();
-            llenarTipoPrueba();
-            break;
-        }
-    }
-}
 
 function cargarDatosPrueba(id_update, callback){
+    todoVisible();
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update, function (response) {
         var data = response.data[0];
-        idEvaluacionU = data.id_tipoEvaluacion;
-        idTipoPruebaU = data.id_tipoPrueba;
-
-        primerBucle(segundoBucle);
-
-        /*
 
 
         var tipoEvaluacion = id("tipoEvaluacion");
         var idEvaluacion = data.id_tipoEvaluacion;
 
-
-
             for (var i = 0; i < tipoEvaluacion.options.length; i++) {
                 if (tipoEvaluacion.options[i].value === idEvaluacion) {
                     tipoEvaluacion.options[i].selected = true;
-                    banderaTipoEvaluacion();
                     llenarTipoPrueba();
                     break;
                 }
@@ -503,7 +469,7 @@ function cargarDatosPrueba(id_update, callback){
                 //llenarCliente(1);
                 break;
             }
-        }*/
+        }
 
 
         var norma = id("norma");

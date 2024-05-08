@@ -96,7 +96,20 @@ function otroTipoPrueba() {
         mostrarBloque(divOtroTipoPrueba, false);
     }
 }
-
+function todoVisible(){
+    divSelectTipoPrueba.style.display = "block";
+    mostrarBloque(divNormaNombre, true);
+    mostrarBloque(divNormaArchivo, true);
+    mostrarBloque(divPruebaEspecial, true);
+    mostrarBloque(divDetallesPrueba, true);
+    mostrarBloque(divAgregarNumParte, true);
+    mostrarBloque(divNumeroParte, true);
+    mostrarBloque(divDescripcionMaterial, true);
+    mostrarBloque(divPlataforma, true);
+    mostrarBloque(botonEnviar, true);
+    mostrarBloque(divCantidadMaterial, true);
+    mostrarBloque(divOtroTipoPrueba, true);
+}
 
 // Función para cerrar sesión
 function cerrarSesion() {
