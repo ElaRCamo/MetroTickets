@@ -141,6 +141,8 @@
                 actualizarTituloH1(id_update);
                 if(tipoPrueba.options.length > 1){
                     cargarTipoPruebaUpdate(id_update);
+                }else{
+                    console.log("esperar")
                 }
             }
         }
