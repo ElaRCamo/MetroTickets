@@ -476,7 +476,7 @@ function otraFuncion(datos) {
     // Aquí puedes utilizar los datos como necesites
     console.log("datos de la response: "+datos);
     // Por ejemplo, puedes acceder a propiedades específicas del objeto JSON
-    console.log(datos.idEvaluacionPrueba);
+    console.log(datos.data[0].idEvaluacionPrueba);
 }
 
 
@@ -522,7 +522,7 @@ function cargarDatosPrueba(id_update){
         especificaciones.value = data.especificaciones;
 
 
-        for (var l = 0; l < response.data.length; l++) {
+        for (var l = 0; l < response.length; l++) {
 
             var cliente = id("cliente"+z);
             var idCliente = response.data[l].id_cliente;
