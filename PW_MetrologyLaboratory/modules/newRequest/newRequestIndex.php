@@ -136,11 +136,11 @@
             if (id_update !== null && id_update !== '') {
                 todoVisible();
                 cargarDatosPrueba(id_update);
+                cargarTodosLosDatos();
+                actualizarTituloH1(id_update);
                 if(tipoPrueba.options.length > 1){
                     cargarTipoPruebaUpdate(id_update);
                 }
-                cargarTodosLosDatos();
-                actualizarTituloH1(id_update);
             }
         }
 
