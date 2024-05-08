@@ -506,7 +506,7 @@ function cargarDatosPrueba(id_update){
 
             var cliente = id("cliente"+z);
             var idCliente = response.data[l].id_cliente;
-            console.log("cliente:"+cliente+i);
+            console.log("cliente:"+cliente+z);
             console.log("cliente:"+idCliente);
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
@@ -534,9 +534,9 @@ function cargarDatosPrueba(id_update){
             var imagenMaterial = id("imagenMaterial"+z);
 
 
-            if (l < response.data.length ){
+            if ((l+1) < response.data.length ){
                 agregarMaterial();
-                console.log("l es mayor que data.lenght");
+                console.log("l es menor que data.lenght");
             }
         }
 
