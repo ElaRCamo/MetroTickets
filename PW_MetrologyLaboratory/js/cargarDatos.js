@@ -476,7 +476,7 @@ function otraFuncion(datos) {
     // Aquí puedes utilizar los datos como necesites
     console.log(JSON.stringify(datos));
     // Por ejemplo, puedes acceder a propiedades específicas del objeto JSON
-    console.log(datos.data[0].idEvaluacionPrueba);
+    console.log(datos.data[0].id_tipoEvaluacion);
 }
 
 
