@@ -447,7 +447,6 @@ function cargarDatosPrueba(id_update){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update, function (response) {
         var data = response.data[0];
 
-
         var tipoEvaluacion = id("tipoEvaluacion");
         var idEvaluacion = data.id_tipoEvaluacion;
 
@@ -455,31 +454,32 @@ function cargarDatosPrueba(id_update){
                 if (tipoEvaluacion.options[i].value === idEvaluacion) {
                     tipoEvaluacion.options[i].selected = true;
                     llenarTipoPrueba();
+                    var tipoPrueba = id("tipoPrueba");
+                    var idTipoPrueba = data.id_tipoPrueba;
+
+                    console.log("tipoPrueba options " +  tipoPrueba.options.length);
+                    console.log("idTipoPrueba " +  idTipoPrueba);
+
+                    for (var j = 0; j < tipoPrueba.options.length; j++) {
+                        console.log("tipoPrueba value " +  tipoPrueba.options[j].value);
+                        if (tipoPrueba.options[j].value === idTipoPrueba) {
+                            tipoPrueba.options[j].selected = true;
+                            console.log("tipoPrueba " +  tipoPrueba.options[j].value +" , idTipoPrueba: " + idTipoPrueba);
+                            break;
+                        }
+                    }
+
                     break;
                 }
             }
 
-        var tipoPrueba = id("tipoPrueba");
-        var idTipoPrueba = data.id_tipoPrueba;
 
-        console.log("tipoPrueba options " +  tipoPrueba.options.length);
-
-        for (var j = 0; j < tipoPrueba.options.length; j++) {
-            console.log("tipoPrueba value " +  tipoPrueba.options[j].value);
-            if (tipoPrueba.options[j].value === idTipoPrueba) {
-                tipoPrueba.options[j].selected = true;
-                console.log("tipoPrueba " +  tipoPrueba.options[j].value +" , idTipoPrueba: " + idTipoPrueba);
-                break;
-            }
-        }
 
         var tipoPruebaEspecial = id("tipoPruebaEspecial");
         var idPruebaEspecial = data.id_pruebaEspecial;
-        for (var j = 0; j < tipoPruebaEspecial.options.length; j++) {
-            console.log("tipoPruebaEspecial value " +  tipoPruebaEspecial.options[j].value);
-            if (tipoPruebaEspecial.options[j].value === idPruebaEspecial) {
-                tipoPruebaEspecial.options[j].selected = true;
-                console.log("tipoPruebaEspecial " +  tipoPruebaEspecial.options[j].value +" , idTipoPrueba: " + idPruebaEspecial);
+        for (var k = 0; k < tipoPruebaEspecial.options.length; k++) {
+            if (tipoPruebaEspecial.options[k].value === idPruebaEspecial) {
+                tipoPruebaEspecial.options[k].selected = true;
                 break;
             }
         }
