@@ -545,7 +545,7 @@ function cargarDatosPrueba(id_update){
             var cdadMaterial = id("cdadMaterial"+z);
             cdadMaterial.value = response.data[l].cantidad;
 
-            var divImgMaterial     = id("imgMaterial" + i);
+            var divImgMaterial     = id("imgMaterial" + z);
             divImgMaterial.style.display = "block";
             id("imagenMaterial"+ z).src = data.data[l].imgMaterial;
 
