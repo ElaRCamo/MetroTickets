@@ -523,6 +523,7 @@ function cargarDatosPrueba(id_update){
             for (var k = 0; k < plataforma.options.length; k++) {
                 if (plataforma.options[k].value === idPlataforma) {
                     plataforma.options[k].selected = true;
+                    llenarDescMaterial(i);
                     break;
                 }
             }
@@ -540,6 +541,74 @@ function cargarDatosPrueba(id_update){
 
     });
 }
+
+
+function agregarMaterial() {
+    i++;
+
+    var newRow = $('<div id="newRow' + i + '" class="row row-cols-xl-3 clearfix">'
+        + '<div class="col-xl-8">'
+        + '<div class="row">'
+        + '<div class="col-sm-6">'
+        + '<div class="form-group" id="div-OEM' + i + '">'
+        + '<div class="help-block with-errors" id="divError' + i + '"></div>'
+        + '<select id="cliente' + i + '" name="clientes[]" class="form-control" onclick="" onchange="llenarPlataforma(' + i + ')" required data-error="Por favor ingresa el area solicitante">'
+        + '<option value="">Seleccione el cliente (OEM)*</option>'
+        + '</select>'
+        + '<div class="input-group-icon"><i class="las la-screwdriver"></i></div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-sm-6">'
+        + '<div class="form-group" id="plataformaDiv' + i + '">'
+        + '<div class="help-block with-errors"></div>'
+        + '<select id="plataforma' + i + '" name="plataformas[]" class="form-control" onchange="llenarDescMaterial(' + i + ')" required data-error="Por favor ingresa la plataforma">'
+        + '<option value="">Seleccione la plataforma*</option>'
+        + '</select>'
+        + '<div class="input-group-icon"><i class="las la-warehouse"></i></div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-sm-6">'
+        + '<div class="form-group" id="descripcionMaterial' + i + '">'
+        + '<div class="help-block with-errors"></div>'
+        + '<select id="descMaterial' + i + '" name="descripciones[]" class="form-control" onchange="descripcionMaterial(' + i + '); numeroDeParte(' + i + ');" required data-error="Por favor ingresa la descripción del material">'
+        + '<option value="">Seleccione la descripción*</option>'
+        + '</select>'
+        + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-sm-6">'
+        + '<div class="form-group" id="numeroParte' + i + '">'
+        + '<div class="help-block with-errors"></div>'
+        + '<input id="numParte' + i + '" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte" readonly>'
+        + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-sm-6">'
+        + '<div class="form-group" id="cantidadMaterial' + i + '">'
+        + '<div class="help-block with-errors"></div>'
+        + '<input id="cdadMaterial' + i + '" name="cdadesMaterial[]" type="number" class="form-control" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">'
+        + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-sm-6">'
+        + '<a href="#" class="btn btn-danger remove-lnk" id="' + i + '">Eliminar</a>'
+        + '<button type="button" class="btn btn-success" id="addNumParte' + i + '"><i class="las la-plus-square"></i></button>'
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-xl-4 text-center">'
+        + '<div id="imgMaterial' + i + '">'
+        + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial' + i + '" alt="Imagen Material">'
+        + '</div>'
+        + '</div>'
+        + '</div>');
+
+
+    newRow.appendTo('#contenedorFormulario');
+    llenarCliente( i );
+    mostrarDivImagen( i );
+}
+
 
 function reviewPDF(ID_PRUEBA){
     window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/pruebaPDF.php?id_prueba=" + ID_PRUEBA;
