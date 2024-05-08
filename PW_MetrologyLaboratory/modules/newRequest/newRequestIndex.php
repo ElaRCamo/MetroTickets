@@ -130,6 +130,7 @@
     <script src="../../js/cargarDatos.js"></script>
     <script src="../../js/insertarDatos.js"></script>
     <script type="text/javascript">
+        let tipoPrueba;
         // ¿Se va actualizar una solicitud?
         const id_update = new URLSearchParams(window.location.search).get('id_update');
         function esActualizacionPrueba(){

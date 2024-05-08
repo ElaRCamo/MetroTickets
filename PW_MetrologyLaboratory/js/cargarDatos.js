@@ -461,7 +461,7 @@ function llenarTipoPruebaUpdate(idEvaluacion) {
         }
     });
 }
-let tipoPrueba;
+
 
 function cargarTipoPruebaUpdate(id_update){
 
