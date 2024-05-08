@@ -436,33 +436,28 @@ function resumenPrueba(ID_PRUEBA){
 
 }
 let idEvaluacionU;
-function tipoEvaluacion(){
+let idTipoPruebaU;
+function primerBucle(callback) {
+    var tipoPrueba = id("tipoPrueba");
+    for (var j = 0; j < tipoPrueba.options.length; j++) {
+        console.log("tipoPrueba value " + tipoPrueba.options[j].value);
+        if (tipoPrueba.options[j].value === idTipoPruebaU) {
+            tipoPrueba.options[j].selected = true;
+            console.log("tipoPrueba " + tipoPrueba.options[j].value + " , idTipoPrueba: " + idTipoPruebaU);
+            callback(); // Llamamos al callback una vez que se ha encontrado el valor
+            break;
+        }
+    }
+}
+
+// Segundo bucle
+function segundoBucle() {
     var tipoEvaluacion = id("tipoEvaluacion");
-
-
     for (var i = 0; i < tipoEvaluacion.options.length; i++) {
         if (tipoEvaluacion.options[i].value === idEvaluacionU) {
             tipoEvaluacion.options[i].selected = true;
             banderaTipoEvaluacion();
             llenarTipoPrueba();
-            break;
-        }
-    }
-}
-let idTipoPruebaU;
-function tipoPruebaU(callback){
-    var tipoPrueba = id("tipoPrueba");
-
-    console.log("tipoPrueba options " +  tipoPrueba.options.length);
-
-    for (var j = 0; j < tipoPrueba.options.length; j++) {
-        console.log("tipoPrueba value " +  tipoPrueba.options[j].value);
-        if (tipoPrueba.options[j].value === idTipoPruebaU) {
-            tipoPrueba.options[j].selected = true;
-            console.log("tipoPrueba " + tipoPrueba.options[j].value + " , idTipoPrueba: " + idTipoPruebaU);
-            callback();
-            //banderaTipoPrueba();
-            //llenarCliente(1);
             break;
         }
     }
@@ -475,7 +470,7 @@ function cargarDatosPrueba(id_update, callback){
         idEvaluacionU = data.id_tipoEvaluacion;
         idTipoPruebaU = data.id_tipoPrueba;
 
-        tipoPruebaU(tipoEvaluacion);
+        primerBucle(segundoBucle);
 
         /*
 
