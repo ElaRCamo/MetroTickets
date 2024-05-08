@@ -466,6 +466,25 @@ function cargarTipoPruebaUpdate(id_update){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update, async function (response) {
         var data = response.data[0];
 
+
+    });
+}
+
+function cargarDatosPrueba(id_update){
+
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
+        var data = response.data[0];
+
+        var tipoEvaluacion = id("tipoEvaluacion");
+        var idEvaluacionPrueba = data.id_tipoEvaluacion;
+
+        for (var i = 0; i < tipoEvaluacion.options.length; i++) {
+            if (tipoEvaluacion.options[i].value === idEvaluacionPrueba) {
+                tipoEvaluacion.options[i].selected = true;
+                break;
+            }
+        }
+        console.log("idEvaluacionPrueba"+idEvaluacionPrueba);
         var idTipoPrueba = data.id_tipoPrueba;
 
         console.log("tipoPrueba options?? " +  tipoPrueba.options.length);
@@ -500,24 +519,7 @@ function cargarTipoPruebaUpdate(id_update){
 
 
         //for (var j = 0; j < response.data.length; j++) {}
-    });
-}
 
-function cargarDatosPrueba(id_update){
-
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
-        var data = response.data[0];
-
-        var tipoEvaluacion = id("tipoEvaluacion");
-        var idEvaluacionPrueba = data.id_tipoEvaluacion;
-
-        for (var i = 0; i < tipoEvaluacion.options.length; i++) {
-            if (tipoEvaluacion.options[i].value === idEvaluacionPrueba) {
-                tipoEvaluacion.options[i].selected = true;
-                break;
-            }
-        }
-        console.log("idEvaluacionPrueba"+idEvaluacionPrueba);
     });
 }
 
