@@ -51,8 +51,11 @@
         let solicitante = <?php echo json_encode($_SESSION['nombreUsuario']); ?>;
 
         $(document).ready(function() {
+            $(document).on('click', '[id^="addNumParte"]', agregarMaterial);
 
-            $(document).on('click', '[id^="addNumParte"]', function agregarMaterial() {
+        }
+
+            /*$(document).on('click', '[id^="addNumParte"]', function agregarMaterial() {
                 i++;
 
                 var newRow = $('<div id="newRow' + i + '" class="row row-cols-xl-3 clearfix">'
@@ -116,7 +119,7 @@
                 newRow.appendTo('#contenedorFormulario');
                 llenarCliente( i );
                 mostrarDivImagen( i );
-            });
+            });*/
 
             $(document).on('click', '.remove-lnk', function(e) {
                 e.preventDefault();

@@ -536,6 +536,7 @@ function cargarDatosPrueba(id_update){
 
             if (l < response.data.length ){
                 agregarMaterial();
+                console.log("l es mayor que data.lenght");
             }
         }
 
