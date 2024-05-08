@@ -138,7 +138,8 @@
                 cargarTodosLosDatos();
                 actualizarTituloH1(id_update);
                 cargarDatosPrueba(id_update);
-                tipoPruebaUpdate();
+                if(llenarTipoPruebaEjecutada){tipoPruebaUpdate();}else {
+                    console.log("Aún no se ha ejecutado llenarTipoPrueba() :C");
             }
 
         }

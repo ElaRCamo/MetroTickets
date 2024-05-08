@@ -444,6 +444,28 @@ function cargarTodosLosDatos(){
 }
 let idEvaluacion;
 let idTipoPrueba;
+
+function tipoPruebaUpdate(id_update){
+
+        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update, function (response) {
+            var data = response.data[0];
+
+            var tipoPrueba = id("tipoPrueba");
+            idTipoPrueba = data.id_tipoPrueba;
+
+            console.log("tipoPrueba options " +  tipoPrueba.options.length);
+                console.log("idTipoPrueba " +  idTipoPrueba);
+
+                for (var j = 0; j < tipoPrueba.options.length; j++) {
+                    console.log("tipoPrueba value " + tipoPrueba.options[j].value);
+                    if (tipoPrueba.options[j].value === idTipoPrueba) {
+                        tipoPrueba.options[j].selected = true;
+                        console.log("tipoPrueba " + tipoPrueba.options[j].value + " , idTipoPrueba: " + idTipoPrueba);
+                        break;
+                    }
+                }
+        });
+}
 function cargarDatosPrueba(id_update){
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update, function (response) {
@@ -451,9 +473,6 @@ function cargarDatosPrueba(id_update){
 
         var tipoEvaluacion = id("tipoEvaluacion");
         idEvaluacion = data.id_tipoEvaluacion;
-
-        var tipoPrueba = id("tipoPrueba");
-        idTipoPrueba = data.id_tipoPrueba;
 
             for (var i = 0; i < tipoEvaluacion.options.length; i++) {
                 if (tipoEvaluacion.options[i].value === idEvaluacion) {
@@ -472,7 +491,6 @@ function cargarDatosPrueba(id_update){
             }
         }
 
-
         var norma = id("norma");
         norma.value = data.normaNombre;
 
@@ -484,22 +502,6 @@ function cargarDatosPrueba(id_update){
 
 
         //for (var j = 0; j < response.data.length; j++) {}
-
-        if(llenarTipoPruebaEjecutada){
-            console.log("tipoPrueba options " +  tipoPrueba.options.length);
-            console.log("idTipoPrueba " +  idTipoPrueba);
-
-            for (var j = 0; j < tipoPrueba.options.length; j++) {
-                console.log("tipoPrueba value " + tipoPrueba.options[j].value);
-                if (tipoPrueba.options[j].value === idTipoPrueba) {
-                    tipoPrueba.options[j].selected = true;
-                    console.log("tipoPrueba " + tipoPrueba.options[j].value + " , idTipoPrueba: " + idTipoPrueba);
-                    break;
-                }
-            }
-        }else {
-            console.log("Aún no se ha ejecutado llenarTipoPrueba()");
-        }
     });
 }
 
