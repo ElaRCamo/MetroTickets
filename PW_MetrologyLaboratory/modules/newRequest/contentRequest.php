@@ -28,7 +28,7 @@
                                         <div class="row" id="contenedorFormulario">
                                             <div class="form-group col-sm-6" id="selectEvaluacion">
                                                 <div class="help-block with-errors"></div>
-                                                <select class="form-control" id="tipoEvaluacion" onchange="banderaTipoEvaluacion();  llenarTipoPrueba(idEvaluacionSelect);" name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione tipo de evaluacion" >
+                                                <select class="form-control" id="tipoEvaluacion" onchange="banderaTipoEvaluacion();  llenarTipoPrueba();" name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione tipo de evaluacion" >
                                                     <option value="">Seleccione el tipo de evaluación*</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined" onclick="obtenerNuevoId()"></i></div>
