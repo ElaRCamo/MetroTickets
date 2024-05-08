@@ -474,7 +474,7 @@ function cargarDatosPrueba2(id_update){
 
 function otraFuncion(datos) {
     // Aquí puedes utilizar los datos como necesites
-    console.log("datos de la response: "+datos);
+    console.log(JSON.stringify(datos));
     // Por ejemplo, puedes acceder a propiedades específicas del objeto JSON
     console.log(datos.data[0].idEvaluacionPrueba);
 }
