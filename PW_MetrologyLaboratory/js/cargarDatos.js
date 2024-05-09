@@ -502,12 +502,15 @@ function cargarDatosPrueba(id_update){
         banderaTipoEvaluacion();
 
         console.log("idTipoPrueba: "+idTipoPrueba);
+        console.log(typeof idTipoPrueba);
 
+        var idTipoEspecial = data.id_pruebaEspecial;
+
+        console.log("idTipoEspecial: "+idTipoEspecial);
+        console.log(typeof idTipoEspecial);
 
         if(idTipoPrueba === 5){//Prueba especial/otra
-            var idTipoEspecial = data.id_pruebaEspecial;
             llenarPruebaEspecialUpdate(idTipoEspecial);
-
             console.log("xd idTipoPrueba: "+idTipoPrueba);
 
             if (idTipoEspecial === '4'){
