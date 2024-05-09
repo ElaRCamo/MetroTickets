@@ -461,35 +461,28 @@ function llenarTipoPruebaUpdate(idEvaluacion) {
 }
 
 function cargarDatosPrueba2(id_update){
-    var datosPrueba;
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
+        var data = response.data[0];
 
-        datosPrueba = response;
-        cargarDatosPrueba(datosPrueba);
+        var idEvaluacionPrueba = data.id_tipoEvaluacion;
+        llenarTipoPruebaUpdate(idEvaluacionPrueba);
+
+        var idTipoPrueba = data.id_tipoPrueba;
+
+
+        //console.log(JSON.stringify(datos));
+        //console.log(datos.data[0].id_tipoEvaluacion);
+
+        console.log("Se cargan datos");
+
+
+        seleccionarOpciones(idEvaluacionPrueba,idTipoPrueba);
     });
 }
 
-function cargarDatosPrueba(datos) {
-    var data = datos.data[0];
-
-
-    var idEvaluacionPrueba = data.id_tipoEvaluacion;
-    llenarTipoPruebaUpdate(idEvaluacionPrueba);
-
-    var idTipoPrueba = data.id_tipoPrueba;
-
-
-    // Aquí puedes utilizar los datos como necesites
-    console.log(JSON.stringify(datos));
-    // Por ejemplo, puedes acceder a propiedades específicas del objeto JSON
-    console.log(datos.data[0].id_tipoEvaluacion);
-
-
-    seleccionarOpciones(idEvaluacionPrueba,idTipoPrueba);
-}
-
 function seleccionarOpciones(idEvaluacionPrueba,idTipoPrueba){
+    console.log("seleccionarOpciones");
 
     var tipoEvaluacion = id("tipoEvaluacion");
     for (var i = 0; i < tipoEvaluacion.options.length; i++) {
