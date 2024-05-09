@@ -480,6 +480,8 @@ function cargarDatosPrueba(id_update){
         }
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba);
         banderaTipoEvaluacion();
+        banderaTipoPrueba();
+        llenarCliente(1);
 
 
 
@@ -489,25 +491,6 @@ function cargarDatosPrueba(id_update){
 
         console.log("se agrega bandera");
     });
-}
-
-function seleccionarOpciones(idEvaluacionPrueba,idTipoPrueba){
-    console.log("seleccionarOpciones");
-
-    var tipoEvaluacion = id("tipoEvaluacion");
-    for (var i = 0; i < tipoEvaluacion.options.length; i++) {
-        if (tipoEvaluacion.options[i].value === idEvaluacionPrueba) {
-            tipoEvaluacion.options[i].selected = true;
-            break;
-        }
-    }
-
-    for (var j = 0; j < tipoPruebaU.options.length; j++) {
-        if (tipoPruebaU.options[j].value === idTipoPrueba) {
-            tipoPruebaU.options[j].selected = true;
-            break;
-        }
-    }
 }
 
 
