@@ -139,9 +139,8 @@
         const id_update = new URLSearchParams(window.location.search).get('id_update');
         function esActualizacionPrueba(){
             if (id_update !== null && id_update !== '') {
-                todoVisible();
-                //llenarTipoPruebaUpdate(1);//Solo funciona si el tipo de evaluacion es 1, se debe evaluar
-                cargarDatosPrueba2(id_update);
+                //todoVisible();
+                cargarDatosPrueba(id_update);
                 cargarTodosLosDatos();
                 actualizarTituloH1(id_update);
                 if(tipoPruebaU.options.length <= 1){
