@@ -471,9 +471,9 @@ function cargarDatosPrueba2(id_update){
 }
 
 function cargarDatosPrueba(datos) {
-    var data = datos.data[0];
 
-    var idEvaluacionPrueba = data.id_tipoEvaluacion;
+
+    var idEvaluacionPrueba = datos.data[0].id_tipoEvaluacion;
     llenarTipoPruebaUpdate(idEvaluacionPrueba);
 
 
