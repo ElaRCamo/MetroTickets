@@ -127,6 +127,8 @@
                 var id = $(this).attr("id");
                 $('#newRow' + id).remove();
             });
+
+            listaClientes = consultarClientes();
         });
     </script>
     <script src="../../js/general.js"></script>
