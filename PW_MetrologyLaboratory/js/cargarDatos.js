@@ -437,7 +437,7 @@ function resumenPrueba(ID_PRUEBA){
 
 }
 
-function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba) {
+function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba,idTipoEspecial) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + idEvaluacion, function (data) {
         var selectS = id("tipoPrueba");
         selectS.innerHTML = ""; //limpiar contenido
@@ -460,7 +460,7 @@ function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba) {
         llenarCliente(1);
         if(idTipoPrueba === '5'){
             console.log("idTipoPrueba es igual a "+idTipoPrueba);
-            llenarPruebaEspecial();
+            llenarPruebaEspecialUpdate(idTipoEspecial);
         }
     });
 }
@@ -502,24 +502,15 @@ function cargarDatosPrueba(id_update){
                 break;
             }
         }
-        llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba);
-        banderaTipoEvaluacion();
-
         var idTipoEspecial = data.id_pruebaEspecial;
 
-        if(idTipoPrueba === '5'){//Prueba especial/otra
-            var tipoEspecial = id("tipoPruebaEspecial");
-            for (var i = 0; i < tipoEspecial.options.length; i++) {
-                if (tipoEspecial.options[i].value === idTipoEspecial) {
-                    tipoEspecial.options[i].selected = true;
-                    break;
-                }
-            }
-            if (idTipoEspecial === '4'){
+        llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
+        banderaTipoEvaluacion();
+
+        if(idTipoPrueba === '5' && idTipoEspecial === '4'){//Prueba especial/otra
                 mostrarBloque(divOtroTipoPrueba, true);
                 var otroPrueba = id("otroPrueba");
                 otroPrueba.value = data.otroTipoEspecial;
-            }
         }
 
         var norma = id("norma");
