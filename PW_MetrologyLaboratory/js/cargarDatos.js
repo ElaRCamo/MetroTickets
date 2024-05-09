@@ -462,7 +462,7 @@ function llenarTipoPruebaUpdate(idEvaluacion) {
 
 function cargarDatosPrueba2(id_update){
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarIdsPruebaSol.php?id_prueba=' + id_update,  function (response) {
         var data = response.data[0];
 
         var idEvaluacionPrueba = data.id_tipoEvaluacion;
