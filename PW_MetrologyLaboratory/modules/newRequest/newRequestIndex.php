@@ -140,7 +140,7 @@
         function esActualizacionPrueba(){
             if (id_update !== null && id_update !== '') {
                 todoVisible();
-                llenarTipoPruebaUpdate(1);//Solo funciona si el tipo de evaluacion es 1, se debe evaluar
+                //llenarTipoPruebaUpdate(1);//Solo funciona si el tipo de evaluacion es 1, se debe evaluar
                 cargarTodosLosDatos();
                 cargarDatosPrueba2(id_update);
                 actualizarTituloH1(id_update);
