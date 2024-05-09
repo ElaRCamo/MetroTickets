@@ -497,15 +497,15 @@ function cargarDatosPrueba(id_update){
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
             if (tipoEvaluacion.options[i].value === idEvaluacionPrueba) {
                 tipoEvaluacion.options[i].selected = true;
+                banderaTipoEvaluacion();
                 break;
             }
         }
         var idTipoEspecial = data.id_pruebaEspecial;
 
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
-        banderaTipoEvaluacion();
 
-        if(idTipoPrueba === '5' && idTipoEspecial === '4'){//Prueba especial/otra
+        if(idTipoPrueba === '5' && idTipoEspecial === '4'){//Otro tipo
             console.log("idTipoPrueba es igual a "+idTipoPrueba + "idTipoEspecial es igual a "+idTipoEspecial);
             var divOtroTipoPrueba = id("otroTipoPrueba");
                 divOtroTipoPrueba.style.display = "block";
