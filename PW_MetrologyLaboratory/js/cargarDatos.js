@@ -478,7 +478,6 @@ function cargarDatosPrueba(datos) {
     llenarTipoPruebaUpdate(idEvaluacionPrueba);
 
     var idTipoPrueba = data.id_tipoPrueba;
-    llenarCliente(1);
 
 
     // Aquí puedes utilizar los datos como necesites
