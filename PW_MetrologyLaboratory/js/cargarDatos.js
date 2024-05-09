@@ -507,6 +507,9 @@ function llenarPlataformaUpdate(i, idCliente) {
 
 function cargarDatosPrueba(id_update){
 
+    var divSelectTipoPrueba = id("selectTipoPrueba");
+    divSelectTipoPrueba.style.display = "block";
+
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
         var data = response.data[0];
 
