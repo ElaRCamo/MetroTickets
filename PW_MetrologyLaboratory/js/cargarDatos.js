@@ -500,9 +500,9 @@ function seleccionarOpciones(datos,idEvaluacionPrueba,idTipoPrueba){
         }
     }
 
-    for (var j = 0; j < tipoPrueba.options.length; j++) {
-        if (tipoPrueba.options[j].value === idTipoPrueba) {
-            tipoPrueba.options[j].selected = true;
+    for (var j = 0; j < tipoPruebaU.options.length; j++) {
+        if (tipoPruebaU.options[j].value === idTipoPrueba) {
+            tipoPruebaU.options[j].selected = true;
             break;
         }
     }
