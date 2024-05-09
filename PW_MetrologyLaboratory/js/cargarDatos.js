@@ -471,6 +471,14 @@ function cargarDatosPrueba2(id_update){
 
         var idEvaluacionPrueba = data.id_tipoEvaluacion;
         var idTipoPrueba = data.id_tipoPrueba;
+
+        var tipoEvaluacion = id("tipoEvaluacion");
+        for (var i = 0; i < tipoEvaluacion.options.length; i++) {
+            if (tipoEvaluacion.options[i].value === idEvaluacionPrueba) {
+                tipoEvaluacion.options[i].selected = true;
+                break;
+            }
+        }
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba);
 
 
