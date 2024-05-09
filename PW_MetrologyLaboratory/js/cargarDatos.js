@@ -504,7 +504,7 @@ function llenarPlataformaUpdate(i, idCliente) {
         }
     });
 }
-let indexMaterial = 1;
+
 function cargarDatosPrueba(id_update){
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
@@ -531,11 +531,10 @@ function cargarDatosPrueba(id_update){
         var norma = id("norma");
         norma.value = data.normaNombre;
 
-       //for (var l = 0; l < response.data.length; l++) {
-        var l=0;
-            console.log("cliente"+indexMaterial);
+        for (var l = 0; l < response.data.length; l++) {
+            console.log("cliente" + indexMaterial);
 
-            var cliente = id("cliente"+indexMaterial);
+            var cliente = id("cliente" + indexMaterial);
             var idCliente = response.data[l].id_cliente;
 
             for (var k = 0; k < cliente.options.length; k++) {
@@ -546,150 +545,52 @@ function cargarDatosPrueba(id_update){
                 }
             }
 
-            console.log("plataforma"+indexMaterial);
+            console.log("plataforma" + indexMaterial);
 
-            var plataforma = id("plataforma"+indexMaterial);
+            var plataforma = id("plataforma" + indexMaterial);
             var idPlataforma = response.data[l].id_plataforma;
 
-            for (var k = 0; k < plataforma.options.length; k++) {
-                if (plataforma.options[k].value === idPlataforma) {
-                    plataforma.options[k].selected = true;
+            for (var m = 0; m < plataforma.options.length; m++) {
+                if (plataforma.options[m].value === idPlataforma) {
+                    plataforma.options[m].selected = true;
                     llenarDescMaterial(indexMaterial);
                     break;
                 }
             }
 
-            console.log("descMaterial"+indexMaterial);
+            console.log("descMaterial" + indexMaterial);
 
-            var descMaterial = id("descMaterial"+indexMaterial);
+            var descMaterial = id("descMaterial" + indexMaterial);
             var idMaterial = response.data[l].id_descripcion;
 
-            for (var k = 0; k < descMaterial.options.length; k++) {
-                if (descMaterial.options[k].value === idMaterial) {
-                    descMaterial.options[k].selected = true;
+            for (var n = 0; n < descMaterial.options.length; n++) {
+                if (descMaterial.options[n].value === idMaterial) {
+                    descMaterial.options[n].selected = true;
                     break;
                 }
             }
 
-            var numParte = id("numParte"+indexMaterial);
+            var numParte = id("numParte" + indexMaterial);
             numParte.value = response.data[l].numeroDeParte;
 
-            var cdadMaterial = id("cdadMaterial"+indexMaterial);
+            var cdadMaterial = id("cdadMaterial" + indexMaterial);
             cdadMaterial.value = response.data[l].cantidad;
 
-            var divImgMaterial     = id("imgMaterial" + indexMaterial);
+            var divImgMaterial = id("imgMaterial" + indexMaterial);
             divImgMaterial.style.display = "block";
-            id("imagenMaterial"+ indexMaterial).src = response.data[l].imgMaterial;
+            id("imagenMaterial" + indexMaterial).src = response.data[l].imgMaterial;
 
-
-            if ((l+1) < response.data.length ){
+            if ((l + 1) < response.data.length) {
                 agregarMaterial();
             }
-       //}
+        }
+
 
         var especificaciones = id("especificaciones");
         especificaciones.value = data.especificaciones;
 
     });
 }
-
-/*
-function cargarDatosPrueba(id_update){
-
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
-        var data = response.data[0];
-
-        var tipoEvaluacion = id("tipoEvaluacion");
-        var idEvaluacionPrueba = data.id_tipoEvaluacion;
-
-        for (var i = 0; i < tipoEvaluacion.options.length; i++) {
-            if (tipoEvaluacion.options[i].value === idEvaluacionPrueba) {
-                tipoEvaluacion.options[i].selected = true;
-                break;
-            }
-        }
-
-        var idTipoPrueba = data.id_tipoPrueba;
-        for (var j = 0; j < tipoPrueba.options.length; j++) {
-            if (tipoPrueba.options[j].value === idTipoPrueba) {
-                tipoPrueba.options[j].selected = true;
-                break;
-            }
-        }
-
-        var tipoPruebaEspecial = id("tipoPruebaEspecial");
-        var idPruebaEspecial = data.id_pruebaEspecial;
-        for (var k = 0; k < tipoPruebaEspecial.options.length; k++) {
-            if (tipoPruebaEspecial.options[k].value === idPruebaEspecial) {
-                tipoPruebaEspecial.options[k].selected = true;
-                break;
-            }
-        }
-
-        var norma = id("norma");
-        norma.value = data.normaNombre;
-
-        var otroPrueba = id("otroPrueba");
-        otroPrueba.value = data.otroTipoEspecial;
-
-        var especificaciones = id("especificaciones");
-        especificaciones.value = data.especificaciones;
-
-
-        for (var l = 0; l < response.length; l++) {
-
-            var cliente = id("cliente"+z);
-            var idCliente = response.data[l].id_cliente;
-            console.log("cliente:"+idCliente);
-            for (var k = 0; k < cliente.options.length; k++) {
-                if (cliente.options[k].value === idCliente) {
-                    cliente.options[k].selected = true;
-                    llenarPlataforma(z);
-                    break;
-                }
-            }
-
-            var plataforma = id("plataforma"+z);
-            var idPlataforma = response.data[l].id_plataforma;
-            console.log("idPlataforma:"+idPlataforma);
-            for (var k = 0; k < plataforma.options.length; k++) {
-                if (plataforma.options[k].value === idPlataforma) {
-                    plataforma.options[k].selected = true;
-                    llenarDescMaterial(z);
-                    break;
-                }
-            }
-
-            var descMaterial = id("descMaterial"+z);
-            var idMaterial = response.data[l].id_descripcion;
-            console.log("idMaterial:"+idMaterial);
-            for (var k = 0; k < descMaterial.options.length; k++) {
-                if (descMaterial.options[k].value === idMaterial) {
-                    descMaterial.options[k].selected = true;
-                    break;
-                }
-            }
-
-            var numParte = id("numParte"+z);
-            numParte.value = response.data[l].numeroDeParte;
-
-            var cdadMaterial = id("cdadMaterial"+z);
-            cdadMaterial.value = response.data[l].cantidad;
-
-            var divImgMaterial     = id("imgMaterial" + z);
-            divImgMaterial.style.display = "block";
-            id("imagenMaterial"+ z).src = response.data[l].imgMaterial;
-
-
-
-            if ((l+1) < response.data.length ){
-                agregarMaterial();
-            }
-        }
-
-    });
-    cargarDatosPrueba2(id_update);
-}*/
 
 function agregarMaterial() {
     indexMaterial++;
