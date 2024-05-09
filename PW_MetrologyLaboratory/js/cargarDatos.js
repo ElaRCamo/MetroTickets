@@ -466,7 +466,7 @@ function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba) {
 
 function cargarDatosPrueba(id_update){
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarIdsPruebaSol.php?id_prueba=' + id_update,  function (response) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
         var data = response.data[0];
 
         var idEvaluacionPrueba = data.id_tipoEvaluacion;
@@ -482,24 +482,6 @@ function cargarDatosPrueba(id_update){
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba);
         banderaTipoEvaluacion();
 
-        llenarCliente(1);
-
-
-
-
-        //console.log(JSON.stringify(datos));
-        //console.log(datos.data[0].id_tipoEvaluacion);
-
-        console.log("se agrega bandera");
-    });
-}
-
-
-function cargarDatosPrueba3(id_update){
-
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
-        var data = response.data[0];
-
         var norma = id("norma");
         norma.value = data.normaNombre;
 
@@ -508,7 +490,6 @@ function cargarDatosPrueba3(id_update){
 
         var especificaciones = id("especificaciones");
         especificaciones.value = data.especificaciones;
-
 
         for (var l = 0; l < response.length; l++) {
 
@@ -560,6 +541,7 @@ function cargarDatosPrueba3(id_update){
             }
         }
 
+        console.log("se agrega bandera");
     });
 }
 

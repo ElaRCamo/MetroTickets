@@ -138,7 +138,6 @@
         const id_update = new URLSearchParams(window.location.search).get('id_update');
         function esActualizacionPrueba(){
             if (id_update !== null && id_update !== '') {
-                //todoVisible();
                 cargarDatosPrueba(id_update);
                 cargarTodosLosDatos();
                 actualizarTituloH1(id_update);
