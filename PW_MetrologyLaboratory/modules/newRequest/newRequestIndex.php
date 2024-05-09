@@ -142,7 +142,7 @@
                 todoVisible();
                 llenarTipoPruebaUpdate(1);//Solo funciona si el tipo de evaluacion es 1, se debe evaluar
                 cargarTodosLosDatos();
-                cargarDatosPrueba(id_update);
+                cargarDatosPrueba2(id_update);
                 actualizarTituloH1(id_update);
                 if(tipoPrueba.options.length <= 1){
                     console.log("esperar :C")
