@@ -13,14 +13,7 @@ function resumenPrueba($id_prueba){
                         prueba.id_tipoEvaluacion,
                         prueba.id_tipoPrueba,
                         prueba.id_pruebaEspecial,
-                        prueba.otroTipoEspecial,
-                        prueba.especificaciones,
-                        prueba.normaNombre,
-                        prueba.normaArchivo,
-                        dm.numeroDeParte, 
-                        m.cantidad, 
                         m.id_descripcion,
-                        dm.imgMaterial, 
                         c.id_cliente,
                         p.id_plataforma
                     FROM   
@@ -34,10 +27,6 @@ function resumenPrueba($id_prueba){
                                 id_prueba,
                                 s.id_tipoPrueba,
                                 id_tipoEvaluacion,
-                                especificaciones,
-                                normaNombre,
-                                normaArchivo,
-                                otroTipoEspecial,
                                 id_pruebaEspecial
                             FROM 
                                 Prueba s
