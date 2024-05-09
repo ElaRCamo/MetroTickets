@@ -456,9 +456,8 @@ function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba) {
             createOptionS.value = data.data[i].id_tipoPrueba;
             createOptionS.text = data.data[i].descripcionPrueba;
             selectS.appendChild(createOptionS);
-
             if (data.data[i].id_tipoPrueba === idTipoPrueba) {
-                createOption.selected = true;
+                createOptionS.selected = true;
             }
         }
     });
