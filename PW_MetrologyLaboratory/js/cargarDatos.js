@@ -509,7 +509,7 @@ function cargarDatosPrueba(id_update){
         console.log("idTipoEspecial: "+idTipoEspecial);
         console.log(typeof idTipoEspecial);
 
-        if(idTipoPrueba === 5){//Prueba especial/otra
+        if(idTipoPrueba === '5'){//Prueba especial/otra
             llenarPruebaEspecialUpdate(idTipoEspecial);
             console.log("xd idTipoPrueba: "+idTipoPrueba);
 
