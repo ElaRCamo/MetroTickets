@@ -508,6 +508,8 @@ function cargarDatosPrueba(id_update){
             var idTipoEspecial = data.id_pruebaEspecial;
             llenarPruebaEspecialUpdate(idTipoEspecial);
 
+            console.log("xd idTipoPrueba: "+idTipoPrueba);
+
             if (idTipoEspecial === '4'){
                 mostrarBloque(divOtroTipoPrueba, true);
                 var otroPrueba = id("otroPrueba");
