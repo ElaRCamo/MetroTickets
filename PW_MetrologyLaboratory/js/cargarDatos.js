@@ -501,9 +501,13 @@ function cargarDatosPrueba(id_update){
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba);
         banderaTipoEvaluacion();
 
+        console.log("idTipoPrueba: "+idTipoPrueba);
+
+
         if(idTipoPrueba === '5'){//Prueba especial/otra
             var idTipoEspecial = data.id_pruebaEspecial;
             llenarPruebaEspecialUpdate(idTipoEspecial);
+
             if (idTipoEspecial === '4'){
                 otroTipoPrueba();
                 var otroPrueba = id("otroPrueba");
@@ -567,7 +571,6 @@ function cargarDatosPrueba(id_update){
             }
         }
 
-        console.log("se agrega bandera");
     });
 }
 
