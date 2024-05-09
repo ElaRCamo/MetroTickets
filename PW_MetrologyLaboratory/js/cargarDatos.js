@@ -485,7 +485,7 @@ function llenarPruebaEspecialUpdate(idTipoEspecial){
         otroTipoPrueba();
     });
 }
-function llenarPlataformaUpdate(i, idCliente) {
+function llenarPlataformaUpdate(i, idCliente, idPlataforma) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + idCliente, function (data) {
         var selectS = id("plataforma"+ i);
         selectS.innerHTML = ""; //limpiar contenido
@@ -500,6 +500,9 @@ function llenarPlataformaUpdate(i, idCliente) {
             createOptionS.value = data.data[j].id_plataforma;
             createOptionS.text = data.data[j].descripcionPlataforma;
             selectS.appendChild(createOptionS);
+            if (data.data[i].id_plataforma === idPlataforma) {
+                createOptionS.selected = true;
+            }
         }
     });
 }
@@ -511,6 +514,8 @@ function cargarDatosPrueba(id_update){
     llenarCliente(1);
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
+
+
         var data = response.data[0];
 
         var idEvaluacionPrueba = data.id_tipoEvaluacion;
@@ -542,21 +547,12 @@ function cargarDatosPrueba(id_update){
 
             var cliente = id("cliente" + indexMaterial);
             var idCliente = response.data[l].id_cliente;
+            var idPlataforma = response.data[l].id_plataforma;
 
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
-                    llenarPlataforma(indexMaterial);
-                    break;
-                }
-            }
-            var plataforma = id("plataforma" + indexMaterial);
-            var idPlataforma = response.data[l].id_plataforma;
-
-            for (var m = 0; m < plataforma.options.length; m++) {
-                if (plataforma.options[m].value === idPlataforma) {
-                    plataforma.options[m].selected = true;
-                    llenarDescMaterial(indexMaterial);
+                    llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma);
                     break;
                 }
             }
