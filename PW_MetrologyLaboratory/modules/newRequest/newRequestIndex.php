@@ -134,7 +134,6 @@
     <script src="../../js/cargarDatos.js"></script>
     <script src="../../js/insertarDatos.js"></script>
     <script type="text/javascript">
-        let tipoPruebaU = id("tipoPrueba");
         // ¿Se va actualizar una solicitud?
         const id_update = new URLSearchParams(window.location.search).get('id_update');
         function esActualizacionPrueba(){
@@ -143,9 +142,6 @@
                 cargarDatosPrueba(id_update);
                 cargarTodosLosDatos();
                 actualizarTituloH1(id_update);
-                if(tipoPruebaU.options.length <= 1){
-                    console.log("esperar :C")
-                }
             }
         }
 

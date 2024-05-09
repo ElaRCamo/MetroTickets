@@ -460,6 +460,7 @@ function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba) {
                 createOptionS.selected = true;
             }
         }
+        banderaTipoPrueba();
     });
 }
 
@@ -480,7 +481,7 @@ function cargarDatosPrueba(id_update){
         }
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba);
         banderaTipoEvaluacion();
-        banderaTipoPrueba();
+
         llenarCliente(1);
 
 
