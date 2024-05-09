@@ -504,12 +504,12 @@ function cargarDatosPrueba(id_update){
         console.log("idTipoPrueba: "+idTipoPrueba);
 
 
-        if(idTipoPrueba === '5'){//Prueba especial/otra
+        if(idTipoPrueba === 5){//Prueba especial/otra
             var idTipoEspecial = data.id_pruebaEspecial;
             llenarPruebaEspecialUpdate(idTipoEspecial);
 
             if (idTipoEspecial === '4'){
-                otroTipoPrueba();
+                mostrarBloque(divOtroTipoPrueba, true);
                 var otroPrueba = id("otroPrueba");
                 otroPrueba.value = data.otroTipoEspecial;
             }
