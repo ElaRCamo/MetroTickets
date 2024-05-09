@@ -561,14 +561,12 @@ function cargarDatosPrueba3(id_update){
             id("imagenMaterial"+ z).src = response.data[l].imgMaterial;
 
 
-
             if ((l+1) < response.data.length ){
                 agregarMaterial();
             }
         }
 
     });
-    cargarDatosPrueba2(id_update);
 }
 
 /*
