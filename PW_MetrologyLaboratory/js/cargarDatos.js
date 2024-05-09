@@ -505,12 +505,15 @@ function cargarDatosPrueba(id_update){
 
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
 
+        var divOtroTipoPrueba = id("otroTipoPrueba");
+        var otroPrueba = id("otroPrueba");
+
         if(idTipoPrueba === '5' && idTipoEspecial === '4'){//Otro tipo
-            console.log("idTipoPrueba es igual a "+idTipoPrueba + "idTipoEspecial es igual a "+idTipoEspecial);
-            var divOtroTipoPrueba = id("otroTipoPrueba");
+            console.log("idTipoPrueba es "+idTipoPrueba + "idTipoEspecial es "+idTipoEspecial);
+
                 divOtroTipoPrueba.style.display = "block";
-            var otroPrueba = id("otroPrueba");
-                otroPrueba.value = data.otroTipoEspecial;
+
+                //otroPrueba.value = data.otroTipoEspecial;
         }
 
         var norma = id("norma");
