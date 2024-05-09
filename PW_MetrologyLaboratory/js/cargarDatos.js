@@ -457,7 +457,6 @@ function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba,idTipoEspecial) {
             }
         }
         banderaTipoPrueba();
-        llenarCliente(1);
         if(idTipoPrueba === '5'){
             console.log("idTipoPrueba es igual a "+idTipoPrueba);
             llenarPruebaEspecialUpdate(idTipoEspecial);

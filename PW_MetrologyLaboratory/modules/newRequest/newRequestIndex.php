@@ -139,6 +139,7 @@
         function esActualizacionPrueba(){
             if (id_update !== null && id_update !== '') {
                 cargarDatosPrueba(id_update);
+                llenarCliente(1);
                 actualizarTituloH1(id_update);
             }
         }
