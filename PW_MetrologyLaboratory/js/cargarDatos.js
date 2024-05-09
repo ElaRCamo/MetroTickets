@@ -487,10 +487,10 @@ function cargarDatosPrueba(datos) {
     console.log(datos.data[0].id_tipoEvaluacion);
 
 
-    seleccionarOpciones(datos,idEvaluacionPrueba,idTipoPrueba);
+    seleccionarOpciones(idEvaluacionPrueba,idTipoPrueba);
 }
 
-function seleccionarOpciones(datos,idEvaluacionPrueba,idTipoPrueba){
+function seleccionarOpciones(idEvaluacionPrueba,idTipoPrueba){
 
     var tipoEvaluacion = id("tipoEvaluacion");
     for (var i = 0; i < tipoEvaluacion.options.length; i++) {
