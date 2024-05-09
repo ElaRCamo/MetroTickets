@@ -509,8 +509,8 @@ function cargarDatosPrueba(id_update){
 
         if(idTipoPrueba === '5'){//Prueba especial/otra
             var tipoEspecial = id("tipoPruebaEspecial");
-            for (var i = 0; i < idTipoEspecial.options.length; i++) {
-                if (tipoEspecial.options[i].value === idEvaluacionPrueba) {
+            for (var i = 0; i < tipoEspecial.options.length; i++) {
+                if (tipoEspecial.options[i].value === idTipoEspecial) {
                     tipoEspecial.options[i].selected = true;
                     break;
                 }
