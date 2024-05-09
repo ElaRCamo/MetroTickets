@@ -436,10 +436,6 @@ function resumenPrueba(ID_PRUEBA){
     });
 
 }
-function cargarTodosLosDatos(){
-    llenarPruebaEspecial();
-    llenarCliente(1);
-}
 
 function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + idEvaluacion, function (data) {
@@ -461,6 +457,29 @@ function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba) {
             }
         }
         banderaTipoPrueba();
+        llenarCliente(1);
+    });
+}
+
+function llenarPruebaEspecialUpdate(idTipoEspecial){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPruebaEspecial.php', function (data){
+        var selectS = id("tipoPruebaEspecial");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Especifique el tipo de prueba*";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
+        for (var i = 0; i < data.data.length; i++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[i].id_pruebaEspecial;
+            createOption.text = data.data[i].descripcionEspecial;
+            selectS.appendChild(createOption);
+            if (data.data[i].id_pruebaEspecial === idTipoEspecial) {
+                createOption.selected = true;
+            }
+        }
     });
 }
 
@@ -482,11 +501,18 @@ function cargarDatosPrueba(id_update){
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba);
         banderaTipoEvaluacion();
 
+        if(idTipoPrueba === '5'){//Prueba especial/otra
+            var idTipoEspecial = data.id_pruebaEspecial;
+            llenarPruebaEspecialUpdate(idTipoEspecial);
+            if (idTipoEspecial === '4'){
+                otroTipoPrueba();
+                var otroPrueba = id("otroPrueba");
+                otroPrueba.value = data.otroTipoEspecial;
+            }
+        }
+
         var norma = id("norma");
         norma.value = data.normaNombre;
-
-        var otroPrueba = id("otroPrueba");
-        otroPrueba.value = data.otroTipoEspecial;
 
         var especificaciones = id("especificaciones");
         especificaciones.value = data.especificaciones;
