@@ -21,7 +21,6 @@ function resumenPrueba($id_prueba){
                         JOIN DescripcionMaterial dm ON m.id_descripcion = dm.id_descripcion
                         JOIN Plataforma p ON dm.id_plataforma = p.id_plataforma
                         JOIN Cliente c ON p.id_cliente = c.id_cliente
-                        JOIN EstatusMaterial em ON m.id_estatusMaterial = em.id_estatusMaterial
                         JOIN (
                             SELECT 
                                 id_prueba,
