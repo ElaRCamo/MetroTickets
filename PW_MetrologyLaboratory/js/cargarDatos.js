@@ -517,7 +517,6 @@ function cargarDatosPrueba(id_update){
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
             if (tipoEvaluacion.options[i].value === idEvaluacionPrueba) {
                 tipoEvaluacion.options[i].selected = true;
-                banderaTipoEvaluacion();
                 break;
             }
         }
@@ -584,7 +583,6 @@ function cargarDatosPrueba(id_update){
                 agregarMaterial();
             }
         }
-
 
         var especificaciones = id("especificaciones");
         especificaciones.value = data.especificaciones;
