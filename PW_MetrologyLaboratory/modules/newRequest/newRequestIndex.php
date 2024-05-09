@@ -46,7 +46,7 @@
     ?>
 
     <script type="text/javascript">
-        let z = 1;
+        let indexMaterial = 1;
         let emailUsuario = <?php echo json_encode($_SESSION['emailUsuario']); ?>;
         let solicitante = <?php echo json_encode($_SESSION['nombreUsuario']); ?>;
 
@@ -139,7 +139,6 @@
         function esActualizacionPrueba(){
             if (id_update !== null && id_update !== '') {
                 cargarDatosPrueba(id_update);
-                llenarCliente(1);
                 actualizarTituloH1(id_update);
             }
         }

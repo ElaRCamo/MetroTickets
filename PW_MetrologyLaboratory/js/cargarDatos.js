@@ -460,6 +460,7 @@ function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba,idTipoEspecial) {
         if(idTipoPrueba === '5'){
             llenarPruebaEspecialUpdate(idTipoEspecial);
         }
+        llenarCliente(1);
     });
 }
 
@@ -517,29 +518,29 @@ function cargarDatosPrueba(id_update){
 
         for (var l = 0; l < response.length; l++) {
 
-            var cliente = id("cliente"+z);
+            var cliente = id("cliente"+indexMaterial);
             var idCliente = response.data[l].id_cliente;
             console.log("cliente:"+idCliente);
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
-                    llenarPlataforma(z);
+                    llenarPlataforma(indexMaterial);
                     break;
                 }
             }
 
-            var plataforma = id("plataforma"+z);
+            var plataforma = id("plataforma"+indexMaterial);
             var idPlataforma = response.data[l].id_plataforma;
             console.log("idPlataforma:"+idPlataforma);
             for (var k = 0; k < plataforma.options.length; k++) {
                 if (plataforma.options[k].value === idPlataforma) {
                     plataforma.options[k].selected = true;
-                    llenarDescMaterial(z);
+                    llenarDescMaterial(indexMaterial);
                     break;
                 }
             }
 
-            var descMaterial = id("descMaterial"+z);
+            var descMaterial = id("descMaterial"+indexMaterial);
             var idMaterial = response.data[l].id_descripcion;
             console.log("idMaterial:"+idMaterial);
             for (var k = 0; k < descMaterial.options.length; k++) {
@@ -549,15 +550,15 @@ function cargarDatosPrueba(id_update){
                 }
             }
 
-            var numParte = id("numParte"+z);
+            var numParte = id("numParte"+indexMaterial);
             numParte.value = response.data[l].numeroDeParte;
 
-            var cdadMaterial = id("cdadMaterial"+z);
+            var cdadMaterial = id("cdadMaterial"+indexMaterial);
             cdadMaterial.value = response.data[l].cantidad;
 
-            var divImgMaterial     = id("imgMaterial" + z);
+            var divImgMaterial     = id("imgMaterial" + indexMaterial);
             divImgMaterial.style.display = "block";
-            id("imagenMaterial"+ z).src = response.data[l].imgMaterial;
+            id("imagenMaterial"+ indexMaterial).src = response.data[l].imgMaterial;
 
 
             if ((l+1) < response.data.length ){
@@ -667,69 +668,69 @@ function cargarDatosPrueba(id_update){
 }*/
 
 function agregarMaterial() {
-    z++;
+    indexMaterial++;
 
-    var newRow = $('<div id="newRow' + z + '" class="row row-cols-xl-3 clearfix">'
+    var newRow = $('<div id="newRow' + indexMaterial + '" class="row row-cols-xl-3 clearfix">'
         + '<div class="col-xl-8">'
         + '<div class="row">'
         + '<div class="col-sm-6">'
-        + '<div class="form-group" id="div-OEM' + z + '">'
-        + '<div class="help-block with-errors" id="divError' + z + '"></div>'
-        + '<select id="cliente' + z + '" name="clientes[]" class="form-control" onclick="" onchange="llenarPlataforma(' + z + ')" required data-error="Por favor ingresa el area solicitante">'
+        + '<div class="form-group" id="div-OEM' + indexMaterial + '">'
+        + '<div class="help-block with-errors" id="divError' + indexMaterial + '"></div>'
+        + '<select id="cliente' + indexMaterial + '" name="clientes[]" class="form-control" onclick="" onchange="llenarPlataforma(' + indexMaterial + ')" required data-error="Por favor ingresa el area solicitante">'
         + '<option value="">Seleccione el cliente (OEM)*</option>'
         + '</select>'
         + '<div class="input-group-icon"><i class="las la-screwdriver"></i></div>'
         + '</div>'
         + '</div>'
         + '<div class="col-sm-6">'
-        + '<div class="form-group" id="plataformaDiv' + z + '">'
+        + '<div class="form-group" id="plataformaDiv' + indexMaterial + '">'
         + '<div class="help-block with-errors"></div>'
-        + '<select id="plataforma' + z + '" name="plataformas[]" class="form-control" onchange="llenarDescMaterial(' + z + ')" required data-error="Por favor ingresa la plataforma">'
+        + '<select id="plataforma' + indexMaterial + '" name="plataformas[]" class="form-control" onchange="llenarDescMaterial(' + indexMaterial + ')" required data-error="Por favor ingresa la plataforma">'
         + '<option value="">Seleccione la plataforma*</option>'
         + '</select>'
         + '<div class="input-group-icon"><i class="las la-warehouse"></i></div>'
         + '</div>'
         + '</div>'
         + '<div class="col-sm-6">'
-        + '<div class="form-group" id="descripcionMaterial' + z + '">'
+        + '<div class="form-group" id="descripcionMaterial' + indexMaterial + '">'
         + '<div class="help-block with-errors"></div>'
-        + '<select id="descMaterial' + z + '" name="descripciones[]" class="form-control" onchange="descripcionMaterial(' + z + '); numeroDeParte(' + z + ');" required data-error="Por favor ingresa la descripción del material">'
+        + '<select id="descMaterial' + indexMaterial + '" name="descripciones[]" class="form-control" onchange="descripcionMaterial(' + indexMaterial + '); numeroDeParte(' + indexMaterial + ');" required data-error="Por favor ingresa la descripción del material">'
         + '<option value="">Seleccione la descripción*</option>'
         + '</select>'
         + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
         + '</div>'
         + '</div>'
         + '<div class="col-sm-6">'
-        + '<div class="form-group" id="numeroParte' + z + '">'
+        + '<div class="form-group" id="numeroParte' + indexMaterial + '">'
         + '<div class="help-block with-errors"></div>'
-        + '<input id="numParte' + z + '" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte" readonly>'
+        + '<input id="numParte' + indexMaterial + '" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" required data-error="Por favor ingresa el número de parte" readonly>'
         + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
         + '</div>'
         + '</div>'
         + '<div class="col-sm-6">'
-        + '<div class="form-group" id="cantidadMaterial' + z + '">'
+        + '<div class="form-group" id="cantidadMaterial' + indexMaterial + '">'
         + '<div class="help-block with-errors"></div>'
-        + '<input id="cdadMaterial' + z + '" name="cdadesMaterial[]" type="number" class="form-control" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">'
+        + '<input id="cdadMaterial' + indexMaterial + '" name="cdadesMaterial[]" type="number" class="form-control" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">'
         + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
         + '</div>'
         + '</div>'
         + '<div class="col-sm-6">'
-        + '<a href="#" class="btn btn-danger remove-lnk" id="' + z + '">Eliminar</a>'
-        + '<button type="button" class="btn btn-success" id="addNumParte' + z + '"><i class="las la-plus-square"></i></button>'
+        + '<a href="#" class="btn btn-danger remove-lnk" id="' + indexMaterial + '">Eliminar</a>'
+        + '<button type="button" class="btn btn-success" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i></button>'
         + '</div>'
         + '</div>'
         + '</div>'
         + '<div class="col-xl-4 text-center">'
-        + '<div id="imgMaterial' + z + '">'
-        + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial' + z + '" alt="Imagen Material">'
+        + '<div id="imgMaterial' + indexMaterial + '">'
+        + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial' + indexMaterial + '" alt="Imagen Material">'
         + '</div>'
         + '</div>'
         + '</div>');
 
 
     newRow.appendTo('#contenedorFormulario');
-    llenarCliente(z);
-    mostrarDivImagen(z);
+    llenarCliente(indexMaterial);
+    mostrarDivImagen(indexMaterial);
 
 }
 
