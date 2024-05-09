@@ -471,12 +471,14 @@ function cargarDatosPrueba2(id_update){
 }
 
 function cargarDatosPrueba(datos) {
+    var data = datos.data[0];
 
 
-    var idEvaluacionPrueba = datos.data[0].id_tipoEvaluacion;
+    var idEvaluacionPrueba = data.id_tipoEvaluacion;
     llenarTipoPruebaUpdate(idEvaluacionPrueba);
 
-
+    var idTipoPrueba = data.id_tipoPrueba;
+    llenarCliente(1);
 
 
     // Aquí puedes utilizar los datos como necesites
@@ -485,15 +487,22 @@ function cargarDatosPrueba(datos) {
     console.log(datos.data[0].id_tipoEvaluacion);
 
 
-    seleccionarOpciones(datos,idEvaluacionPrueba);
+    seleccionarOpciones(datos,idEvaluacionPrueba,idTipoPrueba);
 }
 
-function seleccionarOpciones(datos,idEvaluacionPrueba){
+function seleccionarOpciones(datos,idEvaluacionPrueba,idTipoPrueba){
 
     var tipoEvaluacion = id("tipoEvaluacion");
     for (var i = 0; i < tipoEvaluacion.options.length; i++) {
         if (tipoEvaluacion.options[i].value === idEvaluacionPrueba) {
             tipoEvaluacion.options[i].selected = true;
+            break;
+        }
+    }
+
+    for (var j = 0; j < tipoPrueba.options.length; j++) {
+        if (tipoPrueba.options[j].value === idTipoPrueba) {
+            tipoPrueba.options[j].selected = true;
             break;
         }
     }
