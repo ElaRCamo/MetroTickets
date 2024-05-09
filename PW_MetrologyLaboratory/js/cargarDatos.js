@@ -532,10 +532,11 @@ function cargarDatosPrueba(id_update){
         norma.value = data.normaNombre;
 
         for (var l = 0; l < response.length; l++) {
+            console.log("cliente:"+idCliente);
 
             var cliente = id("cliente"+indexMaterial);
             var idCliente = response.data[l].id_cliente;
-            console.log("cliente:"+idCliente);
+
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
@@ -544,9 +545,11 @@ function cargarDatosPrueba(id_update){
                 }
             }
 
+            console.log("plataforma"+indexMateria);
+
             var plataforma = id("plataforma"+indexMaterial);
             var idPlataforma = response.data[l].id_plataforma;
-            console.log("idPlataforma:"+idPlataforma);
+
             for (var k = 0; k < plataforma.options.length; k++) {
                 if (plataforma.options[k].value === idPlataforma) {
                     plataforma.options[k].selected = true;
@@ -555,9 +558,11 @@ function cargarDatosPrueba(id_update){
                 }
             }
 
+            console.log("descMaterial"+indexMaterial);
+
             var descMaterial = id("descMaterial"+indexMaterial);
             var idMaterial = response.data[l].id_descripcion;
-            console.log("idMaterial:"+idMaterial);
+
             for (var k = 0; k < descMaterial.options.length; k++) {
                 if (descMaterial.options[k].value === idMaterial) {
                     descMaterial.options[k].selected = true;
