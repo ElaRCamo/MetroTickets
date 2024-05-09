@@ -460,7 +460,6 @@ function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba,idTipoEspecial) {
         if(idTipoPrueba === '5'){
             llenarPruebaEspecialUpdate(idTipoEspecial);
         }
-        llenarCliente(1);
     });
 }
 
@@ -509,6 +508,7 @@ function cargarDatosPrueba(id_update){
 
     var divSelectTipoPrueba = id("selectTipoPrueba");
     divSelectTipoPrueba.style.display = "block";
+    llenarCliente(1);
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
         var data = response.data[0];
