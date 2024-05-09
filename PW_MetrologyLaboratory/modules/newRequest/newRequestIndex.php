@@ -34,7 +34,7 @@
         }
     ?>
 </head>
-<body onload="llenarEvaluacion(); esActualizacionPrueba();">
+<body onload="consultarClientes(); llenarEvaluacion(); esActualizacionPrueba();">
     <?php
         # Header section
             require_once('../../header.php');
@@ -127,8 +127,6 @@
                 var id = $(this).attr("id");
                 $('#newRow' + id).remove();
             });
-
-            listaClientes = consultarClientes();
         });
     </script>
     <script src="../../js/general.js"></script>
