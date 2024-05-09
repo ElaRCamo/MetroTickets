@@ -531,9 +531,6 @@ function cargarDatosPrueba(id_update){
         var norma = id("norma");
         norma.value = data.normaNombre;
 
-        var especificaciones = id("especificaciones");
-        especificaciones.value = data.especificaciones;
-
         for (var l = 0; l < response.length; l++) {
 
             var cliente = id("cliente"+indexMaterial);
@@ -583,6 +580,9 @@ function cargarDatosPrueba(id_update){
                 agregarMaterial();
             }
         }
+
+        var especificaciones = id("especificaciones");
+        especificaciones.value = data.especificaciones;
 
     });
 }
