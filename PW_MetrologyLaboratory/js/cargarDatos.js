@@ -533,8 +533,12 @@ function cargarDatosPrueba(id_update){
         var norma = id("norma");
         norma.value = data.normaNombre;
 
+        var especificaciones = id("especificaciones");
+        especificaciones.value = data.especificaciones;
+
+        //-----------------MATERIALES---------------------
+
         for (var l = 0; l < response.data.length; l++) {
-            console.log("cliente" + indexMaterial);
 
             var cliente = id("cliente" + indexMaterial);
             var idCliente = response.data[l].id_cliente;
@@ -546,9 +550,6 @@ function cargarDatosPrueba(id_update){
                     break;
                 }
             }
-
-            console.log("plataforma" + indexMaterial);
-
             var plataforma = id("plataforma" + indexMaterial);
             var idPlataforma = response.data[l].id_plataforma;
 
@@ -559,8 +560,6 @@ function cargarDatosPrueba(id_update){
                     break;
                 }
             }
-
-            console.log("descMaterial" + indexMaterial);
 
             var descMaterial = id("descMaterial" + indexMaterial);
             var idMaterial = response.data[l].id_descripcion;
@@ -587,8 +586,6 @@ function cargarDatosPrueba(id_update){
             }
         }
 
-        var especificaciones = id("especificaciones");
-        especificaciones.value = data.especificaciones;
 
     });
 }
