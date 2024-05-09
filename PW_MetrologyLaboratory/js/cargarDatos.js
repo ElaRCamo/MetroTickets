@@ -482,6 +482,7 @@ function llenarPruebaEspecialUpdate(idTipoEspecial){
                 createOption.selected = true;
             }
         }
+        otroTipoPrueba();
     });
 }
 
@@ -505,7 +506,6 @@ function cargarDatosPrueba(id_update){
 
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
 
-        otroTipoPrueba();
         var otroPrueba = id("otroPrueba");
         otroPrueba.value = data.otroTipoEspecial;
 
