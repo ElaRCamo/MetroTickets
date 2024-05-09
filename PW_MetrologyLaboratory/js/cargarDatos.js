@@ -507,8 +507,9 @@ function cargarDatosPrueba(id_update){
 
         if(idTipoPrueba === '5' && idTipoEspecial === '4'){//Prueba especial/otra
             console.log("idTipoPrueba es igual a "+idTipoPrueba + "idTipoEspecial es igual a "+idTipoEspecial);
-                mostrarBloque(divOtroTipoPrueba, true);
-                var otroPrueba = id("otroPrueba");
+            var divOtroTipoPrueba = id("otroTipoPrueba");
+                divOtroTipoPrueba.style.display = "block";
+            var otroPrueba = id("otroPrueba");
                 otroPrueba.value = data.otroTipoEspecial;
         }
 
