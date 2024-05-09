@@ -461,25 +461,45 @@ function llenarTipoPruebaUpdate(idEvaluacion) {
 }
 
 function cargarDatosPrueba2(id_update){
-
     var datosPrueba;
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
 
         datosPrueba = response;
-
-        otraFuncion(datosPrueba);
+        cargarDatosPrueba(datosPrueba);
     });
 }
 
-function otraFuncion(datos) {
+function cargarDatosPrueba(datos) {
+    var data = datos.data[0];
+
+    var idEvaluacionPrueba = data.id_tipoEvaluacion;
+    llenarTipoPruebaUpdate(idEvaluacionPrueba);
+
+
+
+
     // Aquí puedes utilizar los datos como necesites
     console.log(JSON.stringify(datos));
     // Por ejemplo, puedes acceder a propiedades específicas del objeto JSON
     console.log(datos.data[0].id_tipoEvaluacion);
+
+
+    seleccionarOpciones(datos,idEvaluacionPrueba);
 }
 
+function seleccionarOpciones(datos,idEvaluacionPrueba){
 
+    var tipoEvaluacion = id("tipoEvaluacion");
+    for (var i = 0; i < tipoEvaluacion.options.length; i++) {
+        if (tipoEvaluacion.options[i].value === idEvaluacionPrueba) {
+            tipoEvaluacion.options[i].selected = true;
+            break;
+        }
+    }
+}
+
+/*
 function cargarDatosPrueba(id_update){
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
@@ -575,7 +595,7 @@ function cargarDatosPrueba(id_update){
 
     });
     cargarDatosPrueba2(id_update);
-}
+}*/
 
 function agregarMaterial() {
     z++;
