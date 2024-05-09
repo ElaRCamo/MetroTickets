@@ -485,8 +485,7 @@ function llenarPruebaEspecialUpdate(idTipoEspecial){
         otroTipoPrueba();
     });
 }
-
-function llenarPlataformaUpdate(i, idCliente, idPlataforma) {
+function llenarPlataformaUpdate(i, idCliente) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + idCliente, function (data) {
         var selectS = id("plataforma"+ i);
         selectS.innerHTML = ""; //limpiar contenido
@@ -501,9 +500,6 @@ function llenarPlataformaUpdate(i, idCliente, idPlataforma) {
             createOptionS.value = data.data[j].id_plataforma;
             createOptionS.text = data.data[j].descripcionPlataforma;
             selectS.appendChild(createOptionS);
-            if (data.data[i].id_plataforma === idPlataforma) {
-                createOptionS.selected = true;
-            }
         }
     });
 }
@@ -512,6 +508,7 @@ function cargarDatosPrueba(id_update){
 
     var divSelectTipoPrueba = id("selectTipoPrueba");
     divSelectTipoPrueba.style.display = "block";
+    llenarCliente(1);
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
         var data = response.data[0];
@@ -536,28 +533,34 @@ function cargarDatosPrueba(id_update){
         var norma = id("norma");
         norma.value = data.normaNombre;
 
-        var especificaciones = id("especificaciones");
-        especificaciones.value = data.especificaciones;
-
-        //------------------------------MATERIALES------------------------------------
-
         for (var l = 0; l < response.data.length; l++) {
+            console.log("cliente" + indexMaterial);
 
             var cliente = id("cliente" + indexMaterial);
             var idCliente = response.data[l].id_cliente;
 
-            var plataforma = id("plataforma" + indexMaterial);
-            var idPlataforma = response.data[l].id_plataforma;
-
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
-                    llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma)
+                    llenarPlataforma(indexMaterial);
                     break;
                 }
             }
 
-            llenarDescMaterial(indexMaterial);
+            console.log("plataforma" + indexMaterial);
+
+            var plataforma = id("plataforma" + indexMaterial);
+            var idPlataforma = response.data[l].id_plataforma;
+
+            for (var m = 0; m < plataforma.options.length; m++) {
+                if (plataforma.options[m].value === idPlataforma) {
+                    plataforma.options[m].selected = true;
+                    llenarDescMaterial(indexMaterial);
+                    break;
+                }
+            }
+
+            console.log("descMaterial" + indexMaterial);
 
             var descMaterial = id("descMaterial" + indexMaterial);
             var idMaterial = response.data[l].id_descripcion;
@@ -583,6 +586,9 @@ function cargarDatosPrueba(id_update){
                 agregarMaterial();
             }
         }
+
+        var especificaciones = id("especificaciones");
+        especificaciones.value = data.especificaciones;
 
     });
 }
