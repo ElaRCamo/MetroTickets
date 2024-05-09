@@ -458,6 +458,10 @@ function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba) {
         }
         banderaTipoPrueba();
         llenarCliente(1);
+        if(idTipoPrueba === '5'){
+            console.log("idTipoPrueba es igual a "+idTipoPrueba);
+            llenarPruebaEspecial();
+        }
     });
 }
 
@@ -501,18 +505,16 @@ function cargarDatosPrueba(id_update){
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba);
         banderaTipoEvaluacion();
 
-        console.log("idTipoPrueba: "+idTipoPrueba);
-        console.log(typeof idTipoPrueba);
-
         var idTipoEspecial = data.id_pruebaEspecial;
 
-        console.log("idTipoEspecial: "+idTipoEspecial);
-        console.log(typeof idTipoEspecial);
-
         if(idTipoPrueba === '5'){//Prueba especial/otra
-            console.log("xd idTipoPrueba: "+idTipoPrueba);
-            llenarPruebaEspecialUpdate(idTipoEspecial);
-
+            var tipoEspecial = id("tipoPruebaEspecial");
+            for (var i = 0; i < idTipoEspecial.options.length; i++) {
+                if (tipoEspecial.options[i].value === idEvaluacionPrueba) {
+                    tipoEspecial.options[i].selected = true;
+                    break;
+                }
+            }
             if (idTipoEspecial === '4'){
                 mostrarBloque(divOtroTipoPrueba, true);
                 var otroPrueba = id("otroPrueba");
