@@ -52,8 +52,8 @@ let listaClientes;
 function consultarClientes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
         listaClientes = data;
-        return listaClientes;
     });
+    return listaClientes;
 }
 function llenarCliente(i){
     var data = listaClientes;
