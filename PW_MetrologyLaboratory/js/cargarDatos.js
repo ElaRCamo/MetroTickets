@@ -531,7 +531,8 @@ function cargarDatosPrueba(id_update){
         var norma = id("norma");
         norma.value = data.normaNombre;
 
-       for (var l = 0; l < response.data.length; l++) {
+       //for (var l = 0; l < response.data.length; l++) {
+        var l=0;
             console.log("cliente"+indexMaterial);
 
             var cliente = id("cliente"+indexMaterial);
@@ -545,7 +546,7 @@ function cargarDatosPrueba(id_update){
                 }
             }
 
-            console.log("plataforma"+indexMateria);
+            console.log("plataforma"+indexMaterial);
 
             var plataforma = id("plataforma"+indexMaterial);
             var idPlataforma = response.data[l].id_plataforma;
@@ -584,7 +585,7 @@ function cargarDatosPrueba(id_update){
             if ((l+1) < response.data.length ){
                 agregarMaterial();
             }
-       }
+       //}
 
         var especificaciones = id("especificaciones");
         especificaciones.value = data.especificaciones;
