@@ -486,7 +486,25 @@ function llenarPruebaEspecialUpdate(idTipoEspecial){
         otroTipoPrueba();
     });
 }
+function llenarPlataformaUpdate(i, idCliente) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + idCliente, function (data) {
+        var selectS = id("plataforma"+ i);
+        selectS.innerHTML = ""; //limpiar contenido
 
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione la plataforma*";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOptionS = document.createElement("option");
+            createOptionS.value = data.data[j].id_plataforma;
+            createOptionS.text = data.data[j].descripcionPlataforma;
+            selectS.appendChild(createOptionS);
+        }
+    });
+}
+let indexMaterial = 1;
 function cargarDatosPrueba(id_update){
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
