@@ -34,7 +34,7 @@
         }
     ?>
 </head>
-<body onload="llenarEvaluacion(); esActualizacionPrueba();">
+<body onload="llenarEvaluacion(); esActualizacionPrueba(); consultarClientes();">
     <?php
         # Header section
             require_once('../../header.php');
@@ -128,7 +128,7 @@
                 $('#newRow' + id).remove();
             });
 
-            consultarClientes();
+
         });
     </script>
     <script src="../../js/general.js"></script>
