@@ -34,7 +34,7 @@
         }
     ?>
 </head>
-<body onload="llenarEvaluacion(); esActualizacionPrueba(); consultarClientes();">
+<body onload="llenarEvaluacion(); esActualizacionPrueba();">
     <?php
         # Header section
             require_once('../../header.php');
