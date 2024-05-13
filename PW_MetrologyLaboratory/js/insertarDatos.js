@@ -184,26 +184,41 @@ function registrarSolicitud(nuevoId) {
         method: 'POST',
         body: dataForm
     })
-        .then(function (response) {
-                if (!response.ok) {
-                    throw new Error('Server returned ' + response.status);
-                }
-                return response.json();
-
+        .then(function(response) {
+            console.log('response.ok: ', response.ok);
+            if (response.ok) {
+                return response.text().then(showResult);
+            } else {
+                showError('status code: ' + response.status);
+                throw new Error('Error en la solicitud: ' + response.status);
+            }
         })
-        .then(function (data) {
-                // Si la inserción de datos fue exitosa, llamar a las funciones
-                enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
-                resumenSolicitud(nuevoId);
-
+        .then(function(data) {
+            // Retraso de tiempo de 1 segundo antes de ejecutar más acciones
+            return new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    let todoCorrecto = true;
+                    if (todoCorrecto) {
+                        resolve('Todo ha ido bien');
+                    } else {
+                        reject('Algo ha fallado')
+                    }
+                }, 9000)
+            });
         })
-        .catch(function (error) {
+        .then(function(data) {
+            // Si la inserción de datos fue exitosa, llamar a las funciones
+            enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
+            resumenSolicitud(nuevoId);
+        })
+        .catch(function(error) {
             if (error instanceof TypeError && error.message.includes('Error')) {
                 console.error('Error en el procesamiento de datos:', error);
             } else {
                 console.error('Error al insertar datos:', error);
             }
         });
+
 }
 
 

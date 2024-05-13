@@ -7,12 +7,13 @@ if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], 
     // Asignar variables
     $tipoPrueba     = $_POST['tipoPrueba'];
     $id_prueba      = $_POST['id_prueba'];
+    $norma          = $_POST['norma'];
 
+    if($tipoPrueba == 3 || $tipoPrueba == 4 || $tipoPrueba == 5){ //si se requiere norma por tipo de prueba
+        //guardar los archivos de la norma
+        $target_dir     = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/archivos/";
+        //Quitar espacios del nombre del archivo:
     // Verificar si se requiere norma por tipo de prueba
-    if($tipoPrueba == 3 || $tipoPrueba == 4 || $tipoPrueba == 5) {
-        $norma = $_POST['norma'];
-        // Guardar los archivos de la norma
-        $target_dir     = "../archivos/"; // Ruta del directorio de destino para guardar archivos
         $nombreArchivo  = $_FILES["normaFile"]["name"];
         $normaFileName  = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
         $normaFile      = $target_dir . $normaFileName;
@@ -20,13 +21,13 @@ if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], 
 
         if ($_FILES["normaFile"]["error"] > 0) {
             echo json_encode(array("error" => true, 'message' => "Error: " . $_FILES["normaFile"]["error"] ));
+            $response = array( "error" => "Error: " . $_FILES["normaFile"]["error"] );
         } else {
-            // Procesar el archivo de norma si no hay errores
-            move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile);
+            // mover el archivo cargado a la ubicación deseada
+            move_uploaded_file(from: $_FILES["normaFile"]["tmp_name"], to: $moverNormaFile);
+            $response = array("message" => "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente.");
         }
-    } else {
-        // El tipo de prueba no requiere especificar norma
-        $norma     = 'No aplica';
+    }else{ //El tipo de prueba no requiere especificar norma
         $normaFile = 'No aplica';
     }
 
