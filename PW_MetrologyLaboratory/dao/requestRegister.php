@@ -3,9 +3,10 @@ include_once('connection.php');
 session_start();
 
 // Verificar si los datos están presentes y asignarlos de manera segura
-if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['materiales'], $_POST['cantidades'])) {
+if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['especificaciones'])) {
     $tipoPrueba     = $_POST['tipoPrueba'];
     $id_prueba      = '2024-0199';
+    //, $_POST['materiales'], $_POST['cantidades'], $_POST['id_prueba']
 
     if($tipoPrueba == 3 || $tipoPrueba == 4 || $tipoPrueba == 5){ //si se requiere norma por tipo de prueba
         $norma          = $_POST['norma'];
@@ -41,8 +42,10 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
     $fechaSolicitud       =  date('Y-m-d_H-i-s');
 
     // materiales y cantidades son strings separadas por comas, asi que se convierten en arrays usando explode
-    $descMateriales = explode(', ', $_POST['materiales']);
-    $cdadMateriales = explode(', ', $_POST['cantidades']);
+    //$descMateriales = explode(', ', $_POST['materiales']);
+    //$cdadMateriales = explode(', ', $_POST['cantidades']);
+    $descMateriales = explode(', ', $_POST['material[]']);
+    $cdadMateriales = explode(', ', $_POST['cdadesMaterial[]']);
 
     RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba);
 
