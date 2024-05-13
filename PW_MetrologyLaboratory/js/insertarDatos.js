@@ -190,7 +190,16 @@ function registrarSolicitud(nuevoId) {
         body: dataForm
     })
         .then(function (response) {
-                if (!response.ok) {
+            console.log('response.ok: ', response.ok);
+            if(response.ok) {
+                response.text().then(showResult);
+            } else {
+                showError('status code: ' + response.status);
+                return false;
+            }
+
+
+                /*if (!response.ok) {
                     throw new Error('Server returned ' + response.status);
                 }
             if (response.includes('Error')) {
@@ -199,7 +208,7 @@ function registrarSolicitud(nuevoId) {
             reject(
                 "No hemos podido recuperar ese json. El código de respuesta del servidor es: " +
                 response.status
-            );
+            );*/
         })
         .then(function (data) {
                 // Si la inserción de datos fue exitosa, llamar a las funciones
