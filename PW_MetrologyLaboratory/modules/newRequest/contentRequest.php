@@ -128,7 +128,8 @@
                                             <div class="input-group-icon"><i class="las la-file-alt"></i></div>
                                         </div>
                                         <div class="form-group last col-sm-12 buttons" >
-                                            <button type="submit" id="submitRequest"  class="btn btn-custom"><i class='las la-paper-plane' onclick="validacionSolicitud()"></i> Enviar</button>
+                                            <button type="button" id="submitRequest"  class="btn btn-custom"><i class='las la-paper-plane' onclick="validacionSolicitud()"></i>Enviar</button>
+                                            <button type="button" id="updateRequest"  class="btn btn-custom"><i class="las la-save" onclick="actualizarSolicitud()"></i>Guardar cambios</button>
                                             <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
                                         </div><!-- end form-group -->
                                         <div class="sub-text">* Campos requeridos</div>

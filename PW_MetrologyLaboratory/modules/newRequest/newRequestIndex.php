@@ -75,9 +75,11 @@
             if (id_update !== null && id_update !== '') {
                 cargarDatosPrueba(id_update);
                 actualizarTituloH1(id_update);
-                alert("Es actualización")
+                showButton("updateRequest");
+                hideButton("submitRequest");
             }else{
-                alert("No es actualización")
+                console.log("No es actualización");
+                hideButton("updateRequest");
             }
         }
 
