@@ -509,7 +509,7 @@ function llenarPlataformaUpdate(i, idCliente, idPlataforma) {
         })
         .then(function() {
             // Llamar a la función llenarDescripcionUpdate después de que se haya llenado la plataforma
-            llenarDescripcionUpdate(i, idPlataforma);
+
         })
         .catch(function(error) {
             // Manejar errores si la solicitud falla
@@ -613,6 +613,7 @@ function cargarDatosPrueba(id_update){
     }).then(function() {
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
         llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma);
+        llenarDescripcionUpdate(indexMaterial, idPlataforma);
     })
         .catch(function(error) {
             // Manejar errores si la solicitud falla
