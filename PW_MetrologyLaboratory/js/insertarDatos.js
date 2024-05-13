@@ -193,14 +193,18 @@ function registrarSolicitud(nuevoId) {
                 if (!response.ok) {
                     throw new Error('Server returned ' + response.status);
                 }
-                return response.json();
-
+            if (response.includes('Error')) {
+                alert('Error en el procesamiento de datos:'+ response);
+            }
+            reject(
+                "No hemos podido recuperar ese json. El código de respuesta del servidor es: " +
+                response.status
+            );
         })
         .then(function (data) {
                 // Si la inserción de datos fue exitosa, llamar a las funciones
                 enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
                 resumenSolicitud(nuevoId);
-
         })
         .catch(function (error) {
             if (error instanceof TypeError && error.message.includes('Error')) {
