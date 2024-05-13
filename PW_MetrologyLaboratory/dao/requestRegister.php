@@ -6,9 +6,9 @@ session_start();
 if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['materiales'], $_POST['cantidades'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
     $tipoPrueba     = $_POST['tipoPrueba'];
     $id_prueba      = $_POST['id_prueba'];
+    $norma          = $_POST['norma'];
 
     if($tipoPrueba == 3 || $tipoPrueba == 4 || $tipoPrueba == 5){ //si se requiere norma por tipo de prueba
-        $norma          = $_POST['norma'];
         //guardar los archivos de la norma
         $target_dir     = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/archivos/";
         //Quitar espacios del nombre del archivo:
@@ -19,18 +19,13 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
 
         if ($_FILES["normaFile"]["error"] > 0) {
             echo json_encode(array("error" => true, 'message' => "Error: " . $_FILES["normaFile"]["error"] ));
-            //$response = array( "error" => "Error: " . $_FILES["normaFile"]["error"] );
+            $response = array( "error" => "Error: " . $_FILES["normaFile"]["error"] );
         } else {
             // mover el archivo cargado a la ubicación deseada
-            move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile);
-                //$response = array("message" => "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente.");
-            /*else {
-                echo json_encode(array("error" => "Hubo un error al subir el archivo."));
-                //$response = array("error" => "Hubo un error al subir el archivo.");
-            }*/
+            move_uploaded_file(from: $_FILES["normaFile"]["tmp_name"], to: $moverNormaFile);
+            $response = array("message" => "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente.");
         }
     }else{ //El tipo de prueba no requiere especificar norma
-        $norma     = 'No aplica';
         $normaFile = 'No aplica';
     }
 
@@ -49,7 +44,6 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
 } else {
     //$response = array("error" => "<script>alert('Error: Faltan datos en el formulario')</script>");
     echo json_encode(array("error" => true, 'message' => "<script>alert('Error: Faltan datos en el formulario')</script>"));
-
 }
 
 function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba)
