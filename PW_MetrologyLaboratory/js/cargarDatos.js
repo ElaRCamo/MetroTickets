@@ -486,7 +486,7 @@ function llenarPruebaEspecialUpdate(idTipoEspecial){
         otroTipoPrueba();
     });
 }
-function llenarPlataformaUpdate(i, idCliente, idPlataforma) {
+function llenarPlataformaUpdate(i, idCliente, idPlataforma, idMaterial) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + idCliente)
         .then(function(data) {
             var selectS = id("plataforma"+ i);
@@ -509,6 +509,7 @@ function llenarPlataformaUpdate(i, idCliente, idPlataforma) {
         })
         .then(function() {
             // Llamar a la función llenarDescripcionUpdate después de que se haya llenado la plataforma
+            llenarDescripcionUpdate(i, idPlataforma, idMaterial)
 
         })
         .catch(function(error) {
@@ -517,7 +518,7 @@ function llenarPlataformaUpdate(i, idCliente, idPlataforma) {
         });
 }
 
-function llenarDescripcionUpdate(i, idPlataforma) {
+function llenarDescripcionUpdate(i, idPlataforma, idMaterial) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoDescMaterial.php?id_plataforma=' + idPlataforma, function (data) {
         var selectS = id("descMaterial"+ i);
         selectS.innerHTML = "";
@@ -532,6 +533,9 @@ function llenarDescripcionUpdate(i, idPlataforma) {
             createOptionS.value = data.data[j].id_descripcion;
             createOptionS.text = data.data[j].descripcionMaterial;
             selectS.appendChild(createOptionS);
+            if (data.data[j].id_descripcion === idMaterial) {
+                createOptionS.selected = true;
+            }
         }
     });
 }
@@ -543,7 +547,7 @@ function cargarDatosPrueba(id_update){
     divSelectTipoPrueba.style.display = "block";
     llenarCliente(1);
 
-    var cliente, idCliente, idPlataforma, idEvaluacionPrueba, idTipoPrueba, idTipoEspecial, otroPrueba;
+    var cliente, idCliente, idPlataforma, idEvaluacionPrueba, idTipoPrueba, idTipoEspecial, otroPrueba, idMaterial;
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
 
@@ -586,7 +590,7 @@ function cargarDatosPrueba(id_update){
             }
 
             var descMaterial = id("descMaterial" + indexMaterial);
-            var idMaterial = response.data[l].id_descripcion;
+            idMaterial = response.data[l].id_descripcion;
 
             for (var n = 0; n < descMaterial.options.length; n++) {
                 if (descMaterial.options[n].value === idMaterial) {
@@ -609,13 +613,10 @@ function cargarDatosPrueba(id_update){
                 agregarMaterial();
             }
         }
-
     }).then(function() {
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
     }).then(function (){
-        llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma);
-    }).then(function (){
-        llenarDescripcionUpdate(indexMaterial, idPlataforma);
+        llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
     }).catch(function(error) {
             // Manejar errores si la solicitud falla
             console.error('Error en la solicitud JSON: ', error);
