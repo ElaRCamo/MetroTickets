@@ -117,7 +117,6 @@ function registrarSolicitud(nuevoId) {
         var fechaSolicitud    = new Date();
         var fechaFormateada  = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
 
-
         dataForm.append('id_prueba', nuevoId);
         dataForm.append('fechaSolicitud', fechaFormateada);
         dataForm.append('tipoPrueba', tipoPrueba.value.trim());

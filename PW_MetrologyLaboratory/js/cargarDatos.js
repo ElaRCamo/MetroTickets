@@ -507,21 +507,7 @@ function llenarPlataformaUpdate(i, idCliente, idPlataforma) {
         }
     });
 }
-function cargarDatosPrueba(id_update) {
-    return new Promise((resolve, reject) => {
-        fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update)
-            .then(response => {
-                if (response.ok) {
-                    return response.text();
-                }
-                reject('No se ha podido acceder a ese recurso. Status: ' + response.status);
-            })
-            .then(texto => resolve(texto))
-            .catch(err => reject(err));
-    });
-}
 
-/*
 function cargarDatosPrueba(id_update){
 
     var divSelectTipoPrueba = id("selectTipoPrueba");
@@ -600,7 +586,7 @@ function cargarDatosPrueba(id_update){
 
     });
 }
-*/
+
 function agregarMaterial() {
     indexMaterial++;
 
