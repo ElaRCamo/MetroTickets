@@ -524,15 +524,14 @@ function cargarDatosPrueba(id_update){
     divSelectTipoPrueba.style.display = "block";
     llenarCliente(1);
 
-    var cliente, idCliente, idPlataforma;
+    var cliente, idCliente, idPlataforma, idEvaluacionPrueba, idTipoPrueba, idTipoEspecial, otroPrueba;
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
 
 
         var data = response.data[0];
-
-        var idEvaluacionPrueba = data.id_tipoEvaluacion;
-        var idTipoPrueba = data.id_tipoPrueba;
+        idEvaluacionPrueba = data.id_tipoEvaluacion;
+        idTipoPrueba = data.id_tipoPrueba;
 
         var tipoEvaluacion = id("tipoEvaluacion");
         for (var i = 0; i < tipoEvaluacion.options.length; i++) {
@@ -541,11 +540,9 @@ function cargarDatosPrueba(id_update){
                 break;
             }
         }
-        var idTipoEspecial = data.id_pruebaEspecial;
+        idTipoEspecial = data.id_pruebaEspecial;
 
-        llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
-
-        var otroPrueba = id("otroPrueba");
+        otroPrueba = id("otroPrueba");
         otroPrueba.value = data.otroTipoEspecial;
 
         var norma = id("norma");
@@ -594,8 +591,8 @@ function cargarDatosPrueba(id_update){
             }
         }
 
-
     }).then(function() {
+        llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
         llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma);
     })
         .catch(function(error) {
