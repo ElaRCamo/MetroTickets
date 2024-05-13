@@ -77,22 +77,17 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
         $insertMaterial->bind_param("sii", $id_prueba, $cdadMaterial, $descMaterial);
         $rInsertMaterial = $rInsertMaterial && $insertMaterial->execute();
     }
-    // Confirmar o hacer rollback de la transacción
     if(!$rInsertSolicitud || !$rInsertMaterial) {
         $conex->rollback();
         $conex->close();
         echo json_encode(array('error' => true, 'message' => 'Error en RegistrarSolicitud'));
         exit;
-        //return false;
     } else {
         $conex->commit();
         $conex->close();
         echo json_encode(array('error' => false, 'message' => 'Datos insertados correctamente'));
         exit;
-        //return true;
     }
-
-
 }
 
 //bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.
