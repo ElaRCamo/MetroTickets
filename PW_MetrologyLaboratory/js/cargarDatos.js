@@ -612,10 +612,11 @@ function cargarDatosPrueba(id_update){
 
     }).then(function() {
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
+    }).then(function (){
         llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma);
+    }).then(function (){
         llenarDescripcionUpdate(indexMaterial, idPlataforma);
-    })
-        .catch(function(error) {
+    }).catch(function(error) {
             // Manejar errores si la solicitud falla
             console.error('Error en la solicitud JSON: ', error);
         });
