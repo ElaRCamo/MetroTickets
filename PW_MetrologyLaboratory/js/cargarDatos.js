@@ -509,12 +509,31 @@ function llenarPlataformaUpdate(i, idCliente, idPlataforma) {
         })
         .then(function() {
             // Llamar a la función llenarDescripcionUpdate después de que se haya llenado la plataforma
-            llenarDescripcionUpdate();
+            llenarDescripcionUpdate(i, idPlataforma);
         })
         .catch(function(error) {
             // Manejar errores si la solicitud falla
             console.error('Error en la solicitud JSON: ', error);
         });
+}
+
+function llenarDescripcionUpdate(i, idPlataforma) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoDescMaterial.php?id_plataforma=' + idPlataforma, function (data) {
+        var selectS = id("descMaterial"+ i);
+        selectS.innerHTML = "";
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione la descripcion*";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOptionS = document.createElement("option");
+            createOptionS.value = data.data[j].id_descripcion;
+            createOptionS.text = data.data[j].descripcionMaterial;
+            selectS.appendChild(createOptionS);
+        }
+    });
 }
 
 
