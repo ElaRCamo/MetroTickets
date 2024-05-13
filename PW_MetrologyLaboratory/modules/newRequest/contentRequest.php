@@ -125,7 +125,7 @@
                                         <div class="form-group col-sm-12" id="detallesPrueba">
                                             <div class="help-block with-errors"></div>
                                             <textarea type="text" class="form-control" id="especificaciones" placeholder="Especificaciones y detalles de la prueba*" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
-                                            <div class="input-group-icon"><i class="las la-file-alt"></i><i class="las la-pen"></i></div>
+                                            <div class="input-group-icon"><i class="las la-file-alt"></i></div>
                                         </div>
                                         <div class="form-group last col-sm-12 buttons" >
                                             <button type="submit" id="submitRequest"  class="btn btn-custom"><i class='las la-paper-plane' onclick="validacionSolicitud()"></i> Enviar</button>
