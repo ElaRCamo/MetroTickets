@@ -56,12 +56,12 @@
                                                     <select class="form-control" id="tipoPruebaEspecial" name="tipoPruebaEspecial" onchange="otroTipoPrueba()" title="TipoDePruebaEspecial">
                                                         <option value="" >Seleccione el tipo de prueba especial*</option>
                                                     </select>
-                                                <div class="input-group-icon"<i class="las la-ruler-horizontal"></i></div>
+                                                <div class="input-group-icon"><i class="las la-ruler-horizontal"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="otroTipoPrueba">
                                                 <div class="help-block with-errors"></div>
                                                 <input type="text" class="form-control" id="otroPrueba" placeholder="Especifique*">
-                                                <div class="input-group-icon"><i class="las la-ruler-horizontal"></i></div>
+                                                <div class="input-group-icon"><i class="las la-search"></i></div>
                                             </div>
                                             <!-- Para agregar material por número de parte-->
                                             <div class=" form-group col-sm-12" id="agregarNumParte">
