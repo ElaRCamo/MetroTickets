@@ -200,10 +200,15 @@ function registrarSolicitud(nuevoId) {
         })
         .then(function(data) {
             // Retraso de tiempo de 1 segundo antes de ejecutar más acciones
-            return new Promise(function(resolve) {
-                setTimeout(function() {
-                    resolve(data);
-                }, 9000);
+            return new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    let todoCorrecto = true;
+                    if (todoCorrecto) {
+                        resolve('Todo ha ido bien');
+                    } else {
+                        reject('Algo ha fallado')
+                    }
+                }, 9000)
             });
         })
         .then(function(data) {
