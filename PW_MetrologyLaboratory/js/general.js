@@ -53,7 +53,7 @@ function banderaTipoPrueba() {
     mostrarBloque(divPlataforma, tipo !== '');
     mostrarBloque(divCantidadMaterial, tipo !== '');
 
-    if (tipo === '4' || tipo === '3') { // dureza FOAM || dureza insitu
+    if(tipo === '4' || tipo === '3') { // dureza FOAM || dureza insitu
         mostrarBloque(divNormaNombre, true);
         mostrarBloque(divNormaArchivo, true);
         mostrarBloque(divAgregarNumParte, true);
@@ -84,6 +84,10 @@ function banderaTipoPrueba() {
         mostrarBloque(divDetallesPrueba, true);
         mostrarBloque(botonEnviar, true);
         mostrarBloque(divOtroTipoPrueba, false);
+    }
+
+    if (esActualizacion === true){
+        mostrarBloque(botonEnviar, false);
     }
 }
 

@@ -69,6 +69,7 @@
     <script src="../../js/cargarDatos.js"></script>
     <script src="../../js/insertarDatos.js"></script>
     <script type="text/javascript">
+        let  esActualizacion = false;
         // ¿Se va actualizar una solicitud?
         const id_update = new URLSearchParams(window.location.search).get('id_update');
         function esActualizacionPrueba(){
@@ -77,6 +78,7 @@
                 actualizarTituloH1(id_update);
                 showButton("updateRequest");
                 hideButton("submitRequest");
+                esActualizacion = true;
             }else{
                 console.log("No es actualización");
                 hideButton("updateRequest");
