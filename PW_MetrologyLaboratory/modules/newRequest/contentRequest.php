@@ -24,7 +24,7 @@
                         <div class="item-wrap">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form name="formNewRequest" action="../../dao/requestRegister.php" method="POST" enctype="multipart/form-data" id="formRequestLab" data-toggle="validator" class="popup-form">
+                                    <form name="formNewRequest" action="" method="POST" enctype="multipart/form-data" id="formRequestLab" data-toggle="validator" class="popup-form">
                                         <div class="row" id="contenedorFormulario">
                                             <div class="form-group col-sm-6" id="selectEvaluacion">
                                                 <div class="help-block with-errors"></div>
@@ -128,7 +128,7 @@
                                             <div class="input-group-icon"><i class="las la-file-alt"></i></div>
                                         </div>
                                         <div class="form-group last col-sm-12 buttons" >
-                                            <button type="submit" id="submitRequest"  class="btn btn-custom"><i class='las la-paper-plane'></i> Enviar</button>
+                                            <button type="submit" id="submitRequest"  class="btn btn-custom"><i class='las la-paper-plane' onclick="validacionSolicitud()"></i> Enviar</button>
                                             <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
                                         </div><!-- end form-group -->
                                         <div class="sub-text">* Campos requeridos</div>
