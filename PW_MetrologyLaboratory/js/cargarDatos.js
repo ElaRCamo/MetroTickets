@@ -487,32 +487,44 @@ function llenarPruebaEspecialUpdate(idTipoEspecial){
     });
 }
 function llenarPlataformaUpdate(i, idCliente, idPlataforma) {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + idCliente, function (data) {
-        var selectS = id("plataforma"+ i);
-        selectS.innerHTML = ""; //limpiar contenido
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + idCliente)
+        .then(function(data) {
+            var selectS = id("plataforma"+ i);
+            selectS.innerHTML = ""; //limpiar contenido
 
-        var createOptionDef = document.createElement("option");
-        createOptionDef.text = "Seleccione la plataforma*";
-        createOptionDef.value = "";
-        selectS.appendChild(createOptionDef);
+            var createOptionDef = document.createElement("option");
+            createOptionDef.text = "Seleccione la plataforma*";
+            createOptionDef.value = "";
+            selectS.appendChild(createOptionDef);
 
-        for (var j = 0; j < data.data.length; j++) {
-            var createOptionS = document.createElement("option");
-            createOptionS.value = data.data[j].id_plataforma;
-            createOptionS.text = data.data[j].descripcionPlataforma;
-            selectS.appendChild(createOptionS);
-            if (data.data[i].id_plataforma === idPlataforma) {
-                createOptionS.selected = true;
+            for (var j = 0; j < data.data.length; j++) {
+                var createOptionS = document.createElement("option");
+                createOptionS.value = data.data[j].id_plataforma;
+                createOptionS.text = data.data[j].descripcionPlataforma;
+                selectS.appendChild(createOptionS);
+                if (data.data[j].id_plataforma === idPlataforma) { // Corregido el índice
+                    createOptionS.selected = true;
+                }
             }
-        }
-    });
+        })
+        .then(function() {
+            // Llamar a la función llenarDescripcionUpdate después de que se haya llenado la plataforma
+            llenarDescripcionUpdate();
+        })
+        .catch(function(error) {
+            // Manejar errores si la solicitud falla
+            console.error('Error en la solicitud JSON: ', error);
+        });
 }
+
 
 function cargarDatosPrueba(id_update){
 
     var divSelectTipoPrueba = id("selectTipoPrueba");
     divSelectTipoPrueba.style.display = "block";
     llenarCliente(1);
+
+    var cliente, idCliente, idPlataforma;
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
 
@@ -546,14 +558,13 @@ function cargarDatosPrueba(id_update){
 
         for (var l = 0; l < response.data.length; l++) {
 
-            var cliente = id("cliente" + indexMaterial);
-            var idCliente = response.data[l].id_cliente;
-            var idPlataforma = response.data[l].id_plataforma;
+            cliente = id("cliente" + indexMaterial);
+            idCliente = response.data[l].id_cliente;
+            idPlataforma = response.data[l].id_plataforma;
 
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
-                    llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma);
                     break;
                 }
             }
@@ -584,7 +595,13 @@ function cargarDatosPrueba(id_update){
         }
 
 
-    });
+    }).then(function() {
+        llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma);
+    })
+        .catch(function(error) {
+            // Manejar errores si la solicitud falla
+            console.error('Error en la solicitud JSON: ', error);
+        });
 }
 
 function agregarMaterial() {
