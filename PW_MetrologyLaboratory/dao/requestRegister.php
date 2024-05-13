@@ -3,7 +3,8 @@ include_once('connection.php');
 session_start();
 
 // Verificar si los datos están presentes y asignarlos de manera segura
-if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['materiales'], $_POST['cantidades'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
+if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['materiales'], $_POST['cantidades'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
+    // Asignar variables
     $tipoPrueba     = $_POST['tipoPrueba'];
     $id_prueba      = $_POST['id_prueba'];
     $norma          = $_POST['norma'];
@@ -12,10 +13,11 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
         //guardar los archivos de la norma
         $target_dir     = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/archivos/";
         //Quitar espacios del nombre del archivo:
+    // Verificar si se requiere norma por tipo de prueba
         $nombreArchivo  = $_FILES["normaFile"]["name"];
         $normaFileName  = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
         $normaFile      = $target_dir . $normaFileName;
-        $moverNormaFile = "../archivos/" . $normaFileName;
+        $moverNormaFile = $target_dir . $normaFileName;
 
         if ($_FILES["normaFile"]["error"] > 0) {
             echo json_encode(array("error" => true, 'message' => "Error: " . $_FILES["normaFile"]["error"] ));
@@ -29,22 +31,24 @@ if(isset($_POST['tipoPrueba'], $_POST['norma'], $_SESSION['nomina'], $_POST['esp
         $normaFile = 'No aplica';
     }
 
+    // Asignar otras variables
     $idUsuario            = $_SESSION['nomina'];
     $tipoPruebaEspecial   = ($_POST['tipoPrueba'] != 5) ?  5 : $_POST['tipoPruebaEspecial'] ;
     $otroPrueba           = ($tipoPruebaEspecial  != 4) ? 'No aplica' : $_POST['otroPrueba'] ;
     $especificaciones     = $_POST['especificaciones'];
     $fechaSolicitud       = $_POST['fechaSolicitud'];
 
-    // materiales y cantidades son strings separadas por comas, asi que se convierten en arrays usando explode
+    // Convertir materiales y cantidades en arrays
     $descMateriales = explode(', ', $_POST['materiales']);
     $cdadMateriales = explode(', ', $_POST['cantidades']);
 
-    RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario,$tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba);
-
+    // Llamar a la función para registrar la solicitud
+    RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba);
 } else {
-    //$response = array("error" => "<script>alert('Error: Faltan datos en el formulario')</script>");
+    // Mostrar mensaje de error si faltan datos en el formulario
     echo json_encode(array("error" => true, 'message' => "<script>alert('Error: Faltan datos en el formulario')</script>"));
 }
+
 
 function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba)
 {
@@ -85,7 +89,6 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
         exit;
         //return true;
     }
-
 
 }
 
