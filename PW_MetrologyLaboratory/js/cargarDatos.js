@@ -634,7 +634,7 @@ function cargarDatosPrueba(id_update){
                 llenarCliente(indexMaterial);
                 mostrarDivImagen(indexMaterial);
             }
-        } llenarCliente(indexMaterial); mostrarDivImagen(indexMaterial);
+        }
     }).then(function() {
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
     }).catch(function(error) {
