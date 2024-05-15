@@ -632,6 +632,8 @@ function cargarDatosPrueba(id_update){
 
             if ((l + 1) < response.data.length) {
                 agregarMaterial();
+                llenarCliente(indexMaterial);
+                mostrarDivImagen(indexMaterial);
             }
         }
     }).then(function() {
@@ -703,8 +705,6 @@ function agregarMaterial() {
         + '</div>'
         + '</div>'
         + '</div>');
-
-
     newRow.appendTo('#contenedorFormulario');
 }
 
