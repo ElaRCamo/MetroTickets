@@ -488,7 +488,7 @@ function llenarPruebaEspecialUpdate(idTipoEspecial){
     });
 }
 function llenarClientesUpdate(i, idCliente) {
-    agregarMaterial();
+
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php')
         .then(function(data) {
             var selectS = id("cliente" + i);
@@ -629,8 +629,8 @@ function cargarDatosPrueba(id_update){
             divImgMaterial.style.display = "block";
             id("imagenMaterial" + indexMaterial).src = response.data[l].imgMaterial;
 
-
             if ((l + 1) < response.data.length) {
+                agregarMaterial();
                 llenarClientesUpdate(indexMaterial, idCliente)
             }
         }
