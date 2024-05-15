@@ -49,7 +49,7 @@ function llenarPruebaEspecial(){
         }
     });
 }
-
+let dataClientes;
 function llenarCliente(i){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
         var selectS = id("cliente" + i);
@@ -66,6 +66,7 @@ function llenarCliente(i){
             createOption.text = data.data[j].descripcionCliente;
             selectS.appendChild(createOption);
         }
+        dataClientes = data;
     });
 }
 
@@ -487,32 +488,28 @@ function llenarPruebaEspecialUpdate(idTipoEspecial){
     });
 }
 
-function llenarClienteUpdate(i, idCliente, idPlataforma, idMaterial){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
-        var selectS = id("cliente" + i);
-        selectS.innerHTML = ""; //limpiar contenido
+function llenarClienteUpdate(i, idCliente, idPlataforma, idMaterial) {
+    var data = dataClientes;
+    var selectS = id("cliente" + i);
+    selectS.innerHTML = ""; //limpiar contenido
 
-        var createOptionDef = document.createElement("option");
-        createOptionDef.text = "Especifique el cliente(OEM)*";
-        createOptionDef.value = "";
-        selectS.appendChild(createOptionDef);
+    var createOptionDef = document.createElement("option");
+    createOptionDef.text = "Especifique el cliente(OEM)*";
+    createOptionDef.value = "";
+    selectS.appendChild(createOptionDef);
 
-        for (var j = 0; j < data.data.length; j++) {
-            var createOption = document.createElement("option");
-            createOption.value = data.data[j].id_cliente;
-            createOption.text = data.data[j].descripcionCliente;
-            selectS.appendChild(createOption);
-        }
-    }).then(function() {
-        // Llamar a la función llenarDescripcionUpdate después de que se haya llenado la plataforma
-        llenarPlataformaUpdate(i, idCliente, idPlataforma, idMaterial)
+    for (var j = 0; j < data.data.length; j++) {
+        var createOption = document.createElement("option");
+        createOption.value = data.data[j].id_cliente;
+        createOption.text = data.data[j].descripcionCliente;
+        selectS.appendChild(createOption);
+    }
 
-    })
-        .catch(function(error) {
-            // Manejar errores si la solicitud falla
-            console.error('Error en la solicitud JSON: ', error);
-        });
+    llenarPlataformaUpdate(i, idCliente, idPlataforma, idMaterial);
 }
+
+
+
 function llenarPlataformaUpdate(i, idCliente, idPlataforma, idMaterial) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + idCliente)
         .then(function(data) {
