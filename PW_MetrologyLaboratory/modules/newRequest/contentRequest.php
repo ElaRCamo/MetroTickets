@@ -35,7 +35,7 @@
                                             </div>
                                             <div class="form-group col-sm-6" id="selectTipoPrueba">
                                                 <div class="help-block with-errors"></div>
-                                                <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba(); llenarCliente(indexMaterial);"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
+                                                <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba(); llenarCliente(1);"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
                                                     <option value="">Seleccione el tipo de prueba*</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>

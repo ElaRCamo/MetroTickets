@@ -503,6 +503,9 @@ function llenarClienteUpdate(i, idCliente, idPlataforma, idMaterial) {
         createOption.value = data.data[j].id_cliente;
         createOption.text = data.data[j].descripcionCliente;
         selectS.appendChild(createOption);
+        if (data.data[i].id_cliente === idCliente) {
+            createOption.selected = true;
+        }
     }
 
     llenarPlataformaUpdate(i, idCliente, idPlataforma, idMaterial);
@@ -572,7 +575,7 @@ function cargarDatosPrueba(id_update){
 
     var cliente, idCliente, idPlataforma, idEvaluacionPrueba, idTipoPrueba, idTipoEspecial, otroPrueba, idMaterial;
 
-    //llenarCliente(indexMaterial);
+    //llenarCliente(1);
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
         var data = response.data[0];
