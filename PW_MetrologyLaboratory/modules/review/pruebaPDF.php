@@ -171,6 +171,8 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                         <th>No. de Parte</th>
                         <th>Material</th>
                         <th>Cantidad</th>
+                        <th>Cliente</th>
+                        <th>Plataforma</th>
                         <th>Estatus</th>
                     </tr>
                     </thead>
@@ -180,6 +182,8 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                             <td><?php echo $resultado['numeroDeParte'];?> </td>
                             <td><?php echo $resultado['descripcionMaterial'];?></td>
                             <td><?php echo $resultado['cantidad'];?></td>
+                            <td><?php echo $resultado['descripcionCliente'];?></td>
+                            <td><?php echo $resultado['descripcionPlataforma'];?></td>
                             <td><?php echo $resultado['estatusMaterial'];?></td>
                         </tr>
                         <?php }?>
