@@ -706,8 +706,6 @@ function agregarMaterial() {
 
 
     newRow.appendTo('#contenedorFormulario');
-        llenarCliente(indexMaterial);
-        mostrarDivImagen(indexMaterial);
 }
 
 

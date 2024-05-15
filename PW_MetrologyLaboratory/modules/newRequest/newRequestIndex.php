@@ -53,6 +53,8 @@
         $(document).ready(function() {
             $(document).on('click', '[id^="addNumParte"]', function() {
                 agregarMaterial();
+                llenarCliente(indexMaterial);
+                mostrarDivImagen(indexMaterial);
             });
 
             $(document).on('click', '.remove-lnk', function(e) {
