@@ -488,6 +488,7 @@ function llenarPruebaEspecialUpdate(idTipoEspecial){
     });
 }
 function llenarClientesUpdate(i, idCliente) {
+    agregarMaterial();
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPruebaEspecial.php')
         .then(function(data) {
             var selectS = id("cliente" + i);
@@ -507,8 +508,6 @@ function llenarClientesUpdate(i, idCliente) {
                     createOption.selected = true;
                 }*/
             }
-        }).then(function (){
-            agregarMaterial();
         }).catch(function(error) {
             // Manejar errores si la solicitud falla
             console.error('Error en la solicitud JSON: ', error);
