@@ -429,6 +429,14 @@ function resumenPrueba(ID_PRUEBA){
             cdadMaterialesT.textContent = response.data[j].cantidad;
             fila.appendChild(cdadMaterialesT);
 
+            var clienteMaterialesT = document.createElement("td");
+            clienteMaterialesT.textContent = response.data[j].descripcionCliente;
+            fila.appendChild(clienteMaterialesT);
+
+            var plataformaMaterialesT = document.createElement("td");
+            plataformaMaterialesT.textContent = response.data[j].descripcionPlataforma;
+            fila.appendChild(plataformaMaterialesT);
+
             var estatusMaterialT = document.createElement("td");
             estatusMaterialT.textContent = response.data[j].estatusMaterial;
             fila.appendChild(estatusMaterialT);
