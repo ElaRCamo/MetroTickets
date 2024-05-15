@@ -608,6 +608,7 @@ function cargarDatosPrueba(id_update){
 
             //Seleccionar cliente
             cliente = id("cliente" + indexMaterial);
+            console.log("Opciones: "+cliente.options.length + " Index:"+indexMaterial);
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
