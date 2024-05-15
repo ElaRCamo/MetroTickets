@@ -630,17 +630,13 @@ function cargarDatosPrueba(id_update){
             id("imagenMaterial" + indexMaterial).src = response.data[l].imgMaterial;
 
             if ((l + 1) < response.data.length) {
-                agregarMaterial().then(function (){
-                    llenarCliente(indexMaterial)
-                }).catch(function(error) {
-                    console.error('Error en la solicitud JSON: ', error);
-                });
+                agregarMaterial();
+                llenarCliente(indexMaterial);
+                mostrarDivImagen(indexMaterial);
             }
         } llenarCliente(indexMaterial); mostrarDivImagen(indexMaterial);
     }).then(function() {
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
-    }).then(function (){
-        console.log("Hola");
     }).catch(function(error) {
             // Manejar errores si la solicitud falla
             console.error('Error en la solicitud JSON: ', error);
