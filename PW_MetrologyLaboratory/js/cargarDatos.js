@@ -630,7 +630,11 @@ function cargarDatosPrueba(id_update){
             id("imagenMaterial" + indexMaterial).src = response.data[l].imgMaterial;
 
             if ((l + 1) < response.data.length) {
-                cargarClientesUpdate(idCliente);
+                agregarMaterial().then(function (){
+                    llenarCliente(indexMaterial)
+                }).catch(function(error) {
+                    console.error('Error en la solicitud JSON: ', error);
+                });
             }
         } llenarCliente(indexMaterial); mostrarDivImagen(indexMaterial);
     }).then(function() {
