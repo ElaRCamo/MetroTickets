@@ -616,6 +616,7 @@ function cargarDatosPrueba(id_update){
                     break;
                 }
             }*/
+
             llenarClientesUpdate(indexMaterial, idCliente)
 
             llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
