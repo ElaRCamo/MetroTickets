@@ -18,6 +18,10 @@ function resumenPrueba($id_prueba){
                         prueba.id_prioridad,
                         prueba.descripcionPrioridad,
                         prueba.descripcionPrueba, 
+                        prueba.id_tipoPrueba,
+                        prueba.descripcionEspecial,
+                        prueba.id_pruebaEspecial,
+                        prueba.otroTipoEspecial,
                         prueba.especificaciones,
                         prueba.especificacionesLab,
                         prueba.normaNombre,
@@ -51,7 +55,11 @@ function resumenPrueba($id_prueba){
                                 descripcionEstatus,
                                 s.id_prioridad,
                                 descripcionPrioridad,
+                                s.id_tipoPrueba,
                                 descripcionPrueba,
+                                descripcionEspecial,
+                                s.id_pruebaEspecial,
+                                otroTipoEspecial,
                                 especificaciones,
                                 especificacionesLab,
                                 normaNombre,
@@ -67,6 +75,7 @@ function resumenPrueba($id_prueba){
                                 LEFT JOIN Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
                                 LEFT JOIN Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
                                 LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
+                                LEFT JOIN TipoPruebaEspecial pe ON s.id_pruebaEspecial = pe.id_pruebaEspecial
                                 LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
                                 LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
                             WHERE 

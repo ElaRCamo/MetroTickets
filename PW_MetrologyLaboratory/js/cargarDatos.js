@@ -364,22 +364,27 @@ let emailSolicitante;
 
 function resumenPrueba(ID_PRUEBA){
 
-
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + ID_PRUEBA, function (response) {
        //codigo para actualizar campos
         var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
-        let TP = data.id_tipoPrueba;
         $('#numeroPruebaR').text(data.id_prueba);
         $('#fechaSolicitudR').text(data.fechaSolicitud);
         $('#fechaRespuestaR').text(data.fechaRespuesta);
         $('#fechaUpdateR').text(data.fechaActualizacion);
         $('#solicitanteR').text(data.nombreSolic);
         $('#metrologoR').text(data.nombreMetro);
-        $('#tipoPruebaSolicitudR').text(data.descripcionPrueba);
         $('#observacionesSolR').text(data.especificaciones);
         $('#estatusSolicitudR').text(data.descripcionEstatus);
         $('#prioridadR').text(data.descripcionPrioridad);
         $('#normaNombreR').text(data.normaNombre);
+
+        if(data.id_tipoPrueba !== '5'){
+            $('#tipoPruebaSolicitudR').text(data.descripcionPrueba);
+        } else if(data.id_tipoPrueba === '5' && data.id_pruebaEspecial === '4'){
+            $('#tipoPruebaSolicitudR').text(data.descripcionPrueba + data.descripcionEspecial + data.otroTipoEspecial);
+        }else if(data.id_tipoPrueba === '5'){
+            $('#tipoPruebaSolicitudR').text(data.descripcionPrueba + data.descripcionEspecial);
+        }
 
         var urlCompleta = data.normaArchivo;
 
