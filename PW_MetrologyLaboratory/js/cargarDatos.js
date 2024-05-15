@@ -606,12 +606,8 @@ function cargarDatosPrueba(id_update){
             idPlataforma = response.data[l].id_plataforma;
             idMaterial = response.data[l].id_descripcion;
 
-            llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
-
-            //llenarClienteUpdate(indexMaterial, idCliente, idPlataforma, idMaterial)
-
             //Seleccionar cliente
-            /*cliente = id("cliente" + indexMaterial);
+            cliente = id("cliente" + indexMaterial);
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
@@ -619,13 +615,9 @@ function cargarDatosPrueba(id_update){
                 }
             }
 
-            var descMaterial = id("descMaterial" + indexMaterial);
-            for (var n = 0; n < descMaterial.options.length; n++) {
-                if (descMaterial.options[n].value === idMaterial) {
-                    descMaterial.options[n].selected = true;
-                    break;
-                }
-            }*/
+            llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
+
+            //llenarClienteUpdate(indexMaterial, idCliente, idPlataforma, idMaterial)
 
             var numParte = id("numParte" + indexMaterial);
             numParte.value = response.data[l].numeroDeParte;
