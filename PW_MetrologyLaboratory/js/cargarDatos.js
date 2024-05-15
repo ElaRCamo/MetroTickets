@@ -575,7 +575,7 @@ function cargarDatosPrueba(id_update){
 
     var cliente, idCliente, idPlataforma, idEvaluacionPrueba, idTipoPrueba, idTipoEspecial, otroPrueba, idMaterial;
 
-    llenarCliente(1);
+   // llenarCliente(1);
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
         var data = response.data[0];
@@ -602,23 +602,21 @@ function cargarDatosPrueba(id_update){
         //-----------------MATERIALES---------------------
         for (var l = 0; l < response.data.length; l++) {
 
-            //Llenar cliente
-            cliente = id("cliente" + indexMaterial);
-
-            //seleccionar cliente
+            idPlataforma = response.data[l].id_plataforma;
+            idMaterial = response.data[l].id_descripcion;
             idCliente = response.data[l].id_cliente;
+            //llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
+
+            llenarClienteUpdate(indexMaterial, idCliente, idPlataforma, idMaterial)
+
+            //Seleccionar cliente
+            /*cliente = id("cliente" + indexMaterial);
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
                     break;
                 }
             }
-            //Llenar plataforma
-            idPlataforma = response.data[l].id_plataforma;
-            idMaterial = response.data[l].id_descripcion;
-            //llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
-
-            llenarClienteUpdate(indexMaterial, idCliente, idPlataforma, idMaterial)
 
             var descMaterial = id("descMaterial" + indexMaterial);
             for (var n = 0; n < descMaterial.options.length; n++) {
@@ -626,7 +624,7 @@ function cargarDatosPrueba(id_update){
                     descMaterial.options[n].selected = true;
                     break;
                 }
-            }
+            }*/
 
             var numParte = id("numParte" + indexMaterial);
             numParte.value = response.data[l].numeroDeParte;
