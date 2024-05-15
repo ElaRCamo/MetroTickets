@@ -381,9 +381,9 @@ function resumenPrueba(ID_PRUEBA){
         if(data.id_tipoPrueba !== '5'){
             $('#tipoPruebaSolicitudR').text(data.descripcionPrueba);
         } else if(data.id_tipoPrueba === '5' && data.id_pruebaEspecial === '4'){
-            $('#tipoPruebaSolicitudR').text(data.descripcionPrueba + data.descripcionEspecial + data.otroTipoEspecial);
+            $('#tipoPruebaSolicitudR').text(+ "Otro tipo: "+ + data.otroTipoEspecial);
         }else if(data.id_tipoPrueba === '5'){
-            $('#tipoPruebaSolicitudR').text(data.descripcionPrueba + data.descripcionEspecial);
+            $('#tipoPruebaSolicitudR').text(data.descripcionPrueba + ": "+ data.descripcionEspecial);
         }
 
         var urlCompleta = data.normaArchivo;
