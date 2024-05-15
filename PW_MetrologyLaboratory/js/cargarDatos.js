@@ -566,26 +566,6 @@ function llenarDescripcionUpdate(i, idPlataforma, idMaterial) {
         }
     });
 }
-async function seleccionarCliente() {
-    // Seleccionar cliente
-    cliente = id("cliente" + indexMaterial);
-    console.log("Opciones: " + cliente.options.length + " Index:" + indexMaterial);
-
-    // Verificar si hay una sola opción y esperar hasta que se llene
-    while (cliente.options.length === 1) {
-        // Esperar a que se llenen las opciones que se mandaron a llamar con la función llenarCliente(indexMaterial);
-        await llenarCliente(indexMaterial);
-        console.log("Opciones: " + cliente.options.length + " Index:" + indexMaterial);
-    }
-
-    // Después de que se llenen las opciones, seleccionar el cliente deseado
-    for (var k = 0; k < cliente.options.length; k++) {
-        if (cliente.options[k].value === idCliente) {
-            cliente.options[k].selected = true;
-            break;
-        }
-    }
-}
 
 
 function cargarDatosPrueba(id_update){
@@ -593,7 +573,7 @@ function cargarDatosPrueba(id_update){
     var divSelectTipoPrueba = id("selectTipoPrueba");
     divSelectTipoPrueba.style.display = "block";
 
-    var idCliente, idPlataforma, idEvaluacionPrueba, idTipoPrueba, idTipoEspecial, otroPrueba, idMaterial;
+    var cliente,idCliente, idPlataforma, idEvaluacionPrueba, idTipoPrueba, idTipoEspecial, otroPrueba, idMaterial;
 
    llenarCliente(1);
 
@@ -626,21 +606,17 @@ function cargarDatosPrueba(id_update){
             idPlataforma = response.data[l].id_plataforma;
             idMaterial = response.data[l].id_descripcion;
 
-            //Seleccionar cliente
-            /*cliente = id("cliente" + indexMaterial);
-            console.log("Opciones: "+cliente.options.length + " Index:"+indexMaterial);
-
-            //despues
+            // Seleccionar cliente
+            cliente = id("cliente" + indexMaterial);
+            console.log("Opciones: " + cliente.options.length + " Index:" + indexMaterial);
+            // Después de que se llenen las opciones, seleccionar el cliente deseado
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
                     break;
                 }
-            }*/
-            seleccionarCliente().then(r => llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial));
-
-
-            //llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
+            }
+            llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
 
             //llenarClienteUpdate(indexMaterial, idCliente, idPlataforma, idMaterial)
 
