@@ -714,9 +714,10 @@ function agregarMaterial() {
 
 
     newRow.appendTo('#contenedorFormulario');
-    llenarCliente(indexMaterial);
-    mostrarDivImagen(indexMaterial);
-
+    if(esActualizacion === false){
+        llenarCliente(indexMaterial);
+        mostrarDivImagen(indexMaterial);
+    }
 }
 
 
