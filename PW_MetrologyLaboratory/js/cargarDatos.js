@@ -503,9 +503,9 @@ function llenarClientesUpdate(i, idCliente) {
                 createOption.value = data.data[j].id_cliente;
                 createOption.text = data.data[j].descripcionCliente;
                 selectS.appendChild(createOption);
-                if (data.data[j].id_cliente === idCliente) {
+                /*if (data.data[j].id_cliente === idCliente) {
                     createOption.selected = true;
-                }
+                }*/
             }
         }).then(function (){
             agregarMaterial();
@@ -608,8 +608,8 @@ function cargarDatosPrueba(id_update){
             idMaterial = response.data[l].id_descripcion;
 
             // Seleccionar cliente
-            cliente = id("cliente" + 1);
-            console.log("Opciones: " + cliente.options.length + " Index:" + 1);
+            cliente = id("cliente" + indexMaterial);
+            console.log("Opciones: " + cliente.options.length + " Index:" + indexMaterial);
             // Después de que se llenen las opciones, seleccionar el cliente deseado
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
