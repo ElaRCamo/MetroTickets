@@ -1190,8 +1190,9 @@ function consultarMetrologos(){
 
 function pruebasRealizadasMesActual(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPruebasMes.php', function (data){
-        let numPruebasMesActual = data.data[0];
-        return numPruebasMesActual;
+        var numPruebasMesActual = data.data[0]; // Obtener el número de pruebas
+        document.getElementById("numeroPruebas").innerText = numPruebasMesActual;
+
     });
 }
 

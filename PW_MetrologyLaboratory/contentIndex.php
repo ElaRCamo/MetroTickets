@@ -18,7 +18,7 @@
 
                 <div class="card">
                     <div class="card-head">
-                        <h2><script> pruebasRealizadasMesActual(); </script></h2>
+                        <h2><span id="numeroPruebas"></span></script></h2>
                         <span class="las la-ruler-combined"></span>
                     </div>
                     <div class="card-progress">
