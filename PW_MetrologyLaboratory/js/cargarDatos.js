@@ -547,7 +547,6 @@ function cargarDatosPrueba(id_update){
     divSelectTipoPrueba.style.display = "block";
 
     var cliente, idCliente, idPlataforma, idEvaluacionPrueba, idTipoPrueba, idTipoEspecial, otroPrueba, idMaterial;
-    var idsClientes = [];
 
     llenarCliente(indexMaterial);
 
@@ -578,8 +577,6 @@ function cargarDatosPrueba(id_update){
 
             //Llenar cliente
             cliente = id("cliente" + indexMaterial);
-
-            //idsClientes.push(response.data[l].id_cliente);
 
             //seleccionar cliente
             idCliente = response.data[l].id_cliente;
@@ -619,7 +616,8 @@ function cargarDatosPrueba(id_update){
     }).then(function() {
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
     }).then(function (){
-        llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
+        //llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
+        console.log("Hola");
     }).catch(function(error) {
             // Manejar errores si la solicitud falla
             console.error('Error en la solicitud JSON: ', error);
