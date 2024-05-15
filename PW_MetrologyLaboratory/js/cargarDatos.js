@@ -1187,6 +1187,15 @@ function consultarMetrologos(){
     });
 }
 
+
+function pruebasRealizadasMesActual(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPruebasMes.php', function (data){
+        let numPruebasMesActual = data.data[0];
+        return numPruebasMesActual;
+    });
+}
+
+
 /*Queda pendiente de integracion 23/04/2024
 function estatusMateriales(k){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusMaterial.php', function (data){

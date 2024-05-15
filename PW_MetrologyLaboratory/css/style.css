@@ -761,3 +761,6 @@ table tbody tr {
 #containerPruebaR td{
     color: #444;
 }
+#saludoH5{
+    color: var(--color-sky);
+}

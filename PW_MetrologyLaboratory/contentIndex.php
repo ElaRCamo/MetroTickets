@@ -2,7 +2,7 @@
         <div class="page-header row headerLogo">
             <div class="col divTitle">
                 <h1> Inicio </h1>
-                <h5>¡Hola <?php global $nombreUser; echo $nombreUser; ?>!</h5>
+                <h5 id="saludoH5">¡Hola <?php global $nombreUser; echo $nombreUser; ?>!</h5>
             </div>
             <div class="logoRight col-sm-3">
                 <div>
@@ -18,7 +18,7 @@
 
                 <div class="card">
                     <div class="card-head">
-                        <h2>135</h2>
+                        <h2><script> pruebasRealizadasMesActual(); </script></h2>
                         <span class="las la-ruler-combined"></span>
                     </div>
                     <div class="card-progress">

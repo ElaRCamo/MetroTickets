@@ -1,3 +1,21 @@
+
+
+ //Pruebas realizadas este mes
+SELECT COUNT(*)
+  FROM Prueba
+ WHERE fechaRespuesta like '2024-04%'
+   AND id_estatusPrueba = 3
+
+//Pruebas pendientes
+
+
+//Tiempo de respuesta (días/prueba)
+
+
+//Eficiancia operativa(pruebas/día)
+
+
+
 SELECT distinct id_prueba, fechaSolicitud, fechaRespuesta, descripcionEstatus, descripcionPrueba, descripcionPrioridad, id_administrador,id_metrologo,
 	id_solicitante, nombreUsuario, descripcionTipo
 FROM  SolicitudPrueba s
