@@ -692,7 +692,7 @@ function agregarMaterial() {
         + '</div>'
         + '<div class="col-sm-6">'
         + '<a href="#" class="btn btn-danger remove-lnk" id="' + indexMaterial + '"><i class="las la-trash-alt"></i>Eliminar</a>'
-        + '<button type="button" class="btn btn-success" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i></button>'
+        + '<button type="button" class="btn btn-success agregarButton" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i>Agregar</button>'
         + '</div>'
         + '</div>'
         + '</div>'

@@ -217,6 +217,10 @@ h5{
     font-size: 1.5em;
 }
 
+.agregarButton{
+    margin-left: 0.5rem;
+}
+
 /****Cargar archivo***/
 #normaFile::file-selector-button {
     color: #f1f4f9; /*Selectror del input tipo file*/
