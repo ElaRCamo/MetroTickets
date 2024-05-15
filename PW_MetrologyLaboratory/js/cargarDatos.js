@@ -607,6 +607,17 @@ function cargarDatosPrueba(id_update){
             idPlataforma = response.data[l].id_plataforma;
             idMaterial = response.data[l].id_descripcion;
 
+            // Seleccionar cliente
+            cliente = id("cliente" + 1);
+            console.log("Opciones: " + cliente.options.length + " Index:" + 1);
+            // Después de que se llenen las opciones, seleccionar el cliente deseado
+            for (var k = 0; k < cliente.options.length; k++) {
+                if (cliente.options[k].value === idCliente) {
+                    cliente.options[k].selected = true;
+                    break;
+                }
+            }
+
             llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
 
             var numParte = id("numParte" + indexMaterial);
@@ -619,19 +630,9 @@ function cargarDatosPrueba(id_update){
             divImgMaterial.style.display = "block";
             id("imagenMaterial" + indexMaterial).src = response.data[l].imgMaterial;
 
-            // Seleccionar cliente
-            cliente = id("cliente" + indexMaterial);
-            console.log("Opciones: " + cliente.options.length + " Index:" + indexMaterial);
-            // Después de que se llenen las opciones, seleccionar el cliente deseado
-            for (var k = 0; k < cliente.options.length; k++) {
-                if (cliente.options[k].value === idCliente) {
-                    cliente.options[k].selected = true;
-                    break;
-                }
-            }
 
             if ((l + 1) < response.data.length) {
-                llenarClientesUpdate(i, idCliente)
+                llenarClientesUpdate(indexMaterial, idCliente)
             }
         }
     }).then(function() {
