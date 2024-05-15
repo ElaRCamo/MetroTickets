@@ -637,8 +637,10 @@ function cargarDatosPrueba(id_update){
                     break;
                 }
             }*/
-            seleccionarCliente().then(() => {
-                llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
+            seleccionarCliente().then(r => llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial));
+
+
+            //llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
 
             //llenarClienteUpdate(indexMaterial, idCliente, idPlataforma, idMaterial)
 
@@ -655,8 +657,6 @@ function cargarDatosPrueba(id_update){
             if ((l + 1) < response.data.length) {
                 agregarMaterial();
             }
-
-            });
         }
     }).then(function() {
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
