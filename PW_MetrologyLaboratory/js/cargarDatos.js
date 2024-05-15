@@ -547,6 +547,7 @@ function cargarDatosPrueba(id_update){
     divSelectTipoPrueba.style.display = "block";
 
     var cliente, idCliente, idPlataforma, idEvaluacionPrueba, idTipoPrueba, idTipoEspecial, otroPrueba, idMaterial;
+    var idsClientes = [];
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
         var data = response.data[0];
@@ -571,13 +572,16 @@ function cargarDatosPrueba(id_update){
         especificaciones.value = data.especificaciones;
 
         //-----------------MATERIALES---------------------
-
         for (var l = 0; l < response.data.length; l++) {
 
+            //Llenar cliente
+            llenarCliente(indexMaterial);
             cliente = id("cliente" + indexMaterial);
-            idCliente = response.data[l].id_cliente;
-            idPlataforma = response.data[l].id_plataforma;
 
+            //idsClientes.push(response.data[l].id_cliente);
+
+            //seleccionar cliente
+            idCliente = response.data[l].id_cliente;
             for (var k = 0; k < cliente.options.length; k++) {
                 if (cliente.options[k].value === idCliente) {
                     cliente.options[k].selected = true;
@@ -585,8 +589,13 @@ function cargarDatosPrueba(id_update){
                 }
             }
 
-            var descMaterial = id("descMaterial" + indexMaterial);
+            //Llenar plataforma
+            idPlataforma = response.data[l].id_plataforma;
             idMaterial = response.data[l].id_descripcion;
+            llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
+
+            var descMaterial = id("descMaterial" + indexMaterial);
+            
 
             for (var n = 0; n < descMaterial.options.length; n++) {
                 if (descMaterial.options[n].value === idMaterial) {
@@ -611,13 +620,22 @@ function cargarDatosPrueba(id_update){
         }
     }).then(function() {
         llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
-        llenarCliente(1);
     }).then(function (){
         llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
+    }).then( respuestas => {
+        for (let i in respuestas) {
+            console.log(respuestas[i]);
+        }
     }).catch(function(error) {
             // Manejar errores si la solicitud falla
             console.error('Error en la solicitud JSON: ', error);
-        });
+    });
+}
+
+function agregarMaterialUpdate(response){
+    for (var l = 0; l < response.data.length; l++) {
+
+    }
 }
 
 function agregarMaterial() {
