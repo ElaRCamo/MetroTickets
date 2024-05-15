@@ -95,8 +95,8 @@ table tbody tr {
 #materialesResumenPDF thead th{
     font-size: 0.9rem;
 }
-#materialesResumenPDF tbody{
-    font-size: 0.8rem;
+#materialesResumenPDF tbody td{
+    font-size: 0.5rem;
 }
 #datosGeneralesTablePDF th, #resultadosTablePDF th, materialPDF th{
     background-color: #005195;
