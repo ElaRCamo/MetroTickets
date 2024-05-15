@@ -60,8 +60,6 @@
                 var id = $(this).attr("id");
                 $('#newRow' + id).remove();
             });
-
-
         });
     </script>
     <script src="../../js/general.js"></script>
@@ -80,7 +78,6 @@
                 hideButton("submitRequest");
                 esActualizacion = true;
             }else{
-                console.log("No es actualización");
                 hideButton("updateRequest");
             }
         }
