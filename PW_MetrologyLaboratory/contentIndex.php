@@ -57,10 +57,11 @@
 
                 <div class="card">
                     <div class="card-head">
-                        <h2>15 pruebas/día</h2>
+                        <h2><span id="pruebasPorDiaSpan"></span></h2>
                         <span class="las la-chart-line"></span>
                     </div>
                     <div class="card-progress">
+                        <small>pruebas/día</small>
                         <small>Eficiencia Operativa</small>
                         <div class="card-indicator">
                             <div class="indicator four" style="width: 90%"></div>

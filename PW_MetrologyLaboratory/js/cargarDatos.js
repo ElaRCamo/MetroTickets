@@ -1215,6 +1215,15 @@ function tiempoRespuesta(){
     });
 }
 
+function pruebasPorDia(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPruebasPorDia.php', function (data){
+        var pruebasPorDia = data.data[0].eficienciaOperativa;
+        document.getElementById("pruebasPorDiaSpan").innerText = pruebasPorDia;
+        console.log("pruebasPorDia: "+ data.data[0].eficienciaOperativa);
+
+    });
+}
+
 
 
 
