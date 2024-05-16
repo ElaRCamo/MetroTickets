@@ -43,7 +43,7 @@
 
                 <div class="card">
                     <div class="card-head">
-                        <h2><span id="tiempoRespuesaSpan"></span></h2><small>días/prueba</small>
+                        <h2><span id="tiempoRespuesaSpan"></span> días/prueba</h2>
                         <span class="lar la-clock"></span>
                     </div>
                     <div class="card-progress">
@@ -56,7 +56,7 @@
 
                 <div class="card">
                     <div class="card-head">
-                        <h2><span id="pruebasPorDiaSpan"></span></h2><small>pruebas/día</small>
+                        <h2><span id="pruebasPorDiaSpan"></span><small> pruebas/día</small></h2>
                         <span class="las la-chart-line"></span>
                     </div>
                     <div class="card-progress">
