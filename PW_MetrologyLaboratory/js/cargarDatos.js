@@ -1201,8 +1201,6 @@ function pruebasPendientes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPruebasPendientes.php', function (data){
         var numPruebasPendientes = data.data[0]['COUNT(*)']; // Obtener el número de pruebas
         document.getElementById("pruebasPendientes").innerText = numPruebasPendientes;
-        console.log("pruebasPendientes: "+ data.data[0]['COUNT(*)']);
-
     });
 }
 
@@ -1210,8 +1208,6 @@ function tiempoRespuesta(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPruebasTiempoRespuesta.php', function (data){
         var tiempoRespuesa = data.data[0].tiempoPromedioRespuestaDias;
         document.getElementById("tiempoRespuesaSpan").innerText = tiempoRespuesa;
-        console.log("tiempoRespuesa: "+ data.data[0].tiempoPromedioRespuestaDias);
-
     });
 }
 
@@ -1219,8 +1215,6 @@ function pruebasPorDia(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPruebasPorDia.php', function (data){
         var pruebasPorDia = data.data[0].eficienciaOperativa;
         document.getElementById("pruebasPorDiaSpan").innerText = pruebasPorDia;
-        console.log("pruebasPorDia: "+ data.data[0].eficienciaOperativa);
-
     });
 }
 

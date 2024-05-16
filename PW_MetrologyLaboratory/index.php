@@ -54,6 +54,7 @@
             pruebasRealizadasMesActual();
             pruebasPendientes();
             tiempoRespuesta();
+            pruebasPorDia();
         };
 
     </script>
