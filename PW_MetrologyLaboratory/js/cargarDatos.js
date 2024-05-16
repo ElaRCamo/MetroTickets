@@ -1197,6 +1197,15 @@ function pruebasRealizadasMesActual(){
     });
 }
 
+function pruebasPendientes(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPruebasPendientes.php', function (data){
+        var numPruebasPendientes = data.data[0]['COUNT(*)']; // Obtener el número de pruebas
+        document.getElementById("pruebasPendientes").innerText = numPruebasPendientes;
+        console.log("pruebasPendientes: "+ data.data[0]['COUNT(*)']);
+
+    });
+}
+
 
 /*Queda pendiente de integracion 23/04/2024
 function estatusMateriales(k){

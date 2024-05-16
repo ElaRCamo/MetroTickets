@@ -52,6 +52,7 @@
     <script>
         window.onload = function() {
             pruebasRealizadasMesActual();
+            pruebasPendientes();
         };
 
     </script>
