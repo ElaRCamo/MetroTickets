@@ -1206,6 +1206,17 @@ function pruebasPendientes(){
     });
 }
 
+function tiempoRespuesta(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPruebasTiempoRespuesta.php', function (data){
+        var tiempoRespuesa = data.data[0].tiempoPromedioRespuestaDias;
+        document.getElementById("tiempoRespuesaSpan").innerText = tiempoRespuesa;
+        console.log("tiempoRespuesa: "+ data.data[0].tiempoPromedioRespuestaDias);
+
+    });
+}
+
+
+
 
 /*Queda pendiente de integracion 23/04/2024
 function estatusMateriales(k){

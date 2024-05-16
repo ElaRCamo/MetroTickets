@@ -53,6 +53,7 @@
         window.onload = function() {
             pruebasRealizadasMesActual();
             pruebasPendientes();
+            tiempoRespuesta();
         };
 
     </script>

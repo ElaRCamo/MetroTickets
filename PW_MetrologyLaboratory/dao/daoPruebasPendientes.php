@@ -2,9 +2,8 @@
 
 include_once('connection.php');
 
-$fecha_busqueda = date('Y-m') . '%';
-PruebasMesActual($fecha_busqueda);
-function PruebasMesActual($fecha_busqueda){
+PruebasPendientes();
+function PruebasPendientes(){
     $con = new LocalConector();
     $conex = $con->conectar();
 

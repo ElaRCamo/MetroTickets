@@ -22,7 +22,7 @@
                         <span class="las la-ruler-combined"></span>
                     </div>
                     <div class="card-progress">
-                        <small>Pruebas relaizadas este mes</small>
+                        <small>Pruebas realizadas este mes</small>
                         <div class="card-indicator">
                             <div class="indicator one" style="width: 60%"></div>
                         </div>
@@ -43,11 +43,12 @@
 
                 <div class="card">
                     <div class="card-head">
-                        <h2>2 días/prueba</h2>
+                        <h2><span id="tiempoRespuesaSpan"></span></h2>
                         <span class="lar la-clock"></span>
                     </div>
                     <div class="card-progress">
-                        <small>Tiempo de respuesta</small>
+                            <small>días/prueba</small>
+                            <small>Tiempo de respuesta</small>
                         <div class="card-indicator">
                             <div class="indicator three" style="width: 80%"></div>
                         </div>
