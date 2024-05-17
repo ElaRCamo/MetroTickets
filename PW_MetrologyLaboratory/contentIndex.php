@@ -1,6 +1,7 @@
 <main>
         <div class="page-header row headerLogo">
             <div class="col divTitle contenedorFecha">
+                <small id="saludoH">¡Hola <?php global $nombreUser; echo $nombreUser; ?>!</small>
                 <h3 class="fechaH">Indicadores <?php
                     $meses = array(
                         1 => "Enero",
@@ -19,9 +20,7 @@
                     echo $meses[date("n")];
                     ?>
                     <!--php setlocale(LC_TIME, 'es_ES.UTF-8'); echo strftime('%B'); ?> --></h3>
-                <h5 class="fechaH"><?php echo date("d/m/Y"); ?></h5>
-                <h5 id="saludoH5">¡Hola <?php global $nombreUser; echo $nombreUser; ?>!</h5>
-
+                <h6 class="fechaH"><?php echo date("d/m/Y"); ?></h6>
             </div>
             <div class="logoRight col-sm-3">
                 <div>
@@ -72,6 +71,10 @@
                         <small>Eficiencia Operativa</small>
                     </div>
                 </div>
+            </div>
+            <div class="graphics">
+
+
             </div>
         </div>
     </main>

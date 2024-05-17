@@ -762,8 +762,9 @@ table tbody tr {
 #containerPruebaR td{
     color: #444;
 }
-#saludoH5{
-    color: var(--color-sky);
+#saludoH{
+    color: var( --gold_70);
+    text-align: center;
 }
 
 .contenedorFecha{
@@ -779,4 +780,13 @@ table tbody tr {
     text-align: center;
     color: #f1f4f9;
     text-transform: uppercase;
+}
+
+.graphics{
+    max-width: 100%;
+    background-color: #E9edf2;
+    padding: 20px;
+    border-radius: 0.6rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-color: var(--main-color);
 }
