@@ -303,10 +303,11 @@ main {
 }
 
 .card {
-    box-shadow: 0 5px 5px -5px rgb(0 0 0 / 10%);
-    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: #E9edf2;
     padding: 1rem;
-    border-radius: 3px;
+    border-radius: 0.6rem;
+    border-color: var(--main-color);
 }
 
 .card-head {
@@ -316,18 +317,18 @@ main {
 }
 
 .card-head h2 {
-    color: #777;
+    color: var(--main-color);
     font-size: 1.5rem;
     font-weight: 500;
 }
 
 .card-head span {
     font-size: 3.2rem;
-    color: var(--color_gold);
+    color: var(--main-color);
 }
 
 .card-progress small {
-    color: #777;
+    color: var(--main-color);
     font-size: .8rem;
     font-weight: 600;
 }
@@ -769,8 +770,8 @@ table tbody tr {
     max-width: 100%;
     background-color: var(--main-color);
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Añade una sombra */
+    border-radius: 0.6rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .fechaH {
