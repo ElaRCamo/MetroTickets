@@ -1,8 +1,27 @@
 <main>
         <div class="page-header row headerLogo">
-            <div class="col divTitle">
-                <h1> Inicio </h1>
+            <div class="col divTitle contenedorFecha">
+                <h3 class="fechaH">Indicadores <?php
+                    $meses = array(
+                        1 => "Enero",
+                        2 => "Febrero",
+                        3 => "Marzo",
+                        4 => "Abril",
+                        5 => "Mayo",
+                        6 => "Junio",
+                        7 => "Julio",
+                        8 => "Agosto",
+                        9 => "Septiembre",
+                        10 => "Octubre",
+                        11 => "Noviembre",
+                        12 => "Diciembre"
+                    );
+                    echo $meses[date("n")];
+                    ?>
+                    <!--php setlocale(LC_TIME, 'es_ES.UTF-8'); echo strftime('%B'); ?> --></h3>
+                <h5 class="fechaH"><?php echo date("d/m/Y"); ?></h5>
                 <h5 id="saludoH5">¡Hola <?php global $nombreUser; echo $nombreUser; ?>!</h5>
+
             </div>
             <div class="logoRight col-sm-3">
                 <div>
@@ -15,7 +34,6 @@
         </div>
         <div class="page-content">
             <div class="analytics">
-
                 <div class="card">
                     <div class="card-head">
                         <h2><span id="numeroPruebas"></span></h2>

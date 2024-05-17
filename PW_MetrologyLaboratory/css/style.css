@@ -764,3 +764,18 @@ table tbody tr {
 #saludoH5{
     color: var(--color-sky);
 }
+
+.contenedorFecha{
+    max-width: 100%;
+    background-color: var(--main-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Añade una sombra */
+}
+
+.fechaH {
+    margin: 0;
+    text-align: center;
+    color: #f1f4f9;
+    text-transform: uppercase;
+}
