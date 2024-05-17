@@ -23,9 +23,6 @@
                     </div>
                     <div class="card-progress">
                         <small>Pruebas realizadas este mes</small>
-                        <div class="card-indicator">
-                            <div class="indicator one" style="width: 60%"></div>
-                        </div>
                     </div>
                 </div>
                 <div class="card">
@@ -35,9 +32,6 @@
                     </div>
                     <div class="card-progress">
                         <small>Pruebas pendientes </small>
-                        <div class="card-indicator">
-                            <div class="indicator two" style="width: 65%"></div>
-                        </div>
                     </div>
                 </div>
 
@@ -48,9 +42,6 @@
                     </div>
                     <div class="card-progress">
                             <small>Tiempo de respuesta</small>
-                        <div class="card-indicator">
-                            <div class="indicator three" style="width: 80%"></div>
-                        </div>
                     </div>
                 </div>
 
@@ -61,9 +52,6 @@
                     </div>
                     <div class="card-progress">
                         <small>Eficiencia Operativa</small>
-                        <div class="card-indicator">
-                            <div class="indicator four" style="width: 90%"></div>
-                        </div>
                     </div>
                 </div>
             </div>
