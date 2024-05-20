@@ -2,6 +2,8 @@ function validarFormNewRequest(idSelect){
 
     validarSelect(idSelect);
 
+    validacionSolicitud();
+
 }
 
 
