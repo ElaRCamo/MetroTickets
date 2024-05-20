@@ -14,8 +14,6 @@ function validarFormNewRequest(sEvaluacion,sTipoPrueba,iNorma){
 function validarSelect(idSelect) {
     const selectElement = document.getElementById(idSelect);
     const errorMessage = selectElement.getAttribute('data-error');
-
-
     const selectedValue = selectElement ? selectElement.value : null;
     const feedbackElement = selectElement.nextElementSibling;
 
