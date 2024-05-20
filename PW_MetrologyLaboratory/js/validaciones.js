@@ -1,9 +1,9 @@
 function validarFormNewRequest(idSelect){
     alert("entrando a validarFormNewRequest");
 
-    //validarSelect(idSelect);
+    validarSelect(idSelect);
 
-    //validacionSolicitud();
+    validacionSolicitud();
 
 }
 
