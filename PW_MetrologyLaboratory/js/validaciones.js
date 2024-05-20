@@ -13,22 +13,20 @@ function validarFormNewRequest(sEvaluacion,sTipoPrueba,iNorma){
 
 function validarSelect(idSelect) {
     const selectElement = document.getElementById(idSelect);
-    const errorMessage = selectElement.getAttribute('data-error');
     const selectedValue = selectElement ? selectElement.value : null;
     const feedbackElement = selectElement.nextElementSibling;
 
     if (!selectedValue) {
         if (selectElement) {
-            selectElement.classList.add('is-invalid');
+            selectElement.parentElement.classList.add('has-error');
             if (feedbackElement) {
-                feedbackElement.style.display = 'block';
                 feedbackElement.textContent = selectElement.getAttribute('data-error');
             }
         }
         return false;
     } else {
         if (selectElement) {
-            selectElement.classList.remove('is-invalid');
+            selectElement.parentElement.classList.remove('has-error');
             if (feedbackElement) {
                 feedbackElement.style.display = 'none';
             }
