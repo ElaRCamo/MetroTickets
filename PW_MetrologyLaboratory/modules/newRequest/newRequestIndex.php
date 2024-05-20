@@ -68,6 +68,7 @@
     <script src="../../js/actualizarDatos.js"></script>
     <script src="../../js/cargarDatos.js"></script>
     <script src="../../js/insertarDatos.js"></script>
+    <script src="../../js/validaciones.js"></script>
     <script type="text/javascript">
         let  esActualizacion = false;
         // ¿Se va actualizar una solicitud?
