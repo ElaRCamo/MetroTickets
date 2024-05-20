@@ -13,15 +13,28 @@ function validarFormNewRequest(sEvaluacion,sTipoPrueba,iNorma){
 
 function validarSelect(idSelect) {
     const selectElement = document.getElementById(idSelect);
-    const selectedValue = selectElement.value;
     const errorMessage = selectElement.getAttribute('data-error');
-    console.log("entrando a validarSelect");
+
+
+    const selectedValue = selectElement ? selectElement.value : null;
+    const feedbackElement = selectElement.nextElementSibling;
 
     if (!selectedValue) {
-        selectElement.classList.add('is-invalid');
+        if (selectElement) {
+            selectElement.classList.add('is-invalid');
+            if (feedbackElement) {
+                feedbackElement.style.display = 'block';
+                feedbackElement.textContent = selectElement.getAttribute('data-error');
+            }
+        }
         return false;
     } else {
-        selectElement.classList.remove('is-invalid');
+        if (selectElement) {
+            selectElement.classList.remove('is-invalid');
+            if (feedbackElement) {
+                feedbackElement.style.display = 'none';
+            }
+        }
         return true;
     }
 }
