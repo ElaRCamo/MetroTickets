@@ -164,6 +164,17 @@ h5{
     color:#EFEDE9;
 }
 
+.popup-form .invalid-feedback {
+    color: #E10014;
+    font-size: 0.8rem;
+    display: none;
+}
+.popup-form .has-error .invalid-feedback {
+    display: block;
+}
+
+
+
 /*Boton -hover-*/
 .popup-form .btn.btn-custom{
     transition:all 0.5s ease 0s;
