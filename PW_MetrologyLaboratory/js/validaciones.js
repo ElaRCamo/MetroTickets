@@ -1,5 +1,12 @@
-function validarSelect() {
-    const selectElement = document.getElementById('tipoEvaluacion');
+function validarFormNewRequest(idSelect){
+
+    validarSelect(idSelect);
+
+}
+
+
+function validarSelect(idSelect) {
+    const selectElement = document.getElementById(idSelect);
     const selectedValue = selectElement.value;
     const errorMessage = selectElement.getAttribute('data-error');
 
