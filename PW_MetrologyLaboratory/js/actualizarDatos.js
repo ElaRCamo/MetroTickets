@@ -70,7 +70,9 @@ function  updatePruebaAdmin(id_review, id_user){
         }
     });
 }
+function actualizarSolicitud(){
 
+}
 function updatePruebaSol(id_review){
 
     alert("id de prueba para actualizar:"+ id_review);

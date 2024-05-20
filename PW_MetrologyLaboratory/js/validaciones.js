@@ -1,5 +1,5 @@
 function validarFormNewRequest(idSelect){
-    console.log("entrando a validarFormNewRequest");
+    alert("entrando a validarFormNewRequest");
 
     validarSelect(idSelect);
 
