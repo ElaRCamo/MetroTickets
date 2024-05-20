@@ -1,4 +1,5 @@
 function validarFormNewRequest(idSelect){
+    console.log("entrando a validarFormNewRequest");
 
     validarSelect(idSelect);
 
@@ -11,6 +12,7 @@ function validarSelect(idSelect) {
     const selectElement = document.getElementById(idSelect);
     const selectedValue = selectElement.value;
     const errorMessage = selectElement.getAttribute('data-error');
+    console.log("entrando a validarSelect");
 
     if (!selectedValue) {
         selectElement.classList.add('is-invalid');
