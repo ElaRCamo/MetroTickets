@@ -1,10 +1,13 @@
-function validarFormNewRequest(idSelect){
-    alert("entrando a validarFormNewRequest");
+function validarFormNewRequest(sEvaluacion,sTipoPrueba,iNorma){
 
-    validarSelect(idSelect);
+    const esEvaluacionValido =  validarSelect(sEvaluacion);
+    const esTipoPruebaValido =  validarSelect(sTipoPrueba);
+    const esNormaValido = validarInput(iNorma);
 
-    validacionSolicitud();
-
+    if(esEvaluacionValido && esTipoPruebaValido && esNormaValido){
+        alert("inputs validos");
+        //validacionSolicitud();
+    }
 }
 
 
@@ -23,6 +26,18 @@ function validarSelect(idSelect) {
     }
 }
 
+function validarInput(idInput) {
+    const inputElement = document.getElementById(idInput);
+    const inputValue = inputElement.value.trim();
+
+    if (!inputValue) {
+        inputElement.classList.add('is-invalid');
+        return false;
+    } else {
+        inputElement.classList.remove('is-invalid');
+        return true;
+    }
+}
 
 
 
