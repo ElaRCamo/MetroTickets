@@ -40,7 +40,7 @@
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
                                                 <div class="invalid-feedback"></div>
                                             </div>
-                                            <div class="form-group col-sm-6 " id="pruebaEspecial">
+                                            <div class="form-group col-sm-6" id="pruebaEspecial">
                                                 <select class="form-control" id="tipoPruebaEspecial" name="tipoPruebaEspecial" onchange="otroTipoPrueba()" title="TipoDePruebaEspecial" data-error="Por favor seleccione un tipo de prueba válido.">
                                                     <option value="" >Seleccione el tipo de prueba especial*</option>
                                                 </select>
@@ -63,13 +63,15 @@
                                                 <div class="input-group-icon"><i class="las la-file-pdf"></i></div>
                                                 <div class="invalid-feedback"></div>
                                             </div>
+                                            <div class="form-group col-sm-12" id="detallesPrueba">
+                                                <textarea type="text" class="form-control" id="especificaciones" placeholder="Especificaciones y detalles de la prueba*" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
+                                                <div class="input-group-icon"><i class="las la-file-alt"></i></div>
+                                                <div class="invalid-feedback"></div>
+                                            </div>
                                             <!-- Para agregar material por número de parte-->
-                                            <div class=" form-group col-sm-12" id="agregarNumParte">
-                                                <h6>REGISTRO DE MATERIALES | Para agregar otro número de parte, presione
-                                                    <button type="button" id="addNumParte1" >
-                                                        <i class="las la-plus-square"></i>
-                                                    </button>
-                                                </h6>
+                                            <div class="form-group col-sm-12" id="agregarNumParte">
+                                                <h6>REGISTRO DE MATERIALES</h6>
+                                                <button type="button" id="addNumParte1"><i class="las la-plus-square"></i>Agregar otro material</button>
                                             </div>
                                             <div class="row row-cols-xl-2 clearfix" id="newRow1">
                                                 <div class="col-xl-8">
@@ -121,23 +123,16 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group col-sm-12" id="detallesPrueba">
-                                            <textarea type="text" class="form-control" id="especificaciones" placeholder="Especificaciones y detalles de la prueba*" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
-                                            <div class="input-group-icon"><i class="las la-file-alt"></i></div>
-                                            <div class="invalid-feedback"></div>
-                                        </div>
                                         <div class="form-group last col-sm-12 buttons" >
                                             <button type="button" id="submitRequest"  class="btn btn-custom" onclick="validarFormNewRequest('tipoEvaluacion','tipoPrueba','norma','normaFile','tipoPruebaEspecial','otroPrueba','especificaciones')"><i class='las la-paper-plane'></i>Enviar</button>
                                             <button type="button" id="updateRequest"  class="btn btn-custom"><i class="las la-save" onclick="actualizarSolicitud()"></i>Guardar cambios</button>
                                             <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
                                         </div><!-- end form-group -->
-                                        <div class="sub-text">* Campos requeridos</div>
+                                        <div class="sub-text">*Campos requeridos</div>
                                         <div class="clearfix"></div>
-                                        </div><!-- end row -->
-                                    </form><!-- end form -->
+                                    </form>
                                 </div>
-                            </div><!--End row -->
-                            <!-- Popup end -->
+                            </div>
                         </div><!-- end item-wrap -->
                     </div><!--End col -->
                 </div><!--End tab-content -->
