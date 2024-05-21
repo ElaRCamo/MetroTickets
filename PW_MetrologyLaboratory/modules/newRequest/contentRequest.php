@@ -27,37 +27,36 @@
                                     <form name="formNewRequest" action="" method="POST" enctype="multipart/form-data" id="formRequestLab" data-toggle="validator" class="popup-form">
                                         <div class="row" id="contenedorFormulario">
                                             <div class="form-group col-sm-6" id="selectEvaluacion">
-                                                <div class="help-block with-errors"></div>
-                                                <select class="form-control" id="tipoEvaluacion" onchange="banderaTipoEvaluacion();  llenarTipoPrueba();" name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione tipo de evaluacion" >
+                                                <select class="form-control" id="tipoEvaluacion" onchange="banderaTipoEvaluacion(); llenarTipoPrueba();" name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione un tipo de evaluación válido.">
                                                     <option value="">Seleccione el tipo de evaluación*</option>
                                                 </select>
-                                                <div class="invalid-feedback">Por favor seleccione un tipo de evaluación válido.</div>
                                                 <div class="input-group-icon"><i class="las la-sitemap" onclick="obtenerNuevoId()"></i></div>
+                                                <div class="invalid-feedback"></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="selectTipoPrueba">
-                                                <div class="help-block with-errors"></div>
-                                                <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba(); llenarCliente(1);"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
+                                                <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba(); llenarCliente(1);"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione un tipo de prueba válido.">
                                                     <option value="">Seleccione el tipo de prueba*</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
+                                                <div class="invalid-feedback"></div>
                                             </div>
-
                                             <!-- Formulario dependiendo tipo de prueba -->
                                             <div class="form-group col-sm-6" id="normaNombre">
-                                                <div class="help-block with-errors"></div>
-                                                <input type="text" class="form-control" id="norma" placeholder="Norma*" >
+                                                <input type="text" class="form-control" id="norma" placeholder="Norma*" data-error="Por favor indique la norma.">
                                                 <div class="input-group-icon"><i class="las la-certificate"></i></div>
+                                                <div class="invalid-feedback"></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="normaArchivo">
-                                                <div class="help-block with-errors"></div>
-                                                    <input type="file" placeholder="Seleccione el documento de la norma" class="form-control" id="normaFile" name="normaFile">
+                                                    <input type="file" placeholder="Seleccione el documento de la norma" class="form-control" id="normaFile" name="normaFile" data-error="Por favor seleccione el archivo de la norma">
                                                 <div class="input-group-icon"><i class="las la-file-pdf"></i></div>
+                                                <div class="invalid-feedback"></div>
                                             </div>
                                             <div class="form-group col-sm-6 " id="pruebaEspecial">
-                                                    <select class="form-control" id="tipoPruebaEspecial" name="tipoPruebaEspecial" onchange="otroTipoPrueba()" title="TipoDePruebaEspecial">
+                                                    <select class="form-control" id="tipoPruebaEspecial" name="tipoPruebaEspecial" onchange="otroTipoPrueba()" title="TipoDePruebaEspecial" data-error="Por favor seleccione un tipo de prueba válido.">
                                                         <option value="" >Seleccione el tipo de prueba especial*</option>
                                                     </select>
                                                 <div class="input-group-icon"><i class="las la-ruler-horizontal"></i></div>
+                                                <div class="invalid-feedback"></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="otroTipoPrueba">
                                                 <div class="help-block with-errors"></div>
@@ -129,7 +128,7 @@
                                             <div class="input-group-icon"><i class="las la-file-alt"></i></div>
                                         </div>
                                         <div class="form-group last col-sm-12 buttons" >
-                                            <button type="button" id="submitRequest"  class="btn btn-custom" onclick="validarFormNewRequest('tipoEvaluacion','tipoPrueba','norma')"><i class='las la-paper-plane'></i>Enviar</button>
+                                            <button type="button" id="submitRequest"  class="btn btn-custom" onclick="validarFormNewRequest('tipoEvaluacion','tipoPrueba','norma','normaFile')"><i class='las la-paper-plane'></i>Enviar</button>
                                             <button type="button" id="updateRequest"  class="btn btn-custom"><i class="las la-save" onclick="actualizarSolicitud()"></i>Guardar cambios</button>
                                             <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
                                         </div><!-- end form-group -->

@@ -167,13 +167,27 @@ h5{
 .popup-form .invalid-feedback {
     color: #E10014;
     font-size: 0.8rem;
+    margin-left: 1rem;
     display: none;
 }
-.popup-form .has-error .invalid-feedback {
-    display: inline-flex;
+
+.form-group {
+    position: relative;
 }
 
+.input-group-icon {
+    position: absolute;
+    z-index: 2; /* Asegura que el ícono esté por encima del select */
+}
 
+.invalid-feedback {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Asegura que el mensaje esté por debajo del ícono */
+    color: #dc3545;
+}
 
 /*Boton -hover-*/
 .popup-form .btn.btn-custom{
