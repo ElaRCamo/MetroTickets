@@ -1,12 +1,14 @@
-function validarFormNewRequest(sEvaluacion,sTipoPrueba,iNorma,iArchivo,iEspecial){
+function validarFormNewRequest(sEvaluacion,sTipoPrueba,iNorma,iArchivo,iEspecial,iOtro,iEspecificaciones){
 
     const esEvaluacionValido =  validarSelect(sEvaluacion);
     const esTipoPruebaValido =  validarSelect(sTipoPrueba);
     const esNormaValido = validarInput(iNorma);
     const esArchivoValido = validarInput(iArchivo);
     const esPEspecialValido = validarInput(iEspecial);
+    const esPOtroValido = validarInput(iOtro);
+    const esObservacionesValido = validarInput(iEspecificaciones);
 
-    if(esEvaluacionValido && esTipoPruebaValido && esNormaValido && esArchivoValido && esPEspecialValido){
+    if(esEvaluacionValido && esTipoPruebaValido && esNormaValido && esArchivoValido && esPEspecialValido && esPOtroValido && esObservacionesValido){
         alert("inputs validos");
         //validacionSolicitud();
     }
