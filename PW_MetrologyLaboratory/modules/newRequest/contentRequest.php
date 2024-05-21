@@ -31,6 +31,7 @@
                                                 <select class="form-control" id="tipoEvaluacion" onchange="banderaTipoEvaluacion();  llenarTipoPrueba();" name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione tipo de evaluacion" >
                                                     <option value="">Seleccione el tipo de evaluación*</option>
                                                 </select>
+                                                <div class="invalid-feedback">Por favor seleccione un tipo de evaluación válido.</div>
                                                 <div class="input-group-icon"><i class="las la-sitemap" onclick="obtenerNuevoId()"></i></div>
                                             </div>
                                             <div class="form-group col-sm-6" id="selectTipoPrueba">
@@ -38,8 +39,9 @@
                                                 <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba(); llenarCliente(1);"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
                                                     <option value="">Seleccione el tipo de prueba*</option>
                                                 </select>
+                                                <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
                                             </div>
-                                            <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
+
                                             <!-- Formulario dependiendo tipo de prueba -->
                                             <div class="form-group col-sm-6" id="normaNombre">
                                                 <div class="help-block with-errors"></div>

@@ -170,7 +170,7 @@ h5{
     display: none;
 }
 .popup-form .has-error .invalid-feedback {
-    display: block;
+    display: inline-flex;
 }
 
 

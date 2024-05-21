@@ -14,30 +14,26 @@ function validarFormNewRequest(sEvaluacion,sTipoPrueba,iNorma){
 function validarSelect(idSelect) {
     const selectElement = document.getElementById(idSelect);
     const selectedValue = selectElement ? selectElement.value : null;
-    const parentElement = selectElement.parentElement;
-    const feedbackElement = parentElement.querySelector('.help-block.with-errors');
+    const feedbackElement = selectElement.nextElementSibling;
 
     if (!selectedValue) {
         if (selectElement) {
-            parentElement.classList.add('has-error');
+            selectElement.parentElement.classList.add('has-error');
             if (feedbackElement) {
                 feedbackElement.textContent = selectElement.getAttribute('data-error');
-                feedbackElement.style.display = 'block';
             }
         }
         return false;
     } else {
         if (selectElement) {
-            parentElement.classList.remove('has-error');
+            selectElement.parentElement.classList.remove('has-error');
             if (feedbackElement) {
-                feedbackElement.textContent = '';
                 feedbackElement.style.display = 'none';
             }
         }
         return true;
     }
 }
-
 
 function validarInput(idInput) {
     const inputElement = document.getElementById(idInput);
