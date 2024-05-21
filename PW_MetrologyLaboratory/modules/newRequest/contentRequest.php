@@ -39,9 +39,8 @@
                                                 <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba(); llenarCliente(1);"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione tipo de prueba" >
                                                     <option value="">Seleccione el tipo de prueba*</option>
                                                 </select>
-                                                <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
                                             </div>
-
+                                            <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
                                             <!-- Formulario dependiendo tipo de prueba -->
                                             <div class="form-group col-sm-6" id="normaNombre">
                                                 <div class="help-block with-errors"></div>
