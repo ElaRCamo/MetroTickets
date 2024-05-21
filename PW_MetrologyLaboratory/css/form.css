@@ -221,6 +221,17 @@ h5{
     border: #E10014;
 }
 
+/****Cargar archivo***/
+#normaFile::file-selector-button {
+    color: #f1f4f9; /*Selectror del input tipo file*/
+    background-color: var(--main-color);
+}
+
+[id^="imgMaterial"]{
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente*/
+    align-items: center; /* Centrar verticalmente*/
+}
 #agregarNumParte{
     display: flex;
     justify-content: space-between;
@@ -237,13 +248,12 @@ h5{
 #addNumParte1{
     background-color:var(--main-color);
     border-radius: 0.5rem;
-    padding:0;
+    padding: 0;
 }
-
 #agregarNumParte button {
     color: #fff;
     border: none;
-    padding: 5px 10px;
+    padding: 0;
     cursor: pointer;
     transition:all 0.5s ease 0s;
 }
@@ -258,18 +268,7 @@ h5{
 #agregarNumParte h6 {
     margin: 0;
     padding-left: 0;
-}
-
-/****Cargar archivo***/
-#normaFile::file-selector-button {
-    color: #f1f4f9; /*Selectror del input tipo file*/
-    background-color: var(--main-color);
-}
-
-[id^="imgMaterial"]{
-    display: flex;
-    justify-content: center; /* Centrar horizontalmente*/
-    align-items: center; /* Centrar verticalmente*/
+    align-self: flex-start;
 }
 
 /*Ocultar divs con inputs opcionales*/
