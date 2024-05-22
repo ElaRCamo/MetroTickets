@@ -232,23 +232,22 @@ h5{
     justify-content: center; /* Centrar horizontalmente*/
     align-items: center; /* Centrar verticalmente*/
 }
-#agregarNumParte{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+#agregarNumParte, #materialesTitulo td{
     background-color: var(--main-color);
+    color: #f1f4f9;
+}
+
+#agregarNumParte{
     border-radius: 0.5rem;
     margin: 0 0.6rem 30px;
-    color: #f1f4f9;
     width: 100%;
-    padding-top: 1rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.8rem;
     flex-shrink: 1;
 }
 #addNumParte1{
     background-color:var(--main-color);
     border-radius: 0.5rem;
-    padding: 0;
+    padding: 0.5rem;
 }
 #agregarNumParte button {
     color: #fff;
@@ -260,16 +259,20 @@ h5{
 #agregarNumParte button:hover{
     color: var(--color_gold);
 }
-
 .agregarButton{
     margin-left: 0.5rem;
 }
-
+.tdH6{
+    text-align: left;
+}
+.tdButton{
+    text-align: right;
+}
 #agregarNumParte h6 {
     margin: 0;
     padding-left: 0;
-    align-self: flex-start;
 }
+
 
 /*Ocultar divs con inputs opcionales*/
 #normaNombre, #normaArchivo, #pruebaEspecial, #otroTipoPrueba,
@@ -282,6 +285,3 @@ h5{
 #reset{
     margin-left: 0.5%;
 }
-
-
-

@@ -26,6 +26,15 @@
                                 <div class="col-md-12">
                                     <form name="formNewRequest" action="" method="POST" enctype="multipart/form-data" id="formRequestLab" data-toggle="validator" class="popup-form">
                                         <div class="row" id="contenedorFormulario">
+                                            <div class="form-group col-sm-12" id="agregarNumParte">
+                                                <table class="table table-borderless" id="materialesTitulo">
+                                                    <tr>
+                                                        <td class="tdH6">
+                                                            <h6>DATOS GENERALES</h6>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
                                             <div class="form-group col-sm-6" id="selectEvaluacion">
                                                 <select class="form-control" id="tipoEvaluacion" onchange="banderaTipoEvaluacion(); llenarTipoPrueba();" name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione un tipo de evaluación válido.">
                                                     <option value="">Seleccione el tipo de evaluación*</option>
@@ -70,8 +79,16 @@
                                             </div>
                                             <!-- Para agregar material por número de parte-->
                                             <div class="form-group col-sm-12" id="agregarNumParte">
-                                                <h6>REGISTRO DE MATERIALES</h6>
-                                                <button type="button" id="addNumParte1"><i class="las la-plus-square"></i>Agregar otro material</button>
+                                                <table class="table table-borderless" id="materialesTitulo">
+                                                    <tr>
+                                                        <td class="tdH6">
+                                                            <h6>REGISTRO DE MATERIALES</h6>
+                                                        </td>
+                                                        <td class="tdButton">
+                                                            <button type="button" id="addNumParte1"><i class="las la-plus-square"></i>Agregar otro material</button>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                             </div>
                                             <div class="row row-cols-xl-2 clearfix" id="newRow1">
                                                 <div class="col-xl-8">

@@ -14,7 +14,6 @@ function validarFormNewRequest(sEvaluacion,sTipoPrueba,iNorma,iArchivo,iEspecial
     }
 }
 
-
 function validarSelect(idSelect) {
     const selectElement = document.getElementById(idSelect);
     const selectedValue = selectElement ? selectElement.value : null;
