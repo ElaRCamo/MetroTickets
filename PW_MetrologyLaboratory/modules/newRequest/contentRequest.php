@@ -26,8 +26,8 @@
                                 <div class="col-md-12">
                                     <form name="formNewRequest" action="" method="POST" enctype="multipart/form-data" id="formRequestLab" data-toggle="validator" class="popup-form">
                                         <div class="row" id="contenedorFormulario">
-                                            <div class="form-group col-sm-12" id="agregarNumParte">
-                                                <table class="table table-borderless">
+                                            <div class="form-group col-sm-12" id="divGenerales">
+                                                <table class="table table-borderless" id="solicitudTitulo">
                                                     <tr>
                                                         <td class="tdH6">
                                                             <h6>DATOS GENERALES</h6>
@@ -85,7 +85,7 @@
                                                             <h6>REGISTRO DE MATERIALES</h6>
                                                         </td>
                                                         <td class="tdButton">
-                                                            <button type="button" id="addNumParte1"><i class="las la-plus-square"></i>Agregar otro material</button>
+                                                            <button type="button" id="addNumParte1"><i class="las la-plus-square"></i>Agregar material</button>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -120,12 +120,12 @@
                                                                 <div class="invalid-feedback"></div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6">
+                                                        <!--<div class="col-sm-6">
                                                             <div class="form-group" id="numeroParte1">
                                                                 <input id="numParte1" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" readonly>
                                                                 <div class="input-group-icon"><i class="las la-cog"></i></div>
                                                             </div>
-                                                        </div>
+                                                        </div>-->
                                                         <div class="col-sm-6">
                                                             <div class="form-group" id="cantidadMaterial1">
                                                                 <input id="cdadMaterial1" name="cdadesMaterial[]" type="number" class="form-control"  placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
@@ -135,8 +135,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4 text-center" id="imgMaterial1">
-                                                    <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial1" alt="Imagen Material">
+                                                <div class="col-xl-4 text-center row" id="imgMaterial1">
+                                                    <div class="col">
+                                                        <img src="" class="col-md-6 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial1" alt="Imagen Material">
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group" id="numeroParte1">
+                                                            <input id="numParte1" name="numPartes[]" type="text" class="numParteInput" placeholder="Número de parte*" readonly>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

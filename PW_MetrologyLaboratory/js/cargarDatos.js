@@ -168,7 +168,7 @@ function llenarDescMaterial(i) {
 function numeroDeParte(i){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoNumParte.php?id_descripcion=' + id("descMaterial" + i).value, function (data) {
         var inputId = id("numParte"+ i);
-        inputId.value = "#Parte: " + data.data[0].numeroDeParte;
+        inputId.value = "Núm. de parte: " + data.data[0].numeroDeParte;
     });
 }
 
