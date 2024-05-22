@@ -27,7 +27,7 @@
                                     <form name="formNewRequest" action="" method="POST" enctype="multipart/form-data" id="formRequestLab" data-toggle="validator" class="popup-form">
                                         <div class="row" id="contenedorFormulario">
                                             <div class="form-group col-sm-12" id="agregarNumParte">
-                                                <table class="table table-borderless" id="materialesTitulo">
+                                                <table class="table table-borderless">
                                                     <tr>
                                                         <td class="tdH6">
                                                             <h6>DATOS GENERALES</h6>
