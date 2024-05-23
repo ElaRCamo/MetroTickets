@@ -770,12 +770,11 @@ function agregarMaterial() {
         + '<input id="numParte' + indexMaterial + '" name="numPartes[]" type="text" class="numParteInput" placeholder="Número de parte*" readonly>'
         + '</div>'
         + '</div>'
+        + '</div>'
         + '<div class="col-xl-4 buttons-container">'
         + '<a href="#" class="remove-lnk removeBtn" id="' + indexMaterial + '"><i class="las la-trash-alt"></i></a>'
         + '<a href="#" class="agregarButton" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i></a>'
         + '</div>'
-        + '</div>'
-
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
 }
