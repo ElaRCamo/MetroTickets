@@ -270,7 +270,9 @@ h5{
 }
 .agregarButton,.removeBtn {
     color: var(--main-color);
-
+}
+.agregarButton {
+    margin-left: 10px;
 }
 .buttons-container {
     display: flex;
