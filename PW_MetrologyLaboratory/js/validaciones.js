@@ -12,9 +12,13 @@ function validarFormNewRequest(indexMaterial,sEvaluacion,sTipoPrueba,iNorma,iArc
     for(var i=0; i<indexMaterial; i++){
         var esMaterialValido = false;
         var esClienteValido = validarSelect('cliente' + indexMaterial);
+        alert("esClienteValido:"+esClienteValido);
         var esPlataformaValida = validarSelect('plataforma' + indexMaterial);
+        alert("esPlataformaValida:"+esPlataformaValida);
         var esDescValida = validarSelect('descMaterial' + indexMaterial);
+        alert("esDescValida:"+esDescValida);
         var esCdadValida = validarInput('cdadMaterial' + indexMaterial);
+        alert("esCdadValida:"+esCdadValida);
 
         esMaterialValido = esClienteValido && esPlataformaValida && esDescValida && esCdadValida;
         MaterialesValidos.push(esMaterialValido);
@@ -28,12 +32,10 @@ function validarFormNewRequest(indexMaterial,sEvaluacion,sTipoPrueba,iNorma,iArc
     //const materialesValidos = validarMateriales(indexMaterial);
     //alert("materialesValidos: "+materialesValidos);
 
-    if(esEvaluacionValido && esTipoPruebaValido && esObservacionesValido && materialesValidos){
+    if(esEvaluacionValido && esTipoPruebaValido && esObservacionesValido){
         //&& esNormaValido && esArchivoValido && esPEspecialValido && esPOtroValido
-        if( materialesValidos){
-            alert("inputs validos");
-            //validacionSolicitud();
-        }
+        alert("inputs validos");
+
     }
 }
 
