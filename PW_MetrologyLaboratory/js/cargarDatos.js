@@ -657,7 +657,7 @@ function cargarDatosPrueba(id_update){
     });
 }
 
-function agregarMaterial() {
+/*function agregarMaterial() {
     indexMaterial++;
 
     var newRow = $('<div id="newRow' + indexMaterial + '" class="row row-cols-xl-3 clearfix">'
@@ -713,6 +713,65 @@ function agregarMaterial() {
         + '<div class="col-xl-4 text-center">'
         + '<div id="imgMaterial' + indexMaterial + '">'
         + '<img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial' + indexMaterial + '" alt="Imagen Material">'
+        + '</div>'
+        + '</div>'
+        + '</div>');
+    newRow.appendTo('#contenedorFormulario');
+}*/
+
+function agregarMaterial() {
+    indexMaterial++;
+
+    var newRow = $('<div id="newRow' + indexMaterial + '" class="row row-cols-xl-3 clearfix">'
+        + '<div class="col-xl-8">'
+        + '<div class="row">'
+        + '<div class="col-sm-6">'
+        + '<div class="form-group" id="div-OEM' + indexMaterial + '">'
+        + '<div class="help-block with-errors" id="divError' + indexMaterial + '"></div>'
+        + '<select id="cliente' + indexMaterial + '" name="clientes[]" class="form-control" onclick="" onchange="llenarPlataforma(' + indexMaterial + ')" required data-error="Por favor ingresa el area solicitante">'
+        + '<option value="">Seleccione el cliente (OEM)*</option>'
+        + '</select>'
+        + '<div class="input-group-icon"><i class="las la-car"></i></div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-sm-6">'
+        + '<div class="form-group" id="plataformaDiv' + indexMaterial + '">'
+        + '<div class="help-block with-errors"></div>'
+        + '<select id="plataforma' + indexMaterial + '" name="plataformas[]" class="form-control" onchange="llenarDescMaterial(' + indexMaterial + ')" required data-error="Por favor ingresa la plataforma">'
+        + '<option value="">Seleccione la plataforma*</option>'
+        + '</select>'
+        + '<div class="input-group-icon"><i class="las la-warehouse"></i></div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-sm-6">'
+        + '<div class="form-group" id="descripcionMaterial' + indexMaterial + '">'
+        + '<div class="help-block with-errors"></div>'
+        + '<select id="descMaterial' + indexMaterial + '" name="descripciones[]" class="form-control" onchange="descripcionMaterial(' + indexMaterial + '); numeroDeParte(' + indexMaterial + ');" required data-error="Por favor ingresa la descripción del material">'
+        + '<option value="">Seleccione la descripción*</option>'
+        + '</select>'
+        + '<div class="input-group-icon"><i class="las la-eye"></i></div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-sm-6">'
+        + '<div class="form-group" id="cantidadMaterial' + indexMaterial + '">'
+        + '<div class="help-block with-errors"></div>'
+        + '<input id="cdadMaterial' + indexMaterial + '" name="cdadesMaterial[]" type="number" class="form-control" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">'
+        + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-sm-6">'
+        + '<a href="#" class="btn btn-danger remove-lnk" id="' + indexMaterial + '"><i class="las la-trash-alt"></i>Eliminar</a>'
+        + '<button type="button" class="btn btn-success agregarButton" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i>Agregar</button>'
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-xl-4 text-center row" id="imgMaterial' + indexMaterial+'">'
+        + '<div class="col">'
+        + '<img src="" class="rounded img-fluid img-thumbnail" id="imagenMaterial' + indexMaterial + '" alt="Imagen Material">'
+        + '</div>'
+        + '<div class="col">'
+        + '<div class="form-group" id="numeroParte' + indexMaterial+'">'
+        + '<input id="numParte' + indexMaterial + '" name="numPartes[]" type="text" class="numParteInput" placeholder="Número de parte*" readonly>'
         + '</div>'
         + '</div>'
         + '</div>');
