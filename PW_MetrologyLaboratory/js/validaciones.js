@@ -6,11 +6,11 @@ function validarFormNewRequest(indexMaterial,sEvaluacion,sTipoPrueba,iNorma,iArc
     const esPEspecialValido = validarInput(iEspecial);
     const esPOtroValido = validarInput(iOtro);
     const esObservacionesValido = validarInput(iEspecificaciones);
+    const materialesValidos = validarMateriales(indexMaterial);
+    alert("materialesValidos: "+materialesValidos);
 
-    if(esEvaluacionValido && esTipoPruebaValido && esObservacionesValido){
+    if(esEvaluacionValido && esTipoPruebaValido && esObservacionesValido && materialesValidos){
         //&& esNormaValido && esArchivoValido && esPEspecialValido && esPOtroValido
-        const materialesValidos = validarMateriales(indexMaterial);
-        alert("materialesValidos: "+materialesValidos);
         if( materialesValidos){
             alert("inputs validos");
             //validacionSolicitud();
