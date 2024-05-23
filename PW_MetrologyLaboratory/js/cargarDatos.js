@@ -761,7 +761,7 @@ function agregarMaterial() {
         + '</div>'
         + '</div>'
         + '</div>'
-        + '<div class="col-xl-4 buttons-container">'
+        + '<div class="col-xl-4 ">'
         + '<div class="col-xl-4 text-center row " id="imgMaterial' + indexMaterial+'">'
         + '<div class="col">'
         + '<img src="" class="rounded img-fluid img-thumbnail" id="imagenMaterial' + indexMaterial + '" alt="Imagen Material">'
