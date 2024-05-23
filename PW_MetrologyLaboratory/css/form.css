@@ -234,11 +234,11 @@ h5{
 }
 
 [id^="imagenMaterial"]{
-    height: 100px;
+    height: 115px;
 }
 
 [id^="newRow"]{
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 #agregarNumParte,#divGenerales, #materialesTitulo td, #solicitudTitulo td{
     background-color: var(--main-color);

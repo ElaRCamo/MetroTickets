@@ -759,10 +759,6 @@ function agregarMaterial() {
         + '<div class="input-group-icon"><i class="las la-cog"></i></div>'
         + '</div>'
         + '</div>'
-        + '<div class="col-sm-6">'
-        + '<a href="#" class="btn btn-danger remove-lnk" id="' + indexMaterial + '"><i class="las la-trash-alt"></i>Eliminar</a>'
-        + '<button type="button" class="btn btn-success agregarButton" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i>Agregar</button>'
-        + '</div>'
         + '</div>'
         + '</div>'
         + '<div class="col-xl-4 text-center row" id="imgMaterial' + indexMaterial+'">'
@@ -774,6 +770,10 @@ function agregarMaterial() {
         + '<input id="numParte' + indexMaterial + '" name="numPartes[]" type="text" class="numParteInput" placeholder="Número de parte*" readonly>'
         + '</div>'
         + '</div>'
+        + '</div>'
+        + '<div class="col-sm-6">'
+        + '<a href="#" class="btn btn-danger remove-lnk" id="' + indexMaterial + '"><i class="las la-trash-alt"></i>Eliminar</a>'
+        + '<button type="button" class="btn btn-success agregarButton" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i>Agregar</button>'
         + '</div>'
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
