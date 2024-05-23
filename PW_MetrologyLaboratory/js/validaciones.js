@@ -7,7 +7,8 @@ function validarFormNewRequest(indexMaterial,sEvaluacion,sTipoPrueba,iNorma,iArc
     const esPOtroValido = validarInput(iOtro);
     const esObservacionesValido = validarInput(iEspecificaciones);
 
-    if(esEvaluacionValido && esTipoPruebaValido && esNormaValido && esArchivoValido && esPEspecialValido && esPOtroValido && esObservacionesValido){
+    if(esEvaluacionValido && esTipoPruebaValido && esObservacionesValido){
+        //&& esNormaValido && esArchivoValido && esPEspecialValido && esPOtroValido
         const materialesValidos = validarMateriales(indexMaterial);
         if( materialesValidos){
             alert("inputs validos");
