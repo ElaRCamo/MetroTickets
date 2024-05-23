@@ -130,14 +130,14 @@
                                                             <div class="form-group" id="cantidadMaterial1">
                                                                 <input id="cdadMaterial1" name="cdadesMaterial[]" type="number" class="form-control"  placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
                                                                 <div class="input-group-icon"><i class="las la-cubes"></i></div>
-                                                                <div class="invalid-feedback"></div>
+                                                                <div class="invalid-feedback"></div>imagenMaterial
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4 text-center row" id="imgMaterial1">
                                                     <div class="col">
-                                                        <img src="" class="rounded img-fluid img-thumbnail" id="imagenMaterial1" alt="Imagen Material">
+                                                        <img src="" class="rounded img-fluid img-thumbnail" id="1" alt="Imagen Material">
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group" id="numeroParte1">

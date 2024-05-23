@@ -233,6 +233,10 @@ h5{
     align-items: center; /* Centrar verticalmente*/
 }
 
+[id^="imagenMaterial"]{
+    height: 100px;
+}
+
 /*[id^="newRow"]{
     margin-bottom: 2rem;
 }*/
