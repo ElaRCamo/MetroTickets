@@ -291,10 +291,10 @@ h5{
     right: 0;
     display: flex;
     justify-content: flex-end;
-    gap: 5px; /* Ajusta el espacio entre los botones si es necesario */
-    padding: 5px; /* Ajusta el padding si es necesario */
-    background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para mejor visibilidad */
-    border-radius: 5px; /* Bordes redondeados */
+    gap: 5px;
+    padding: 5px;
+    background: rgba(0, 81, 149, 0.5);
+    border-radius: 5px;
 }
 
 .tdH6{
