@@ -774,6 +774,7 @@ function agregarMaterial() {
         + '<input id="numParte' + indexMaterial + '" name="numPartes[]" type="text" class="numParteInput" placeholder="Número de parte*" readonly>'
         + '</div>'
         + '</div>'
+        + '</div>'
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
 }
