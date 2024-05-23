@@ -1,5 +1,4 @@
 function validarFormNewRequest(sEvaluacion,sTipoPrueba,iNorma,iArchivo,iEspecial,iOtro,iEspecificaciones){
-
     const esEvaluacionValido =  validarSelect(sEvaluacion);
     const esTipoPruebaValido =  validarSelect(sTipoPrueba);
     const esNormaValido = validarInput(iNorma);
@@ -9,11 +8,33 @@ function validarFormNewRequest(sEvaluacion,sTipoPrueba,iNorma,iArchivo,iEspecial
     const esObservacionesValido = validarInput(iEspecificaciones);
 
     if(esEvaluacionValido && esTipoPruebaValido && esNormaValido && esArchivoValido && esPEspecialValido && esPOtroValido && esObservacionesValido){
-        alert("inputs validos");
-        //validacionSolicitud();
+        const materialesValidos = validarMateriales(indexMaterial);
+        if( materialesValidos){
+            alert("inputs validos");
+            //validacionSolicitud();
+        }
     }
 }
 
+function validarMateriales(indexMaterial){
+    var MaterialesValidos = [];
+    var sonMaterialesValidos= false;
+    for(var i=0; i<indexMaterial; i++){
+        var esMaterialValido = false;
+        var esClienteValido = validarSelect('cliente' + indexMaterial);
+        var esPlataformaValida = validarSelect('plataforma' + indexMaterial);
+        var esDescValida = validarSelect('descMaterial' + indexMaterial);
+        var esCdadValida = validarInput('cdadMaterial' + indexMaterial);
+
+        esMaterialValido = esClienteValido && esPlataformaValida && esDescValida && esCdadValida;
+        MaterialesValidos.push(esMaterialValido);
+    }
+    for(var j=0; j<indexMaterial; j++){
+        sonMaterialesValidos =++MaterialesValidos[j];
+    }
+    console.log("sonMaterialesValidos: "+sonMaterialesValidos);
+    return sonMaterialesValidos;
+}
 function validarSelect(idSelect) {
     const selectElement = document.getElementById(idSelect);
     const selectedValue = selectElement ? selectElement.value : null;
