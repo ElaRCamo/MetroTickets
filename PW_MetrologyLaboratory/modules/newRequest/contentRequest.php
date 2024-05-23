@@ -137,7 +137,7 @@
                                                 </div>
                                                 <div class="col-xl-4 text-center row" id="imgMaterial1">
                                                     <div class="col">
-                                                        <img src="" class="ms-md-3 rounded img-fluid img-thumbnail" id="imagenMaterial1" alt="Imagen Material">
+                                                        <img src="" class="rounded img-fluid img-thumbnail" id="imagenMaterial1" alt="Imagen Material">
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group" id="numeroParte1">
