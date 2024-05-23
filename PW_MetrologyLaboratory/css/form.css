@@ -270,6 +270,7 @@ h5{
 }
 .agregarButton,.removeBtn {
     color: var(--main-color);
+    font-size: 2rem;
 }
 .agregarButton {
     margin-left: 10px;
