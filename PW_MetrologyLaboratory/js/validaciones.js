@@ -63,24 +63,30 @@ function validarSelect(idSelect) {
     }
 }
 
+
 function validarInput(idInput) {
     const inputElement = document.getElementById(idInput);
-    const inputValue = inputElement.value;
-    const feedbackElement = inputElement ? inputElement.nextElementSibling.nextElementSibling : null;
-    if (!inputValue) {
-        inputElement.classList.add('is-invalid');
-        inputElement.parentElement.classList.add('has-error');
-        if (feedbackElement) {
-            feedbackElement.textContent = inputElement.getAttribute('data-error');
-            feedbackElement.style.display = 'block';
+    const inputValue = inputElement.value.trim();
+    if(inputValue!== null){
+        const feedbackElement = inputElement ? inputElement.nextElementSibling.nextElementSibling : null;
+        if (!inputValue) {
+            inputElement.classList.add('is-invalid');
+            inputElement.parentElement.classList.add('has-error');
+            if (feedbackElement) {
+                feedbackElement.textContent = inputElement.getAttribute('data-error');
+                feedbackElement.style.display = 'block';
+            }
+            return false;
+        } else {
+            inputElement.classList.remove('is-invalid');
+            inputElement.parentElement.classList.remove('has-error');
+            if (feedbackElement) {
+                feedbackElement.style.display = 'none';
+            }
+            return true;
         }
-        return false;
-    } else {
-        inputElement.classList.remove('is-invalid');
-        inputElement.parentElement.classList.remove('has-error');
-        if (feedbackElement) {
-            feedbackElement.style.display = 'none';
-        }
+    }else{
+        console.log("validacion temporal");
         return true;
     }
 }
