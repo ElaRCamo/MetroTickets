@@ -234,7 +234,7 @@ h5{
 }
 
 [id^="imagenMaterial"]{
-    height: 115px;
+    height: 100px;
 }
 
 [id^="newRow"]{
@@ -268,8 +268,17 @@ h5{
 #agregarNumParte button:hover{
     color: var(--color_gold);
 }
-.agregarButton{
+.agregarButton,.removeBtn {
+    color: var(--main-color);
 
+}
+.buttons-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons-container button {
+    margin-left: 5px; /* Para agregar espacio entre los botones */
 }
 .tdH6{
     text-align: left;
