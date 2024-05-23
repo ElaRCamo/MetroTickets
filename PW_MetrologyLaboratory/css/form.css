@@ -275,10 +275,25 @@ h5{
 .agregarButton {
     margin-left: 10px;
 }
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
 .buttons-container {
+    top: 0;
+    right: 0;
     display: flex;
     justify-content: flex-end;
+    gap: 10px; /* Ajusta el espacio entre los botones si es necesario */
+    padding: 10px; /* Ajusta el padding si es necesario */
+    background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para mejor visibilidad */
+    border-radius: 5px; /* Bordes redondeados */
 }
+
 .buttons-container button {
     margin-left: 5px; /* Para agregar espacio entre los botones */
 }
