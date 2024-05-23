@@ -237,9 +237,9 @@ h5{
     height: 100px;
 }
 
-/*[id^="newRow"]{
-    margin-bottom: 2rem;
-}*/
+[id^="newRow"]{
+    margin-bottom: 30px;
+}
 #agregarNumParte,#divGenerales, #materialesTitulo td, #solicitudTitulo td{
     background-color: var(--main-color);
     color: #f1f4f9;
