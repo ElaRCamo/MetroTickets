@@ -772,8 +772,8 @@ function agregarMaterial() {
         + '</div>'
         + '</div>'
         + '<div class="col-sm-12 buttons-container">'
-        + '<a href="#" class="removeBtn" id="' + indexMaterial + '"><i class="las la-trash-alt"></i>Eliminar</a>'
-        + '<button type="button" class="agregarButton" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i>Agregar</button>'
+        + '<a href="#" class="remove-lnk removeBtn" id="' + indexMaterial + '"><i class="las la-trash-alt"></i>Eliminar</a>'
+        + '<a href="#" class="agregarButton" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i>Agregar</a>'
         + '</div>'
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
