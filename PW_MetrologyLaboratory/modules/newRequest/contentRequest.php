@@ -120,12 +120,6 @@
                                                                 <div class="invalid-feedback"></div>
                                                             </div>
                                                         </div>
-                                                        <!--<div class="col-sm-6">
-                                                            <div class="form-group" id="numeroParte1">
-                                                                <input id="numParte1" name="numPartes[]" type="text" class="form-control" placeholder="Número de parte*" readonly>
-                                                                <div class="input-group-icon"><i class="las la-cog"></i></div>
-                                                            </div>
-                                                        </div>-->
                                                         <div class="col-sm-6">
                                                             <div class="form-group" id="cantidadMaterial1">
                                                                 <input id="cdadMaterial1" name="cdadesMaterial[]" type="number" class="form-control"  placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
