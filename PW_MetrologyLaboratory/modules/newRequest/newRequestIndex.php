@@ -51,7 +51,8 @@
         let solicitante = <?php echo json_encode($_SESSION['nombreUsuario']); ?>;
 
         $(document).ready(function() {
-            $(document).on('click', '[id^="addNumParte"]', function() {
+            $(document).on('click', '[id^="addNumParte"]', function(e) {
+                e.preventDefault();
                 agregarMaterial();
                 llenarCliente(indexMaterial);
                 mostrarDivImagen(indexMaterial);
