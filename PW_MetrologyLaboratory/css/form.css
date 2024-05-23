@@ -277,15 +277,12 @@ h5{
 }
 .position-relative {
     position: relative;
+}
+.position-absolute {
+    position: absolute;
     display: flex;
     justify-content: flex-end;
 }
-
-.position-absolute {
-    position: absolute;
-
-}
-
 .buttons-container {
     top: 0;
     right: 0;
@@ -293,10 +290,9 @@ h5{
     justify-content: flex-end;
     gap: 5px;
     padding: 5px;
-    background: rgba(0, 81, 149, 0.5);
+    background: rgba(0, 81, 149, 0.8);
     border-radius: 5px;
 }
-
 .tdH6{
     text-align: left;
 }
