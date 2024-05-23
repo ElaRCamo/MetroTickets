@@ -10,6 +10,7 @@ function validarFormNewRequest(indexMaterial,sEvaluacion,sTipoPrueba,iNorma,iArc
     if(esEvaluacionValido && esTipoPruebaValido && esObservacionesValido){
         //&& esNormaValido && esArchivoValido && esPEspecialValido && esPOtroValido
         const materialesValidos = validarMateriales(indexMaterial);
+        alert("materialesValidos: "+materialesValidos);
         if( materialesValidos){
             alert("inputs validos");
             //validacionSolicitud();
