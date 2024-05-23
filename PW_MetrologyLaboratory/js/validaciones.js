@@ -63,10 +63,9 @@ function validarSelect(idSelect) {
     }
 }
 
-
 function validarInput(idInput) {
     const inputElement = document.getElementById(idInput);
-    const inputValue = inputElement.value.trim();
+    const inputValue = inputElement.value;
     const feedbackElement = inputElement ? inputElement.nextElementSibling.nextElementSibling : null;
     if (!inputValue) {
         inputElement.classList.add('is-invalid');
