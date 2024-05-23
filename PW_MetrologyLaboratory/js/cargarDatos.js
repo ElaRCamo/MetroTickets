@@ -766,7 +766,7 @@ function agregarMaterial() {
         + '<img src="" class="rounded img-fluid img-thumbnail" id="imagenMaterial' + indexMaterial + '" alt="Imagen Material">'
         + '</div>'
         + '<div class="col">'
-        + '<div class="form-group" id="numeroParte' + indexMaterial+'">'
+        + '<div class="" id="numeroParte' + indexMaterial+'">'
         + '<input id="numParte' + indexMaterial + '" name="numPartes[]" type="text" class="numParteInput" placeholder="Número de parte*" readonly>'
         + '</div>'
         + '</div>'
