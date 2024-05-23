@@ -275,21 +275,12 @@ h5{
 .agregarButton {
     margin-left: 10px;
 }
-.position-relative {
-    position: relative;
-}
-.position-absolute {
-    position: absolute;
-    display: flex;
-    justify-content: flex-end;
-}
 .buttons-container {
     top: 0;
     right: 0;
     display: flex;
     justify-content: flex-end;
-    gap: 5px;
-    padding: 5px;
+    gap: 10px;
     border-radius: 5px;
 }
 .tdH6{
