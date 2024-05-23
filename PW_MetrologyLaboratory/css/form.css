@@ -277,20 +277,22 @@ h5{
 }
 .position-relative {
     position: relative;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .position-absolute {
     position: absolute;
-    justify-content: flex-end;
+
 }
 
 .buttons-container {
     top: 0;
     right: 0;
     display: flex;
-
-    gap: 10px; /* Ajusta el espacio entre los botones si es necesario */
-    padding: 10px; /* Ajusta el padding si es necesario */
+    justify-content: flex-end;
+    gap: 5px; /* Ajusta el espacio entre los botones si es necesario */
+    padding: 5px; /* Ajusta el padding si es necesario */
     background: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para mejor visibilidad */
     border-radius: 5px; /* Bordes redondeados */
 }
