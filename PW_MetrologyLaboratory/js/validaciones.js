@@ -1,4 +1,4 @@
-function validarFormNewRequest(sEvaluacion,sTipoPrueba,iNorma,iArchivo,iEspecial,iOtro,iEspecificaciones){
+function validarFormNewRequest(indexMaterial,sEvaluacion,sTipoPrueba,iNorma,iArchivo,iEspecial,iOtro,iEspecificaciones){
     const esEvaluacionValido =  validarSelect(sEvaluacion);
     const esTipoPruebaValido =  validarSelect(sTipoPrueba);
     const esNormaValido = validarInput(iNorma);
