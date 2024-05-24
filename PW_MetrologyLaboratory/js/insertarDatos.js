@@ -159,7 +159,7 @@ function registrarSolicitud(nuevoId) {
         var materiales = [];
         var cantidades = [];
 
-        for (var k = 1; k <= i; k++) {
+        for (var k = 1; k <= indexMaterial; k++) {
             // Para agregar material por número de parte
             var descMaterial       = id('descMaterial' + k);
             var cdadMaterial       = id('cdadMaterial' + k);
@@ -221,7 +221,7 @@ function registrarSolicitud(nuevoId) {
 }
 
 
-
+/*
 async function registrarSolicitud() {
 
     var sesionIniciada = await validarSesion();
@@ -301,7 +301,7 @@ async function registrarSolicitud() {
         } catch (error) {
             console.error("Error al registrar la solicitud:", error);
         }
-}
+}*/
 function enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario){
     const data = new FormData();
 
