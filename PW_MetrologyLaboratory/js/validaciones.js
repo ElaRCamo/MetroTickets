@@ -30,6 +30,23 @@ function validarFormNewRequest(indexMaterial, sEvaluacion, sTipoPrueba, iNorma, 
 
         if (!esClienteValido || !esPlataformaValida || !esDescValida || !esCdadValida) {
             sonMaterialesValidos = false;
+            // Agregar atributos de error a los elementos inválidos
+            if (!esClienteValido) {
+                clienteElement.parentElement.classList.add('has-error');
+                clienteElement.classList.add('is-invalid');
+            }
+            if (!esPlataformaValida) {
+                plataformaElement.parentElement.classList.add('has-error');
+                plataformaElement.classList.add('is-invalid');
+            }
+            if (!esDescValida) {
+                descMaterialElement.parentElement.classList.add('has-error');
+                descMaterialElement.classList.add('is-invalid');
+            }
+            if (!esCdadValida) {
+                cdadMaterialElement.parentElement.classList.add('has-error');
+                cdadMaterialElement.classList.add('is-invalid');
+            }
             break; // Salir del bucle si algún material no es válido
         }
     }
