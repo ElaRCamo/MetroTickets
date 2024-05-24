@@ -11,10 +11,22 @@ function validarFormNewRequest(indexMaterial, sEvaluacion, sTipoPrueba, iNorma, 
     let sonMaterialesValidos = true;
 
     for (let i = 1; i <= indexMaterial; i++) {
-        const esClienteValido = validarSelect('cliente' + i);
-        const esPlataformaValida = validarSelect('plataforma' + i);
-        const esDescValida = validarSelect('descMaterial' + i);
-        const esCdadValida = validarInput('cdadMaterial' + i);
+        const clienteElement = document.getElementById('cliente' + i);
+        const plataformaElement = document.getElementById('plataforma' + i);
+        const descMaterialElement = document.getElementById('descMaterial' + i);
+        const cdadMaterialElement = document.getElementById('cdadMaterial' + i);
+
+        // Verificar si los elementos existen antes de validar
+        if (!clienteElement || !plataformaElement || !descMaterialElement || !cdadMaterialElement) {
+            console.error("Elemento con id cliente" + i + " o plataforma" + i + " o descMaterial" + i + " o cdadMaterial" + i + " no encontrado.");
+            sonMaterialesValidos = false;
+            break; // Salir del bucle si algún elemento no se encuentra
+        }
+
+        const esClienteValido = validarSelect(clienteElement);
+        const esPlataformaValida = validarSelect(plataformaElement);
+        const esDescValida = validarSelect(descMaterialElement);
+        const esCdadValida = validarInput(cdadMaterialElement);
 
         if (!esClienteValido || !esPlataformaValida || !esDescValida || !esCdadValida) {
             sonMaterialesValidos = false;
@@ -33,6 +45,7 @@ function validarFormNewRequest(indexMaterial, sEvaluacion, sTipoPrueba, iNorma, 
         return false;
     }
 }
+
 
 
 function validarSelect(idSelect) {
