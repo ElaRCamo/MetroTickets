@@ -9,7 +9,7 @@ function validarFormNewRequest(indexMaterial, sEvaluacion, sTipoPrueba, iNorma, 
 
     let sonMaterialesValidos = true;
 
-    for (let i = 0; i < indexMaterial; i++) {
+    for (let i = 1; i === indexMaterial; i++) {
         const esClienteValido = validarSelect('cliente' + i);
         const esPlataformaValida = validarSelect('plataforma' + i);
         const esDescValida = validarSelect('descMaterial' + i);
