@@ -106,7 +106,7 @@ function validacionSolicitud() {
         });
 }
 
-/*
+
 function registrarSolicitud(nuevoId) {
 
         const dataForm = new FormData();
@@ -218,7 +218,7 @@ function registrarSolicitud(nuevoId) {
             }
         });
 
-}*/
+}
 
 
 
@@ -261,7 +261,7 @@ async function registrarSolicitud() {
 
             alert("otroPrueba ="+otroPrueba.value.trim());
 
-            for (var k = 1; k <= i; k++) {
+            for (var k = 1; k <= indexMaterial; k++) {
                 // Para agregar material por número de parte
                 var descMaterial       = id('descMaterial' + k);
                 var cdadMaterial       = id('cdadMaterial' + k);
