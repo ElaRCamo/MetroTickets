@@ -106,7 +106,7 @@ function validacionSolicitud() {
         });
 }
 
-
+/*
 function registrarSolicitud(nuevoId) {
 
         const dataForm = new FormData();
@@ -218,10 +218,10 @@ function registrarSolicitud(nuevoId) {
             }
         });
 
-}
+}*/
 
 
-/*
+
 async function registrarSolicitud() {
 
     var sesionIniciada = await validarSesion();
@@ -301,7 +301,7 @@ async function registrarSolicitud() {
         } catch (error) {
             console.error("Error al registrar la solicitud:", error);
         }
-}*/
+}
 function enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario){
     const data = new FormData();
 
