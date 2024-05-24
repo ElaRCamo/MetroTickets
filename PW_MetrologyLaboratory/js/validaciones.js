@@ -1,11 +1,11 @@
-function validarFormNewRequest(indexMaterial, sEvaluacion, sTipoPrueba, iNorma, iArchivo, iEspecial, iOtro, iEspecificaciones) {
-    const esEvaluacionValido = validarSelect(sEvaluacion);
-    const esTipoPruebaValido = validarSelect(sTipoPrueba);
-    const esNormaValido = validarInput(iNorma);
-    const esArchivoValido = validarInput(iArchivo);
-    const esPEspecialValido = validarInput(iEspecial);
-    const esPOtroValido = validarInput(iOtro);
-    const esObservacionesValido = validarInput(iEspecificaciones);
+function validarFormNewRequest() {
+    const esEvaluacionValido = validarSelect('tipoEvaluacion');
+    const esTipoPruebaValido = validarSelect('tipoPrueba');
+    const esNormaValido = validarInput('norma');
+    const esArchivoValido = validarInput('normaFile');
+    const esPEspecialValido = validarInput('tipoPruebaEspecial');
+    const esPOtroValido = validarInput('otroPrueba');
+    const esObservacionesValido = validarInput('especificaciones');
 
     // Validación de materiales
     let sonMaterialesValidos = true;
@@ -18,15 +18,16 @@ function validarFormNewRequest(indexMaterial, sEvaluacion, sTipoPrueba, iNorma, 
 
         if (!esClienteValido || !esPlataformaValida || !esDescValida || !esCdadValida) {
             sonMaterialesValidos = false;
-            //break; // Salir del bucle si algún material no es válido
         }
     }
 
     console.log("sonMaterialesValidos: " + sonMaterialesValidos);
 
     if (esEvaluacionValido && esTipoPruebaValido && esObservacionesValido && sonMaterialesValidos) {
+        //Validaciones pendientes, segun el tipo de norma
         //&& esNormaValido && esArchivoValido && esPEspecialValido && esPOtroValido
-        alert("Todos los inputs son válidos.");
+        console.log("Todos los inputs son válidos.");
+        validacionSolicitud();
         return true;
     } else {
         console.log("Hay campos sin completar.");
