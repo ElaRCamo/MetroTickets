@@ -9,6 +9,17 @@ function validarFormNewRequest(indexMaterial, sEvaluacion, sTipoPrueba, iNorma, 
 
     let sonMaterialesValidos = true;
 
+    let i = 1;
+    const esClienteValido = validarSelect('cliente' + i);
+    const esPlataformaValida = validarSelect('plataforma' + i);
+    const esDescValida = validarSelect('descMaterial' + i);
+    const esCdadValida = validarInput('cdadMaterial' + i);
+
+    if (!esClienteValido || !esPlataformaValida || !esDescValida || !esCdadValida) {
+        sonMaterialesValidos = false;
+    }
+    /*
+
     for (let i = 1; i === indexMaterial; i++) {
         const esClienteValido = validarSelect('cliente' + i);
         const esPlataformaValida = validarSelect('plataforma' + i);
@@ -18,7 +29,7 @@ function validarFormNewRequest(indexMaterial, sEvaluacion, sTipoPrueba, iNorma, 
         if (!esClienteValido || !esPlataformaValida || !esDescValida || !esCdadValida) {
             sonMaterialesValidos = false;
         }
-    }
+    }*/
 
     console.log("sonMaterialesValidos: " + sonMaterialesValidos);
 
