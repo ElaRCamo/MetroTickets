@@ -8,39 +8,17 @@ function validarFormNewRequest(indexMaterial, sEvaluacion, sTipoPrueba, iNorma, 
     const esObservacionesValido = validarInput(iEspecificaciones);
 
     // Validación de materiales
-    let sonMaterialesValidos;
+    let sonMaterialesValidos = true;
 
     for (let i = 1; i <= indexMaterial; i++) {
-
         const esClienteValido = validarSelect('cliente' + i);
         const esPlataformaValida = validarSelect('plataforma' + i);
         const esDescValida = validarSelect('descMaterial' + i);
         const esCdadValida = validarInput('cdadMaterial' + i);
 
         if (!esClienteValido || !esPlataformaValida || !esDescValida || !esCdadValida) {
-
-            // Agregar atributos de error a los elementos inválidos
-            if (!esClienteValido) {
-                clienteElement.parentElement.classList.add('has-error');
-                clienteElement.classList.add('is-invalid');
-            }
-            if (!esPlataformaValida) {
-                plataformaElement.parentElement.classList.add('has-error');
-                plataformaElement.classList.add('is-invalid');
-            }
-            if (!esDescValida) {
-                descMaterialElement.parentElement.classList.add('has-error');
-                descMaterialElement.classList.add('is-invalid');
-            }
-            if (!esCdadValida) {
-                cdadMaterialElement.parentElement.classList.add('has-error');
-                cdadMaterialElement.classList.add('is-invalid');
-            }
-
             sonMaterialesValidos = false;
             break; // Salir del bucle si algún material no es válido
-        }else{
-            sonMaterialesValidos = true;
         }
     }
 
@@ -55,7 +33,6 @@ function validarFormNewRequest(indexMaterial, sEvaluacion, sTipoPrueba, iNorma, 
         return false;
     }
 }
-
 
 
 function validarSelect(idSelect) {
