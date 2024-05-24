@@ -62,10 +62,11 @@ function validarSelect(idSelect) {
 
 
 function validarInput(idInput) {
+    const inputElement = document.getElementById(idInput);
+    if (inputElement) {
+        const inputValue = inputElement.value.trim();
+        const feedbackElement = inputElement.nextElementSibling ? inputElement.nextElementSibling.nextElementSibling : null;
 
-    const inputElement =  document.getElementById(idInput);
-    const inputValue = inputElement.value.trim();
-    const feedbackElement = inputElement ? inputElement.nextElementSibling.nextElementSibling : null;
         if (!inputValue) {
             inputElement.classList.add('is-invalid');
             inputElement.parentElement.classList.add('has-error');
@@ -82,6 +83,10 @@ function validarInput(idInput) {
             }
             return true;
         }
+    } else {
+        console.log(`Elemento con id ${idInput} no encontrado.`);
+        return false;
+    }
 }
 
 
