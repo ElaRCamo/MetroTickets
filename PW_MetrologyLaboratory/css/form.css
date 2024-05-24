@@ -300,7 +300,10 @@ h5{
     color: var(--main-color);
     border: none;
     text-align: center;
+    min-width: 100%;
 }
+
+
 
 /*Ocultar divs con inputs opcionales*/
 #normaNombre, #normaArchivo, #pruebaEspecial, #otroTipoPrueba,
