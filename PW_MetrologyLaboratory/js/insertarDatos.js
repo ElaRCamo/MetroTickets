@@ -94,10 +94,9 @@ function validacionSolicitud() {
             const sesionIniciada = respuestas[1];
 
             if (sesionIniciada && id_prueba !== null && id_prueba !== undefined) {
-                // Si la sesión está iniciada, registrar la solicitud
-                //registrarSolicitud(id_prueba);
                 alert("Se ejecuta registrarSolicitud "+id_prueba)
-            } else {
+                registrarSolicitud(id_prueba);
+            } else if(sesionIniciada === false) {
                 // Si la sesión no está iniciada, mostrar un mensaje de error
                 Swal.fire("¡La sesión no está iniciada!");
             }
