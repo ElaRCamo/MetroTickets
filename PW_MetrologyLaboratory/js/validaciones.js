@@ -29,7 +29,7 @@ function validarFormNewRequest(indexMaterial, sEvaluacion, sTipoPrueba, iNorma, 
         alert("Todos los inputs son válidos.");
         return true;
     } else {
-        alert("Hay campos sin completar.");
+        console.log("Hay campos sin completar.");
         return false;
     }
 }
