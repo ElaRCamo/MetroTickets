@@ -105,7 +105,15 @@ function validacionSolicitud() {
             Swal.fire("¡Error al validar la solicitud!");
         });
 }
+function showResult(result) {
+    // Código para manejar el resultado exitoso
+    console.log('Result: ', result);
+}
 
+function showError(error) {
+    // Código para manejar el error
+    console.error('Error: ', error);
+}
 
 function registrarSolicitud(nuevoId) {
 
