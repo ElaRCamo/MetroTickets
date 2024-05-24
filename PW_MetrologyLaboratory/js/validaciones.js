@@ -18,7 +18,7 @@ function validarFormNewRequest(indexMaterial, sEvaluacion, sTipoPrueba, iNorma, 
 
         if (!esClienteValido || !esPlataformaValida || !esDescValida || !esCdadValida) {
             sonMaterialesValidos = false;
-            break; // Salir del bucle si algún material no es válido
+            //break; // Salir del bucle si algún material no es válido
         }
     }
 
