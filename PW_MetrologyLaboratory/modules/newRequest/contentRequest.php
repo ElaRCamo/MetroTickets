@@ -142,7 +142,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group last col-sm-12 buttons" >
-                                            <button type="button" id="submitRequest"  class="btn btn-custom" onclick="validarFormNewRequest(indexMaterial,'tipoEvaluacion','tipoPrueba','norma','normaFile','tipoPruebaEspecial','otroPrueba','especificaciones')"><i class='las la-paper-plane'></i>Enviar</button>
+                                            <button type="button" id="submitRequest"  class="btn btn-custom" onclick="validarFormNewRequest()"><i class='las la-paper-plane'></i>Enviar</button>
                                             <button type="button" id="updateRequest"  class="btn btn-custom"><i class="las la-save" onclick="actualizarSolicitud()"></i>Guardar cambios</button>
                                             <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
                                         </div><!-- end form-group -->
