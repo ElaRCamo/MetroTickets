@@ -57,6 +57,7 @@
         // Llamar a la función resumenPrueba con el id_prueba obtenido
         if (id_review) {
             resumenPrueba(id_review);
+            updateLink(id_estatusSol);
             var titulo = document.querySelector("h1");
             if (titulo) {
                 titulo.textContent = "Resumen de Solicitud " + id_review;
@@ -72,7 +73,9 @@
 
     function updatePrueba(){
         <?php if ($tipoUser== 3){ ?>
+            //Solo se puede actualizar si esta en espera de aprobación o en estatus rechazado
             window.location.href = "../newRequest/newRequestIndex.php?id_update="+ id_review;
+
         <?php
         } else if($tipoUser== 1 || $tipoUser== 2){?>
             //Se cargan los valores que ya se definieron

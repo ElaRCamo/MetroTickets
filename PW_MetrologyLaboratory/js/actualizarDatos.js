@@ -1,3 +1,24 @@
+function updateLink(id_estatusSol) {
+    var link = document.getElementById('updateBtnS');
+
+    if (id_estatusSol === '5' || id_estatusSol === '7') {
+        link.setAttribute('onclick', 'updatePrueba();');
+        link.style.pointerEvents = 'auto';
+        link.style.cursor = 'pointer';
+    } else {
+        // Cambia el texto del enlace
+        link.innerHTML = '<i class="lar la-edit"></i>No es posible actualizar una solicitud con estatus ' + id_estatusSol;
+        link.removeAttribute('onclick');
+        link.removeAttribute('href');
+        link.style.pointerEvents = 'none';
+        link.style.cursor = 'default';
+    }
+}
+
+// Ejemplo de uso:
+updateLink('5'); // Aquí pasas el valor de id_estatusSol
+
+
 function  updatePruebaAdmin(id_review, id_user){
 
     var estatusPruebaAdmin = id("estatusPruebaAdmin");
