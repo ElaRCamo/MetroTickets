@@ -498,11 +498,10 @@ function correoActualizacionPrueba(id_prueba, solicitantePrueba, emailSolicitant
             console.log(err);
         });
 }
-function correoActualizacionPruebaLab(id_prueba, solicitantePrueba){
+function correoActualizacionPruebaLab(id_prueba){
     const data = new FormData();
 
     data.append('id_prueba',id_prueba);
-    data.append('solicitante',solicitantePrueba);
 
     fetch('https://arketipo.mx/MailerActualizacionPruebaLab.php',{
         method: 'POST',

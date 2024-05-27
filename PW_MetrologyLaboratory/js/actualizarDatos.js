@@ -49,14 +49,15 @@ function  updatePruebaAdmin(id_review, id_user){
             })
                 .then(data => {
                     console.log('Success');
-                    correoActualizacionPrueba(id_review, solicitantePrueba, emailSolicitante);
                     swalWithBootstrapButtons.fire({
                         title: "¡Prueba actualizada!",
                         text: "Se han guardado los cambios.",
                         icon: "success"
                     });
-                })
-                .catch(error =>{
+                }).then(function (){
+                    correoActualizacionPrueba(id_review, solicitantePrueba, emailSolicitante);
+                    correoActualizacionPruebaLab(id_review);
+                }).catch(error =>{
                     console.log(error);
                 });
         } else if (
@@ -172,7 +173,7 @@ function actualizarSolicitud(){
         }).then(function(data) {
             // Si la inserción de datos fue exitosa, llamar a las funciones
             correoActualizacionPrueba(id_update, solicitante, emailUsuario);
-            correoActualizacionPruebaLab(id_update, solicitantePrueba);
+            correoActualizacionPruebaLab(id_update);
         })
         .catch(function(error) {
             if (error instanceof TypeError && error.message.includes('Error')) {
