@@ -78,15 +78,9 @@
                     <div class="col" id="graficoPorMesPorMetro"></div>
                 </div>
                 <div class="row" id="graficosCirculares">
-                    <div class="col">
-                        1 of 3
-                    </div>
-                    <div class="col">
-                        2 of 3
-                    </div>
-                    <div class="col">
-                        3 of 3
-                    </div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
                 </div>
             </div>
         </div>
@@ -280,7 +274,7 @@
                 }
             },
             title: {
-                text: 'Pruebas realizadas por metrológo, '+ anioActual,
+                text: 'Pruebas realizadas por metrólogo, '+ anioActual,
                 floating: true,
                 offsetY: 0,
                 align: 'center',
