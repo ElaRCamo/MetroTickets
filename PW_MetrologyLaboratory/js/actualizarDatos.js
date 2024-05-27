@@ -7,7 +7,7 @@ function updateLink(id,estatus) {
         link.style.cursor = 'pointer';
     } else {
         // Cambia el texto del enlace
-        link.innerHTML = '<i class="lar la-lightbulb"></i>No es posible actualizar <br>Estatus ' + estatus;
+        link.innerHTML = '<i class="lar la-lightbulb"></i>No es posible actualizar <br> Estatus: ' + estatus;
         link.removeAttribute('onclick');
         link.removeAttribute('href');
         link.style.pointerEvents = 'none';
