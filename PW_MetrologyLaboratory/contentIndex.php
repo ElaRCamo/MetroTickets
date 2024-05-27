@@ -97,6 +97,9 @@
 </div>
 
 <script>
+    let fechaActual = new Date();
+    let anioActual = fechaActual.getFullYear();
+
     pruebasMes();
     function pruebasMes() {
         $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasMes.php', function (data) {
@@ -151,18 +154,26 @@
     function graficaPruebasMes(Ene,Feb, Mar, Abril, May,Jun, Jul, Ago, Sep,Oct, Nov, Dic) {
         var options = {
             series: [{
-                name: 'Pruebas realizadas por mes',
+                name: 'Pruebas realizadas',
                 data: [Ene, Feb, Mar, Abril, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
             }],
             chart: {
                 type: 'bar',
-                height: 350
+                height: 350,
             },
             plotOptions: {
                 bar: {
                     horizontal: false,
                     columnWidth: '65%',
-                    endingShape: 'rounded'
+                    endingShape: 'rounded',
+                    colors: {
+                        ranges: [{
+                            from: 0,
+                            to: 100,
+                            color: '#005195'
+                        }]
+                    }
+
                 },
             },
             dataLabels: {
@@ -178,8 +189,11 @@
             },
             yaxis: {
                 title: {
-                    text: 'Pruebas'
-                }
+                    text: 'Pruebas realizadas',
+                    style: {
+                        color: '#005195'
+                    }
+                },
             },
             fill: {
                 opacity: 1
@@ -189,6 +203,133 @@
                     formatter: function (val) {
                         return " " + val + " pruebas"
                     }
+                }
+            },
+            title: {
+                text: 'Pruebas realizadas por mes, '+anioActual,
+                floating: true,
+                offsetY: 0,
+                align: 'center',
+                style: {
+                    color: '#005195'
+                }
+            }
+        };
+        var chart = new ApexCharts(document.querySelector("#graficoPruebasPorMes"), options);
+        chart.render();
+    }
+
+    pruebasMesMetrologo();
+    function pruebasMesMetrologo() {
+        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasMesMetro.php', function (data) {
+
+            var Ene1 = 0, Feb1 = 0, Mar1 = 0, Abril1 = 0, May1 = 0, Jun1 = 0, Jul1 = 0, Ago1 = 0,
+                Sep1 = 0, Oct1 = 0, Nov1 = 0, Dic1 = 0;
+
+            for (var i = 0; i < data.data.length; i++) {
+
+                if (data.data[i].Mes === '1') {
+                    Ene1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '2') {
+                    Feb1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '3') {
+                    Mar1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '4') {
+                    Abril1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '5') {
+                    May1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '6') {
+                    Jun1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '7') {
+                    Jul1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '8') {
+                    Ago1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '9') {
+                    Sep1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '10') {
+                    Oct1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '11') {
+                    Nov1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '12') {
+                    Dic1 = data.data[i].Pruebas;
+                }
+
+            }
+            graficaPruebasMesMetro(Ene1, Feb1, Mar1, Abril1, May1, Jun1, Jul1, Ago1, Sep1, Oct1, Nov1, Dic1);
+        });
+    }
+    function graficaPruebasMesMetro(Ene,Feb, Mar, Abril, May,Jun, Jul, Ago, Sep,Oct, Nov, Dic) {
+        var options = {
+            series: [{
+                name: 'Pruebas realizadas',
+                data: [Ene, Feb, Mar, Abril, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
+            }],
+            chart: {
+                type: 'bar',
+                height: 350,
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '65%',
+                    endingShape: 'rounded',
+                    colors: {
+                        ranges: [{
+                            from: 0,
+                            to: 100,
+                            color: '#005195'
+                        }]
+                    }
+
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 5,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['Ene', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dic'],
+            },
+            yaxis: {
+                title: {
+                    text: 'Pruebas realizadas',
+                    style: {
+                        color: '#005195'
+                    }
+                },
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return " " + val + " pruebas"
+                    }
+                }
+            },
+            title: {
+                text: 'Pruebas realizadas por mes, '+anioActual,
+                floating: true,
+                offsetY: 0,
+                align: 'center',
+                style: {
+                    color: '#005195'
                 }
             }
         };
