@@ -214,18 +214,17 @@ function registrarSolicitud(nuevoId) {
             });
         })
         .then(function(data) {
+            resumenSolicitud(nuevoId);
+        }).then(function(data) {
             // Si la inserción de datos fue exitosa, llamar a las funciones
             enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
-            resumenSolicitud(nuevoId);
-        })
-        .catch(function(error) {
+        }).catch(function(error) {
             if (error instanceof TypeError && error.message.includes('Error')) {
                 console.error('Error en el procesamiento de datos:', error);
             } else {
                 console.error('Error al insertar datos:', error);
             }
         });
-
 }
 
 
@@ -499,12 +498,11 @@ function correoActualizacionPrueba(id_prueba, solicitantePrueba, emailSolicitant
             console.log(err);
         });
 }
-function correoActualizacionPruebaLab(id_prueba, solicitantePrueba, emailSolicitante){
+function correoActualizacionPruebaLab(id_prueba, solicitantePrueba){
     const data = new FormData();
 
     data.append('id_prueba',id_prueba);
     data.append('solicitante',solicitantePrueba);
-    data.append('emailSolicitante',emailSolicitante);
 
     fetch('https://arketipo.mx/MailerActualizacionPruebaLab.php',{
         method: 'POST',
@@ -512,7 +510,7 @@ function correoActualizacionPruebaLab(id_prueba, solicitantePrueba, emailSolicit
     })
         .then(function (response){
             if (response.ok){
-                //alert('Correo Actualizacion: prueba: ' +id_prueba+ 'user: ' + solicitantePrueba +' email: ' + emailSolicitante);
+                //alert('Correo Actualizacion: prueba: ' +id_prueba+ 'user: ' + solicitantePrueba);
                 console.log("Correos enviados");
             }else{
                 throw "Error en la llamada Ajax";

@@ -168,9 +168,11 @@ function actualizarSolicitud(){
             });
         })
         .then(function(data) {
+            resumenSolicitud(id_update);
+        }).then(function(data) {
             // Si la inserción de datos fue exitosa, llamar a las funciones
             correoActualizacionPrueba(id_update, solicitante, emailUsuario);
-            resumenSolicitud(id_update);
+            correoActualizacionPruebaLab(id_update, solicitantePrueba);
         })
         .catch(function(error) {
             if (error instanceof TypeError && error.message.includes('Error')) {
@@ -179,7 +181,6 @@ function actualizarSolicitud(){
                 console.error('Error al insertar datos:', error);
             }
         });
-
 }
 function updatePruebaSol(id_review){
 
