@@ -18,7 +18,6 @@ function updateLink(id,estatus) {
 // Ejemplo de uso:
 updateLink('5'); // Aquí pasas el valor de id_estatusSol
 
-
 function  updatePruebaAdmin(id_review, id_user){
 
     var estatusPruebaAdmin = id("estatusPruebaAdmin");

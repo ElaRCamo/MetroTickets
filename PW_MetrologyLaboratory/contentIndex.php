@@ -72,10 +72,129 @@
                     </div>
                 </div>
             </div>
-            <div class="graphics">
-
-
+            <div class="container">
+                <div class="row">
+                    <div class="col" id="graficoPruebasPorMes">
+                    </div>
+                    <div class="col" id="graficoPorMesPorMetro">
+                        2 of 2
+                    </div>
+                </div>
+                <div class="row" id="graficosCirculares">
+                    <div class="col">
+                        1 of 3
+                    </div>
+                    <div class="col">
+                        2 of 3
+                    </div>
+                    <div class="col">
+                        3 of 3
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 </div>
+
+<script>
+    pruebasMes();
+    function pruebasMes() {
+        $.getJSON('../dao/daoConsultaPruebasMes.php', function (data) {
+
+            var Ene1 = 0, Feb1 = 0, Mar1 = 0, Abril1 = 0, May1 = 0, Jun1 = 0, Jul1 = 0, Ago1 = 0,
+                Sep1 = 0, Oct1 = 0, Nov1 = 0, Dic1 = 0;
+
+            for (var i = 0; i < data.data.length; i++) {
+
+                if (data.data[i].Mes === '1') {
+                    Ene1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '2') {
+                    Feb1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '3') {
+                    Mar1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '4') {
+                    Abril1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '5') {
+                    May1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '6') {
+                    Jun1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '7') {
+                    Jul1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '8') {
+                    Ago1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '9') {
+                    Sep1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '10') {
+                    Oct1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '11') {
+                    Nov1 = data.data[i].Pruebas;
+                }
+                if (data.data[i].Mes === '12') {
+                    Dic1 = data.data[i].Pruebas;
+                }
+
+            }
+            graficaPruebasMes(Ene1, Feb1, Mar1, Abril1, May1, Jun1, Jul1, Ago1, Sep1, Oct1, Nov1, Dic1);
+        });
+    }
+
+    function graficaPruebasMes(Ene,Feb, Mar, Abril, May,Jun, Jul, Ago, Sep,Oct, Nov, Dic) {
+        var options = {
+            series: [{
+                name: 'Ausentismos',
+                data: [Ene, Feb, Mar, Abril, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
+            }],
+            chart: {
+                type: 'bar',
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '65%',
+                    endingShape: 'rounded'
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 5,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['Ene', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dic'],
+            },
+            yaxis: {
+                title: {
+                    text: 'Personas'
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return " " + val + " personas"
+                    }
+                }
+            }
+        };
+        var chart = new ApexCharts(document.querySelector("#graficoPruebasPorMes"), options);
+        chart.render();
+    }
+
+
+</script>
