@@ -499,4 +499,29 @@ function correoActualizacionPrueba(id_prueba, solicitantePrueba, emailSolicitant
             console.log(err);
         });
 }
+function correoActualizacionPruebaLab(id_prueba, solicitantePrueba, emailSolicitante){
+    const data = new FormData();
 
+    data.append('id_prueba',id_prueba);
+    data.append('solicitante',solicitantePrueba);
+    data.append('emailSolicitante',emailSolicitante);
+
+    fetch('https://arketipo.mx/MailerActualizacionPruebaLab.php',{
+        method: 'POST',
+        body: data
+    })
+        .then(function (response){
+            if (response.ok){
+                //alert('Correo Actualizacion: prueba: ' +id_prueba+ 'user: ' + solicitantePrueba +' email: ' + emailSolicitante);
+                console.log("Correos enviados");
+            }else{
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}

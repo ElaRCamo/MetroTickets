@@ -169,7 +169,7 @@ function actualizarSolicitud(){
         })
         .then(function(data) {
             // Si la inserción de datos fue exitosa, llamar a las funciones
-            enviarCorreoNuevaSolicitud(id_update, solicitante, emailUsuario);
+            correoActualizacionPrueba(id_update, solicitante, emailUsuario);
             resumenSolicitud(id_update);
         })
         .catch(function(error) {

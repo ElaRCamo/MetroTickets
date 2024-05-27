@@ -112,7 +112,7 @@ function emailSolicitud($id_prueba,$Solicitante )
 
         //Laboratorio de Metrología
         $mail->addAddress('LaboratorioMetrologiaGrammer@arketipo.mx', 'LMGrammer');
-        $mail->addBCC('extern.mariela.reyes@grammer.com', 'LMGrammer');
+        $mail->addBCC('extern.mariela.reyes@grammer.com', 'TI');
         $mail->addBCC('l22141412@queretaro.tecnm.mx', 'IT');
 
         $mail->Subject = 'Nueva solicitud.';
