@@ -57,11 +57,11 @@
         // Llamar a la función resumenPrueba con el id_prueba obtenido
         if (id_review) {
             resumenPrueba(id_review);
-            updateLink(id_estatusSol);
-            var titulo = document.querySelector("h1");
+             var titulo = document.querySelector("h1");
             if (titulo) {
                 titulo.textContent = "Resumen de Solicitud " + id_review;
             }
+
         }
     });
     function actualizarTitulo() {

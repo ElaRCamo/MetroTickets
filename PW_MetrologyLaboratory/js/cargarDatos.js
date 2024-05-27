@@ -414,6 +414,8 @@ function resumenPrueba(ID_PRUEBA){
         solicitantePrueba = data.nombreSolic;
         emailSolicitante = data.correoSolic;
 
+        console.log("resumenPrueba: id_estatusSol"+id_estatusSol, "estatusSol "+estatusSol);
+
         var tabla = document.getElementById("materialesResumen");
         var tbody = tabla.getElementsByTagName("tbody")[0];
 
@@ -450,8 +452,10 @@ function resumenPrueba(ID_PRUEBA){
 
             tbody.appendChild(fila);
         }
+    }).then(function (){
+        console.log("index: id_estatusSol"+id_estatusSol, "estatusSol "+estatusSol);
+        updateLink(id_estatusSol);
     });
-
 }
 
 function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba,idTipoEspecial) {
