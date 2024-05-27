@@ -74,11 +74,8 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col" id="graficoPruebasPorMes">
-                    </div>
-                    <div class="col" id="graficoPorMesPorMetro">
-                        2 of 2
-                    </div>
+                    <div class="col" id="graficoPruebasPorMes"></div>
+                    <div class="col" id="graficoPorMesPorMetro"></div>
                 </div>
                 <div class="row" id="graficosCirculares">
                     <div class="col">
@@ -280,6 +277,15 @@
                     formatter: function (val) {
                         return val + " pruebas";
                     }
+                }
+            },
+            title: {
+                text: 'Pruebas realizadas por metrológo, '+ anioActual,
+                floating: true,
+                offsetY: 0,
+                align: 'center',
+                style: {
+                    color: '#005195'
                 }
             }
         };
