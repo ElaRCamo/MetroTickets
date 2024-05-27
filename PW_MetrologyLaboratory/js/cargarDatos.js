@@ -635,7 +635,7 @@ function cargarDatosPrueba(id_update){
             llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma, idMaterial);
 
             var numParte = id("numParte" + indexMaterial);
-            numParte.value = response.data[l].numeroDeParte;
+            numParte.value = "Núm. de parte: " + response.data[l].numeroDeParte;
 
             var cdadMaterial = id("cdadMaterial" + indexMaterial);
             cdadMaterial.value = response.data[l].cantidad;
