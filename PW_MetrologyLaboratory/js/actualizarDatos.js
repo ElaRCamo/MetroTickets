@@ -1,6 +1,5 @@
 function updateLink(id,estatus) {
     var link = document.getElementById('updateBtnS');
-    console.log("updateLink: id_estatusSol" +id_estatusSol, "estatusSol "+estatusSol);
 
     if (id === '5' || id === '7') {
         link.setAttribute('onclick', 'updatePrueba();');
@@ -8,7 +7,7 @@ function updateLink(id,estatus) {
         link.style.cursor = 'pointer';
     } else {
         // Cambia el texto del enlace
-        link.innerHTML = '<i class="lar la-edit"></i>No es posible actualizar una solicitud con estatus ' + estatus;
+        link.innerHTML = '<i class="lar la-lightbulb"></i>No es posible actualizar <br>Estatus ' + estatus;
         link.removeAttribute('onclick');
         link.removeAttribute('href');
         link.style.pointerEvents = 'none';
