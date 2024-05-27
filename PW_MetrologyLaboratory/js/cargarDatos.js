@@ -453,8 +453,8 @@ function resumenPrueba(ID_PRUEBA){
             tbody.appendChild(fila);
         }
     }).then(function (){
-        console.log("index: id_estatusSol"+id_estatusSol, "estatusSol "+estatusSol);
-        updateLink(id_estatusSol);
+
+        updateLink(id_estatusSol,estatusSol);
     });
 }
 

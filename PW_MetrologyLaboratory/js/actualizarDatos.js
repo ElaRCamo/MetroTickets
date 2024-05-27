@@ -1,13 +1,14 @@
-function updateLink() {
+function updateLink(id,estatus) {
     var link = document.getElementById('updateBtnS');
+    console.log("updateLink: id_estatusSol" +id_estatusSol, "estatusSol "+estatusSol);
 
-    if (id_estatusSol === '5' || id_estatusSol === '7') {
+    if (id === '5' || id === '7') {
         link.setAttribute('onclick', 'updatePrueba();');
         link.style.pointerEvents = 'auto';
         link.style.cursor = 'pointer';
     } else {
         // Cambia el texto del enlace
-        link.innerHTML = '<i class="lar la-edit"></i>No es posible actualizar una solicitud con estatus ' + estatusSol;
+        link.innerHTML = '<i class="lar la-edit"></i>No es posible actualizar una solicitud con estatus ' + estatus;
         link.removeAttribute('onclick');
         link.removeAttribute('href');
         link.style.pointerEvents = 'none';
