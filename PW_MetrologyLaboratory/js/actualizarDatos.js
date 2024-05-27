@@ -56,8 +56,9 @@ function  updatePruebaAdmin(id_review, id_user){
                     });
                 }).then(function (){
                     correoActualizacionPrueba(id_review, solicitantePrueba, emailSolicitante);
+                }).then(function (){
                     correoActualizacionPruebaLab(id_review);
-                }).catch(error =>{
+            }).catch(error =>{
                     console.log(error);
                 });
         } else if (
