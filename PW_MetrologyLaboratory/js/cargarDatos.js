@@ -355,6 +355,7 @@ function reviewPage(ID_PRUEBA){
 }
 
 let id_estatusSol;
+let estatusSol;
 let id_prioridadSol;
 let id_metrologoSol;
 let obs_Solicitud;
@@ -405,6 +406,7 @@ function resumenPrueba(ID_PRUEBA){
         $('#rutaResultadosR').text(data.rutaResultados);
 
         id_estatusSol = data.id_estatusPrueba;
+        estatusSol = data.descripcionEstatus;
         id_prioridadSol = data.id_prioridad;
         id_metrologoSol = data.id_metrologo;
         obs_Solicitud = data.especificacionesLab;
