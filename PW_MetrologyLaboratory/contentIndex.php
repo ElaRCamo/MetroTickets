@@ -218,80 +218,42 @@
         var chart = new ApexCharts(document.querySelector("#graficoPruebasPorMes"), options);
         chart.render();
     }
-
-    pruebasMesMetrologo();
     function pruebasMesMetrologo() {
-        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasMesMetro.php', function (data) {
+        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasMesMetro.php', function(data) {
+            const transformedData = {};
 
-            var Ene1 = 0, Feb1 = 0, Mar1 = 0, Abril1 = 0, May1 = 0, Jun1 = 0, Jul1 = 0, Ago1 = 0,
-                Sep1 = 0, Oct1 = 0, Nov1 = 0, Dic1 = 0;
+            data.data.forEach(entry => {
+                const month = parseInt(entry.Mes);
+                const metrologo = entry.NombreMetrologo;
+                const pruebas = parseInt(entry.Pruebas);
 
-            for (var i = 0; i < data.data.length; i++) {
+                if (!transformedData[metrologo]) {
+                    transformedData[metrologo] = Array(12).fill(0); // Asumiendo 12 meses
+                }
+                transformedData[metrologo][month - 1] = pruebas; // Meses en ApexCharts son 0-indexed
+            });
 
-                if (data.data[i].Mes === '1') {
-                    Ene1 = data.data[i].Pruebas;
-                }
-                if (data.data[i].Mes === '2') {
-                    Feb1 = data.data[i].Pruebas;
-                }
-                if (data.data[i].Mes === '3') {
-                    Mar1 = data.data[i].Pruebas;
-                }
-                if (data.data[i].Mes === '4') {
-                    Abril1 = data.data[i].Pruebas;
-                }
-                if (data.data[i].Mes === '5') {
-                    May1 = data.data[i].Pruebas;
-                }
-                if (data.data[i].Mes === '6') {
-                    Jun1 = data.data[i].Pruebas;
-                }
-                if (data.data[i].Mes === '7') {
-                    Jul1 = data.data[i].Pruebas;
-                }
-                if (data.data[i].Mes === '8') {
-                    Ago1 = data.data[i].Pruebas;
-                }
-                if (data.data[i].Mes === '9') {
-                    Sep1 = data.data[i].Pruebas;
-                }
-                if (data.data[i].Mes === '10') {
-                    Oct1 = data.data[i].Pruebas;
-                }
-                if (data.data[i].Mes === '11') {
-                    Nov1 = data.data[i].Pruebas;
-                }
-                if (data.data[i].Mes === '12') {
-                    Dic1 = data.data[i].Pruebas;
-                }
-
-            }
-            graficaPruebasMesMetro(Ene1, Feb1, Mar1, Abril1, May1, Jun1, Jul1, Ago1, Sep1, Oct1, Nov1, Dic1);
+            graficaPruebasMesMetro(transformedData);
         });
     }
-    function graficaPruebasMesMetro(Ene,Feb, Mar, Abril, May,Jun, Jul, Ago, Sep,Oct, Nov, Dic) {
+
+    function graficaPruebasMesMetro(transformedData) {
+        const seriesData = Object.keys(transformedData).map(metrologo => ({
+            name: metrologo,
+            data: transformedData[metrologo]
+        }));
+
         var options = {
-            series: [{
-                name: 'Pruebas realizadas',
-                data: [Ene, Feb, Mar, Abril, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
-            }],
+            series: seriesData,
             chart: {
                 type: 'bar',
-                height: 350,
+                height: 350
             },
             plotOptions: {
                 bar: {
                     horizontal: false,
-                    columnWidth: '65%',
-                    endingShape: 'rounded',
-                    colors: {
-                        ranges: [{
-                            from: 0,
-                            to: 100,
-                            color: '#005195'
-                        }]
-                    }
-
+                    columnWidth: '55%',
+                    endingShape: 'rounded'
                 },
             },
             dataLabels: {
@@ -299,19 +261,16 @@
             },
             stroke: {
                 show: true,
-                width: 5,
+                width: 2,
                 colors: ['transparent']
             },
             xaxis: {
-                categories: ['Ene', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dic'],
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             },
             yaxis: {
                 title: {
-                    text: 'Pruebas realizadas',
-                    style: {
-                        color: '#005195'
-                    }
-                },
+                    text: 'Pruebas'
+                }
             },
             fill: {
                 opacity: 1
@@ -319,23 +278,17 @@
             tooltip: {
                 y: {
                     formatter: function (val) {
-                        return " " + val + " pruebas"
+                        return val + " pruebas";
                     }
-                }
-            },
-            title: {
-                text: 'Pruebas realizadas por mes, '+anioActual,
-                floating: true,
-                offsetY: 0,
-                align: 'center',
-                style: {
-                    color: '#005195'
                 }
             }
         };
-        var chart = new ApexCharts(document.querySelector("#graficoPruebasPorMes"), options);
+
+        var chart = new ApexCharts(document.querySelector("#graficoPorMesPorMetro"), options);
         chart.render();
     }
+
+    pruebasMesMetrologo();
 
 
 </script>
