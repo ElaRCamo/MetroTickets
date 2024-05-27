@@ -95,5 +95,3 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
 //bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.
 //ssssssi": especifica el tipo de datos de los parámetros que se están vinculando(cada "s" indica que el parámetro es una cadena (string) y cada "i" indica que el parámetro es un entero (integer))
 ?>
-
-

@@ -27,7 +27,11 @@ function validarFormNewRequest() {
         //Validaciones pendientes, segun el tipo de norma
         //&& esNormaValido && esArchivoValido && esPEspecialValido && esPOtroValido
         console.log("Todos los inputs son válidos.");
-        validacionSolicitud();
+        if (esActualizacion === false){
+            validacionSolicitud();
+        }else if (esActualizacion === true){
+            actualizarSolicitud();
+        }
         return true;
     } else {
         console.log("Hay campos sin completar.");
