@@ -99,7 +99,7 @@
 <script>
     pruebasMes();
     function pruebasMes() {
-        $.getJSON('../dao/daoConsultaPruebasMes.php', function (data) {
+        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasMes.php', function (data) {
 
             var Ene1 = 0, Feb1 = 0, Mar1 = 0, Abril1 = 0, May1 = 0, Jun1 = 0, Jul1 = 0, Ago1 = 0,
                 Sep1 = 0, Oct1 = 0, Nov1 = 0, Dic1 = 0;
@@ -151,7 +151,7 @@
     function graficaPruebasMes(Ene,Feb, Mar, Abril, May,Jun, Jul, Ago, Sep,Oct, Nov, Dic) {
         var options = {
             series: [{
-                name: 'Ausentismos',
+                name: 'Pruebas realizadas por mes',
                 data: [Ene, Feb, Mar, Abril, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
             }],
             chart: {
@@ -178,7 +178,7 @@
             },
             yaxis: {
                 title: {
-                    text: 'Personas'
+                    text: 'Pruebas'
                 }
             },
             fill: {
@@ -187,7 +187,7 @@
             tooltip: {
                 y: {
                     formatter: function (val) {
-                        return " " + val + " personas"
+                        return " " + val + " pruebas"
                     }
                 }
             }
