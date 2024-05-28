@@ -21,7 +21,7 @@
     <!-- DataTable -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
 
-    <!--<link rel="stylesheet" href="../../css/style.css"/>-->
+    <link rel="stylesheet" href="../../css/style.css"/>
 
     <?php
         session_start();
