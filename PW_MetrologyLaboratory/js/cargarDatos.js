@@ -259,22 +259,28 @@ const dataTableOptions = {
     }
 };
 
-const  initDatatable = async ()=>{
-    if(dataTableIsInitialized){
+const initDatatable = async () => {
+    if (dataTableIsInitialized) {
         dataTable.destroy();
     }
 
-    if(tipoUsuario === '3'){
-        await TablaPruebasSolicitante(id_solicitante);
-    }else if(tipoUsuario === '1' || tipoUsuario === '2'){
-        await TablaPruebasAdmin();
+    let data;
+
+    if (tipoUsuario === '3') {
+        data = await TablaPruebasSolicitante(id_solicitante);
+    } else if (tipoUsuario === '1' || tipoUsuario === '2') {
+        data = await TablaPruebasAdmin();
     }
 
-    dataTable = $("#listadoPruebas").DataTable(dataTableOptions);
+    dataTable = $("#listadoPruebas").DataTable({
+        ...dataTableOptions,
+        data: data,
+        destroy: true, // Para asegurar que la tabla se pueda destruir correctamente
+    });
 
     dataTableIsInitialized = true;
+};
 
-}
 function TablaPruebasSolicitante(id_solicitante) {
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante=' + id_solicitante, function (response) {
