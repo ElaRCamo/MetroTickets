@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="table-Conteiner">
-                <table class="tableSearch" id="listadoPruebas">
+                <table class="tableSearch display" id="listadoPruebas" >
                     <thead>
                         <tr>
                             <th id="folio">FOLIO</th>
@@ -44,7 +44,7 @@
                             <th >ESPECIFÍCACIONES </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="listadoPruebasBody">
                         <tr>
                             <td class="folios">2024-0001 <a href="../review/index.php"></a></td>
                             <td>05/07/23</td>

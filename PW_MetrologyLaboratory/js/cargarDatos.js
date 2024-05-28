@@ -235,6 +235,16 @@ function resumenSolicitud(id_prueba) {
 
 }
 
+// DataTables
+let dataTable;
+let dataTableIsInitialized = false;
+
+const  initDatatable = async ()=>{
+    if(dataTableIsInitialized){
+        dataTable.destroy();
+    }
+
+}
 function TablaPruebasSolicitante(id_solicitante) {
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante=' + id_solicitante, function (response) {

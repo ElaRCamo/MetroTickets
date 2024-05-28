@@ -19,6 +19,8 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+
     <?php
         session_start();
         $nombreUser = $_SESSION['nombreUsuario'];
@@ -43,6 +45,10 @@
     ?>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            let tipoUsuario = "<?php echo $tipoUser; ?>";
+            console.log("El tipo de usuario es: " + tipoUsuario);
+
+
             <?php if ($tipoUser== 3){ ?>
                 let id_solicitante = <?php echo json_encode($_SESSION['nomina']); ?>;
                 console.log("El id del solicitante es: " + id_solicitante);
@@ -58,6 +64,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.css"></script>
+
 </body>
 </html>
 
