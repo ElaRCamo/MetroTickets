@@ -659,7 +659,7 @@ table tbody tr {
 .btn-ver-mas{
     border: none;
     background-color: transparent;
-    color: var(--color_gold);
+    color: var(--main-color);
     padding: 0.1rem 0.5rem;
     text-decoration: none;
     cursor: pointer;
