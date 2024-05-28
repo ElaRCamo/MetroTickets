@@ -270,7 +270,7 @@ const  initDatatable = async ()=>{
         await TablaPruebasAdmin();
     }
 
-    dataTable = $("#listadoPruebas").DataTable({dataTableOptions});
+    dataTable = $("#listadoPruebas").DataTable(dataTableOptions);
 
     dataTableIsInitialized = true;
 
