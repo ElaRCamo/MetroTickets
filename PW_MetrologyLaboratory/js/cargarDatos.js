@@ -244,6 +244,16 @@ const  initDatatable = async ()=>{
         dataTable.destroy();
     }
 
+    if(tipoUsuario === '3'){
+        await TablaPruebasSolicitante(id_solicitante);
+    }else if(tipoUsuario === '1' || tipoUsuario === '2'){
+        await TablaPruebasAdmin();
+    }
+
+    dataTable = $("#listadoPruebas").DataTable({});
+
+    dataTableIsInitialized = true;
+
 }
 function TablaPruebasSolicitante(id_solicitante) {
 
