@@ -241,13 +241,15 @@ let dataTableIsInitialized = false;
 
 const dataTableOptions = {
     columnDefs:[
-        {className: "centered", targets: [0,1,2,3,4,5,6,7,8]}
+        {className: "centered", targets: [0,1,2,3,4,5,6,7,8]},
+        {orderable: false, targets: [8]},
+        {width: "10%", targets: [0]}
     ],
     pageLength:15,
     destroy: true,
     language:{
         lengthMenu: "Mostrar _MENU_ registros pór página",
-        sZeroRecords: "Ninguna prueba encontrado",
+        sZeroRecords: "Ninguna prueba encontrada",
         info: "Mostrando de _START_ a _END_ de un total de _TOTAL registros",
         infoEmpty: "Ninguna prueba encontrada",
         infoFiltered: "(filtrados desde _MAX_ registros totales)",

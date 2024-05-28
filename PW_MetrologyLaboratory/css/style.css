@@ -458,9 +458,9 @@ table tbody tr {
     border-bottom: 1px solid #dee2e8;
 }
 .tableSearch{
-    width: 100%;
-    border-collapse: collapse;
-    margin: 10px 0;
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 10px 0 !important;
 }
 .table-Conteiner {
     overflow-x: auto;
@@ -683,11 +683,11 @@ table tbody tr {
 }
 
 #listadoPruebas td{
-    font-size: 0.9rem;
-    color: var(--main-color);
+    font-size: 0.9rem !important;
+    color: var(--main-color) !important;
 }
 #listadoPruebas #folio{
-    width: 6.8rem;
+    width: 6.8rem !important;
 }
 #nombreUser{
     background-color: var(--blue_20);
