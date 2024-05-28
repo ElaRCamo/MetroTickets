@@ -47,8 +47,8 @@
             require_once('../../footer.php')
     ?>
     <script>
-        let tipoUsuario = "<?php echo $tipoUser; ?>";
-        console.log("El tipo de usuario es: " + tipoUsuario);
+        //let tipoUsuario = "<?php echo $tipoUser; ?>";
+        //console.log("El tipo de usuario es: " + tipoUsuario);
         //let id_solicitante = <?php echo json_encode($_SESSION['nomina']); ?>;
 
         document.addEventListener("DOMContentLoaded", function() {
