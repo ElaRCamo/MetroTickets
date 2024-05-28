@@ -239,6 +239,26 @@ function resumenSolicitud(id_prueba) {
 let dataTable;
 let dataTableIsInitialized = false;
 
+const dataTableOptions = {
+    pageLength:15,
+    destroy: true,
+    language:{
+        lengthMenu: "Mostrar _MENU_ registros pór página",
+        sZeroRecords: "Ningún usuario encontrado",
+        info: "Mostrando de _START_ a _END_ de un total de _TOTAL registros",
+        infoEmpty: "Ninguna prueba encontrada",
+        infoFiltered: "(filtrados desde _MAX_ registros totales)",
+        search: "Buscar: ",
+        loadingRecords: "Cargando...",
+        paginate:{
+            first:"Primero",
+            last: "Último",
+            next: "Siguiente",
+            previous: "Anterior"
+        }
+    }
+};
+
 const  initDatatable = async ()=>{
     if(dataTableIsInitialized){
         dataTable.destroy();
@@ -250,7 +270,7 @@ const  initDatatable = async ()=>{
         await TablaPruebasAdmin();
     }
 
-    dataTable = $("#listadoPruebas").DataTable({});
+    dataTable = $("#listadoPruebas").DataTable({dataTableOptions});
 
     dataTableIsInitialized = true;
 
