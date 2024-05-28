@@ -790,3 +790,8 @@ table tbody tr {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     border-color: var(--main-color);
 }
+
+.centered{
+    text-align: center !important;
+    vertical-align: middle !important;
+}

@@ -240,6 +240,9 @@ let dataTable;
 let dataTableIsInitialized = false;
 
 const dataTableOptions = {
+    columnDefs:[
+        {className: "centered", targets: [0,1,2,3,4,5,6,7,8]}
+    ],
     pageLength:15,
     destroy: true,
     language:{
@@ -259,31 +262,22 @@ const dataTableOptions = {
     }
 };
 
-const initDatatable = async () => {
-    // Si la tabla ya está inicializada, limpiamos los datos antes de cargar nuevos
-    if (dataTable) {
-        dataTable.clear().draw();
+const  initDatatable = async ()=>{
+    if(dataTableIsInitialized){
+        dataTable.destroy();
     }
 
-    let data;
-
-    if (tipoUsuario === '3') {
-        data = await TablaPruebasSolicitante(id_solicitante);
-    } else if (tipoUsuario === '1' || tipoUsuario === '2') {
-        data = await TablaPruebasAdmin();
+    if(tipoUsuario === '3'){
+        await TablaPruebasSolicitante(id_solicitante);
+    }else if(tipoUsuario === '1' || tipoUsuario === '2'){
+        await TablaPruebasAdmin();
     }
 
-    // Si la tabla aún no está inicializada, la creamos
-    if (!dataTable) {
-        dataTable = $("#listadoPruebas").DataTable({
-            ...dataTableOptions,
-            data: data,
-        });
-    } else {
-        // Si ya existe, simplemente añadimos los nuevos datos
-        dataTable.rows.add(data).draw();
-    }
-};
+    dataTable = $("#listadoPruebas").DataTable(dataTableOptions);
+
+    dataTableIsInitialized = true;
+
+}
 function TablaPruebasSolicitante(id_solicitante) {
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante=' + id_solicitante, function (response) {

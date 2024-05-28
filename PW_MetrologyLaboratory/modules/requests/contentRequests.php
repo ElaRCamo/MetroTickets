@@ -33,15 +33,15 @@
                 <table class="table tableSearch" id="listadoPruebas" >
                     <thead>
                         <tr>
-                            <th id="folio">FOLIO</th>
-                            <th >FECHA DE SOLICITUD</th>
-                            <th >FECHA DE RESPUESTA</th>
-                            <th >ESTATUS </th>
-                            <th >TIPO DE PRUEBA</th>
-                            <th >PRIORIDAD</th>
-                            <th >SOLICITANTE </th>
-                            <th >METRÓLOGO </th>
-                            <th >ESPECIFÍCACIONES </th>
+                            <th class="centered" id="folio">FOLIO</th>
+                            <th class="centered">FECHA DE SOLICITUD</th>
+                            <th class="centered">FECHA DE RESPUESTA</th>
+                            <th class="centered">ESTATUS </th>
+                            <th class="centered">TIPO DE PRUEBA</th>
+                            <th class="centered">PRIORIDAD</th>
+                            <th class="centered">SOLICITANTE </th>
+                            <th class="centered">METRÓLOGO </th>
+                            <th class="centered">ESPECIFÍCACIONES </th>
                         </tr>
                     </thead>
                     <tbody id="listadoPruebasBody"></tbody>
