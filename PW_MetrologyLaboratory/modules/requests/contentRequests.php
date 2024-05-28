@@ -20,13 +20,13 @@
                 <div class="search">
                 </div>
                 <div class="browse search">
-                    <input type="search" placeholder="Buscar" class="record-search">
+                    <!--<input type="search" placeholder="Buscar" class="record-search">
                     <select name="" id="">
                         <option value="numFolio">Folio</option>
                         <option value="estadoSolitud">Estado</option>
                         <option value="prioridadSolitud">Prioridad</option>
                     </select>
-                    <button class="btn button-cristal">Buscar</button>
+                    <button class="btn button-cristal">Buscar</button>-->
                 </div>
             </div>
             <div class="table-Conteiner">
