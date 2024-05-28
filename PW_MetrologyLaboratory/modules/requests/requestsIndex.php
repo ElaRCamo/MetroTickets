@@ -81,7 +81,7 @@
         })*/
 
         $(document).ready(function (){
-            $(#listadoPruebas).DataTable();
+            $('#listadoPruebas').DataTable();
         });
     </script>
 </body>
