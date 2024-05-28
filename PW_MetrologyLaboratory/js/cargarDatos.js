@@ -244,7 +244,7 @@ const dataTableOptions = {
     destroy: true,
     language:{
         lengthMenu: "Mostrar _MENU_ registros pór página",
-        sZeroRecords: "Ningún usuario encontrado",
+        sZeroRecords: "Ninguna prueba encontrado",
         info: "Mostrando de _START_ a _END_ de un total de _TOTAL registros",
         infoEmpty: "Ninguna prueba encontrada",
         infoFiltered: "(filtrados desde _MAX_ registros totales)",
@@ -260,8 +260,9 @@ const dataTableOptions = {
 };
 
 const initDatatable = async () => {
-    if (dataTableIsInitialized) {
-        dataTable.destroy();
+    // Si la tabla ya está inicializada, limpiamos los datos antes de cargar nuevos
+    if (dataTable) {
+        dataTable.clear().draw();
     }
 
     let data;
@@ -272,15 +273,17 @@ const initDatatable = async () => {
         data = await TablaPruebasAdmin();
     }
 
-    dataTable = $("#listadoPruebas").DataTable({
-        ...dataTableOptions,
-        data: data,
-        destroy: true, // Para asegurar que la tabla se pueda destruir correctamente
-    });
-
-    dataTableIsInitialized = true;
+    // Si la tabla aún no está inicializada, la creamos
+    if (!dataTable) {
+        dataTable = $("#listadoPruebas").DataTable({
+            ...dataTableOptions,
+            data: data,
+        });
+    } else {
+        // Si ya existe, simplemente añadimos los nuevos datos
+        dataTable.rows.add(data).draw();
+    }
 };
-
 function TablaPruebasSolicitante(id_solicitante) {
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante=' + id_solicitante, function (response) {
