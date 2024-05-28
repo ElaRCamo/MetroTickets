@@ -159,10 +159,10 @@ function ocultarContenido(clase,limiteCaracteres){
         boton.addEventListener("click", function() {
             var contenidoOculto = this.previousElementSibling;
             contenidoOculto.classList.toggle("hidden");
-            if (this.textContent === "Ver más...") {
+            if (this.textContent === "...Ver más") {
                 this.textContent = "Ver menos";
             } else {
-                this.textContent = "Ver más...";
+                this.textContent = "...Ver más";
             }
         });
     });

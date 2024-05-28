@@ -658,12 +658,12 @@ table tbody tr {
 }
 .btn-ver-mas{
     border: none;
-    background-color: var(--blue_20);
-    border-radius: 0.25rem;
+    background-color: transparent;
     color: var(--color_gold);
     padding: 0.1rem 0.5rem;
     text-decoration: none;
     cursor: pointer;
+    font-weight: bold;
 }
 .btnPDF {
     border: none;
