@@ -243,7 +243,8 @@ const dataTableOptions = {
     columnDefs:[
         {className: "centered", targets: [0,1,2,3,4,5,6,7,8]},
         {orderable: false, targets: [8]},
-        {width: "10%", targets: [0]}
+        {width: "8%", targets: [0,1,2,3,4,5,6,7]},
+        {width: "16%", targets: [4]}
     ],
     pageLength:15,
     destroy: true,
