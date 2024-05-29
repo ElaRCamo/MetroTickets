@@ -859,3 +859,15 @@ table tbody tr {
 #contenedorListadoPruebas{
     padding: 1rem;
 }
+
+.table-Conteiner {
+    position: relative;
+}
+#contenedorAzul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background-color: red;
+}
