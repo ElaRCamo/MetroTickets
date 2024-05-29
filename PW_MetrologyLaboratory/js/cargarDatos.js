@@ -284,7 +284,10 @@ const initDataTable = async (solicitante) => {
 
     var filtroListadoPruebas = document.getElementById("listadoPruebas_filter");
     var contenedor = filtroListadoPruebas.parentNode;
-    contenedor.style.border = "2px solid green";
+    contenedor.style.padding = "0";
+    var filtroListadoPruebas2 = document.getElementById("listadoPruebas_length");
+    var contenedor2 = filtroListadoPruebas2.parentNode;
+    contenedor2.style.padding = "0";
 };
 
 const TablaPruebasSolicitante = async (id_solicitante) => {
