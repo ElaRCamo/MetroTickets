@@ -285,14 +285,10 @@ const initDataTable = async (solicitante) => {
     var filtroListadoPruebas = document.getElementById("listadoPruebas_filter");
     var contenedor = filtroListadoPruebas.parentNode;
     contenedor.style.padding = "0";
-    contenedor.style.height = "65px";
-    contenedor.style.borderRadius = "10px";
 
     var filtroListadoPruebas2 = document.getElementById("listadoPruebas_length");
     var contenedor2 = filtroListadoPruebas2.parentNode;
     contenedor2.style.padding = "0";
-    contenedor2.style.height = "65px";
-    contenedor2.style.borderRadius = "10px";
 };
 
 const TablaPruebasSolicitante = async (id_solicitante) => {
