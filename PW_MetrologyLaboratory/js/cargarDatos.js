@@ -281,6 +281,10 @@ const initDataTable = async (solicitante) => {
     dataTable = $("#listadoPruebas").DataTable(dataTableOptions);
 
     dataTableIsInitialized = true;
+
+    var filtroListadoPruebas = document.getElementById("listadoPruebas_filter");
+    var contenedor = filtroListadoPruebas.parentNode;
+    contenedor.style.border = "2px solid green";
 };
 
 const TablaPruebasSolicitante = async (id_solicitante) => {
