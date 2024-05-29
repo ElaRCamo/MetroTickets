@@ -285,9 +285,16 @@ const initDataTable = async (solicitante) => {
     var filtroListadoPruebas = document.getElementById("listadoPruebas_filter");
     var contenedor = filtroListadoPruebas.parentNode;
     contenedor.style.padding = "0";
+    contenedor.style.paddingLeft = "1rem";
+    contenedor.style.height = "450px";
+    contenedor.style.borderRadius = "10px";
+
     var filtroListadoPruebas2 = document.getElementById("listadoPruebas_length");
     var contenedor2 = filtroListadoPruebas2.parentNode;
     contenedor2.style.padding = "0";
+    contenedor2.style.paddingRight = "1rem";
+    contenedor2.style.height = "450px";
+    contenedor2.style.borderRadius = "10px";
 };
 
 const TablaPruebasSolicitante = async (id_solicitante) => {
