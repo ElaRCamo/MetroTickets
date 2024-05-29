@@ -74,11 +74,8 @@
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
-
-
-        /*$(document).ready(function (){
-            let tablePruebas = new DataTable('#listadoPruebas');
-        });*/
+        // Agregar clase "browse" y "search" a los divs con id listadoPruebas_length y listadoPruebas_filter
+        $('#listadoPruebas_length, #listadoPruebas_filter').addClass('browse search');
     </script>
     <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/general.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
