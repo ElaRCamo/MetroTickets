@@ -283,11 +283,15 @@ const initDataTable = async (solicitante) => {
 
 const TablaPruebasSolicitante = async (id_solicitante) => {
     try {
-        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante=`+id_solicitante);
-        const data = await response.json();
+        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante=${id_solicitante}`);
+        const result = await response.json();
 
-        let content = ``;
-        data.forEach((item) => {
+        if (!Array.isArray(result.data)) {
+            throw new Error('La respuesta del servidor no es un array.');
+        }
+
+        let content = '';
+        result.data.forEach((item) => {
             content += `
                 <tr>
                     <td onclick="reviewPage('${item.id_prueba}')" class="idEnlace">${item.id_prueba}</td>
@@ -301,6 +305,7 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
                     <td class="textVerMas">${item.especificaciones}</td>
                 </tr>`;
         });
+
         listadoPruebasBody.innerHTML = content;
         ocultarContenido("textVerMas", 40);
     } catch (ex) {
