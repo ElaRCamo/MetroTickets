@@ -5,7 +5,7 @@
     </div>
 
     <div class="page-content">
-        <div class="container">
+        <div class="container" id="divFormReporte">
             <form id="reporteMensual" method="POST" class="popup-form">
                 <div class="container">
                     <table class="table-responsive">
@@ -46,7 +46,7 @@
                     </table>
                 </div>
                 <div class="container">
-                    <button type="submit" onclick="" class="" id=""><i class="las la-newspaper"></i>Generar reporte</button>
+                    <button type="submit" onclick="" class="btn btn-primary" id="btnReporte"><i class="las la-newspaper"></i>Generar reporte</button>
                 </div>
             </form>
         </div>

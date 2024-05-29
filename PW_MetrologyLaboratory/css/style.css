@@ -864,3 +864,15 @@ table tbody tr {
 .dataTables_paginate .paginate_button:hover {
     background-color: #f1f4f9;
 }
+
+/*Reportes*/
+#btnReporte{
+    margin: 1rem;
+    background-color: var(--main-color) !important;
+}
+#divFormReporte {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}

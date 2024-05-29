@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="../../imgs/Grammer_Logo.ico" type="image/x-icon">
     <title>Reportes</title>
-
     <!--Enlace de iconos: icons8, licencia con mención -->
     <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
     <!--Fuente -->
