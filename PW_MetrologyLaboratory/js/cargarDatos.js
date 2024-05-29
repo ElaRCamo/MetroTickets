@@ -265,8 +265,8 @@ const dataTableOptions = {
     }
 };
 
-const  initDatatable = async (solicitante)=>{
-    if(dataTableIsInitialized){
+const initDataTable = async () => {
+    if (dataTableIsInitialized) {
         dataTable.destroy();
     }
 
@@ -276,11 +276,39 @@ const  initDatatable = async (solicitante)=>{
         await TablaPruebasAdmin();
     }
 
-    dataTable = $("#listadoPruebas").DataTable(dataTableOptions);
+    dataTable = $("#datatable_users").DataTable(dataTableOptions);
 
     dataTableIsInitialized = true;
+};
 
+const TablaPruebasSolicitante = async (id_solicitante) => {
+    try {
+        const response = await fetch("https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante="+ id_solicitante);
+        const data = await response.json();
+
+        let content = ``;
+        data.forEach((item) => {
+            content += `
+                        <tr>
+                            <td onclick="reviewPage('${response.data[j].id_prueba}')" class="idEnlace">${response.data[j].id_prueba}</td>
+                            <td>${response.data[j].fechaSolicitud}</td>
+                            <td>${response.data[j].fechaRespuesta}</td>
+                            <td>${response.data[j].descripcionEstatus}</td>
+                            <td>${response.data[j].descripcionPrueba}</td>
+                            <td>${response.data[j].descripcionPrioridad}</td>
+                            <td>${response.data[j].nombreSolic}</td>
+                            <td>${response.data[j].nombreMetro}</td>
+                            <td class="textVerMas">${response.data[j].especificaciones}</td>
+                        </tr>`;
+        });
+        listadoPruebasBody.innerHTML = content;
+        ocultarContenido("textVerMas", 40);
+    } catch (ex) {
+        alert(ex);
+    }
 }
+
+/*
 function TablaPruebasSolicitante(id_solicitante) {
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante=' + id_solicitante, function (response) {
@@ -336,7 +364,7 @@ function TablaPruebasSolicitante(id_solicitante) {
         }
         ocultarContenido("textVerMas",40);
     });
-}
+}*/
 
 function TablaPruebasAdmin() {
 
