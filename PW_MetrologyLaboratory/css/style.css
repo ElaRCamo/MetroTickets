@@ -688,6 +688,7 @@ table tbody tr {
     color: var(--main-color) !important;
     padding-top: 5px !important;
     padding-bottom: 5px !important;
+    background-color: #f1f4f9;
 }
 #listadoPruebas #folio{
     width: 6.8rem !important;
@@ -857,4 +858,5 @@ table tbody tr {
 }
 #contenedorListadoPruebas{
     background-color: var(--main-color);
+    padding: 1rem;
 }
