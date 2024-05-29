@@ -816,6 +816,13 @@ table tbody tr {
     color: #f1f4f9;
     height: 65px !important;
 }
+#listadoPruebas_length {
+    margin-left: 0.9rem;
+}
+
+#listadoPruebas_filter {
+    margin-right: 0.9rem;
+}
 
 .dataTables_filter input {
     border: 1px solid #ccc;
