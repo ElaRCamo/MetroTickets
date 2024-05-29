@@ -404,7 +404,7 @@ input, button, select {
     width: 75px;
     padding: 0 .5rem;
     margin-right: .8rem;
-    color: #666;
+    color: var(--main-color);
 }
 
 .browse input {
@@ -414,7 +414,6 @@ input, button, select {
 .browse select {
     width: 100px;
 }
-
 
 .reportsTable{
     width:100%;
@@ -866,13 +865,19 @@ table tbody tr {
 }
 
 /*Reportes*/
-#btnReporte{
-    margin: 1rem;
-    background-color: var(--main-color) !important;
-}
 #divFormReporte {
+    color: var(--main-color);
+    padding: 3rem;
+    width: 80%;
+    background-color: #f1f4f9;
+}
+#divFormReporte, #divBtnReporte {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3rem;
+}
+#btnReporte{
+    margin: 1rem;
+    background-color: var(--main-color) !important;
+    border-color: transparent !important;
 }
