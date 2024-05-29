@@ -265,13 +265,13 @@ const dataTableOptions = {
     }
 };
 
-const  initDatatable = async ()=>{
+const  initDatatable = async (solicitante)=>{
     if(dataTableIsInitialized){
         dataTable.destroy();
     }
 
     if(tipoUsuario === '3'){
-        await TablaPruebasSolicitante(id_solicitante);
+        await TablaPruebasSolicitante(solicitante);
     }else if(tipoUsuario === '1' || tipoUsuario === '2'){
         await TablaPruebasAdmin();
     }
