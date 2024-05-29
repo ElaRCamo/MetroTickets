@@ -432,7 +432,7 @@ table thead tr {
 }
 
 table thead th {
-    padding: 1rem 0.3rem;
+    padding: 0.6rem 0.3rem;
     text-align: center;
     color:var(--main-color);
     font-size: .9rem;
@@ -817,12 +817,12 @@ table tbody tr {
     height: 65px !important;
 }
 #listadoPruebas_length {
-    margin-left: 0.85rem;
+    margin-left: 0.8rem;
     border-top-left-radius: 10px;
 }
 
 #listadoPruebas_filter {
-    margin-right: 0.85rem;
+    margin-right: 0.8rem;
     border-top-right-radius: 10px;
 }
 
