@@ -20,7 +20,7 @@
 
             </div>
             <div class="table-Conteiner">
-                <table class="dataTable tableSearch display compact hover" id="listadoPruebas" >
+                <table class="dataTable tableSearch" id="listadoPruebas" >
                     <thead>
                         <tr>
                             <th class="centered" id="folio">FOLIO</th>

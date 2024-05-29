@@ -804,19 +804,9 @@ table tbody tr {
 
 #listadoPruebas_length,
 #listadoPruebas_filter {
-    padding: 2rem;
+    padding: 1rem;
     background-color: var(--main-color);
     color: #f1f4f9;
-}
-
-
-.dataTables_filter {
-    margin-bottom: 20px;
-}
-
-.dataTables_filter label {
-    font-weight: bold;
-    color: var(--color_gold);
 }
 
 .dataTables_filter input {
@@ -826,7 +816,9 @@ table tbody tr {
     margin-left: 10px;
 }
 
+#listadoPruebas{
 
+}
 .dataTables_paginate {
     margin-top: 20px;
 }

@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
     <!-- DataTable -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../../css/style.css"/>
 
@@ -74,8 +73,18 @@
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
     <script>
-        // Agregar clase "browse" y "search" a los divs con id listadoPruebas_length y listadoPruebas_filter
-        $('#listadoPruebas_length, #listadoPruebas_filter').addClass('browse search');
+        // Obtener los elementos por su id
+        const lengthDiv = document.getElementById('listadoPruebas_length');
+        const filterDiv = document.getElementById('listadoPruebas_filter');
+
+        // Agregar las clases
+        if (lengthDiv) {
+            lengthDiv.classList.add('browse', 'search');
+        }
+
+        if (filterDiv) {
+            filterDiv.classList.add('browse', 'search');
+        }
     </script>
     <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/general.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
