@@ -817,22 +817,23 @@ table tbody tr {
     padding: 5px;
     margin-left: 10px;
 }
-
-#listadoPruebas{
-
+.pagination{
+    --bs-pagination-bg: var(--blue_70) !important;
+    --bs-pagination-border-color: transparent !important;
+    --bs-pagination-active-bg: var(--main-color) !important;
+    --bs-pagination-disabled-color: var(--blue_45) !important;
+    --bs-pagination-disabled-bg: var(--color_gold) !important;
 }
+
+
 .dataTables_paginate {
     margin-top: 20px;
 }
 
 .dataTables_paginate .paginate_button, #listadoPruebas_previous {
-    background-color: var(--blue_70);
-    border: 1px solid var(--main-color);
     border-radius: 4px;
-    padding: 5px 10px;
     margin: 0 2px;
     cursor: pointer;
-    color: #f1f4f9;
 }
 
 .dataTables_paginate .paginate_button:hover {
