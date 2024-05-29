@@ -47,7 +47,7 @@
         let id_solicitante = <?php echo json_encode($_SESSION['nomina']); ?>;
 
         window.addEventListener("load",async () => {
-            await initDatatable(id_solicitante);
+            await initDataTable(id_solicitante);
         })
 
         document.addEventListener("DOMContentLoaded", function() {
