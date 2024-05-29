@@ -240,18 +240,19 @@ let dataTable;
 let dataTableIsInitialized = false;
 
 const dataTableOptions = {
+    lengthMenu: [10, 20, 50, 100],
     columnDefs:[
         {className: "centered", targets: [0,1,2,3,4,5,6,7,8]},
         {orderable: false, targets: [8]},
         {width: "8%", targets: [0,1,2,5,6,7]},
         {width: "12%", targets: [3,4]}
     ],
-    pageLength:15,
+    pageLength:10,
     destroy: true,
     language:{
         lengthMenu: "Mostrar _MENU_ registros pór página",
         sZeroRecords: "Ninguna prueba encontrada",
-        info: "Mostrando de _START_ a _END_ de un total de _TOTAL registros",
+        info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
         infoEmpty: "Ninguna prueba encontrada",
         infoFiltered: "(filtrados desde _MAX_ registros totales)",
         search: "Buscar: ",
