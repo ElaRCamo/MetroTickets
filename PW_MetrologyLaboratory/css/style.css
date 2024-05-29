@@ -817,13 +817,13 @@ table tbody tr {
     height: 65px !important;
 }
 #listadoPruebas_length {
-    margin-left: 1rem;
-    border-top-right-radius: 10px;
+    margin-left: 0.85rem;
+    border-top-left-radius: 10px;
 }
 
 #listadoPruebas_filter {
-    margin-right: 0.9rem;
-    border-top-left-radius: 10px;
+    margin-right: 0.85rem;
+    border-top-right-radius: 10px;
 }
 
 .dataTables_filter input {
