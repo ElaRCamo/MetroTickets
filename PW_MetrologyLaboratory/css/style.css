@@ -3,6 +3,7 @@
     --main-color: #005195;
     --color_gold: #B4AA9B;
     --gold_70: #CAC2B6;
+    --bs-link-color: #005195 !important;
 
     --color-sky: #82AFD7;
     --blue_70: #A4C6E2;
@@ -818,16 +819,16 @@ table tbody tr {
     margin-left: 10px;
 }
 .pagination{
-    --bs-pagination-bg: var(--blue_45) !important;
+    --bs-pagination-bg: var(--blue_20) !important;
     --bs-pagination-border-color: transparent !important;
     --bs-pagination-active-bg: var(--main-color) !important;
-    --bs-pagination-disabled-color: var(--blue_45) !important;
-    --bs-pagination-disabled-bg: var(--blue_45) !important;
+    --bs-pagination-disabled-color: var(--main-color) !important;
+    --bs-pagination-disabled-bg: var(--blue_20) !important;
     --bs-pagination-active-border-color: var(--main-color) !important;
-    --bs-pagination-hover-bg: var(--gold_70) !important;
-    --bs-pagination-hover-border-color: var(--gold_70) !important;
-    --bs-pagination-focus-color: var(--gold_70) !important;
-    --bs-pagination-focus-bg: var(--gold_70) !important;
+    --bs-pagination-hover-bg: var(--blue_45) !important;
+    --bs-pagination-hover-border-color: var(--blue_45) !important;
+    --bs-pagination-focus-color: var(--blue_45) !important;
+    --bs-pagination-focus-bg: var(--blue_45) !important;
 }
 
 #listadoPruebas_info{
