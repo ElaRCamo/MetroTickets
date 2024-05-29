@@ -798,15 +798,13 @@ table tbody tr {
 
 
 /*DeataTable*/
-
-     /* Estilo para el buscador */
  .dataTables_filter {
      margin-bottom: 20px;
  }
 
 .dataTables_filter label {
     font-weight: bold;
-    color: var(--main-color);
+    color: var(--color_gold);
 }
 
 .dataTables_filter input {
@@ -822,7 +820,7 @@ table tbody tr {
 }
 
 .dataTables_paginate .paginate_button, #listadoPruebas_previous {
-    background-color: var(--main-color);
+    background-color: var(--blue_70);
     border: 1px solid var(--main-color);
     border-radius: 4px;
     padding: 5px 10px;
@@ -835,33 +833,19 @@ table tbody tr {
     background-color: #f1f4f9;
 }
 
-.dataTables_paginate .paginate_button.current {
-    background-color: var(--main-color);
-    border-color: var(--main-color);
-    color: #f1f4f9;
-}
-
 #listadoPruebas_length,
 #listadoPruebas_filter {
-    padding: 10px; /* Ajusta el padding según tus necesidades */
+    padding: 2rem;
     background-color: var(--main-color);
     color: #f1f4f9;
 }
 
-#listadoPruebas_filter input {
-    color: #000; /* Color del texto dentro del input */
+#listadoPruebas_filter input, #listadoPruebas_length select{
+    color: var(--blue_45);
 }
 
-#listadoPruebas_length select {
-    color: #000; /* Color del texto dentro del select */
-}
-.dataTables_wrapper > .dataTables_length,
-.dataTables_wrapper > .dataTables_filter {
-    padding: 0;
-}
-
-/* Si los divs están dentro de otro contenedor sin id específico, utiliza el combinador de descendientes */
 div > #listadoPruebas_length,
 div > #listadoPruebas_filter {
     padding: 0;
+    margin: 0;
 }
