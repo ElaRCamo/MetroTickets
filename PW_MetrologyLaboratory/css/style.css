@@ -818,14 +818,23 @@ table tbody tr {
     margin-left: 10px;
 }
 .pagination{
-    --bs-pagination-bg: var(--blue_70) !important;
+    --bs-pagination-bg: var(--blue_45) !important;
     --bs-pagination-border-color: transparent !important;
     --bs-pagination-active-bg: var(--main-color) !important;
     --bs-pagination-disabled-color: var(--blue_45) !important;
-    --bs-pagination-disabled-bg: var(--color_gold) !important;
+    --bs-pagination-disabled-bg: var(--blue_45) !important;
+    --bs-pagination-active-border-color: var(--main-color) !important;
+    --bs-pagination-hover-bg: var(--gold_70) !important;
+    --bs-pagination-hover-border-color: var(--gold_70) !important;
+    --bs-pagination-focus-color: var(--gold_70) !important;
+    --bs-pagination-focus-bg: var(--gold_70) !important;
 }
 
-
+#listadoPruebas_info{
+    padding: 1rem !important;
+    color: var(--main-color) !important;
+    font-size: 0.9rem !important;
+}
 .dataTables_paginate {
     margin-top: 20px;
 }
