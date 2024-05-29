@@ -16,7 +16,7 @@
 
     <div class="page-content">
         <div class="records table-responsive">
-            <div class="table-Conteiner">
+            <div class="table-Conteiner" id="contenedorListadoPruebas">
                 <table class="dataTable tableSearch" id="listadoPruebas" >
                     <thead>
                         <tr>

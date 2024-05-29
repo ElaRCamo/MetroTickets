@@ -855,3 +855,6 @@ table tbody tr {
     padding-right: 0 !important;
     padding-left: 0 !important;
 }
+#contenedorListadoPruebas{
+    background-color: var(--main-color);
+}
