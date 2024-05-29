@@ -818,10 +818,12 @@ table tbody tr {
 }
 #listadoPruebas_length {
     margin-left: 1rem;
+    border-top-right-radius: 10px;
 }
 
 #listadoPruebas_filter {
     margin-right: 0.9rem;
+    border-top-left-radius: 10px;
 }
 
 .dataTables_filter input {
