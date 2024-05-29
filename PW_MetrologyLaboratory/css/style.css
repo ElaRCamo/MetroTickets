@@ -855,3 +855,13 @@ table tbody tr {
 #listadoPruebas_length select {
     color: #000; /* Color del texto dentro del select */
 }
+.dataTables_wrapper > .dataTables_length,
+.dataTables_wrapper > .dataTables_filter {
+    padding: 0;
+}
+
+/* Si los divs están dentro de otro contenedor sin id específico, utiliza el combinador de descendientes */
+div > #listadoPruebas_length,
+div > #listadoPruebas_filter {
+    padding: 0;
+}
