@@ -283,7 +283,7 @@ const initDataTable = async () => {
 
 const TablaPruebasSolicitante = async (id_solicitante) => {
     try {
-        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante=${id_solicitante}`);
+        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante=`+id_solicitante);
         const data = await response.json();
 
         let content = ``;
@@ -301,7 +301,6 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
                     <td class="textVerMas">${item.especificaciones}</td>
                 </tr>`;
         });
-
         listadoPruebasBody.innerHTML = content;
         ocultarContenido("textVerMas", 40);
     } catch (ex) {
