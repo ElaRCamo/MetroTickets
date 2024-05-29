@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="table-Conteiner">
-                <table class="dataTable tableSearch compact" id="listadoPruebas" >
+                <table class="dataTable tableSearch display compact" id="listadoPruebas" >
                     <thead>
                         <tr>
                             <th class="centered" id="folio">FOLIO</th>
