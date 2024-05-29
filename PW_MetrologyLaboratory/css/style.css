@@ -821,7 +821,7 @@ table tbody tr {
     margin-top: 20px;
 }
 
-.dataTables_paginate .paginate_button {
+.dataTables_paginate .paginate_button, #listadoPruebas_previous {
     background-color: var(--main-color);
     border: 1px solid var(--main-color);
     border-radius: 4px;
@@ -839,4 +839,19 @@ table tbody tr {
     background-color: var(--main-color);
     border-color: var(--main-color);
     color: #f1f4f9;
+}
+
+#listadoPruebas_length,
+#listadoPruebas_filter {
+    padding: 10px; /* Ajusta el padding según tus necesidades */
+    background-color: var(--main-color);
+    color: #f1f4f9;
+}
+
+#listadoPruebas_filter input {
+    color: #000; /* Color del texto dentro del input */
+}
+
+#listadoPruebas_length select {
+    color: #000; /* Color del texto dentro del select */
 }
