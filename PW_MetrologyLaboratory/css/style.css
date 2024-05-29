@@ -850,3 +850,12 @@ table tbody tr {
     background-color: #f1f4f9;
 }
 
+#listadoPruebas{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#listadoPruebas .col{
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
