@@ -795,3 +795,48 @@ table tbody tr {
     text-align: center !important;
     vertical-align: middle !important;
 }
+
+
+/*DeataTable*/
+
+     /* Estilo para el buscador */
+ .dataTables_filter {
+     margin-bottom: 20px;
+ }
+
+.dataTables_filter label {
+    font-weight: bold;
+    color: var(--main-color);
+}
+
+.dataTables_filter input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+/* Estilo para la paginación */
+.dataTables_paginate {
+    margin-top: 20px;
+}
+
+.dataTables_paginate .paginate_button {
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin: 0 2px;
+    cursor: pointer;
+    color: #f1f4f9;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    background-color: #f1f4f9;
+}
+
+.dataTables_paginate .paginate_button.current {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    color: #f1f4f9;
+}
