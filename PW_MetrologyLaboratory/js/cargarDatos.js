@@ -265,7 +265,7 @@ const dataTableOptions = {
     }
 };
 
-const initDataTable = async () => {
+const initDataTable = async (solicitante) => {
     if (dataTableIsInitialized) {
         dataTable.destroy();
     }
