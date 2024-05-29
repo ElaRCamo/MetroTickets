@@ -685,6 +685,8 @@ table tbody tr {
 #listadoPruebas td{
     font-size: 0.9rem !important;
     color: var(--main-color) !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
 }
 #listadoPruebas #folio{
     width: 6.8rem !important;
