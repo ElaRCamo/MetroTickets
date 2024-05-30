@@ -45,6 +45,7 @@ function validarFormReporte(){
     const esMes = validarSelect('mesR');
 
     if(esTipo && esAnio && esMes){
+        console.log("if true");
         generarReporte();
     }
 

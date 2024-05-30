@@ -1415,6 +1415,8 @@ function llenarMes() {
 }
 
 function generarReporte(){
+    console.log("generarReporte");
+
     var tipoReporte= id("tipoReporte");
     var anio =  id("anioR");
     var mes =  id("mesR");
@@ -1424,5 +1426,4 @@ function generarReporte(){
     dataForm.append('mesR', mes.value.trim());
 
     console.log("tipoReporte: "+tipoReporte.value+" anioR: "+anio.value+" mesR: "+mes.value);
-
 }
