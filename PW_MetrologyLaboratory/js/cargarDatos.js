@@ -1402,17 +1402,30 @@ function llenarMes() {
         createOptionDef.value = "";
         selectS.appendChild(createOptionDef);
 
-       var  meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+       var  meses2 = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
        var mesesData = [];
+
+       let meses = {
+           "1": "Enero",
+           "2": "Febrero",
+           "3": "Marzo",
+           "4": "Junio",
+           "5": "Junio",
+           "6": "Junio",
+           "7": "Julio",
+           "8": "Agosto",
+           "9": "Septiembre",
+           "10": "Octubre",
+           "11": "Noviembre",
+           "12": "Diciembre"
+       }
 
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
             createOptionS.value = data.data[i].mes;
-
-            if((i+1) === data.data[i].mes){
-                createOptionS.text = mes[i];
-                selectS.appendChild(createOptionS);
-            }
+            createOptionS.text =meses[data.data[i].mes.toString()];
+            console.log("mes: "+data.data[i].mes +"valormes: "+ meses[data.data[i].mes.toString()]);
+            selectS.appendChild(createOptionS);
         }
     });
 }
