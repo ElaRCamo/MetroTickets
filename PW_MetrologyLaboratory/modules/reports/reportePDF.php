@@ -16,7 +16,7 @@ include_once('../../dao/funtions.php');
 $tipoReporte = filter_input(INPUT_GET, 'tipo', FILTER_SANITIZE_STRING);
 $anio = filter_input(INPUT_GET, 'anio', FILTER_SANITIZE_NUMBER_INT);
 $mes = filter_input(INPUT_GET, 'mes', FILTER_SANITIZE_NUMBER_INT);
-
+$mes = (int)$mes;
 if (!$tipoReporte || !$anio || !$mes) {
     die('Faltan parámetros o son inválidos.');
 }
