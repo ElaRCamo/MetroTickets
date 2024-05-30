@@ -1431,4 +1431,3 @@ function generarReporte() {
         window.location.href = url;
     }
 }
-
