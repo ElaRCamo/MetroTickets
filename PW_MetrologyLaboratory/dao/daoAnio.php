@@ -10,12 +10,8 @@ function ContadorAnios(){
 
     $datos = mysqli_query($conex, "SELECT DISTINCT YEAR(fechaRespuesta) AS anio
                                            FROM Prueba
-                                          WHERE fechaRespuesta IS NOT NULL AND fechaRespuesta != '0000-00-00'
-                                          UNION
-                                         SELECT DISTINCT YEAR(fechaSolicitud) AS anio
-                                           FROM Prueba
-                                          WHERE fechaSolicitud IS NOT NULL AND fechaSolicitud != '0000-00-00'
-                                          ORDER BY año;");
+                                          WHERE fechaRespuesta IS NOT NULL 
+                                            AND fechaRespuesta != '0000-00-00'");
 
     $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
