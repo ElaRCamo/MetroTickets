@@ -95,9 +95,9 @@ function validacionSolicitud() {
 
             if (sesionIniciada && id_prueba !== null && id_prueba !== undefined) {
                 alert("Se ejecuta registrarSolicitud "+id_prueba)
-                document.getElementById('first').style.display = 'none';
-                document.getElementById('carga').style.display = 'block';
-                document.getElementById('carga').innerHTML = '<div class="loading"><img src="../../imgs/carga.gif" height="350px"><br/>Un momento, por favor...</div>';
+                //document.getElementById('first').style.display = 'none';
+                //document.getElementById('carga').style.display = 'block';
+                //document.getElementById('carga').innerHTML = '<div class="loading"><img src="../../imgs/carga.gif" height="350px"><br/>Un momento, por favor...</div>';
 
                 registrarSolicitud(id_prueba);
             } else if(sesionIniciada === false) {
