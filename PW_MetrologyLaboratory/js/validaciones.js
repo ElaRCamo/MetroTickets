@@ -46,11 +46,11 @@ function validarFormReporte(){
 
     if(esTipo && esAnio && esMes){
 
-        var tipo = document.getElementById("tipoReporte");
-        var anio = document.getElementById("anioR");
-        var mes = document.getElementById("mesR");
+        var t = id("tipoReporte");
+        var a = id("anioR");
+        var m = id("mesR");
 
-        var url = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/reports/reportePDF.php?tipo=" + tipo.value + "&anio=" + anio.value + "&mes=" + mes.value;
+        var url = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/reports/reportePDF.php?tipo=" + t.value + "&anio=" + a.value + "&mes=" + m.value;
         console.log(url);
 
         window.location.replace(url);
