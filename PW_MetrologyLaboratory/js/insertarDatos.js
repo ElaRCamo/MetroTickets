@@ -95,6 +95,10 @@ function validacionSolicitud() {
 
             if (sesionIniciada && id_prueba !== null && id_prueba !== undefined) {
                 alert("Se ejecuta registrarSolicitud "+id_prueba)
+                document.getElementById('first').style.display = 'none';
+                document.getElementById('carga').style.display = 'block';
+                document.getElementById('carga').innerHTML = '<div class="loading"><img src="../../imgs/carga.gif" height="350px"><br/>Un momento, por favor...</div>';
+
                 registrarSolicitud(id_prueba);
             } else if(sesionIniciada === false) {
                 // Si la sesión no está iniciada, mostrar un mensaje de error
@@ -124,10 +128,6 @@ function registrarSolicitud(nuevoId) {
         var especificaciones   = id ("especificaciones");
         var fechaSolicitud    = new Date();
         var fechaFormateada  = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
-
-        document.getElementById('first').style.display = 'none';
-        document.getElementById('carga').style.display = 'block';
-        document.getElementById('carga').innerHTML = '<div class="loading"><img src="../../imgs/carga.gif" height="350px"><br/>Un momento, por favor...</div>';
 
         dataForm.append('id_prueba', nuevoId);
         dataForm.append('fechaSolicitud', fechaFormateada);
