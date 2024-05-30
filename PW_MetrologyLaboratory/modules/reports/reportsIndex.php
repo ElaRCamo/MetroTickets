@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/form.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- -Archivos de jQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <?php
         session_start();
         $nombreUser = $_SESSION['nombreUsuario'];
