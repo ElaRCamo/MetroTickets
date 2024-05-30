@@ -1,17 +1,21 @@
 function updateLink(id,estatus) {
-    var link = document.getElementById('updateBtnS');
+    if(esActualizacion === true){
+        var link = document.getElementById('updateBtnS');
 
-    if (id === '5' || id === '7') {
-        link.setAttribute('onclick', 'updatePrueba();');
-        link.style.pointerEvents = 'auto';
-        link.style.cursor = 'pointer';
-    } else {
-        // Cambia el texto del enlace
-        link.innerHTML = '<i class="lar la-lightbulb"></i>Estatus: ' + estatus + '<br>(No es posible actualizar)';
-        link.removeAttribute('onclick');
-        link.removeAttribute('href');
-        link.style.pointerEvents = 'none';
-        link.style.cursor = 'default';
+        if (id === '5' || id === '7') {
+            link.setAttribute('onclick', 'updatePrueba();');
+            link.style.pointerEvents = 'auto';
+            link.style.cursor = 'pointer';
+        } else {
+            // Cambia el texto del enlace
+            link.innerHTML = '<i class="lar la-lightbulb"></i>Estatus: ' + estatus + '<br>(No es posible actualizar)';
+            link.removeAttribute('onclick');
+            link.removeAttribute('href');
+            link.style.pointerEvents = 'none';
+            link.style.cursor = 'default';
+        }
+    }else{
+        console.log("No es actualizacion")
     }
 }
 
