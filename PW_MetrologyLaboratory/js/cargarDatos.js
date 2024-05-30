@@ -1408,8 +1408,7 @@ function llenarMes() {
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
             createOptionS.value = data.data[i].mes;
-            createOptionS.text =meses[data.data[i].mes.toString()];
-            console.log("mes: "+data.data[i].mes +"valormes: "+ meses[data.data[i].mes.toString()]);
+            createOptionS.text =meses[data.data[i].mes];
             selectS.appendChild(createOptionS);
         }
     });
