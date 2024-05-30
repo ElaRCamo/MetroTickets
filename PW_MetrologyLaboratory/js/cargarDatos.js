@@ -1408,11 +1408,11 @@ function llenarMes() {
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
             createOptionS.value = data.data[i].mes;
-            mesesData.push(data.data[i].mes);
-            console.log("mesesData"+mesesData);
-            createOptionS.text = meses[i];
-            console.log("meses[i]"+meses[i]);
-            selectS.appendChild(createOptionS);
+
+            if((i+1) === data.data[i].mes){
+                createOptionS.text = mes[i];
+                selectS.appendChild(createOptionS);
+            }
         }
     });
 }
