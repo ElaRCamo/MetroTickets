@@ -519,7 +519,7 @@ function resumenPrueba(ID_PRUEBA){
         }
     }).then(function (){
 
-        updateLink(id_estatusSol,estatusSol);
+        console.log("aqui va updateLink(id_estatusSol,estatusSol)");//updateLink(id_estatusSol,estatusSol);
     });
 }
 
