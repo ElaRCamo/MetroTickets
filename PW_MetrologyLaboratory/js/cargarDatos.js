@@ -1402,7 +1402,7 @@ function llenarMes() {
         createOptionDef.value = "";
         selectS.appendChild(createOptionDef);
 
-       var  meses = [Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre];
+       var  meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
        var mesesData = [];
 
         for (var i = 0; i < data.data.length; i++) {
