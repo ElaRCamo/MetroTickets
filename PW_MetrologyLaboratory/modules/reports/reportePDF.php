@@ -47,7 +47,7 @@ $con = new LocalConector();
 $conex = $con->conectar();
 
 $datosPrueba =  mysqli_query($conex,
-                                "SELECT * FROM usuario");
+                                "SELECT * FROM Usuario");
 
 $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
 
