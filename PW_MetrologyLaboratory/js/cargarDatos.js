@@ -1402,10 +1402,12 @@ function llenarMes() {
         createOptionDef.value = "";
         selectS.appendChild(createOptionDef);
 
+       var  meses = [Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre];
+
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
-            createOptionS.value = data.data[i].id_tipoPrueba;
-            createOptionS.text = data.data[i].descripcionPrueba;
+            createOptionS.value = data.data[i].mes;
+            createOptionS.text = meses[i];
             selectS.appendChild(createOptionS);
         }
     });
