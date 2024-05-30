@@ -39,25 +39,6 @@ function validarFormNewRequest() {
     }
 }
 
-function validarFormReporte(){
-    const esTipo = validarSelect('tipoReporte');
-    const esAnio = validarSelect('anioR');
-    const esMes = validarSelect('mesR');
-
-    if(esTipo && esAnio && esMes){
-
-        var tipo = id("tipoReporte");
-        var anio = id("anioR");
-        var mes = id("mesR");
-
-        var url = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/reports/reportePDF.php?tipo=" + tipo.value + "&anio=" + anio.value + "&mes=" + mes.value;
-        console.log(url);
-
-        window.location.href = url;
-    }
-
-}
-
 
 function validarSelect(idSelect) {
     const selectElement = document.getElementById(idSelect);
