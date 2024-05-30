@@ -95,10 +95,6 @@ function validacionSolicitud() {
 
             if (sesionIniciada && id_prueba !== null && id_prueba !== undefined) {
                 alert("Se ejecuta registrarSolicitud "+id_prueba)
-                //document.getElementById('first').style.display = 'none';
-                //document.getElementById('carga').style.display = 'block';
-                //document.getElementById('carga').innerHTML = '<div class="loading"><img src="../../imgs/carga.gif" height="350px"><br/>Un momento, por favor...</div>';
-
                 registrarSolicitud(id_prueba);
             } else if(sesionIniciada === false) {
                 // Si la sesión no está iniciada, mostrar un mensaje de error
@@ -203,19 +199,6 @@ function registrarSolicitud(nuevoId) {
                 showError('status code: ' + response.status);
                 throw new Error('Error en la solicitud: ' + response.status);
             }
-        })
-        .then(function(data) {
-            // Retraso de tiempo de 1 segundo antes de ejecutar más acciones
-            return new Promise(function(resolve, reject) {
-                setTimeout(() => {
-                    let todoCorrecto = true;
-                    if (todoCorrecto) {
-                        resolve('Todo ha ido bien');
-                    } else {
-                        reject('Algo ha fallado')
-                    }
-                }, 9000)
-            });
         })
         .then(function(data) {
             resumenSolicitud(nuevoId);
