@@ -1414,16 +1414,11 @@ function llenarMes() {
     });
 }
 
-function generarReporte(){
-    console.log("generarReporte");
+function generarReporte() {
+    var tipo = document.getElementById("tipoReporte");
+    var anio = document.getElementById("anioR");
+    var mes = document.getElementById("mesR");
 
-    var tipoReporte= id("tipoReporte");
-    var anio =  id("anioR");
-    var mes =  id("mesR");
-    const dataForm = new FormData();
-    dataForm.append('tipoReporte', tipoReporte.value.trim());
-    dataForm.append('anioR', anio.value.trim());
-    dataForm.append('mesR', mes.value.trim());
-
-    console.log("tipoReporte: "+tipoReporte.value+" anioR: "+anio.value+" mesR: "+mes.value);
+    window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/reportePDF.php?tipo=" + tipo.value + "&anio=" + anio.value + "&mes=" + mes.value;
 }
+
