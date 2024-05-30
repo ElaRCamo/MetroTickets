@@ -30,7 +30,7 @@ ob_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="../../imgs/Grammer_Logo.ico" type="image/x-icon">
-    <title>Reporte <?php echo obtenerNombreMes($mes); echo $anio?></title>
+    <title>Reporte <?php echo obtenerNombreMes($mes).' '; echo $anio?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -47,63 +47,7 @@ $con = new LocalConector();
 $conex = $con->conectar();
 
 $datosPrueba =  mysqli_query($conex,
-                                "SELECT   prueba.id_prueba, 
-                                                    prueba.fechaSolicitud, 
-                                                    prueba.fechaRespuesta, 
-                                                    prueba.fechaActualizacion,
-                                                    prueba.descripcionEstatus,
-                                                    prueba.descripcionPrioridad,
-                                                    prueba.descripcionPrueba, 
-                                                    prueba.especificaciones,
-                                                    prueba.especificacionesLab,
-                                                    prueba.normaNombre,
-                                                    prueba.normaArchivo,
-                                                    prueba.rutaResultados,
-                                                    prueba.id_metrologo, 
-                                                    prueba.nombreMetro,  
-                                                    prueba.id_solicitante, 
-                                                    prueba.nombreSolic,
-                                                    dm.numeroDeParte, 
-                                                    m.cantidad, 
-                                                    dm.descripcionMaterial, 
-                                                    dm.imgMaterial, 
-                                                    c.descripcionCliente, 
-                                                    p.descripcionPlataforma,
-                                                    em.descripcionEstatus AS estatusMaterial
-                                                FROM   
-                                                    Material m
-                                                    JOIN DescripcionMaterial dm ON m.id_descripcion = dm.id_descripcion
-                                                    JOIN Plataforma p ON dm.id_plataforma = p.id_plataforma
-                                                    JOIN Cliente c ON p.id_cliente = c.id_cliente
-                                                    JOIN EstatusMaterial em ON m.id_estatusMaterial = em.id_estatusMaterial
-                                                    JOIN (
-                                                        SELECT 
-                                                            id_prueba, 
-                                                            fechaSolicitud, 
-                                                            fechaRespuesta,
-                                                            fechaActualizacion,
-                                                            descripcionEstatus,
-                                                            descripcionPrioridad,
-                                                            descripcionPrueba,
-                                                            especificaciones,
-                                                            especificacionesLab,
-                                                            normaNombre,
-                                                            normaArchivo,
-                                                            rutaResultados,
-                                                            s.id_metrologo, 
-                                                            u_metro.nombreUsuario AS nombreMetro,
-                                                            s.id_solicitante, 
-                                                            u_solic.nombreUsuario AS nombreSolic
-                                                        FROM 
-                                                            Prueba s
-                                                            LEFT JOIN Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
-                                                            LEFT JOIN Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
-                                                            LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
-                                                            LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
-                                                            LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
-                                                        WHERE 
-                                                            id_prueba = '$id_prueba'
-                                                    ) AS prueba ON m.id_prueba = prueba.id_prueba;");
+                                " ");
 
 $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
 
@@ -114,7 +58,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
             <tr class="">
                 <th class="">
                     <div class="col divTitle" id="divRespdf">
-                        <h1>Reporte <?php echo obtenerNombreMes($mes); echo $anio?></h1>
+                        <h1>Reporte <?php echo obtenerNombreMes($mes).' '; echo $anio?></h1>
                         <h6>LABORATORIO DE METROLOGÍA</h6>
                         <?php echo "<small>Fecha: $date</small>";?>
                     </div>
@@ -131,100 +75,73 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
     <div class="container-fluid" id="containerPruebaPDF" >
         <div class="row">
             <div class="table-responsive">
-                <h5 id="titleTablaPDFg">DATOS GENERALES</h5>
+                <h5 id="titleTablaPDFg">ESTADÍSTICAS</h5>
                 <table class="table table-bordered table-hover table-sm  table-responsive" id="datosGeneralesTablePDF">
                     <tbody>
                     <tr class="bg-primary">
-                        <th class="">No. de solicitud: </th>
-                        <td> <?php echo $resultados[0]['id_prueba'];?> </td>
-                        <th class="" > Fecha de Solicitud: </th>
-                        <td><?php echo $resultados[0]['fechaSolicitud'];?></td>
+                        <th class="">Pruebas realizadas: </th>
+                        <td> <?php echo "17";?> </td>
+                        <th class="" > Tiempo de respuesta </th>
+                        <td><?php echo "14.8 días/prueba";?></td>
                     </tr>
                     <tr>
-                        <th class="">Tipo de Prueba: </th>
-                        <td><?php echo $resultados[0]['descripcionPrueba'];?></td>
-                        <th class=""> Solicitante:</th>
-                        <td><?php echo $resultados[0]['nombreSolic'];?> </td>
-                    </tr>
-                    <tr>
-                        <th class="">Norma: </th>
-                        <td><?php echo $resultados[0]['normaNombre'];?></td>
-                        <th class="">Documento de la norma: </th>
-                        <td> <?php $urlCompleta = $resultados[0]['normaArchivo'];
-                                if($urlCompleta != 'No aplica'){
-                                    $nombreArchivo = substr($urlCompleta, strrpos($urlCompleta, '/') + 1);
-                                    $numeroReferencia = explode('-', $nombreArchivo)[1];
-                                    $nombreArchivoSinPDF = substr($nombreArchivo, 0, strrpos($nombreArchivo, '.')); // Eliminar la extensión .pdf
-                                    $nombreArchivoMostrado = substr($nombreArchivoSinPDF, strlen($numeroReferencia) + 1);
-                                    echo '<a href="' . $urlCompleta . '">' . $nombreArchivoMostrado . '</a>';
-                                }else{
-                                    echo $urlCompleta;
-                                }
-                            ?>
-                    </tr>
-                    <tr>
-                        <th class="">Especifícaciones: </th>
-                        <td colspan="3"><?php echo $resultados[0]['especificaciones'];?></td>
+                        <th class="">Pruebas pendientes </th>
+                        <td><?php echo "2";?></td>
+                        <th class=""> Eficiencia operativa</th>
+                        <td><?php echo "0.5 pruebas/dia";?> </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <div id="" class="table-responsive">
-                <h5 id="materialPDF">MATERIAL PARA MEDICIÓN</h5>
+                <h5 id="materialPDF">PRUEBAS POR METRÓLOGO</h5>
                 <table class="table table-striped" id="materialesResumenPDF">
                     <thead>
                     <tr>
-                        <th>No. de Parte</th>
-                        <th>Material</th>
-                        <th>Cantidad</th>
-                        <th>Cliente</th>
-                        <th>Plataforma</th>
-                        <th>Estatus</th>
+                        <th>Metrólogo</th>
+                        <th>Pruebas atendidas</th>
                     </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($resultados as $resultado){?>
                         <tr>
-                            <td><?php echo $resultado['numeroDeParte'];?> </td>
-                            <td><?php echo $resultado['descripcionMaterial'];?></td>
-                            <td><?php echo $resultado['cantidad'];?></td>
-                            <td><?php echo $resultado['descripcionCliente'];?></td>
-                            <td><?php echo $resultado['descripcionPlataforma'];?></td>
-                            <td><?php echo $resultado['estatusMaterial'];?></td>
+                            <td>Kevin Perez</td>
+                            <td>"20"</td>
                         </tr>
-                        <?php }?>
+                        <tr>
+                            <td>Paola Gonzalez</td>
+                            <td>"16"</td>
+                        </tr>
+                        <tr>
+                            <td>Luisa Sánchez</td>
+                            <td>"17"</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
             <div id="" class="table-responsive">
-                <h5 id="titleTablaPDF">RESULTADOS</h5>
+                <h5 id="titleTablaPDF">PRUEBAS SOLICITADAS</h5>
                 <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTablePDF">
+                    <thead>
+                    <tr>
+                        <th>Tipo de prueba</th>
+                        <th>Núm. de pruebas</th>
+                    </tr>
+                    </thead>
                     <tbody>
-                    <tr>
-                        <th class="">Fecha de Respuesta:</th>
-                        <td id=""><?php echo $resultados[0]['fechaRespuesta'];?></td>
-                        <th class="">Metrólogo:</th>
-                        <td id=""><?php echo $resultados[0]['nombreMetro'];?> </td>
-                    </tr>
-                    <tr>
-                        <th class="">Estatus: </th>
-                        <td id="" ><?php echo $resultados[0]['descripcionEstatus'];?></td>
-                        <th class="">Prioridad:</th>
-                        <td id=""> <?php echo $resultados[0]['descripcionPrioridad'];?></td>
-                    </tr>
-                    <tr>
-                        <th class="">Observaciones:</th>
-                        <td id="" colspan="3"><?php echo $resultados[0]['especificacionesLab'];?></td>
-                    </tr>
-                    <tr>
-                        <th class="">Resultados:</th>
-                        <td id=""  colspan="3"><?php echo $resultados[0]['rutaResultados'];?></td>
-                    </tr>
+                        <tr>
+                            <td>Extracción</td>
+                            <td>"20"</td>
+                        </tr>
+                        <tr>
+                            <td>Compresión</td>
+                            <td>"16"</td>
+                        </tr>
+                        <tr>
+                            <td>Otra</td>
+                            <td>"17"</td>
+                        </tr>
                     </tbody>
                 </table>
-            </div>
-            <div  id="divUpdate">
-                <span >Ultima actualización: <span class="" id="fechaUpdateR"><?php echo $resultados[0]['fechaActualizacion'];?></span></span>
             </div>
         </div>
     </div>
@@ -270,5 +187,6 @@ if(headers_sent($f,$l)){
     echo $f,'<br/>',$l,'<br/>';
     die('se detecto linea');
 }*/
-$dompdf->stream("LM-Prueba_$id_prueba.pdf", array("Attachment" => false));
+$dompdf->stream("LM-Preporte_" . obtenerNombreMes($mes) . $anio . ".pdf", array("Attachment" => false));
+
 ?>
