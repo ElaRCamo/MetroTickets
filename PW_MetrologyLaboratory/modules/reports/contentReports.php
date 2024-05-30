@@ -24,7 +24,7 @@
                     <div class="col-sm-4" id="divAnioReporte">
                         <label for="anio">Año</label>
                         <div class="form-group" id="divAnioReporte">
-                            <select class="form-control" id="anio" name="anio" required data-error="Por favor seleccione un año válido.">
+                            <select class="form-control" id="anioR" name="anioR" required data-error="Por favor seleccione un año válido.">
                                 <option value="">Seleccione el año*</option>
                             </select>
                             <div class="input-group-icon"><i class="las la-calendar-check"></i></div>
@@ -35,7 +35,7 @@
                     <div class="col-sm-4" id="divMesReporte">
                         <label for="mes">Mes</label>
                         <div class="form-group" id="divMesReporte">
-                            <select class="form-control" id="mes" name="mes" required data-error="Por favor seleccione un mes válido.">
+                            <select class="form-control" id="mesR" name="mesR" required data-error="Por favor seleccione un mes válido.">
                                 <option value="">Seleccione el mes*</option>
                             </select>
                             <div class="input-group-icon"><i class="las la-calendar-week"></i></div>

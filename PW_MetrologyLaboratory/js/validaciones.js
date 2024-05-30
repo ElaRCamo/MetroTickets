@@ -39,6 +39,13 @@ function validarFormNewRequest() {
     }
 }
 
+function validarFormReporte(){
+    const esTipo = validarSelect('tipoReporte');
+    const esAnio = validarSelect('anioR');
+    const esMes = validarSelect('mesR');
+
+}
+
 
 function validarSelect(idSelect) {
     const selectElement = document.getElementById(idSelect);
