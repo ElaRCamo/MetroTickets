@@ -34,10 +34,8 @@ function validarFormNewRequest() {
         }else if (esActualizacion === true){
             actualizarSolicitud();
         }
-        return true;
     } else {
         console.log("Hay campos sin completar.");
-        return false;
     }
 }
 
