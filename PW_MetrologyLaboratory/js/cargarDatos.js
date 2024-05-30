@@ -1402,23 +1402,8 @@ function llenarMes() {
         createOptionDef.value = "";
         selectS.appendChild(createOptionDef);
 
-       var  meses2 = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-       var mesesData = [];
-
-       let meses = {
-           "1": "Enero",
-           "2": "Febrero",
-           "3": "Marzo",
-           "4": "Junio",
-           "5": "Junio",
-           "6": "Junio",
-           "7": "Julio",
-           "8": "Agosto",
-           "9": "Septiembre",
-           "10": "Octubre",
-           "11": "Noviembre",
-           "12": "Diciembre"
-       }
+        let meses = {"1": "Enero","2": "Febrero","3": "Marzo","4": "Abril","5": "Mayo","6": "Junio",
+                           "7": "Julio","8": "Agosto","9": "Septiembre","10": "Octubre","11": "Noviembre","12": "Diciembre"};
 
         for (var i = 0; i < data.data.length; i++) {
             var createOptionS = document.createElement("option");
