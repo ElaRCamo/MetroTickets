@@ -8,11 +8,11 @@ function ContadorAnios(){
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $datos = mysqli_query($conex, "SELECT DISTINCT YEAR(fechaRespuesta) AS año
+    $datos = mysqli_query($conex, "SELECT DISTINCT YEAR(fechaRespuesta) AS anio
                                            FROM Prueba
                                           WHERE fechaRespuesta IS NOT NULL AND fechaRespuesta != '0000-00-00'
                                           UNION
-                                         SELECT DISTINCT YEAR(fechaSolicitud) AS año
+                                         SELECT DISTINCT YEAR(fechaSolicitud) AS anio
                                            FROM Prueba
                                           WHERE fechaSolicitud IS NOT NULL AND fechaSolicitud != '0000-00-00'
                                           ORDER BY año;");

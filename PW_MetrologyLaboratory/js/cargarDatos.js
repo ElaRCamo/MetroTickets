@@ -1378,3 +1378,35 @@ function recuperarPassword(){
 
 }*/
 
+function llenarAnio(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoAnio.php', function (data){
+        var selectS = id("anioR");
+
+        for (var i = 0; i < data.data.length; i++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[i].anio;
+            createOption.text = data.data[i].anio;
+            selectS.appendChild(createOption);
+        }
+    });
+}
+
+
+function llenarMes() {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoAnioMes.php?anio=' + id("anioR").value, function (data) {
+        var selectS = id("mesR");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione el mes*";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
+        for (var i = 0; i < data.data.length; i++) {
+            var createOptionS = document.createElement("option");
+            createOptionS.value = data.data[i].id_tipoPrueba;
+            createOptionS.text = data.data[i].descripcionPrueba;
+            selectS.appendChild(createOptionS);
+        }
+    });
+}
