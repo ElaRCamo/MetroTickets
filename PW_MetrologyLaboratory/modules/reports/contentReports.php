@@ -44,7 +44,7 @@
                     </div>
 
                 <div class="container" id="divBtnReporte">
-                    <button type="submit" onclick="" class="btn btn-primary" id="btnReporte"><i class="las la-newspaper"></i>Generar reporte</button>
+                    <button type="submit" onclick="validarFormReporte()" class="btn btn-primary" id="btnReporte"><i class="las la-newspaper"></i>Generar reporte</button>
                 </div>
             </form>
         </div>
