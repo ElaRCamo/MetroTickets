@@ -30,7 +30,7 @@
         }
     ?>
 </head>
-<body onload="llenarAnio()">
+<body>
     <?php
         # Header section
             require_once('../../header.php');

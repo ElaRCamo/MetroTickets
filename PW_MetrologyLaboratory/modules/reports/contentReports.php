@@ -11,7 +11,7 @@
                     <div class="col-sm-4" id="divTipoReporte">
                         <label for="tipoReporte">Tipo de reporte</label>
                         <div class="form-group" id="divTipoReporte">
-                            <select class="form-control" id="tipoReporte" name="tipoReporte" required data-error="Por favor seleccione un tipo de reporte válido.">
+                            <select class="form-control" id="tipoReporte" name="tipoReporte" onchange="llenarAnio()" required data-error="Por favor seleccione un tipo de reporte válido.">
                                 <option value="">Seleccione el tipo de reporte*</option>
                                 <option value="1">Sólo estadísticas</option>
                                 <option value="2">Detallado</option>
@@ -24,7 +24,7 @@
                     <div class="col-sm-4" id="divAnioReporte">
                         <label for="anio">Año</label>
                         <div class="form-group" id="divAnioReporte">
-                            <select class="form-control" id="anioR" name="anioR" required data-error="Por favor seleccione un año válido.">
+                            <select class="form-control" id="anioR" name="anioR" onchange="llenarMes()" required data-error="Por favor seleccione un año válido.">
                                 <option value="">Seleccione el año*</option>
                             </select>
                             <div class="input-group-icon"><i class="las la-calendar-check"></i></div>
