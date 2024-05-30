@@ -1419,6 +1419,6 @@ function generarReporte() {
     var anio = document.getElementById("anioR");
     var mes = document.getElementById("mesR");
 
-    window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/reportePDF.php?tipo=" + tipo.value + "&anio=" + anio.value + "&mes=" + mes.value;
+    window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/reports/reportePDF.php?tipo=" + tipo.value + "&anio=" + anio.value + "&mes=" + mes.value;
 }
 
