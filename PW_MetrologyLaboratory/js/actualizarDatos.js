@@ -1,26 +1,21 @@
 function updateLink(id,estatus) {
-    if(esActualizacion === true){
-        var link = document.getElementById('updateBtnS');
 
-        if (id === '5' || id === '7') {
-            link.setAttribute('onclick', 'updatePrueba();');
-            link.style.pointerEvents = 'auto';
-            link.style.cursor = 'pointer';
-        } else {
-            // Cambia el texto del enlace
-            link.innerHTML = '<i class="lar la-lightbulb"></i>Estatus: ' + estatus + '<br>(No es posible actualizar)';
-            link.removeAttribute('onclick');
-            link.removeAttribute('href');
-            link.style.pointerEvents = 'none';
-            link.style.cursor = 'default';
-        }
-    }else{
-        console.log("No es actualizacion")
+    var link = document.getElementById('updateBtnS');
+
+    if (id === '5' || id === '7') {
+        link.setAttribute('onclick', 'updatePrueba();');
+        link.style.pointerEvents = 'auto';
+        link.style.cursor = 'pointer';
+    } else {
+        // Cambia el texto del enlace
+        link.innerHTML = '<i class="lar la-lightbulb"></i>Estatus: ' + estatus + '<br>(No es posible actualizar)';
+        link.removeAttribute('onclick');
+        link.removeAttribute('href');
+        link.style.pointerEvents = 'none';
+        link.style.cursor = 'default';
     }
-}
 
-// Ejemplo de uso:
-updateLink('5'); // Aquí pasas el valor de id_estatusSol
+}
 
 function  updatePruebaAdmin(id_review, id_user){
 
