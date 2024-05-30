@@ -44,6 +44,10 @@ function validarFormReporte(){
     const esAnio = validarSelect('anioR');
     const esMes = validarSelect('mesR');
 
+    if(esTipo && esAnio && esMes){
+        generarReporte();
+    }
+
 }
 
 

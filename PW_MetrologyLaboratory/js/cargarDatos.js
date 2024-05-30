@@ -1413,3 +1413,16 @@ function llenarMes() {
         }
     });
 }
+
+function generarReporte(){
+    var tipoReporte= id("tipoReporte");
+    var anio =  id("anioR");
+    var mes =  id("mesR");
+    const dataForm = new FormData();
+    dataForm.append('tipoReporte', tipoReporte.value.trim());
+    dataForm.append('anioR', anio.value.trim());
+    dataForm.append('mesR', mes.value.trim());
+
+    console.log("tipoReporte: "+tipoReporte.value+" anioR: "+anio.value+" mesR: "+mes.value);
+
+}
