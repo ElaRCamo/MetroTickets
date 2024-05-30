@@ -858,7 +858,61 @@ function agregarMaterial() {
 function reviewPDF(ID_PRUEBA){
     window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/pruebaPDF.php?id_prueba=" + ID_PRUEBA;
 }
+const initDataTableClientes = async () => {
+    if (dataTableIsInitialized) {
+        dataTable.destroy();
+    }
+    await TablaAdminClientes;
 
+    dataTable = $("#tablaClientes").DataTable(dataTableOptions);
+
+    dataTableIsInitialized = true;
+
+    var filtroListadoPruebas = document.getElementById("listadoPruebas_filter");
+    var contenedor = filtroListadoPruebas.parentNode;
+    contenedor.style.padding = "0";
+
+    var filtroListadoPruebas2 = document.getElementById("listadoPruebas_length");
+    var contenedor2 = filtroListadoPruebas2.parentNode;
+    contenedor2.style.padding = "0";
+};
+
+
+const TablaAdminClientes = async () => {
+    try {
+        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php`);
+        const result = await response.json();
+
+        if (!Array.isArray(result.data)) {
+            throw new Error('La respuesta del servidor no es un array.');
+        }
+
+        let content = '';
+        result.data.forEach((item) => {
+            content += `
+                <tr>
+                    <td>${item.descripcionCliente}</td>
+                    <td>
+                        <button class="btn btn-warning btnEditar" onclick="editarCliente('${item.id_cliente}')" data-bs-toggle="modal" data-bs-target="#editarClienteModal">
+                            <i class="las la-edit"></i> Editar
+                        </button>
+                        <button class="btn btn-danger btnDesactivar" onclick="desactivarCliente('${item.id_cliente}')">
+                            <i class="las la-times-circle"></i> Desactivar
+                        </button>
+                    </td>
+                </tr>`;
+        });
+        tablaClientesBody.innerHTML = content;
+
+        showButton("btn-clientesDes");
+        hideButton("btn-clientesAct");
+
+    } catch (ex) {
+        alert(ex);
+    }
+};
+
+/*
 function TablaAdminClientes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (response) {
         var tabla = id("tablaClientes");
@@ -875,7 +929,7 @@ function TablaAdminClientes(){
             idCliente.textContent = response.data[j].id_cliente;
             fila.appendChild(idCliente);*/
 
-            var descripcionCliente = document.createElement("td");
+            /*var descripcionCliente = document.createElement("td");
             descripcionCliente.textContent = response.data[j].descripcionCliente;
             fila.appendChild(descripcionCliente);
 
@@ -910,7 +964,7 @@ function TablaAdminClientes(){
     showButton("btn-clientesDes");
     hideButton("btn-clientesAct");
 }
-
+*/
 function TablaAdminClientesDes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoClienteDes.php', function (response) {
         var tabla = id("tablaClientes");

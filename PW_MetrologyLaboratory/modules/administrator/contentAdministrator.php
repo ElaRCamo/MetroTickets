@@ -38,7 +38,7 @@
     <div class="page-content">
         <div class="container table-responsive">
             <!-- Clientes -->
-            <section>
+            <section id="sectionClientes">
                 <h3 id="clientes" >Clientes</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto">
@@ -56,13 +56,13 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tablaClientesBody">
                     </tbody>
                 </table>
             </section>
 
             <!-- Plataformas -->
-            <section >
+            <section id="sectionPlataformas">
                 <h3 id="plataformas" >Plataformas</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto">
@@ -87,7 +87,7 @@
             </section>
 
             <!-- Materiales -->
-            <section >
+            <section id="sectionMateriales">
                 <h3 id="materiales">Materiales</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto">
@@ -115,7 +115,7 @@
             </section>
 
             <!-- Usuarios -->
-            <section >
+            <section  id="sectionUsuarios">
                 <h3 id="usuarios">Usuarios</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto">
