@@ -865,6 +865,7 @@ const dataTableOptionsClientes = {
     columnDefs:[
         {className: "centered", targets: [0,1]},
         {orderable: false, targets: [0]},
+        {width: "50%", targets: [0,1]},
         {searchable: true, targets: [0] }
     ],
     pageLength:5,
