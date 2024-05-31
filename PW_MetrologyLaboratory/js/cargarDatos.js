@@ -858,13 +858,42 @@ function agregarMaterial() {
 function reviewPDF(ID_PRUEBA){
     window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/pruebaPDF.php?id_prueba=" + ID_PRUEBA;
 }
+
+
+const dataTableOptionsClientes = {
+    lengthMenu: [5,10,20,50],
+    columnDefs:[
+        {className: "centered", targets: [0,1]},
+        {orderable: false, targets: [0]},
+        {width: "50%", targets: [0,1]},
+        {searchable: true, targets: [0] }
+    ],
+    pageLength:5,
+    destroy: true,
+    language:{
+        lengthMenu: "Mostrar _MENU_ registros pór página",
+        sZeroRecords: "Ningún cliente encontrado",
+        info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
+        infoEmpty: "Ningún cliente encontrado",
+        infoFiltered: "(filtrados desde _MAX_ registros totales)",
+        search: "Buscar: ",
+        loadingRecords: "Cargando...",
+        paginate:{
+            first:"Primero",
+            last: "Último",
+            next: "Siguiente",
+            previous: "Anterior"
+        }
+    }
+};
+
 const initDataTableClientes = async () => {
     if (dataTableIsInitialized) {
         dataTable.destroy();
     }
     await TablaAdminClientes;
 
-    dataTable = $("#tablaClientes").DataTable(dataTableOptions);
+    dataTable = $("#tablaClientes").DataTable(dataTableOptionsClientes);
 
     dataTableIsInitialized = true;
 
