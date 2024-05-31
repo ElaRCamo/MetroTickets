@@ -1124,50 +1124,93 @@ const TablaAdminPlataformasDes = async () => {
         alert(ex);
     }
 };
-/*
-function TablaAdminPlataformasDes(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasTDes.php', function (response) {
-        var tabla = id("tablaPlataformas");
-        var tbody = tabla.getElementsByTagName("tbody")[0];
 
-        // Limpiar contenido previo de la tabla
-        tbody.innerHTML = '';
-
-        // Iterar sobre los materiales y crear filas y celdas de tabla
-        for (var j = 0; j < response.data.length; j++) {
-            var fila = document.createElement("tr");
-
-            /*var idPlataforma = document.createElement("td");
-            idPlataforma.textContent = response.data[j].id_plataforma;
-            fila.appendChild(idPlataforma);*
-
-            var descripcionPlataforma = document.createElement("td");
-            descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
-            fila.appendChild(descripcionPlataforma);
-
-            var descripcionCliente = document.createElement("td");
-            descripcionCliente.textContent = response.data[j].descripcionCliente;
-            fila.appendChild(descripcionCliente);
-
-            var acciones = document.createElement("td");
-            // Botón activar
-            var btnActivar = document.createElement("button");
-            btnActivar.textContent = "Activar";
-            btnActivar.classList.add("btn", "btn-success", "btnActivar");
-            btnActivar.setAttribute("onclick", "activarPlataforma('" + response.data[j].id_plataforma + "')");
-            var iconoActivar = document.createElement("i");
-            iconoActivar.classList.add("las", "la-check-circle");
-            btnActivar.prepend(iconoActivar);
-            // Agregar los botones al td
-            acciones.appendChild(btnActivar);
-            fila.appendChild(acciones);
-            tbody.appendChild(fila);
+const dataTableOptionsMateriales = {
+    lengthMenu: [5,10,20,50],
+    columnDefs:[
+        {className: "centered", targets: [0,1,2,3,4,5]},
+        {orderable: false, targets: [0,1,2,3,4]},
+        {searchable: true, targets: [0,1,3,4] }
+    ],
+    pageLength:5,
+    destroy: true,
+    language:{
+        lengthMenu: "Mostrar _MENU_ registros pór página",
+        sZeroRecords: "Ningún material encontrado",
+        info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
+        infoEmpty: "Ningún material encontrado",
+        infoFiltered: "(filtrados desde _MAX_ registros totales)",
+        search: "Buscar: ",
+        loadingRecords: "Cargando...",
+        paginate:{
+            first:"Primero",
+            last: "Último",
+            next: "Siguiente",
+            previous: "Anterior"
         }
-    });
-    showButton("btn-plataformasAct");
-    hideButton("btn-plataformasDes");
-}*/
+    }
+};
 
+let dataTableMateriales;
+let dataTableIsInitMateriales = false;
+const initDataTableMateriales = async () => {
+
+    if (dataTableIsInitMateriales) {
+        dataTableMateriales.destroy();
+    }
+    await TablaAdminMateriales();
+
+    dataTableMateriales = $("#tablaMateriales").DataTable(dataTableOptionsMateriales);
+
+    dataTableIsInitMateriales = true;
+
+    var filtro = document.getElementById("tablaMateriales_filter");
+    var contenedor = filtro.parentNode;
+    contenedor.style.padding = "0";
+
+    var filtro2 = document.getElementById("tablaMateriales_length");
+    var contenedor2 = filtro2.parentNode;
+    contenedor2.style.padding = "0";
+};
+
+const TablaAdminMateriales = async () => {
+    try {
+        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaMateriales.php`);
+        const result = await response.json();
+
+        if (!Array.isArray(result.data)) {
+            throw new Error('La respuesta del servidor no es un array.');
+        }
+
+        let content = '';
+        result.data.forEach((item) => {
+            content += `
+                <tr>
+                    <td>${item.descripcionMaterial}</td>
+                    <td>${item.numeroDeParte}</td>
+                    <td>
+                        <img class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" src="${item.imgMaterial}">
+                    </td>
+                    <td>${item.descripcionPlataforma}</td>
+                    <td>${item.descripcionCliente}</td>
+                    <td>
+                        <button class="btn btn-warning btnEditar" onclick="editarMaterial('${item.id_descripcion}')" data-bs-toggle="modal" data-bs-target="#editarMaterialModal">
+                            <i class="las la-edit"></i> Editar
+                        </button>
+                        <button class="btn btn-danger btnDesactivar" onclick="desactivarMaterial('${item.id_descripcion}')">
+                            <i class="las la-times-circle"></i> Desactivar
+                        </button>
+                    </td>
+                </tr>`;
+        });
+        tablaMaterialesBody.innerHTML = content;
+        hideButton("btn-materialesAct");
+        showButton("btn-materialesDes");
+    } catch (ex) {
+        alert(ex);
+    }
+};
+/*
 function TablaAdminMateriales(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaMateriales.php', function (response) {
         var tabla = id("tablaMateriales");
@@ -1182,7 +1225,7 @@ function TablaAdminMateriales(){
 
             /*var idMaterial = document.createElement("td");
             idMaterial.textContent = response.data[j].id_descripcion;
-            fila.appendChild(idMaterial);*/
+            fila.appendChild(idMaterial);*
 
             var descripcionMaterial = document.createElement("td");
             descripcionMaterial.textContent = response.data[j].descripcionMaterial;
@@ -1237,7 +1280,7 @@ function TablaAdminMateriales(){
     });
     hideButton("btn-materialesAct");
     showButton("btn-materialesDes");
-}
+}*/
 function TablaAdminMaterialesDes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaMaterialesDes.php', function (response) {
         var tabla = id("tablaMateriales");

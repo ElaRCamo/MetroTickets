@@ -91,11 +91,11 @@
                     <div class="col-auto botones">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoMaterial"><i class="las la-plus-circle"></i>Nuevo material</a>
                         <a href="#materiales" class="btn btn-secondary" id="btn-materialesDes" onclick="TablaAdminMaterialesDes()"><i class="las la-eye"></i> Desactivados</a>
-                        <a href="#materiales" class="btn btn-secondary" id="btn-materialesAct" onclick="TablaAdminMateriales()"><i class="las la-eye"></i> Activados</a>
+                        <a href="#materiales" class="btn btn-secondary" id="btn-materialesAct" onclick="initDataTableMateriales()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
 
-                <table class="table table-sm table-hover mt-4" id="tablaMateriales">
+                <table class="dataTable table table-sm table-hover mt-4" id="tablaMateriales">
                     <thead>
                         <tr>
                             <!--<th>Identificador</th>-->
@@ -107,8 +107,7 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                    </tbody>
+                    <tbody id="tablaMaterialesBody"></tbody>
                 </table>
             </section>
 

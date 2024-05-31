@@ -806,7 +806,9 @@ table tbody tr {
 /*DeataTable*/
 #listadoPruebas_filter input, #listadoPruebas_length select,
 #tablaClientes_filter input, #tablaClientes_length select,
-#tablaPlataformas_filter input, #tablaPlataformas_length select{
+#tablaPlataformas_filter input, #tablaPlataformas_length select,
+#tablaMateriales_filter input, #tablaMateriales_length select
+{
     color: var(--main-color);
 }
 
@@ -817,7 +819,10 @@ table tbody tr {
     height: 65px !important;
 }
 
-#tablaClientes_length, #tablaPlataformas_length{
+#tablaClientes_length,
+#tablaPlataformas_length,
+#tablaMateriales_length
+{
     padding-left: 1rem;
 }
 
@@ -828,7 +833,9 @@ table tbody tr {
 
 #listadoPruebas_filter,
 #tablaClientes_filter,
-#tablaPlataformas_filter{
+#tablaPlataformas_filter,
+#tablaMateriales_filter
+{
     margin-right: 0.8rem;
     border-top-right-radius: 10px;
 }
