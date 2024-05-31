@@ -1025,7 +1025,7 @@ const initDataTablePlataformas = async () => {
     if (dataTableIsInitPlataformas) {
         dataTablePlataformas.destroy();
     }
-    await TablaAdminClientesDes();
+    await TablaAdminPlataformas();
 
     dataTablePlataformas = $("#tablaPlataformas").DataTable(dataTableIsInitPlataformas);
 
