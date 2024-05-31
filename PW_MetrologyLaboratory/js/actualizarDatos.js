@@ -560,7 +560,7 @@ function actualizarUsuario(id_usuario){
                     title: "¡Usuario actualizado exitosamente!",
                     icon: "success"
                 });
-                TablaAdminUsuarios();
+                initDataTableUsuarios();
             } else {
                 throw "Error en la llamada Ajax";
             }
@@ -580,7 +580,7 @@ function activarUsuario(id_usuario){
         },
         body: JSON.stringify(id_usuario)
     }).then(res => {
-        TablaAdminUsuariosDes();
+        initDataTableUsuariosDes();
         if(!res.ok){
             console.log('Problem');
             return;

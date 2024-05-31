@@ -1323,12 +1323,139 @@ function TablaAdminMaterialesDes(){
 }
 */
 
+const dataTableOptionsUsuarios = {
+    lengthMenu: [5,10,20,50],
+    columnDefs:[
+        {className: "centered", targets: [0,1,2,3]},
+        {orderable: false, targets: [0,1,2]},
+        {searchable: true, targets: [3]}
+    ],
+    pageLength:5,
+    destroy: true,
+    language:{
+        lengthMenu: "Mostrar _MENU_ registros pór página",
+        sZeroRecords: "Ningún usuario encontrado",
+        info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
+        infoEmpty: "Ningún usuario encontrado",
+        infoFiltered: "(filtrados desde _MAX_ registros totales)",
+        search: "Buscar: ",
+        loadingRecords: "Cargando...",
+        paginate:{
+            first:"Primero",
+            last: "Último",
+            next: "Siguiente",
+            previous: "Anterior"
+        }
+    }
+};
+
+let dataTableUsuarios;
+let dataTableIsInitUsuarios = false;
+
 const initDataTableUsuarios = async () => {
-    console.log("Holi");
+    if (dataTableIsInitUsuarios) {
+        dataTableUsuarios.destroy();
+    }
+    await TablaAdminUsuarios();
+
+    dataTableUsuarios = $("#tablaUsuarios").DataTable(dataTableOptionsUsuarios);
+
+    dataTableIsInitUsuarios = true;
+
+    var filtro = document.getElementById("tablaUsuarios_filter");
+    var contenedor = filtro.parentNode;
+    contenedor.style.padding = "0";
+
+    var filtro2 = document.getElementById("tablaUsuarios_length");
+    var contenedor2 = filtro2.parentNode;
+    contenedor2.style.padding = "0";
 }
+const TablaAdminUsuarios = async () => {
+    try {
+        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaUsuarios.php`);
+        const result = await response.json();
+
+        if (!Array.isArray(result.data)) {
+            throw new Error('La respuesta del servidor no es un array.');
+        }
+
+        let content = '';
+        result.data.forEach((item) => {
+            content += `
+                <tr>
+                    <td>${item.nombreUsuario}</td>
+                    <td>${item.correoElectronico}</td>
+                    <td>${item.descripcionTipo}</td>
+                    <td>
+                        <button class="btn btn-warning btnEditar" onclick="editarUsuario('${item.id_usuario}')" data-bs-toggle="modal" data-bs-target="#editarUsuarioModal">
+                            <i class="las la-edit"></i> Editar
+                        </button>
+                        <button class="btn btn-danger btnDesactivar" onclick="desactivarUsuario('${item.id_usuario}')">
+                            <i class="las la-times-circle"></i> Desactivar
+                        </button>
+                    </td>
+                </tr>`;
+        });
+        tablaUsuariosBody.innerHTML = content;
+        showButton("btn-usuariosDes");
+        hideButton("btn-usuariosAct");
+    } catch (ex) {
+        alert(ex);
+    }
+};
 const initDataTableUsuariosDes = async () => {
-    console.log("Holi");
+    if (dataTableIsInitUsuarios) {
+        dataTableUsuarios.destroy();
+    }
+    await TablaAdminUsuariosDes();
+
+    dataTableUsuarios = $("#tablaUsuarios").DataTable(dataTableOptionsUsuarios);
+
+    dataTableIsInitUsuarios = true;
+
+    var filtro = document.getElementById("tablaUsuarios_filter");
+    var contenedor = filtro.parentNode;
+    contenedor.style.padding = "0";
+
+    var filtro2 = document.getElementById("tablaUsuarios_length");
+    var contenedor2 = filtro2.parentNode;
+    contenedor2.style.padding = "0";
 }
+const TablaAdminUsuariosDes = async () => {
+    try {
+        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaUsuariosDes.php`);
+        const result = await response.json();
+
+        if (!Array.isArray(result.data)) {
+            throw new Error('La respuesta del servidor no es un array.');
+        }
+
+        let content = '';
+        result.data.forEach((item) => {
+            content += `
+                <tr>
+                    <td>${item.nombreUsuario}</td>
+                    <td>${item.correoElectronico}</td>
+                    <td>${item.descripcionTipo}</td>
+                    <td>
+                        <button class="btn btn-warning btnEditar" onclick="editarUsuario('${item.id_usuario}')" data-bs-toggle="modal" data-bs-target="#editarUsuarioModal">
+                            <i class="las la-edit"></i> Editar
+                        </button>
+                        <button class="btn btn-danger btnDesactivar" onclick="desactivarUsuario('${item.id_usuario}')">
+                            <i class="las la-times-circle"></i> Desactivar
+                        </button>
+                    </td>
+                </tr>`;
+        });
+        tablaUsuariosBody.innerHTML = content;
+        showButton("btn-usuariosAct");
+        hideButton("btn-usuariosDes");
+    } catch (ex) {
+        alert(ex);
+    }
+};
+
+/*
 function TablaAdminUsuarios(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaUsuarios.php', function (response) {
         var tabla = id("tablaUsuarios");
@@ -1426,7 +1553,7 @@ function TablaAdminUsuariosDes(){
     });
     showButton("btn-usuariosAct");
     hideButton("btn-usuariosDes");
-}
+}*/
 function llenarEstatusPrueba(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPrueba.php', function (data){
         var selectS = id("estatusPruebaAdmin");
