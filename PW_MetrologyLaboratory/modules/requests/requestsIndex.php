@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -45,7 +45,6 @@
     ?>
     <script>
         let tipoUsuario = "<?php echo $tipoUser; ?>";
-        console.log("El tipo de usuario es: " + tipoUsuario);
         let id_solicitante = <?php echo json_encode($_SESSION['nomina']); ?>;
 
         window.addEventListener("load",async () => {

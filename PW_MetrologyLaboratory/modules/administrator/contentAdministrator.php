@@ -48,7 +48,7 @@
                     </div>
                 </div>
 
-                <table class="table mt-4" id="tablaClientes">
+                <table class="dataTable table mt-4" id="tablaClientes">
                     <thead>
                         <tr>
                             <!--<th>Identificador</th>-->

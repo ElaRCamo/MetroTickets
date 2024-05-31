@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -59,7 +59,6 @@
             await initDataTableClientes();
         })
         /*document.addEventListener("DOMContentLoaded", function() {
-
             TablaAdminPlataformas();
             TablaAdminMateriales();
             TablaAdminUsuarios();
