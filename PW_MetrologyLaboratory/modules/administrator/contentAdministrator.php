@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="justify-content-end">
-                    <table class="table mt-4" id="tablaPlataformas">
+                    <table class="dataTable table mt-4" id="tablaPlataformas">
                         <thead>
                             <tr>
                                 <!--<th>Identificador</th>-->
@@ -79,8 +79,7 @@
                                 <th>Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                        </tbody>
+                        <tbody id="tablaPlataformasBody"></tbody>
                     </table>
                 </div>
             </section>

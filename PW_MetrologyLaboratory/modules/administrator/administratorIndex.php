@@ -57,6 +57,7 @@
 
         window.addEventListener("load",async () => {
             await initDataTableClientes();
+            await initDataTablePlataformas();
         })
         /*document.addEventListener("DOMContentLoaded", function() {
             TablaAdminPlataformas();

@@ -864,7 +864,7 @@ const dataTableOptionsClientes = {
     lengthMenu: [5,10,20,50],
     columnDefs:[
         {className: "centered", targets: [0,1]},
-        {orderable: false, targets: [0]},
+        {orderable: false, targets: [1]},
         {width: "50%", targets: [0,1]},
         {searchable: true, targets: [0] }
     ],
@@ -993,49 +993,90 @@ const TablaAdminClientesDes = async () => {
     }
 };
 
+const dataTableOptionsPlataformas = {
+    lengthMenu: [5,10,20,50],
+    columnDefs:[
+        {className: "centered", targets: [0,1,2]},
+        {orderable: false, targets: [2]},
+        {searchable: true, targets: [0,1] }
+    ],
+    pageLength:5,
+    destroy: true,
+    language:{
+        lengthMenu: "Mostrar _MENU_ registros pór página",
+        sZeroRecords: "Ninguna plataforma encontrada",
+        info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
+        infoEmpty: "Ninguna plataforma encontrada",
+        infoFiltered: "(filtrados desde _MAX_ registros totales)",
+        search: "Buscar: ",
+        loadingRecords: "Cargando...",
+        paginate:{
+            first:"Primero",
+            last: "Último",
+            next: "Siguiente",
+            previous: "Anterior"
+        }
+    }
+};
+let dataTablePlataformas;
+let dataTableIsInitPlataformas = false;
+const initDataTablePlataformas = async () => {
+
+    if (dataTableIsInitPlataformas) {
+        dataTablePlataformas.destroy();
+    }
+    await TablaAdminClientesDes();
+
+    dataTablePlataformas = $("#tablaPlataformas").DataTable(dataTableIsInitPlataformas);
+
+    dataTableIsInitPlataformas = true;
+
+    var filtro = document.getElementById("tablaClientes_filter");
+    var contenedor = filtro.parentNode;
+    contenedor.style.padding = "0";
+
+    var filtro2 = document.getElementById("tablaClientes_length");
+    var contenedor2 = filtro2.parentNode;
+    contenedor2.style.padding = "0";
+};
+
+const TablaAdminPlataformas = async () => {
+    try {
+        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasT.php`);
+        const result = await response.json();
+
+        if (!Array.isArray(result.data)) {
+            throw new Error('La respuesta del servidor no es un array.');
+        }
+
+        let content = '';
+        result.data.forEach((item) => {
+            content += `
+                <tr>
+                    <td>${item.descripcionPlataforma}</td>
+                    <td>${item.descripcionCliente}</td>
+                    <td>
+                        <button class="btn btn-warning btnEditar" onclick="editarPlataforma('${item.id_plataforma}')" data-bs-toggle="modal" data-bs-target="#editarPlataformaModal">
+                            <i class="las la-edit"></i> Editar
+                        </button>
+                        <button class="btn btn-danger btnDesactivar" onclick="desactivarPlataforma('${item.id_plataforma}')">
+                            <i class="las la-times-circle"></i> Desactivar
+                        </button>
+                    </td>
+                </tr>`;
+        });
+        tablaPlataformasBody.innerHTML = content;
+        hideButton("btn-plataformasAct");
+        showButton("btn-plataformasDes");
+
+    } catch (ex) {
+        alert(ex);
+    }
+};
+
+
 
 /*
-function TablaAdminClientesDes(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoClienteDes.php', function (response) {
-        var tabla = id("tablaClientes");
-        var tbody = tabla.getElementsByTagName("tbody")[0];
-
-        // Limpiar contenido previo de la tabla
-        tbody.innerHTML = '';
-
-        // Iterar sobre los materiales y crear filas y celdas de tabla
-        for (var j = 0; j < response.data.length; j++) {
-            var fila = document.createElement("tr");
-
-            /*var idCliente = document.createElement("td");
-            idCliente.textContent = response.data[j].id_cliente;
-            fila.appendChild(idCliente);*/
-
-            /*var descripcionCliente = document.createElement("td");
-            descripcionCliente.textContent = response.data[j].descripcionCliente;
-            fila.appendChild(descripcionCliente);
-
-            var acciones = document.createElement("td");
-
-            // Botón activar
-            var btnActivar = document.createElement("button");
-            btnActivar.textContent = "Activar";
-            btnActivar.classList.add("btn", "btn-success", "btnActivar");
-            btnActivar.setAttribute("onclick", "activarCliente('" + response.data[j].id_cliente + "')");
-            var iconoActivar = document.createElement("i");
-            iconoActivar.classList.add("las", "la-power-off");
-            btnActivar.prepend(iconoActivar);
-            // Agregar los botones al td
-            acciones.appendChild(btnActivar);
-            fila.appendChild(acciones);
-
-            tbody.appendChild(fila);
-        }
-    });
-    showButton("btn-clientesAct");
-    hideButton("btn-clientesDes");
-}*/
-
 function TablaAdminPlataformas(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasT.php', function (response) {
         var tabla = id("tablaPlataformas");
@@ -1050,7 +1091,7 @@ function TablaAdminPlataformas(){
 
             /*var idPlataforma = document.createElement("td");
             idPlataforma.textContent = response.data[j].id_plataforma;
-            fila.appendChild(idPlataforma);*/
+            fila.appendChild(idPlataforma);
 
             var descripcionPlataforma = document.createElement("td");
             descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
@@ -1089,7 +1130,7 @@ function TablaAdminPlataformas(){
     });
     hideButton("btn-plataformasAct");
     showButton("btn-plataformasDes");
-}
+}*/
 function TablaAdminPlataformasDes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasTDes.php', function (response) {
         var tabla = id("tablaPlataformas");
