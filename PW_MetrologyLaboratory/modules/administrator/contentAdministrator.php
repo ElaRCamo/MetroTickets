@@ -38,7 +38,7 @@
     <div class="page-content">
         <div class="container table-responsive">
             <!-- Clientes -->
-            <section id="sectionClientes" class="table-Conteiner">
+            <section id="sectionClientes" >
                 <h3 id="clientes" >Clientes</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto mt-4">
@@ -47,17 +47,18 @@
                         <a href="#tablaClientes" class="btn btn-secondary" id="btn-clientesAct" onclick="TablaAdminClientes()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
-
-                <table class="dataTable" id="tablaClientes">
-                    <thead>
+                <div class="table-Conteiner">
+                    <table class="dataTable" id="tablaClientes">
+                        <thead>
                         <tr>
                             <!--<th>Identificador</th>-->
                             <th class="centered">Cliente</th>
                             <th class="centered">Acciones</th>
                         </tr>
-                    </thead>
-                    <tbody id="tablaClientesBody"></tbody>
-                </table>
+                        </thead>
+                        <tbody id="tablaClientesBody"></tbody>
+                    </table>
+                </div>
             </section>
 
             <!-- Plataformas -->
