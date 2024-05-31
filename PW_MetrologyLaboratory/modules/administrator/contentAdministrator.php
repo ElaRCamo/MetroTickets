@@ -94,13 +94,11 @@
                         <a href="#materiales" class="btn btn-secondary" id="btn-materialesAct" onclick="initDataTableMateriales()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
-
                 <table class="dataTable table table-sm table-hover mt-4" id="tablaMateriales">
                     <thead>
                         <tr>
-                            <!--<th>Identificador</th>-->
                             <th>Descripción</th>
-                            <th>Núm. de parte</th>
+                            <th>No. de parte</th>
                             <th>Imagen</th>
                             <th>Plataforma</th>
                             <th>Cliente</th>
@@ -116,11 +114,11 @@
                 <h3 id="usuarios">Usuarios</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto botones">
-                        <a href="#usuarios" class="btn btn-secondary" id="btn-usuariosDes" onclick="TablaAdminUsuariosDes()"><i class="las la-eye"></i> Desactivados</a>
-                        <a href="#usuarios" class="btn btn-secondary" id="btn-usuariosAct" onclick="TablaAdminUsuarios()"><i class="las la-eye"></i> Activados</a>
+                        <a href="#usuarios" class="btn btn-secondary" id="btn-usuariosDes" onclick="initDataTableUsuariosDes();"><i class="las la-eye"></i> Desactivados</a>
+                        <a href="#usuarios" class="btn btn-secondary" id="btn-usuariosAct" onclick="initDataTableUsuarios();"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
-                <table class="table table-sm table-hover mt-4" id="tablaUsuarios">
+                <table class="dataTable table table-sm table-hover mt-4" id="tablaUsuarios">
                     <thead>
                     <tr>
                         <th>Nombre</th>
@@ -129,8 +127,7 @@
                         <th>Acciones</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    </tbody>
+                    <tbody id="tablaUsuariosBody"></tbody>
                 </table>
             </section>
         </div>

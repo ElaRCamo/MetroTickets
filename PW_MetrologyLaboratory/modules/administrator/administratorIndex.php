@@ -59,11 +59,8 @@
             await initDataTableClientes();
             await initDataTablePlataformas();
             await initDataTableMateriales();
+            await initDataTableUsuarios();
         })
-        /*document.addEventListener("DOMContentLoaded", function() {
-
-            TablaAdminUsuarios();
-        });*/
     </script>
     <script src="../../js/cargarDatos.js"></script>
     <script src="../../js/insertarDatos.js"></script>

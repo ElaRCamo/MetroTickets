@@ -1215,11 +1215,11 @@ const TablaAdminMateriales = async () => {
 const initDataTableMaterialesDes = async () => {
 
     if (dataTableIsInitMateriales) {
-        dataTableMateriales.destroy();
+        dataTableMaterialesDes.destroy();
     }
     await TablaAdminMaterialesDes();
 
-    dataTableMateriales = $("#tablaMateriales").DataTable(dataTableOptionsMateriales);
+    dataTableMaterialesDes = $("#tablaMateriales").DataTable(dataTableOptionsMateriales);
 
     dataTableIsInitMateriales = true;
 
