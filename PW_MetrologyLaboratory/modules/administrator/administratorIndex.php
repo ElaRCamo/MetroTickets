@@ -61,6 +61,7 @@
             await initDataTableMateriales();
             await initDataTableUsuarios();
         })
+
     </script>
     <script src="../../js/cargarDatos.js"></script>
     <script src="../../js/insertarDatos.js"></script>
