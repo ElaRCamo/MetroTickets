@@ -1129,7 +1129,7 @@ const dataTableOptionsMateriales = {
     lengthMenu: [5,10,20,50],
     columnDefs:[
         {className: "centered", targets: [0,1,2,3,4,5]},
-        {orderable: false, targets: [0,1,2,3,4]},
+        {orderable: false, targets: [2,5]},
         {searchable: true, targets: [0,1,3,4] }
     ],
     pageLength:5,
