@@ -1027,15 +1027,15 @@ const initDataTablePlataformas = async () => {
     }
     await TablaAdminPlataformas();
 
-    dataTablePlataformas = $("#tablaPlataformas").DataTable(dataTableIsInitPlataformas);
+    dataTablePlataformas = $("#tablaPlataformas").DataTable(dataTableOptionsPlataformas);
 
     dataTableIsInitPlataformas = true;
 
-    var filtro = document.getElementById("tablaClientes_filter");
+    var filtro = document.getElementById("tablaPlataformas_filter");
     var contenedor = filtro.parentNode;
     contenedor.style.padding = "0";
 
-    var filtro2 = document.getElementById("tablaClientes_length");
+    var filtro2 = document.getElementById("tablaPlataformas_length");
     var contenedor2 = filtro2.parentNode;
     contenedor2.style.padding = "0";
 };
