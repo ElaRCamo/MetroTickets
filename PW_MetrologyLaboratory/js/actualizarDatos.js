@@ -244,7 +244,7 @@ function actualizarCliente(id_cliente){
                 });
                 initDataTableClientes();
                 initDataTablePlataformas();
-                TablaAdminMateriales();
+                initDataTableMateriales();
             } else {
                 throw "Error en la llamada Ajax";
             }
@@ -266,7 +266,7 @@ function activarCliente(id_cliente){
     }).then(res => {
         initDataTableClientesDes();
         initDataTablePlataformasDes();
-        TablaAdminMaterialesDes();
+        initDataTableMaterialesDes();
         if(!res.ok){
             console.log('Problem');
             return;
@@ -332,7 +332,7 @@ function  actualizarPlataforma(id_plataforma){
                     icon: "success"
                 });
                 initDataTablePlataformas();
-                TablaAdminMateriales();
+                initDataTableMateriales();
             } else {
                 throw "Error en la llamada Ajax";
             }
@@ -354,7 +354,7 @@ function activarPlataforma(id_plataforma){
         body: JSON.stringify(id_plataforma)
     }).then(res => {
         initDataTablePlataformasDes();
-        TablaAdminMaterialesDes();
+        initDataTableMaterialesDes();
         if(!res.ok){
             console.log('Problem');
             return;
@@ -470,7 +470,7 @@ function actualizarMaterial(id_descripcion){
                 title: "¡Material actualizado con éxito!",
                 showConfirmButton: true
             });
-            TablaAdminMateriales();
+            initDataTableMateriales();
         } else {
             throw "Error en la llamada Ajax";
         }
@@ -490,7 +490,7 @@ function activarMaterial(id_descripcion){
         },
         body: JSON.stringify(id_descripcion)
     }).then(res => {
-        TablaAdminMaterialesDes();
+        initDataTableMaterialesDes();
         if(!res.ok){
             console.log('Problem');
             return;
