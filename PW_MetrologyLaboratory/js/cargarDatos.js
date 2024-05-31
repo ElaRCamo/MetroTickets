@@ -1213,19 +1213,14 @@ const TablaAdminMateriales = async () => {
 };
 
 const initDataTableMaterialesDes = async () => {
-
-    console.log("init1");
-
     if (dataTableIsInitMateriales) {
         dataTableMateriales.destroy();
     }
     await TablaAdminMaterialesDes();
-    console.log("init2");
 
     dataTableMateriales = $("#tablaMateriales").DataTable(dataTableOptionsMateriales);
 
     dataTableIsInitMateriales = true;
-    console.log("init3");
 
     var filtro = document.getElementById("tablaMateriales_filter");
     var contenedor = filtro.parentNode;
@@ -1234,20 +1229,17 @@ const initDataTableMaterialesDes = async () => {
     var filtro2 = document.getElementById("tablaMateriales_length");
     var contenedor2 = filtro2.parentNode;
     contenedor2.style.padding = "0";
-    console.log("init4");
 };
 
 const TablaAdminMaterialesDes = async () => {
-    console.log("MaterialesDes1");
     try {
-        console.log("MaterialesDes2");
         const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaMaterialesDes.php`);
         const result = await response.json();
 
         if (!Array.isArray(result.data)) {
             throw new Error('La respuesta del servidor no es un array.');
         }
-        console.log("MaterialesDes3");
+
         let content = '';
         result.data.forEach((item) => {
             content += `
@@ -1265,7 +1257,7 @@ const TablaAdminMaterialesDes = async () => {
                         </button>
                     </td>
                 </tr>`;
-        });console.log("MaterialesDes4");
+        });
         tablaMaterialesBody.innerHTML = content;
         showButton("btn-materialesAct");
         hideButton("btn-materialesDes");
