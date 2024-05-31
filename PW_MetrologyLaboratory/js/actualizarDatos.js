@@ -242,7 +242,7 @@ function actualizarCliente(id_cliente){
                     title: "¡Cliente actualizado exitosamente!",
                     icon: "success"
                 });
-                TablaAdminClientes();
+                initDataTableClientes();
                 TablaAdminPlataformas();
                 TablaAdminMateriales();
             } else {
@@ -264,7 +264,7 @@ function activarCliente(id_cliente){
         },
         body: JSON.stringify(id_cliente)
     }).then(res => {
-        TablaAdminClientesDes();
+        initDataTableClientesDes();
         TablaAdminPlataformasDes();
         TablaAdminMaterialesDes();
         if(!res.ok){
