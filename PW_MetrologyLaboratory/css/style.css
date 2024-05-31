@@ -804,23 +804,29 @@ table tbody tr {
 
 
 /*DeataTable*/
-#listadoPruebas_filter input, #listadoPruebas_length select{
+#listadoPruebas_filter input, #listadoPruebas_length select,
+#tablaClientes_filter input, #tablaClientes_length select{
     color: var(--main-color);
 }
 
-#listadoPruebas_length,
-#listadoPruebas_filter {
+#listadoPruebas_length, #listadoPruebas_filter{
     padding: 1rem;
     background-color: var(--main-color);
     color: #f1f4f9;
     height: 65px !important;
 }
+
+#tablaClientes_length{
+    padding-left: 1rem;
+}
+
 #listadoPruebas_length {
     margin-left: 0.8rem;
     border-top-left-radius: 10px;
 }
 
-#listadoPruebas_filter {
+#listadoPruebas_filter,
+#tablaClientes_filter{
     margin-right: 0.8rem;
     border-top-right-radius: 10px;
 }
@@ -880,4 +886,9 @@ table tbody tr {
     margin: 1rem;
     background-color: var(--main-color) !important;
     border-color: transparent !important;
+}
+
+
+.botones{
+    margin-bottom: 0.5rem;
 }

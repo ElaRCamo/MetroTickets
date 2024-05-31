@@ -899,6 +899,14 @@ const initDataTableClientes = async () => {
     dataTableClientes = $("#tablaClientes").DataTable(dataTableOptionsClientes);
 
     dataTableIsInitializedClientes = true;
+
+    var filtro = document.getElementById("tablaClientes_filter");
+    var contenedor = filtro.parentNode;
+    contenedor.style.padding = "0";
+
+    var filtro2 = document.getElementById("tablaClientes_length");
+    var contenedor2 = filtro2.parentNode;
+    contenedor2.style.padding = "0";
 };
 
 

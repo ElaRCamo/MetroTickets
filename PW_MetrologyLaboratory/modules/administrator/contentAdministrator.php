@@ -41,7 +41,7 @@
             <section id="sectionClientes" >
                 <h3 id="clientes" >Clientes</h3>
                 <div class="row justify-content-end">
-                    <div class="col-auto mt-4">
+                    <div class="col-auto mt-4 botones">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoCliente"><i class="las la-plus-circle"></i>Nuevo cliente</a>
                         <a href="#tablaClientes" class="btn btn-secondary" id="btn-clientesDes" onclick="TablaAdminClientesDes()"><i class="las la-eye"></i> Desactivados</a>
                         <a href="#tablaClientes" class="btn btn-secondary" id="btn-clientesAct" onclick="initDataTableClientes()"><i class="las la-eye"></i> Activados</a>
@@ -62,7 +62,7 @@
             <section id="sectionPlataformas">
                 <h3 id="plataformas" >Plataformas</h3>
                 <div class="row justify-content-end">
-                    <div class="col-auto">
+                    <div class="col-auto botones">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevaPlataforma"><i class="las la-plus-circle"></i>Nueva plataforma</a>
                         <a href="#" class="btn btn-secondary" id="btn-plataformasDes" onclick="TablaAdminPlataformasDes()"><i class="las la-eye"></i> Desactivadas</a>
                         <a href="#" class="btn btn-secondary" id="btn-plataformasAct" onclick="TablaAdminPlataformas()"><i class="las la-eye"></i> Activados</a>
@@ -87,7 +87,7 @@
             <section id="sectionMateriales">
                 <h3 id="materiales">Materiales</h3>
                 <div class="row justify-content-end">
-                    <div class="col-auto">
+                    <div class="col-auto botones">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoMaterial"><i class="las la-plus-circle"></i>Nuevo material</a>
                         <a href="#materiales" class="btn btn-secondary" id="btn-materialesDes" onclick="TablaAdminMaterialesDes()"><i class="las la-eye"></i> Desactivados</a>
                         <a href="#materiales" class="btn btn-secondary" id="btn-materialesAct" onclick="TablaAdminMateriales()"><i class="las la-eye"></i> Activados</a>
@@ -115,7 +115,7 @@
             <section  id="sectionUsuarios">
                 <h3 id="usuarios">Usuarios</h3>
                 <div class="row justify-content-end">
-                    <div class="col-auto">
+                    <div class="col-auto botones">
                         <a href="#usuarios" class="btn btn-secondary" id="btn-usuariosDes" onclick="TablaAdminUsuariosDes()"><i class="las la-eye"></i> Desactivados</a>
                         <a href="#usuarios" class="btn btn-secondary" id="btn-usuariosAct" onclick="TablaAdminUsuarios()"><i class="las la-eye"></i> Activados</a>
                     </div>
