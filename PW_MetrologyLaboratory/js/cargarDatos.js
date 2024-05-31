@@ -1212,7 +1212,7 @@ const TablaAdminMateriales = async () => {
     }
 };
 
-const initDataTableMateriales = async () => {
+const initDataTableMaterialesDes = async () => {
 
     if (dataTableIsInitMateriales) {
         dataTableMateriales.destroy();
