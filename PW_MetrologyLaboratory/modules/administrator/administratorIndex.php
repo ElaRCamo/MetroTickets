@@ -61,8 +61,7 @@
             await initDataTableMateriales();
         })
         /*document.addEventListener("DOMContentLoaded", function() {
-            TablaAdminPlataformas();
-            TablaAdminMateriales();
+
             TablaAdminUsuarios();
         });*/
     </script>

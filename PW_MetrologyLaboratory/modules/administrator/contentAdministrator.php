@@ -90,7 +90,7 @@
                 <div class="row justify-content-end">
                     <div class="col-auto botones">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoMaterial"><i class="las la-plus-circle"></i>Nuevo material</a>
-                        <a href="#materiales" class="btn btn-secondary" id="btn-materialesDes" onclick="TablaAdminMaterialesDes()"><i class="las la-eye"></i> Desactivados</a>
+                        <a href="#materiales" class="btn btn-secondary" id="btn-materialesDes" onclick="initDataTableMaterialesDes()"><i class="las la-eye"></i> Desactivados</a>
                         <a href="#materiales" class="btn btn-secondary" id="btn-materialesAct" onclick="initDataTableMateriales()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
