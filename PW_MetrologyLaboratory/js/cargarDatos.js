@@ -865,7 +865,6 @@ const dataTableOptionsClientes = {
     columnDefs:[
         {className: "centered", targets: [0,1]},
         {orderable: false, targets: [0]},
-        {width: "50%", targets: [0,1]},
         {searchable: true, targets: [0] }
     ],
     pageLength:5,
@@ -887,15 +886,20 @@ const dataTableOptionsClientes = {
     }
 };
 
+let dataTableClientes;
+let dataTableIsInitializedClientes = false;
 const initDataTableClientes = async () => {
-    if (dataTableIsInitialized) {
-        dataTable.destroy();
+
+
+
+    if (dataTableIsInitializedClientes) {
+        dataTableClientes.destroy();
     }
     await TablaAdminClientes;
 
-    dataTable = $("#tablaClientes").DataTable(dataTableOptionsClientes);
+    dataTableClientes = $("#tablaClientes").DataTable(dataTableOptionsClientes);
 
-    dataTableIsInitialized = true;
+    dataTableIsInitializedClientes = true;
 
     /*var filtroListadoPruebas = document.getElementById("listadoPruebas_filter");
     var contenedor = filtroListadoPruebas.parentNode;
@@ -911,10 +915,6 @@ const TablaAdminClientes = async () => {
     try {
         const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php`);
         const result = await response.json();
-
-        if (!Array.isArray(result.data)) {
-            throw new Error('La respuesta del servidor no es un array.');
-        }
 
         let content = '';
         result.data.forEach((item) => {
