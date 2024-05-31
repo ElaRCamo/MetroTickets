@@ -243,7 +243,7 @@ function actualizarCliente(id_cliente){
                     icon: "success"
                 });
                 initDataTableClientes();
-                TablaAdminPlataformas();
+                initDataTablePlataformas();
                 TablaAdminMateriales();
             } else {
                 throw "Error en la llamada Ajax";
@@ -265,7 +265,7 @@ function activarCliente(id_cliente){
         body: JSON.stringify(id_cliente)
     }).then(res => {
         initDataTableClientesDes();
-        TablaAdminPlataformasDes();
+        initDataTablePlataformasDes();
         TablaAdminMaterialesDes();
         if(!res.ok){
             console.log('Problem');
@@ -331,7 +331,7 @@ function  actualizarPlataforma(id_plataforma){
                     title: "¡Plataforma actualizada exitosamente!",
                     icon: "success"
                 });
-                TablaAdminPlataformas();
+                initDataTablePlataformas();
                 TablaAdminMateriales();
             } else {
                 throw "Error en la llamada Ajax";
@@ -353,7 +353,7 @@ function activarPlataforma(id_plataforma){
         },
         body: JSON.stringify(id_plataforma)
     }).then(res => {
-        TablaAdminPlataformasDes();
+        initDataTablePlataformasDes();
         TablaAdminMaterialesDes();
         if(!res.ok){
             console.log('Problem');
