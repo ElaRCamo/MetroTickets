@@ -47,7 +47,7 @@
                         <a href="#tablaClientes" class="btn btn-secondary" id="btn-clientesAct" onclick="initDataTableClientes()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
-                <div class="table-Conteiner">
+                <div class="">
                     <table class="dataTable" id="tablaClientes">
                         <thead>
                             <tr>
