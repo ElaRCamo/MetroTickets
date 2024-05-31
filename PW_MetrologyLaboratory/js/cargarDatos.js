@@ -890,8 +890,6 @@ let dataTableClientes;
 let dataTableIsInitializedClientes = false;
 const initDataTableClientes = async () => {
 
-
-
     if (dataTableIsInitializedClientes) {
         dataTableClientes.destroy();
     }
@@ -900,14 +898,6 @@ const initDataTableClientes = async () => {
     dataTableClientes = $("#tablaClientes").DataTable(dataTableOptionsClientes);
 
     dataTableIsInitializedClientes = true;
-
-    /*var filtroListadoPruebas = document.getElementById("listadoPruebas_filter");
-    var contenedor = filtroListadoPruebas.parentNode;
-    contenedor.style.padding = "0";
-
-    var filtroListadoPruebas2 = document.getElementById("listadoPruebas_length");
-    var contenedor2 = filtroListadoPruebas2.parentNode;
-    contenedor2.style.padding = "0";*/
 };
 
 
@@ -915,6 +905,10 @@ const TablaAdminClientes = async () => {
     try {
         const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php`);
         const result = await response.json();
+
+        if (!Array.isArray(result.data)) {
+            throw new Error('La respuesta del servidor no es un array.');
+        }
 
         let content = '';
         result.data.forEach((item) => {
@@ -932,7 +926,6 @@ const TablaAdminClientes = async () => {
                 </tr>`;
         });
         tablaClientesBody.innerHTML = content;
-
         showButton("btn-clientesDes");
         hideButton("btn-clientesAct");
 
