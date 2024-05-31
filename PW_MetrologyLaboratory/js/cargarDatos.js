@@ -1322,6 +1322,10 @@ function TablaAdminMaterialesDes(){
     hideButton("btn-materialesDes");
 }
 */
+
+const initDataTableUsuarios = async () => {
+    console.log("Holi");
+}
 function TablaAdminUsuarios(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaUsuarios.php', function (response) {
         var tabla = id("tablaUsuarios");
