@@ -1326,6 +1326,9 @@ function TablaAdminMaterialesDes(){
 const initDataTableUsuarios = async () => {
     console.log("Holi");
 }
+const initDataTableUsuariosDes = async () => {
+    console.log("Holi");
+}
 function TablaAdminUsuarios(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaUsuarios.php', function (response) {
         var tabla = id("tablaUsuarios");
