@@ -69,18 +69,20 @@
                     </div>
                 </div>
 
-                <table class="table mt-4" id="tablaPlataformas">
-                    <thead>
-                        <tr>
-                            <!--<th>Identificador</th>-->
-                            <th>Plataforma</th>
-                            <th>Cliente</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+                <div class="justify-content-end">
+                    <table class="table mt-4" id="tablaPlataformas">
+                        <thead>
+                            <tr>
+                                <!--<th>Identificador</th>-->
+                                <th>Plataforma</th>
+                                <th>Cliente</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
             <!-- Materiales -->
