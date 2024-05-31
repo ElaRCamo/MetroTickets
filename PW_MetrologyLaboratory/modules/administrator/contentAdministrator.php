@@ -48,16 +48,15 @@
                     </div>
                 </div>
 
-                <table class="dataTable mt-4" id="tablaClientes">
+                <table class="dataTable" id="tablaClientes">
                     <thead>
                         <tr>
                             <!--<th>Identificador</th>-->
-                            <th>Cliente</th>
-                            <th>Acciones</th>
+                            <th class="centered">Cliente</th>
+                            <th class="centered">Acciones</th>
                         </tr>
                     </thead>
-                    <tbody id="tablaClientesBody">
-                    </tbody>
+                    <tbody id="tablaClientesBody"></tbody>
                 </table>
             </section>
 
