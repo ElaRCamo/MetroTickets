@@ -24,9 +24,9 @@ function desactivarCliente(id_cliente) {
                 },
                 body: JSON.stringify(id_cliente)
             }).then(res => {
-                TablaAdminClientes();
-                TablaAdminMateriales();
-                TablaAdminPlataformas();
+                initDataTableClientes();
+                initDataTablePlataformas();
+                initDataTableMateriales();
                 if(!res.ok){
                     console.log('Problem');
                     return;
@@ -82,8 +82,8 @@ function desactivarPlataforma(id_plataforma) {
                 },
                 body: JSON.stringify(id_plataforma)
             }).then(res => {
-                TablaAdminPlataformas();
-                TablaAdminMateriales();
+                initDataTablePlataformas();
+                initDataTableMateriales();
                 if(!res.ok){
                     console.log('Problem');
                     return;
@@ -139,7 +139,7 @@ function desactivarMaterial(id_descripcion){
                 },
                 body: JSON.stringify(id_descripcion)
             }).then(res => {
-                TablaAdminMateriales();
+                initDataTableMateriales();
                 if(!res.ok){
                     console.log('Problem');
                     return;
@@ -195,7 +195,7 @@ function desactivarUsuario(id_usuario){
                 },
                 body: JSON.stringify(id_usuario)
             }).then(res => {
-                TablaAdminUsuarios();
+                initDataTableUsuarios();
                 if(!res.ok){
                     console.log('Problem');
                     return;
