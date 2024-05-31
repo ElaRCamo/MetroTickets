@@ -893,7 +893,7 @@ const initDataTableClientes = async () => {
     if (dataTableIsInitializedClientes) {
         dataTableClientes.destroy();
     }
-    await TablaAdminClientes;
+    await TablaAdminClientes();
 
     dataTableClientes = $("#tablaClientes").DataTable(dataTableOptionsClientes);
 
