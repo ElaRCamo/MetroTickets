@@ -64,8 +64,8 @@
                 <div class="row justify-content-end">
                     <div class="col-auto botones">
                         <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevaPlataforma"><i class="las la-plus-circle"></i>Nueva plataforma</a>
-                        <a href="#" class="btn btn-secondary" id="btn-plataformasDes" onclick="TablaAdminPlataformasDes()"><i class="las la-eye"></i> Desactivadas</a>
-                        <a href="#" class="btn btn-secondary" id="btn-plataformasAct" onclick="TablaAdminPlataformas()"><i class="las la-eye"></i> Activados</a>
+                        <a href="#" class="btn btn-secondary" id="btn-plataformasDes" onclick="initDataTablePlataformasDes()"><i class="las la-eye"></i> Desactivadas</a>
+                        <a href="#" class="btn btn-secondary" id="btn-plataformasAct" onclick="initDataTablePlataformas()"><i class="las la-eye"></i> Activados</a>
                     </div>
                 </div>
 

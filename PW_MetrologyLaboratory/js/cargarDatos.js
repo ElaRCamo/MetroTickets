@@ -1074,63 +1074,57 @@ const TablaAdminPlataformas = async () => {
     }
 };
 
+const initDataTablePlataformasDes = async () => {
 
+    if (dataTableIsInitPlataformas) {
+        dataTablePlataformas.destroy();
+    }
+    await TablaAdminPlataformas();
 
-/*
-function TablaAdminPlataformas(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasT.php', function (response) {
-        var tabla = id("tablaPlataformas");
-        var tbody = tabla.getElementsByTagName("tbody")[0];
+    dataTablePlataformas = $("#tablaPlataformas").DataTable(dataTableOptionsPlataformas);
 
-        // Limpiar contenido previo de la tabla
-        tbody.innerHTML = '';
+    dataTableIsInitPlataformas = true;
 
-        // Iterar sobre los materiales y crear filas y celdas de tabla
-        for (var j = 0; j < response.data.length; j++) {
-            var fila = document.createElement("tr");
+    var filtro = document.getElementById("tablaPlataformas_filter");
+    var contenedor = filtro.parentNode;
+    contenedor.style.padding = "0";
 
-            /*var idPlataforma = document.createElement("td");
-            idPlataforma.textContent = response.data[j].id_plataforma;
-            fila.appendChild(idPlataforma);
+    var filtro2 = document.getElementById("tablaPlataformas_length");
+    var contenedor2 = filtro2.parentNode;
+    contenedor2.style.padding = "0";
+};
 
-            var descripcionPlataforma = document.createElement("td");
-            descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
-            fila.appendChild(descripcionPlataforma);
+const TablaAdminPlataformasDes = async () => {
+    try {
+        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasTDes.php`);
+        const result = await response.json();
 
-            var descripcionCliente = document.createElement("td");
-            descripcionCliente.textContent = response.data[j].descripcionCliente;
-            fila.appendChild(descripcionCliente);
-
-            var acciones = document.createElement("td");
-            // Botón de editar
-            var btnEditar = document.createElement("button");
-            btnEditar.textContent = "Editar";
-            btnEditar.classList.add("btn", "btn-warning", "btnEditar");
-            btnEditar.setAttribute("onclick", "editarPlataforma('" +  response.data[j].id_plataforma + "')");
-            btnEditar.setAttribute("data-bs-toggle", "modal");
-            btnEditar.setAttribute("data-bs-target", "#editarPlataformaModal");
-            var iconoEditar = document.createElement("i");
-            iconoEditar.classList.add("las", "la-edit");
-            btnEditar.prepend(iconoEditar);
-            // Botón de eliminar
-            var btnEliminar = document.createElement("button");
-            btnEliminar.textContent = "Desactivar";
-            btnEliminar.classList.add("btn", "btn-danger", "btnDesactivar");
-            btnEliminar.setAttribute("onclick", "desactivarPlataforma('" +  response.data[j].id_plataforma + "')");
-            var iconoDesactivar = document.createElement("i");
-            iconoDesactivar.classList.add("las", "la-times-circle");
-            btnEliminar.prepend(iconoDesactivar);
-            // Agregar los botones al td
-            acciones.appendChild(btnEditar);
-            acciones.appendChild(btnEliminar);
-            fila.appendChild(acciones);
-
-            tbody.appendChild(fila);
+        if (!Array.isArray(result.data)) {
+            throw new Error('La respuesta del servidor no es un array.');
         }
-    });
-    hideButton("btn-plataformasAct");
-    showButton("btn-plataformasDes");
-}*/
+
+        let content = '';
+        result.data.forEach((item) => {
+            content += `
+                <tr>
+                    <td>${item.descripcionPlataforma}</td>
+                    <td>${item.descripcionCliente}</td>
+                    <td>
+                        <button class="btn btn-success btnActivar" onclick="activarPlataforma('${item.id_plataforma}')">
+                            <i class="las la-check-circle"></i> Activar
+                        </button>
+                    </td>
+                </tr>`;
+        });
+        tablaPlataformasBody.innerHTML = content;
+        showButton("btn-plataformasAct");
+        hideButton("btn-plataformasDes");
+
+    } catch (ex) {
+        alert(ex);
+    }
+};
+/*
 function TablaAdminPlataformasDes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasTDes.php', function (response) {
         var tabla = id("tablaPlataformas");
@@ -1145,7 +1139,7 @@ function TablaAdminPlataformasDes(){
 
             /*var idPlataforma = document.createElement("td");
             idPlataforma.textContent = response.data[j].id_plataforma;
-            fila.appendChild(idPlataforma);*/
+            fila.appendChild(idPlataforma);*
 
             var descripcionPlataforma = document.createElement("td");
             descripcionPlataforma.textContent = response.data[j].descripcionPlataforma;
@@ -1172,7 +1166,8 @@ function TablaAdminPlataformasDes(){
     });
     showButton("btn-plataformasAct");
     hideButton("btn-plataformasDes");
-}
+}*/
+
 function TablaAdminMateriales(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaMateriales.php', function (response) {
         var tabla = id("tablaMateriales");
