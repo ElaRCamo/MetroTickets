@@ -807,7 +807,8 @@ table tbody tr {
 #listadoPruebas_filter input, #listadoPruebas_length select,
 #tablaClientes_filter input, #tablaClientes_length select,
 #tablaPlataformas_filter input, #tablaPlataformas_length select,
-#tablaMateriales_filter input, #tablaMateriales_length select
+#tablaMateriales_filter input, #tablaMateriales_length select,
+#tablaUsuarios_filter input, #tablaUsuarios_length select
 {
     color: var(--main-color);
 }
@@ -821,7 +822,8 @@ table tbody tr {
 
 #tablaClientes_length,
 #tablaPlataformas_length,
-#tablaMateriales_length
+#tablaMateriales_length,
+#tablaUsuarios_length
 {
     padding-left: 1rem;
 }
@@ -834,7 +836,8 @@ table tbody tr {
 #listadoPruebas_filter,
 #tablaClientes_filter,
 #tablaPlataformas_filter,
-#tablaMateriales_filter
+#tablaMateriales_filter,
+#tablaUsuarios_filter
 {
     margin-right: 0.8rem;
     border-top-right-radius: 10px;

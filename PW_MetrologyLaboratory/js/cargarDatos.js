@@ -1438,8 +1438,8 @@ const TablaAdminUsuariosDes = async () => {
                     <td>${item.correoElectronico}</td>
                     <td>${item.descripcionTipo}</td>
                     <td>
-                        <button class="btn btn-success btnActivar" onclick="activarUsuario('${item.id_usuario}')" data-bs-toggle="modal" data-bs-target="#editarUsuarioModal">
-                            <i class="las la-check-circle"></i> Editar
+                        <button class="btn btn-success btnActivar" onclick="activarUsuario('${item.id_usuario}')">
+                            <i class="las la-check-circle"></i> Activar
                         </button>
                     </td>
                 </tr>`;
