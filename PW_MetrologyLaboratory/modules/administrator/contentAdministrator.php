@@ -5,11 +5,6 @@
                 <span class="las la-bars"></span>
             </label>
             <div class="header-menu">
-                <!--<span class="las la-search"></span>
-            <div class="notify-icon">
-                <span class="las la-bell"></span>
-                <span class="notify">3</span>
-            </div>-->
                 <div class="userDiv">
                     <?php global $nombreUser; echo '<input type="text" id="nombreUser" value="' . $nombreUser . '">'; ?>
                 </div>
@@ -31,9 +26,7 @@
                 </ul>
             </nav>
         </div>
-
     </header>
-
     <main>
     <div class="page-content">
         <div class="container table-responsive">
@@ -133,4 +126,3 @@
         </div>
     </div>
 </main>
-
