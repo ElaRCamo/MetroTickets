@@ -52,15 +52,14 @@
             include 'usuarios.php';
     ?>
     <script>
-
         window.addEventListener("load",async () => {
             await initDataTableClientes();
         })
-        document.addEventListener("DOMContentLoaded", function() {
+        /*document.addEventListener("DOMContentLoaded", function() {
             TablaAdminPlataformas();
             TablaAdminMateriales();
             TablaAdminUsuarios();
-        });
+        });*/
     </script>
     <script src="../../js/cargarDatos.js"></script>
     <script src="../../js/insertarDatos.js"></script>
