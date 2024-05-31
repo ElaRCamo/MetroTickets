@@ -943,59 +943,26 @@ const TablaAdminClientes = async () => {
     }
 };
 
-/*
-function TablaAdminClientes(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (response) {
-        var tabla = id("tablaClientes");
-        var tbody = tabla.getElementsByTagName("tbody")[0];
+const initDataTableClientesDes = async () => {
 
-        // Limpiar contenido previo de la tabla
-        tbody.innerHTML = '';
+    if (dataTableIsInitializedClientes) {
+        dataTableClientes.destroy();
+    }
+    await TablaAdminClientesDes();
 
-        // Iterar sobre los materiales y crear filas y celdas de tabla
-        for (var j = 0; j < response.data.length; j++) {
-            var fila = document.createElement("tr");
+    dataTableClientes = $("#tablaClientes").DataTable(dataTableOptionsClientes);
 
-            /*var idCliente = document.createElement("td");
-            idCliente.textContent = response.data[j].id_cliente;
-            fila.appendChild(idCliente);*/
+    dataTableIsInitializedClientes = true;
 
-            /*var descripcionCliente = document.createElement("td");
-            descripcionCliente.textContent = response.data[j].descripcionCliente;
-            fila.appendChild(descripcionCliente);
+    var filtro = document.getElementById("tablaClientes_filter");
+    var contenedor = filtro.parentNode;
+    contenedor.style.padding = "0";
 
-            var acciones = document.createElement("td");
-            // Botón de editar
-            var btnEditar = document.createElement("button");
-            btnEditar.textContent = "Editar";
-            btnEditar.classList.add("btn", "btn-warning", "btnEditar");
-            btnEditar.setAttribute("onclick", "editarCliente('" +  response.data[j].id_cliente + "')");
-            btnEditar.setAttribute("data-bs-toggle", "modal");
-            btnEditar.setAttribute("data-bs-target", "#editarClienteModal");
-            var iconoEditar = document.createElement("i");
-            iconoEditar.classList.add("las", "la-edit");
-            btnEditar.prepend(iconoEditar);
+    var filtro2 = document.getElementById("tablaClientes_length");
+    var contenedor2 = filtro2.parentNode;
+    contenedor2.style.padding = "0";
+};
 
-            // Botón de eliminar
-            var btnEliminar = document.createElement("button");
-            btnEliminar.textContent = "Desactivar";
-            btnEliminar.classList.add("btn", "btn-danger", "btnDesactivar");
-            btnEliminar.setAttribute("onclick", "desactivarCliente('" +  response.data[j].id_cliente + "')");
-            var iconoDesactivar = document.createElement("i");
-            iconoDesactivar.classList.add("las", "la-times-circle");
-            btnEliminar.prepend(iconoDesactivar);
-            // Agregar los botones al td
-            acciones.appendChild(btnEditar);
-            acciones.appendChild(btnEliminar);
-            fila.appendChild(acciones);
-
-            tbody.appendChild(fila);
-        }
-    });
-    showButton("btn-clientesDes");
-    hideButton("btn-clientesAct");
-}
-*/
 function TablaAdminClientesDes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoClienteDes.php', function (response) {
         var tabla = id("tablaClientes");
