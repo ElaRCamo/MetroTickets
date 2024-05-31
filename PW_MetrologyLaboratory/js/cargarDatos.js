@@ -963,6 +963,38 @@ const initDataTableClientesDes = async () => {
     contenedor2.style.padding = "0";
 };
 
+const TablaAdminClientesDes = async () => {
+    try {
+        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoClienteDes.php`);
+        const result = await response.json();
+
+        if (!Array.isArray(result.data)) {
+            throw new Error('La respuesta del servidor no es un array.');
+        }
+
+        let content = '';
+        result.data.forEach((item) => {
+            content += `
+                <tr>
+                    <td>${item.descripcionCliente}</td>
+                    <td>
+                        <button class="btn btn-success btnActivar" onclick="activarCliente('${item.id_cliente}')">
+                            <i class="las la-power-off"></i> Activar
+                        </button>
+                    </td>
+                </tr>`;
+        });
+        tablaClientesBody.innerHTML = content;
+        showButton("btn-clientesAct");
+        hideButton("btn-clientesDes");
+
+    } catch (ex) {
+        alert(ex);
+    }
+};
+
+
+/*
 function TablaAdminClientesDes(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoClienteDes.php', function (response) {
         var tabla = id("tablaClientes");
@@ -979,7 +1011,7 @@ function TablaAdminClientesDes(){
             idCliente.textContent = response.data[j].id_cliente;
             fila.appendChild(idCliente);*/
 
-            var descripcionCliente = document.createElement("td");
+            /*var descripcionCliente = document.createElement("td");
             descripcionCliente.textContent = response.data[j].descripcionCliente;
             fila.appendChild(descripcionCliente);
 
@@ -1002,7 +1034,7 @@ function TablaAdminClientesDes(){
     });
     showButton("btn-clientesAct");
     hideButton("btn-clientesDes");
-}
+}*/
 
 function TablaAdminPlataformas(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasT.php', function (response) {
