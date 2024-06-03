@@ -1,12 +1,12 @@
 function registrarUsuario() {
-    var nomina = id("numNomina");
+    var numNomina = id("numNomina");
     var nombreUsuario = id("nombreUsuario");
     var correo = id("correo");
     var password = id("password");
 
     const data = new FormData();
 
-    data.append('numNomina', nomina.value.trim());
+    data.append('numNomina', numNomina.value.trim());
     data.append('nombreUsuario', nombreUsuario.value.trim());
     data.append('correo', correo.value.trim());
     data.append('password', password.value.trim());

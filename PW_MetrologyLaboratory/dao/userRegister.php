@@ -6,10 +6,10 @@ header('Content-Type: application/json');
 
 if(isset($_POST['numNomina'], $_POST['nombreUsuario'], $_POST['correo'], $_POST['password'])) {
 
+    $Nomina        = $_POST['numNomina'];
     $nombreUsuario = $_POST['nombreUsuario'];
     $correo        = $_POST['correo'];
     $password      = $_POST['password'];
-    $Nomina        = $_POST['numNomina'];
 
     $response = RegistrarUsuario($Nomina, $nombreUsuario, $correo, $password);
     if (isset($response['redirect'])) {
