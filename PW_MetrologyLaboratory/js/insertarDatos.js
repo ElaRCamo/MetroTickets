@@ -15,6 +15,13 @@ function registrarUsuario() {
         data.append('correo', correo.value.trim());
         data.append('password', password.value.trim());
 
+        let values = '';
+        for (let [key, value] of data.entries()) {
+            values += `${key}: ${value}\n`;
+        }
+        alert(values);
+
+
         fetch('../../dao/userRegister.php', {
             method: 'POST',
             body: data
