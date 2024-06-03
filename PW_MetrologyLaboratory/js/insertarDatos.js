@@ -56,7 +56,6 @@ function registrarUsuario() {
                 });
             });
 
-        return false; // Evitar envío del formulario por defecto
     }
 }
 
