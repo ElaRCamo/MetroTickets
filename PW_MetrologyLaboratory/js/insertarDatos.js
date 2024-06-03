@@ -1,5 +1,4 @@
-function registrarUsuario(){
-
+function registrarUsuario() {
     var nomina = id("nomina");
     var nombreUsuario = id("nombreUsuario");
     var correo = id("correo");
@@ -12,27 +11,41 @@ function registrarUsuario(){
     data.append('correo', correo.value.trim());
     data.append('password', password.value.trim());
 
-        fetch('../../dao/userRegister.php', {
-            method: 'POST',
-            body: data
+    fetch('../../dao/userRegister.php', {
+        method: 'POST',
+        body: data
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Hubo un problema al registrar el usuario.');
+            }
+            return response.json();
         })
-            .then(function (response) {
-                if (response.ok) { //respuesta
-                    Swal.fire({
-                        title: "¡Usuario registrado exitosamente!",
-                        icon: "success"
-                    });
-                    window.location.href = "../sesion/indexSesion.php";
-                } else {
-                    throw "Error en la llamada Ajax";
-                }
-            })
-            .then(function (texto) {
-                console.log(texto);
-            })
-            .catch(function (err) {
-                console.log(err);
+        .then(data => {
+            // Manejo de la respuesta del PHP
+            if (data.success) {
+                Swal.fire({
+                    title: "¡Usuario registrado exitosamente!",
+                    icon: "success",
+                    confirmButtonText: "OK"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "../sesion/indexSesion.php";
+                    }
+                });
+            } else {
+                throw new Error(data.message); // Mensaje de error del PHP
+            }
+        })
+        .catch(error => {
+            Swal.fire({
+                title: "Error",
+                text: error.message,
+                icon: "error"
             });
+        });
+
+    return false; // Evitar envío del formulario por defecto
 }
 
 function idPrueba() {
