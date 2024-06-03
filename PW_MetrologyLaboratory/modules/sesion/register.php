@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="../../imgs/Grammer_Logo.ico" type="image/x-icon">
-    <title>LM | Regístrarse </title>
-
+    <title>LM | Regístro </title>
     <!--Enlace de iconos: icons8, licencia con mención -->
     <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
     <!--Fuente -->
@@ -39,25 +38,25 @@
             <form id="registrarseForm" method="POST">
                 <h2 id="registrarse">Regístrarse</h2>
                 <div id=aviso style='align-content:center;'></div>
-                <div class="input-box">
-                    <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre Completo" required>
-                    <i class="las la-user-alt"></i>
+                <div class="input-box form-group">
+                    <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre Completo" required data-error="Por favor ingrese su nombre.">
+                    <i class="las la-user-alt"></i><div class="invalid-feedback"></div>
                 </div>
-                <div class="input-box">
-                    <input type="text" id="correo" name="correo"  placeholder="Correo electrónico" required>
-                    <i class="las la-envelope"></i>
+                <div class="input-box form-group">
+                    <input type="text" id="correo" name="correo"  placeholder="Correo electrónico" required data-error="Por favor ingrese su correo.">
+                    <i class="las la-envelope"></i><div class="invalid-feedback"></div>
                 </div>
-                <div class="input-box">
-                    <input type="text" id="nomina" name="numNomina" placeholder="No. de nómina" required>
-                    <i class="las la-briefcase"></i>
+                <div class="input-box form-group">
+                    <input type="text" id="nomina" name="numNomina" placeholder="No. de nómina" required data-error="Por favor ingrese su número de nómina.">
+                    <i class="las la-briefcase"></i><div class="invalid-feedback"></div>
                 </div>
-                <div class="input-box">
-                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
-                    <i class="las la-lock"></i>
+                <div class="input-box form-group">
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required data-error="Por favor ingrese su contraseña.">
+                    <i class="las la-lock"></i><div class="invalid-feedback"></div>
                 </div>
-                <div class="input-box">
-                    <input type="password" id="password2" name="password2" placeholder="Confirmar contraseña" required>
-                    <i class="las la-lock"></i>
+                <div class="input-box form-group">
+                    <input type="password" id="password2" name="password2" placeholder="Confirmar contraseña" required data-error="Por favor ingrese su contraseña.">
+                    <i class="las la-lock"></i><div class="invalid-feedback"></div>
                 </div>
 
                 <button type="submit" id="registrarse" name="registrarse"  class="btn login" onclick="registrarUsuario()">Regístrarse</button>
@@ -69,18 +68,6 @@
         </div>
     </div>
 </main>
-
-
-
-
-
-<div class="form-group col-sm-6" id="selectTipoPrueba">
-    <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba(); llenarCliente(1);"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione un tipo de prueba válido.">
-        <option value="">Seleccione el tipo de prueba*</option>
-    </select>
-    <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
-    <div class="invalid-feedback"></div>
-</div>
 
 
 <?php
@@ -97,20 +84,18 @@ require_once('../../footer.php')
 
         if (!correo.endsWith(dominioPermitido)) {
             event.preventDefault(); // Evita el envío del formulario
-            document.getElementById('aviso').innerHTML="<label style='color:red;'>El correo debe tener el dominio '@grammer.com'</label>";
+            document.getElementById('aviso').innerHTML="<label style='color:red; text-align: center;'>El correo debe tener el dominio '@grammer.com'</label>";
         }
-    });
 
-    function validarPasswords() {
         var password1 = document.getElementById("password").value;
         var password2 = document.getElementById("password2").value;
 
         if (password1 !== password2) {
-            alert("Las contraseñas no coinciden");
-            return false;
+            event.preventDefault();
+            document.getElementById('aviso').innerHTML="<label style='color:red;  text-align: center;'>Las contraseñas no coinciden.</label>";
         }
-        return true;
-    }
+
+    });
 </script>
 <script src="../../js/general.js"></script>
 <script src="../../js/validaciones.js"></script>

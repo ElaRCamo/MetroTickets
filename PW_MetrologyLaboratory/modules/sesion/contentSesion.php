@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="wrapper">
-            <form onsubmit="return validarFormSesion()" id="formInicioSesion" action="../../dao/login.php" method="post"  >
+            <form id="formInicioSesion" action="../../dao/login.php" method="post"  >
                 <h2 id="iniciarSesion">Iniciar Sesión</h2>
                 <div class="input-box form-group">
                     <input type="text" class="form-control" name="numNomina" id="numNomina" placeholder="No. de nómina" required data-error="Ingrese un número de nómina válido.">

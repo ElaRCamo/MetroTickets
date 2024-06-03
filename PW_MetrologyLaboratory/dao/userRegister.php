@@ -1,34 +1,35 @@
 <?php
 include_once('connection.php');
+include_once('funtions.php');
 require 'daoUsuario.php';
+header('Content-Type: application/json');
 
-// Verificar si los datos están presentes y asignarlos de manera segura
-if(isset( $_POST['numNomina'], $_POST['nombreUsuario'], $_POST['correo'], $_POST['password'])) {
+if(isset($_POST['numNomina'], $_POST['nombreUsuario'], $_POST['correo'], $_POST['password'])) {
 
     $nombreUsuario = $_POST['nombreUsuario'];
     $correo        = $_POST['correo'];
-    $password      =  $_POST['password'];
+    $password      = $_POST['password'];
     $Nomina        = $_POST['numNomina'];
 
-    // Llamar a la función
-    if(RegistrarUsuario($Nomina ,$nombreUsuario, $correo, $password)) {
-        echo '<script>alert("Usuario registrado exitosamente")</script>';
-    } else {
-        echo '<script>alert("Error al registrar el usuario")</script>';
+    $response = RegistrarUsuario($Nomina, $nombreUsuario, $correo, $password);
+    if (isset($response['redirect'])) {
+        header('Location: ' . $response['redirect']);
+        exit();
     }
+
 } else {
-    echo '<script>alert("Error: Faltan datos en el formulario")</script>';
+    $response = array('status' => 'error', 'message' => 'Error: Faltan datos en el formulario');
 }
-function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password)
+
+echo json_encode($response);
+function RegistrarUsuario($numNomina, $nombreUsuario, $correo, $password)
 {
     $passwordS = sha1($password);
-    $Nomina = str_pad($numNomina, 8, "0", STR_PAD_LEFT);
+    $Nomina    = str_pad($numNomina, 8, "0", STR_PAD_LEFT);
     $resultado = Usuario($Nomina);
 
     if ($resultado['success']) {
-        echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/register.php'>";
-        echo '<script>alert("El usuario ya existe, verifique sus datos")</script>';
-        return 0;
+        return array('status' => 'error', 'message' => 'El usuario ya existe, verifique sus datos', 'redirect' => 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/register.php');
     } else {
         $con = new LocalConector();
         $conex = $con->conectar();
@@ -39,11 +40,9 @@ function RegistrarUsuario($numNomina ,$nombreUsuario, $correo, $password)
         mysqli_close($conex);
 
         if (!$rInsertUsuario) {
-            echo '<script>alert("Error al registrar el usuario")</script>';
-            return 0;
+            return array('status' => 'error', 'message' => 'Error al registrar el usuario');
         } else {
-            echo '<script>alert("Usuario registrado exitosamente")</script>';
-            return 1;
+            return array('status' => 'success', 'message' => 'Usuario registrado exitosamente');
         }
     }
 }

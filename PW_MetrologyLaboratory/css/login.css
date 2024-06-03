@@ -239,3 +239,19 @@ body{
         width: 300px;
     }
 }
+.popup-form .invalid-feedback {
+    color: #E10014;
+    font-size: 0.8rem;
+    margin-left: 1rem;
+    display: none;
+}
+
+
+.invalid-feedback {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    color: #dc3545;
+}

@@ -1,7 +1,5 @@
 function registrarUsuario(){
 
-    validarPasswords();
-
     var nomina = id("nomina");
     var nombreUsuario = id("nombreUsuario");
     var correo = id("correo");
@@ -20,6 +18,10 @@ function registrarUsuario(){
         })
             .then(function (response) {
                 if (response.ok) { //respuesta
+                    Swal.fire({
+                        title: "¡Usuario registrado exitosamente!",
+                        icon: "success"
+                    });
                     window.location.href = "../sesion/indexSesion.php";
                 } else {
                     throw "Error en la llamada Ajax";
