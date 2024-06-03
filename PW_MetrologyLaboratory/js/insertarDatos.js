@@ -17,7 +17,7 @@ function registrarUsuario(){
             body: data
         })
             .then(function (response) {
-                if (response.success) { //respuesta
+                if (response.ok) { //respuesta
                     Swal.fire({
                         title: "¡Usuario registrado exitosamente!",
                         icon: "success"
