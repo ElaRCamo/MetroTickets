@@ -131,14 +131,6 @@ function cerrarSesion() {
     xhttp.send("cerrarSesion=true");
 }
 
-document.getElementById("cerrarSesion").addEventListener("click", function (event) {
-    event.preventDefault(); // Esto evita que el enlace se siga automáticamente
-    cerrarSesion();
-});
-document.getElementById("cerrarS").addEventListener("click", function (event) {
-    cerrarSesion();
-});
-
 function redirectToRequestsIndex() {
     window.location.href = "../requests/requestsIndex.php";
 }

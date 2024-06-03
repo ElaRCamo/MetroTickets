@@ -56,3 +56,9 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById("cerrarSesion").addEventListener("click", function (event) {
+        event.preventDefault();
+        cerrarSesion();
+    });
+</script>

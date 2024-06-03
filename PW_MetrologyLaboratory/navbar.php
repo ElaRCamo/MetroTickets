@@ -22,3 +22,9 @@
             </div>
         </div>
     </header>
+
+    <script>
+        document.getElementById("cerrarS").addEventListener("click", function (event) {
+            cerrarSesion();
+        });
+    </script>
