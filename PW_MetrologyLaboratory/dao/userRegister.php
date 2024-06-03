@@ -1,6 +1,5 @@
 <?php
 include_once('connection.php');
-include_once('funtions.php');
 require 'daoUsuario.php';
 header('Content-Type: application/json');
 
@@ -12,10 +11,6 @@ if(isset($_POST['numNomina'], $_POST['nombreUsuario'], $_POST['correo'], $_POST[
     $password      = $_POST['password'];
 
     $response = RegistrarUsuario($Nomina, $nombreUsuario, $correo, $password);
-    if (isset($response['redirect'])) {
-        header('Location: ' . $response['redirect']);
-        exit();
-    }
 
 } else {
     $response = array('status' => 'error', 'message' => 'Error: Faltan datos en el formulario');
@@ -29,12 +24,13 @@ function RegistrarUsuario($numNomina, $nombreUsuario, $correo, $password)
     $resultado = Usuario($Nomina);
 
     if ($resultado['success']) {
-        return array('status' => 'error', 'message' => 'El usuario ya existe, verifique sus datos', 'redirect' => 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/register.php');
+        return array('status' => 'error', 'message' => 'El usuario ya existe, verifique sus datos');
     } else {
         $con = new LocalConector();
         $conex = $con->conectar();
 
-        $insertUsuario = "INSERT INTO `Usuario` (`id_usuario`, `nombreUsuario`, `correoElectronico`, `passwordHash`) VALUES ('$Nomina', '$nombreUsuario', '$correo', '$passwordS')";
+        $insertUsuario = "INSERT INTO `Usuario` (`id_usuario`, `nombreUsuario`, `correoElectronico`, `passwordHash`) 
+                               VALUES ('$Nomina', '$nombreUsuario', '$correo', '$passwordS')";
         $rInsertUsuario = mysqli_query($conex, $insertUsuario);
 
         mysqli_close($conex);
