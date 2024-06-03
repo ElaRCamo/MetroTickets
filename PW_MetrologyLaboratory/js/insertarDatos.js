@@ -1,26 +1,18 @@
 function registrarUsuario() {
-
     var inputsValidos = validarFormulario();
 
-    if(inputsValidos){
-        var numNomina = id("numNomina");
-        var nombreUsuario = id("nombreUsuario");
-        var correo = id("correo");
-        var password = id("password");
+    if (inputsValidos) {
+        var numNomina = document.getElementById("numNomina").value.trim();
+        var nombreUsuario = document.getElementById("nombreUsuario").value.trim();
+        var correo = document.getElementById("correo").value.trim();
+        var password = document.getElementById("password").value.trim();
 
         const data = new FormData();
 
-        data.append('numNomina', numNomina.value.trim());
-        data.append('nombreUsuario', nombreUsuario.value.trim());
-        data.append('correo', correo.value.trim());
-        data.append('password', password.value.trim());
-
-        let values = '';
-        for (let [key, value] of data.entries()) {
-            values += `${key}: ${value}\n`;
-        }
-        alert(values);
-
+        data.append('numNomina', numNomina);
+        data.append('nombreUsuario', nombreUsuario);
+        data.append('correo', correo);
+        data.append('password', password);
 
         fetch('../../dao/userRegister.php', {
             method: 'POST',
@@ -28,12 +20,11 @@ function registrarUsuario() {
         })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Hubo un problema al registrar el usuario.');
+                    throw new Error('Hubo un problema al registrar el usuario. Por favor, intenta de nuevo más tarde.');
                 }
                 return response.json();
             })
             .then(data => {
-                // Manejo de la respuesta del PHP
                 if (data.success) {
                     Swal.fire({
                         title: "¡Usuario registrado exitosamente!",
@@ -45,7 +36,7 @@ function registrarUsuario() {
                         }
                     });
                 } else {
-                    throw new Error(data.message);
+                    throw new Error(data.message || 'Hubo un problema al registrar el usuario. Por favor, intenta de nuevo más tarde.');
                 }
             })
             .catch(error => {
@@ -55,9 +46,9 @@ function registrarUsuario() {
                     icon: "error"
                 });
             });
-
     }
 }
+
 
 function idPrueba() {
     return new Promise(function(resolve, reject) {
