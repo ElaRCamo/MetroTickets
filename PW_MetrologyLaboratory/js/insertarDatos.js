@@ -29,6 +29,7 @@ function registrarUsuario() {
                     Swal.fire({
                         title: "¡Usuario registrado exitosamente!",
                         icon: "success",
+                        timer: 2000,
                         confirmButtonText: "OK"
                     }).then((result) => {
                         if (result.isConfirmed) {
