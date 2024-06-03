@@ -43,7 +43,7 @@
                     <i class="las la-user-alt"></i><div class="invalid-feedback"></div>
                 </div>
                 <div class="input-box form-group">
-                    <input type="text" id="correo" name="correo"  placeholder="Correo electrónico" required data-error="Por favor ingrese su correo.">
+                    <input type="text" id="correo" name="correo"  placeholder="Correo electrónico"  onchange="validarCorreo()" required data-error="Por favor ingrese su correo.">
                     <i class="las la-envelope"></i><div class="invalid-feedback"></div>
                 </div>
                 <div class="input-box form-group">
@@ -55,7 +55,7 @@
                     <i class="las la-lock"></i><div class="invalid-feedback"></div>
                 </div>
                 <div class="input-box form-group">
-                    <input type="password" id="password2" name="password2" placeholder="Confirmar contraseña" required data-error="Por favor ingrese su contraseña.">
+                    <input type="password" id="password2" name="password2" placeholder="Confirmar contraseña" onchange="validarPasswords()" required data-error="Por favor ingrese su contraseña.">
                     <i class="las la-lock"></i><div class="invalid-feedback"></div>
                 </div>
 
@@ -74,29 +74,7 @@
 # Content section
 require_once('../../footer.php')
 ?>
-<script>
-    const registrarseForm = document.getElementById('registrarseForm');
-    const correoInput = document.getElementById('correo');
 
-    registrarseForm.addEventListener('submit', function(event) {
-        const correo = correoInput.value.trim();
-        const dominioPermitido = '@grammer.com';
-
-        if (!correo.endsWith(dominioPermitido)) {
-            event.preventDefault(); // Evita el envío del formulario
-            document.getElementById('aviso').innerHTML="<label style='color:red; text-align: center;'>El correo debe tener el dominio '@grammer.com'</label>";
-        }
-
-        var password1 = document.getElementById("password").value;
-        var password2 = document.getElementById("password2").value;
-
-        if (password1 !== password2) {
-            event.preventDefault();
-            document.getElementById('aviso').innerHTML="<label style='color:red;  text-align: center;'>Las contraseñas no coinciden.</label>";
-        }
-
-    });
-</script>
 <script src="../../js/general.js"></script>
 <script src="../../js/validaciones.js"></script>
 <script src="../../js/insertarDatos.js"></script>

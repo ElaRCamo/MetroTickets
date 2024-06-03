@@ -1,51 +1,56 @@
 function registrarUsuario() {
-    var numNomina = id("numNomina");
-    var nombreUsuario = id("nombreUsuario");
-    var correo = id("correo");
-    var password = id("password");
 
-    const data = new FormData();
+    var inputsValidos = validarFormulario();
 
-    data.append('numNomina', numNomina.value.trim());
-    data.append('nombreUsuario', nombreUsuario.value.trim());
-    data.append('correo', correo.value.trim());
-    data.append('password', password.value.trim());
+    if(inputsValidos){
+        var numNomina = id("numNomina");
+        var nombreUsuario = id("nombreUsuario");
+        var correo = id("correo");
+        var password = id("password");
 
-    fetch('../../dao/userRegister.php', {
-        method: 'POST',
-        body: data
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Hubo un problema al registrar el usuario.');
-            }
-            return response.json();
+        const data = new FormData();
+
+        data.append('numNomina', numNomina.value.trim());
+        data.append('nombreUsuario', nombreUsuario.value.trim());
+        data.append('correo', correo.value.trim());
+        data.append('password', password.value.trim());
+
+        fetch('../../dao/userRegister.php', {
+            method: 'POST',
+            body: data
         })
-        .then(data => {
-            // Manejo de la respuesta del PHP
-            if (data.success) {
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Hubo un problema al registrar el usuario.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Manejo de la respuesta del PHP
+                if (data.success) {
+                    Swal.fire({
+                        title: "¡Usuario registrado exitosamente!",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "../sesion/indexSesion.php";
+                        }
+                    });
+                } else {
+                    throw new Error(data.message);
+                }
+            })
+            .catch(error => {
                 Swal.fire({
-                    title: "¡Usuario registrado exitosamente!",
-                    icon: "success",
-                    confirmButtonText: "OK"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.location.href = "../sesion/indexSesion.php";
-                    }
+                    title: "Error",
+                    text: error.message,
+                    icon: "error"
                 });
-            } else {
-                throw new Error(data.message);
-            }
-        })
-        .catch(error => {
-            Swal.fire({
-                title: "Error",
-                text: error.message,
-                icon: "error"
             });
-        });
 
-    return false; // Evitar envío del formulario por defecto
+        return false; // Evitar envío del formulario por defecto
+    }
 }
 
 function idPrueba() {

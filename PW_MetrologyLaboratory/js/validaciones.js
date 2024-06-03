@@ -28,16 +28,78 @@ function validarFormNewRequest() {
         //&& esNormaValido && esArchivoValido && esPEspecialValido && esPOtroValido
         console.log("Todos los inputs son válidos.");
 
-        console.log("esActualizacion: "+esActualizacion);
-        if (esActualizacion === false){
+        console.log("esActualizacion: " + esActualizacion);
+        if (esActualizacion === false) {
             validacionSolicitud();
-        }else if (esActualizacion === true){
+        } else if (esActualizacion === true) {
             actualizarSolicitud();
         }
     } else {
         console.log("Hay campos sin completar.");
     }
 }
+
+function validarCorreo(){
+    const correoInput = document.getElementById('correo');
+    const correo = correoInput.value.trim();
+    const dominioPermitido = '@grammer.com';
+
+    if (!correo.endsWith(dominioPermitido)) {
+        document.getElementById('aviso').innerHTML="<label style='color:red; text-align: center;'>El correo debe tener el dominio '@grammer.com'</label>";
+        return false;
+    }
+    return true;
+}
+
+function validarPasswords(){
+    var password1 = document.getElementById("password").value;
+    var password2 = document.getElementById("password2").value;
+
+    if (password1 !== password2) {
+        document.getElementById('aviso').innerHTML="<label style='color:red;  text-align: center;'>Las contraseñas no coinciden.</label>";
+        return false;
+    }
+    return true;
+}
+
+function validarFormulario() {
+    let isValid = true;
+
+    // Validar que los campos no estén vacíos
+    let inputs = document.querySelectorAll('#registrarseForm input[required]');
+    inputs.forEach(function(input) {
+        if (!input.value.trim()) {
+            showErrorMessage(input, input.dataset.error);
+            isValid = false;
+        } else {
+            hideErrorMessage(input);
+        }
+    });
+
+    // Validar correos
+    if (!validarCorreo()) {
+        isValid = false;
+    }
+
+    // Validar contraseñas
+    if (!validarPasswords()) {
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function showErrorMessage(input, message) {
+    let errorDiv = input.nextElementSibling.nextElementSibling;
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+}
+
+function hideErrorMessage(input) {
+    let errorDiv = input.nextElementSibling.nextElementSibling;
+    errorDiv.style.display = 'none';
+}
+
 
 function validarSelect(idSelect) {
     const selectElement = document.getElementById(idSelect);
@@ -97,10 +159,10 @@ function validarInput(idInput) {
 }
 
 
-function validarMateriales(indexMaterial){
+function validarMateriales(indexMaterial) {
     var MaterialesValidos = [];
-    var sonMaterialesValidos= false;
-    for(var i=0; i<indexMaterial; i++){
+    var sonMaterialesValidos = false;
+    for (var i = 0; i < indexMaterial; i++) {
         var esMaterialValido = false;
         var esClienteValido = validarSelect('cliente' + indexMaterial);
         var esPlataformaValida = validarSelect('plataforma' + indexMaterial);
@@ -110,9 +172,9 @@ function validarMateriales(indexMaterial){
         esMaterialValido = esClienteValido && esPlataformaValida && esDescValida && esCdadValida;
         MaterialesValidos.push(esMaterialValido);
     }
-    for(var j=0; j<indexMaterial; j++){
-        sonMaterialesValidos =++MaterialesValidos[j];
+    for (var j = 0; j < indexMaterial; j++) {
+        sonMaterialesValidos = ++MaterialesValidos[j];
     }
-    console.log("sonMaterialesValidos: "+sonMaterialesValidos);
+    console.log("sonMaterialesValidos: " + sonMaterialesValidos);
     return sonMaterialesValidos;
 }
