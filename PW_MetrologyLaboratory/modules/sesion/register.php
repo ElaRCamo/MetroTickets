@@ -47,7 +47,7 @@
                     <i class="las la-envelope"></i><div class="invalid-feedback"></div>
                 </div>
                 <div class="input-box form-group">
-                    <input type="text" id="nomina" name="numNomina" placeholder="No. de nómina" required data-error="Por favor ingrese su número de nómina.">
+                    <input type="text" id="numNomina" name="numNomina" placeholder="No. de nómina" required data-error="Por favor ingrese su número de nómina.">
                     <i class="las la-briefcase"></i><div class="invalid-feedback"></div>
                 </div>
                 <div class="input-box form-group">

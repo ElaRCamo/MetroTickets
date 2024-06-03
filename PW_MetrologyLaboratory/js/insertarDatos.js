@@ -1,5 +1,5 @@
 function registrarUsuario() {
-    var nomina = id("nomina");
+    var nomina = id("numNomina");
     var nombreUsuario = id("nombreUsuario");
     var correo = id("correo");
     var password = id("password");
@@ -34,7 +34,7 @@ function registrarUsuario() {
                     }
                 });
             } else {
-                throw new Error(data.message); // Mensaje de error del PHP
+                throw new Error(data.message);
             }
         })
         .catch(error => {
