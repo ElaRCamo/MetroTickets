@@ -89,24 +89,26 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 ✗   38. Hay inconsistencias al guardar las imagenes cuando se actualiza un material
 ✓   39. llenarTipoPruebaUpdate(1);//Solo funciona si el tipo de evaluacion es 1, se debe evaluar(9/05/2024)
 ✓   40. Se llena newRequest con los datos para actualizar una prueba (15/05/2024)
-    41. Habilitar filtros en solicitudes
-    42. Actualizar solicitud pero validando los estatus de los materiales 
+✓   41. Habilitar filtros en solicitudes(29/05/2024)
+✗   42. Actualizar solicitud pero validando los estatus de los materiales 
 	42.1 Cuando se elimina un material, el formulario no se envia
 	42.2 Que no permita guardar materiales iguales
 ✓   43. Para actualizar se valida el estatus de la solicitud (27/05/2024)
+✗   44. El reporte no enlaza al pdf
+✗   45. Ajustar el reporte de acuerdo a necesidades
+✓   46. Pasar a dataTables el panel de administrador(31/05/2024)
 
-    
 
+   
 
-
-✗  98. Al cargar la base de datos cargar el usuario "Sin Asignar" con id_usuario="00000000" por default
-✗  99.El boton de la regla en solicitudes tiene asignada if function
-✗  100. Asignar valores por default en la BD
+✗   98. Al cargar la base de datos cargar el usuario "Sin Asignar" con id_usuario="00000000" por default
+✓   99.El boton de la regla en solicitudes tiene asignada id function
+✗   100. Asignar valores por default en la BD
 
 Reunion 02/04/2024 
 ✓  1. Prueba dureza insitu > agregar norma
-✓ 2. Especificaciones para todos (03/04/2024)
-✓ 3. Quitar cantidad de piezas el de despues de norma(03/04/2024)
+✓  2. Especificaciones para todos (03/04/2024)
+✓  3. Quitar cantidad de piezas el de despues de norma(03/04/2024)
 ✗  4. Que administrador pueda revisar contraseñas
      ---Se cambia por *Recuperar contraseña* ---
 ✓  5. Actualizaciones solo para el administrador
@@ -120,8 +122,6 @@ Reunion 12/04/2024
 ✓ Agregar apartado de observaciones para admin
 ✓ apartado de la ruta de reusltados
 ✓ resumen a pdf
-
-
 
 
 Lorem ipsum dolor sit amet consectetur, adipiscing elit mauris vel. Torquent fusce erat sociosqu tempus mi curae tempor sollicitudin bibendum dapibus vehicula, 

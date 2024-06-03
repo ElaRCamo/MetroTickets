@@ -1,5 +1,7 @@
 function registrarUsuario(){
 
+    validarPasswords();
+
     var nomina = id("nomina");
     var nombreUsuario = id("nombreUsuario");
     var correo = id("correo");

@@ -39,6 +39,12 @@ function validarFormNewRequest() {
     }
 }
 
+function validarFormSesion() {
+    const esNominaValida = validarInput('numNomina');
+    const esPasswordValido = validarInput('password');
+
+    return !(esNominaValida && esPasswordValido !== true);
+}
 
 function validarSelect(idSelect) {
     const selectElement = document.getElementById(idSelect);

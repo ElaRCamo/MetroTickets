@@ -12,15 +12,17 @@
             </div>
         </div>
         <div class="wrapper">
-            <form id="formInicioSesion" action="../../dao/login.php" method="post" >
+            <form onsubmit="return validarFormSesion()" id="formInicioSesion" action="../../dao/login.php" method="post"  >
                 <h2 id="iniciarSesion">Iniciar Sesión</h2>
-                <div class="input-box">
-                    <input type="text" name="numNomina" id="numNomina" placeholder="No. de nómina" required>
+                <div class="input-box form-group">
+                    <input type="text" class="form-control" name="numNomina" id="numNomina" placeholder="No. de nómina" required data-error="Ingrese un número de nómina válido.">
                     <i class="las la-user"></i>
+                    <div class="invalid-feedback"></div>
                 </div>
-                <div class="input-box">
-                    <input type="password" name="password"  id="password" placeholder="Contraseña" required>
+                <div class="input-box form-group">
+                    <input type="password" class="form-control" name="password"  id="password" placeholder="Contraseña" required data-error="Ingrese una contraseña válida.">
                     <i class="las la-lock"></i>
+                    <div class="invalid-feedback"></div>
                 </div>
                 <div class="remember-forgot">
                     <label><input type="checkbox">Recuérdame</label>

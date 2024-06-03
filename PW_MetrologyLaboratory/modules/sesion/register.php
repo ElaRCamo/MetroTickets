@@ -55,6 +55,10 @@
                     <input type="password" id="password" name="password" placeholder="Contraseña" required>
                     <i class="las la-lock"></i>
                 </div>
+                <div class="input-box">
+                    <input type="password" id="password2" name="password2" placeholder="Confirmar contraseña" required>
+                    <i class="las la-lock"></i>
+                </div>
 
                 <button type="submit" id="registrarse" name="registrarse"  class="btn login" onclick="registrarUsuario()">Regístrarse</button>
 
@@ -65,6 +69,20 @@
         </div>
     </div>
 </main>
+
+
+
+
+
+<div class="form-group col-sm-6" id="selectTipoPrueba">
+    <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba(); llenarCliente(1);"  name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione un tipo de prueba válido.">
+        <option value="">Seleccione el tipo de prueba*</option>
+    </select>
+    <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
+    <div class="invalid-feedback"></div>
+</div>
+
+
 <?php
 # Content section
 require_once('../../footer.php')
@@ -82,8 +100,20 @@ require_once('../../footer.php')
             document.getElementById('aviso').innerHTML="<label style='color:red;'>El correo debe tener el dominio '@grammer.com'</label>";
         }
     });
+
+    function validarPasswords() {
+        var password1 = document.getElementById("password").value;
+        var password2 = document.getElementById("password2").value;
+
+        if (password1 !== password2) {
+            alert("Las contraseñas no coinciden");
+            return false;
+        }
+        return true;
+    }
 </script>
 <script src="../../js/general.js"></script>
+<script src="../../js/validaciones.js"></script>
 <script src="../../js/insertarDatos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
