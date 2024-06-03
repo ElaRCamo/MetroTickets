@@ -40,11 +40,14 @@ function registrarUsuario() {
                 }
             })
             .catch(error => {
-                Swal.fire({
-                    title: "Error",
-                    text: error.message,
-                    icon: "error"
-                });
+                // Agregar un pequeño retraso antes de mostrar el mensaje de error
+                setTimeout(() => {
+                    Swal.fire({
+                        title: "Error",
+                        text: error.message,
+                        icon: "error"
+                    });
+                }, 500); // 1500 milisegundos (medio segundo)
             });
     }
 }
