@@ -14,7 +14,7 @@ function registrarUsuario() {
         data.append('numNomina', numNomina.value.trim());
         data.append('password', password.value.trim());
 
-        alert('nombreUsuario: '+nombreUsuario.value.trim()+' correo: '+correo.value.trim()+' numNomina: '+numNomina.value.trim()+' password: '+ password.value.trim());
+        //alert('nombreUsuario: '+nombreUsuario.value.trim()+' correo: '+correo.value.trim()+' numNomina: '+numNomina.value.trim()+' password: '+ password.value.trim());
 
         fetch('../../dao/userRegister.php', {
             method: 'POST',
@@ -41,9 +41,10 @@ function registrarUsuario() {
                 } else {
                     throw new Error('Hubo un problema al registrar el usuario. Por favor, intenta de nuevo más tarde.');
                 }
-            })
-            .catch(error => {
-                console.error(error);
+            }).then(function (texto) {
+                enviarCorreoNuevoUsuario(nombreUsuario.value.trim(), numNomina.value.trim(), correo.value.trim());
+            }).catch(error => {
+                //console.error(error);
                 Swal.fire({
                     title: "Error",
                     text: error.message,
@@ -60,7 +61,35 @@ function registrarUsuario() {
         });
     }
 }
+function enviarCorreoNuevoUsuario(nombre, id, correo){
+    const data = new FormData();
 
+    data.append('nombre',nombre);
+    data.append('id',id);
+    data.append('correo',correo);
+
+    fetch('https://arketipo.mx/MailerNuevoUsuario.php',{
+        method: 'POST',
+        body: data
+    })
+        .then(function (response){
+            if (!response.ok){
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (error) {
+            //console.log(err);
+            Swal.fire({
+                title: "Error",
+                text: error.message,
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        });
+}
 
 function idPrueba() {
     return new Promise(function(resolve, reject) {
