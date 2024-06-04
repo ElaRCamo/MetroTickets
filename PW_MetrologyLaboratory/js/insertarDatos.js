@@ -37,6 +37,8 @@ function registrarUsuario() {
                             window.location.href = "../sesion/indexSesion.php";
                         }
                     });
+                } else {
+                    throw new Error('Hubo un problema al registrar el usuario. Por favor, intenta de nuevo más tarde.');
                 }
             })
             .catch(error => {
