@@ -2,16 +2,16 @@ function registrarUsuario() {
     var inputsValidos = validarFormulario();
 
     if (inputsValidos) {
-        var numNomina = document.getElementById("numNomina").value.trim();
         var nombreUsuario = document.getElementById("nombreUsuario").value.trim();
         var correo = document.getElementById("correo").value.trim();
+        var numNomina = document.getElementById("numNomina").value.trim();
         var password = document.getElementById("password").value.trim();
 
         const data = new FormData();
 
-        data.append('numNomina', numNomina);
         data.append('nombreUsuario', nombreUsuario);
         data.append('correo', correo);
+        data.append('numNomina', numNomina);
         data.append('password', password);
 
         fetch('../../dao/userRegister.php', {
@@ -29,7 +29,6 @@ function registrarUsuario() {
                     Swal.fire({
                         title: "¡Usuario registrado exitosamente!",
                         icon: "success",
-                        timer: 2000,
                         confirmButtonText: "OK"
                     }).then((result) => {
                         if (result.isConfirmed) {

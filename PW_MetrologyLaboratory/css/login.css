@@ -190,8 +190,9 @@ body{
 
 #nombreUsuario,
 #correo, #correoR
-#nomina, #nominaR,
-#password {
+#numNomina, #nominaR,
+#password, #password2
+{
     margin-bottom: 0;
     font-size: 0.9rem;
 }
