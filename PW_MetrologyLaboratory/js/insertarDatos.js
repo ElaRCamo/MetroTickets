@@ -105,7 +105,7 @@ function registrarUsuario() {
                     throw new Error(data.message || 'Hubo un problema al registrar el usuario. Por favor, intenta de nuevo más tarde.');
                 }
             })
-            .catch(error => {+
+            .catch(error => {
                 Swal.fire({
                     title: "Error js",
                     text: error.message,
@@ -113,7 +113,6 @@ function registrarUsuario() {
                 });
             });
     }else{
-
         Swal.fire({
             title: "Datos incorrectos",
             text: "Revise su información",
