@@ -29,7 +29,7 @@ function registrarUsuario() {
             .then(data => {
                 if (data.success.message) {
                     Swal.fire({
-                        title: success.message,
+                        title: "¡Usuario registrado exitosamente!",
                         icon: "success",
                         confirmButtonText: "OK"
                     }).then((result) => {
