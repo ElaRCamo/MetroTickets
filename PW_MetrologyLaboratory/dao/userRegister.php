@@ -1,24 +1,20 @@
 <?php
-//header('Content-Type: application/json');
+header('Content-Type: application/json');
 include_once('connection.php');
 require 'daoUsuario.php';
 
-/*if(isset($_POST['nombreUsuario'], $_POST['correo'], $_POST['numNomina'], $_POST['password'])) {
-
-
-
+if(isset($_POST['nombreUsuario'], $_POST['correo'], $_POST['numNomina'], $_POST['password'])) {
+    $nombreUsuario = $_GET['nombreUsuario'];
+    $correo        = $_GET['correo'];
+    $Nomina        = $_GET['numNomina'];
+    $password      = $_GET['password'];
 } else {
     $response = array('status' => 'error', 'message' => 'Error: Faltan datos en el formulario***');
-}*/
-
-$nombreUsuario = $_GET['nombreUsuario'];
-$correo        = $_GET['correo'];
-$Nomina        = $_GET['numNomina'];
-$password      = $_GET['password'];
+}
 
 $response = RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password);
 
-//echo json_encode($response);
+echo json_encode($response);
 function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
 {
     $passwordS = sha1($password);
