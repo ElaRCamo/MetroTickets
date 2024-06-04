@@ -19,10 +19,10 @@ function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
 {
     $passwordS = sha1($password);
     $numNomina    = str_pad($Nomina, 8, "0", STR_PAD_LEFT);
-    $resultado = Usuario($numNomina);
+    $usuarioExiste = Usuario($numNomina);
 
-    if ($resultado['success']) {
-        return array('status' => 'error', 'message' => 'El usuario ya existe, verifique sus datos');
+    if ($usuarioExiste['success']) {
+        return array('status' => 'error', 'message' => 'El usuario ya existe, verifique sus datos.');
     } else {
         $con = new LocalConector();
         $conex = $con->conectar();
