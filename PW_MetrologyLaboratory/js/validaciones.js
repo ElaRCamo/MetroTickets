@@ -45,10 +45,16 @@ function validarCorreo(){
     const dominioPermitido = '@grammer.com';
 
     if (!correo.endsWith(dominioPermitido)) {
-        document.getElementById('aviso').innerHTML="<label style='color:red; font-size:0.7rem;text-align: center;'>El correo debe tener el dominio '@grammer.com'</label>";
+        document.getElementById('aviso').innerHTML="<label id='lError' style='color:red; font-size:0.7rem;text-align: center;'>El correo debe tener el dominio '@grammer.com'</label>";
         return false;
+    }else{
+        if(document.getElementById('lError')) {
+            document.getElementById('lError').style.display = "none";
+        }
+
+        return true;
     }
-    return true;
+
 }
 
 function validarPasswords(){
@@ -56,10 +62,15 @@ function validarPasswords(){
     var password2 = document.getElementById("password2").value;
 
     if (password1 !== password2) {
-        document.getElementById('aviso').innerHTML="<label style='color:red;  text-align: center;'>Las contraseñas no coinciden.</label>";
+        document.getElementById('aviso').innerHTML="<label id='lbError' style='color:red;  text-align: center;'>Las contraseñas no coinciden.</label>";
         return false;
+    }else{
+        if(document.getElementById('lbError')) {
+            document.getElementById('lbError').style.display = "none";
+        }
+
+        return true;
     }
-    return true;
 }
 
 function validarFormulario() {
