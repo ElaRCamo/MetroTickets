@@ -1,4 +1,4 @@
-function registrarUsuario() {
+/*function registrarUsuario() {
     var inputsValidos = validarFormulario() && validarCorreo() && validarPasswords();
 
     if (inputsValidos) {
@@ -43,13 +43,12 @@ function registrarUsuario() {
                 }
             })
             .catch(error => {
-                setTimeout(() => {
+
                     Swal.fire({
                         title: "Error js",
                         text: error.message,
                         icon: "error"
                     });
-                });
             });
     }else{
 
@@ -61,8 +60,8 @@ function registrarUsuario() {
         });
     }
 }
+*/
 
-/*
 function registrarUsuario() {
     var inputsValidos = validarFormulario() && validarCorreo() && validarPasswords();
 
@@ -106,13 +105,11 @@ function registrarUsuario() {
                     throw new Error(data.message || 'Hubo un problema al registrar el usuario. Por favor, intenta de nuevo más tarde.');
                 }
             })
-            .catch(error => {
-                setTimeout(() => {
-                    Swal.fire({
-                        title: "Error js",
-                        text: error.message,
-                        icon: "error"
-                    });
+            .catch(error => {+
+                Swal.fire({
+                    title: "Error js",
+                    text: error.message,
+                    icon: "error"
                 });
             });
     }else{
@@ -125,7 +122,7 @@ function registrarUsuario() {
         });
     }
 }
- */
+
 
 function idPrueba() {
     return new Promise(function(resolve, reject) {
