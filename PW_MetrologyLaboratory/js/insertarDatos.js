@@ -27,8 +27,8 @@ function registrarUsuario() {
                 return response.json();
             })
             .then(data => {
-                if (data.success) {
-                    console.log(data.success.message);
+                if (data.status === 'success') {
+                    console.log(data.message);
                     Swal.fire({
                         title: "¡Usuario registrado exitosamente!",
                         icon: "success",
@@ -43,11 +43,12 @@ function registrarUsuario() {
                 }
             })
             .catch(error => {
-            console.error("Error al registrar la solicitud:", error);
+                console.error(error);
                 Swal.fire({
-                    title: "Error js",
+                    title: "Error",
                     text: error.message,
-                    icon: "error"
+                    icon: "error",
+                    confirmButtonText: "OK"
                 });
             });
     }else{
