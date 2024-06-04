@@ -45,7 +45,7 @@ function validarCorreo(){
     const dominioPermitido = '@grammer.com';
 
     if (!correo.endsWith(dominioPermitido)) {
-        document.getElementById('aviso').innerHTML="<label style='color:red; text-align: center;'>El correo debe tener el dominio '@grammer.com'</label>";
+        document.getElementById('aviso').innerHTML="<label style='color:red; font-size:0.7rem;text-align: center;'>El correo debe tener el dominio '@grammer.com'</label>";
         return false;
     }
     return true;
@@ -71,20 +71,10 @@ function validarFormulario() {
         if (!input.value.trim()) {
             showErrorMessage(input, input.dataset.error);
             isValid = false;
-        } else {
+        }else if (input.value.trim()) {
             hideErrorMessage(input);
         }
     });
-
-    // Validar correos
-    if (!validarCorreo()) {
-        isValid = false;
-    }
-
-    // Validar contraseñas
-    if (!validarPasswords()) {
-        isValid = false;
-    }
 
     return isValid;
 }

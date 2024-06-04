@@ -150,6 +150,12 @@ body{
     margin-bottom: 1rem;
 }
 
+#logoInicio3 {
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 0.5rem;
+}
+
 .footer_section{
     background-color:transparent;
     color: #fff;
@@ -177,7 +183,7 @@ body{
     height: 100%;
 }
 .wrapper-register{
-    padding: 1% 10% 2%;
+    padding: 3% 7% 0;
 }
 
 .wrapper-register .input-box {
@@ -196,11 +202,17 @@ body{
     margin-bottom: 0;
     font-size: 0.9rem;
 }
-
+#divIngresar {
+    padding: 0;
+    margin: 1% 0 0;
+}
 #recuperarP,#registrarse {
     padding: 10px;
     margin-bottom: 0;
 }
+#registrarseh2{
+    font-size: 1.5rem;
+ }
 
 .register-link {
     margin-top: 0;
@@ -226,7 +238,9 @@ body{
     .text-box h1{
         font-size: 2.8em;
     }
-
+    #divTitle3 h1{
+        font-size: 2em;
+    }
     .wrapper .remember-forgot{
         font-size: 0.7rem;
         margin-left: 5px;
@@ -255,4 +269,13 @@ body{
     width: 100%;
     z-index: 1;
     color: #dc3545;
+}
+
+#registrarseForm .invalid-feedback{
+    font-size: 0.5rem;
+    text-align: center;
+}
+
+#registrarseForm .invalid-feedback{
+    margin-top: 0;
 }

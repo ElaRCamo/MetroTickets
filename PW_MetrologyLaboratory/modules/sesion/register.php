@@ -30,13 +30,13 @@
             <div class="LAB">
                 <h1 class="">LABORATORIO DE</h1>
             </div>
-            <div class="text-box">
+            <div class="text-box"  id="divTitle3">
                 <h1 class="">METROLOGÍA</h1>
             </div>
         </div>
-        <div class="wrapper wrapper-register" >
+        <div class="wrapper wrapper-register" id="divRegistro" >
             <form id="registrarseForm" method="POST">
-                <h2 id="registrarse">Regístrarse</h2>
+                <h2 id="registrarseh2">Regístrarse</h2>
                 <div id=aviso style='align-content:center;'></div>
                 <div class="input-box form-group">
                     <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre Completo" required data-error="Por favor ingrese su nombre.">
@@ -59,9 +59,9 @@
                     <i class="las la-lock"></i><div class="invalid-feedback"></div>
                 </div>
 
-                <button type="submit" id="registrarse" name="registrarse"  class="btn login" onclick="registrarUsuario()">Regístrarse</button>
+                <button type="button" id="registrarse" name="registrarse"  class="btn login" onclick="registrarUsuario()">Regístrarse</button>
 
-                <div class="register-link">
+                <div class="register-link" id="divIngresar">
                     <p>¿Ya tienes cuenta? <a href="indexSesion.php">INGRESAR</a> </p>
                 </div>
             </form>

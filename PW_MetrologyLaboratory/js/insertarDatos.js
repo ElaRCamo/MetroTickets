@@ -1,5 +1,5 @@
 function registrarUsuario() {
-    var inputsValidos = validarFormulario();
+    var inputsValidos = validarFormulario() && validarCorreo() && validarPasswords();
 
     if (inputsValidos) {
         var nombreUsuario = id("nombreUsuario");
@@ -45,15 +45,21 @@ function registrarUsuario() {
                 setTimeout(() => {
                     Swal.fire({
                         title: "Error",
-                        timer: 2000,
                         text: error.message,
                         icon: "error"
                     });
                 });
             });
+    }else{
+
+        Swal.fire({
+            title: "Datos incorrectos",
+            text: "Revise su información",
+            icon: "error"
+
+        });
     }
 }
-
 
 function idPrueba() {
     return new Promise(function(resolve, reject) {
