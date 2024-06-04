@@ -21,64 +21,6 @@ function registrarUsuario() {
             body: data
         })
             .then(response => {
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    Swal.fire({
-                        title: "¡Usuario registrado exitosamente!",
-                        icon: "success",
-                        confirmButtonText: "OK"
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = "../sesion/indexSesion.php";
-                        }
-                    });
-                }
-            })
-            .catch(error => {
-                console.error("Error al registrar la solicitud:", error);
-                    Swal.fire({
-                        title: "Error js",
-                        text: error.message,
-                        icon: "error"
-                    });
-            });
-    }else{
-
-        Swal.fire({
-            title: "Datos incorrectos",
-            text: "Revise su información",
-            icon: "error"
-
-        });
-    }
-}
-
-/*
-function registrarUsuario() {
-    var inputsValidos = validarFormulario() && validarCorreo() && validarPasswords();
-
-    if (inputsValidos) {
-        var nombreUsuario = id("nombreUsuario");
-        var correo        = id("correo");
-        var numNomina     = id("numNomina");
-        var password      = id("password");
-
-        const data = new FormData();
-
-        data.append('nombreUsuario', nombreUsuario.value.trim());
-        data.append('correo', correo.value.trim());
-        data.append('numNomina', numNomina.value.trim());
-        data.append('password', password.value.trim());
-
-        alert('nombreUsuario: '+nombreUsuario.value.trim()+' correo: '+correo.value.trim()+' numNomina: '+numNomina.value.trim()+' password: '+ password.value.trim());
-
-        fetch('../../dao/userRegister.php', {
-            method: 'POST',
-            body: data
-        })
-            .then(response => {
                 if (!response.ok) {
                     throw new Error('Hubo un problema al registrar el usuario. Por favor, intenta de nuevo más tarde.');
                 }
@@ -100,6 +42,7 @@ function registrarUsuario() {
                 }
             })
             .catch(error => {
+            console.error("Error al registrar la solicitud:", error);
                 Swal.fire({
                     title: "Error js",
                     text: error.message,
@@ -114,7 +57,7 @@ function registrarUsuario() {
 
         });
     }
-}*/
+}
 
 
 function idPrueba() {
