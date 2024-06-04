@@ -1,4 +1,4 @@
-/*function registrarUsuario() {
+function registrarUsuario() {
     var inputsValidos = validarFormulario() && validarCorreo() && validarPasswords();
 
     if (inputsValidos) {
@@ -34,16 +34,10 @@
                             window.location.href = "../sesion/indexSesion.php";
                         }
                     });
-                } if (data.error) {
-                    Swal.fire({
-                        title: "Error if",
-                        text: error.message,
-                        icon: "error"
-                    });
                 }
             })
             .catch(error => {
-
+                console.error("Error al registrar la solicitud:", error);
                     Swal.fire({
                         title: "Error js",
                         text: error.message,
@@ -60,8 +54,8 @@
         });
     }
 }
-*/
 
+/*
 function registrarUsuario() {
     var inputsValidos = validarFormulario() && validarCorreo() && validarPasswords();
 
@@ -120,7 +114,7 @@ function registrarUsuario() {
 
         });
     }
-}
+}*/
 
 
 function idPrueba() {
