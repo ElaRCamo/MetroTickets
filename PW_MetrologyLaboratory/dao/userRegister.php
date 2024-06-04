@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: application/json');
+//header('Content-Type: application/json');
 include_once('connection.php');
 require 'daoUsuario.php';
 
@@ -18,7 +18,7 @@ $password      = $_GET['password'];
 
 $response = RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password);
 
-echo json_encode($response);
+//echo json_encode($response);
 function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
 {
     $passwordS = sha1($password);
