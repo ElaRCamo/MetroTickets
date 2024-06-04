@@ -1,7 +1,7 @@
 <?php
+header('Content-Type: application/json');
 include_once('connection.php');
 require 'daoUsuario.php';
-header('Content-Type: application/json');
 
 if(isset($_POST['nombreUsuario'], $_POST['correo'], $_POST['numNomina'], $_POST['password'])) {
 
@@ -13,7 +13,7 @@ if(isset($_POST['nombreUsuario'], $_POST['correo'], $_POST['numNomina'], $_POST[
     $response = RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password);
 
 } else {
-    $response = array('status' => 'error', 'message' => 'Error: Faltan datos en el formulario');
+    $response = array('status' => 'error', 'message' => 'Error: Faltan datos en el formulario***');
 }
 
 echo json_encode($response);
