@@ -3,18 +3,20 @@ header('Content-Type: application/json');
 include_once('connection.php');
 require 'daoUsuario.php';
 
-if(isset($_POST['nombreUsuario'], $_POST['correo'], $_POST['numNomina'], $_POST['password'])) {
+/*if(isset($_POST['nombreUsuario'], $_POST['correo'], $_POST['numNomina'], $_POST['password'])) {
 
-    $nombreUsuario = $_POST['nombreUsuario'];
-    $correo        = $_POST['correo'];
-    $Nomina        = $_POST['numNomina'];
-    $password      = $_POST['password'];
 
-    $response = RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password);
 
 } else {
     $response = array('status' => 'error', 'message' => 'Error: Faltan datos en el formulario***');
-}
+}*/
+
+$nombreUsuario = $_POST['nombreUsuario'];
+$correo        = $_POST['correo'];
+$Nomina        = $_POST['numNomina'];
+$password      = $_POST['password'];
+
+$response = RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password);
 
 echo json_encode($response);
 function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
