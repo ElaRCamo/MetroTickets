@@ -27,7 +27,8 @@ function registrarUsuario() {
                 return response.json();
             })
             .then(data => {
-                if (data.success.message) {
+                if (data.success) {
+                    console.log(data.success.message);
                     Swal.fire({
                         title: "¡Usuario registrado exitosamente!",
                         icon: "success",
