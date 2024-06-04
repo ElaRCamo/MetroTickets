@@ -4,10 +4,10 @@ include_once('connection.php');
 require 'daoUsuario.php';
 
 if(isset($_POST['nombreUsuario'], $_POST['correo'], $_POST['numNomina'], $_POST['password'])) {
-    $nombreUsuario = $_GET['nombreUsuario'];
-    $correo        = $_GET['correo'];
-    $Nomina        = $_GET['numNomina'];
-    $password      = $_GET['password'];
+    $nombreUsuario = $_POST['nombreUsuario'];
+    $correo        = $_POST['correo'];
+    $Nomina        = $_POST['numNomina'];
+    $password      = $_POST['password'];
     $response = RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password);
 } else {
     $response = array('status' => 'error', 'message' => 'Error: Faltan datos en el formulario***');
