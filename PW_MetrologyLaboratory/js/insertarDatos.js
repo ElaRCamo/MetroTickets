@@ -2,17 +2,17 @@ function registrarUsuario() {
     var inputsValidos = validarFormulario();
 
     if (inputsValidos) {
-        var nombreUsuario = document.getElementById("nombreUsuario").value.trim();
-        var correo = document.getElementById("correo").value.trim();
-        var numNomina = document.getElementById("numNomina").value.trim();
-        var password = document.getElementById("password").value.trim();
+        var nombreUsuario = id("nombreUsuario");
+        var correo        = id("correo");
+        var numNomina     = id("numNomina");
+        var password      = id("password");
 
         const data = new FormData();
 
-        data.append('nombreUsuario', nombreUsuario);
-        data.append('correo', correo);
-        data.append('numNomina', numNomina);
-        data.append('password', password);
+        data.append('nombreUsuario', nombreUsuario.value.trim());
+        data.append('correo', correo.value.trim());
+        data.append('numNomina', numNomina.value.trim());
+        data.append('password', password.value.trim());
 
         fetch('../../dao/userRegister.php', {
             method: 'POST',
