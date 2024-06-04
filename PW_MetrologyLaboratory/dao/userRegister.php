@@ -11,10 +11,10 @@ require 'daoUsuario.php';
     $response = array('status' => 'error', 'message' => 'Error: Faltan datos en el formulario***');
 }*/
 
-$nombreUsuario = $_POST['nombreUsuario'];
-$correo        = $_POST['correo'];
-$Nomina        = $_POST['numNomina'];
-$password      = $_POST['password'];
+$nombreUsuario = $_GET['nombreUsuario'];
+$correo        = $_GET['correo'];
+$Nomina        = $_GET['numNomina'];
+$password      = $_GET['password'];
 
 $response = RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password);
 
