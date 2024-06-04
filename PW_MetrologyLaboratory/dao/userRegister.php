@@ -8,11 +8,10 @@ if(isset($_POST['nombreUsuario'], $_POST['correo'], $_POST['numNomina'], $_POST[
     $correo        = $_GET['correo'];
     $Nomina        = $_GET['numNomina'];
     $password      = $_GET['password'];
+    $response = RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password);
 } else {
     $response = array('status' => 'error', 'message' => 'Error: Faltan datos en el formulario***');
 }
-
-$response = RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password);
 
 echo json_encode($response);
 function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
