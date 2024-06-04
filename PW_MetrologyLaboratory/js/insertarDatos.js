@@ -44,7 +44,7 @@ function registrarUsuario() {
             .catch(error => {
                 setTimeout(() => {
                     Swal.fire({
-                        title: "Error",
+                        title: "Error js",
                         text: error.message,
                         icon: "error"
                     });
