@@ -14,6 +14,8 @@ function registrarUsuario() {
         data.append('numNomina', numNomina.value.trim());
         data.append('password', password.value.trim());
 
+        alert('nombreUsuario: '+nombreUsuario.value.trim()+' correo: '+correo.value.trim()+' numNomina: '+numNomina.value.trim()+' password: '+ password.value.trim());
+
         fetch('../../dao/userRegister.php', {
             method: 'POST',
             body: data
