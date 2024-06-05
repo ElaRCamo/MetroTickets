@@ -68,7 +68,7 @@ function generarToken($userId) {
 
     // Guardar el token en la base de datos
     $stmt = $conexion->prepare('INSERT INTO restablecer_password (id_usuario, token, expira) VALUES (?, ?, ?)');
-    $stmt->bind_param('iss', $userId, $token, $expira);
+    $stmt->bind_param('sss', $userId, $token, $expira);
 
     if ($stmt->execute()) {
         $stmt->close();
