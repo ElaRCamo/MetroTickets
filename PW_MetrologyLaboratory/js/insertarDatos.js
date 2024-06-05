@@ -91,6 +91,89 @@ function enviarCorreoNuevoUsuario(nombre, id, correo){
         });
 }
 
+function recuperarPassword(){
+
+    var esCorreoValido = validarCorreo('correoRecuperacion');
+
+    if(esCorreoValido){
+
+        var correoRecuperacion = id("correoRecuperacion");
+
+        const data = new FormData();
+
+        data.append('correoRecuperacion', correoRecuperacion.value.trim());
+
+        fetch('../../dao/userRegister.php', {
+            method: 'POST',
+            body: data
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Hubo un problema al recuperar la contraseña. Por favor, intenta de nuevo más tarde.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.status === 'success') {
+                    console.log(data.message);
+                    Swal.fire({
+                        title: "Se ha enviado correo de recuperación a "+correoRecuperacion,
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "../sesion/indexSesion.php";
+                        }
+                    });
+                } else {
+                    throw new Error('Hubo un problema al recuperar la contraseña. Por favor, intenta de nuevo más tarde.');
+                }
+            }).catch(error => {
+            console.error(error);
+            Swal.fire({
+                title: "Error",
+                text: error.message,
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        });
+    }else{
+        Swal.fire({
+            title:"Correo no válido",
+            text: "Revise su información",
+            icon: "error"
+        });
+    }
+}
+
+function enviarCorreoRecuperacion(correo){
+    const data = new FormData();
+
+    data.append('correo',correo);
+
+    fetch('https://arketipo.mx/MailerNuevoUsuario.php',{
+        method: 'POST',
+        body: data
+    })
+        .then(function (response){
+            if (!response.ok){
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (error) {
+            //console.log(err);
+            Swal.fire({
+                title: "Error",
+                text: error.message,
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        });
+}
+
 function idPrueba() {
     return new Promise(function(resolve, reject) {
         $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function(data) {

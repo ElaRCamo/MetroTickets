@@ -1438,11 +1438,9 @@ function estatusMateriales(k){
             }
         }
     });
-}
-
-function recuperarPassword(){
-
 }*/
+
+
 
 function llenarAnio(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoAnio.php', function (data){

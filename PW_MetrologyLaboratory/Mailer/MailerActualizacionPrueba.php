@@ -5,19 +5,18 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require 'Phpmailer/Exception.php';
-require 'Phpmailer/PHPMailer.php';
+require 'Phpmailer/Mailer.php';
 require 'Phpmailer/SMTP.php';
 
 include_once('Produccion/ML/PW_MetrologyLaboratory/dao/connection.php');
+session_start();
+$id_prueba=$_POST['id_prueba'];
+$emailSolicitante=$_POST['emailSolicitante'];
+$Solicitante = $_POST['solicitante'];
 
-$nombreUsuario = $_POST['nombre'];
-$nomina=$_POST['id'];
-$email=$_POST['correo'];
+emailUpdate($id_prueba,$emailSolicitante,$Solicitante);
 
-
-emailNuevoUsuario($nombreUsuario,$nomina,$email);
-
-function emailNuevoUsuario($nombreUsuario,$nomina,$email)
+function emailUpdate($id_prueba,$emailSolicitante,$Solicitante )
 {
 
     $MENSAJE = "<!DOCTYPE html>
@@ -45,14 +44,13 @@ function emailNuevoUsuario($nombreUsuario,$nomina,$email)
                                         <td id='logo' style='background-color:#005195; padding-top:3%; padding-bottom:3%; text-align:center;'>
                                              <a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php'>
                                              <img class='logoGrammer2-img' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a><br>
-                                             <h4 style='padding-top:3%; display: block; color:#fff; font-weight: bold;'>¡Hola $nombreUsuario!</h4><br>
+                                             <h4 style='padding-top:3%; display: block; color:#fff; font-weight: bold;'>¡Hola $Solicitante!</h4><br>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class='title' style='padding:5%; text-align:center; color:#005195;'>
                                             <h2 class='h2'> 
-                                            ¡Te damos la bienvenida al portal del Laboratorio de Metrología Grammer Automotive Puebla S.A de C.V.!
-                                            <br>A partir de este momento puedes hacer solicitudes a través de nuestra página web.
+                                            Te informamos que tu solicitud con <br><strong>FOLIO: $id_prueba</strong><br> ha sido actualizada.
                                         </td>
                                     </tr>
                                     <tr style='text-align:center;'>
@@ -61,8 +59,8 @@ function emailNuevoUsuario($nombreUsuario,$nomina,$email)
                                                 <tbody style='text-align:center;'>
                                                     <tr  style='text-align:center;'>
                                                         <td class='content-block mensaje' style='text-align:center; padding:2%; color:#005195; margin-bottom: 2%; font-size: 1.2rem;'>
-                                                            <h4 class='lead'> ¡Esperamos saber pronto de ti! Para iniciar sesión, da clic en el enlace: <br>
-                                                            <b><a  style='color:#CAC2B6;' class='btn btn-lg btn-primary' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php'>Iniciar sesión </a></b></h4>
+                                                            <h4 class='lead'> Para consultar los detalles, visita:<br>
+                                                            <b><a  style='color:#CAC2B6;' class='btn btn-lg btn-primary' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/index.php?id_prueba=$id_prueba'>Solicitud $id_prueba</a></b></h4>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -115,7 +113,7 @@ function emailNuevoUsuario($nombreUsuario,$nomina,$email)
         $mail->CharSet = 'UTF-8';
 
         //Solicitante
-        $mail->addAddress($email, $nombreUsuario); //Quién recibirá correo
+        $mail->addAddress($emailSolicitante, $Solicitante); //Quién recibirá correo
         $mail->addBCC('LaboratorioMetrologiaGrammer@arketipo.mx', 'LMGrammer');
         $mail->addBCC('aleiram.rcamo@gmail.com', 'TI');
 

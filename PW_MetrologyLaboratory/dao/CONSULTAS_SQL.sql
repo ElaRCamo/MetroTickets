@@ -1,4 +1,10 @@
-
+CREATE TABLE restablecer_password (
+                                      id INT AUTO_INCREMENT PRIMARY KEY,
+                                      id_usuario VARCHAR(20) NOT NULL,
+                                      token VARCHAR(255) NOT NULL,
+                                      expira DATETIME NOT NULL,
+                                      FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE
+);
 
  //Pruebas realizadas este mes
 SELECT COUNT(*)

@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require 'Phpmailer/Exception.php';
-require 'Phpmailer/PHPMailer.php';
+require 'Phpmailer/Mailer.php';
 require 'Phpmailer/SMTP.php';
 
 include_once('Produccion/ML/PW_MetrologyLaboratory/dao/connection.php');

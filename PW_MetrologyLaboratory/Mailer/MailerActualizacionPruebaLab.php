@@ -5,21 +5,20 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require 'Phpmailer/Exception.php';
-require 'Phpmailer/PHPMailer.php';
+require 'Phpmailer/Mailer.php';
 require 'Phpmailer/SMTP.php';
 
 include_once('Produccion/ML/PW_MetrologyLaboratory/dao/connection.php');
 session_start();
 $id_prueba=$_POST['id_prueba'];
-$emailSolicitante=$_POST['emailUsuario'];
 $Solicitante = $_SESSION['nombreUsuario'];
 
-emailSolicitud($id_prueba,$emailSolicitante,$Solicitante);
+emailUpdate($id_prueba,$Solicitante);
 
-function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
+function emailUpdate($id_prueba,$Solicitante )
 {
 
-    $MENSAJE_SOLICITANTE = "<!DOCTYPE html>
+    $MENSAJE = "<!DOCTYPE html>
 <html lang='en'>
 <head>
     <link rel='preconnect' href='https://fonts.googleapis.com'>
@@ -37,29 +36,29 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
                 <tr>
                     <td></td>
                     <td class='container' style='vertical-align:top; display:block; max-width:600px; clear:both; margin:0 auto; text-align:center;'>
-                        <div class='content' style='max-width:600px; display:block; margin:0 auto; padding:20px;'>
+                        <div class='content' style='max-width:500px; display:block; margin:0 auto; padding:20px;'>
                             <table class='main' style='border-radius:3px; background-color:#fff; margin:0; border:1px solid #e9e9e9;'>
                                 <tbody>
                                     <tr>
                                         <td id='logo' style='background-color:#005195; padding-top:3%; padding-bottom:3%; text-align:center;'>
                                              <a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php'>
                                              <img class='logoGrammer2-img' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a><br>
-                                             <h4 style='padding-top:3%; display: block; color:#fff; font-weight: bold;'>¡Hola $Solicitante!</h4><br>
+                                          
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class='title' style='padding:5%; text-align:center; color:#005195;'>
                                             <h2 class='h2'> 
-                                            Te informamos que tu solicitud con <br><strong>FOLIO: $id_prueba</strong><br> ha sido recibida.
+                                            Te informamos que la solicitud con <br><strong>FOLIO: $id_prueba</strong><br> ha sido actualizada , <br>por $Solicitante.</h2>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class='content-wrap'>
-                                            <table>
-                                                <tbody>
-                                                    <tr>
+                                    <tr style='text-align:center;'>
+                                        <td class='content-wrap' style='text-align:center;'>
+                                            <table style='text-align:center;'>
+                                                <tbody style='text-align:center;'>
+                                                    <tr  style='text-align:center;'>
                                                         <td class='content-block mensaje' style='text-align:center; padding:2%; color:#005195; margin-bottom: 2%; font-size: 1.2rem;'>
-                                                            <h4 class='lead'>Te enviaremos una notificación tan pronto como haya novedades. <br>Si deseas consultar los detalles completos de tu solicitud, visita:<br>
+                                                            <h4 class='lead'> Para consultar los detalles, visita:<br>
                                                             <b><a  style='color:#CAC2B6;' class='btn btn-lg btn-primary' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/index.php?id_prueba=$id_prueba'>Solicitud $id_prueba</a></b></h4>
                                                         </td>
                                                     </tr>
@@ -94,7 +93,9 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
     </body>
     </html>";
 
-    $contenido = $MENSAJE_SOLICITANTE;
+    //$css=file_get_contents("Produccion/ML/PW_MetrologyLaboratory/css/style.css");
+    //$MENSAJE = "<style>" . $css . "</style>" . $MENSAJE;
+    $contenido = $MENSAJE;
     $mail = new PHPMailer(true);
 
     try {
@@ -111,10 +112,11 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
         $mail->CharSet = 'UTF-8';
 
         //Solicitante
-        $mail->addAddress($emailSolicitante, $Solicitante); //Quién recibirá correo
-        $mail->addBCC('LaboratorioMetrologiaGrammer@arketipo.mx', 'LMGrammer');
+        $mail->addAddress('LaboratorioMetrologiaGrammer@arketipo.mx', 'LMGrammer');
+        $mail->addBCC('extern.mariela.reyes@grammer.com', 'TI');
+        $mail->addBCC('aleiram.rcamo@gmail.com', 'TI');
 
-        $mail->Subject = 'Confirmación de solicitud.';
+        $mail->Subject = 'Actualización de solicitud.';
         $mail->isHTML(true);
         $mail->Body = $contenido;
 
@@ -130,5 +132,3 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
     }
 
 }
-
-?>

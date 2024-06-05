@@ -43,7 +43,7 @@
                     <i class="las la-user-alt"></i><div class="invalid-feedback"></div>
                 </div>
                 <div class="input-box form-group">
-                    <input type="text" id="correo" name="correo"  placeholder="Correo electrónico"  onchange="validarCorreo()" required data-error="Por favor ingrese su correo.">
+                    <input type="text" id="correo" name="correo"  placeholder="Correo electrónico"  onchange="validarCorreo('correo')" required data-error="Por favor ingrese su correo.">
                     <i class="las la-envelope"></i><div class="invalid-feedback"></div>
                 </div>
                 <div class="input-box form-group">

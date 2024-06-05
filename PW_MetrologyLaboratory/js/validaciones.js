@@ -39,8 +39,8 @@ function validarFormNewRequest() {
     }
 }
 
-function validarCorreo(){
-    const correoInput = document.getElementById('correo');
+function validarCorreo(id){
+    const correoInput = document.getElementById(id);
     const correo = correoInput.value.trim();
     const dominioPermitido = '@grammer.com';
 
