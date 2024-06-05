@@ -8,7 +8,7 @@ require 'Phpmailer/Exception.php';
 require 'Phpmailer/Mailer.php';
 require 'Phpmailer/SMTP.php';
 
-include_once('Produccion/ML/PW_MetrologyLaboratory/dao/connection.php');
+include_once('../dao/connection.php');
 
 function emailRecuperarPassword($destinatario, $asunto, $mensaje)
 {

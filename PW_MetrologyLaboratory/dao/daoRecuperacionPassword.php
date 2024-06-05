@@ -1,7 +1,7 @@
 <?php
 
 include_once('connection.php');
-include_once('..\Mailer\MailerRecuperarPassword.php');
+include_once('../Mailer/MailerRecuperarPassword.php');
 
 
 if(isset($_POST['correoRecuperacion']) ){
