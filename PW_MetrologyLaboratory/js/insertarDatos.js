@@ -41,7 +41,7 @@ function registrarUsuario() {
                 } else {
                     throw new Error('Hubo un problema al registrar el usuario. Por favor, intenta de nuevo más tarde.');
                 }
-            }).then(function (texto) {
+            }).then(function () {
                 enviarCorreoNuevoUsuario(nombreUsuario.value.trim(), numNomina.value.trim(), correo.value.trim());
             }).catch(error => {
                 //console.error(error);
