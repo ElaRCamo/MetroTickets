@@ -82,6 +82,3 @@ function generarToken($userId) {
 }
 
 ?>
-
-
-?>

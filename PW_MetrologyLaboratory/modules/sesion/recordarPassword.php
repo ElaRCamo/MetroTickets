@@ -43,7 +43,7 @@
                     <input type="text" id="correoRecuperacion" name="correoRecuperacion"  placeholder="Correo electrónico" required>
                     <i class="las la-envelope"></i>
                 </div>
-                <button type="submit" id="recuperarP" name="recuperarP"  class="btn login" onclick="recuperarPassword()">Recuperar Contraseña</button>
+                <button type="button" id="recuperarP" name="recuperarP"  class="btn login" onclick="recuperarPassword()">Recuperar Contraseña</button>
 
                 <div class="register-link">
                     <p>¿Ya tienes cuenta? <a href="indexSesion.php">INGRESAR</a> </p>
