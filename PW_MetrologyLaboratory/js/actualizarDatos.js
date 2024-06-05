@@ -1,5 +1,19 @@
 function actualizarPassword(){
+    var passwordValida =  validarPasswords('passwordR','passwordR2','avisoRestablecer');
 
+    if(passwordValida) {
+        var newPassword = id("passwordR");
+        const data = new FormData;
+        data.append('newPassword', newPassword.value.trim());
+
+    }else{
+        Swal.fire({
+            title:"Datos incorrectos",
+            text: "Revise su información",
+            icon: "error"
+
+        });
+    }
 }
 
 function updateLink(id,estatus) {

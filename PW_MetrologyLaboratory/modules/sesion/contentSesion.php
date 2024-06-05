@@ -26,7 +26,7 @@
                 </div>
                 <div class="remember-forgot">
                     <label><input type="checkbox">Recuérdame</label>
-                    <a href="recordarPassword.php">¿Has olvidado la contraseña?</a>
+                    <a href="recuperarPassword.php">¿Has olvidado la contraseña?</a>
                 </div>
 
                 <button type="submit" class="btn login" name="iniciarSesionBtn">Iniciar Sesión</button>
