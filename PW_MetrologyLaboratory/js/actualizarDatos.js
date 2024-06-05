@@ -4,9 +4,10 @@ function actualizarPassword(){
     if(passwordValida) {
         var url = window.location.href;
         var searchParams = new URLSearchParams(url);// Crear un nuevo objeto URLSearchParams con la URL
-        var token = searchParams.get('token');
         var id_usuario = searchParams.get('id');
+        var token = searchParams.get('token');
 
+        console.log('Token:', token , ' usuario:', id_usuario);
         if (token && id_usuario) {
 
             var newPassword = id("passwordR");
