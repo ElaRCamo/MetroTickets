@@ -2,8 +2,8 @@ function actualizarPassword(){
     var passwordValida =  validarPasswords('passwordR','passwordR2','avisoRestablecer');
 
     if(passwordValida) {
-        var url = window.location.href;
-        var searchParams = new URLSearchParams(url);// Crear un nuevo objeto URLSearchParams con la URL
+        var queryString = window.location.search; // Obtener la cadena de consulta de la URL actual
+        var searchParams = new URLSearchParams(queryString); // Crear un nuevo objeto URLSearchParams con la cadena de consulta
         var id_usuario = searchParams.get('id');
         var token = searchParams.get('token');
 
