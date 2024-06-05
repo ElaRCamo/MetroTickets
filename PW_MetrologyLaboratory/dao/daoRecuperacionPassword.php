@@ -1,9 +1,7 @@
 <?php
-
+header('Content-Type: application/json');
 include_once('connection.php');
-//include_once('/../Mailer/MailerRecuperarPassword.php');
 require_once __DIR__ . '/../Mailer/MailerRecuperarPassword.php';
-
 
 if(isset($_POST['correoRecuperacion']) ){
 
@@ -69,7 +67,7 @@ function generarToken($userId) {
     $expira = date('Y-m-d H:i:s', strtotime('+1 hour'));
 
     // Guardar el token en la base de datos
-    $stmt = $conexion->prepare('INSERT INTO restablecer_password (user_id, token, expira) VALUES (?, ?, ?)');
+    $stmt = $conexion->prepare('INSERT INTO restablecer_password (id_usuario, token, expira) VALUES (?, ?, ?)');
     $stmt->bind_param('iss', $userId, $token, $expira);
 
     if ($stmt->execute()) {
