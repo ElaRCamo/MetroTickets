@@ -11,7 +11,7 @@ if(isset($_POST['nombreUsuario'], $_POST['correo'], $_POST['numNomina'], $_POST[
     $password      = $_POST['password'];
     $response = RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password);
 } else {
-    $response = array('status' => 'error', 'message' => 'Error: Faltan datos en el formulario***');
+    $response = array('status' => 'error', 'message' => 'Error: Faltan datos en el formulario');
 }
 
 echo json_encode($response);

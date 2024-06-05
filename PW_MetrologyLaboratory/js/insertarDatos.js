@@ -91,16 +91,13 @@ function enviarCorreoNuevoUsuario(nombre, id, correo){
         });
 }
 
-function recuperarPassword(){
-
+function recuperarPassword() {
     var esCorreoValido = validarCorreo('correoRecuperacion');
 
-    if(esCorreoValido){
-
+    if (esCorreoValido) {
         var correoRecuperacion = id("correoRecuperacion");
 
         const data = new FormData();
-
         data.append('correoRecuperacion', correoRecuperacion.value.trim());
 
         fetch('../../dao/daoRecuperacionPassword.php', {
@@ -117,7 +114,7 @@ function recuperarPassword(){
                 if (data.status === 'success') {
                     console.log(data.message);
                     Swal.fire({
-                        title: "Se ha enviado correo de recuperación a "+correoRecuperacion,
+                        title: "Se ha enviado correo de recuperación a " + correoRecuperacion.value,
                         icon: "success",
                         confirmButtonText: "OK"
                     }).then((result) => {
@@ -125,53 +122,32 @@ function recuperarPassword(){
                             window.location.href = "../sesion/indexSesion.php";
                         }
                     });
-                } else {
-                    throw new Error('Hubo un problema al recuperar la contraseña. Por favor, intenta de nuevo más tarde.');
+                } else if (data.status === 'error') {
+                    console.log(data.message);
+                    Swal.fire({
+                        title: "Error",
+                        text: data.message,
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    });
                 }
-            }).catch(error => {
-            console.error(error);
-            Swal.fire({
-                title: "Error",
-                text: error.message,
-                icon: "error",
-                confirmButtonText: "OK"
+            })
+            .catch(error => {
+                console.error(error);
+                Swal.fire({
+                    title: "Error",
+                    text: "Hubo un problema al procesar tu solicitud. Por favor, intenta de nuevo más tarde.",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
             });
-        });
-    }else{
+    } else {
         Swal.fire({
-            title:"Correo no válido",
+            title: "Correo no válido",
             text: "Revise su información",
             icon: "error"
         });
     }
-}
-
-function enviarCorreoRecuperacion(correo){
-    const data = new FormData();
-
-    data.append('correo',correo);
-
-    fetch('https://arketipo.mx/MailerNuevoUsuario.php',{
-        method: 'POST',
-        body: data
-    })
-        .then(function (response){
-            if (!response.ok){
-                throw "Error en la llamada Ajax";
-            }
-        })
-        .then(function (texto) {
-            console.log(texto);
-        })
-        .catch(function (error) {
-            //console.log(err);
-            Swal.fire({
-                title: "Error",
-                text: error.message,
-                icon: "error",
-                confirmButtonText: "OK"
-            });
-        });
 }
 
 function idPrueba() {

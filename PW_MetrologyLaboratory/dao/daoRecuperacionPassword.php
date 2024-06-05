@@ -15,7 +15,7 @@ if(isset($_POST['correoRecuperacion']) ){
         if ($tokenResponse['status'] === 'success') {
             $token = $tokenResponse['token'];
             $enlace = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/restablecerPassword.php?token=$token";
-            $mensaje = "Hola, para restablecer tu contraseña haz clic en el siguiente enlace: $enlace";
+            $mensaje = "Para restablecer tu contraseña haz clic en el siguiente enlace: <br>  <a href='$enlace'>Recuperar contraseña</a>";
             $asunto = "Recuperar contraseña";
 
             // Enviar el correo electrónico
