@@ -114,7 +114,8 @@ function recuperarPassword() {
                 if (data.status === 'success') {
                     console.log(data.message);
                     Swal.fire({
-                        title: "Se ha enviado correo de recuperación a " + correoRecuperacion.value,
+                        title: "Solicitud exitosa",
+                        text: "Hemos enviado un correo electrónico a "  + correoRecuperacion.value +" para restablecer tu contraseña.",
                         icon: "success",
                         confirmButtonText: "OK"
                     }).then((result) => {

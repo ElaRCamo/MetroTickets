@@ -37,17 +37,17 @@
         </div>
         <div class="wrapper wrapper-register" id="divFormRecuperar">
             <form id="recuperarPasswordForm" method="POST">
-                <h2 id="h2RecuperarP">Recuperar contraseña</h2>
+                <h2 id="h2RecuperarP">Restablecer contraseña</h2>
                 <div id=avisoRestablecer style='align-content:center;'></div>
                 <div class="input-box form-group">
-                    <input type="password" id="passwordR" name="passwordR" placeholder="Contraseña" required data-error="Por favor ingrese su contraseña.">
+                    <input type="password" id="passwordR" name="passwordR" placeholder="Nueva contraseña" required data-error="Por favor ingrese su contraseña.">
                     <i class="las la-lock"></i><div class="invalid-feedback"></div>
                 </div>
                 <div class="input-box form-group">
                     <input type="password" id="passwordR2" name="passwordR2" placeholder="Confirmar contraseña" required data-error="Por favor ingrese su contraseña.">
                     <i class="las la-lock"></i><div class="invalid-feedback"></div>
                 </div>
-                <button type="button" id="restablecerPasBtn" name="restablecerPasBtn"  class="btn login" onclick="actualizarPassword()">Recuperar Contraseña</button>
+                <button type="button" id="restablecerPasBtn" name="restablecerPasBtn"  class="btn login" onclick="actualizarPassword()">Actualizar contraseña</button>
 
                 <div class="register-link">
                     <p>¿Ya tienes cuenta? <a href="indexSesion.php">INGRESAR</a> </p>

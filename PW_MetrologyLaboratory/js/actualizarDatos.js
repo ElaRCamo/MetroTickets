@@ -2,9 +2,27 @@ function actualizarPassword(){
     var passwordValida =  validarPasswords('passwordR','passwordR2','avisoRestablecer');
 
     if(passwordValida) {
-        var newPassword = id("passwordR");
-        const data = new FormData;
-        data.append('newPassword', newPassword.value.trim());
+        var url = window.location.href;
+        var searchParams = new URLSearchParams(url);// Crear un nuevo objeto URLSearchParams con la URL
+        var token = searchParams.get('token');
+        var id_usuario = searchParams.get('id');
+
+        if (token && id_usuario) {
+
+            var newPassword = id("passwordR");
+            const data = new FormData;
+            data.append('newPassword', newPassword.value.trim());
+            data.append('token', token);
+            data.append('id_usuario', id_usuario);
+
+            console.log('Token:', token , ' usuario:', id_usuario);
+
+        } else {
+            Swal.fire({
+                title: "Enlace no válido",
+                icon: "error"
+            });
+        }
 
     }else{
         Swal.fire({
