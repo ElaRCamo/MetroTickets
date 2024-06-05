@@ -103,7 +103,7 @@ function recuperarPassword(){
 
         data.append('correoRecuperacion', correoRecuperacion.value.trim());
 
-        fetch('../../dao/userRegister.php', {
+        fetch('../../dao/daoRecuperacionPassword.php', {
             method: 'POST',
             body: data
         })
