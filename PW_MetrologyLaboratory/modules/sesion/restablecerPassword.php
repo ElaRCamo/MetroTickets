@@ -38,12 +38,16 @@
         <div class="wrapper wrapper-register" id="divFormRecuperar">
             <form id="recuperarPasswordForm" method="POST">
                 <h2 id="h2RecuperarP">Recuperar contraseña</h2>
-                <div id=avisoR style='align-content:center;'></div>
-                <div class="input-box">
-                    <input type="text" id="correoRecuperacion" name="correoRecuperacion"  placeholder="Correo electrónico" required>
-                    <i class="las la-envelope"></i>
+                <div id=avisoRestablecer style='align-content:center;'></div>
+                <div class="input-box form-group">
+                    <input type="password" id="passwordR" name="passwordR" placeholder="Contraseña" required data-error="Por favor ingrese su contraseña.">
+                    <i class="las la-lock"></i><div class="invalid-feedback"></div>
                 </div>
-                <button type="button" id="recuperarP" name="recuperarP"  class="btn login" onclick="recuperarPassword()">Recuperar Contraseña</button>
+                <div class="input-box form-group">
+                    <input type="password" id="passwordR2" name="passwordR2" placeholder="Confirmar contraseña" required data-error="Por favor ingrese su contraseña.">
+                    <i class="las la-lock"></i><div class="invalid-feedback"></div>
+                </div>
+                <button type="button" id="restablecerPasBtn" name="restablecerPasBtn"  class="btn login" onclick="actualizarPassword()">Recuperar Contraseña</button>
 
                 <div class="register-link">
                     <p>¿Ya tienes cuenta? <a href="indexSesion.php">INGRESAR</a> </p>
@@ -57,9 +61,8 @@
 require_once('../../footer.php')
 ?>
 <script src="../../js/general.js"></script>
-<script src="../../js/cargarDatos.js"></script>
 <script src="../../js/validaciones.js"></script>
-<script src="../../js/insertarDatos.js"></script>
+<script src="../../js/actualizarDatos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>

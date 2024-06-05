@@ -1,3 +1,7 @@
+function actualizarPassword(){
+
+}
+
 function updateLink(id,estatus) {
 
     var link = document.getElementById('updateBtnS');

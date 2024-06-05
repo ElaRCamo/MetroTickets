@@ -37,13 +37,13 @@
         <div class="wrapper wrapper-register" id="divRegistro" >
             <form id="registrarseForm" method="POST">
                 <h2 id="registrarseh2">Regístrarse</h2>
-                <div id=aviso style='align-content:center;'></div>
+                <div id="aviso" style='align-content:center;'></div>
                 <div class="input-box form-group">
                     <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre Completo" required data-error="Por favor ingrese su nombre.">
                     <i class="las la-user-alt"></i><div class="invalid-feedback"></div>
                 </div>
                 <div class="input-box form-group">
-                    <input type="text" id="correo" name="correo"  placeholder="Correo electrónico"  onchange="validarCorreo('correo')" required data-error="Por favor ingrese su correo.">
+                    <input type="text" id="correo" name="correo"  placeholder="Correo electrónico"  onchange="validarCorreo('correo','aviso')" required data-error="Por favor ingrese su correo.">
                     <i class="las la-envelope"></i><div class="invalid-feedback"></div>
                 </div>
                 <div class="input-box form-group">
@@ -55,7 +55,7 @@
                     <i class="las la-lock"></i><div class="invalid-feedback"></div>
                 </div>
                 <div class="input-box form-group">
-                    <input type="password" id="password2" name="password2" placeholder="Confirmar contraseña" onchange="validarPasswords()" required data-error="Por favor ingrese su contraseña.">
+                    <input type="password" id="password2" name="password2" placeholder="Confirmar contraseña" onchange="validarPasswords('password','password2','aviso')" required data-error="Por favor ingrese su contraseña.">
                     <i class="las la-lock"></i><div class="invalid-feedback"></div>
                 </div>
 

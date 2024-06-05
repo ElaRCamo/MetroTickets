@@ -1,5 +1,5 @@
 function registrarUsuario() {
-    var inputsValidos = validarFormulario() && validarCorreo() && validarPasswords();
+    var inputsValidos = validarFormulario() && validarCorreo('correo','aviso') && validarPasswords('password','password2','aviso');
 
     if (inputsValidos) {
         var nombreUsuario = id("nombreUsuario");
@@ -92,7 +92,7 @@ function enviarCorreoNuevoUsuario(nombre, id, correo){
 }
 
 function recuperarPassword() {
-    var esCorreoValido = validarCorreo('correoRecuperacion');
+    var esCorreoValido = validarCorreo('correoRecuperacion','avisoR');
 
     if (esCorreoValido) {
         var correoRecuperacion = id("correoRecuperacion");
