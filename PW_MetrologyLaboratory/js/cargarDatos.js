@@ -1445,6 +1445,7 @@ function estatusMateriales(k){
 function llenarAnio(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoAnio.php', function (data){
         var selectS = id("anioR");
+        selectS.innerHTML = "";
 
         for (var i = 0; i < data.data.length; i++) {
             var createOption = document.createElement("option");
