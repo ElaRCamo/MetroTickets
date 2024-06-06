@@ -511,7 +511,7 @@ function registrarMaterial() {
                 title: "¡Material guardado con éxito!",
                 showConfirmButton: true
             });
-            TablaAdminMateriales();
+            initDataTableMateriales();
         } else {
             throw "Error en la llamada Ajax";
         }
@@ -540,7 +540,7 @@ function registrarCliente(){
                     title: "¡Cliente agregado exitosamente!",
                     icon: "success"
                 });
-                TablaAdminClientes();
+                initDataTableClientes();
             } else {
                 throw "Error en la llamada Ajax";
             }
@@ -569,7 +569,7 @@ function registrarPlataforma(){
                     title: "¡Plataforma agregada con éxito!",
                     icon: "success"
                 });
-                TablaAdminPlataformas();
+                initDataTablePlataformas();
             } else {
                 throw "Error en la llamada Ajax";
             }
