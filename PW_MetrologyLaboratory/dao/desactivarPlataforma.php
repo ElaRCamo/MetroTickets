@@ -3,9 +3,9 @@ header('Content-Type: application/json');
 include_once('connection.php');
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_GET['id_plataforma'])){
+    if(isset($_POST['id_plataforma'])){
         // Obtiene el valor del parámetro id_cliente
-        $id_plataforma = $_GET['id_plataforma'];
+        $id_plataforma = $_POST['id_plataforma'];
         $response = desactivarPlataforma($id_plataforma);
     }else{
         $response = array('status' => 'error', 'message' => 'ID de la plataforma no proporcionado.');
