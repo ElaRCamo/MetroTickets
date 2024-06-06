@@ -52,7 +52,7 @@ function actualizarPassword(){
                 console.log(error);
                 Swal.fire({
                     title: "Error",
-                    text: data.error,
+                    text: error,
                     icon: "error"
                 });
             });

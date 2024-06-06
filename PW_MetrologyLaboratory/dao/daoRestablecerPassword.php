@@ -28,7 +28,7 @@ function validarToken($token, $nomina){
                                             FROM restablecer_password 
                                             WHERE id_usuario = '$nomina'
                                             AND token = '$token'
-                                            AND expira < NOW()");
+                                            AND expira > NOW()");
     if ($datos) {
         $resultado = mysqli_fetch_assoc($datos);
             if ($resultado && $resultado['tokenValido'] == 1) {
