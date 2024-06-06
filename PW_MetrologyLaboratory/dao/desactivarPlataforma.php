@@ -1,20 +1,19 @@
 <?php
-
+header('Content-Type: application/json');
 include_once('connection.php');
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_GET['id_plataforma'])){
         // Obtiene el valor del parámetro id_cliente
         $id_plataforma = $_GET['id_plataforma'];
-        desactivarPlataforma($id_plataforma);
+        $response = desactivarPlataforma($id_plataforma);
     }else{
-        $respuesta = array("success" => false, "message" => "ID de la plataforma no proporcionado.");
-        echo json_encode($respuesta);
+        $response = array('status' => 'error', 'message' => 'ID de la plataforma no proporcionado.');
     }
 } else {
-    $respuesta = array("success" => false, "message" => "Se esperaba REQUEST_METHOD");
-    echo json_encode($respuesta);
+    $response = array('status' => 'error', 'message' => 'Se esperaba REQUEST_METHOD.');
 }
+echo json_encode($response);
 
 function desactivarPlataforma($id_plataforma)
 {
@@ -29,15 +28,13 @@ function desactivarPlataforma($id_plataforma)
     $stmt->bind_param("i", $id_plataforma);
 
     if ($stmt->execute()) {
-        $respuesta = array("success" => true, "message" => "Plataforma desactivada");
-        echo json_encode($respuesta);
+        $stmt->close();
+        $conex->close();
+        return array('status' => 'success', 'message' => 'Plataforma desactivada.');
     } else {
-        $respuesta = array("success" => false, "message" => "Error.");
-        echo json_encode($respuesta);
+        $stmt->close();
+        $conex->close();
+        return array('status' => 'error', 'message' => 'Error al actualizar la plataforma.');
     }
-    $stmt->close();
-    $conex->close();
-
 }
-
 ?>
