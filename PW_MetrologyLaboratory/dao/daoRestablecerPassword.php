@@ -37,6 +37,8 @@ function validarToken($token, $nomina){
             } else if ($resultado && $resultado['tokenValido'] == 0) {
                 $conexion->close();
                 return array('status' => 'error', 'message' => 'Error: Token no válido.');
+            }else{
+                return array('status' => 'error', 'message' => 'Error: No existe solicitud.');
             }
     } else {
         $conexion->close();
