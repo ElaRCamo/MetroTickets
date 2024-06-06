@@ -6,6 +6,8 @@ CREATE TABLE restablecer_password (
                                       FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE
 );
 
+
+
  //Pruebas realizadas este mes
 SELECT COUNT(*)
   FROM Prueba

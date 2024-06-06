@@ -7,7 +7,7 @@ function actualizarPassword(){
         var id_usuario = searchParams.get('id');
         var token = searchParams.get('token');
 
-        console.log('Token:', token , ' usuario:', id_usuario);
+        // console.log('Token:', token , ' usuario:', id_usuario);
         if (token && id_usuario) {
 
             var newPassword = id("passwordR");
