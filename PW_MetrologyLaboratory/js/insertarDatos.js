@@ -134,7 +134,7 @@ function recuperarPassword() {
                 }
             })
             .catch(error => {
-                console.error(error);
+                //console.error(error);
                 Swal.fire({
                     title: "Error",
                     text: "Hubo un problema al procesar tu solicitud. Por favor, intenta de nuevo más tarde.",

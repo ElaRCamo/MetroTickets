@@ -18,13 +18,50 @@ function actualizarPassword(){
 
             console.log('Token:', token , ' usuario:', id_usuario);
 
+            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoRestablecerPassword.php',{
+                method: 'POST',
+                body: data
+            }).then(res => {
+                resumenPrueba(id_review);
+                if(!res.ok){
+                    throw new Error('Hubo un problema al actualizar la contraseña. Por favor, intenta de nuevo más tarde.');
+                }
+                return res.json();
+            }).then(data => {
+                if (data.status === 'success') {
+                    console.log(data.message);
+                    Swal.fire({
+                        title: "Contraseña actualizada",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "../sesion/indexSesion.php";
+                        }
+                    });
+                } else if (data.status === 'error') {
+                    console.log(data.message);
+                    Swal.fire({
+                        title: "Error",
+                        text: data.message,
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    });
+                }
+            }).catch(error =>{
+                console.log(error);
+                Swal.fire({
+                    title: "Error",
+                    text: data.error,
+                    icon: "error"
+                });
+            });
         } else {
             Swal.fire({
                 title: "Enlace no válido",
                 icon: "error"
             });
         }
-
     }else{
         Swal.fire({
             title:"Datos incorrectos",
