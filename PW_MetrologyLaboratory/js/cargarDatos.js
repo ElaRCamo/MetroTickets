@@ -1489,9 +1489,15 @@ function generarReporte() {
         var anio = id("anioR");
         var mes = id("mesR");
 
-        var url = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/reports/reportePDF.php?tipo=" + tipo.value + "&anio=" + anio.value + "&mes=" + mes.value;
-        console.log(url);
+        if(tipo.value === '1'){
+            var url = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/reports/reportePDF.php?anio=" + anio.value + "&mes=" + mes.value;
+            console.log("if:" + url);
 
+        }else if(tipo.value === '2'){
+            var url = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/reports/reportePDF.php?anio=" + anio.value + "&mes=" + mes.value;
+            console.log("else:" +url);
+        }
+        console.log(url);
         window.location.href = url;
     }
 }
