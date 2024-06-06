@@ -22,7 +22,7 @@ function desactivarPlataforma($id_plataforma)
     $conex = $con->conectar();
 
     $stmt = $conex->prepare("UPDATE Plataforma P
-                                    JOIN DescripcionMaterial M ON P.id_plataforma = M.id_plataforma
+                                LEFT JOIN DescripcionMaterial M ON P.id_plataforma = M.id_plataforma
                                     SET P.estatus = 1,
                                         M.estatus = 1
                                     WHERE P.id_plataforma = ?");
