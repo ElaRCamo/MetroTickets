@@ -29,23 +29,23 @@
     </header>
     <main>
     <div class="page-content">
-        <div class="container table-responsive">
+        <div class="container">
             <!-- Clientes -->
             <section id="sectionClientes" >
                 <h3 id="clientes" >Clientes</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto mt-4 botones">
-                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoCliente"><i class="las la-plus-circle"></i>Nuevo cliente</a>
-                        <a href="#tablaClientes" class="btn btn-secondary" id="btn-clientesDes" onclick="initDataTableClientesDes()"><i class="las la-eye"></i> Desactivados</a>
-                        <a href="#tablaClientes" class="btn btn-secondary" id="btn-clientesAct" onclick="initDataTableClientes()"><i class="las la-eye"></i> Activados</a>
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoCliente"><i class="las la-plus-circle"></i><span>Nuevo cliente</span></a>
+                        <a href="#tablaClientes" class="btn btn-secondary" id="btn-clientesDes" onclick="initDataTableClientesDes()"><i class="las la-eye"></i><span>Desactivados</span></a>
+                        <a href="#tablaClientes" class="btn btn-secondary" id="btn-clientesAct" onclick="initDataTableClientes()"><i class="las la-eye"></i><span>Activados</span></a>
                     </div>
                 </div>
-                    <table class="dataTable table mt-4" id="tablaClientes">
+                    <table class="dataTable table table-sm  mt-4" id="tablaClientes">
                         <thead>
-                            <tr>
-                                <th class="centered">Cliente</th>
-                                <th class="centered">Acciones</th>
-                            </tr>
+                        <tr>
+                            <th class="centered">Cliente</th>
+                            <th class="centered">Acciones</th>
+                        </tr>
                         </thead>
                         <tbody id="tablaClientesBody"></tbody>
                     </table>
@@ -56,13 +56,13 @@
                 <h3 id="plataformas" >Plataformas</h3>
                 <div class="row justify-content-end">
                     <div class="col-auto botones">
-                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevaPlataforma"><i class="las la-plus-circle"></i>Nueva plataforma</a>
-                        <a href="#" class="btn btn-secondary" id="btn-plataformasDes" onclick="initDataTablePlataformasDes()"><i class="las la-eye"></i> Desactivadas</a>
-                        <a href="#" class="btn btn-secondary" id="btn-plataformasAct" onclick="initDataTablePlataformas()"><i class="las la-eye"></i> Activados</a>
+                        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevaPlataforma"><i class="las la-plus-circle"></i><span>Nueva plataforma</span></a>
+                        <a href="#" class="btn btn-secondary" id="btn-plataformasDes" onclick="initDataTablePlataformasDes()"><i class="las la-eye"></i><span> Desactivadas</span></a>
+                        <a href="#" class="btn btn-secondary" id="btn-plataformasAct" onclick="initDataTablePlataformas()"><i class="las la-eye"></i><span> Activados</span></a>
                     </div>
                 </div>
 
-                <div class="justify-content-end">
+                <div class="justify-content-end ">
                     <table class="dataTable table mt-4" id="tablaPlataformas">
                         <thead>
                             <tr>

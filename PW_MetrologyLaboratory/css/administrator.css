@@ -50,7 +50,23 @@ nav ul li a:hover {
     padding-left: 8rem;
     padding-right: 8rem;
 }
+@media only screen and (max-width: 900px) {
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
 
+    #tablaClientes thead th,#tablaPlataformas thead th,
+    #tablaMateriales thead th, #tablaUsuarios thead th{
+     font-size: 0.9rem;
+    }
+
+    #tablaClientes tbody td,#tablaPlataformas tbody td,
+    #tablaMateriales tbody td, #tablaUsuarios tbody td {
+       width: 1%;
+    }
+
+}
 h3{
     margin-top: 4rem;
     color: var(--main-color);
@@ -68,7 +84,7 @@ h3{
     text-align: center;
     color:#EFEDE9;
     margin:0.5rem;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     background-color: var(--main-color);
 }
 #tablaClientes tbody td,#tablaPlataformas tbody td,
