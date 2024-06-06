@@ -13,11 +13,10 @@ if (!isset($_SESSION['tipoUsuario'])){
 
 include_once('../../dao/funtions.php');
 // Obtener los parámetros directamente desde $_GET
-$tipoReporte = filter_input(INPUT_GET, 'tipo', FILTER_SANITIZE_STRING);
 $anio = filter_input(INPUT_GET, 'anio', FILTER_SANITIZE_NUMBER_INT);
 $mes = filter_input(INPUT_GET, 'mes', FILTER_SANITIZE_NUMBER_INT);
 $mes = (int)$mes;
-if (!$tipoReporte || !$anio || !$mes) {
+if (!$anio || !$mes) {
     die('Faltan parámetros o son inválidos.');
 }
 
