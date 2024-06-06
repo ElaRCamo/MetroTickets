@@ -57,6 +57,9 @@ function desactivarCliente(id_cliente) {
 }
 
 function desactivarPlataforma(id_plataforma) {
+    const data = new FormData();
+    data.append('id_plataforma',id_plataforma);
+
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             confirmButton: "btn btn-success",
@@ -75,35 +78,47 @@ function desactivarPlataforma(id_plataforma) {
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/desactivarPlataforma.php?id_plataforma='+id_plataforma,{
+            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/desactivarPlataforma.php',{
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(id_plataforma)
+                body: data
             }).then(res => {
-                initDataTablePlataformas();
-                initDataTableMateriales();
                 if(!res.ok){
-                    console.log('Problem');
-                    return;
+                    throw "Error en la llamada Ajax";
                 }
                 return res.json();
             })
                 .then(data => {
-                    console.log('Success');
-                    swalWithBootstrapButtons.fire({
-                        title: "¡Desactivado!",
-                        text: "La plataforma ha sido desactivada.",
-                        icon: "success"
-                    });
-                })
+                    if (data.status === 'success') {
+                        console.log(data.message);
+                        Swal.fire({
+                            title: "Solicitud exitosa",
+                            text: "Plataforma desactivada",
+                            icon: "success",
+                            confirmButtonText: "OK"
+                        })
+                    } else if (data.status === 'error') {
+                        console.log(data.message);
+                        Swal.fire({
+                            title: "Error",
+                            text: data.message,
+                            icon: "error",
+                            confirmButtonText: "OK"
+                        });
+                    }
+                }).then(function (){
+                    initDataTablePlataformas();
+                    initDataTableMateriales();
+            })
                 .catch(error =>{
-                    console.log(error);
+                    //console.log(error);
+                    Swal.fire({
+                        title: "Error",
+                        text: "Hubo un problema al procesar tu solicitud. Por favor, intenta de nuevo más tarde.",
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    });
                 });
-        } else if (
-            result.dismiss === Swal.DismissReason.cancel
-        ) {
+        } else if ( result.dismiss === Swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire({
                 title: "Cancelado",
                 text: "La plataforma sigue activa y visible para todos.",
