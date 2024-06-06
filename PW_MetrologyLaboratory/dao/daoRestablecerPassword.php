@@ -5,14 +5,14 @@ include_once('connection.php');
 if(isset($_POST['newPassword'], $_POST['token'], $_POST['id_usuario']) ){
     $token = $_POST['token'];
     $nomina = $_POST['id_usuario'];
-    $tokenValido = validarToken($token, $nomina);
+    $estokenValido = validarToken($token, $nomina);
 
-    if($tokenValido){
+    if($estokenValido === true){
         $newPassword = $_POST['newPassword'];
         $passwordH = sha1($newPassword);
         $response = actualizarPassword($nomina, $passwordH);
     }else{
-        $response = array('status' => 'error', 'message' => 'Error:No se encontró solicitud.');
+        $response = $estokenValido;
     }
 }else {
     $response = array('status' => 'error', 'message' => 'Error:Enlace no válido');
@@ -34,9 +34,9 @@ function validarToken($token, $nomina){
             if ($resultado && $resultado['tokenValido'] == 1) {
                 $conexion->close();
                 return true;
-            } else {
+            } else if ($resultado && $resultado['tokenValido'] == 0) {
                 $conexion->close();
-                return false;
+                return array('status' => 'error', 'message' => 'Error: Token no válido.');
             }
     } else {
         $conexion->close();
