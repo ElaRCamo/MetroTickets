@@ -22,7 +22,6 @@ function actualizarPassword(){
                 method: 'POST',
                 body: data
             }).then(res => {
-                resumenPrueba(id_review);
                 if(!res.ok){
                     throw new Error('Hubo un problema al actualizar la contraseña. Por favor, intenta de nuevo más tarde.');
                 }
