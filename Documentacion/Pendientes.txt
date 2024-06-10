@@ -1,6 +1,6 @@
 Pendientes del Proyecto del Laboratorio de Metrología:
 
-✗ 1. ¿Has olvidado la contraseña?
+✓ 1. ¿Has olvidado la contraseña?(06/06/2024)
 ✓ 2. En registro, validar si el usuario ya existe (01/04/2024)
 ✗ 	2.1 Si el usuario ya existe, no se registra y reedirecciona a registrarse nuevamente pero no envia aviso.
 ✓ 3. Cerrar sesión correctamente (27/03/2024)
@@ -94,7 +94,7 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 	42.1 Cuando se elimina un material, el formulario no se envia
 	42.2 Que no permita guardar materiales iguales
 ✓   43. Para actualizar se valida el estatus de la solicitud (27/05/2024)
-✗   44. El reporte no enlaza al pdf
+✓   44. El reporte no enlaza al pdf (06/06/2024)
 ✗   45. Ajustar el reporte de acuerdo a necesidades
 ✓   46. Pasar a dataTables el panel de administrador(31/05/2024)
 
@@ -109,7 +109,7 @@ Reunion 02/04/2024
 ✓  1. Prueba dureza insitu > agregar norma
 ✓  2. Especificaciones para todos (03/04/2024)
 ✓  3. Quitar cantidad de piezas el de despues de norma(03/04/2024)
-✗  4. Que administrador pueda revisar contraseñas
+✓  4. Que administrador pueda revisar contraseñas
      ---Se cambia por *Recuperar contraseña* ---
 ✓  5. Actualizaciones solo para el administrador
 ✗  6. Asignar por default a Adrian para este tipo de pruebas *input editable

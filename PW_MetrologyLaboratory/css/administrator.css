@@ -50,23 +50,7 @@ nav ul li a:hover {
     padding-left: 8rem;
     padding-right: 8rem;
 }
-@media only screen and (max-width: 900px) {
-    .container {
-        padding-left: 0;
-        padding-right: 0;
-    }
 
-    #tablaClientes thead th,#tablaPlataformas thead th,
-    #tablaMateriales thead th, #tablaUsuarios thead th{
-     font-size: 0.9rem;
-    }
-
-    #tablaClientes tbody td,#tablaPlataformas tbody td,
-    #tablaMateriales tbody td, #tablaUsuarios tbody td {
-       width: 1%;
-    }
-
-}
 h3{
     margin-top: 4rem;
     color: var(--main-color);
@@ -174,3 +158,41 @@ td{
 /*#divCambiarImg, #divCambiarImg2{
     display: none;
 }*/
+@media only screen and (max-width: 900px) {
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #tablaClientes thead th,#tablaPlataformas thead th,
+    #tablaMateriales thead th, #tablaUsuarios thead th{
+     font-size: 0.9rem;
+    }
+
+    #tablaClientes tbody td,#tablaPlataformas tbody td,
+    #tablaMateriales tbody td, #tablaUsuarios tbody td {
+       width: 1%;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #tablaClientes button,#tablaPlataformas button,
+    #tablaMateriales button, #tablaUsuarios button{
+        font-size: 1rem;
+    }
+
+    #tablaClientes button span,#tablaPlataformas button span,
+    #tablaMateriales button span, #tablaUsuarios button span{
+        display: none;
+    }
+    .tdBtns{
+
+    }
+
+}

@@ -865,12 +865,12 @@ const TablaAdminClientes = async () => {
             content += `
                 <tr>
                     <td>${item.descripcionCliente}</td>
-                    <td>
+                    <td class="d-flex flex-row">
                         <button class="btn btn-warning btnEditar" onclick="editarCliente('${item.id_cliente}')" data-bs-toggle="modal" data-bs-target="#editarClienteModal">
-                            <i class="las la-edit"></i> Editar
+                            <i class="las la-edit"></i> <span>Editar</span>
                         </button>
                         <button class="btn btn-danger btnDesactivar" onclick="desactivarCliente('${item.id_cliente}')">
-                            <i class="las la-times-circle"></i> Desactivar
+                            <i class="las la-times-circle"></i> <span>Desactivar</span>
                         </button>
                     </td>
                 </tr>`;
@@ -998,10 +998,10 @@ const TablaAdminPlataformas = async () => {
                     <td>${item.descripcionCliente}</td>
                     <td>
                         <button class="btn btn-warning btnEditar" onclick="editarPlataforma('${item.id_plataforma}')" data-bs-toggle="modal" data-bs-target="#editarPlataformaModal">
-                            <i class="las la-edit"></i> Editar
+                            <i class="las la-edit"></i> <span>Editar</span>
                         </button>
                         <button class="btn btn-danger btnDesactivar" onclick="desactivarPlataforma('${item.id_plataforma}')">
-                            <i class="las la-times-circle"></i> Desactivar
+                            <i class="las la-times-circle"></i> <span>Desactivar</span>
                         </button>
                     </td>
                 </tr>`;
@@ -1137,10 +1137,10 @@ const TablaAdminMateriales = async () => {
                     <td>${item.descripcionCliente}</td>
                     <td>
                         <button class="btn btn-warning btnEditar" onclick="editarMaterial('${item.id_descripcion}')" data-bs-toggle="modal" data-bs-target="#editarMaterialModal">
-                            <i class="las la-edit"></i> Editar
+                            <i class="las la-edit"></i> <span>Editar</span>
                         </button>
                         <button class="btn btn-danger btnDesactivar" onclick="desactivarMaterial('${item.id_descripcion}')">
-                            <i class="las la-times-circle"></i> Desactivar
+                            <i class="las la-times-circle"></i> <span>Desactivar</span>
                         </button>
                     </td>
                 </tr>`;
@@ -1272,10 +1272,10 @@ const TablaAdminUsuarios = async () => {
                     <td>${item.descripcionTipo}</td>
                     <td>
                         <button class="btn btn-warning btnEditar" onclick="editarUsuario('${item.id_usuario}')" data-bs-toggle="modal" data-bs-target="#editarUsuarioModal">
-                            <i class="las la-edit"></i> Editar
+                            <i class="las la-edit"></i><span>Editar</span>
                         </button>
                         <button class="btn btn-danger btnDesactivar" onclick="desactivarUsuario('${item.id_usuario}')">
-                            <i class="las la-times-circle"></i> Desactivar
+                            <i class="las la-times-circle"></i><span>Desactivar</span>
                         </button>
                     </td>
                 </tr>`;
