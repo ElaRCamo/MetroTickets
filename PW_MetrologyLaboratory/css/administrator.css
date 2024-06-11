@@ -169,6 +169,7 @@ td{
     }
     h3 {
         margin-top: 3rem;
+        font-size: 1.2rem;
     }
 
     nav ul li a {
@@ -196,7 +197,9 @@ td{
     .dataTables_filter input{
         font-size: 0.7rem !important;
     }
-
+    .page-link,  div.dataTables_wrapper div.dataTables_info, .btn{
+        font-size: 0.6rem !important;
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -206,6 +209,7 @@ td{
     }
     h3 {
         margin-top: 3rem;
+        font-size: 1.2rem;
     }
     nav ul li a {
         padding: 17px 7px;
@@ -232,6 +236,9 @@ td{
     div.dataTables_wrapper div.dataTables_length label,
     .dataTables_filter input{
         font-size: 0.6rem !important;
+    }
+    .page-link,  div.dataTables_wrapper div.dataTables_info, .btn{
+        font-size: 0.5rem !important;
     }
 
     table.dataTable{
