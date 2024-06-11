@@ -176,7 +176,9 @@ td{
     }
 
     #tablaClientes thead th,#tablaPlataformas thead th,
-    #tablaMateriales thead th, #tablaUsuarios thead th{
+    #tablaMateriales thead th, #tablaUsuarios thead th,
+    #tablaClientes tbody td, #tablaPlataformas tbody td,
+    #tablaMateriales tbody td, #tablaUsuarios tbody td{
      font-size: 0.7rem;
     }
 
@@ -188,6 +190,11 @@ td{
 
     table.dataTable{
         width: 100% !important;
+    }
+    div.dataTables_wrapper div.dataTables_filter label,
+    div.dataTables_wrapper div.dataTables_length label,
+    .dataTables_filter input{
+        font-size: 0.7rem !important;
     }
 
 }
@@ -208,7 +215,9 @@ td{
         padding-right: 0;
     }
     #tablaClientes button,#tablaPlataformas button,
-    #tablaMateriales button, #tablaUsuarios button{
+    #tablaMateriales button, #tablaUsuarios button,
+    #tablaClientes tbody td, #tablaPlataformas tbody td,
+    #tablaMateriales tbody td, #tablaUsuarios tbody td {
         font-size: 0.6rem;
     }
     #tablaClientes thead th,#tablaPlataformas thead th,
@@ -219,7 +228,17 @@ td{
     #tablaMateriales button span, #tablaUsuarios button span{
         display: none;
     }
+    div.dataTables_wrapper div.dataTables_filter label,
+    div.dataTables_wrapper div.dataTables_length label,
+    .dataTables_filter input{
+        font-size: 0.6rem !important;
+    }
+
     table.dataTable{
         width: 100% !important;
     }
+}
+
+table tbody td:first-child {
+    padding-left: 0;
 }
