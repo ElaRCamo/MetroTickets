@@ -163,6 +163,17 @@ td{
         padding-left: 0;
         padding-right: 0;
     }
+    h5{
+        font-size: 0.9rem;
+        margin:0;
+    }
+    h3 {
+        margin-top: 2rem;
+    }
+
+    nav ul li a {
+        padding: 17px 7px;
+    }
 
     #tablaClientes thead th,#tablaPlataformas thead th,
     #tablaMateriales thead th, #tablaUsuarios thead th{
@@ -181,6 +192,17 @@ td{
 }
 
 @media only screen and (max-width: 500px) {
+    h5{
+        font-size: 0.8rem;
+        margin:0;
+    }
+
+    h3 {
+        margin-top: 2rem;
+    }
+    nav ul li a {
+        padding: 17px 7px;
+    }
     .container {
         padding-left: 0;
         padding-right: 0;

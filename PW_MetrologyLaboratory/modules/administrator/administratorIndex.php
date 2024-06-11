@@ -26,7 +26,6 @@
     <!-- Custom CSS-->
     <link rel="stylesheet" href="../../css/style.css"/>
     <link rel="stylesheet" href="../../css/administrator.css">
-
     <?php
         session_start();
         $nombreUser = $_SESSION['nombreUsuario'];
