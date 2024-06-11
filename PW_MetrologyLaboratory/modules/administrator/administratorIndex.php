@@ -20,7 +20,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
     <!-- DataTable -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
-    <!-- Custom CSS -->
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.js" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/js/responsive.bootstrap5.js" />
+    <!-- Custom CSS-->
     <link rel="stylesheet" href="../../css/style.css"/>
     <link rel="stylesheet" href="../../css/administrator.css">
 
@@ -54,14 +57,12 @@
             include 'usuarios.php';
     ?>
     <script>
-
         window.addEventListener("load",async () => {
             await initDataTableClientes();
             await initDataTablePlataformas();
             await initDataTableMateriales();
             await initDataTableUsuarios();
         })
-
     </script>
     <script src="../../js/cargarDatos.js"></script>
     <script src="../../js/insertarDatos.js"></script>

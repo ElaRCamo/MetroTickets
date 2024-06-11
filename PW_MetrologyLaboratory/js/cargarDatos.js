@@ -865,7 +865,7 @@ const TablaAdminClientes = async () => {
             content += `
                 <tr>
                     <td>${item.descripcionCliente}</td>
-                    <td class="d-flex flex-row">
+                    <td class="">
                         <button class="btn btn-warning btnEditar" onclick="editarCliente('${item.id_cliente}')" data-bs-toggle="modal" data-bs-target="#editarClienteModal">
                             <i class="las la-edit"></i> <span>Editar</span>
                         </button>
