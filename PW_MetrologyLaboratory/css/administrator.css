@@ -200,6 +200,13 @@ td{
     .page-link,  div.dataTables_wrapper div.dataTables_info, .btn{
         font-size: 0.6rem !important;
     }
+
+    #tablaMateriales .btnDesactivar,
+    #tablaUsuarios .btnDesactivar {
+        margin-left: 0;
+        margin-top: 0.3rem;
+    }
+
 }
 
 @media only screen and (max-width: 500px) {
@@ -218,8 +225,6 @@ td{
         padding-left: 0;
         padding-right: 0;
     }
-    #tablaClientes button,#tablaPlataformas button,
-    #tablaMateriales button, #tablaUsuarios button,
     #tablaClientes tbody td, #tablaPlataformas tbody td,
     #tablaMateriales tbody td, #tablaUsuarios tbody td {
         font-size: 0.6rem;
@@ -239,6 +244,13 @@ td{
     }
     .page-link,  div.dataTables_wrapper div.dataTables_info, .btn{
         font-size: 0.5rem !important;
+    }
+
+
+    #tablaMateriales .btnDesactivar,
+    #tablaUsuarios .btnDesactivar {
+        margin-left: 0;
+        margin-top: 0.3rem;
     }
 
     table.dataTable{
