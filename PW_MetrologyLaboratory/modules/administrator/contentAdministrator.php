@@ -35,7 +35,7 @@
                     <div class="">
                         <h3 id="clientes" >Clientes</h3>
                         <div class="row justify-content-end">
-                            <div class="col-auto mt-4 botones">
+                            <div class="col-auto botones">
                                 <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoCliente"><i class="las la-plus-circle"></i><span>Nuevo cliente</span></a>
                                 <a href="#tablaClientes" class="btn btn-secondary" id="btn-clientesDes" onclick="initDataTableClientesDes()"><i class="las la-eye"></i><span>Desactivados</span></a>
                                 <a href="#tablaClientes" class="btn btn-secondary" id="btn-clientesAct" onclick="initDataTableClientes()"><i class="las la-eye"></i><span>Activados</span></a>
