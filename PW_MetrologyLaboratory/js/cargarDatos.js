@@ -812,7 +812,7 @@ const dataTableOptionsClientes = {
     pageLength:5,
     destroy: true,
     language:{
-        lengthMenu: "Mostrar _MENU_ registros pór página",
+        lengthMenu: "Mostrar _MENU_ registros",
         sZeroRecords: "Ningún cliente encontrado",
         info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
         infoEmpty: "Ningún cliente encontrado",
@@ -944,7 +944,7 @@ const dataTableOptionsPlataformas = {
     pageLength:5,
     destroy: true,
     language:{
-        lengthMenu: "Mostrar _MENU_ registros pór página",
+        lengthMenu: "Mostrar _MENU_ registros",
         sZeroRecords: "Ninguna plataforma encontrada",
         info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
         infoEmpty: "Ninguna plataforma encontrada",
@@ -1077,7 +1077,7 @@ const dataTableOptionsMateriales = {
     pageLength:5,
     destroy: true,
     language:{
-        lengthMenu: "Mostrar _MENU_ registros pór página",
+        lengthMenu: "Mostrar _MENU_ registros",
         sZeroRecords: "Ningún material encontrado",
         info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
         infoEmpty: "Ningún material encontrado",
@@ -1217,7 +1217,7 @@ const dataTableOptionsUsuarios = {
     pageLength:5,
     destroy: true,
     language:{
-        lengthMenu: "Mostrar _MENU_ registros pór página",
+        lengthMenu: "Mostrar _MENU_ registros",
         sZeroRecords: "Ningún usuario encontrado",
         info: "Mostrando de _START_ a _END_ de un total de _TOTAL_ registros",
         infoEmpty: "Ningún usuario encontrado",
