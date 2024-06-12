@@ -1,5 +1,5 @@
 <!-- Modal RESULTADOS-->
-<div class="modal fade container-fluid" id="modalResultados" aria-hidden="true" aria-labelledby="modalResultadosLabel" tabindex="-1">
+<div class="modal fade container-fluid" id="modalResultados" onload="cambiarResultado()" aria-hidden="true" aria-labelledby="modalResultadosLabel" tabindex="-1">
     <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
         <div class="modal-content">
             <div class="modal-header">
@@ -19,7 +19,7 @@
                         <div class="mb-3 col">
                             <div class="help-block with-errors"></div>
                             <label for="prioridadPruebaAdmin" class="form-label">Prioridad: </label>
-                            <select class="form-control" id="prioridadPruebaAdmin" onchange="cambiarResultado()"  name="prioridadPruebaAdmin" title="" required data-error="Por favor seleccione la prioridad" >
+                            <select class="form-control" id="prioridadPruebaAdmin" name="prioridadPruebaAdmin" title="" required data-error="Por favor seleccione la prioridad" >
                                 <option value="">Seleccione la prioridad de la prueba*</option>
                             </select>
                         </div>

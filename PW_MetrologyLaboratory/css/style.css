@@ -503,6 +503,9 @@ table tbody tr {
     .logoRight {
         margin-bottom: 1rem;
     }
+    #materialesResumen thead th,#materialesResumen thead td{
+        font-size: 0.7rem;
+    }
 }
 /*Tabla responsive*/
 @media only screen and (max-width: 900px) {
@@ -584,6 +587,9 @@ table tbody tr {
     }
     .logoRight {
         margin-bottom: 1rem;
+    }
+    #materialesResumen thead th,#materialesResumen thead td{
+        font-size: 0.5rem;
     }
 }
 
