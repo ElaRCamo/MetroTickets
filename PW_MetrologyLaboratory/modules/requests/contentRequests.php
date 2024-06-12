@@ -2,7 +2,6 @@
     <div class="page-header row headerLogo">
         <div class="col divTitle">
             <h1>Solicitudes</h1>
-            <small>Buscar</small>
         </div>
         <div class="logoRight col-sm-3">
             <div>
@@ -16,9 +15,9 @@
 
     <div class="page-content">
         <div class="records table-responsive">
-            <div class="table-Conteiner" id="contenedorListadoPruebas">
+            <div class="table-Conteiner table-responsive" id="contenedorListadoPruebas">
                 <div id="contenedorAzul"></div>
-                <table class="dataTable tableSearch" id="listadoPruebas" >
+                <table class="dataTable tableSearch table" id="listadoPruebas" >
                     <thead>
                         <tr>
                             <th class="centered" id="folio">FOLIO</th>

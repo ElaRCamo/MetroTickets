@@ -586,6 +586,15 @@ table tbody tr {
     table tbody td:first-child{
         padding-left: 0 !important;
     }
+    #listadoPruebas_filter{
+        margin-right: 0;
+        border-top-right-radius: 0;
+        margin-left: 0.8rem;
+    }
+
+    #listadoPruebas_length {
+        border-top-right-radius: 10px;
+    }
 }
 
 /*Contenido Nueva Solicitud*/
