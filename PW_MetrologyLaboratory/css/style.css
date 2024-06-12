@@ -500,6 +500,9 @@ table tbody tr {
     .logoRight span{
         font-size: .6rem;
     }
+    .logoRight {
+        margin-bottom: 1rem;
+    }
 }
 /*Tabla responsive*/
 @media only screen and (max-width: 900px) {
@@ -578,6 +581,9 @@ table tbody tr {
     }
     h5{
         font-size: 1.1rem;
+    }
+    .logoRight {
+        margin-bottom: 1rem;
     }
 }
 
