@@ -572,9 +572,6 @@ table tbody tr {
     table thead th {
         font-size: 0.7rem;
     }
-    #datosGeneralesTable th, #resultadosTable th{
-        font-size: 0.7rem;
-    }
     td{
         font-size: 0.7rem;
         text-align: center;
@@ -590,6 +587,9 @@ table tbody tr {
     }
     #materialesResumen thead th,#materialesResumen thead td{
         font-size: 0.5rem;
+    }
+    #datosGeneralesTable th, #resultadosTable th{
+        font-size: 0.6rem;
     }
 }
 
