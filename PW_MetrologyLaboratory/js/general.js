@@ -182,6 +182,19 @@ function hideButton(id_button){
     var button = id(id_button);
     button.style.display = "none";
 }
+
+function cambiarResultado(){
+    var divResultados = id("divResultados");
+    var selectEstatus = id("estatusPruebaAdmin");
+
+    if (selectEstatus.value !== '3') {
+        mostrarBloque(divResultados, true);
+    } else {
+        mostrarBloque(divResultados, false);
+    }
+}
+
+
 /*
 function cambiarImg(){
     var divImg = id("divCambiarImg");

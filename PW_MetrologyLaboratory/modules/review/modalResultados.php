@@ -19,7 +19,7 @@
                         <div class="mb-3 col">
                             <div class="help-block with-errors"></div>
                             <label for="prioridadPruebaAdmin" class="form-label">Prioridad: </label>
-                            <select class="form-control" id="prioridadPruebaAdmin" onchange=""  name="prioridadPruebaAdmin" title="" required data-error="Por favor seleccione la prioridad" >
+                            <select class="form-control" id="prioridadPruebaAdmin" onchange="cambiarResultado()"  name="prioridadPruebaAdmin" title="" required data-error="Por favor seleccione la prioridad" >
                                 <option value="">Seleccione la prioridad de la prueba*</option>
                             </select>
                         </div>
@@ -36,7 +36,7 @@
                         <label for="observacionesAdmin" class="form-label">Observaciones: </label>
                         <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3" id="divResultados">
                         <div class="help-block with-errors"></div>
                         <label for="resultadosAdmin" class="form-label">Resultados: </label>
                         <input type="text" name="resultadosAdmin" id="resultadosAdmin" class="form-control" onchange="" >

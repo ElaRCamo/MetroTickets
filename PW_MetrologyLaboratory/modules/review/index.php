@@ -87,6 +87,7 @@
         <?php } ?>
     }
 </script>
+<script src="../../js/general.js"></script>
 <script src="../../js/cargarDatos.js"></script>
 <script src="../../js/actualizarDatos.js"></script>
 <script src="../../js/insertarDatos.js"></script>
