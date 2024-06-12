@@ -1,7 +1,7 @@
 <main>
         <div class="page-header row headerLogo">
             <div class="col divTitle contenedorFecha">
-                <small id="saludoH">¡Hola <?php global $nombreUser; echo $nombreUser; ?>!</small>
+                <!--<small id="saludoH">¡Hola ?php global $nombreUser; echo $nombreUser; ?>!</small>-->
                 <h3 class="fechaH">Indicadores <?php
                     $meses = array(
                         1 => "Enero",
@@ -61,7 +61,6 @@
                             <small>Tiempo de respuesta</small>
                     </div>
                 </div>
-
                 <div class="card">
                     <div class="card-head">
                         <h2><span id="pruebasPorDiaSpan"></span> pruebas/día</h2>
@@ -74,8 +73,8 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col" id="graficoPruebasPorMes"></div>
-                    <div class="col" id="graficoPorMesPorMetro"></div>
+                    <div class="col-sm-6" id="graficoPruebasPorMes"></div>
+                    <div class="col-sm-6" id="graficoPorMesPorMetro"></div>
                 </div>
                 <div class="row" id="graficosCirculares">
                     <div class="col"></div>
