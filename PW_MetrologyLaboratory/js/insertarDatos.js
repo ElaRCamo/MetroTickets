@@ -214,7 +214,7 @@ function validacionSolicitud() {
             const sesionIniciada = respuestas[1];
 
             if (sesionIniciada && id_prueba !== null && id_prueba !== undefined) {
-                alert("Se ejecuta registrarSolicitud "+id_prueba)
+                //alert("Se ejecuta registrarSolicitud "+id_prueba)
                 registrarSolicitud(id_prueba);
             } else if(sesionIniciada === false) {
                 // Si la sesión no está iniciada, mostrar un mensaje de error
@@ -305,7 +305,7 @@ function registrarSolicitud(nuevoId) {
         for (let pair of dataForm.entries()) {
             formDataString += pair[0]+ ', ' + pair[1] + '\n';
         }
-        alert(formDataString);
+       // alert(formDataString);
 
     fetch('../../dao/requestRegister.php', {
         method: 'POST',
