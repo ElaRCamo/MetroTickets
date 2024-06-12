@@ -587,13 +587,15 @@ table tbody tr {
         padding-left: 0 !important;
     }
     #listadoPruebas_filter{
-        margin-right: 0;
-        border-top-right-radius: 0;
-        margin-left: 0.8rem;
+        margin-right: 0 !important;
+        border-top-right-radius: 0 !important;
     }
 
     #listadoPruebas_length {
         border-top-right-radius: 10px;
+    }
+    div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+        justify-content: left !important;
     }
 }
 
