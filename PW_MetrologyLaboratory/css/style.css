@@ -848,17 +848,20 @@ table tbody tr {
 }
 
 #listadoPruebas_length {
-    margin-left: 0.8rem;
     border-top-left-radius: 10px;
 }
 
-#listadoPruebas_filter,
 #tablaClientes_filter,
 #tablaPlataformas_filter,
 #tablaMateriales_filter,
 #tablaUsuarios_filter
 {
     margin-right: 0.8rem;
+    border-top-right-radius: 10px;
+}
+
+#listadoPruebas_filter
+{
     border-top-right-radius: 10px;
 }
 
