@@ -264,11 +264,11 @@ function registrarSolicitud(nuevoId) {
             if(tipoPruebaEspecial && tipoPruebaEspecial.value === '4'){
                 otroPrueba = id("otroPrueba");
                 dataForm.append('otroPrueba', otroPrueba.value.trim());
-                alert("otroPrueba con tipoPruebaEspecial= 4 :"+otroPrueba.value.trim());
+                //alert("otroPrueba con tipoPruebaEspecial= 4 :"+otroPrueba.value.trim());
             }else{
                 otroPrueba = "No aplica";
                 dataForm.append('otroPrueba con tipoPruebaEspecial :', otroPrueba);
-                alert("otroPrueba ="+otroPrueba);
+                //alert("otroPrueba ="+otroPrueba);
             }
         }else if((tipoPrueba && tipoPrueba.value === '4') || (tipoPrueba && tipoPrueba.value === '3')){
             norma             = id("norma");
@@ -593,7 +593,7 @@ function correoActualizacionPrueba(id_prueba, solicitantePrueba, emailSolicitant
     })
         .then(function (response){
             if (response.ok){
-                alert('Correo Actualizacion: prueba: ' +id_prueba+ 'user: ' + solicitantePrueba +' email: ' + emailSolicitante);
+                //alert('Correo Actualizacion: prueba: ' +id_prueba+ 'user: ' + solicitantePrueba +' email: ' + emailSolicitante);
             }else{
                 throw "Error en la llamada Ajax";
             }
