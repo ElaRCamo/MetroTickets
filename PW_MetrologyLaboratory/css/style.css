@@ -504,7 +504,7 @@ table tbody tr {
         margin-bottom: 1rem;
     }
     #materialesResumen thead th,#materialesResumen thead td{
-        font-size: 0.5rem;
+        font-size: 0.5rem !important;
     }
 }
 /*Tabla responsive*/
@@ -570,10 +570,10 @@ table tbody tr {
         flex-wrap: wrap-reverse;
     }
     table thead th {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
     }
     td{
-        font-size: 0.7rem;
+        font-size: 0.6rem;
         text-align: center;
     }
     .search input{
@@ -586,10 +586,13 @@ table tbody tr {
         margin-bottom: 1rem;
     }
     #materialesResumen thead th,#materialesResumen thead td{
-        font-size: 0.5rem;
+        font-size: 0.5rem !important;
     }
     #datosGeneralesTable th, #resultadosTable th{
-        font-size: 0.6rem;
+        font-size: 0.6rem !important;
+    }
+    #archivoNormaR span{
+        font-size: 0.6rem !important;
     }
 }
 
