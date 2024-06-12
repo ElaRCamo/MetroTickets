@@ -741,6 +741,7 @@ table tbody tr {
 #materialesResumen thead th, #materialesSolicitud thead th {
     padding: 0.3rem;
     text-align: center;
+    font-size: 1rem;
 }
 #RequestReview small{
     font-size: 1rem;
@@ -769,8 +770,11 @@ table tbody tr {
     word-wrap: break-word;
 }
 
-#archivoNormaR span, #archivoNormaR, #divUpdate span {
+#archivoNormaR, #divUpdate span {
     font-size: 0.9rem;
+    color: #444;
+}
+#archivoNormaR span{
     color: #444;
 }
 #archivoNormaR span:hover{
