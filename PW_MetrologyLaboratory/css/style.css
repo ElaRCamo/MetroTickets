@@ -504,7 +504,7 @@ table tbody tr {
         margin-bottom: 1rem;
     }
     #materialesResumen thead th,#materialesResumen thead td{
-        font-size: 0.7rem;
+        font-size: 0.5rem;
     }
 }
 /*Tabla responsive*/
