@@ -905,8 +905,9 @@ table tbody tr {
     background-color: var(--main-color) !important;
     border-color: transparent !important;
 }
-
-
 .botones{
     margin-bottom: 0.5rem;
+}
+#divResultados{
+    display: none;
 }
