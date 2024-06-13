@@ -194,11 +194,11 @@ function actualizarSolicitud(){
         if(tipoPruebaEspecial && tipoPruebaEspecial.value === '4'){
             otroPrueba = id("otroPrueba");
             dataForm.append('otroPrueba', otroPrueba.value.trim());
-            alert("otroPrueba con tipoPruebaEspecial= 4 :"+otroPrueba.value.trim());
+            //alert("otroPrueba con tipoPruebaEspecial= 4 :"+otroPrueba.value.trim());
         }else{
             otroPrueba = "No aplica";
             dataForm.append('otroPrueba con tipoPruebaEspecial :', otroPrueba);
-            alert("otroPrueba ="+otroPrueba);
+            //alert("otroPrueba ="+otroPrueba);
         }
     }else if((tipoPrueba && tipoPrueba.value === '4') || (tipoPrueba && tipoPrueba.value === '3')){
         norma             = id("norma");
@@ -235,7 +235,7 @@ function actualizarSolicitud(){
     for (let pair of dataForm.entries()) {
         formDataString += pair[0]+ ', ' + pair[1] + '\n';
     }
-    alert(formDataString);
+    //alert(formDataString);
 
     fetch('../../dao/daoActualizacionRequest.php', {
         method: 'POST',
@@ -278,10 +278,6 @@ function actualizarSolicitud(){
             }
         });
 }
-function updatePruebaSol(id_review){
-    alert("id de prueba para actualizar:"+ id_review);
-}
-
 
 function editarCliente(id_cliente){
 
@@ -305,7 +301,7 @@ function actualizarCliente(id_cliente){
     data.append('id_cliente',id_cliente);
     data.append('descClienteE',descClienteE.value.trim());
 
-    alert ("id:"+id_cliente+" desc: "+descClienteE.value.trim())
+    //alert ("id:"+id_cliente+" desc: "+descClienteE.value.trim())
 
     fetch('../../dao/daoActualizarCliente.php', {
         method: 'POST',
@@ -394,7 +390,7 @@ function  actualizarPlataforma(id_plataforma){
     data.append('descPlataformaE',descPlataformaE.value.trim());
     data.append('descPClienteE',descPClienteE.value.trim());
 
-    alert ("id:"+id_plataforma+" desc Plata: "+descPlataformaE.value.trim()+" desc cliente: "+descPClienteE.value.trim())
+    //alert ("id:"+id_plataforma+" desc Plata: "+descPlataformaE.value.trim()+" desc cliente: "+descPClienteE.value.trim())
 
     fetch('../../dao/daoActualizarPlataforma.php', {
         method: 'POST',
@@ -632,7 +628,7 @@ function actualizarUsuario(id_usuario){
     data.append('id_usuario',id_usuario);
     data.append('tipoDeUsuarioE',tipoDeUsuarioE.value.trim());
 
-    alert ("id:"+id_usuario+" tipoDeUsuarioE: "+tipoDeUsuarioE.value.trim())
+    //alert ("id:"+id_usuario+" tipoDeUsuarioE: "+tipoDeUsuarioE.value.trim())
 
     fetch('../../dao/daoActualizarUsuario.php', {
         method: 'POST',
