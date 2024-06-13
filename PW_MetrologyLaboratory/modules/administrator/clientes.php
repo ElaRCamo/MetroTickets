@@ -16,7 +16,7 @@
                     <div class="row justify-content-end">
                         <div class="">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
-                            <button type="button" class="btn btn-secondary" onclick="registrarCliente()"><i class="las la-save"></i>Guardar</button>
+                            <button type="button" class="btn btn-secondary" onclick="registrarCliente()" data-bs-dismiss="modal"><i class="las la-save"></i>Guardar</button>
                         </div>
                     </div>
                 </form>
@@ -43,7 +43,7 @@
                     <div class="row justify-content-end">
                         <div class="">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
-                            <button type="button" class="btn btn-secondary" id="btn-updCliente"><i class="las la-save"></i>Guardar</button>
+                            <button type="button" class="btn btn-secondary" id="btn-updCliente" data-bs-dismiss="modal"><i class="las la-save"></i>Guardar</button>
                         </div>
                     </div>
                 </form>
