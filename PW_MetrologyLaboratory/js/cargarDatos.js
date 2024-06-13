@@ -294,11 +294,12 @@ const initDataTable = async (solicitante) => {
 const TablaPruebasSolicitante = async (id_solicitante) => {
     try {
         const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante=${id_solicitante}`);
-        const result = await response.json();
 
-        if (!Array.isArray(result.data)) {
-            throw new Error('La respuesta del servidor no es un array.');
+        if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
         }
+
+        const result = await response.json();
 
         let content = '';
         result.data.forEach((item) => {
@@ -318,8 +319,8 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
 
         listadoPruebasBody.innerHTML = content;
         ocultarContenido("textVerMas", 40);
-    } catch (ex) {
-        alert(ex);
+    } catch (error) {
+        console.error('Error:', error);
     }
 };
 
@@ -351,7 +352,7 @@ const TablaPruebasAdmin = async () => {
         listadoPruebasBody.innerHTML = content;
         ocultarContenido("textVerMas", 40);
     } catch (ex) {
-        alert(ex);
+        console.error('Error:', ex);
     }
 };
 
@@ -879,7 +880,7 @@ const TablaAdminClientes = async () => {
         hideButton("btn-clientesAct");
 
     } catch (ex) {
-        alert(ex);
+        console.error('Error:', ex);
     }
 };
 
@@ -929,7 +930,7 @@ const TablaAdminClientesDes = async () => {
         hideButton("btn-clientesDes");
 
     } catch (ex) {
-        alert(ex);
+        console.error('Error:', ex);
     }
 };
 
@@ -1010,7 +1011,7 @@ const TablaAdminPlataformas = async () => {
         showButton("btn-plataformasDes");
 
     } catch (ex) {
-        alert(ex);
+        console.error('Error:', ex);
     }
 };
 
@@ -1061,7 +1062,7 @@ const TablaAdminPlataformasDes = async () => {
         hideButton("btn-plataformasDes");
 
     } catch (ex) {
-        alert(ex);
+        console.error('Error:', ex);
     }
 };
 
@@ -1148,7 +1149,7 @@ const TablaAdminMateriales = async () => {
         hideButton("btn-materialesAct");
         showButton("btn-materialesDes");
     } catch (ex) {
-        alert(ex);
+        console.error('Error:', ex);
     }
 };
 
@@ -1202,7 +1203,7 @@ const TablaAdminMaterialesDes = async () => {
         showButton("btn-materialesAct");
         hideButton("btn-materialesDes");
     } catch (ex) {
-        alert(ex);
+        console.error('Error:', ex);
     }
 };
 
@@ -1283,7 +1284,7 @@ const TablaAdminUsuarios = async () => {
         showButton("btn-usuariosDes");
         hideButton("btn-usuariosAct");
     } catch (ex) {
-        alert(ex);
+        console.error('Error:', ex);
     }
 };
 const initDataTableUsuariosDes = async () => {
@@ -1331,7 +1332,7 @@ const TablaAdminUsuariosDes = async () => {
         showButton("btn-usuariosAct");
         hideButton("btn-usuariosDes");
     } catch (ex) {
-        alert(ex);
+        console.error('Error:', ex);
     }
 };
 
