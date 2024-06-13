@@ -446,7 +446,7 @@ function activarPlataforma(id_plataforma){
 
 
 function editarMaterial(descripcion){
-    console.log("para editar: " + descripcion);
+    //console.log("para editar: " + descripcion);
     let opcionesClientes= [];
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnMaterial.php?id_descripcion=' + descripcion, function (data) {
@@ -509,7 +509,7 @@ function editarMaterial(descripcion){
 
 
 function actualizarMaterial(id_descripcion){
-    console.log("ACTUALIZAR: " + id_descripcion);
+    //console.log("ACTUALIZAR: " + id_descripcion);
 
     var descMaterialE = id("descMaterialE");
     var numParteE = id("numParteE");
@@ -538,24 +538,33 @@ function actualizarMaterial(id_descripcion){
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarMaterial.php', {
         method: 'POST',
         body: dataForm
-    }).then(function (response) {
-        if (response.ok) { //respuesta
-            Swal.fire({
-                icon: "success",
-                title: "¡Material actualizado con éxito!",
-                showConfirmButton: true
-            });
-            initDataTableMateriales();
-        } else {
-            throw "Error en la llamada Ajax";
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error('Hubo un problema al actualizar el material. Por favor, intenta de nuevo más tarde.');
         }
-    })
-        .then(function (texto) {
-            console.log(texto);
-        })
-        .catch(function (err) {
-            console.log(err);
+        return response.json();
+    }) .then(data => {
+        if (data.status === 'success') {
+            console.log(data.message);
+            Swal.fire({
+                title: "¡Material actualizado con éxito!",
+                icon: "success",
+                confirmButtonText: "OK"
+            })
+        } else {
+            throw new Error('Hubo un problema al actualizar el material. Por favor, intenta de nuevo más tarde.');
+        }
+    }).then(function () {
+        initDataTableMateriales();
+    }).catch(error => {
+        //console.error(error);
+        Swal.fire({
+            title: "Error",
+            text: error.message,
+            icon: "error",
+            confirmButtonText: "OK"
         });
+    });
 }
 function activarMaterial(id_descripcion){
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarMaterial.php?id_descripcion='+id_descripcion,{
