@@ -15,7 +15,6 @@
             </div>
         </div>
     </div>
-
     <div class="container-fluid" id="containerPruebaR" >
         <div class="row">
             <div id="divTablePrueba" class="table-responsive">

@@ -49,7 +49,7 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 ✓  	21.1 Se cargan los datos por id_usuario a la tabla de listado de pruebas(09/04/2024)
 ✓  	21.2 Agregar especificaciones para rol de metrologo y administrador(23/04/2024)
 ✓  22. Limitar el número de caracteres en la celda de especificaciones (11/04/2024)
-✗  23. Darle valor por default a observaciones
+✓  23. Darle valor por default a observaciones
 ✓  24. Cerrar sesion para administrador/metrologo no funciona(11/04/2024)
 ✓  25. Agregar en el header el nombre del usuario(11/04/2024)
 ✓  	25.1 Agregar foto del usuario(11/04/2024)
@@ -133,4 +133,4 @@ INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `norma
 VALUES ('test', '02/05/2024', 'Prueba insertar solicitud', 'No aplica', 'No aplica', '00030293', 2, 'No aplica', 'No aplica'
 
 
-
+usa css para que el cotenido de la celda se ajuste y no haga la celda mas grande
