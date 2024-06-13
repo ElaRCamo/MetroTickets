@@ -507,7 +507,10 @@ table tbody tr {
         font-size: 0.5rem !important;
     }
     #archivoNormaR, #divUpdate span {
-        font-size: 0.6rem;
+        font-size: 0.6rem !important;
+    }
+    #rutaResultadosR {
+        font-size: 0.55rem !important;
     }
 }
 /*Tabla responsive*/
@@ -615,13 +618,10 @@ table tbody tr {
     }
 
     #archivoNormaR, #divUpdate span {
-        font-size: 0.5rem;
+        font-size: 0.6rem !important;
     }
     #rutaResultadosR {
-        max-width: 75%; /* Asegura que el ancho máximo sea el 100% del contenedor */
-        white-space: nowrap; /* Evita que el texto se envuelva */
-        overflow: hidden; /* Oculta el desbordamiento del contenido */
-        text-overflow: ellipsis; /* Añade puntos suspensivos al final del contenido desbordado */
+        font-size: 0.45rem !important;
     }
 }
 
