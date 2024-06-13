@@ -492,10 +492,7 @@ table tbody tr {
     font-size: 1.5rem;
     margin-right: .5rem;
 }
-#h1Resumen{
-    font-size: 1.3rem;
-    font-weight: bold;
-}
+
 
 @media only screen and (max-width: 1200px) {
     .analytics {
@@ -515,6 +512,10 @@ table tbody tr {
     }
     #rutaResultadosR {
         font-size: 0.55rem !important;
+    }
+    #h1Resumen{
+        font-size: 1.5rem;
+        font-weight: bold;
     }
 }
 /*Tabla responsive*/
@@ -626,6 +627,10 @@ table tbody tr {
     }
     #rutaResultadosR {
         font-size: 0.45rem !important;
+    }
+    #h1Resumen{
+        font-size: 1.3rem;
+        font-weight: bold;
     }
 }
 
