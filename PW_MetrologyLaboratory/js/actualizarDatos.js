@@ -72,23 +72,23 @@ function actualizarPassword(){
 }
 
 function updateLinkActualizar(id, estatus) {
-    var link = document.getElementById('updateBtnS');
+    if(tipoUser === '3'){
+        var link = document.getElementById('updateBtnS');
 
-    if (link) {
-        if (id === '5' || id === '7') {
-            link.setAttribute('onclick', 'updatePrueba();');
-            link.style.pointerEvents = 'auto';
-            link.style.cursor = 'pointer';
-        } else {
-            // Cambia el texto del enlace
-            link.innerHTML = '<i class="lar la-lightbulb"></i>Estatus: ' + estatus + '<br>(No es posible actualizar)';
-            link.removeAttribute('onclick');
-            link.removeAttribute('href');
-            link.style.pointerEvents = 'none';
-            link.style.cursor = 'default';
+        if (link) {
+            if (id === '5' || id === '7') {
+                link.setAttribute('onclick', 'updatePrueba();');
+                link.style.pointerEvents = 'auto';
+                link.style.cursor = 'pointer';
+            } else {
+                // Cambia el texto del enlace
+                link.innerHTML = '<i class="lar la-lightbulb"></i>Estatus: ' + estatus + '<br>(No es posible actualizar)';
+                link.removeAttribute('onclick');
+                link.removeAttribute('href');
+                link.style.pointerEvents = 'none';
+                link.style.cursor = 'default';
+            }
         }
-    } else {
-        console.error(''); //Elemento con ID "updateBtnS" no encontrado
     }
 }
 
