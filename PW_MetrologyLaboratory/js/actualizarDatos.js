@@ -567,7 +567,7 @@ function actualizarMaterial(id_descripcion){
     });
 }
 function activarMaterial(id_descripcion){
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarMaterial.php?id_descripcion='+id_descripcion,{
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/  dao/daoActivarMaterial.php?id_descripcion='+id_descripcion,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
