@@ -533,7 +533,7 @@ function actualizarMaterial(id_descripcion){
 
     dataForm.append('descMPlataformaE', descMPlataformaE.value.trim());
 
-    console.log("DataForm paara actualizar:", dataForm);
+    //console.log("DataForm paara actualizar:", dataForm);
 
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarMaterial.php', {
         method: 'POST',
@@ -557,7 +557,7 @@ function actualizarMaterial(id_descripcion){
     }).then(function () {
         initDataTableMateriales();
     }).catch(error => {
-        //console.error(error);
+        console.error(error);
         Swal.fire({
             title: "Error",
             text: error.message,
