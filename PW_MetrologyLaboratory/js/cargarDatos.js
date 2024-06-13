@@ -373,7 +373,7 @@ function resumenPrueba(ID_PRUEBA){
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + ID_PRUEBA, function (response) {
        //codigo para actualizar campos
-        var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
+        var data = response.data[0]; // primer objeto dentro de 'data'
         $('#numeroPruebaR').text(data.id_prueba);
         $('#fechaSolicitudR').text(data.fechaSolicitud);
         $('#fechaRespuestaR').text(data.fechaRespuesta);
@@ -459,7 +459,7 @@ function resumenPrueba(ID_PRUEBA){
             tbody.appendChild(fila);
         }
     }).then(function (){
-        updateLink(id_estatusSol,estatusSol);
+        updateLinkActualizar(id_estatusSol,estatusSol);
     });
 }
 
