@@ -704,29 +704,46 @@ function updatePerfilUsuario(){
 
     var inputFoto= id("fotoPerfilPU");
     var inputPassword= id("passwordPU");
+    var imagenActualSrc = id('imgActualUsuario').src;
 
     const data = new FormData();
     data.append('inputFoto',inputFoto);
     data.append('inputPassword',inputPassword.value.trim());
 
+    // Validar la imagen antes de adjuntarla al FormData
+    if (inputFoto.files.length > 0) {
+        validarImagen(inputFoto.files[0]);
+        dataForm.append('fotoPerfilU', inputFoto.files[0]);
+    } else {
+        dataForm.append('imagenActual', imagenActualSrc);
+    }
+
     fetch('../../dao/daoActualizarUsuario.php', {
         method: 'POST',
         body: data
-    })
-        .then(function (response) {
-            if (response.ok) { //respuesta
-                Swal.fire({
-                    title: "¡Usuario actualizado exitosamente!",
-                    icon: "success"
-                });
-            } else {
-                throw "Error en la llamada Ajax";
-            }
-        })
-        .then(function (texto) {
-            console.log(texto);
-        })
-        .catch(function (err) {
-            console.log(err);
+    }).then(respuesta => {
+        if (!respuesta.ok) {
+            throw new Error('Hubo un problema al actualizar el perfil. Por favor, intenta de nuevo más tarde.');
+        }
+        return respuesta.json();
+    }) .then(data => {
+        if (data.status === 'success') {
+            console.log(data.message);
+            Swal.fire({
+                title: "¡Perfil actualizado con éxito!",
+                icon: "success",
+                confirmButtonText: "OK"
+            })
+        } else {
+            throw new Error('Hubo un problema al actualizar el perfil. Por favor, intenta de nuevo más tarde.');
+        }
+    }).catch(error => {
+        console.error(error);
+        Swal.fire({
+            title: "Error",
+            text: error.message,
+            icon: "error",
+            confirmButtonText: "OK"
         });
+    });
 }

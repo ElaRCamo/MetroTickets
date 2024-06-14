@@ -11,13 +11,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $fotoPerfil = $_POST['inputFoto'];
 
         // Manejar la imagen si se ha subido
-        if (isset($_FILES['fotoPerfilPU']) && $_FILES['fotoPerfilPU']['error'] === UPLOAD_ERR_OK) {
+        if (isset($_FILES['fotoPerfilU']) && $_FILES['fotoPerfilU']['error'] === UPLOAD_ERR_OK) {
             // Directorio de destino para la carga de archivos
             $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/usuarios/";
 
             // Nombre y ruta del archivo
             $fechaActual = date('Y-m-d_H-i-s');
-            $archivo = $_FILES['fotoPerfilPU']['name'];
+            $archivo = $_FILES['fotoPerfilU']['name'];
             $imgName = $fechaActual . '-' . $Nomina;
 
             $extension = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
@@ -25,9 +25,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $img = $target_dir . $imgName . "." . $extension;
 
             // Mover el archivo al directorio de destino
-            $tipo   = $_FILES['fotoPerfilPU']['type'];
-            $tamano = $_FILES['fotoPerfilPU']['size'];
-            $temp   = $_FILES['fotoPerfilPU']['tmp_name'];
+            $tipo   = $_FILES['fotoPerfilU']['type'];
+            $tamano = $_FILES['fotoPerfilU']['size'];
+            $temp   = $_FILES['fotoPerfilU']['tmp_name'];
             $moverImgFile = "../imgs/usuarios/" . $imgName. "." . $extension;
             if (in_array($extension, $extensionesPermitidas)) {
                 move_uploaded_file($temp, $moverImgFile);
