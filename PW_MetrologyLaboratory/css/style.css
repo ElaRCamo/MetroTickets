@@ -964,3 +964,6 @@ table tbody tr {
 #divResultados{
     display: none;
 }
+.enlaceUpdPerfil{
+    cursor: pointer;
+}

@@ -674,3 +674,62 @@ function activarUsuario(id_usuario){
             console.log(error);
         });
 }
+
+function cargarPerfilUsuario(){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarPerfilUsuario.php', function (data) {
+        var inputNombre = id("nombrePU");
+        inputNombre.value = data.data[0].nombreUsuario;
+
+        var inputCorreo = id("correoPU");
+        inputCorreo.value = data.data[0].correoElectronico;
+
+        var inputNomina = id("nominaPU");
+        inputNomina.value = data.data[0].id_usuario;
+
+        var inputPassword = id("passwordPU");
+        inputCorreo.value = data.data[0].passwordHash;
+
+        //imgActual
+        id("fotoPerfilPU").src = data.data[0].foto;
+
+    });
+
+    var btnActualizarUsuario = document.getElementById('btn-updPerfil');
+    if (btnActualizarUsuario) { // Verifica que el botón exista en el DOM
+        btnActualizarUsuario.onclick = function() {
+            updatePerfilUsuario();
+        };
+    }
+}
+function updatePerfilUsuario(){
+    console.log("actualizar user: " + id_usuario);
+
+    var tipoDeUsuarioE= id("tipoDeUsuarioE");
+    const data = new FormData();
+    data.append('id_usuario',id_usuario);
+    data.append('tipoDeUsuarioE',tipoDeUsuarioE.value.trim());
+
+    //alert ("id:"+id_usuario+" tipoDeUsuarioE: "+tipoDeUsuarioE.value.trim())
+
+    fetch('../../dao/daoActualizarUsuario.php', {
+        method: 'POST',
+        body: data
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                Swal.fire({
+                    title: "¡Usuario actualizado exitosamente!",
+                    icon: "success"
+                });
+                initDataTableUsuarios();
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}

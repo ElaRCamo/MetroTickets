@@ -11,12 +11,12 @@
                     <span class="notify">3</span>
                 </div>-->
                 <div class="userDiv">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#editarPerfilUsuario">
+                    <a href="#" class="enlaceUpdPerfil" data-bs-toggle="modal" data-bs-target="#editarPerfilUsuario">
                         <?php global $nombreUser; echo '<input type="text" id="nombreUser" value="' . $nombreUser . '">'; ?>
                     </a>
                 </div>
                 <div class="user">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#editarPerfilUsuario">
+                    <a href="#" class="enlaceUpdPerfil" data-bs-toggle="modal" data-bs-target="#editarPerfilUsuario">
                     <div><img class="user-img bg-img" alt="User" src="<?php global $fotoUsuario; echo $fotoUsuario; ?>"></div>
                     </a>
                 </div>
@@ -45,7 +45,6 @@
                 </div>
                 <div class="modal-body row">
                     <form method="POST" enctype="multipart/form-data" id="formEditarPerfilUsuario">
-
                         <table class="table table-borderless">
                             <tbody>
                             <tr class="align-middle">
@@ -56,39 +55,39 @@
                                 </th>
                                 <th>
                                     <div class="mb-3">
-                                        <label for="nombreE" class="form-label">Nombre: </label>
-                                        <input type="text" name="nombreE" id="nombreE" class="form-control" readonly>
+                                        <label for="nombrePU" class="form-label">Nombre: </label>
+                                        <input type="text" name="nombrePU" id="nombrePU" class="form-control" readonly>
                                     </div>
                                 </th>
                             </tr>
                             <tr class="align-middle">
                                 <th>
                                     <div class="mb-3">
-                                        <label for="correoE" class="form-label">Correo: </label>
-                                        <input id="correoE" name="correoE" type="email" class="form-control" readonly>
+                                        <label for="correoPU" class="form-label">Correo: </label>
+                                        <input id="correoPU" name="correoPU" type="email" class="form-control" readonly>
                                     </div>
                                 </th>
                             </tr>
                             <tr class="align-middle">
                                 <th>
                                     <div class="mb-3">
-                                        <label for="nominaE" class="form-label">Núm. de nómina: </label>
-                                        <input class="form-control" id="nominaE" name="nominaE" readonly>
+                                        <label for="nominaPU" class="form-label">Núm. de nómina: </label>
+                                        <input class="form-control" id="nominaPU" name="nominaPU" readonly>
                                     </div>
                                 </th>
                             </tr>
                             <tr class="align-middle" >
                                 <th>
                                     <div class="mb-3" >
-                                        <label for="fotoPerfilE" class="form-label">Nueva imagen: </label>
-                                        <input type="file" class="form-control" id="fotoPerfilE" name="fotoPerfilE">
+                                        <label for="fotoPerfilPU" class="form-label">Nueva imagen: </label>
+                                        <input type="file" class="form-control" id="fotoPerfilU" name="fotoPerfilU">
                                     </div>
                                 </th>
                                 <th>
                                     <div class="mb-3">
                                         <div class="help-block with-errors"></div>
-                                        <label for="passwordE" class="form-label">Contraseña: </label>
-                                        <input class="form-control" id="passwordE" name="passwordE" required data-error="Por favor ingrese su contraseña" >
+                                        <label for="passwordPU" class="form-label">Contraseña: </label>
+                                        <input type="password" class="form-control" id="passwordPU" name="passwordPU" required data-error="Por favor ingrese su contraseña" >
                                     </div>
                                 </th>
                             </tr>
