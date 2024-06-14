@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{@popperjs/core, bootstrap, dataTables.bootstrap5, dataTables.responsive, general, jquery, jquery.dataTables, jspdf, responsive.bootstrap5}" />
+    <file url="PROJECT" libraries="{@popperjs/core, actualizarDatos, bootstrap, dataTables.bootstrap5, dataTables.responsive, general, jquery, jquery.dataTables, jspdf, responsive.bootstrap5}" />
   </component>
 </project>

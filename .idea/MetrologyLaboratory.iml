@@ -28,5 +28,6 @@
     <orderEntry type="library" name="jquery.dataTables" level="application" />
     <orderEntry type="library" name="jspdf" level="application" />
     <orderEntry type="library" name="general" level="application" />
+    <orderEntry type="library" name="actualizarDatos" level="application" />
   </component>
 </module>

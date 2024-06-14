@@ -105,4 +105,4 @@
         </div>
     </div>
 
-    <script src="js/actualizarDatos.js"></script>
+    <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/actualizarDatos.js"></script>
