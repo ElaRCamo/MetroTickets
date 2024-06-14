@@ -701,14 +701,13 @@ function cargarPerfilUsuario(){
     }
 }
 function updatePerfilUsuario(){
-    console.log("actualizar user: " + id_usuario);
 
-    var tipoDeUsuarioE= id("tipoDeUsuarioE");
+    var inputFoto= id("fotoPerfilPU");
+    var inputPassword= id("passwordPU");
+
     const data = new FormData();
-    data.append('id_usuario',id_usuario);
-    data.append('tipoDeUsuarioE',tipoDeUsuarioE.value.trim());
-
-    //alert ("id:"+id_usuario+" tipoDeUsuarioE: "+tipoDeUsuarioE.value.trim())
+    data.append('inputFoto',inputFoto);
+    data.append('inputPassword',inputPassword.value.trim());
 
     fetch('../../dao/daoActualizarUsuario.php', {
         method: 'POST',
@@ -720,7 +719,6 @@ function updatePerfilUsuario(){
                     title: "¡Usuario actualizado exitosamente!",
                     icon: "success"
                 });
-                initDataTableUsuarios();
             } else {
                 throw "Error en la llamada Ajax";
             }

@@ -79,7 +79,7 @@
                             <tr class="align-middle" >
                                 <th>
                                     <div class="mb-3" >
-                                        <label for="fotoPerfilPU" class="form-label">Nueva imagen: </label>
+                                        <label for="fotoPerfilPU" class="form-label">Nueva foto de perfil: </label>
                                         <input type="file" class="form-control" id="fotoPerfilU" name="fotoPerfilU">
                                     </div>
                                 </th>
