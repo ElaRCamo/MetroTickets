@@ -687,7 +687,7 @@ function cargarPerfilUsuario(){
         inputNomina.value = data.data[0].id_usuario;
 
         var inputPassword = id("passwordPU");
-        inputCorreo.value = data.data[0].passwordHash;
+        inputPassword.value = data.data[0].passwordHash;
 
         //imgActual
         id("fotoPerfilPU").src = data.data[0].foto;
