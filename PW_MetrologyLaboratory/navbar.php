@@ -54,7 +54,7 @@
                                     </div>
                                 </th>
                                 <th>
-                                    <div class="mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label for="nombrePU" class="form-label">Nombre: </label>
                                         <input type="text" name="nombrePU" id="nombrePU" class="form-control" readonly>
                                     </div>
@@ -62,7 +62,7 @@
                             </tr>
                             <tr class="align-middle">
                                 <th>
-                                    <div class="mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label for="correoPU" class="form-label">Correo: </label>
                                         <input id="correoPU" name="correoPU" type="email" class="form-control" readonly>
                                     </div>
@@ -70,7 +70,7 @@
                             </tr>
                             <tr class="align-middle">
                                 <th>
-                                    <div class="mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label for="nominaPU" class="form-label">Núm. de nómina: </label>
                                         <input class="form-control" id="nominaPU" name="nominaPU" readonly>
                                     </div>
@@ -84,7 +84,7 @@
                                     </div>
                                 </th>
                                 <th>
-                                    <div class="mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <div class="help-block with-errors"></div>
                                         <label for="passwordPU" class="form-label">Contraseña: </label>
                                         <input type="password" class="form-control" id="passwordPU" name="passwordPU" required data-error="Por favor ingrese su contraseña" >
