@@ -711,7 +711,7 @@ function updatePerfilUsuario(){
 
     // Validar la imagen antes de adjuntarla al FormData
     if (inputFoto.files.length > 0) {
-        validarImagen(inputFoto.files[0]);
+        //validarImagen(inputFoto.files[0]);
         dataForm.append('fotoPerfilU', inputFoto.files[0]);
     } else {
         dataForm.append('imagenActual', imagenActualSrc);
