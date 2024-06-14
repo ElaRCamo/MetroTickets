@@ -707,7 +707,6 @@ function updatePerfilUsuario(){
     var imagenActualSrc = id('imgActualUsuario').src;
 
     const data = new FormData();
-    data.append('inputFoto',inputFoto);
     data.append('inputPassword',inputPassword.value.trim());
 
     // Validar la imagen antes de adjuntarla al FormData
