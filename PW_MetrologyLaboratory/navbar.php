@@ -11,12 +11,12 @@
                     <span class="notify">3</span>
                 </div>-->
                 <div class="userDiv">
-                    <a href="#" class="enlaceUpdPerfil" data-bs-toggle="modal" data-bs-target="#editarPerfilUsuario">
+                    <a href="#" onclick="cargarPerfilUsuario()" class="enlaceUpdPerfil" data-bs-toggle="modal" data-bs-target="#editarPerfilUsuario">
                         <?php global $nombreUser; echo '<input type="text" id="nombreUser" value="' . $nombreUser . '">'; ?>
                     </a>
                 </div>
                 <div class="user">
-                    <a href="#" class="enlaceUpdPerfil" data-bs-toggle="modal" data-bs-target="#editarPerfilUsuario">
+                    <a href="#" onclick="cargarPerfilUsuario()" class="enlaceUpdPerfil" data-bs-toggle="modal" data-bs-target="#editarPerfilUsuario">
                     <div><img class="user-img bg-img" alt="User" src="<?php global $fotoUsuario; echo $fotoUsuario; ?>"></div>
                     </a>
                 </div>
@@ -36,7 +36,7 @@
 
 
     <!-- Modal Editar Perfil de Usuario-->
-    <div onload="cargarPerfilUsuario()" class="modal fade container-fluid" id="editarPerfilUsuario" aria-hidden="true" aria-labelledby="editarPerfilLabel" tabindex="-1">
+    <div class="modal fade container-fluid" id="editarPerfilUsuario" aria-hidden="true" aria-labelledby="editarPerfilLabel" tabindex="-1">
         <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
             <div class="modal-content">
                 <div class="modal-header">
