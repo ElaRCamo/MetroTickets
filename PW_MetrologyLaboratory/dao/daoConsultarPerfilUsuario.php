@@ -1,6 +1,8 @@
 <?php
 
 include_once('connection.php');
+session_start();
+
 $Nomina = $_SESSION['nomina'];
 cargarPerfilUsuario($Nomina);
 function cargarPerfilUsuario($Nomina){
@@ -14,7 +16,6 @@ function cargarPerfilUsuario($Nomina){
     $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
 }
-
 ?>
 
 
