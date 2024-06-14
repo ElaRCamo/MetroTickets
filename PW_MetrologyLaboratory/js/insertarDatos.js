@@ -21,9 +21,9 @@ function registrarUsuario() {
             body: data
         })
             .then(response => {
-                if (!response.ok) {
+               /* if (!response.ok) {
                     throw new Error('Hubo un problema al registrar el usuario. Por favor, intenta de nuevo más tarde.');
-                }
+                }*/
                 return response.json();
             })
             .then(data => {
@@ -38,9 +38,9 @@ function registrarUsuario() {
                             window.location.href = "../sesion/indexSesion.php";
                         }
                     });
-                } else {
+                }/* else {
                     throw new Error('Hubo un problema al registrar el usuario. Por favor, intenta de nuevo más tarde.');
-                }
+                }*/
             }).then(function () {
                 enviarCorreoNuevoUsuario(nombreUsuario.value.trim(), numNomina.value.trim(), correo.value.trim());
             }).catch(error => {

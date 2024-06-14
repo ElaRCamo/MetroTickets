@@ -702,7 +702,7 @@ function cargarPerfilUsuario(){
 }
 function updatePerfilUsuario(){
 
-    var inputFoto= id("fotoPerfilPU");
+    var inputFoto= id("fotoPerfilU");
     var inputPassword= id("passwordPU");
     var imagenActualSrc = id('imgActualUsuario').src;
 
