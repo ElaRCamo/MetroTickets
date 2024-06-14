@@ -690,8 +690,7 @@ function cargarPerfilUsuario(){
         inputPassword.value = data.data[0].passwordHash;
 
         //imgActual
-        id("fotoPerfilPU").src = data.data[0].foto;
-
+        id("imgActualUsuario").src = data.data[0].foto;
     });
 
     var btnActualizarUsuario = document.getElementById('btn-updPerfil');
