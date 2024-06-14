@@ -50,7 +50,7 @@
                             <tr class="align-middle">
                                 <th rowspan="3" >
                                     <div class="text-center justify-content-center " id="divImagenPerfil">
-                                        <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imgActualUsuario" alt="Foto de perfil">
+                                        <img src="" class="col-md-4 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="imgActualUsuario" alt="Foto de perfil">
                                     </div>
                                 </th>
                                 <th>
