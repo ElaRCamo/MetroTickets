@@ -44,7 +44,7 @@
                             <a  href="#" id="resultadosGuardados" class="form-control me-2"></a>
                             <button type="button" id="btnCambiarResultados" onclick="checkedInput()" class="btn btn-primary"><i class="las la-edit"></i></button>
                         </div>
-                        <div class="d-flex align-items-center" id="divCambiarResultados">
+                        <div class="" id="divCambiarResultados">
                             <div class="">
                                 <!-- Checkbox for selecting the type -->
                                 <div class="form-check">
@@ -64,7 +64,7 @@
                         </div>
                     </div>
 
-                    <div class="d-flex align-items-center">
+                    <div class="">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
                         <button type="button" class="btn btn-secondary" onclick="updatePruebaAdmin(id_review,id_user)"><i class="las la-save"></i>Guardar</button>
                     </div>
