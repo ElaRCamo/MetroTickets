@@ -42,7 +42,7 @@
                         <div class="d-flex align-items-center">
                             <label for="resultadosAdmin" class="form-label me-2">Resultados:</label>
                             <input type="text" name="resultadosAdmin" id="resultadosGuardados" class="form-control me-2">
-                            <button type="button" id="btnCambiarResultados" onclick="cambiarResultados()" class="btn btn-primary">Cambiar Resultado</button>
+                            <button type="button" id="btnCambiarResultados" onclick="cambiarResultados()" class="btn btn-primary"><i class="las la-edit"></i></button>
                         </div>
                         <div class="row">
                             <div class="col-sm-4">
