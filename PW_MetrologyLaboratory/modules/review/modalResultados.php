@@ -44,7 +44,7 @@
                             <input type="text" name="resultadosAdmin" id="resultadosGuardados" class="form-control me-2">
                             <button type="button" id="btnCambiarResultados" onclick="cambiarResultados()" class="btn btn-primary"><i class="las la-edit"></i></button>
                         </div>
-                        <div class="row">
+                        <div class="row" id="divCambiarResultados">
                             <div class="col-sm-4">
                                 <!-- Checkbox for selecting the type -->
                                 <div class="form-check">

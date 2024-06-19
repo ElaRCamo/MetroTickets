@@ -89,7 +89,7 @@
     function llenarResultados(){
         const inputResultadosGuardados = document.getElementById('resultadosGuardados');
         const btnResultados = document.getElementById('btnCambiarResultados');
-        const divResultados = document.getElementById('divResultados');
+        const divResultados = document.getElementById('divCambiarResultados');
         if (resultadosSol === null || resultadosSol === '') {
             inputResultadosGuardados.style.display = 'none';
             btnResultados.style.display = 'none';
