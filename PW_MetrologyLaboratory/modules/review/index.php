@@ -89,11 +89,13 @@
     function llenarResultados(){
         const inputResultadosGuardados = document.getElementById('resultadosGuardados');
         const btnResultados = document.getElementById('btnCambiarResultados');
+        const divResultados = document.getElementById('divResultados');
         if (resultadosSol === null || resultadosSol === '') {
             inputResultadosGuardados.style.display = 'none';
             btnResultados.style.display = 'none';
         }else {
-            document.getElementById("resultadosAdminRuta").value = resultadosSol;
+            document.getElementById("resultadosGuardados").value = resultadosSol;
+            divResultados.style.display = 'none';
         }
     }
     function cambiarResultados() {
