@@ -44,7 +44,7 @@
                         <div class="row">
                             <!-- Checkbox for selecting the type -->
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" checked>
+                                <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta">
                                 <label class="form-check-label" for="rutaRadio">Ruta</label>
                             </div>
                             <div class="form-check">
