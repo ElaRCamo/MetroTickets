@@ -86,30 +86,30 @@
             document.getElementById("resultadosAdmin").value = resultadosSol;
         <?php } ?>
     }
-
-    function cambiarResultado() {
+    function cambiarResultado(){
         const divResultados = document.getElementById('divResultados');
         const selectEstatus = document.getElementById('estatusPruebaAdmin');
+
+        if (selectEstatus.value === '3') {
+            divResultados.style.display = 'block';
+            selecInputResultado();
+        } else {
+            divResultados.style.display = 'none';
+        }
+    }
+
+    function selecInputResultado() {
         const rutaRadio = document.getElementById('rutaRadio');
         const archivoRadio = document.getElementById('archivoRadio');
         const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
         const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
 
-        if (selectEstatus.value === '3') {
-            divResultados.style.display = 'block';
-            toggleInputs();
-        } else {
-            divResultados.style.display = 'none';
-        }
-
-        function toggleInputs() {
-            if (rutaRadio.checked) {
-                resultadosAdminRuta.style.display = 'block';
-                resultadosAdminArchivo.style.display = 'none';
-            } else if (archivoRadio.checked) {
-                resultadosAdminRuta.style.display = 'none';
-                resultadosAdminArchivo.style.display = 'block';
-            }
+        if (rutaRadio.checked) {
+            resultadosAdminRuta.style.display = 'block';
+            resultadosAdminArchivo.style.display = 'none';
+        } else if (archivoRadio.checked) {
+            resultadosAdminRuta.style.display = 'none';
+            resultadosAdminArchivo.style.display = 'block';
         }
     }
 
