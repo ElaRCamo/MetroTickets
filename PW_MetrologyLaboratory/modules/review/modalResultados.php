@@ -53,7 +53,7 @@
                                     <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-8 d-flex flex-row-reverse">
                                 <!-- Input fields that will be shown/hidden -->
                                 <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
                                 <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
@@ -61,7 +61,7 @@
                         </div>
                     </div>
 
-                    <div class="row justify-content-end">
+                    <div class="row d-flex justify-content-center">
                         <div class="">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
                             <button type="button" class="btn btn-secondary" onclick="updatePruebaAdmin(id_review,id_user)"><i class="las la-save"></i>Guardar</button>
