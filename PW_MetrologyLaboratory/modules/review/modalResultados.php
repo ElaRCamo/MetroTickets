@@ -66,36 +66,3 @@
         </div>
     </div>
 </div>
-<script>
-    // JavaScript to toggle between inputs
-    document.addEventListener('DOMContentLoaded', function() {
-        const rutaRadio = document.getElementById('rutaRadio');
-        const archivoRadio = document.getElementById('archivoRadio');
-        const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
-        const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
-
-        rutaRadio.addEventListener('change', toggleInputs);
-        archivoRadio.addEventListener('change', toggleInputs);
-
-        function toggleInputs() {
-            if (rutaRadio.checked) {
-                resultadosAdminRuta.style.display = 'block';
-                resultadosAdminArchivo.style.display = 'none';
-            } else if (archivoRadio.checked) {
-                resultadosAdminRuta.style.display = 'none';
-                resultadosAdminArchivo.style.display = 'block';
-            }
-        }
-    });
-
-    function cambiarResultado(){
-        var divResultados = document.getElementById("divResultados");
-        var selectEstatus = document.getElementById("estatusPruebaAdmin");
-
-        if (selectEstatus.value === '3') {
-            divResultados.style.display = 'block';
-        } else {
-            divResultados.style.display = 'none';
-        }
-    }
-</script>
