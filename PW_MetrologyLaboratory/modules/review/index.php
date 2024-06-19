@@ -83,9 +83,33 @@
             llenarPrioridadPrueba();
             consultarMetrologos();
             document.getElementById("observacionesAdmin").value = obs_Solicitud;
-            document.getElementById("resultadosAdmin").value = resultadosSol;
+            llenarResultados();
         <?php } ?>
     }
+    function llenarResultados(){
+        const inputResultadosGuardados = document.getElementById('resultadosGuardados');
+        const btnResultados = document.getElementById('btnCambiarResultados');
+        if (resultadosSol === null || resultadosSol === '') {
+            inputResultadosGuardados.style.display = 'none';
+            btnResultados.style.display = 'none';
+        }else {
+            document.getElementById("resultadosAdminRuta").value = resultadosSol;
+        }
+    }
+    function cambiarResultados() {
+        let urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;  // Expresión regular para verificar si resultadosSol es una URL
+        const rutaRadio = document.getElementById('rutaRadio');
+        const archivoRadio = document.getElementById('archivoRadio');
+
+        if (urlRegex.test(resultadosSol)) { // Es una url
+            archivoRadio.checked = true;
+            console.log("Es una URL");
+        } else { // Es una ruta local
+            rutaRadio.checked = true;
+            console.log("Es una ruta local");
+        }
+    }
+
     function cambiarResultado(){
         const divResultados = document.getElementById('divResultados');
         const selectEstatus = document.getElementById('estatusPruebaAdmin');

@@ -39,8 +39,11 @@
 
                     <div class="mb-3" id="divResultados">
                         <div class="help-block with-errors"></div>
-                        <label for="resultadosAdmin" class="form-label">Resultados: </label>
-
+                        <div class="d-flex align-items-center">
+                            <label for="resultadosAdmin" class="form-label me-2">Resultados:</label>
+                            <input type="text" name="resultadosAdmin" id="resultadosGuardados" class="form-control me-2">
+                            <button type="button" id="btnCambiarResultados" onclick="cambiarResultados()" class="btn btn-primary">Cambiar Resultado</button>
+                        </div>
                         <div class="row">
                             <div class="col-sm-4">
                                 <!-- Checkbox for selecting the type -->
