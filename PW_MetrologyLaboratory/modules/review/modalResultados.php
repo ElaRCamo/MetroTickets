@@ -61,11 +61,9 @@
                         </div>
                     </div>
 
-                    <div class="row d-flex justify-content-center">
-                        <div class="">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
-                            <button type="button" class="btn btn-secondary" onclick="updatePruebaAdmin(id_review,id_user)"><i class="las la-save"></i>Guardar</button>
-                        </div>
+                    <div class="d-flex align-items-end flex-column">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
+                        <button type="button" class="btn btn-secondary" onclick="updatePruebaAdmin(id_review,id_user)"><i class="las la-save"></i>Guardar</button>
                     </div>
                 </form>
             </div>
