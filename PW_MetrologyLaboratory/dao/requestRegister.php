@@ -11,7 +11,7 @@ if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], 
 
     if($tipoPrueba == 3 || $tipoPrueba == 4 || $tipoPrueba == 5){ //si se requiere norma por tipo de prueba
         //guardar los files de la norma
-        $target_dir     = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/archivos/";
+        $target_dir     = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/norms/";
         //Quitar espacios del nombre del archivo:
     // Verificar si se requiere norma por tipo de prueba
         $nombreArchivo  = $_FILES["normaFile"]["name"];
