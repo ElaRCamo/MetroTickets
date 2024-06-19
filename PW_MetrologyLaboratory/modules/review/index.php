@@ -90,29 +90,43 @@
         const inputResultadosGuardados = document.getElementById('resultadosGuardados');
         const btnResultados = document.getElementById('btnCambiarResultados');
         const divResultados = document.getElementById('divCambiarResultados');
+        let enlaceResultados = document.getElementById('resultadosGuardados');
+
         if (resultadosSol === null || resultadosSol === '') {
             inputResultadosGuardados.style.display = 'none';
             btnResultados.style.display = 'none';
         }else {
-            document.getElementById("resultadosGuardados").value = resultadosSol;
+            let esUrl = esURL(resultadosSol);
+            if (esUrl) {
+                enlaceResultados.href = resultadosSol;
+                enlaceResultados.textContent = "Resultados.pdf";
+            } else {
+                enlaceResultados.removeAttribute('href');  // Remueve el href para que no sea un enlace
+                enlaceResultados.textContent = `Ruta: ${resultadosSol}`;
+            }
             divResultados.style.display = 'none';
         }
     }
 
-    function cambiarResultados() {
+    function esURL(cadena) {
         let urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;  // Expresión regular para verificar si resultadosSol es una URL
+        let esUrl;
+        esUrl = urlRegex.test(cadena);
+        return esUrl;
+    }
+
+    function checkedInput() {
         const rutaRadio = document.getElementById('rutaRadio');
         const archivoRadio = document.getElementById('archivoRadio');
         const divResultados = document.getElementById('divCambiarResultados');
+        let esUrl = esURL(resultadosSol);
 
         divResultados.style.display = 'block';
 
-        if (urlRegex.test(resultadosSol)) { // Es una url
+        if (esUrl) { // Es una url
             archivoRadio.checked = true;
-            console.log("Es una URL");
         } else { // Es una ruta local
             rutaRadio.checked = true;
-            console.log("Es una ruta local");
         }
     }
 
