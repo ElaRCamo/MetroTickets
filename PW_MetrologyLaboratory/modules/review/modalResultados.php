@@ -36,6 +36,7 @@
                         <label for="observacionesAdmin" class="form-label">Observaciones: </label>
                         <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
                     </div>
+
                     <div class="mb-3" id="divResultados">
                         <div class="help-block with-errors"></div>
                         <label for="resultadosAdmin" class="form-label">Resultados: </label>
