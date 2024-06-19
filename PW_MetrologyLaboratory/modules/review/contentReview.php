@@ -47,7 +47,7 @@
                 </table>
             </div>
             <div id="divTableResume" class="table-responsive">
-                <h5 id="materialRTittle">MATERIAL PARA MEDICIÓN</h5>
+                <h5 id="materialRTittle">PIEZAS PARA MEDICIÓN</h5>
                 <table class="table table-striped" id="materialesResumen">
                     <thead>
                     <tr>

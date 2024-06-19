@@ -188,7 +188,7 @@
                     </div>
                     <div class="row">
                         <div id="divTableSol">
-                            <h5 id="titleResumen">MATERIAL PARA MEDICIÓN</h5>
+                            <h5 id="titleResumen">PIEZAS PARA MEDICIÓN</h5>
                             <div id="divTableSol2">
                                 <table class="table table-striped table-responsive" id="materialesSolicitud">
                                     <thead>

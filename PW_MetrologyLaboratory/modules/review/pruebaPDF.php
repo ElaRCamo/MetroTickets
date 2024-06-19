@@ -164,7 +164,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                 </table>
             </div>
             <div id="" class="table-responsive">
-                <h5 id="materialPDF">MATERIAL PARA MEDICIÓN</h5>
+                <h5 id="materialPDF">PIEZAS PARA MEDICIÓN</h5>
                 <table class="table table-striped" id="materialesResumenPDF">
                     <thead>
                     <tr>
