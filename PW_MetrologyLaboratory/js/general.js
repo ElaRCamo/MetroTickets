@@ -185,7 +185,6 @@ function hideButton(id_button){
 
 
 
-
 /*
 function cambiarImg(){
     var divImg = id("divCambiarImg");

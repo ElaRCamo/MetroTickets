@@ -87,37 +87,49 @@
         <?php } ?>
     }
 
-    // JavaScript to toggle between inputs
+    // JavaScript to toggle between inputs and show modal
     document.addEventListener('DOMContentLoaded', function() {
-        const rutaRadio = document.getElementById('rutaRadio');
-        const archivoRadio = document.getElementById('archivoRadio');
-        const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
-        const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
+        // Modal shown event listener
+        $('#modalResultados').on('shown.bs.modal', function () {
+            const rutaRadio = document.getElementById('rutaRadio');
+            const archivoRadio = document.getElementById('archivoRadio');
+            const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
+            const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
+            const selectEstatus = document.getElementById('estatusPruebaAdmin');
 
-        rutaRadio.addEventListener('change', toggleInputs);
-        archivoRadio.addEventListener('change', toggleInputs);
+            // Check initial status value on modal open
+            cambiarResultado();
 
-        function toggleInputs() {
-            if (rutaRadio.checked) {
-                resultadosAdminRuta.style.display = 'block';
-                resultadosAdminArchivo.style.display = 'none';
-            } else if (archivoRadio.checked) {
-                resultadosAdminRuta.style.display = 'none';
-                resultadosAdminArchivo.style.display = 'block';
+            // Event listener for estatusPruebaAdmin change
+            selectEstatus.addEventListener('change', cambiarResultado);
+
+            function cambiarResultado() {
+                var divResultados = id("divResultados");
+                var selectEstatus = id("estatusPruebaAdmin");
+
+                if (selectEstatus.value === '3') {
+                    divResultados.style.display = 'block';
+                    // Initialize the correct input field based on the selected radio button
+                    toggleInputs();
+                } else {
+                    divResultados.style.display = 'none';
+                }
             }
-        }
+
+            function toggleInputs() {
+                if (rutaRadio.checked) {
+                    resultadosAdminRuta.style.display = 'block';
+                    resultadosAdminArchivo.style.display = 'none';
+                } else if (archivoRadio.checked) {
+                    resultadosAdminRuta.style.display = 'none';
+                    resultadosAdminArchivo.style.display = 'block';
+                }
+            }
+
+            // Initialize the correct input field based on the selected radio button
+            toggleInputs();
+        });
     });
-
-    function cambiarResultado(){
-        var divResultados = document.getElementById("divResultados");
-        var selectEstatus = document.getElementById("estatusPruebaAdmin");
-
-        if (selectEstatus.value === '3') {
-            divResultados.style.display = 'block';
-        } else {
-            divResultados.style.display = 'none';
-        }
-    }
 </script>
 <script src="../../js/general.js"></script>
 <script src="../../js/cargarDatos.js"></script>
