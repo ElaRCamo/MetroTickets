@@ -1,7 +1,7 @@
 <!-- Modal RESULTADOS-->
 <div class="modal fade container-fluid" id="modalResultados" onload="cambiarResultado()" aria-hidden="true" aria-labelledby="modalResultadosLabel" tabindex="-1">
     <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
-        <div class="modal-con-tent">
+        <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalResultadosLabel">Responder solicitud </h5><br>
                 <button type="button" class="btn-close" id="" data-bs-dismiss="modal" onclick="" aria-label="Close"></button>
