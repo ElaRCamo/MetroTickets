@@ -98,6 +98,7 @@
             divResultados.style.display = 'none';
         }
     }
+
     function cambiarResultados() {
         let urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;  // Expresión regular para verificar si resultadosSol es una URL
         const rutaRadio = document.getElementById('rutaRadio');

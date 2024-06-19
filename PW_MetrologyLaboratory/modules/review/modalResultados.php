@@ -45,7 +45,7 @@
                             <button type="button" id="btnCambiarResultados" onclick="cambiarResultados()" class="btn btn-primary"><i class="las la-edit"></i></button>
                         </div>
                         <div class="d-flex align-items-center" id="divCambiarResultados">
-                            <div class="col-sm-4">
+                            <div class="">
                                 <!-- Checkbox for selecting the type -->
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
@@ -56,7 +56,7 @@
                                     <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
                                 </div>
                             </div>
-                            <div class="col-sm-8 d-flex flex-row-reverse">
+                            <div class="">
                                 <!-- Input fields that will be shown/hidden -->
                                 <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
                                 <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
