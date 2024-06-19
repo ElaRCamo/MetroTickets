@@ -42,10 +42,10 @@
                         <label for="resultadosAdmin" class="form-label">Resultados: </label>
 
                         <div class="row">
-                            <div class="col">
+                            <div class="col-sm-4">
                                 <!-- Checkbox for selecting the type -->
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()">
+                                    <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
                                     <label class="form-check-label" for="rutaRadio">Ruta</label>
                                 </div>
                                 <div class="form-check">
@@ -53,7 +53,7 @@
                                     <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-sm-8">
                                 <!-- Input fields that will be shown/hidden -->
                                 <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
                                 <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
