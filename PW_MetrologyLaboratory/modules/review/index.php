@@ -92,13 +92,13 @@
 
         if (selectEstatus.value === '3') {
             divResultados.style.display = 'block';
-            selecInputResultado();
+            selectInputResultado();
         } else {
             divResultados.style.display = 'none';
         }
     }
 
-    function selecInputResultado() {
+    function selectInputResultado() {
         const rutaRadio = document.getElementById('rutaRadio');
         const archivoRadio = document.getElementById('archivoRadio');
         const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
