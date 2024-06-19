@@ -102,6 +102,9 @@
         let urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;  // Expresión regular para verificar si resultadosSol es una URL
         const rutaRadio = document.getElementById('rutaRadio');
         const archivoRadio = document.getElementById('archivoRadio');
+        const divResultados = document.getElementById('divCambiarResultados');
+
+        divResultados.style.display = 'block';
 
         if (urlRegex.test(resultadosSol)) { // Es una url
             archivoRadio.checked = true;
