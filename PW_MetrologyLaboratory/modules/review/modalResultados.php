@@ -42,18 +42,22 @@
                         <label for="resultadosAdmin" class="form-label">Resultados: </label>
 
                         <div class="row">
-                            <!-- Checkbox for selecting the type -->
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta">
-                                <label class="form-check-label" for="rutaRadio">Ruta</label>
+                            <div class="col">
+                                <!-- Checkbox for selecting the type -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()">
+                                    <label class="form-check-label" for="rutaRadio">Ruta</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo" onchange="selectInputResultado() ">
+                                    <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
+                                </div>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo">
-                                <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
+                            <div class="col">
+                                <!-- Input fields that will be shown/hidden -->
+                                <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
+                                <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
                             </div>
-                            <!-- Input fields that will be shown/hidden -->
-                            <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
-                            <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
                         </div>
                     </div>
 
