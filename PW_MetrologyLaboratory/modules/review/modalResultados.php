@@ -1,7 +1,7 @@
 <!-- Modal RESULTADOS-->
 <div class="modal fade container-fluid" id="modalResultados" onload="cambiarResultado()" aria-hidden="true" aria-labelledby="modalResultadosLabel" tabindex="-1">
     <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
-        <div class="modal-content">
+        <div class="modal-con-tent">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalResultadosLabel">Responder solicitud </h5><br>
                 <button type="button" class="btn-close" id="" data-bs-dismiss="modal" onclick="" aria-label="Close"></button>
@@ -39,8 +39,22 @@
                     <div class="mb-3" id="divResultados">
                         <div class="help-block with-errors"></div>
                         <label for="resultadosAdmin" class="form-label">Resultados: </label>
-                        <input type="text" name="resultadosAdmin" id="resultadosAdmin" class="form-control" onchange="" >
+
+                        <!-- Checkbox for selecting the type -->
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" checked>
+                            <label class="form-check-label" for="rutaRadio">Ruta</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo">
+                            <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
+                        </div>
+
+                        <!-- Input fields that will be shown/hidden -->
+                        <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
+                        <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf" style="display:none;">
                     </div>
+
                     <div class="row justify-content-end">
                         <div class="">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
@@ -52,3 +66,36 @@
         </div>
     </div>
 </div>
+<script>
+    // JavaScript to toggle between inputs
+    document.addEventListener('DOMContentLoaded', function() {
+        const rutaRadio = document.getElementById('rutaRadio');
+        const archivoRadio = document.getElementById('archivoRadio');
+        const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
+        const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
+
+        rutaRadio.addEventListener('change', toggleInputs);
+        archivoRadio.addEventListener('change', toggleInputs);
+
+        function toggleInputs() {
+            if (rutaRadio.checked) {
+                resultadosAdminRuta.style.display = 'block';
+                resultadosAdminArchivo.style.display = 'none';
+            } else if (archivoRadio.checked) {
+                resultadosAdminRuta.style.display = 'none';
+                resultadosAdminArchivo.style.display = 'block';
+            }
+        }
+    });
+
+    function cambiarResultado(){
+        var divResultados = document.getElementById("divResultados");
+        var selectEstatus = document.getElementById("estatusPruebaAdmin");
+
+        if (selectEstatus.value === '3') {
+            divResultados.style.display = 'block';
+        } else {
+            divResultados.style.display = 'none';
+        }
+    }
+</script>
