@@ -32,7 +32,7 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
                 echo "Hubo un error al subir la imagen.";
             }
         } else {
-            echo "Error. La extensión o el tamaño de los archivos no es correcta. Se permiten archivos .gif, .jpg, .png y un tamaño máximo de 2 MB.";
+            echo "Error. La extensión o el tamaño de los files no es correcta. Se permiten files .gif, .jpg, .png y un tamaño máximo de 2 MB.";
         }
     }
 }else {

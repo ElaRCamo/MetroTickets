@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Manejar la imagen si se ha subido
         if (isset($_FILES['fotoPerfilU']) && $_FILES['fotoPerfilU']['error'] === UPLOAD_ERR_OK) {
-            // Directorio de destino para la carga de archivos
+            // Directorio de destino para la carga de files
             $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/usuarios/";
 
             // Nombre y ruta del archivo

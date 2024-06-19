@@ -65,7 +65,7 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 ✓  	31.1 Crear cliente (17/04/2024)
 ✓   	31.2 Crear plataforma(17/04/2024)
 ✓   	31.3 Crear material (22/04/2024)
-✗   		31.3.1 En materiales, si la imagen es grande no se guarda
+✓   		31.3.1 En materiales, si la imagen es grande no se guardas(13/06/2024)
 ✓   	31.4 Consultar clientes (18/04/2024)
 ✓   		31.4.1 Consultar clientes activados/desactivados(25/04/2024)
 ✓   	31.5 Consultar plataformas(18/04/2024)
@@ -81,12 +81,12 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 ✓   		33.3.1 al actualizar una prueba, se actualizan todas(24/04/2024)
 ✓   	33.4 Mandar correo de notificación(24/04/2024)
 ✗    	33.5 Actualizar estatus de material
-✗   34 Actualizar datos generales (solicitante)
+✗   34. Actualizar datos generales (solicitante)
 ✓   35. Fecha de respuesta y actualización que se asignen correctamente(06/05/2024)
 ✓   36. Limitar las opciones del menú segun el tipo de usuario(24/04/2024)
 ✓   37. Añadir al panel de administrador que el usuario pueda actualizar el tipo de usuario
 	37.1 Se añade tabla (24/04/2024)
-✗   38. Hay inconsistencias al guardar las imagenes cuando se actualiza un material
+✓   38. Hay inconsistencias al guardar las imagenes cuando se actualiza un material(13/06/2024)
 ✓   39. llenarTipoPruebaUpdate(1);//Solo funciona si el tipo de evaluacion es 1, se debe evaluar(9/05/2024)
 ✓   40. Se llena newRequest con los datos para actualizar una prueba (15/05/2024)
 ✓   41. Habilitar filtros en solicitudes(29/05/2024)
@@ -97,6 +97,9 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 ✓   44. El reporte no enlaza al pdf (06/06/2024)
 ✗   45. Ajustar el reporte de acuerdo a necesidades
 ✓   46. Pasar a dataTables el panel de administrador(31/05/2024)
+✗   47. Que no te puedas registrar con el mismo correo
+    48. No se esta guardando archivo de la norma
+    49. Que al consultar la solicitud en pdf, se habra en otra pantalla
 
 
    
@@ -127,10 +130,13 @@ Reunion 12/04/2024
 Lorem ipsum dolor sit amet consectetur, adipiscing elit mauris vel. Torquent fusce erat sociosqu tempus mi curae tempor sollicitudin bibendum dapibus vehicula, 
 donec cubilia cursus viverra dignissim morbi justo facilisis diam volutpat litora tincidunt, dictumst magnis primis faucibus est pharetra ante per neque suscipit. 
 Bibendum venenatis metus dictum dapibus id, ac et eros purus aptent, arcu erat senectus nam.
+s
+
+https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/usuarios/fotoPerfilDefault.png
 
 
-INSERT INTO `Prueba` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`, `id_solicitante`, `id_tipoPrueba`, `id_pruebaEspecial`, `otroTipoEspecial`) 
-VALUES ('test', '02/05/2024', 'Prueba insertar solicitud', 'No aplica', 'No aplica', '00030293', 2, 'No aplica', 'No aplica'
+materiales a piezas
+agregar acciones en la tabla
 
 
-usa css para que el cotenido de la celda se ajuste y no haga la celda mas grande
+

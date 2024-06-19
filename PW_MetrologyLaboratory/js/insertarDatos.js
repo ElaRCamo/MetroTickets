@@ -477,7 +477,7 @@ function enviarCorreoNuevaSolicitudLab(id_prueba, solicitante){
 function validarImagen(file) {
     const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
     if (!allowedExtensions.exec(file.name)) {
-        throw "Solo se permiten archivos de imagen con extensiones .jpg, .jpeg, .png, o .gif";
+        throw "Solo se permiten files de imagen con extensiones .jpg, .jpeg, .png, o .gif";
     }
 
     const maxSizeInBytes = 5 * 1024 * 1024; // 10 MB

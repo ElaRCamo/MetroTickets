@@ -10,22 +10,24 @@ if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], 
     $norma          = $_POST['norma'];
 
     if($tipoPrueba == 3 || $tipoPrueba == 4 || $tipoPrueba == 5){ //si se requiere norma por tipo de prueba
-        //guardar los archivos de la norma
+        //guardar los files de la norma
         $target_dir     = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/archivos/";
         //Quitar espacios del nombre del archivo:
     // Verificar si se requiere norma por tipo de prueba
         $nombreArchivo  = $_FILES["normaFile"]["name"];
         $normaFileName  = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
         $normaFile      = $target_dir . $normaFileName;
-        $moverNormaFile = $target_dir . $normaFileName;
+        $moverNormaFile =  "../files/norms/" . $normaFileName;
 
         if ($_FILES["normaFile"]["error"] > 0) {
-            echo json_encode(array("error" => true, 'message' => "Error: " . $_FILES["normaFile"]["error"] ));
             $response = array( "error" => "Error: " . $_FILES["normaFile"]["error"] );
         } else {
-            // mover el archivo cargado a la ubicación deseada
-            move_uploaded_file(from: $_FILES["normaFile"]["tmp_name"], to: $moverNormaFile);
-            $response = array("message" => "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente.");
+            // Mover el archivo cargado a la ubicación deseada
+            if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile)) {
+                $response = array("message" => "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente.");
+            } else {
+                $response = array("error" => "Hubo un error al mover el archivo.");
+            }
         }
     }else{ //El tipo de prueba no requiere especificar norma
         $normaFile = 'No aplica';
