@@ -87,6 +87,44 @@
         <?php } ?>
     }
 
+    function cambiarResultado() {
+        const divResultados = document.getElementById('divResultados');
+        const selectEstatus = document.getElementById('estatusPruebaAdmin');
+        const rutaRadio = document.getElementById('rutaRadio');
+        const archivoRadio = document.getElementById('archivoRadio');
+        const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
+        const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
+
+        if (selectEstatus.value === '3') {
+            divResultados.style.display = 'block';
+            toggleInputs();
+        } else {
+            divResultados.style.display = 'none';
+        }
+
+        function toggleInputs() {
+            if (rutaRadio.checked) {
+                resultadosAdminRuta.style.display = 'block';
+                resultadosAdminArchivo.style.display = 'none';
+            } else if (archivoRadio.checked) {
+                resultadosAdminRuta.style.display = 'none';
+                resultadosAdminArchivo.style.display = 'block';
+            }
+        }
+    }
+
+    // Event listener for modal shown event
+    document.addEventListener('DOMContentLoaded', function() {
+        $('#modalResultados').on('shown.bs.modal', function () {
+            const selectEstatus = document.getElementById('estatusPruebaAdmin');
+
+            // Initial call to cambiarResultado to set initial state
+            cambiarResultado();
+
+            // Event listener for selectEstatus change
+            selectEstatus.addEventListener('change', cambiarResultado);
+        });
+    });
 </script>
 <script src="../../js/general.js"></script>
 <script src="../../js/cargarDatos.js"></script>

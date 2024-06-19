@@ -1,5 +1,5 @@
 <!-- Modal RESULTADOS-->
-<div class="modal fade container-fluid" id="modalResultados" onload="cambiarResultado()" aria-hidden="true" aria-labelledby="modalResultadosLabel" tabindex="-1">
+<div class="modal fade container-fluid" id="modalResultados" aria-hidden="true" aria-labelledby="modalResultadosLabel" tabindex="-1">
     <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,8 +11,8 @@
                     <div class="row align-items-start">
                         <div class="mb-3 col">
                             <div class="help-block with-errors"></div>
-                            <label for="estatusPruebaAdmin" class="form-label">Estatus: </label>
-                            <select class="form-control" id="estatusPruebaAdmin" onchange="" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus" >
+                            <label for="estatusPruebaAdmin" class="form-label" >Estatus: </label>
+                            <select class="form-control" id="estatusPruebaAdmin" onchange="cambiarResultado()" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus" >
                                 <option value="">Seleccione estatus de la prueba*</option>
                             </select>
                         </div>
