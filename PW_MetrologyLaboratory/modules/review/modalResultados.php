@@ -61,7 +61,7 @@
                         </div>
                     </div>
 
-                    <div class="d-flex align-items-end flex-column">
+                    <div class="d-flex align-items-end">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
                         <button type="button" class="btn btn-secondary" onclick="updatePruebaAdmin(id_review,id_user)"><i class="las la-save"></i>Guardar</button>
                     </div>
