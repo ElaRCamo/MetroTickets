@@ -44,7 +44,7 @@
                             <input type="text" name="resultadosAdmin" id="resultadosGuardados" class="form-control me-2">
                             <button type="button" id="btnCambiarResultados" onclick="cambiarResultados()" class="btn btn-primary"><i class="las la-edit"></i></button>
                         </div>
-                        <div class="row" id="divCambiarResultados">
+                        <div class="d-flex align-items-center" id="divCambiarResultados">
                             <div class="col-sm-4">
                                 <!-- Checkbox for selecting the type -->
                                 <div class="form-check">
@@ -64,7 +64,7 @@
                         </div>
                     </div>
 
-                    <div class="">
+                    <div class="d-flex align-items-center">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
                         <button type="button" class="btn btn-secondary" onclick="updatePruebaAdmin(id_review,id_user)"><i class="las la-save"></i>Guardar</button>
                     </div>
