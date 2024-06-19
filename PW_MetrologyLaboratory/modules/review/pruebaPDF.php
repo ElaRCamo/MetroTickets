@@ -265,10 +265,21 @@ if(headers_sent($f,$l)){
     die('se detecto linea');
 }*/
 
-// Limpiar cualquier salida previa para evitar problemas con los headers
-ob_clean();
 
 //$dompdf->stream("LM-Prueba_$id_prueba.pdf", array("Attachment" => false));
-// Establece el nombre del archivo y fuerza la apertura en una nueva pestaña
-$dompdf->stream("LM-Prueba_$id_prueba.pdf", ['Attachment' => 0]);
+// Obtén el contenido generado del PDF
+$pdf_content = $dompdf->output();
+
+// Limpia cualquier salida previa para evitar problemas con los headers
+ob_clean();
+
+// Establece las cabeceras para PDF
+header('Content-Type: application/pdf');
+header('Content-Length: ' . strlen($pdf_content));
+
+// Envía el contenido del PDF al navegador
+echo $pdf_content;
+
+// Finaliza el script para evitar salida adicional
+exit;
 ?>
