@@ -87,8 +87,6 @@
         <?php } ?>
     }
 
-    // JavaScript to toggle between inputs and show modal
-    document.addEventListener('DOMContentLoaded', function() {
         // Modal shown event listener
         $('#modalResultados').on('shown.bs.modal', function () {
             const rutaRadio = document.getElementById('rutaRadio');
@@ -129,7 +127,6 @@
             // Initialize the correct input field based on the selected radio button
             toggleInputs();
         });
-    });
 </script>
 <script src="../../js/general.js"></script>
 <script src="../../js/cargarDatos.js"></script>
