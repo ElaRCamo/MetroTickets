@@ -112,22 +112,22 @@ function  updatePruebaAdmin(id_review, id_user){
         const archivoRadio = document.getElementById('archivoRadio');
         const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
         if (rutaRadio.checked && resultadosAdminRuta !== null && resultadosAdminRuta.value !== '') {
-            resultados = resultadosAdminRuta.value;
+            resultados = resultadosAdminRuta.value.trim();
         }else if(archivoRadio.checked && resultadosAdminArchivo !== null && resultadosAdminArchivo.value !== ''){
-            resultados = resultadosAdminArchivo.value;
+            resultados = resultadosAdminArchivo.value.trim();
         }
     }else{
         resultados = "resultadosGuardados";
     }
 
-    data.append('resultadosAdmin', resultados.value.trim());
+    data.append('resultadosAdmin', resultados);
     data.append('estatusPruebaAdmin', estatusPruebaAdmin.value.trim());
     data.append('prioridadPruebaAdmin', prioridadPruebaAdmin.value.trim());
     data.append('metrologoAdmin', metrologoAdmin.value.trim());
     data.append('observacionesAdmin', observacionesAdmin.value.trim());
     data.append('fechaUpdate', fechaFormateada);
     data.append('id_user', id_user);
-    //alert("estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultadosAdmin.value.trim()+", fechaUpdate "+ fechaFormateada);
+    alert("estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultadosAdmin.value.trim()+", fechaUpdate "+ fechaFormateada);
 
 
     const swalWithBootstrapButtons = Swal.mixin({
