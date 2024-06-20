@@ -104,20 +104,25 @@ function  updatePruebaAdmin(id_review, id_user){
     const data = new FormData();
 
     var divInputsResultados = id("divCambiarResultados");
+    const rutaRadio = document.getElementById('rutaRadio');
+    const archivoRadio = document.getElementById('archivoRadio');
+    const enlaceResultados = document.getElementById('resultadosGuardados');
     let resultados= "Sin resultados";
     //Validar estatus de la prueba
     if (estatusPruebaAdmin.value === '3' && divInputsResultados !== null && divInputsResultados.offsetParent !== null ){ //Estatus completado(hay resultados)
-        const rutaRadio = document.getElementById('rutaRadio');
         const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
-        const archivoRadio = document.getElementById('archivoRadio');
         const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
         if (rutaRadio.checked && resultadosAdminRuta !== null && resultadosAdminRuta.value !== '') {
             resultados = resultadosAdminRuta.value.trim();
         }else if(archivoRadio.checked && resultadosAdminArchivo !== null && resultadosAdminArchivo.value !== ''){
             resultados = resultadosAdminArchivo.value.trim();
         }
-    }else{
-        resultados = "resultadosGuardados";
+    }else if(enlaceResultados !== null) {
+        if (rutaRadio.checked) {
+            resultados = enlaceResultados.textContent;
+        }else if(archivoRadio.checked){
+            resultados = enlaceResultados.href;
+        }
     }
 
     data.append('resultadosAdmin', resultados);
