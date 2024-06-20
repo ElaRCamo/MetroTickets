@@ -99,10 +99,10 @@
             let esUrl = esURL(resultadosSol);
             if (esUrl) {
                 enlaceResultados.href = resultadosSol;
-                enlaceResultados.textContent = "Resultados.pdf";
+                enlaceResultados.textContent = `${resultadosSol}`;
             } else {
                 enlaceResultados.removeAttribute('href');  // Remueve el href para que no sea un enlace
-                enlaceResultados.textContent = `Ruta: ${resultadosSol}`;
+                enlaceResultados.textContent = `${resultadosSol}`;
             }
             divResultados.style.display = 'none';
         }
