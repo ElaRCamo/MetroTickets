@@ -317,7 +317,7 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
                             <i class="las la-eye"></i><span>Consultar</span>
                         </button>
                         <button class="btn btn-secondary" onclick="reviewPDF('${item.id_prueba}')">
-                            <i class="las la-file-pdf"><span>PDF</span>
+                            <i class="las la-file-pdf"></i><span>PDF</span>
                         </button>
                     </td>
                 </tr>`;
@@ -356,7 +356,7 @@ const TablaPruebasAdmin = async () => {
                             <i class="las la-eye"></i><span>Consultar</span>
                         </button>
                         <button class="btn btn-secondary" onclick="reviewPDF('${item.id_prueba}')">
-                            <i class="las la-file-pdf"><span>PDF</span>
+                            <i class="las la-file-pdf"></i><span>PDF</span>
                         </button>
                     </td>
                 </tr>`;
