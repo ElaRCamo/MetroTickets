@@ -312,7 +312,14 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
                     <td>${item.descripcionPrioridad}</td>
                     <td>${item.nombreSolic}</td>
                     <td>${item.nombreMetro}</td>
-                    <td class="textVerMas">${item.especificaciones}</td>
+                    <td>
+                        <button class="btn btn-success" onclick="reviewPage('${item.id_prueba}')">
+                            <i class="las la-eye"></i><span>Consultar</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="reviewPDF('${item.id_prueba}')">
+                            <i class="las la-file-pdf"><span>PDF</span>
+                        </button>
+                    </td>
                 </tr>`;
         });
 
@@ -344,7 +351,14 @@ const TablaPruebasAdmin = async () => {
                     <td>${item.descripcionPrioridad}</td>
                     <td>${item.nombreSolic}</td>
                     <td>${item.nombreMetro}</td>
-                    <td class="textVerMas">${item.especificaciones}</td>
+                    <td>
+                        <button class="btn btn-success" onclick="reviewPage('${item.id_prueba}')">
+                            <i class="las la-eye"></i><span>Consultar</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="reviewPDF('${item.id_prueba}')">
+                            <i class="las la-file-pdf"><span>PDF</span>
+                        </button>
+                    </td>
                 </tr>`;
         });
 

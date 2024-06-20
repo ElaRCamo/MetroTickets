@@ -28,7 +28,7 @@
                             <th class="centered">PRIORIDAD</th>
                             <th class="centered">SOLICITANTE </th>
                             <th class="centered">METRÓLOGO </th>
-                            <th class="centered">ESPECIFÍCACIONES </th>
+                            <th class="centered">ACCIONES </th>
                         </tr>
                     </thead>
                     <tbody id="listadoPruebasBody"></tbody>
