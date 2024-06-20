@@ -98,19 +98,37 @@ function  updatePruebaAdmin(id_review, id_user){
     var prioridadPruebaAdmin = id("prioridadPruebaAdmin");
     var metrologoAdmin = id("metrologoAdmin");
     var observacionesAdmin = id("observacionesAdmin");
-    var resultadosAdmin = id("resultadosAdmin");
     var fechaUpdate= new Date();
     var fechaFormateada = fechaUpdate.getFullYear() + '-' + (fechaUpdate.getMonth() + 1) + '-' + fechaUpdate.getDate();
 
     const data = new FormData();
+
+    var divInputsResultados = id("divCambiarResultados");
+    let resultados= "Sin resultados";
+    //Validar estatus de la prueba
+    if (estatusPruebaAdmin.value === '3' && divInputsResultados !== null && divInputsResultados.offsetParent !== null ){ //Estatus completado(hay resultados)
+        const rutaRadio = document.getElementById('rutaRadio');
+        const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
+        const archivoRadio = document.getElementById('archivoRadio');
+        const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
+        if (rutaRadio.checked && resultadosAdminRuta !== null && resultadosAdminRuta.value !== '') {
+            resultados = resultadosAdminRuta.value;
+        }else if(archivoRadio.checked && resultadosAdminArchivo !== null && resultadosAdminArchivo.value !== ''){
+            resultados = resultadosAdminArchivo.value;
+        }
+    }else{
+        resultados = "resultadosGuardados";
+    }
+
+    data.append('resultadosAdmin', resultados.value.trim());
     data.append('estatusPruebaAdmin', estatusPruebaAdmin.value.trim());
     data.append('prioridadPruebaAdmin', prioridadPruebaAdmin.value.trim());
     data.append('metrologoAdmin', metrologoAdmin.value.trim());
     data.append('observacionesAdmin', observacionesAdmin.value.trim());
-    data.append('resultadosAdmin', resultadosAdmin.value.trim());
     data.append('fechaUpdate', fechaFormateada);
     data.append('id_user', id_user);
     //alert("estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultadosAdmin.value.trim()+", fechaUpdate "+ fechaFormateada);
+
 
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
