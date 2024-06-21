@@ -72,7 +72,7 @@ function subirArchivo($target_dir, $id_prueba, $input_name) {
     $nombreArchivo = $_FILES[$input_name]["name"];
     $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
     $archivoFile = $target_dir . $archivoFileName;
-    $moverNormaFile = "../files/norms/" . $archivoFileName;
+    $moverNormaFile = "../files/results/" . $archivoFileName;
 
     // Mover el archivo cargado a la ubicación deseada
     if (move_uploaded_file($_FILES[$input_name]["tmp_name"], $moverNormaFile)) {
