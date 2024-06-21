@@ -430,10 +430,9 @@ function resumenPrueba(ID_PRUEBA){
         let esUrl = esURL(resultadosPrueba);
         if (esUrl) {
             enlaceResultados.href = resultadosPrueba;
-            enlaceResultados.textContent = `${resultadosPrueba}`;
         } else {
             enlaceResultados.removeAttribute('href');  // Remueve el href para que no sea un enlace
-            enlaceResultados.textContent = `${resultadosPrueba}`;
+            enlaceResultados.textContent = resultadosPrueba;
         }
 
 
