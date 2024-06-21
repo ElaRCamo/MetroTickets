@@ -126,6 +126,11 @@ Reunion 12/04/2024
 ✓ apartado de la ruta de reusltados
 ✓ resumen a pdf
 
+Reunion 19/06/2024
+✓ materiales a piezas
+✓ agregar acciones en la tabla
+- agregar input resultados para subir pdf
+
 
 Lorem ipsum dolor sit amet consectetur, adipiscing elit mauris vel. Torquent fusce erat sociosqu tempus mi curae tempor sollicitudin bibendum dapibus vehicula, 
 donec cubilia cursus viverra dignissim morbi justo facilisis diam volutpat litora tincidunt, dictumst magnis primis faucibus est pharetra ante per neque suscipit. 
@@ -135,8 +140,7 @@ s
 https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/usuarios/fotoPerfilDefault.png
 
 
-materiales a piezas
-agregar acciones en la tabla
+
 
 
 

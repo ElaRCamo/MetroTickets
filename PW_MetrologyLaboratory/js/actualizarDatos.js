@@ -182,13 +182,13 @@ function capturarResultados(estatusPruebaAdmin){
         const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
         if (rutaRadio.checked && resultadosAdminRuta !== null && resultadosAdminRuta.value !== '') {
             resultados = resultadosAdminRuta.value.trim();
-        }else if(archivoRadio.checked && resultadosAdminArchivo !== null && resultadosAdminArchivo.value !== ''){
-            resultados = resultadosAdminArchivo.value.trim();
+        }else if (archivoRadio.checked && resultadosAdminArchivo !== null && resultadosAdminArchivo.value !== '') {
+            resultados = resultadosAdminArchivo.files[0];
         }
     }else if(enlaceResultados !== null) {
         if (rutaRadio.checked) {
             resultados = enlaceResultados.textContent;
-        }else if(archivoRadio.checked){
+        }else if(archivoRadio.checked) {
             resultados = enlaceResultados.href;
         }
     }
