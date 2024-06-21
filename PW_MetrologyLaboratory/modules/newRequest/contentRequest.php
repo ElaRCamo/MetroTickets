@@ -56,8 +56,8 @@
                                                 </div>
                                             </div>
                                             <div class="" id="pruebaEspecial">
+                                                <label for="tipoPruebaEspecial">Tipo de Prueba Especial*</label>
                                                 <div class="form-group col-sm-6" id="">
-                                                    <label for="tipoPruebaEspecial">Tipo de Prueba Especial*</label>
                                                     <select class="form-control" id="tipoPruebaEspecial" name="tipoPruebaEspecial" onchange="otroTipoPrueba()" title="TipoDePruebaEspecial" data-error="Por favor seleccione un tipo de prueba válido.">
                                                         <option value="">Seleccione el tipo de prueba especial*</option>
                                                     </select>
@@ -66,8 +66,8 @@
                                                 </div>
                                             </div>
                                             <div class="" id="otroTipoPrueba">
+                                                <label for="otroPrueba">Especifique el Tipo de Prueba*</label>
                                                 <div class="form-group col-sm-6" id="">
-                                                    <label for="otroPrueba">Especifique el Tipo de Prueba*</label>
                                                     <input type="text" class="form-control" id="otroPrueba" placeholder="Especifique*" data-error="Por favor indique tipo de prueba.">
                                                     <div class="input-group-icon"><i class="las la-search"></i></div>
                                                     <div class="invalid-feedback"></div>
@@ -76,24 +76,24 @@
 
 
                                             <div class="" id="normaNombre">
+                                                <label for="norma">Norma*</label>
                                                 <div class="form-group col-sm-6" id="">
-                                                    <label for="norma">Norma*</label>
                                                     <input type="text" class="form-control" id="norma" placeholder="Norma*" data-error="Por favor indique la norma.">
                                                     <div class="input-group-icon"><i class="las la-certificate"></i></div>
                                                     <div class="invalid-feedback"></div>
                                                 </div>
                                             </div>
                                             <div class="" id="normaArchivo">
+                                                <label for="normaFile">Seleccione el Documento de la Norma</label>
                                                 <div class="form-group col-sm-6" id="">
-                                                    <label for="normaFile">Seleccione el Documento de la Norma</label>
                                                     <input type="file" class="form-control" id="normaFile" name="normaFile" placeholder="Seleccione el documento de la norma" data-error="Por favor seleccione el archivo de la norma">
                                                     <div class="input-group-icon"><i class="las la-file-pdf"></i></div>
                                                     <div class="invalid-feedback"></div>
                                                 </div>
                                             </div>
                                             <div class="" id="detallesPrueba">
+                                                <label for="especificaciones">Especificaciones y Detalles de la Prueba*</label>
                                                 <div class="form-group col-sm-12" id="">
-                                                    <label for="especificaciones">Especificaciones y Detalles de la Prueba*</label>
                                                     <textarea class="form-control" id="especificaciones" placeholder="Especificaciones y detalles de la prueba*" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
                                                     <div class="input-group-icon"><i class="las la-file-alt"></i></div>
                                                     <div class="invalid-feedback"></div>
@@ -119,8 +119,8 @@
                                                     <div class="row">
                                                         <div class="col-sm-6">
                                                             <div class="" id="div-OEM1">
+                                                                <label for="cliente1">Cliente (OEM)*</label>
                                                                 <div class="form-group" id="">
-                                                                    <label for="cliente1">Cliente (OEM)*</label>
                                                                     <select id="cliente1" name="clientes[]" class="form-control" onchange="llenarPlataforma(1)" required data-error="Por favor ingresa el area solicitante">
                                                                         <option value="">Seleccione el cliente (OEM)*</option>
                                                                     </select>
@@ -132,8 +132,8 @@
 
                                                         <div class="col-sm-6">
                                                             <div class="" id="plataformaDiv1">
+                                                                <label for="plataforma1">Plataforma*</label>
                                                                 <div class="form-group" id="">
-                                                                    <label for="plataforma1">Plataforma*</label>
                                                                     <select id="plataforma1" name="plataformas[]" class="form-control" onchange="llenarDescMaterial(1)" required data-error="Por favor ingresa la plataforma">
                                                                         <option value="">Seleccione la plataforma*</option>
                                                                     </select>
@@ -145,8 +145,8 @@
 
                                                         <div class="col-sm-6">
                                                             <div class="" id="descripcionMaterial1">
+                                                                <label for="descMaterial1">Descripción del Material*</label>
                                                                 <div class="form-group" id="">
-                                                                    <label for="descMaterial1">Descripción del Material*</label>
                                                                     <select id="descMaterial1" name="descripciones[]" class="form-control" onchange="descripcionMaterial(1); numeroDeParte(1);" required data-error="Por favor ingresa la descripción del material">
                                                                         <option value="">Seleccione la descripción*</option>
                                                                     </select>
@@ -158,8 +158,8 @@
 
                                                         <div class="col-sm-6">
                                                             <div class="" id="cantidadMaterial1">
+                                                                <label for="cdadMaterial1">Cantidad*</label>
                                                                 <div class="form-group" id="">
-                                                                    <label for="cdadMaterial1">Cantidad*</label>
                                                                     <input id="cdadMaterial1" name="cdadesMaterial[]" type="number" class="form-control" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
                                                                     <div class="input-group-icon"><i class="las la-cubes"></i></div>
                                                                     <div class="invalid-feedback"></div>
