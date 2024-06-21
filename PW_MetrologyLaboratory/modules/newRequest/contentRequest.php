@@ -35,17 +35,16 @@
                                                     </tr>
                                                 </table>
                                             </div>
+                                            <label for="tipoEvaluacion">Tipo de Evaluación*</label>
                                             <div class="form-group col-sm-6" id="selectEvaluacion">
-                                                <label for="tipoEvaluacion">Tipo de Evaluación*</label>
                                                 <select class="form-control" id="tipoEvaluacion" onchange="banderaTipoEvaluacion(); llenarTipoPrueba();" name="tiposEvaluaciones" title="TipoDeEvaluacion" required data-error="Por favor seleccione un tipo de evaluación válido.">
                                                     <option value="">Seleccione el tipo de evaluación*</option>
                                                 </select>
                                                 <div class="input-group-icon"><i class="las la-sitemap"></i></div>
                                                 <div class="invalid-feedback"></div>
                                             </div>
-
+                                            <label for="tipoPrueba">Tipo de Prueba*</label>
                                             <div class="form-group col-sm-6" id="selectTipoPrueba">
-                                                <label for="tipoPrueba">Tipo de Prueba*</label>
                                                 <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba(); llenarCliente(1);" name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione un tipo de prueba válido.">
                                                     <option value="">Seleccione el tipo de prueba*</option>
                                                 </select>
