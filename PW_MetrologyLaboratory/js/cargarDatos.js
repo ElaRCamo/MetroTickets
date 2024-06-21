@@ -423,7 +423,19 @@ function resumenPrueba(ID_PRUEBA){
         }
 
         $('#observacionesLabR').text(data.especificacionesLab);
-        $('#rutaResultadosR').text(data.rutaResultados);
+
+        //Resultados es una ruta o un enlace:
+        let enlaceResultados = document.getElementById('rutaResultadosR');
+        var resultadosPrueba = data.rutaResultados;
+        let esUrl = esURL(resultadosPrueba);
+        if (esUrl) {
+            enlaceResultados.href = resultadosPrueba;
+            enlaceResultados.textContent = `${resultadosPrueba}`;
+        } else {
+            enlaceResultados.removeAttribute('href');  // Remueve el href para que no sea un enlace
+            enlaceResultados.textContent = `${resultadosPrueba}`;
+        }
+
 
         id_estatusSol = data.id_estatusPrueba;
         estatusSol = data.descripcionEstatus;

@@ -80,7 +80,7 @@
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Resultados:</th>
-                        <td id="rutaResultadosR"  colspan="3"></td>
+                        <td colspan="3"><a href="#" id="rutaResultadosR">Resultados</a></td>
                     </tr>
                     <tr>
                         <th class="p-2 mb-2">Observaciones:</th>
