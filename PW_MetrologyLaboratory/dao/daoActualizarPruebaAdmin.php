@@ -25,7 +25,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             // Si es un archivo, obtenemos el nombre del archivo
             $resultados = subirArchivo($target_dir, $id_prueba, $input_name);
         }
-        $resultados = obtenerResultados($id_prueba);
 
         $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados, $fechaUpdate, $id_admin);
     }else{
