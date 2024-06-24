@@ -41,11 +41,8 @@ echo json_encode($response);
 function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados, $fechaUpdate,$fechaCompromiso, $id_admin) {
     $con = new LocalConector();
     $conex = $con->conectar();
-    // Verificación de tipo de datos
-    var_dump($id_estatus); // Debe ser int
-    var_dump($fechaCompromiso); // Debe ser '2024-06-28'
 
-    if($resultados !== "" && $id_estatus === 4) { //Estatus completado
+    if($resultados !== "" && $id_estatus === '4') { //Estatus completado
         $stmt = $conex->prepare("UPDATE Prueba
                                       SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, fechaRespuesta = ?, id_administrador = ?
                                     WHERE id_prueba = ?");
@@ -65,7 +62,7 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
         $query=3;
     }
 
-    //$response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query." var-estatus ".var_dump($id_estatus)." var-fecha ".$fechaCompromiso);
+    //$response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query);
 
     if ($stmt->execute()) {
         $response = array("status" => "success", "message" => "Prueba actualizada");
