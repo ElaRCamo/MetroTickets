@@ -13,7 +13,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $id_admin = $_POST['id_user'];
 
         //Se agrega fecha compromiso:
-        if(isset($_POST['fechaCompromiso']) && $id_estatus===2){
+        if(isset($_POST['fechaCompromiso'])){
             $fechaCompromiso = $_POST['fechaCompromiso'];
         }else{
             $fechaCompromiso = '0000-00-00';
