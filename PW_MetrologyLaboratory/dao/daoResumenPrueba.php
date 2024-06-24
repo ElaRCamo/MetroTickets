@@ -51,6 +51,7 @@ function resumenPrueba($id_prueba){
                                 id_prueba, 
                                 fechaSolicitud, 
                                 fechaRespuesta,
+                                fechaCompromiso,
                                 fechaActualizacion,
                                 s.id_estatusPrueba,
                                 descripcionEstatus,
