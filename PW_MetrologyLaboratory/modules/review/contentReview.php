@@ -40,7 +40,7 @@
                             <td><a id="archivoNormaR" href=""><span id="nombreArchivo"></span></a></td>
                         </tr>
                         <tr>
-                            <th class="p-2 mb-2">Especifícaciones: </th>
+                            <th class="p-2 mb-2">Especifícaciones / comentarios: </th>
                             <td id="observacionesSolR" colspan="3"></td>
                         </tr>
                     </tbody>
