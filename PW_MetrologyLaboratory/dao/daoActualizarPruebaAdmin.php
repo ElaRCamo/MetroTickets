@@ -12,7 +12,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $fechaUpdate = $_POST['fechaUpdate'];
         $id_admin = $_POST['id_user'];
 
-        // Verificar si los resultadoses un string o un archivo
+        //Se agrega fecha compromiso:
+        if(isset($_POST['fechaCompromiso']) && $id_estatus===2){
+            $fechaCompromiso = $_POST['fechaCompromiso'];
+        }else{
+            $fechaCompromiso = '0000-00-00';
+        }
+
+        // Verificar si resultados es un string o un archivo
         $resultados = '';
         // 'resultadosAdmin' está en $_POST
         if (isset($_POST['resultadosAdmin'])) {
@@ -35,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 echo json_encode($response);
 
-function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados, $fechaUpdate, $id_admin) {
+function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados, $fechaUpdate,$fechaCompromiso, $id_admin) {
     $con = new LocalConector();
     $conex = $con->conectar();
 
@@ -44,6 +51,11 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
                                       SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, fechaRespuesta = ?, id_administrador = ?
                                     WHERE id_prueba = ?");
         $stmt->bind_param("iisssssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $fechaUpdate, $fechaUpdate, $id_admin, $id_prueba);
+    }else if($fechaCompromiso !== '0000-00-00' && $id_estatus === 2){ //Estatus aprobado
+        $stmt = $conex->prepare("UPDATE Prueba
+                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, fechaCompromiso = ?,id_administrador = ?
+                                    WHERE id_prueba = ?");
+        $stmt->bind_param("iisssssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $fechaUpdate, $fechaCompromiso, $id_admin, $id_prueba);
     }else{
         $stmt = $conex->prepare("UPDATE Prueba
                                       SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, id_administrador = ?

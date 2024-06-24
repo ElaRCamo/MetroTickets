@@ -160,10 +160,13 @@
     function fechaCompromiso(){
         const selectEstatus = document.getElementById('estatusPruebaAdmin');
         const divFechaCompromiso = document.getElementById('divFechaCompromiso');
+        const inputFechaCompromiso = document.getElementById('iFechaCompromiso');
+        //fecha de hoy en formato YYYY-MM-DD
+        var hoy = new Date().toISOString().split('T')[0];
 
         if (selectEstatus.value === '2') { //Estatus aprobado
             divFechaCompromiso.style.display = 'block';
-            selectInputResultado();
+            inputFechaCompromiso.setAttribute('min', hoy);
         } else if (selectEstatus.value === '1' || selectEstatus.value === '3' || selectEstatus.value === '4' || selectEstatus.value === '5' || selectEstatus.value === '6'){
             divFechaCompromiso.style.display = 'none';
         }
