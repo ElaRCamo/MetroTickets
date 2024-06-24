@@ -306,7 +306,7 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
                 <tr>
                     <td onclick="reviewPage('${item.id_prueba}')" class="idEnlace">${item.id_prueba}</td>
                     <td>${item.fechaSolicitud}</td>
-                    <td>${item.fechaRespuesta}</td>
+                    <td>${item.fechaCompromiso}</td>
                     <td>${item.descripcionEstatus}</td>
                     <td>${item.descripcionPrueba}</td>
                     <td>${item.descripcionPrioridad}</td>
@@ -345,7 +345,7 @@ const TablaPruebasAdmin = async () => {
                 <tr>
                     <td onclick="reviewPage('${item.id_prueba}')" class="idEnlace">${item.id_prueba}</td>
                     <td>${item.fechaSolicitud}</td>
-                    <td>${item.fechaRespuesta}</td>
+                    <td>${item.fechaCompromiso}</td>
                     <td>${item.descripcionEstatus}</td>
                     <td>${item.descripcionPrueba}</td>
                     <td>${item.descripcionPrioridad}</td>

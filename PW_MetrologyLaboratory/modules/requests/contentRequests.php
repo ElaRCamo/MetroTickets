@@ -22,7 +22,7 @@
                         <tr>
                             <th class="centered" id="folio">FOLIO</th>
                             <th class="centered">FECHA DE SOLICITUD</th>
-                            <th class="centered">FECHA DE RESPUESTA</th>
+                            <th class="centered">FECHA COMPROMISO</th>
                             <th class="centered">ESTATUS </th>
                             <th class="centered">TIPO DE PRUEBA</th>
                             <th class="centered">PRIORIDAD</th>
