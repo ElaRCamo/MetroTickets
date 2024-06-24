@@ -134,7 +134,7 @@
         const divResultados = document.getElementById('divResultados');
         const selectEstatus = document.getElementById('estatusPruebaAdmin');
 
-        if (selectEstatus.value === '3') {
+        if (selectEstatus.value === '4') {
             divResultados.style.display = 'block';
             selectInputResultado();
         } else {
@@ -155,6 +155,19 @@
             resultadosAdminRuta.style.display = 'none';
             resultadosAdminArchivo.style.display = 'block';
         }
+    }
+
+    function fechaCompromiso(){
+        const selectEstatus = document.getElementById('estatusPruebaAdmin');
+        const inputFechaCompromiso = document.getElementById('iFechaCompromiso');
+
+        if (selectEstatus.value === '2') { //Estatus aprobado
+            inputFechaCompromiso.style.display = 'block';
+            selectInputResultado();
+        } else {
+            inputFechaCompromiso.style.display = 'none';
+        }
+
     }
 
     // Event listener for modal shown event
