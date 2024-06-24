@@ -12,6 +12,7 @@ function resumenPrueba($id_prueba){
         "SELECT   prueba.id_prueba, 
                         prueba.fechaSolicitud, 
                         prueba.fechaRespuesta, 
+                        prueba.fechaCompromiso, 
                         prueba.fechaActualizacion,
                         prueba.id_estatusPrueba,
                         prueba.descripcionEstatus,

@@ -67,8 +67,8 @@
                 <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTable">
                     <tbody>
                     <tr>
-                        <th class="p-2 mb-2 ">Fecha de Respuesta:</th>
-                        <td id="fechaRespuestaR"></td>
+                        <th class="p-2 mb-2 ">Fecha Compromiso:</th>
+                        <td id="fechaCompromisoR"></td>
                         <th class="p-2 mb-2 ">Metrólogo:</th>
                         <td id="metrologoR"> </td>
                     </tr>
@@ -79,6 +79,8 @@
                         <td id="prioridadR"> </td>
                     </tr>
                     <tr>
+                        <th class="p-2 mb-2 ">Fecha de Respuesta:</th>
+                        <td id="fechaRespuestaR"></td>
                         <th class="p-2 mb-2">Resultados:</th>
                         <td colspan="3"><a href="#" id="rutaResultadosR">Resultados</a></td>
                     </tr>
