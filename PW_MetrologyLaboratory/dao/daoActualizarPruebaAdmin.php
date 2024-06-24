@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $resultados = subirArchivo($target_dir, $id_prueba, $input_name);
         }
 
-        $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados, $fechaUpdate, $id_admin);
+        $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados, $fechaUpdate,$fechaCompromiso, $id_admin);
     }else{
         $response = array("status" => 'error', "message" => "Faltan datos en el formulario.");
     }
