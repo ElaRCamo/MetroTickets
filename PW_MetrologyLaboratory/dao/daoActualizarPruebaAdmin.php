@@ -13,7 +13,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $id_admin = $_POST['id_user'];
 
         //Se agrega fecha compromiso:
-        $fechaCompromiso = $_POST['fechaCompromiso'] ?? '0000-00-00';
+        $fechaCompromisoBD = consultarFechaCompromiso($id_prueba); //fecha guardada en la BD
+
+        if($fechaCompromisoBD === '0000-00-00'){
+            $fechaCompromiso = $_POST['fechaCompromiso'] ?? '0000-00-00';
+        }else{
+            $fechaCompromiso = $fechaCompromisoBD;
+        }
+
 
         // Verificar si resultados es un string o un archivo
         $resultados = '';
@@ -73,6 +80,22 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
     $conex->close();
     return $response;
 }
+
+function consultarFechaCompromiso($id_prueba) {
+    $con = new LocalConector();
+    $conex = $con->conectar();
+
+    $query = "SELECT fechaCompromiso FROM Prueba WHERE id_prueba = '$id_prueba';";
+    $result = mysqli_query($conex, $query);
+
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        return $row['fechaCompromiso'];
+    } else {
+        return null;
+    }
+}
+
 
 function subirArchivo($target_dir, $id_prueba, $input_name) {
     $archivo = '';
