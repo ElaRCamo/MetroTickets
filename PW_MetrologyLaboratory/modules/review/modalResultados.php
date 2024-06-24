@@ -16,7 +16,7 @@
                                 <option value="">Seleccione estatus de la prueba*</option>
                             </select>
                         </div>
-                        <div class="mb-3 col">
+                        <div class="mb-3 col" id="divFechaCompromiso">
                             <div class="help-block with-errors"></div>
                             <label for="iFechaCompromiso" class="form-label" >Fecha compromiso: </label>
                             <input type="date" class="form-control" id="iFechaCompromiso" name="iFechaCompromiso" title="" required data-error="Por favor seleccione la fecha compromiso" >

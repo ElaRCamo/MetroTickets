@@ -159,13 +159,13 @@
 
     function fechaCompromiso(){
         const selectEstatus = document.getElementById('estatusPruebaAdmin');
-        const inputFechaCompromiso = document.getElementById('iFechaCompromiso');
+        const divFechaCompromiso = document.getElementById('divFechaCompromiso');
 
         if (selectEstatus.value === '2') { //Estatus aprobado
-            inputFechaCompromiso.style.display = 'block';
+            divFechaCompromiso.style.display = 'block';
             selectInputResultado();
-        } else {
-            inputFechaCompromiso.style.display = 'none';
+        } else if (selectEstatus.value === '1' || selectEstatus.value === '3' || selectEstatus.value === '4' || selectEstatus.value === '5' || selectEstatus.value === '6'){
+            divFechaCompromiso.style.display = 'none';
         }
 
     }
