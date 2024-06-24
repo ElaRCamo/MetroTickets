@@ -92,7 +92,7 @@
                                                 </div>
                                             </div>
                                             <div class="" id="detallesPrueba">
-                                                <label for="especificaciones">Especificaciones de la Prueba / Comentarios*</label>
+                                                <label for="especificaciones">Especificaciones de la prueba / Comentarios*</label>
                                                 <div class="form-group col-sm-12" id="">
                                                     <textarea class="form-control" id="especificaciones" placeholder="Especificaciones de la prueba / Comentarios" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
                                                     <div class="input-group-icon"><i class="las la-file-alt"></i></div>
