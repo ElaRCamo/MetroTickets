@@ -13,11 +13,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $id_admin = $_POST['id_user'];
 
         //Se agrega fecha compromiso:
-        if(isset($_POST['fechaCompromiso'])){
-            $fechaCompromiso = $_POST['fechaCompromiso'];
-        }else{
-            $fechaCompromiso = '0000-00-00';
-        }
+        $fechaCompromiso = $_POST['fechaCompromiso'] ?? '0000-00-00';
 
         // Verificar si resultados es un string o un archivo
         $resultados = '';
