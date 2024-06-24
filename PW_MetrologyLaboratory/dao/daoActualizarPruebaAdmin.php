@@ -65,13 +65,13 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
         $query=3;
     }
 
-    $response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query." var-estatus ".var_dump($id_estatus)." var-fecha ".$fechaCompromiso);
+    //$response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query." var-estatus ".var_dump($id_estatus)." var-fecha ".$fechaCompromiso);
 
-    /*if ($stmt->execute()) {
+    if ($stmt->execute()) {
         $response = array("status" => "success", "message" => "Prueba actualizada");
     } else {
         $response = array("status" => 'error', "message" => "Error.");
-    }*/
+    }
     $stmt->close();
     $conex->close();
     return $response;
