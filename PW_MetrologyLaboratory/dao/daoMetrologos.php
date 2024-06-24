@@ -2,9 +2,9 @@
 
 include_once('connection.php');
 
-ContadorEstatus();
+metrologos();
 
-function ContadorEstatus(){
+function metrologos(){
     $con = new LocalConector();
     $conex = $con->conectar();
 

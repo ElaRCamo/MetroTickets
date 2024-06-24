@@ -92,9 +92,9 @@
                                                 </div>
                                             </div>
                                             <div class="" id="detallesPrueba">
-                                                <label for="especificaciones">Especificaciones y Detalles de la Prueba*</label>
+                                                <label for="especificaciones">Especificaciones de la Prueba / Comentarios*</label>
                                                 <div class="form-group col-sm-12" id="">
-                                                    <textarea class="form-control" id="especificaciones" placeholder="Especificaciones y detalles de la prueba*" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
+                                                    <textarea class="form-control" id="especificaciones" placeholder="Especificaciones de la prueba / Comentarios" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
                                                     <div class="input-group-icon"><i class="las la-file-alt"></i></div>
                                                     <div class="invalid-feedback"></div>
                                                 </div>
@@ -106,7 +106,7 @@
                                                 <table class="table table-borderless" id="materialesTitulo">
                                                     <tr>
                                                         <td class="tdH6">
-                                                            <h6>REGISTRO DE MATERIALES</h6>
+                                                            <h6>REGISTRO DE PIEZAS</h6>
                                                         </td>
                                                         <td class="tdButton">
                                                             <button type="button" id="addNumParte1"><i class="las la-plus-square"></i>Agregar material</button>

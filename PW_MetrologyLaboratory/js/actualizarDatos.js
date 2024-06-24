@@ -177,7 +177,7 @@ function capturarResultados(estatusPruebaAdmin){
     var resultados = "Sin resultados";
 
     //Validar estatus de la prueba
-    if (estatusPruebaAdmin.value === '3' && divInputsResultados !== null && divInputsResultados.offsetParent !== null ){ //Estatus completado(hay resultados)
+    if (estatusPruebaAdmin.value === '4' && divInputsResultados !== null && divInputsResultados.offsetParent !== null ){ //Estatus completado(hay resultados)
         const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
         const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
         if (rutaRadio.checked && resultadosAdminRuta !== null && resultadosAdminRuta.value !== '') {

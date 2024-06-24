@@ -39,7 +39,7 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    if($resultados !== "" && $id_estatus === 3) {
+    if($resultados !== "" && $id_estatus === 4) { //Estatus completado
         $stmt = $conex->prepare("UPDATE Prueba
                                       SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, fechaRespuesta = ?, id_administrador = ?
                                     WHERE id_prueba = ?");
