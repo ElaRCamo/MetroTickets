@@ -14,7 +14,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //Se agrega fecha compromiso:
         $fechaCompromiso = $_POST['fechaCompromiso'] ?? '0000-00-00';
-        $response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso);
 
         // Verificar si resultados es un string o un archivo
         $resultados = '';
@@ -30,7 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $resultados = subirArchivo($target_dir, $id_prueba, $input_name);
         }
 
-        //$response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados, $fechaUpdate,$fechaCompromiso, $id_admin);
+        $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados, $fechaUpdate,$fechaCompromiso, $id_admin);
     }else{
         $response = array("status" => 'error', "message" => "Faltan datos en el formulario.");
     }
@@ -48,23 +47,28 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
                                       SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, fechaRespuesta = ?, id_administrador = ?
                                     WHERE id_prueba = ?");
         $stmt->bind_param("iisssssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $fechaUpdate, $fechaUpdate, $id_admin, $id_prueba);
+        $query=1;
     }else if($fechaCompromiso !== '0000-00-00' && $id_estatus === 2){ //Estatus aprobado
         $stmt = $conex->prepare("UPDATE Prueba
                                       SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, fechaCompromiso = ?,id_administrador = ?
                                     WHERE id_prueba = ?");
         $stmt->bind_param("iisssssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $fechaUpdate, $fechaCompromiso, $id_admin, $id_prueba);
+        $query=2;
     }else{
         $stmt = $conex->prepare("UPDATE Prueba
                                       SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, id_administrador = ?
                                     WHERE id_prueba = ?");
         $stmt->bind_param("iissssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $fechaUpdate, $id_admin, $id_prueba);
+        $query=3;
     }
 
-    if ($stmt->execute()) {
+    $response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus".$id_estatus." query=".$query);
+
+    /*if ($stmt->execute()) {
         $response = array("status" => "success", "message" => "Prueba actualizada");
     } else {
         $response = array("status" => 'error', "message" => "Error.");
-    }
+    }*/
     $stmt->close();
     $conex->close();
     return $response;
