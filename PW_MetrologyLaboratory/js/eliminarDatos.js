@@ -282,7 +282,9 @@ function cancelarSolicitud(id_prueba){
                 })
                 .catch(error => {
                     console.log(error);
-                });
+                }).then(function(data) {
+                    initDataTable(id_solicitante);
+            });
         } else if (result.dismiss === Swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire({
                 title: "Cancelado",
