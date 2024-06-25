@@ -33,6 +33,7 @@ function resumenPrueba($id_solicitante){
                     LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
             WHERE
                 id_solicitante = '$id_solicitante'
+            AND s.id_estatusPrueba <> 6
             ORDER BY id_prueba DESC;
 ");
 

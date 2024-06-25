@@ -30,6 +30,7 @@ function resumenPrueba(){
                     LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
                     LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
                     LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
+            WHERE s.id_estatusPrueba <> 6
             ORDER BY id_prueba DESC;
 ");
 
