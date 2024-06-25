@@ -1,7 +1,9 @@
 <?php
 header('Content-Type: application/json');
 include_once('connection.php');
-
+require_once __DIR__ . '/../Mailer/MailerFunctionNewEmail.php';
+session_start();
+$id_prueba="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener el contenido de la solicitud
     $json = file_get_contents('php://input');
@@ -17,6 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (preg_match('/^\d{4}-\d{4}$/', $id_prueba)) { //Formato del id_prueba = "YYYY-XXXX"
             try {
                 $response = cancelarSolicitud($id_prueba);
+                if ($response['status'] === 'success') {
+                    $asunto = "Prueba".$id_prueba."cancelada";
+                    $mensaje = "Te informamos que de acuerdo con tu petición, la solicitud con<br><strong>FOLIO: $id_prueba</strong><br>ha sido exitosamente cancelada.<br>";
+                    $response =  newEmail( $_SESSION['nombreUsuario'],$_SESSION['emailUsuario'], $asunto, $mensaje);
+                }
             } catch (Exception $e) {
                 $response = array('status' => 'error', 'message' => 'Error al procesar la solicitud: ' . $e->getMessage());
             }
@@ -29,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     $response = array('status' => 'error', 'message' => 'Se esperaba REQUEST_METHOD POST');
 }
-
 echo json_encode($response);
 
 
@@ -46,6 +52,7 @@ function cancelarSolicitud($id_prueba)
     // Ejecutar la sentencia y verificar el resultado
     if ($stmt->execute()) {
         $response = array("status" => "success", "message" => "Solicitud exitosamente cancelada.");
+
     } else {
         $response = array("status" => "error", "message" => "Error al cancelar la solicitud.");
     }
