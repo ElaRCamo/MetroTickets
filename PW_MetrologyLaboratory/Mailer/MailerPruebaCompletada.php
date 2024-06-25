@@ -5,10 +5,11 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require 'Phpmailer/Exception.php';
-require 'Phpmailer/Mailer.php';
+require 'Phpmailer/PHPMailer.php';
 require 'Phpmailer/SMTP.php';
 
-include_once('Produccion/ML/PW_MetrologyLaboratory/dao/connection.php');
+include_once('../dao/connection.php');
+
 session_start();
 $id_prueba=$_POST['id_prueba'];
 $emailSolicitante=$_POST['emailSolicitante'];
