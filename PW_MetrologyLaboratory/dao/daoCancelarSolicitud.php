@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             try {
                 $response = cancelarSolicitud($id_prueba);
                 if ($response['status'] === 'success') {
-                    $asunto = "Prueba".$id_prueba."cancelada";
+                    $asunto = "Solicitud .$id_prueba. cancelada ";
                     $mensaje = "Te informamos que de acuerdo con tu petición, la solicitud con<br><strong>FOLIO: $id_prueba</strong><br>ha sido exitosamente cancelada.<br>";
                     $response =  newEmail( $_SESSION['nombreUsuario'],$_SESSION['emailUsuario'], $asunto, $mensaje);
                 }
