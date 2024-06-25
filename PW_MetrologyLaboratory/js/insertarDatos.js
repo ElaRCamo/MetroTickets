@@ -588,14 +588,14 @@ function registrarPlataforma(){
 
 function correoActualizacionPrueba(estatusPrueba, id_prueba, solicitantePrueba, emailSolicitante){
     const data = new FormData();
-    let dao = '/../../Mailer/MailerActualizacionPrueba.php';
+    let dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/Mailer/MailerActualizacionPrueba.php';
 
     data.append('id_prueba',id_prueba);
     data.append('solicitante',solicitantePrueba);
     data.append('emailSolicitante',emailSolicitante);
 
     if(estatusPrueba === '4'){
-        dao = '/../../Mailer/MailerPruebaCompletada.php';
+        dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/Mailer/MailerPruebaCompletada.php';
     }
 
     fetch(dao,{
