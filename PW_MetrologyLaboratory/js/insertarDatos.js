@@ -595,7 +595,7 @@ function correoActualizacionPrueba(estatusPrueba, id_prueba, solicitantePrueba, 
     data.append('emailSolicitante',emailSolicitante);
 
     if(estatusPrueba === '4'){
-        dao = 'Produccion/ML/PW_MetrologyLaboratory/Mailer/MailerRecuperarPassword.php';
+        dao = 'Produccion/ML/PW_MetrologyLaboratory/Mailer/MailerPruebaCompletada.php';
     }
 
     fetch(dao,{
