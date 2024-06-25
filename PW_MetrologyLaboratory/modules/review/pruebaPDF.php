@@ -157,7 +157,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                             ?>
                     </tr>
                     <tr>
-                        <th class="">Especifícaciones: </th>
+                        <th class="">Especifícaciones/Comentarios: </th>
                         <td colspan="3"><?php echo $resultados[0]['especificaciones'];?></td>
                     </tr>
                     </tbody>

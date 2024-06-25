@@ -14,6 +14,7 @@ function resumenPrueba($id_solicitante){
                 id_prueba,
                 fechaSolicitud,
                 fechaRespuesta,
+                fechaCompromiso,
                 descripcionEstatus,
                 descripcionPrioridad,
                 s.id_tipoPrueba,

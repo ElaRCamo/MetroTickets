@@ -12,9 +12,14 @@
                         <div class="mb-3 col">
                             <div class="help-block with-errors"></div>
                             <label for="estatusPruebaAdmin" class="form-label" >Estatus: </label>
-                            <select class="form-control" id="estatusPruebaAdmin" onchange="cambiarResultado()" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus" >
+                            <select class="form-control" id="estatusPruebaAdmin" onchange="cambiarResultado(); fechaCompromiso();" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus" >
                                 <option value="">Seleccione estatus de la prueba*</option>
                             </select>
+                        </div>
+                        <div class="mb-3 col" id="divFechaCompromiso">
+                            <div class="help-block with-errors"></div>
+                            <label for="iFechaCompromiso" class="form-label" >Fecha compromiso: </label>
+                            <input type="date" class="form-control" id="iFechaCompromiso" name="iFechaCompromiso" title="" required data-error="Por favor seleccione la fecha compromiso" >
                         </div>
                         <div class="mb-3 col">
                             <div class="help-block with-errors"></div>

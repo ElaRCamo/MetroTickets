@@ -967,3 +967,6 @@ table tbody tr {
 .enlaceUpdPerfil{
     cursor: pointer;
 }
+#divFechaCompromiso{
+    display: none;
+}

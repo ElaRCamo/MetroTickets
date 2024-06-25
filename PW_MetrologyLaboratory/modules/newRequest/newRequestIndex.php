@@ -34,7 +34,7 @@
         }
     ?>
 </head>
-<body onload="llenarEvaluacion(); esActualizacionPrueba();">
+<body onload="llenarTipoPrueba(); esActualizacionPrueba();">
     <?php
         # Header section
             require_once('../../header.php');
@@ -55,7 +55,6 @@
                 e.preventDefault();
                 agregarMaterial();
                 llenarCliente(indexMaterial);
-                mostrarDivImagen(indexMaterial);
             });
 
             $(document).on('click', '.remove-lnk', function(e) {

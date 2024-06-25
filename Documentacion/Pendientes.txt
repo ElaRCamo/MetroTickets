@@ -129,7 +129,7 @@ Reunion 12/04/2024
 Reunion 19/06/2024
 ✓ materiales a piezas
 ✓ agregar acciones en la tabla
-- agregar input resultados para subir pdf
+✓ agregar input resultados para subir pdf
 
 
 Lorem ipsum dolor sit amet consectetur, adipiscing elit mauris vel. Torquent fusce erat sociosqu tempus mi curae tempor sollicitudin bibendum dapibus vehicula, 
@@ -140,7 +140,25 @@ s
 https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/usuarios/fotoPerfilDefault.png
 
 
-
+Reunión 21/06/2024
+- Cuando cambie el estatus a aprobado, poner opción de fechaCompromiso
+- Datos Generales: Especificacions/comentarios
+- Tipo de reporte
+    - Full layout
+    - Cotas especificas: Subir imagen
+- Cuando sea estatus completado que el correo indique que deben pasar por sus piezas.
+- Poner labels en inputs
+- Eliminar evaluacion con Máq. Universal
+- En los datos del material:
+     - Número de parte
+     - Cantidad
+     - Revisión de dibujo
+     - Nivel de modelo matemático
+     - Se quita descripción
+- Agregar apartado de ? en los inputs para que indique a que se refiere casa input.
+- Que el usuario pueda cancelar.
+- Estatus: Aprobado-En fila | Rechazado | Completado | Pendiente de aprobación
+- Adrián compartira los tipo de prueba y la base de datos
 
 
 

@@ -98,6 +98,7 @@ function  updatePruebaAdmin(id_review, id_user){
     var prioridadPruebaAdmin = id("prioridadPruebaAdmin");
     var metrologoAdmin = id("metrologoAdmin");
     var observacionesAdmin = id("observacionesAdmin");
+    var fechaCompromiso = id("iFechaCompromiso");
     var fechaUpdate= new Date();
     var fechaFormateada = fechaUpdate.getFullYear() + '-' + (fechaUpdate.getMonth() + 1) + '-' + fechaUpdate.getDate();
     var resultados = capturarResultados(estatusPruebaAdmin);
@@ -110,7 +111,11 @@ function  updatePruebaAdmin(id_review, id_user){
     data.append('observacionesAdmin', observacionesAdmin.value.trim());
     data.append('fechaUpdate', fechaFormateada);
     data.append('id_user', id_user);
-    alert("estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados+", fechaUpdate "+ fechaFormateada);
+
+    if(estatusPruebaAdmin.value==='2'){
+        data.append('fechaCompromiso', fechaCompromiso.value.trim());
+    }
+    alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados+", fechaUpdate "+ fechaFormateada);
 
 
     const swalWithBootstrapButtons = Swal.mixin({
@@ -177,7 +182,7 @@ function capturarResultados(estatusPruebaAdmin){
     var resultados = "Sin resultados";
 
     //Validar estatus de la prueba
-    if (estatusPruebaAdmin.value === '3' && divInputsResultados !== null && divInputsResultados.offsetParent !== null ){ //Estatus completado(hay resultados)
+    if (estatusPruebaAdmin.value === '4' && divInputsResultados !== null && divInputsResultados.offsetParent !== null ){ //Estatus completado(hay resultados)
         const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
         const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
         if (rutaRadio.checked && resultadosAdminRuta !== null && resultadosAdminRuta.value !== '') {

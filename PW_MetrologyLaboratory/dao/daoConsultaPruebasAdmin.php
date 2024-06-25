@@ -13,6 +13,7 @@ function resumenPrueba(){
                 id_prueba,
                 fechaSolicitud,
                 fechaRespuesta,
+                fechaCompromiso,
                 descripcionEstatus,
                 descripcionPrioridad,
                 s.id_tipoPrueba,
