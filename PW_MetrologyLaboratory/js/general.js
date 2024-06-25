@@ -22,24 +22,7 @@ const mostrarBloque = (elemento, mostrar) => {
     elemento.style.display = mostrar ? "block" : "none";
 };
 
-function mostrarDivImagen(j) {
-    var cbDescMaterial = id("descMaterial" + j);
-    var divImgMaterial = id("imgMaterial" + j);
 
-    if (cbDescMaterial.value !== '') {
-        mostrarBloque(divImgMaterial, true);
-    } else {
-        mostrarBloque(divImgMaterial, false);
-    }
-}
-
-function banderaTipoEvaluacion() {
-    if (cbTipoEva.value !== '') {
-        divSelectTipoPrueba.style.display = "block";
-    } else {
-        divSelectTipoPrueba.style.display = "none";
-    }
-}
 
 let tipo;
 
@@ -76,7 +59,6 @@ function banderaTipoPrueba() {
         mostrarBloque(botonEnviar, true);
         mostrarBloque(divCantidadMaterial, true);
         mostrarBloque(divOtroTipoPrueba, false);
-        llenarPruebaEspecial();
     } else { // otro caso
         mostrarBloque(divNormaNombre, false);
         mostrarBloque(divNormaArchivo, false);
@@ -89,32 +71,6 @@ function banderaTipoPrueba() {
     if (esActualizacion === true){
         mostrarBloque(botonEnviar, false);
     }
-}
-
-function otroTipoPrueba() {
-    const otroTipo = cbOtroTipo.value;
-
-    if (tipo === '5' && otroTipo === '4') {//otroEspecial
-        mostrarBloque(divOtroTipoPrueba, true);
-    } else {
-        mostrarBloque(divOtroTipoPrueba, false);
-    }
-}
-function todoVisible(){
-    divSelectTipoPrueba.style.display = "block";
-    mostrarBloque(divOEM, true);
-    mostrarBloque(divNormaNombre, true);
-    mostrarBloque(divNormaArchivo, true);
-    mostrarBloque(divPruebaEspecial, true);
-    mostrarBloque(divDetallesPrueba, true);
-    mostrarBloque(divAgregarNumParte, true);
-    mostrarBloque(divNumeroParte, true);
-    mostrarBloque(divDescripcionMaterial, true);
-    mostrarBloque(divPlataforma, true);
-    mostrarBloque(botonEnviar, true);
-    mostrarBloque(divCantidadMaterial, true);
-    mostrarBloque(divOtroTipoPrueba, true);
-
 }
 
 // Función para cerrar sesión
@@ -182,21 +138,3 @@ function hideButton(id_button){
     var button = id(id_button);
     button.style.display = "none";
 }
-
-
-
-/*
-function cambiarImg(){
-    var divImg = id("divCambiarImg");
-    var divImg2 = id("divCambiarImg2");
-    divImg.style.display = "inline-block";
-    divImg2.style.display = "inline-block";
-}
-function hideImg(){
-    var divImg = id("divCambiarImg");
-    var divImg2 = id("divCambiarImg2");
-    divImg.style.display = "none";
-    divImg2.style.display = "none";
-}
-*/
-
