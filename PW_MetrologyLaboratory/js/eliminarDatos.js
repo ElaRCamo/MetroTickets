@@ -287,7 +287,7 @@ function cancelarSolicitud(id_prueba){
             });
         } else if (result.dismiss === Swal.DismissReason.cancel) {
             swalWithBootstrapButtons.fire({
-                title: "Cancelado",
+                title: "¡Detenido!",
                 text: "La solicitud sigue activa.",
                 icon: "error"
             });
