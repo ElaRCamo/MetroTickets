@@ -1,28 +1,26 @@
 const id = str => document.getElementById(str);
 
-var cbTipo = id("tipoPrueba");
-var divNormaNombre = id("normaNombre");
-var divNormaArchivo = id("normaArchivo");
-var divPruebaEspecial = id("pruebaEspecial");
-var divDetallesPrueba = id("detallesPrueba");
-var divAgregarNumParte = id("agregarNumParte");
+let cbTipo = id("tipoPrueba");
+let divNormaNombre = id("normaNombre");
+const divNormaArchivo = id("normaArchivo");
+const divPruebaEspecial = id("pruebaEspecial");
+const divDetallesPrueba = id("detallesPrueba");
+const divAgregarNumParte = id("agregarNumParte");
 <!-- Para agregar material por número de parte -->
-var divNumeroParte = id("numeroParte1");
-var divDescripcionMaterial = id("descripcionMaterial1");
-var divPlataforma = id("plataformaDiv1");
-var divOEM = id("div-OEM1");
-var divCantidadMaterial = id("cantidadMaterial1");
-var cbTipoEva = id("tipoEvaluacion");
-var divSelectTipoPrueba = id("selectTipoPrueba");
-var cbOtroTipo = id("tipoPruebaEspecial");
-var divOtroTipoPrueba = id("otroTipoPrueba");
-var botonEnviar = id("submitRequest");
+const divNumeroParte = id("numeroParte1");
+const divDescripcionMaterial = id("descripcionMaterial1");
+const divPlataforma = id("plataformaDiv1");
+const divOEM = id("div-OEM1");
+const divCantidadMaterial = id("cantidadMaterial1");
+const cbTipoEva = id("tipoEvaluacion");
+const divSelectTipoPrueba = id("selectTipoPrueba");
+const cbOtroTipo = id("tipoPruebaEspecial");
+const divOtroTipoPrueba = id("otroTipoPrueba");
+const botonEnviar = id("submitRequest");
 
 const mostrarBloque = (elemento, mostrar) => {
     elemento.style.display = mostrar ? "block" : "none";
 };
-
-
 
 let tipo;
 
@@ -75,9 +73,9 @@ function banderaTipoPrueba() {
 
 // Función para cerrar sesión
 function cerrarSesion() {
-    var xhttp = new XMLHttpRequest();
+    const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status === 200) {
             Swal.fire("¡Sesión cerrada exitosamente!");
             window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php";
         }
@@ -92,20 +90,20 @@ function redirectToRequestsIndex() {
 }
 
 function ocultarContenido(clase,limiteCaracteres){
-    var especificaciones = document.querySelectorAll("."+ clase);
+    const especificaciones = document.querySelectorAll("." + clase);
     especificaciones.forEach(function(especificacion) {
-        var contenido = especificacion.textContent;
+        const contenido = especificacion.textContent;
         if (contenido.length > limiteCaracteres) {
-            var contenidoRecortado = contenido.substring(0, limiteCaracteres);
-            var contenidoRestante = contenido.substring(limiteCaracteres, contenido.length);
+            const contenidoRecortado = contenido.substring(0, limiteCaracteres);
+            const contenidoRestante = contenido.substring(limiteCaracteres, contenido.length);
             especificacion.innerHTML = contenidoRecortado + '<span class="hidden">' + contenidoRestante + '</span><button class="btn-ver-mas">Ver más...</button>';
         }
     });
 
-    var botonesVerMas = document.querySelectorAll(".btn-ver-mas");
+    const botonesVerMas = document.querySelectorAll(".btn-ver-mas");
     botonesVerMas.forEach(function(boton) {
         boton.addEventListener("click", function() {
-            var contenidoOculto = this.previousElementSibling;
+            const contenidoOculto = this.previousElementSibling;
             contenidoOculto.classList.toggle("hidden");
             if (this.textContent === "Ver más...") {
                 this.textContent = "Ver menos";
@@ -117,7 +115,7 @@ function ocultarContenido(clase,limiteCaracteres){
 }
 
 function mostrarOpciones(TP){
-    var elementosOcultos = document.querySelectorAll('.resumenHidden');
+    const elementosOcultos = document.querySelectorAll('.resumenHidden');
     if (TP!==3 || TP !== 4 || TP !== 5 ) {
         elementosOcultos.forEach(function(elemento) {
             elemento.style.display = 'none';
@@ -130,11 +128,11 @@ function mostrarOpciones(TP){
 }
 
 function showButton(id_button){
-    var button = id(id_button);
+    const button = id(id_button);
     button.style.display = "inline-block";
 }
 
 function hideButton(id_button){
-    var button = id(id_button);
+    const button = id(id_button);
     button.style.display = "none";
 }

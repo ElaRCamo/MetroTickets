@@ -586,14 +586,19 @@ function registrarPlataforma(){
     });
 }
 
-function correoActualizacionPrueba(id_prueba, solicitantePrueba, emailSolicitante){
+function correoActualizacionPrueba(estatusPrueba, id_prueba, solicitantePrueba, emailSolicitante){
     const data = new FormData();
+    let dao = 'https://arketipo.mx/MailerActualizacionPrueba.php';
 
     data.append('id_prueba',id_prueba);
     data.append('solicitante',solicitantePrueba);
     data.append('emailSolicitante',emailSolicitante);
 
-    fetch('https://arketipo.mx/MailerActualizacionPrueba.php',{
+    if(estatusPrueba === '4'){
+        dao = 'https://arketipo.mx/MailerPruebaCompletada.php';
+    }
+
+    fetch(dao,{
         method: 'POST',
         body: data
     })

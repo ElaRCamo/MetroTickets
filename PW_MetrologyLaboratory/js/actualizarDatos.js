@@ -155,7 +155,7 @@ function  updatePruebaAdmin(id_review, id_user){
                         icon: "success"
                     });
                 }).then(function (){
-                    correoActualizacionPrueba(id_review, solicitantePrueba, emailSolicitante);
+                    correoActualizacionPrueba(estatusPruebaAdmin.value,id_review, solicitantePrueba, emailSolicitante);
                 }).then(function (){
                     correoActualizacionPruebaLab(id_review);
             }).catch(error =>{
@@ -300,7 +300,7 @@ function actualizarSolicitud(){
             resumenSolicitud(id_update);
         }).then(function(data) {
             // Si la inserción de datos fue exitosa, llamar a las funciones
-            correoActualizacionPrueba(id_update, solicitante, emailUsuario);
+            correoActualizacionPrueba(5,id_update, solicitante, emailUsuario);
             correoActualizacionPruebaLab(id_update);
         })
         .catch(function(error) {

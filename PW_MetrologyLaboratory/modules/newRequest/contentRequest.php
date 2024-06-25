@@ -69,8 +69,6 @@
                                                     <div class="invalid-feedback"></div>
                                                 </div>
                                             </div>
-
-
                                             <!-- Para agregar material por número de parte-->
                                             <div class="form-group col-sm-12" id="agregarNumParte">
                                                 <table class="table table-borderless" id="materialesTitulo">
@@ -79,7 +77,7 @@
                                                             <h6>REGISTRO DE PIEZAS</h6>
                                                         </td>
                                                         <td class="tdButton">
-                                                            <button type="button" id="addNumParte1"><i class="las la-plus-square"></i>Agregar material</button>
+                                                            <button type="button" id="addNumParte1"><i class="las la-plus-square"></i>Agregar pieza</button>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -99,7 +97,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <div class="col-sm-6">
                                                             <div class="" id="plataformaDiv1">
                                                                 <label for="plataforma1">Plataforma*</label>
@@ -112,13 +109,41 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
-
+                                                        <div class="col-sm-6">
+                                                            <div class="" id="divNumeroParte1">
+                                                                <label for="numeroParte1">Número de parte*</label>
+                                                                <div class="form-group" id="">
+                                                                    <input id="numeroParte1" name="numeroParte1" type="text" class="form-control" placeholder="Número de Parte*" required data-error="Por favor ingresa el número de parte">
+                                                                    <div class="input-group-icon"><i class="las la-cubes"></i></div>
+                                                                    <div class="invalid-feedback"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div class="col-sm-6">
                                                             <div class="" id="cantidadMaterial1">
                                                                 <label for="cdadMaterial1">Cantidad*</label>
                                                                 <div class="form-group" id="">
                                                                     <input id="cdadMaterial1" name="cdadesMaterial[]" type="number" class="form-control" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
+                                                                    <div class="input-group-icon"><i class="las la-cubes"></i></div>
+                                                                    <div class="invalid-feedback"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="" id="divDibujo1">
+                                                                <label for="revDibujo1">Revisión de dibujo*</label>
+                                                                <div class="form-group" id="">
+                                                                    <input id="revDibujo1" name="revDibujo1" type="text" maxlength="3" class="form-control" placeholder="Revisión de dibujo*" required data-error="Por favor ingresa la revisión de dibujo">
+                                                                    <div class="input-group-icon"><i class="las la-cubes"></i></div>
+                                                                    <div class="invalid-feedback"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="" id="divModMate1">
+                                                                <label for="modeloMate1">Número de parte*</label>
+                                                                <div class="form-group" id="">
+                                                                    <input id="modeloMate1" name="modeloMate1" type="text" maxlength="3" class="form-control" placeholder="Mod. Matemático*" required data-error="Por favor ingresa el modelo matemático">
                                                                     <div class="input-group-icon"><i class="las la-cubes"></i></div>
                                                                     <div class="invalid-feedback"></div>
                                                                 </div>
@@ -144,8 +169,6 @@
             </div><!--End row -->
         </div><!--End container -->
     </section>
-
-
     <!-- Modal RequestReview-->
     <div class="modal fade container-fluid" id="RequestReview" aria-hidden="true" aria-labelledby="titleResumenMain" tabindex="-1">
         <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
