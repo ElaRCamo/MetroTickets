@@ -312,6 +312,7 @@ function actualizarSolicitud(){
         });
 }
 
+
 function editarCliente(id_cliente){
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnCliente.php?id_cliente=' + id_cliente, function (data) {

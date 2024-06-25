@@ -248,6 +248,9 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
                         <button class="btn btn-secondary" onclick="reviewPDF('${item.id_prueba}')">
                             <i class="las la-file-pdf"></i><span>PDF</span>
                         </button>
+                        <button class="btn btn-danger" onclick="cancelarSolicitud('${item.id_prueba}')">
+                            <i class="las la-trash"></i></i><span>Cancelar</span>
+                        </button>
                     </td>
                 </tr>`;
         });
@@ -258,6 +261,7 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
         console.error('Error:', error);
     }
 };
+
 
 const TablaPruebasAdmin = async () => {
     try {
