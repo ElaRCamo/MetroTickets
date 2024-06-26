@@ -310,7 +310,7 @@ h5{
 #detallesPrueba , #div-OEM1, #agregarNumParte, #numeroParte1,
 #descripcionMaterial1, #plataformaDiv1, #cantidadMaterial1, #selectTipoPrueba,
 #imgMaterial1, #submitRequest{
-    display: none;
+    display: block;
 }
 
 #reset{
