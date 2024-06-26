@@ -19,19 +19,41 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
+    <!-- Tippy.js core styles -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+
     <style>
 
-
-        #tooltipModelo,
-        #tooltipDibujo, #tooltipCdad{
+        /*Ubica el logo de ? dentro del input*/
+        #tooltipModelo, #tooltipCliente, #tooltipObs,#tooltipNorma,#tooltipDocNorma,#tooltipTipPrueba,
+        #tooltipDibujo, #tooltipCdad , #tooltipNumP, #tooltipPlataforma{
             position: absolute;
             right: 0.5rem;
-            top: 30%;
-            transform: translateY(-50%);
+            top: 10%;
             cursor: pointer;
             color: #aaa; /* Icon color */
             max-width: 1rem;
+            padding-top: 0.4rem;
         }
+
+        /*Colores tooltip*/
+        .tippy-box[data-theme~='light'] {
+            background-color: #005195;
+            color: #f1f4f9;
+            border: 2px solid rgba(130, 175, 215, 0.1);
+        }
+
+        /*arrow*/
+        /* The border */
+        .tippy-box[data-theme~='light'] > .tippy-svg-arrow > svg:first-child {
+            fill: #1733a1;
+        }
+
+        /* The fill */
+        .tippy-box[data-theme~='light'] > .tippy-svg-arrow > svg:last-child {
+            fill: #1733a1;
+        }
+
     </style>
 </head>
 <body>
@@ -61,6 +83,7 @@
                                                 <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba(); llenarCliente(1);" name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione un tipo de prueba válido.">
                                                     <option value="">Seleccione el tipo de prueba*</option>
                                                 </select>
+                                                <i class="far fa-question-circle position-absolute" id="tooltipTipPrueba"></i>
                                                 <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
                                                 <div class="invalid-feedback"></div>
                                             </div>
@@ -69,6 +92,7 @@
                                             <label for="norma">Norma*</label>
                                             <div class="form-group col-sm-6">
                                                 <input type="text" class="form-control" id="norma" placeholder="Norma*" data-error="Por favor indique la norma.">
+                                                <i class="far fa-question-circle position-absolute" id="tooltipDocNorma"></i>
                                                 <div class="input-group-icon"><i class="las la-certificate"></i></div>
                                                 <div class="invalid-feedback"></div>
                                             </div>
@@ -77,6 +101,7 @@
                                             <label for="normaFile">Seleccione el Documento de la Norma</label>
                                             <div class="form-group col-sm-6">
                                                 <input type="file" class="form-control" id="normaFile" name="normaFile" placeholder="Seleccione el documento de la norma" data-error="Por favor seleccione el archivo de la norma">
+                                                <i class="far fa-question-circle position-absolute" id="tooltipNorma"></i>
                                                 <div class="input-group-icon"><i class="las la-file-pdf"></i></div>
                                                 <div class="invalid-feedback"></div>
                                             </div>
@@ -85,6 +110,7 @@
                                             <label for="especificaciones">Especificaciones de la prueba / Comentarios*</label>
                                             <div class="form-group col-sm-12">
                                                 <textarea class="form-control" id="especificaciones" placeholder="Especificaciones de la prueba / Comentarios" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
+                                                <i class="far fa-question-circle position-absolute" id="tooltipObs"></i>
                                                 <div class="input-group-icon"><i class="las la-file-alt"></i></div>
                                                 <div class="invalid-feedback"></div>
                                             </div>
@@ -112,6 +138,7 @@
                                                                 <select id="cliente1" name="clientes[]" class="form-control" onchange="llenarPlataforma(1)" required data-error="Por favor ingresa el area solicitante">
                                                                     <option value="">Seleccione el cliente (OEM)*</option>
                                                                 </select>
+                                                                <i class="far fa-question-circle position-absolute" id="tooltipCliente"></i>
                                                                 <div class="input-group-icon"><i class="las la-car"></i></div>
                                                                 <div class="invalid-feedback"></div>
                                                             </div>
@@ -124,6 +151,7 @@
                                                                 <select id="plataforma1" name="plataformas[]" class="form-control" required data-error="Por favor ingresa la plataforma">
                                                                     <option value="">Seleccione la plataforma*</option>
                                                                 </select>
+                                                                <i class="far fa-question-circle position-absolute" id="tooltipPlataforma"></i>
                                                                 <div class="input-group-icon"><i class="las la-warehouse"></i></div>
                                                                 <div class="invalid-feedback"></div>
                                                             </div>
@@ -134,6 +162,7 @@
                                                             <label for="numeroParte1">Número de parte*</label>
                                                             <div class="form-group">
                                                                 <input id="numeroParte1" name="numeroParte1" type="text" class="form-control" placeholder="Número de Parte*" required data-error="Por favor ingresa el número de parte">
+                                                                <i class="far fa-question-circle position-absolute" id="tooltipNumP"></i>
                                                                 <div class="input-group-icon"><i class="las la-cubes"></i></div>
                                                                 <div class="invalid-feedback"></div>
                                                             </div>
@@ -178,7 +207,7 @@
                                     </div>
                                     <div class="form-group last col-sm-12 buttons" >
                                         <button type="button" id="submitRequest"  class="btn btn-custom" onclick="validarFormNewRequest()"><i class='las la-paper-plane'></i>Enviar</button>
-                                        <button type="button" id="updateRequest"  class="btn btn-custom" onclick="validarFormNewRequest()"><i class="las la-save" ></i>Guardar cambios</button>
+                                        <button type="button" id="updateRequest"  class="btn btn-custom" onclick="validarFormNewRequest()"><i class="las la-save" ></i>Guardar</button>
                                         <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
                                     </div><!-- end form-group -->
                                     <div class="sub-text">*Campos requeridos</div>
@@ -192,5 +221,58 @@
         </div><!--End row -->
     </div><!--End container -->
 </section>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script>
+    tippy('#tooltipDibujo', {
+        trigger: 'click',
+        animation: 'shift-away',
+        theme: 'light',
+        onShow(instance) {
+            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/logoWhite.png')
+                .then((response) => response.blob())
+                .then((blob) => {
+                    // Convert the blob into a URL
+                    const url = URL.createObjectURL(blob);
+                    // Create an image
+                    const image = new Image();
+                    image.width = 50;
+                    image.height = 50;
+                    image.style.display = 'block';
+                    image.style.margin = '0 auto'; // Center the image
+                    image.src = url;
+
+                    // Create a container div
+                    const container = document.createElement('div');
+                    container.style.textAlign = 'center'; // Center align text
+                    container.style.fontSize = '0.7rem'; // Smaller font size
+
+                    // Add text before the image
+                    const textBefore = document.createElement('p');
+                    textBefore.textContent = 'Aquí va texto antes de la imagen';
+
+                    container.appendChild(textBefore);
+
+                    // Add the image to the container
+                    container.appendChild(image);
+
+                    // Add text after the image
+                    const textAfter = document.createElement('p');
+                    textAfter.textContent = 'Aquí va texto después de la imagen';
+                    container.appendChild(textAfter);
+
+                    // Update the tippy content with the container
+                    instance.setContent(container);
+                })
+                .catch((error) => {
+                    // Fallback if the network request failed
+                    instance.setContent(`Request failed. ${error}`);
+                });
+        },
+        arrow: true, // Enable arrow
+    });
+
+</script>
 </body>
 </html>
