@@ -80,7 +80,7 @@
                                 <th>
                                     <div class="mb-3" >
                                         <label for="fotoPerfilU" class="form-label">Nueva foto de perfil: </label>
-                                        <input type="file" class="form-control" id="fotoPerfilU" name="fotoPerfilU">
+                                        <input type="file" class="form-control" id="fotoPerfilU" name="fotoPerfilU" onchange="previewImage(event)">
                                     </div>
                                 </th>
                                 <th>
@@ -104,5 +104,17 @@
             </div>
         </div>
     </div>
+
+    //Previsualizar imagen
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('imgActualUsuario');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 
     <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/actualizarDatos.js"></script>

@@ -141,24 +141,29 @@ https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/usuarios/fotoPerfi
 
 
 Reunión 21/06/2024
-- Cuando cambie el estatus a aprobado, poner opción de fechaCompromiso
-- Datos Generales: Especificacions/comentarios
+✓ Cuando cambie el estatus a aprobado, poner opción de fechaCompromiso (24/06/2024)
+✓ Datos Generales: Especificaciones/comentarios (24/06/2024)
 - Tipo de reporte
     - Full layout
     - Cotas especificas: Subir imagen
-- Cuando sea estatus completado que el correo indique que deben pasar por sus piezas.
-- Poner labels en inputs
-- Eliminar evaluacion con Máq. Universal
+✓ Cuando sea estatus completado que el correo indique que deben pasar por sus piezas.(25/06/2024)
+✓ Poner labels en inputs (21/06/2024)
+✓ Eliminar evaluacion con Máq. Universal(25/06/2024)
 - En los datos del material:
      - Número de parte
      - Cantidad
      - Revisión de dibujo
      - Nivel de modelo matemático
      - Se quita descripción
-- Agregar apartado de ? en los inputs para que indique a que se refiere casa input.
-- Que el usuario pueda cancelar.
-- Estatus: Aprobado-En fila | Rechazado | Completado | Pendiente de aprobación
-- Adrián compartira los tipo de prueba y la base de datos
+✓ Agregar apartado de ? en los inputs para que indique a que se refiere casa input.(26/06/2024)
+	- ya se tiene plantilla,una vez que este el formulario corregido se integraran a las opciones correspondientes
+✓ Que el usuario pueda cancelar.(25/06/2024)
+  ✓ Falta envió de correo(25/06/2024)
+✓ Estatus: Aprobado-En fila | Rechazado | Completado | Pendiente de aprobación (24/06/2024)
+- Adrián compartira los tipo de prueba (24/06/2024) y la base de datos
+- Modificar estatus del material
+
+l22141412@queretaro.tecnm.mx
 
 
 
