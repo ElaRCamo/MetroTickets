@@ -747,8 +747,10 @@ function updatePerfilUsuario(){
     if (inputFoto.files.length > 0) {
         //validarImagen(inputFoto.files[0]);
         data.append('fotoPerfil', inputFoto.files[0]);
+        alert("inputFoto");
     } else {
         data.append('fotoPerfil', imagenActualSrc);
+        alert("imagenActualSrc: "+imagenActualSrc);
     }
 
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarPerfil.php', {
