@@ -751,7 +751,7 @@ function updatePerfilUsuario(){
         data.append('imagenActual', imagenActualSrc);
     }
 
-    fetch('../../dao/daoActualizarUsuario.php', {
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarPerfil.php', {
         method: 'POST',
         body: data
     }).then(respuesta => {
