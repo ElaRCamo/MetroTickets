@@ -8,16 +8,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $Nomina = $_SESSION['nomina'];
         $password = $_POST['inputPassword'];
 
-        $fotoPerfil = $_POST['inputFoto'];
-
         // Manejar la imagen si se ha subido
-        if (isset($_FILES['fotoPerfilU']) && $_FILES['fotoPerfilU']['error'] === UPLOAD_ERR_OK) {
+        if (isset($_FILES['fotoPerfil']) && $_FILES['fotoPerfil']['error'] === UPLOAD_ERR_OK) {
             // Directorio de destino para la carga de files
             $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/usuarios/";
 
             // Nombre y ruta del archivo
             $fechaActual = date('Y-m-d_H-i-s');
-            $archivo = $_FILES['fotoPerfilU']['name'];
+            $archivo = $_FILES['fotoPerfil']['name'];
             $imgName = $fechaActual . '-' . $Nomina;
 
             $extension = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
@@ -25,18 +23,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $img = $target_dir . $imgName . "." . $extension;
 
             // Mover el archivo al directorio de destino
-            $tipo   = $_FILES['fotoPerfilU']['type'];
-            $tamano = $_FILES['fotoPerfilU']['size'];
-            $temp   = $_FILES['fotoPerfilU']['tmp_name'];
+            $tipo   = $_FILES['fotoPerfil']['type'];
+            $tamano = $_FILES['fotoPerfil']['size'];
+            $temp   = $_FILES['fotoPerfil']['tmp_name'];
             $moverImgFile = "../imgs/usuarios/" . $imgName. "." . $extension;
             if (in_array($extension, $extensionesPermitidas)) {
                 move_uploaded_file($temp, $moverImgFile);
             }else{
                 $response = array('status' => 'error', 'message' => 'Error: Extensión no permitida.');
             }
-        } else {
+        }  elseif (isset($_POST['fotoPerfil']) && is_string($_POST['fotoPerfil'])) {
             // Si no se sube una nueva imagen, utilizar la imagen actual
-            $img = $_POST['imgActualUsuario'];
+            $img = $_POST['fotoPerfil'];
+        }
+        else {
+            // No se recibió ni un archivo ni un string válido
+           $img = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/usuarios/fotoPerfilDefault.png 	";
         }
         $respuesta = actualizarUsuario($Nomina,$img,$password);
     }else{
@@ -59,13 +61,12 @@ function actualizarUsuario($Nomina,$fotoPerfil,$password)
     $stmt->bind_param("sss", $fotoPerfil,$passwordS,$Nomina);
 
     if ($stmt->execute()) {
-        $stmt->close();
-        $conex->close();
-            return array('status' => 'success', 'message' => 'Perfil de usuario actualizado');
+        $respuesta = array('status' => 'success', 'message' => 'Perfil de usuario actualizado');
     } else {
-        $stmt->close();
-        $conex->close();
-            return array('status' => 'error', 'message' => 'Error al acrualizar.');
+        $respuesta =  array('status' => 'error', 'message' => 'Error al acrualizar.');
     }
+    $stmt->close();
+    $conex->close();
+    return $respuesta;
 }
 ?>

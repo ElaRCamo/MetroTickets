@@ -746,9 +746,9 @@ function updatePerfilUsuario(){
     // Validar la imagen antes de adjuntarla al FormData
     if (inputFoto.files.length > 0) {
         //validarImagen(inputFoto.files[0]);
-        data.append('fotoPerfilU', inputFoto.files[0]);
+        data.append('fotoPerfil', inputFoto.files[0]);
     } else {
-        data.append('imagenActual', imagenActualSrc);
+        data.append('fotoPerfil', imagenActualSrc);
     }
 
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarPerfil.php', {
