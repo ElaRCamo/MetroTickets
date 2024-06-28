@@ -22,9 +22,9 @@ function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
     $usuarioExiste = Usuario($numNomina);
     $correoRegistrado = varificarCorreo($correo);
 
-    if ($usuarioExiste['success']) {
+    if ($usuarioExiste['status'] === 'success') {
         $response = array('status' => 'error', 'message' => 'El usuario ya existe, verifique sus datos.');
-    } if ($correoRegistrado) {
+    }else if ($correoRegistrado) {
         $response = array('status' => 'error', 'message' => 'El correo proporcionado ya se encuentra registrado.');
     } else {
         $con = new LocalConector();
@@ -34,7 +34,6 @@ function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
                                VALUES (?,?,?,?)");
         $insertUsuario->bind_param("ssss", $numNomina,$nombreUsuario,$correo,$passwordS);
         $resultado = $insertUsuario->execute();
-
         // Cerrar la conexión
         $conex->close();
 
