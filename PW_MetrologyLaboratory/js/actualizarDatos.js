@@ -749,11 +749,11 @@ function updatePerfilUsuario(){
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarPerfil.php', {
         method: 'POST',
         body: data
-    }).then(respuesta => {
-        if (!respuesta.ok) {
+    }).then(response => {
+        if (!response.ok) {
             throw new Error('Hubo un problema al actualizar el perfil. Por favor, intenta de nuevo más tarde.');
         }
-        return respuesta.json();
+        return response.json();
     }) .then(data => {
         if (data.status === 'success') {
             console.log(data.message);
