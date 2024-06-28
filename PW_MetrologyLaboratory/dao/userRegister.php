@@ -25,7 +25,7 @@ function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
 
     if ($usuarioExiste['success']) {
         $response = array('status' => 'error', 'message' => 'El usuario ya existe, verifique sus datos.');
-    }else if ($correoRegistrado) {
+    }else if (!$correoRegistrado) {
         $response = array('status' => 'error', 'message' => 'El correo proporcionado ya se encuentra registrado.');
     } else {
         $con = new LocalConector();
