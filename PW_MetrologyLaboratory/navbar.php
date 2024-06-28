@@ -77,17 +77,10 @@
                                 </th>
                             </tr>
                             <tr class="align-middle" >
-                                <th>
+                                <th colspan="2">
                                     <div class="mb-3" >
                                         <label for="fotoPerfilU" class="form-label">Nueva foto de perfil: </label>
                                         <input type="file" class="form-control" id="fotoPerfilU" name="fotoPerfilU" onchange="previewImage(event)">
-                                    </div>
-                                </th>
-                                <th>
-                                    <div class="mb-3">
-                                        <div class="help-block with-errors"></div>
-                                        <label for="passwordPU" class="form-label">Contraseña: </label>
-                                        <input type="password" class="form-control" id="passwordPU" name="passwordPU" required data-error="Por favor ingrese su contraseña" >
                                     </div>
                                 </th>
                             </tr>

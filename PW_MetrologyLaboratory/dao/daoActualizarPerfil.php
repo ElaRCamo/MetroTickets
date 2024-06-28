@@ -6,7 +6,6 @@ session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if($_POST['inputPassword'] !== null){
         $Nomina = $_SESSION['nomina'];
-        $password = $_POST['inputPassword'];
 
         // Manejar la imagen si se ha subido
         if (isset($_FILES['fotoPerfil']) && $_FILES['fotoPerfil']['error'] === UPLOAD_ERR_OK) {
@@ -40,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             // No se recibió ni un archivo ni un string válido
            $img = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/usuarios/fotoPerfilDefault.png 	";
         }
-        $respuesta = actualizarUsuario($Nomina,$img,$password);
+        $respuesta = actualizarUsuario($Nomina,$img);
     }else{
         $respuesta = array('status' => 'error', "message" => "Faltan datos en el formulario.");
     }
@@ -48,17 +47,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $respuesta = array('status' => 'error', "message" => "Se esperaba REQUEST_METHOD");
 }
 echo json_encode($respuesta);
-function actualizarUsuario($Nomina,$fotoPerfil,$password)
+function actualizarUsuario($Nomina,$fotoPerfil)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $passwordS = sha1($password);
 
     $stmt = $conex->prepare("UPDATE Usuario
-                                      SET foto = ?, passwordHash =?
+                                      SET foto = ?
                                     WHERE id_usuario = ?");
-    $stmt->bind_param("sss", $fotoPerfil,$passwordS,$Nomina);
+    $stmt->bind_param("ss", $fotoPerfil,$Nomina);
 
     if ($stmt->execute()) {
         $respuesta = array('status' => 'success', 'message' => 'Perfil de usuario actualizado');
