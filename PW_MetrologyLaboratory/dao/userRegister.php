@@ -22,7 +22,7 @@ function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
     $usuarioExiste = Usuario($numNomina);
     $correoRegistrado = varificarCorreo($correo);
 
-    if ($usuarioExiste['status'] === 'success') {
+    if (!$usuarioExiste['status']) {
         $response = array('status' => 'error', 'message' => 'El usuario ya existe, verifique sus datos.');
     }else if ($correoRegistrado) {
         $response = array('status' => 'error', 'message' => 'El correo proporcionado ya se encuentra registrado.');
