@@ -33,14 +33,12 @@
         });
     </script>
 
-
-
     <!-- Modal Editar Perfil de Usuario-->
     <div class="modal fade container-fluid" id="editarPerfilUsuario" aria-hidden="true" aria-labelledby="editarPerfilLabel" tabindex="-1">
         <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editarPerfilLabel">Actualiza tu perfil</h5><br>
+                    <h5 class="modal-title" id="editarPerfilLabel">Actualiza tu foto de perfil</h5><br>
                     <button type="button" class="btn-close" id="" data-bs-dismiss="modal" onclick="" aria-label="Close"></button>
                 </div>
                 <div class="modal-body row">
