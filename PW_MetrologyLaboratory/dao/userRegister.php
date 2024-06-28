@@ -15,6 +15,7 @@ if(isset($_POST['nombreUsuario'], $_POST['correo'], $_POST['numNomina'], $_POST[
 }
 
 echo json_encode($response);
+exit;
 function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
 {
     $passwordS = sha1($password);
@@ -46,26 +47,27 @@ function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
     return $response;
 }
 
-function varificarCorreo($correo)
+function verificarCorreo($correo)
 {
     $con = new LocalConector();
-    $conexion=$con->conectar();
+    $conexion = $con->conectar();
+    $correo = mysqli_real_escape_string($conexion, $correo);
 
-    $consP="SELECT count(id_usuario) AS existeUsuario FROM Usuario WHERE correoElectronico = '$correo'";
-    $rsconsPro=mysqli_query($conexion,$consP);
+    $consP = "SELECT COUNT(id_usuario) AS existeUsuario FROM Usuario WHERE correoElectronico = '$correo'";
+    $rsconsPro = mysqli_query($conexion, $consP);
 
-    mysqli_close($conexion);
-
-    if(mysqli_num_rows($rsconsPro) == 1){
+    // Verificar si se encontró algún resultado
+    if ($rsconsPro && mysqli_num_rows($rsconsPro) == 1) {
         $row = mysqli_fetch_assoc($rsconsPro);
-        if($row['existeUsuario'] === 0){
-            $response = true;
-        }else{
-            $response = false;
-        }
-    }
-    else{
-        $response = false;
+        $existeUsuario = $row['existeUsuario'];
+        mysqli_free_result($rsconsPro); // Liberar el resultado
+        mysqli_close($conexion); // Cerrar la conexión después de usarla
+
+        // Retornar true si no existe el usuario con el correo dado, false si existe
+        $response = ($existeUsuario === '0');
+    } else {
+        mysqli_close($conexion); // Cerrar la conexión en caso de error
+        $response = false; // Retornar false si no se pudo ejecutar la consulta
     }
     return $response;
 }
