@@ -720,9 +720,6 @@ function cargarPerfilUsuario(){
         var inputNomina = id("nominaPU");
         inputNomina.value = data.data[0].id_usuario;
 
-        var inputPassword = id("passwordPU");
-        inputPassword.value = data.data[0].passwordHash;
-
         //imgActual
         id("imgActualUsuario").src = data.data[0].foto;
     });

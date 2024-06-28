@@ -9,7 +9,7 @@ function cargarPerfilUsuario($Nomina){
     $con = new LocalConector();
     $conexion=$con->conectar();
 
-    $datos = mysqli_query($conexion, "SELECT id_usuario, nombreUsuario, passwordHash, correoElectronico, foto 
+    $datos = mysqli_query($conexion, "SELECT id_usuario, nombreUsuario, correoElectronico, foto 
                                             FROM Usuario
                                             WHERE id_usuario = '$Nomina';");
 
