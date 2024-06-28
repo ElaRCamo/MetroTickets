@@ -4,7 +4,7 @@ include_once('connection.php');
 session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if($_POST['inputPassword'] !== null){
+    if($_SESSION['nomina'] !== null){
         $Nomina = $_SESSION['nomina'];
 
         // Manejar la imagen si se ha subido
@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $respuesta = actualizarUsuario($Nomina,$img);
     }else{
-        $respuesta = array('status' => 'error', "message" => "Faltan datos en el formulario.");
+        $respuesta = array('status' => 'error', "message" => "Error al iniciar sesión.");
     }
 } else {
     $respuesta = array('status' => 'error', "message" => "Se esperaba REQUEST_METHOD");
