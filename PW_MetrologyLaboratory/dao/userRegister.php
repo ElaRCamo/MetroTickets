@@ -21,7 +21,7 @@ function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
     $passwordS = sha1($password);
     $numNomina    = str_pad($Nomina, 8, "0", STR_PAD_LEFT);
     $usuarioExiste = Usuario($numNomina);
-    $correoRegistrado = varificarCorreo($correo);
+    $correoRegistrado = verificarCorreo($correo);
 
     if ($usuarioExiste['success']) {
         $response = array('status' => 'error', 'message' => 'El usuario ya existe, verifique sus datos.');
