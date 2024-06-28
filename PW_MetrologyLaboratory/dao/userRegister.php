@@ -20,9 +20,12 @@ function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
     $passwordS = sha1($password);
     $numNomina    = str_pad($Nomina, 8, "0", STR_PAD_LEFT);
     $usuarioExiste = Usuario($numNomina);
+    $correoRegistrado = varificarCorreo($correo);
 
     if ($usuarioExiste['success']) {
         return array('status' => 'error', 'message' => 'El usuario ya existe, verifique sus datos.');
+    } if ($correoRegistrado) {
+        return array('status' => 'error', 'message' => 'El correo proporcionado ya se encuentra registrado.');
     } else {
         $con = new LocalConector();
         $conex = $con->conectar();
@@ -42,4 +45,29 @@ function RegistrarUsuario($nombreUsuario, $correo, $Nomina, $password)
         }
     }
 }
+
+function varificarCorreo($correo)
+{
+    $con = new LocalConector();
+    $conexion=$con->conectar();
+
+    $consP="SELECT count(id_usuario) AS existeUsuario FROM Usuario WHERE correoElectronico = '$correo'";
+    $rsconsPro=mysqli_query($conexion,$consP);
+
+    mysqli_close($conexion);
+
+    if(mysqli_num_rows($rsconsPro) == 1){
+        $row = mysqli_fetch_assoc($rsconsPro);
+        if($row['existeUsuario'] === 0){
+            $response = true;
+        }else{
+            $response = false;
+        }
+    }
+    else{
+        $response = false;
+    }
+    return $response;
+}
+
 ?>
