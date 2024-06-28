@@ -60,11 +60,9 @@ function actualizarUsuario($Nomina,$fotoPerfil)
     $stmt->bind_param("ss", $fotoPerfil,$Nomina);
 
     if ($stmt->execute()) {
-        $respuesta = array(
-            'status' => 'success',
-            'message' => 'Perfil de usuario actualizado',
-            'fotoUsuario' => $fotoPerfil
-        );
+        $respuesta = array('status' => 'success', 'message' => 'Perfil de usuario actualizado');
+        $_SESSION['fotoUsuario'] = $fotoPerfil;
+
     } else {
         $respuesta =  array('status' => 'error', 'message' => 'Error al acrualizar.');
     }
