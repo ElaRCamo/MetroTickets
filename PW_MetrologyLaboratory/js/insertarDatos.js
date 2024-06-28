@@ -31,7 +31,7 @@ function registrarUsuario() {
             })
             .then(data => {
                 if (data.status === 'success') {
-                    console.log(data.message);
+                    //console.log(data.message);
                     Swal.fire({
                         title: "¡Usuario registrado exitosamente!",
                         icon: "success",
@@ -42,6 +42,13 @@ function registrarUsuario() {
                             window.location.href = "../sesion/indexSesion.php";
                         }
                     });
+                }else if (data.status === 'error') {
+                    Swal.fire({
+                        title: "Error al registrar",
+                        text: data.message,
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    })
                 }
             }).catch(error => {
                 //console.error(error);
