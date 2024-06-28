@@ -41,11 +41,6 @@ function registrarUsuario() {
                             window.location.href = "../sesion/indexSesion.php";
                         }
                     });
-                }else {
-                    return response.json().then(error => {
-                        throw new Error(error.message);
-                    });
-                    //throw new Error('Hubo un problema al registrar el usuario. Por favor, intenta de nuevo más tarde.');
                 }
             }).then(function () {
                 enviarCorreoNuevoUsuario(nombreUsuario.value.trim(), numNomina.value.trim(), correo.value.trim());
