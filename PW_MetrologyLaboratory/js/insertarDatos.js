@@ -43,12 +43,13 @@ function registrarUsuario() {
                         }
                     });
                 }else if (data.status === 'error') {
+                    console.log(data.message);
                     Swal.fire({
-                        title: "Error al registrar",
+                        title: "Error",
                         text: data.message,
                         icon: "error",
                         confirmButtonText: "OK"
-                    })
+                    });
                 }
             }).catch(error => {
                 //console.error(error);
