@@ -764,9 +764,6 @@ function updatePerfilUsuario(){
                 icon: "success",
                 confirmButtonText: "OK"
             })
-            const nuevaUrlFoto = data.fotoUsuario;
-            // Actualizar la imagen en el DOM
-            document.querySelector('.user-img').src = nuevaUrlFoto + '?' + new Date().getTime();
         } else {
             throw new Error('Hubo un problema al actualizar el perfil. Por favor, intenta de nuevo más tarde.');
         }
