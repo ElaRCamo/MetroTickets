@@ -78,9 +78,6 @@ function enviarCorreoNuevoUsuario(nombre, id, correo){
                 throw "Error en la llamada Ajax";
             }
         })
-        .then(function (texto) {
-            console.log(texto);
-        })
         .catch(function (error) {
             //console.log(err);
             Swal.fire({
