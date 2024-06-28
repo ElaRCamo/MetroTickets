@@ -38,12 +38,11 @@ function registrarUsuario() {
                         confirmButtonText: "OK"
                     }).then((result) => {
                         if (result.isConfirmed) {
+                            enviarCorreoNuevoUsuario(nombreUsuario.value.trim(), numNomina.value.trim(), correo.value.trim());
                             window.location.href = "../sesion/indexSesion.php";
                         }
                     });
                 }
-            }).then(function () {
-                enviarCorreoNuevoUsuario(nombreUsuario.value.trim(), numNomina.value.trim(), correo.value.trim());
             }).catch(error => {
                 //console.error(error);
                 Swal.fire({
