@@ -127,7 +127,6 @@
 
                         // Create a container div
                         const container = document.createElement('div');
-                        container.style.textAlign = 'center'; // Center align text
                         container.style.fontSize = '0.7rem'; // Smaller font size
 
                         // Add the image to the container
