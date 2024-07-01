@@ -39,8 +39,6 @@ function banderaTipoPrueba() {
         llenarSubtipoPrueba();
         mostrarBloque(divNormaNombre, false);
         mostrarBloque(divNormaArchivo, false);
-        mostrarBloque(divCotas, false);
-        mostrarBloque(divImgCotas, false);
 
     } else if(tipoPrueba === '4' || tipoPrueba === '5'){ // otro caso
         mostrarBloque(divDetallesPrueba, true);
@@ -66,6 +64,8 @@ function subtipoPrueba(){
 
     if(subtipoPrueba === '1'){ //Dimensional-cotas especificas
         mostrarBloque(divCotas, true);
+    }else{
+        mostrarBloque(divCotas, false);
     }
 }
 
