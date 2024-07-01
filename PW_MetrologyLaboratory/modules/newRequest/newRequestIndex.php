@@ -14,15 +14,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!--Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- Tippy.js core styles -->
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
-
     <link rel="stylesheet" href="../../css/form.css">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <!-- -Archivos de jQuery-->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Tippy.js core styles -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
 
 
     <?php
@@ -128,19 +130,8 @@
                         container.style.textAlign = 'center'; // Center align text
                         container.style.fontSize = '0.7rem'; // Smaller font size
 
-                        /* Add text before the image
-                        const textBefore = document.createElement('p');
-                        textBefore.textContent = 'Aquí va texto antes de la imagen';
-
-                        container.appendChild(textBefore);*/
-
                         // Add the image to the container
                         container.appendChild(image);
-
-                        /* Add text after the image
-                        const textAfter = document.createElement('p');
-                        textAfter.textContent = 'Aquí va texto después de la imagen';
-                        container.appendChild(textAfter);*/
 
                         // Update the tippy content with the container
                         instance.setContent(container);
