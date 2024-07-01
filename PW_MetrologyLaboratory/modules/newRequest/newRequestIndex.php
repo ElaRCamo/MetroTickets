@@ -119,14 +119,17 @@
                         const url = URL.createObjectURL(blob);
                         // Create an image
                         const image = new Image();
-                        image.width = 350;
-                        image.height = 200;
+                        image.width = 300;
+                        image.height = 180;
                         image.style.display = 'block';
+                        image.style.float = 'left'; // Alinear a la izquierda
+                        image.style.padding = '5px'; // Padding de 5px
                         image.src = url;
 
                         // Create a container div
                         const container = document.createElement('div');
                         container.style.fontSize = '0.7rem'; // Smaller font size
+                        container.style.textAlign = 'left';
 
                         // Add the image to the container
                         container.appendChild(image);
