@@ -59,8 +59,7 @@ function banderaTipoPrueba() {
 
 function subtipoPrueba(){
     const divCotas = id("divCotas");
-    const selSubtipo = id("subtipoPrueba");
-    let subtipoPrueba = selSubtipo.value;
+    let subtipoPrueba = id("subtipoPrueba").value;
 
     if(subtipoPrueba === '1'){ //Dimensional-cotas especificas
         mostrarBloque(divCotas, true);
@@ -71,13 +70,18 @@ function subtipoPrueba(){
 
 function previewImageCotas(event) {
     const divImagenCotas = id("divImgCotas");
-    const reader = new FileReader();
-    reader.onload = function() {
-        const output = document.getElementById('capturaCotas');
-        output.src = reader.result;
+    let subtipoPrueba = id("subtipoPrueba").value;
+    if(subtipoPrueba === '1'){ //Dimensional-cotas especificas
+        mostrarBloque(divImagenCotas, true);
+        const reader = new FileReader();
+        reader.onload = function() {
+            const output = document.getElementById('capturaCotas');
+            output.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }else{
+        mostrarBloque(divImagenCotas, false);
     }
-    reader.readAsDataURL(event.target.files[0]);
-    mostrarBloque(divImagenCotas, true);
 }
 
 
