@@ -120,7 +120,7 @@
                         // Create an image
                         const image = new Image();
                         image.width = 300;
-                        image.height = 200;
+                        image.height = 180;
                         image.style.display = 'block';
                         image.style.margin = '0 auto'; // Center the image
                         image.src = url;
