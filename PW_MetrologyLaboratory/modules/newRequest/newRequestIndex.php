@@ -72,6 +72,8 @@
     <script src="../../js/cargarDatos.js"></script>
     <script src="../../js/insertarDatos.js"></script>
     <script src="../../js/validaciones.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
     <script type="text/javascript">
         let  esActualizacion = false;
         // ¿Se va actualizar una solicitud?
@@ -101,7 +103,7 @@
             }
         }
 
-        tippy('#tooltipDibujo', {
+        tippy('#modeloMate'+indexMaterial, {
             trigger: 'click',
             animation: 'shift-away',
             theme: 'light',
@@ -124,19 +126,19 @@
                         container.style.textAlign = 'center'; // Center align text
                         container.style.fontSize = '0.7rem'; // Smaller font size
 
-                        // Add text before the image
+                        /* Add text before the image
                         const textBefore = document.createElement('p');
                         textBefore.textContent = 'Aquí va texto antes de la imagen';
 
-                        container.appendChild(textBefore);
+                        container.appendChild(textBefore);*/
 
                         // Add the image to the container
                         container.appendChild(image);
 
-                        // Add text after the image
+                        /* Add text after the image
                         const textAfter = document.createElement('p');
                         textAfter.textContent = 'Aquí va texto después de la imagen';
-                        container.appendChild(textAfter);
+                        container.appendChild(textAfter);*/
 
                         // Update the tippy content with the container
                         instance.setContent(container);
@@ -149,8 +151,6 @@
             arrow: true, // Enable arrow
         });
     </script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
