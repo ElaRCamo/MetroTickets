@@ -45,9 +45,32 @@
                                                     <div class="invalid-feedback"></div>
                                                 </div>
                                             </div>
+                                            <div class="" id="divSubtipoPrueba">
+                                                <label for="subtipoPrueba">Subtipo de Prueba*</label>
+                                                <div class="form-group col-sm-6" >
+                                                    <select class="form-control" id="subtipoPrueba" onchange="" name="subtipoPrueba" title="Subtipo De Prueba" required data-error="Por favor seleccione un subtipo de prueba válido.">
+                                                        <option value="">Seleccione el subtipo de prueba*</option>
+                                                    </select>
+                                                    <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="" id="divCotas">
+                                                <label for="imgCotas">Subtipo de Prueba*</label>
+                                                <div class="form-group col-sm-6" >
+                                                    <input type="file" class="form-control" id="imgCotas" name="imgCotas" onchange="previewImage(event)">
+                                                    <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-sm-6" >
+                                                <div class="text-center justify-content-center " id="divImgCotas">
+                                                    <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="capturaCotas" alt="ImgCotas">
+                                                </div>
+                                            </div>
                                             <div class="" id="normaNombre">
                                                 <label for="norma">Norma*</label>
-                                                <div class="form-group col-sm-6" id="">
+                                                <div class="form-group col-sm-6" >
                                                     <input type="text" class="form-control" id="norma" placeholder="Norma*" data-error="Por favor indique la norma.">
                                                     <div class="input-group-icon"><i class="las la-certificate"></i></div>
                                                     <div class="invalid-feedback"></div>
@@ -55,7 +78,7 @@
                                             </div>
                                             <div class="" id="normaArchivo">
                                                 <label for="normaFile">Seleccione el Documento de la Norma</label>
-                                                <div class="form-group col-sm-6" id="">
+                                                <div class="form-group col-sm-6" >
                                                     <input type="file" class="form-control" id="normaFile" name="normaFile" placeholder="Seleccione el documento de la norma" data-error="Por favor seleccione el archivo de la norma">
                                                     <div class="input-group-icon"><i class="las la-file-pdf"></i></div>
                                                     <div class="invalid-feedback"></div>
@@ -63,7 +86,7 @@
                                             </div>
                                             <div class="" id="detallesPrueba">
                                                 <label for="especificaciones">Especificaciones de la prueba / Comentarios*</label>
-                                                <div class="form-group col-sm-12" id="">
+                                                <div class="form-group col-sm-12" >
                                                     <textarea class="form-control" id="especificaciones" placeholder="Especificaciones de la prueba / Comentarios" required data-error="Por favor ingresa las especifícaciones de la prueba"></textarea>
                                                     <div class="input-group-icon"><i class="las la-file-alt"></i></div>
                                                     <div class="invalid-feedback"></div>
@@ -88,7 +111,7 @@
                                                         <div class="col-sm-6">
                                                             <div class="" id="div-OEM1">
                                                                 <label for="cliente1">Cliente (OEM)*</label>
-                                                                <div class="form-group" id="">
+                                                                <div class="form-group" >
                                                                     <select id="cliente1" name="clientes[]" class="form-control" onchange="llenarPlataforma(1)" required data-error="Por favor ingresa el area solicitante">
                                                                         <option value="">Seleccione el cliente (OEM)*</option>
                                                                     </select>
@@ -100,7 +123,7 @@
                                                         <div class="col-sm-6">
                                                             <div class="" id="plataformaDiv1">
                                                                 <label for="plataforma1">Plataforma*</label>
-                                                                <div class="form-group" id="">
+                                                                <div class="form-group">
                                                                     <select id="plataforma1" name="plataformas[]" class="form-control" required data-error="Por favor ingresa la plataforma">
                                                                         <option value="">Seleccione la plataforma*</option>
                                                                     </select>
@@ -112,7 +135,7 @@
                                                         <div class="col-sm-6">
                                                             <div class="" id="divNumeroParte1">
                                                                 <label for="numeroParte1">Número de parte*</label>
-                                                                <div class="form-group" id="">
+                                                                <div class="form-group">
                                                                     <input id="numeroParte1" name="numeroParte1" type="text" class="form-control" placeholder="Número de Parte*" required data-error="Por favor ingresa el número de parte">
                                                                     <div class="input-group-icon"><i class="las la-cubes"></i></div>
                                                                     <div class="invalid-feedback"></div>
@@ -122,7 +145,7 @@
                                                         <div class="col-sm-6">
                                                             <div class="" id="cantidadMaterial1">
                                                                 <label for="cdadMaterial1">Cantidad*</label>
-                                                                <div class="form-group" id="">
+                                                                <div class="form-group">
                                                                     <input id="cdadMaterial1" name="cdadesMaterial[]" type="number" class="form-control" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
                                                                     <div class="input-group-icon"><i class="las la-cubes"></i></div>
                                                                     <div class="invalid-feedback"></div>
@@ -132,7 +155,7 @@
                                                         <div class="col-sm-6">
                                                             <div class="" id="divDibujo1">
                                                                 <label for="revDibujo1">Revisión de dibujo*</label>
-                                                                <div class="form-group" id="">
+                                                                <div class="form-group">
                                                                     <input id="revDibujo1" name="revDibujo1" type="text" maxlength="3" class="form-control" placeholder="Revisión de dibujo*" required data-error="Por favor ingresa la revisión de dibujo">
                                                                     <div class="input-group-icon"><i class="las la-cubes"></i></div>
                                                                     <div class="invalid-feedback"></div>
@@ -142,7 +165,7 @@
                                                         <div class="col-sm-6">
                                                             <div class="" id="divModMate1">
                                                                 <label for="modeloMate1">Mod. matemático*</label>
-                                                                <div class="form-group" id="">
+                                                                <div class="form-group">
                                                                     <input id="modeloMate1" name="modeloMate1" type="text" maxlength="3" class="form-control" placeholder="Mod. Matemático*" required data-error="Por favor ingresa el modelo matemático">
                                                                     <div class="input-group-icon"><i class="las la-cubes"></i></div>
                                                                     <div class="invalid-feedback"></div>
@@ -230,7 +253,17 @@
 </main>
 
 
-
+//Previsualizar imagen
+<script>
+    function previewImage(event) {
+        const reader = new FileReader();
+        reader.onload = function() {
+            const output = document.getElementById('capturaCotas');
+            output.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
 
 
 
