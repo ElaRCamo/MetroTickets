@@ -1,75 +1,89 @@
 const id = str => document.getElementById(str);
 
-let cbTipo = id("tipoPrueba");
-let divNormaNombre = id("normaNombre");
-const divNormaArchivo = id("normaArchivo");
-const divPruebaEspecial = id("pruebaEspecial");
-const divDetallesPrueba = id("detallesPrueba");
-const divAgregarNumParte = id("agregarNumParte");
-<!-- Para agregar material por número de parte -->
-const divNumeroParte = id("numeroParte1");
-const divDescripcionMaterial = id("descripcionMaterial1");
-const divPlataforma = id("plataformaDiv1");
-const divOEM = id("div-OEM1");
-const divCantidadMaterial = id("cantidadMaterial1");
-const cbTipoEva = id("tipoEvaluacion");
-const divSelectTipoPrueba = id("selectTipoPrueba");
-const cbOtroTipo = id("tipoPruebaEspecial");
-const divOtroTipoPrueba = id("otroTipoPrueba");
-const botonEnviar = id("submitRequest");
-
 const mostrarBloque = (elemento, mostrar) => {
     elemento.style.display = mostrar ? "block" : "none";
 };
 
-let tipo;
-
 function banderaTipoPrueba() {
-    tipo = cbTipo.value;
 
-    mostrarBloque(divOEM, tipo !== '');
-    mostrarBloque(divAgregarNumParte, tipo !== '');
-    mostrarBloque(divNumeroParte, tipo !== '');
-    mostrarBloque(divDescripcionMaterial, tipo !== '');
-    mostrarBloque(divPlataforma, tipo !== '');
-    mostrarBloque(divCantidadMaterial, tipo !== '');
+    const selTipoPrueba = id("tipoPrueba");
+    const divSubtipoPrueba = id("subtipoPrueba");
+    const divNormaNombre = id("normaNombre");
+    const divNormaArchivo = id("normaArchivo");
+    const divDetallesPrueba = id("detallesPrueba");
+    const divRegistroPiezas = id("newRow1");
+    const botonEnviar = id("submitRequest");
 
-    if(tipo === '4' || tipo === '3') { // dureza FOAM || dureza insitu
+    let tipoPrueba = selTipoPrueba.value;
+
+    if(tipoPrueba === '1' || tipoPrueba === '2' || tipoPrueba === '6') { // IDL/IFD | SOFTNESS | OTRO
         mostrarBloque(divNormaNombre, true);
         mostrarBloque(divNormaArchivo, true);
-        mostrarBloque(divAgregarNumParte, true);
-        mostrarBloque(divNumeroParte, true);
-        mostrarBloque(divDescripcionMaterial, true);
-        mostrarBloque(divPlataforma, true);
-        mostrarBloque(botonEnviar, true);
-        mostrarBloque(divPruebaEspecial, false);
         mostrarBloque(divDetallesPrueba, true);
+        mostrarBloque(divRegistroPiezas, true);
 
-    } else if (tipo === '5') { // especiales/otra
-        mostrarBloque(divNormaNombre, true);
-        mostrarBloque(divNormaArchivo, true);
-        mostrarBloque(divPruebaEspecial, true);
+    } else if (tipoPrueba === '3') { // DIMENSIONAL
+        mostrarBloque(divSubtipoPrueba, true);
         mostrarBloque(divDetallesPrueba, true);
-        mostrarBloque(divAgregarNumParte, true);
-        mostrarBloque(divNumeroParte, true);
-        mostrarBloque(divDescripcionMaterial, true);
-        mostrarBloque(divPlataforma, true);
-        mostrarBloque(botonEnviar, true);
-        mostrarBloque(divCantidadMaterial, true);
-        mostrarBloque(divOtroTipoPrueba, false);
+        mostrarBloque(divRegistroPiezas, true);
+
     } else { // otro caso
-        mostrarBloque(divNormaNombre, false);
-        mostrarBloque(divNormaArchivo, false);
-        mostrarBloque(divPruebaEspecial, false);
         mostrarBloque(divDetallesPrueba, true);
-        mostrarBloque(botonEnviar, true);
-        mostrarBloque(divOtroTipoPrueba, false);
+        mostrarBloque(divRegistroPiezas, true);
     }
 
     if (esActualizacion === true){
         mostrarBloque(botonEnviar, false);
     }
 }
+
+function subtipoPrueba(){
+    const divCotas = id("divCotas");
+    const selSubtipo = id("subtipoPrueba");
+    let subtipoPrueba = selSubtipo.value;
+
+    if(subtipoPrueba === '1'){ //Dimensional-cotas especificas
+        mostrarBloque(divCotas, true);
+    }
+}
+
+function previewImageCotas(event) {
+    const divImagenCotas = id("divImgCotas");
+    const reader = new FileReader();
+    reader.onload = function() {
+        const output = document.getElementById('capturaCotas');
+        output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+    mostrarBloque(divImagenCotas, true);
+}
+
+
+/*****************************************
+ *************************************************
+ * ***************************************************
+ * ***************************************************
+ * funciones no validadas ---> ****************************
+ * ********************************************************
+ * ****************************************************
+ * *************************************************
+ * ********************************************/
+
+
+
+
+<!-- Para agregar material por número de parte -->
+const divNumeroParte = id("numeroParte1");
+const divDescripcionMaterial = id("descripcionMaterial1");
+const divPlataforma = id("plataformaDiv1");
+const divOEM = id("div-OEM1");
+const divCantidadMaterial = id("cantidadMaterial1");
+
+
+
+
+let tipo;
+
 
 // Función para cerrar sesión
 function cerrarSesion() {
