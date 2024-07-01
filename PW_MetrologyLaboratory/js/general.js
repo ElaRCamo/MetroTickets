@@ -61,7 +61,7 @@ function fsubtipoPrueba(){
     const divCotas = id("divCotas");
     let subtipo= id("subtipoPrueba").value;
 
-    if(subtipo === '1'){ //Dimensional-cotas especificas
+    if(subtipo === '2'){ //Dimensional-cotas especificas
         mostrarBloque(divCotas, true);
     }else{
         mostrarBloque(divCotas, false);
