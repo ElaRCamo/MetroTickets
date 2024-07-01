@@ -35,6 +35,13 @@ function llenarSubtipoPrueba() {
         }
     });
 }
+
+
+
+
+
+
+
 let dataClientes;
 function llenarCliente(i){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
