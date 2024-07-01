@@ -14,14 +14,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!--Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Tippy.js core styles -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+
     <link rel="stylesheet" href="../../css/form.css">
     <link rel="stylesheet" href="../../css/style.css">
     <!-- -Archivos de jQuery-->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Tippy.js core styles -->
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+
 
     <?php
         session_start();
@@ -36,40 +38,6 @@
             echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php'>";
         }
     ?>
-
-    <style>
-
-        /*Ubica el logo de ? dentro del input*/
-        #tooltipModelo, #tooltipCliente, #tooltipObs,#tooltipNorma,#tooltipDocNorma,#tooltipTipPrueba,
-        #tooltipDibujo, #tooltipCdad , #tooltipNumP, #tooltipPlataforma{
-            position: absolute;
-            right: 0.5rem;
-            top: 10%;
-            cursor: pointer;
-            color: #aaa; /* Icon color */
-            max-width: 1rem;
-            padding-top: 0.4rem;
-        }
-
-        /*Colores tooltip*/
-        .tippy-box[data-theme~='light'] {
-            background-color: #005195;
-            color: #f1f4f9;
-            border: 2px solid rgba(130, 175, 215, 0.1);
-        }
-
-        /*arrow*/
-        /* The border */
-        .tippy-box[data-theme~='light'] > .tippy-svg-arrow > svg:first-child {
-            fill: #1733a1;
-        }
-
-        /* The fill */
-        .tippy-box[data-theme~='light'] > .tippy-svg-arrow > svg:last-child {
-            fill: #1733a1;
-        }
-
-    </style>
 </head>
 <body onload="llenarTipoPrueba(); esActualizacionPrueba();">
     <?php
