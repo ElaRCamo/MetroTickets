@@ -21,16 +21,19 @@ function banderaTipoPrueba() {
         mostrarBloque(divNormaArchivo, true);
         mostrarBloque(divDetallesPrueba, true);
         mostrarBloque(divRegistroPiezas, true);
+        mostrarBloque(botonEnviar, true);
 
     } else if (tipoPrueba === '3') { // DIMENSIONAL
         mostrarBloque(divSubtipoPrueba, true);
         mostrarBloque(divDetallesPrueba, true);
         mostrarBloque(divRegistroPiezas, true);
+        mostrarBloque(botonEnviar, true);
         llenarSubtipoPrueba();
 
-    } else { // otro caso
+    } else if(tipoPrueba === '4' || tipoPrueba === '5'){ // otro caso
         mostrarBloque(divDetallesPrueba, true);
         mostrarBloque(divRegistroPiezas, true);
+        mostrarBloque(botonEnviar, true);
     }
 
     if (esActualizacion === true){
