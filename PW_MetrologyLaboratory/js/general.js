@@ -39,7 +39,6 @@ function banderaTipoPrueba() {
         llenarSubtipoPrueba();
         mostrarBloque(divNormaNombre, false);
         mostrarBloque(divNormaArchivo, false);
-        mostrarBloque(divSubtipoPrueba, false);
         mostrarBloque(divCotas, false);
         mostrarBloque(divImgCotas, false);
 
