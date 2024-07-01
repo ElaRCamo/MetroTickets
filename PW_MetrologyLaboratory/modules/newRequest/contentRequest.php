@@ -63,6 +63,12 @@
                                                     <div class="invalid-feedback"></div>
                                                 </div>
                                             </div>
+
+                                            <div class="form-group col-sm-12" id="divImgCotas">
+                                                <div class="text-center justify-content-center">
+                                                    <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="capturaCotas" alt="ImgCotas">
+                                                </div>
+                                            </div>
                                             <div class="col-sm-4" id="normaNombre">
                                                 <label for="norma">Norma*</label>
                                                 <div class="form-group " >
@@ -77,11 +83,6 @@
                                                     <input type="file" class="form-control" id="normaFile" name="normaFile" placeholder="Seleccione el documento de la norma" data-error="Por favor seleccione el archivo de la norma">
                                                     <div class="input-group-icon"><i class="las la-file-pdf"></i></div>
                                                     <div class="invalid-feedback"></div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-sm-4" id="divImgCotas">
-                                                <div class="text-center justify-content-center">
-                                                    <img src="" class="col-md-6 mb-3 ms-md-3 rounded img-fluid img-thumbnail" id="capturaCotas" alt="ImgCotas">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12" id="detallesPrueba">
