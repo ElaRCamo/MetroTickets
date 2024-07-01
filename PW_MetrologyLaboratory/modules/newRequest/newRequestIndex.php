@@ -122,7 +122,6 @@
                         image.width = 350;
                         image.height = 200;
                         image.style.display = 'block';
-                        image.style.margin = '0 auto'; // Center the image
                         image.src = url;
 
                         // Create a container div
