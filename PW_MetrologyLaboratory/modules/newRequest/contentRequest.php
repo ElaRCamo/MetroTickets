@@ -48,7 +48,7 @@
                                             <div class="col-sm-4" id="divSubtipoPrueba">
                                                 <label for="subtipoPrueba">Subtipo de Prueba*</label>
                                                 <div class="form-group " >
-                                                    <select class="form-control" id="subtipoPrueba" onchange="subtipoPrueba()" name="subtipoPrueba" title="Subtipo De Prueba" required data-error="Por favor seleccione un subtipo de prueba válido.">
+                                                    <select class="form-control" id="subtipoPrueba" onchange="fsubtipoPrueba()" name="subtipoPrueba" title="Subtipo De Prueba" required data-error="Por favor seleccione un subtipo de prueba válido.">
                                                         <option value="">Seleccione el subtipo de prueba*</option>
                                                     </select>
                                                     <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>

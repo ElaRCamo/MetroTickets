@@ -27,6 +27,8 @@ function banderaTipoPrueba() {
         mostrarBloque(divRegistroPiezas, true);
         mostrarBloque(botonEnviar, true);
         mostrarBloque(divSubtipoPrueba, false);
+        mostrarBloque(divCotas, false);
+        mostrarBloque(divImgCotas, false);
 
     } else if (tipoPrueba === '3') { // DIMENSIONAL
         mostrarBloque(divSubtipoPrueba, true);
@@ -46,6 +48,8 @@ function banderaTipoPrueba() {
         mostrarBloque(divNormaNombre, false);
         mostrarBloque(divNormaArchivo, false);
         mostrarBloque(divSubtipoPrueba, false);
+        mostrarBloque(divCotas, false);
+        mostrarBloque(divImgCotas, false);
     }
 
     if (esActualizacion === true){
@@ -53,7 +57,7 @@ function banderaTipoPrueba() {
     }
 }
 
-function subtipoPrueba(){
+function fsubtipoPrueba(){
     const divCotas = id("divCotas");
     let subtipo= id("subtipoPrueba").value;
 
