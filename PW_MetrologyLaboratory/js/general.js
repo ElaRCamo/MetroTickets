@@ -71,7 +71,7 @@ function fsubtipoPrueba(){
 function previewImageCotas(event) {
     const divImagenCotas = id("divImgCotas");
     let subtipo = id("subtipoPrueba").value;
-    if(subtipo === '1'){ //Dimensional-cotas especificas
+    if(subtipo === '2'){ //Dimensional-cotas especificas
         mostrarBloque(divImagenCotas, true);
         const reader = new FileReader();
         reader.onload = function() {
