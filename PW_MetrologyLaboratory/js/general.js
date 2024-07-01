@@ -26,6 +26,7 @@ function banderaTipoPrueba() {
         mostrarBloque(divSubtipoPrueba, true);
         mostrarBloque(divDetallesPrueba, true);
         mostrarBloque(divRegistroPiezas, true);
+        llenarSubtipoPrueba();
 
     } else { // otro caso
         mostrarBloque(divDetallesPrueba, true);

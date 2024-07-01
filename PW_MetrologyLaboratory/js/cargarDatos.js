@@ -1,5 +1,5 @@
 function llenarTipoPrueba() {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + id("tipoEvaluacion").value, function (data) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php', function (data) {
         var selectS = id("tipoPrueba");
         selectS.innerHTML = ""; //limpiar contenido
 
@@ -17,6 +17,24 @@ function llenarTipoPrueba() {
     });
 }
 
+function llenarSubtipoPrueba() {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSubtipoPrueba.php?id_tipoPrueba=' + id("tipoPrueba").value, function (data) {
+        var selectS = id("subtipoPrueba");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione el subtipo de prueba*";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
+        for (var i = 0; i < data.data.length; i++) {
+            var createOptionS = document.createElement("option");
+            createOptionS.value = data.data[i].id_subtipo;
+            createOptionS.text = data.data[i].descripcion;
+            selectS.appendChild(createOptionS);
+        }
+    });
+}
 let dataClientes;
 function llenarCliente(i){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
