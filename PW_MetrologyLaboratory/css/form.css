@@ -303,7 +303,9 @@ h5{
     min-width: 100%;
 }
 
-
+#capturaCotas{
+    max-width: 100px;
+}
 
 /*Ocultar divs con inputs opcionales*/
 #divSubtipoPrueba, #normaNombre, #normaArchivo, #detallesPrueba,
