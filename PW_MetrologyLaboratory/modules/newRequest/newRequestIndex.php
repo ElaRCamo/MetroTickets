@@ -36,6 +36,40 @@
             echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php'>";
         }
     ?>
+
+    <style>
+
+        /*Ubica el logo de ? dentro del input*/
+        #tooltipModelo, #tooltipCliente, #tooltipObs,#tooltipNorma,#tooltipDocNorma,#tooltipTipPrueba,
+        #tooltipDibujo, #tooltipCdad , #tooltipNumP, #tooltipPlataforma{
+            position: absolute;
+            right: 0.5rem;
+            top: 10%;
+            cursor: pointer;
+            color: #aaa; /* Icon color */
+            max-width: 1rem;
+            padding-top: 0.4rem;
+        }
+
+        /*Colores tooltip*/
+        .tippy-box[data-theme~='light'] {
+            background-color: #005195;
+            color: #f1f4f9;
+            border: 2px solid rgba(130, 175, 215, 0.1);
+        }
+
+        /*arrow*/
+        /* The border */
+        .tippy-box[data-theme~='light'] > .tippy-svg-arrow > svg:first-child {
+            fill: #1733a1;
+        }
+
+        /* The fill */
+        .tippy-box[data-theme~='light'] > .tippy-svg-arrow > svg:last-child {
+            fill: #1733a1;
+        }
+
+    </style>
 </head>
 <body onload="llenarTipoPrueba(); esActualizacionPrueba();">
     <?php
