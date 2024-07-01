@@ -14,6 +14,8 @@ function banderaTipoPrueba() {
     const divTitlePiezas = id("agregarNumParte");
     const divRegistroPiezas = id("newRow1");
     const botonEnviar = id("submitRequest");
+    const divCotas = id("divCotas");
+    const divImgCotas = id("divImgCotas");
 
     let tipoPrueba = selTipoPrueba.value;
 
@@ -24,6 +26,9 @@ function banderaTipoPrueba() {
         mostrarBloque(divTitlePiezas, true);
         mostrarBloque(divRegistroPiezas, true);
         mostrarBloque(botonEnviar, true);
+        mostrarBloque(divSubtipoPrueba, false);
+        mostrarBloque(divCotas, false);
+        mostrarBloque(divImgCotas, false);
 
     } else if (tipoPrueba === '3') { // DIMENSIONAL
         mostrarBloque(divSubtipoPrueba, true);
@@ -32,12 +37,22 @@ function banderaTipoPrueba() {
         mostrarBloque(divRegistroPiezas, true);
         mostrarBloque(botonEnviar, true);
         llenarSubtipoPrueba();
+        mostrarBloque(divNormaNombre, false);
+        mostrarBloque(divNormaArchivo, false);
+        mostrarBloque(divSubtipoPrueba, false);
+        mostrarBloque(divCotas, false);
+        mostrarBloque(divImgCotas, false);
 
     } else if(tipoPrueba === '4' || tipoPrueba === '5'){ // otro caso
         mostrarBloque(divDetallesPrueba, true);
         mostrarBloque(divTitlePiezas, true);
         mostrarBloque(divRegistroPiezas, true);
         mostrarBloque(botonEnviar, true);
+        mostrarBloque(divNormaNombre, false);
+        mostrarBloque(divNormaArchivo, false);
+        mostrarBloque(divSubtipoPrueba, false);
+        mostrarBloque(divCotas, false);
+        mostrarBloque(divImgCotas, false);
     }
 
     if (esActualizacion === true){
