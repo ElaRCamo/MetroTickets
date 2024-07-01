@@ -119,8 +119,8 @@
                         const url = URL.createObjectURL(blob);
                         // Create an image
                         const image = new Image();
-                        image.width = 250;
-                        image.height = 150;
+                        image.width = 350;
+                        image.height = 250;
                         image.style.display = 'block';
                         image.style.margin = '0 auto'; // Center the image
                         image.src = url;
