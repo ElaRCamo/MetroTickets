@@ -306,8 +306,8 @@ h5{
 
 
 /*Ocultar divs con inputs opcionales*/
-#subtipoPrueba, #normaNombre, #normaArchivo, #detallesPrueba,
-#newRow1, #divCotas{
+#divSubtipoPrueba, #normaNombre, #normaArchivo, #detallesPrueba,
+#newRow1, #divCotas, #divImgCotas{
     display: none;
 }
 

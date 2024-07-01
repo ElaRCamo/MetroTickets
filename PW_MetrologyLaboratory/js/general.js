@@ -7,7 +7,7 @@ const mostrarBloque = (elemento, mostrar) => {
 function banderaTipoPrueba() {
 
     const selTipoPrueba = id("tipoPrueba");
-    const divSubtipoPrueba = id("subtipoPrueba");
+    const divSubtipoPrueba = id("divSubtipoPrueba");
     const divNormaNombre = id("normaNombre");
     const divNormaArchivo = id("normaArchivo");
     const divDetallesPrueba = id("detallesPrueba");
