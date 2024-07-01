@@ -59,7 +59,6 @@
         window.addEventListener("load",async () => {
             await initDataTableClientes();
             await initDataTablePlataformas();
-            await initDataTableMateriales();
             await initDataTableUsuarios();
         })
     </script>
