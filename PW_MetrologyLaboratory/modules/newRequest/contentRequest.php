@@ -168,6 +168,7 @@
                                                                 <label for="modeloMate1">Mod. matemático*</label>
                                                                 <div class="form-group">
                                                                     <input id="modeloMate1" name="modeloMate1" type="text" maxlength="3" class="form-control" placeholder="Mod. Matemático*" required data-error="Por favor ingresa el modelo matemático">
+                                                                    <i class="far fa-question-circle position-absolute" id="tooltipModelo"></i>
                                                                     <div class="input-group-icon"><i class="las la-cubes"></i></div>
                                                                     <div class="invalid-feedback"></div>
                                                                 </div>

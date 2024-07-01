@@ -20,6 +20,9 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Tippy.js core styles -->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css">
+
     <?php
         session_start();
         $nombreUser = $_SESSION['nombreUsuario'];
@@ -97,7 +100,57 @@
                 aviso.textContent = " ";
             }
         }
+
+        tippy('#tooltipDibujo', {
+            trigger: 'click',
+            animation: 'shift-away',
+            theme: 'light',
+            onShow(instance) {
+                fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/modeloMatematico.png')
+                    .then((response) => response.blob())
+                    .then((blob) => {
+                        // Convert the blob into a URL
+                        const url = URL.createObjectURL(blob);
+                        // Create an image
+                        const image = new Image();
+                        image.width = 50;
+                        image.height = 50;
+                        image.style.display = 'block';
+                        image.style.margin = '0 auto'; // Center the image
+                        image.src = url;
+
+                        // Create a container div
+                        const container = document.createElement('div');
+                        container.style.textAlign = 'center'; // Center align text
+                        container.style.fontSize = '0.7rem'; // Smaller font size
+
+                        // Add text before the image
+                        const textBefore = document.createElement('p');
+                        textBefore.textContent = 'Aquí va texto antes de la imagen';
+
+                        container.appendChild(textBefore);
+
+                        // Add the image to the container
+                        container.appendChild(image);
+
+                        // Add text after the image
+                        const textAfter = document.createElement('p');
+                        textAfter.textContent = 'Aquí va texto después de la imagen';
+                        container.appendChild(textAfter);
+
+                        // Update the tippy content with the container
+                        instance.setContent(container);
+                    })
+                    .catch((error) => {
+                        // Fallback if the network request failed
+                        instance.setContent(`Request failed. ${error}`);
+                    });
+            },
+            arrow: true, // Enable arrow
+        });
     </script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
