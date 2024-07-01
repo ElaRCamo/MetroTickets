@@ -30,7 +30,6 @@
                 <ul>
                     <li><a href="#clientes"><h5>Clientes</h5></a></li>
                     <li><a href="#plataformas"><h5>Plataformas</h5></a></li>
-                    <li><a href="#materiales"><h5>Materiales</h5></a></li>
                     <li><a href="#usuarios"><h5>Usuarios</h5></a></li>
                 </ul>
             </nav>
@@ -89,7 +88,6 @@
                         </table>
                     </div>
                 </section>
-
                 <!-- Usuarios -->
                 <section  id="sectionUsuarios">
                     <h3 id="usuarios">Usuarios</h3>
