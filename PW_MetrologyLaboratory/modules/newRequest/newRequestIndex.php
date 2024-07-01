@@ -103,7 +103,7 @@
             }
         }
 
-        tippy('#modeloMate'+indexMaterial, {
+        tippy('#tooltipModelo'+indexMaterial, {
             trigger: 'click',
             animation: 'shift-away',
             theme: 'light',
@@ -116,6 +116,7 @@
                         // Create an image
                         const image = new Image();
                         image.width = 350;
+                        image.height = 200;
                         image.style.display = 'block';
                         image.style.margin = '0 auto'; // Center the image
                         image.src = url;

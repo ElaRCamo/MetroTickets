@@ -309,8 +309,7 @@ h5{
 
 /*TOOLTIP*/
 /*Ubica el logo de ? dentro del input*/
-#tooltipModelo, #tooltipCliente, #tooltipObs,#tooltipNorma,#tooltipDocNorma,#tooltipTipPrueba,
-#tooltipDibujo, #tooltipCdad , #tooltipNumP, #tooltipPlataforma{
+#tooltipModelo1{
     position: absolute;
     right: 0.5rem;
     top: 10%;
