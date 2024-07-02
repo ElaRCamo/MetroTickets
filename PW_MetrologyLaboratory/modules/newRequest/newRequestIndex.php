@@ -72,78 +72,13 @@
         });
     </script>
     <script src="../../js/general.js"></script>
+    <script src="../../js/form.js"></script>
     <script src="../../js/actualizarDatos.js"></script>
     <script src="../../js/cargarDatos.js"></script>
     <script src="../../js/insertarDatos.js"></script>
     <script src="../../js/validaciones.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
-    <script type="text/javascript">
-        let  esActualizacion = false;
-        // ¿Se va actualizar una solicitud?
-        const id_update = new URLSearchParams(window.location.search).get('id_update');
-        function esActualizacionPrueba(){
-            if (id_update !== null && id_update !== '') {
-                cargarDatosPrueba(id_update);
-                actualizarTituloH1(id_update);
-                showButton("updateRequest");
-                hideButton("submitRequest");
-                esActualizacion = true;
-            }else{
-                hideButton("updateRequest");
-            }
-        }
-
-        function actualizarTituloH1(id_update) {
-            var divh1 = document.querySelector("#divh1");
-            var titulo1 = divh1.querySelector("h1");
-            var aviso = divh1.querySelector("span");
-
-            if (titulo1) {
-                titulo1.textContent = "Actualizar Solicitud " + id_update;
-            }
-            if (aviso){
-                aviso.textContent = " ";
-            }
-        }
-
-        tippy('#tooltipModelo'+indexMaterial, {
-            trigger: 'click',
-            animation: 'shift-away',
-            theme: 'light',
-            onShow(instance) {
-                fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/modeloMatematico.png')
-                    .then((response) => response.blob())
-                    .then((blob) => {
-                        // Convert the blob into a URL
-                        const url = URL.createObjectURL(blob);
-                        // Create an image
-                        const image = new Image();
-                        image.width = 300;
-                        image.height = 180;
-                        image.style.display = 'block';
-                        image.style.margin = '0 auto'; // Center the image
-                        image.src = url;
-
-                        // Create a container div
-                        const container = document.createElement('div');
-                        container.style.textAlign = 'start'; // Center align text
-                        container.style.fontSize = '0.7rem'; // Smaller font size
-
-                        // Add the image to the container
-                        container.appendChild(image);
-
-                        // Update the tippy content with the container
-                        instance.setContent(container);
-                    })
-                    .catch((error) => {
-                        // Fallback if the network request failed
-                        instance.setContent(`Request failed. ${error}`);
-                    });
-            },
-            arrow: true, // Enable arrow
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
