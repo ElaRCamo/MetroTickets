@@ -1,5 +1,3 @@
-const id = str => document.getElementById(str);
-
 const mostrarBloque = (elemento, mostrar) => {
     elemento.style.display = mostrar ? "block" : "none";
 };
