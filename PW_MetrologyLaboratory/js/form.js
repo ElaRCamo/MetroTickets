@@ -244,7 +244,7 @@ function validarFormNewRequest() {
     const esSubtipoValido = validarSelect('subtipoPrueba');
     const esInputImgValido = validarInput('imgCotas');
     const esNormaValido = validarInput('norma');
-    const esArchivoValido = validarInput('normaFile');//No es obligatorio
+    //const esArchivoValido = validarInput('normaFile');//No es obligatorio
     const esObservacionesValido = validarInput('especificaciones');
     let piezas = validarPiezas();
     let sonTodasPiezasValidas = (
