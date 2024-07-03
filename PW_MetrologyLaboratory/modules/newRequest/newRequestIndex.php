@@ -61,8 +61,8 @@
         $(document).ready(function() {
             $(document).on('click', '[id^="addNumParte"]', function(e) {
                 e.preventDefault();
-                agregarPieza(indexMaterial);
-                //llenarCliente(indexMaterial);
+                agregarPieza();
+                llenarCliente(indexMaterial);
             });
 
             $(document).on('click', '.remove-lnk', function(e) {

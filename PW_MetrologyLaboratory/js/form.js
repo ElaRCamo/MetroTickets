@@ -140,7 +140,7 @@ tippy('#tooltipModelo'+indexMaterial, {
 });
 
 
-function agregarPieza(indexMaterial) {
+function agregarPieza() {
     indexMaterial++;
 
     var newRow = $('<div id="newRow' + indexMaterial + '" class="row row-cols-xl-3 clearfix">'
@@ -223,7 +223,6 @@ function agregarPieza(indexMaterial) {
         + '</div>'
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
-    llenarCliente(indexMaterial);
 }
 
 
