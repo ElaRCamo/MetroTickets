@@ -14,6 +14,8 @@ function banderaTipoPrueba() {
     const botonEnviar = id("submitRequest");
     const divCotas = id("divCotas");
     const divImgCotas = id("divImgCotas");
+    const divTitlePersonal = id("addPersonalTitle");
+    const divAddPersonal = id("newRowPer1");
 
     let tipoPrueba = selTipoPrueba.value;
 
@@ -27,6 +29,8 @@ function banderaTipoPrueba() {
         mostrarBloque(divSubtipoPrueba, false);
         mostrarBloque(divCotas, false);
         mostrarBloque(divImgCotas, false);
+        mostrarBloque(divTitlePersonal, false);
+        mostrarBloque(divAddPersonal, false);
 
     } else if (tipoPrueba === '3') { // DIMENSIONAL
         mostrarBloque(divSubtipoPrueba, true);
@@ -37,8 +41,10 @@ function banderaTipoPrueba() {
         llenarSubtipoPrueba();
         mostrarBloque(divNormaNombre, false);
         mostrarBloque(divNormaArchivo, false);
+        mostrarBloque(divTitlePersonal, false);
+        mostrarBloque(divAddPersonal, false);
 
-    } else if(tipoPrueba === '4' || tipoPrueba === '5'){ // COLOR | MUNSELL
+    } else if(tipoPrueba === '4'){ // COLOR
         mostrarBloque(divDetallesPrueba, true);
         mostrarBloque(divTitlePiezas, true);
         mostrarBloque(divRegistroPiezas, true);
@@ -48,6 +54,20 @@ function banderaTipoPrueba() {
         mostrarBloque(divSubtipoPrueba, false);
         mostrarBloque(divCotas, false);
         mostrarBloque(divImgCotas, false);
+        mostrarBloque(divTitlePersonal, false);
+        mostrarBloque(divAddPersonal, false);
+    }else if(tipoPrueba === '5') { //MUNSELL
+        mostrarBloque(divDetallesPrueba, true);
+        mostrarBloque(divTitlePiezas, true);
+        mostrarBloque(divRegistroPiezas, true);
+        mostrarBloque(botonEnviar, true);
+        mostrarBloque(divNormaNombre, false);
+        mostrarBloque(divNormaArchivo, false);
+        mostrarBloque(divSubtipoPrueba, false);
+        mostrarBloque(divCotas, false);
+        mostrarBloque(divImgCotas, false);
+        mostrarBloque(divTitlePersonal, true);
+        mostrarBloque(divAddPersonal, true);
     }
 
     if (esActualizacion === true){
