@@ -297,7 +297,7 @@ h5{
 /*Ubica el logo de ? dentro del input*/
 [id^='tooltipModelo'], [id^='tooltipDibujo']{
     position: absolute;
-    right: 0.5rem;
+    right: 0.7rem;
     top: 10%;
     cursor: pointer;
     color: #aaa; /* Color del ícono */
