@@ -178,50 +178,47 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-
                                         <!-- Para agregar registro de personal-->
                                         <div class="form-group col-sm-12" id="addPersonalTitle">
-                                            <table class="table table-borderless" id="materialesTitulo">
+                                            <table class="table table-borderless" id="personalTitulo">
                                                 <tr>
                                                     <td class="tdH6">
                                                         <h6>REGISTRO DE PERSONAL</h6>
                                                     </td>
                                                     <td class="tdButton">
-                                                        <button type="button" id="addNumParte1"><i class="las la-plus-square"></i>Agregar</button>
+                                                        <button type="button" id="addPersonal1"><i class="las la-plus-square"></i>Agregar</button>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </div>
-                                        <div class="row row-cols-xl-2 clearfix" id="newRow1">
+                                        <div class="row row-cols-xl-2 clearfix" id="newRowPer1">
                                             <div class="col-xl-12">
                                                 <div class="row">
                                                     <div class="col-sm-4">
-                                                        <div class="" id="divNumeroParte1">
-                                                            <label for="numeroParte1">Número de nómina*</label>
+                                                        <div class="" id="divNumNomina1">
+                                                            <label for="numNomina1">Número de nómina*</label>
                                                             <div class="form-group">
-                                                                <input id="numeroParte1" name="numeroParte1" type="text" class="form-control" placeholder="Número de nómina*" required data-error="Por favor ingresa el número de parte">
+                                                                <input id="numNomina1" name="numNomina1" type="text" class="form-control" placeholder="Número de nómina*" required data-error="Por favor ingresa el número de parte">
                                                                 <div class="input-group-icon"><i class="las la-cubes"></i></div>
                                                                 <div class="invalid-feedback"></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
-                                                        <div class="" id="cantidadMaterial1">
-                                                            <label for="cdadMaterial1">Nombre de inspector/operador*</label>
+                                                        <div class="" id="divNombrePersonal1">
+                                                            <label for="nombrePersonal1">Nombre de inspector/operador*</label>
                                                             <div class="form-group">
-                                                                <input id="cdadMaterial1" name="cdadesMaterial[]" type="text" class="form-control" placeholder="Nombre de inspector/operador*" required data-error="Por favor ingresa la cantidad">
+                                                                <input id="nombrePersonal1" name="nombrePersonal1" type="text" class="form-control" placeholder="Nombre de inspector/operador*" required data-error="Por favor ingresa la cantidad">
                                                                 <div class="input-group-icon"><i class="las la-cubes"></i></div>
                                                                 <div class="invalid-feedback"></div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-4">
-                                                        <div class="" id="divDibujo1">
-                                                            <label for="revDibujo1">Área/linea de produccion*</label>
+                                                        <div class="" id="divArea1">
+                                                            <label for="area1">Área/linea de produccion*</label>
                                                             <div class="form-group">
-                                                                <input id="revDibujo1" name="revDibujo1" type="text" class="form-control" placeholder="Área/linea de produccion*" required data-error="Por favor ingresa la revisión de dibujo">
+                                                                <input id="area1" name="area1" type="text" class="form-control" placeholder="Área/linea de produccion*" required data-error="Por favor ingresa la revisión de dibujo">
                                                                 <div class="input-group-icon"><i class="las la-cubes"></i></div>
                                                                 <div class="invalid-feedback"></div>
                                                             </div>
@@ -230,12 +227,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-
-
-
-
                                         <div class="form-group last col-sm-12 buttons" >
                                             <button type="button" id="submitRequest"  class="btn btn-custom" onclick="validarFormNewRequest()"><i class='las la-paper-plane'></i>Enviar</button>
                                             <button type="button" id="updateRequest"  class="btn btn-custom" onclick="validarFormNewRequest()"><i class="las la-save" ></i>Guardar</button>

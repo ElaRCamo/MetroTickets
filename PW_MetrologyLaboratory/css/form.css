@@ -241,7 +241,8 @@ h5{
     margin-bottom: 20px;
 }
 #agregarNumParte,#addPersonalTitle,
-#divGenerales, #materialesTitulo td, #solicitudTitulo td{
+#divGenerales, #materialesTitulo td, #personalTitulo td,
+#solicitudTitulo td{
     background-color: var(--main-color);
     color: #f1f4f9;
 }
@@ -253,7 +254,7 @@ h5{
     padding-top: 0.8rem;
     flex-shrink: 1;
 }
-#addNumParte1{
+#addNumParte1, #addPersonal1{
     background-color:var(--main-color);
     border-radius: 0.5rem;
     padding: 0.5rem;
@@ -344,7 +345,8 @@ h5{
 
 /*Ocultar divs con inputs opcionales*/
 #divSubtipoPrueba, #normaNombre, #normaArchivo, #detallesPrueba,
-#newRow1, #divCotas, #divImgCotas, #agregarNumParte,
+#newRow1, #newRowPer1,
+#divCotas, #divImgCotas, #agregarNumParte,
 #button:hover,
 #submitRequest{
     display: none;
