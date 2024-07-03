@@ -101,43 +101,49 @@ function previewImageCotas(event) {
         mostrarBloque(divImagenCotas, false);
     }
 }
+function initTooltipModMate() {
+    var tooltips = document.querySelectorAll("[id^='tooltipModelo']");
 
-tippy('#tooltipModelo'+indexMaterial, {
-    trigger: 'click',
-    animation: 'shift-away',
-    theme: 'light',
-    onShow(instance) {
-        fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/modeloMatematico.png')
-            .then((response) => response.blob())
-            .then((blob) => {
-                // Convert the blob into a URL
-                const url = URL.createObjectURL(blob);
-                // Create an image
-                const image = new Image();
-                image.width = 300;
-                image.height = 180;
-                image.style.display = 'block';
-                image.style.margin = '0 auto'; // Center the image
-                image.src = url;
+    tooltips.forEach(function(tooltip) {
+        tippy(tooltip, {
+            trigger: 'click',
+            animation: 'shift-away',
+            theme: 'light',
+            onShow(instance) {
+                fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/modeloMatematico.png')
+                    .then((response) => response.blob())
+                    .then((blob) => {
+                        // Convert the blob into a URL
+                        const url = URL.createObjectURL(blob);
+                        // Create an image
+                        const image = new Image();
+                        image.width = 300;
+                        image.height = 180;
+                        image.style.display = 'block';
+                        image.style.margin = '0 auto'; // Center the image
+                        image.src = url;
 
-                // Create a container div
-                const container = document.createElement('div');
-                container.style.textAlign = 'start'; // Center align text
-                container.style.fontSize = '0.7rem'; // Smaller font size
+                        // Create a container div
+                        const container = document.createElement('div');
+                        container.style.textAlign = 'start'; // Center align text
+                        container.style.fontSize = '0.7rem'; // Smaller font size
 
-                // Add the image to the container
-                container.appendChild(image);
+                        // Add the image to the container
+                        container.appendChild(image);
 
-                // Update the tippy content with the container
-                instance.setContent(container);
-            })
-            .catch((error) => {
-                // Fallback if the network request failed
-                instance.setContent(`Request failed. ${error}`);
-            });
-    },
-    arrow: true, // Enable arrow
-});
+                        // Update the tippy content with the container
+                        instance.setContent(container);
+                    })
+                    .catch((error) => {
+                        // Fallback if the network request failed
+                        instance.setContent(`Request failed. ${error}`);
+                    });
+            },
+            arrow: true, // Enable arrow
+
+        });
+    });
+}
 
 
 function agregarPieza() {

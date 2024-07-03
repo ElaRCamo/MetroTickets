@@ -63,6 +63,7 @@
                 e.preventDefault();
                 agregarPieza();
                 llenarCliente(indexMaterial);
+                initTooltipModMate();
             });
 
             $(document).on('click', '.remove-lnk', function(e) {
