@@ -83,7 +83,7 @@ function validarInput(idInput) {
     const inputElement = document.getElementById(idInput);
     if (inputElement) {
         const inputValue = inputElement.value.trim();
-        const feedbackElement = inputElement.nextElementSibling ? inputElement.nextElementSibling.nextElementSibling : null;
+        const feedbackElement = inputElement.parentElement.querySelector('.invalid-feedback');
 
         if (!inputValue) {
             inputElement.classList.add('is-invalid');
