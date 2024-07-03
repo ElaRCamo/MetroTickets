@@ -54,11 +54,11 @@
 
     <script type="text/javascript">
 
+        let indexMaterial = 1;
         let emailUsuario = <?php echo json_encode($_SESSION['emailUsuario']); ?>;
         let solicitante = <?php echo json_encode($_SESSION['nombreUsuario']); ?>;
 
         $(document).ready(function() {
-            let indexMaterial = 1;
             $(document).on('click', '[id^="addNumParte"]', function(e) {
                 e.preventDefault();
                 agregarMaterial(indexMaterial);
