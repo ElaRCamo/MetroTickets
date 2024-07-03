@@ -103,51 +103,20 @@ function previewImageCotas(event) {
 }
 function initTooltipModMate() {
     var tooltips = document.querySelectorAll("[id^='tooltipModelo']");
-    var urlModMate = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/modeloMatematico.png';
+    var imgModMate = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/modeloMatematico.png';
 
     tooltips.forEach(function(tooltip) {
-        mostrarImagenTooltip(tooltip, urlModMate);
+        mostrarImagenTooltip(tooltip, imgModMate);
     });
 }
 
 
 function initTooltipRevDibujo() {
     var tooltips = document.querySelectorAll("[id^='revDibujo']");
+    var imgRevDib = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/revDibujo.png';
 
     tooltips.forEach(function(tooltip) {
-        tippy(tooltip, {
-            trigger: 'click',
-            animation: 'shift-away',
-            theme: 'light',
-            onShow(instance) {
-                fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/revDibujo.png')
-                    .then((response) => response.blob())
-                    .then((blob) => {
-                        // Convert the blob into a URL
-                        const url = URL.createObjectURL(blob);
-                        const image = new Image();
-                        image.width = 300;
-                        image.height = 180;
-                        image.style.display = 'block';
-                        image.style.margin = '0 auto'; // Center the image
-                        image.src = url;
-
-                        const container = document.createElement('div');
-                        container.style.textAlign = 'start'; // Center align text
-                        container.style.fontSize = '0.7rem'; // Smaller font size
-                        container.appendChild(image);
-
-                        // Update the tippy content with the container
-                        instance.setContent(container);
-                    })
-                    .catch((error) => {
-                        // Fallback if the network request failed
-                        instance.setContent(`Request failed. ${error}`);
-                    });
-            },
-            arrow: true, // Enable arrow
-
-        });
+        mostrarImagenTooltip(tooltip, imgRevDib);
     });
 }
 
@@ -186,12 +155,6 @@ function mostrarImagenTooltip(tooltip, imageUrl) {
         arrow: true, // Enable arrow
     });
 }
-
-// Uso de la función con la URL específica
-const tooltipElement = document.getElementById('tu-elemento-tooltip'); // Asegúrate de tener el elemento HTML donde deseas aplicar el tooltip
-const imageUrl = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/revDibujo.png';
-mostrarImagenTooltip(tooltipElement, imageUrl);
-
 
 
 function agregarPieza() {
