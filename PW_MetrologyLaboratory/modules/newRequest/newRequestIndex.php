@@ -61,7 +61,7 @@
         $(document).ready(function() {
             $(document).on('click', '[id^="addNumParte"]', function(e) {
                 e.preventDefault();
-                agregarMaterial(indexMaterial);
+                agregarPieza(indexMaterial);
                 llenarCliente(indexMaterial);
             });
 
