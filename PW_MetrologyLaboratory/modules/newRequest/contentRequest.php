@@ -158,6 +158,7 @@
                                                                 <label for="revDibujo1">Revisión de dibujo*</label>
                                                                 <div class="form-group">
                                                                     <input id="revDibujo1" name="revDibujo1" type="text" maxlength="3" class="form-control" placeholder="Revisión de dibujo*" required data-error="Por favor ingresa la revisión de dibujo">
+                                                                    <i class="far fa-question-circle position-absolute" id="tooltipDibujo1"></i>
                                                                     <div class="input-group-icon"><i class="las la-cubes"></i></div>
                                                                     <div class="invalid-feedback"></div>
                                                                 </div>

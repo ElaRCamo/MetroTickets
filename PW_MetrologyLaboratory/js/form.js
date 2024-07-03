@@ -106,17 +106,17 @@ function initTooltips() {
     var imgModMate = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/modeloMatematico.png';
 
     tooltipsMod.forEach(function(tooltip) {
-        mostrarImagenTooltip(tooltip, imgModMate);
+        mostrarImagenTooltip(tooltip, imgModMate, 300,180);
     });
 
     var tooltipsDibujo = document.querySelectorAll("[id^='tooltipDibujo']");
     var imgRevDib = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/revDibujo.png';
     tooltipsDibujo.forEach(function(tooltip) {
-        mostrarImagenTooltip(tooltip, imgRevDib);
+        mostrarImagenTooltip(tooltip, imgRevDib,300,120);
     });
 }
 
-function mostrarImagenTooltip(tooltip, imageUrl) {
+function mostrarImagenTooltip(tooltip, imageUrl, width, height) {
     tippy(tooltip, {
         trigger: 'click',
         animation: 'shift-away',
@@ -128,8 +128,8 @@ function mostrarImagenTooltip(tooltip, imageUrl) {
                     // Convert the blob into a URL
                     const url = URL.createObjectURL(blob);
                     const image = new Image();
-                    image.width = 300;
-                    image.height = 180;
+                    image.width = width;
+                    image.height = height;
                     image.style.display = 'block';
                     image.style.margin = '0 auto'; // Center the image
                     image.src = url;
