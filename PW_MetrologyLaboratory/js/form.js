@@ -57,17 +57,17 @@ function banderaTipoPrueba() {
         mostrarBloque(divTitlePersonal, false);
         mostrarBloque(divAddPersonal, false);
     }else if(tipoPrueba === '5') { //MUNSELL
-        mostrarBloque(divDetallesPrueba, true);
-        mostrarBloque(divTitlePiezas, true);
-        mostrarBloque(divRegistroPiezas, true);
-        mostrarBloque(botonEnviar, true);
+        mostrarBloque(divTitlePiezas, false);
+        mostrarBloque(divRegistroPiezas, false);
         mostrarBloque(divNormaNombre, false);
         mostrarBloque(divNormaArchivo, false);
         mostrarBloque(divSubtipoPrueba, false);
         mostrarBloque(divCotas, false);
         mostrarBloque(divImgCotas, false);
+        mostrarBloque(divDetallesPrueba, true);
         mostrarBloque(divTitlePersonal, true);
         mostrarBloque(divAddPersonal, true);
+        mostrarBloque(botonEnviar, true);
     }
 
     if (esActualizacion === true){
