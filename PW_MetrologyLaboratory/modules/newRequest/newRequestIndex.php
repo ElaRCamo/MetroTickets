@@ -64,8 +64,7 @@
                 e.preventDefault();
                 agregarPieza();
                 llenarCliente(indexMaterial);
-                initTooltipModMate();
-                initTooltipRevDibujo();
+                initTooltips();
             });
 
             $(document).on('click', '.remove-lnk', function(e) {

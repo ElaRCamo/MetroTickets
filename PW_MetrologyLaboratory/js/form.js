@@ -101,25 +101,20 @@ function previewImageCotas(event) {
         mostrarBloque(divImagenCotas, false);
     }
 }
-function initTooltipModMate() {
-    var tooltips = document.querySelectorAll("[id^='tooltipModelo']");
+function initTooltips() {
+    var tooltipsMod = document.querySelectorAll("[id^='tooltipModelo']");
     var imgModMate = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/modeloMatematico.png';
 
-    tooltips.forEach(function(tooltip) {
+    tooltipsMod.forEach(function(tooltip) {
         mostrarImagenTooltip(tooltip, imgModMate);
     });
-}
 
-
-function initTooltipRevDibujo() {
-    var tooltips = document.querySelectorAll("[id^='revDibujo']");
+    var tooltipsDibujo = document.querySelectorAll("[id^='tooltipDibujo']");
     var imgRevDib = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/revDibujo.png';
-
-    tooltips.forEach(function(tooltip) {
+    tooltipsDibujo.forEach(function(tooltip) {
         mostrarImagenTooltip(tooltip, imgRevDib);
     });
 }
-
 
 function mostrarImagenTooltip(tooltip, imageUrl) {
     tippy(tooltip, {
@@ -212,6 +207,7 @@ function agregarPieza() {
         + '<label for="revDibujo'+ indexMaterial + '">Revisión de dibujo*</label>'
         + '<div class="form-group">'
         + '<input id="revDibujo'+ indexMaterial + '" name="revDibujo'+ indexMaterial + '" type="text" maxlength="3" class="form-control" placeholder="Revisión de dibujo*" required data-error="Por favor ingresa la revisión de dibujo">'
+        + '<i class="far fa-question-circle position-absolute" id="tooltipDibujo'+ indexMaterial + '"></i>'
         + '<div class="input-group-icon"><i class="las la-cubes"></i></div>'
         + '<div class="invalid-feedback"></div>'
         + '</div>'
