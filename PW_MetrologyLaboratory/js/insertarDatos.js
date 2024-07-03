@@ -473,17 +473,7 @@ function enviarCorreoNuevaSolicitudLab(id_prueba, solicitante){
             console.log(err);
         });
 }
-function validarImagen(file) {
-    const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-    if (!allowedExtensions.exec(file.name)) {
-        throw "Solo se permiten files de imagen con extensiones .jpg, .jpeg, .png, o .gif";
-    }
 
-    const maxSizeInBytes = 5 * 1024 * 1024; // 10 MB
-    if (file.size > maxSizeInBytes) {
-        throw "El tamaño del archivo es demasiado grande. Por favor seleccione una imagen más pequeña (menos de 10 MB).";
-    }
-}
 
 function registrarMaterial() {
     var descMaterialN = id("descMaterialN");

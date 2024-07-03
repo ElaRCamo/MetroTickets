@@ -140,6 +140,91 @@ tippy('#tooltipModelo'+indexMaterial, {
 });
 
 
+function validarFormNewRequest() {
+    let tipoPrueba = id("tipoPrueba").value;
+
+    const esTipoPruebaValido = validarSelect('tipoPrueba');
+    const esSubtipoValido = validarSelect('subtipoPrueba');
+    const esInputImgValido = validarInput('imgCotas');
+    const esNormaValido = validarInput('norma');
+    const esArchivoValido = validarInput('normaFile');
+    const esObservacionesValido = validarInput('especificaciones');
+
+
+    if(tipoPrueba === '1' || tipoPrueba === '2' || tipoPrueba === '6') { // IDL/IFD | SOFTNESS | OTRO
+
+
+    } else if (tipoPrueba === '3') { // DIMENSIONAL
+
+
+    } else if(tipoPrueba === '4'){ // COLOR
+
+    }else if(tipoPrueba === '5') { //MUNSELL
+
+    }else {
+        console.log("Hay campos sin completar.");
+    }
+
+
+        console.log("esActualizacion: " + esActualizacion);
+        if (esActualizacion === false) {
+            validacionSolicitud();
+        } else if (esActualizacion === true) {
+            actualizarSolicitud();
+        }
+}
+
+function validarMateriales(indexMaterial) {
+    let esClienteValido = true;
+    let esPlataformaValida = true;
+    let esNumParteValido = true;
+    let esCdadValida = true;
+    let esrevDibujoValido = true;
+    let esmodeloMateValido = true;
+
+    for (let i = 1; i <= indexMaterial; i++) {
+        esClienteValido = esClienteValido && validarSelect('cliente' + i);
+        esPlataformaValida = esPlataformaValida && validarSelect('plataforma' + i);
+        esNumParteValido = esNumParteValido && validarInput('numeroParte' + i);
+        esCdadValida = esCdadValida && validarInput('cdadMaterial' + i);
+        esrevDibujoValido = esrevDibujoValido && validarInput('revDibujo' + i);
+        esmodeloMateValido = esmodeloMateValido && validarInput('modeloMate' + i);
+    }
+    console.log("esClienteValido: "+ esClienteValido +"\nesPlataformaValida "+esPlataformaValida);
+    console.log("esNumParteValido: "+ esNumParteValido +"\nesCdadValida "+esCdadValida);
+    console.log("esrevDibujoValido: "+ esrevDibujoValido +"\nesmodeloMateValido "+esmodeloMateValido);
+
+    // Devuelve un objeto con el resultado final de cada validación
+    return {
+        esClienteValido: esClienteValido,
+        esPlataformaValida: esPlataformaValida,
+        esNumParteValido: esNumParteValido,
+        esCdadValida: esCdadValida,
+        esrevDibujoValido: esrevDibujoValido,
+        esmodeloMateValido: esmodeloMateValido
+    };
+}
+
+function validarPersonal(indexPersonal) {
+    let esNominaValido = true;
+    let esNombreValida = true;
+    let esAreaValida = true;
+
+    for (let i = 1; i <= indexPersonal; i++) {
+        esNominaValido = esNominaValido && validarInput('numNomina' + i);
+        esNombreValida = esNombreValida && validarInput('nombrePersonal' + i);
+        esAreaValida = esAreaValida && validarInput('area' + i);
+    }
+    console.log("esNominaValido: "+ esNominaValido +"\nesNombreValida "+esNombreValida);
+    console.log("esNombreValida: "+ esNombreValida);
+
+    // Devuelve un objeto con el resultado final de cada validación
+    return {
+        esNominaValido: esNominaValido,
+        esNombreValida: esNombreValida,
+        esAreaValida: esAreaValida
+    };
+}
 /*****************************************
  *************************************************
  * ***************************************************

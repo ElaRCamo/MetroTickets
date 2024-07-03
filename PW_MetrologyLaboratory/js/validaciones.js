@@ -1,43 +1,4 @@
-function validarFormNewRequest() {
-    const esEvaluacionValido = validarSelect('tipoEvaluacion');
-    const esTipoPruebaValido = validarSelect('tipoPrueba');
-    const esNormaValido = validarInput('norma');
-    const esArchivoValido = validarInput('normaFile');
-    const esPEspecialValido = validarInput('tipoPruebaEspecial');
-    const esPOtroValido = validarInput('otroPrueba');
-    const esObservacionesValido = validarInput('especificaciones');
 
-    // Validación de materiales
-    let sonMaterialesValidos = true;
-
-    for (let i = 1; i <= indexMaterial; i++) {
-        const esClienteValido = validarSelect('cliente' + i);
-        const esPlataformaValida = validarSelect('plataforma' + i);
-        const esDescValida = validarSelect('descMaterial' + i);
-        const esCdadValida = validarInput('cdadMaterial' + i);
-
-        if (!esClienteValido || !esPlataformaValida || !esDescValida || !esCdadValida) {
-            sonMaterialesValidos = false;
-        }
-    }
-
-    console.log("sonMaterialesValidos: " + sonMaterialesValidos);
-
-    if (esEvaluacionValido && esTipoPruebaValido && esObservacionesValido && sonMaterialesValidos) {
-        //Validaciones pendientes, segun el tipo de norma
-        //&& esNormaValido && esArchivoValido && esPEspecialValido && esPOtroValido
-        console.log("Todos los inputs son válidos.");
-
-        console.log("esActualizacion: " + esActualizacion);
-        if (esActualizacion === false) {
-            validacionSolicitud();
-        } else if (esActualizacion === true) {
-            actualizarSolicitud();
-        }
-    } else {
-        console.log("Hay campos sin completar.");
-    }
-}
 
 function validarCorreo(id,div){
     const correoInput = document.getElementById(id);
@@ -102,62 +63,6 @@ function hideErrorMessage(input) {
 }
 
 
-function validarSelect(idSelect) {
-    const selectElement = document.getElementById(idSelect);
-    const selectedValue = selectElement ? selectElement.value : null;
-    // Utiliza nextElementSibling.nextElementSibling para obtener el div correcto
-    const feedbackElement = selectElement ? selectElement.nextElementSibling.nextElementSibling : null;
-
-    if (!selectedValue) {
-        if (selectElement) {
-            selectElement.parentElement.classList.add('has-error');
-            selectElement.classList.add('is-invalid');
-            if (feedbackElement) {
-                feedbackElement.textContent = selectElement.getAttribute('data-error');
-                feedbackElement.style.display = 'block';
-            }
-        }
-        return false;
-    } else {
-        if (selectElement) {
-            selectElement.parentElement.classList.remove('has-error');
-            selectElement.classList.remove('is-invalid');
-            if (feedbackElement) {
-                feedbackElement.style.display = 'none';
-            }
-        }
-        return true;
-    }
-}
-
-
-function validarInput(idInput) {
-    const inputElement = document.getElementById(idInput);
-    if (inputElement) {
-        const inputValue = inputElement.value.trim();
-        const feedbackElement = inputElement.nextElementSibling ? inputElement.nextElementSibling.nextElementSibling : null;
-
-        if (!inputValue) {
-            inputElement.classList.add('is-invalid');
-            inputElement.parentElement.classList.add('has-error');
-            if (feedbackElement) {
-                feedbackElement.textContent = inputElement.getAttribute('data-error');
-                feedbackElement.style.display = 'block';
-            }
-            return false;
-        } else {
-            inputElement.classList.remove('is-invalid');
-            inputElement.parentElement.classList.remove('has-error');
-            if (feedbackElement) {
-                feedbackElement.style.display = 'none';
-            }
-            return true;
-        }
-    } else {
-        console.log(`Elemento con id ${idInput} no encontrado.`);
-        return false;
-    }
-}
 
 
 function validarMateriales(indexMaterial) {

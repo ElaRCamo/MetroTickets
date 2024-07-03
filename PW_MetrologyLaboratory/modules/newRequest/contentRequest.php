@@ -147,7 +147,7 @@
                                                             <div class="" id="cantidadMaterial1">
                                                                 <label for="cdadMaterial1">Cantidad*</label>
                                                                 <div class="form-group">
-                                                                    <input id="cdadMaterial1" name="cdadesMaterial[]" type="number" class="form-control" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
+                                                                    <input id="cdadMaterial1" name="cdadMaterial1" type="number" class="form-control" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
                                                                     <div class="input-group-icon"><i class="las la-cubes"></i></div>
                                                                     <div class="invalid-feedback"></div>
                                                                 </div>
