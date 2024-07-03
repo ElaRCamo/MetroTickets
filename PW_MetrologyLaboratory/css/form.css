@@ -315,12 +315,12 @@ h5{
 
 /*TOOLTIP*/
 /*Ubica el logo de ? dentro del input*/
-#tooltipModelo1{
+[id^='tooltipModelo'] {
     position: absolute;
     right: 0.5rem;
     top: 10%;
     cursor: pointer;
-    color: #aaa; /* Icon color */
+    color: #aaa; /* Color del ícono */
     max-width: 1rem;
     padding-top: 0.4rem;
 }
