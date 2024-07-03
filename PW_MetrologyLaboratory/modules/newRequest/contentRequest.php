@@ -111,10 +111,10 @@
                                                     <div class="row">
                                                         <div class="col-sm-4">
                                                             <div class="" id="div-OEM1">
-                                                                <label for="cliente1">Cliente (OEM)*</label>
+                                                                <label for="cliente1">Cliente*</label>
                                                                 <div class="form-group" >
-                                                                    <select id="cliente1" name="clientes[]" class="form-control" onchange="llenarPlataforma(1)" required data-error="Por favor ingresa el area solicitante">
-                                                                        <option value="">Seleccione el cliente (OEM)*</option>
+                                                                    <select id="cliente1" name="cliente1" class="form-control" onchange="llenarPlataforma(1)" required data-error="Por favor ingresa el area solicitante">
+                                                                        <option value="">Seleccione el cliente*</option>
                                                                     </select>
                                                                     <div class="input-group-icon"><i class="las la-car"></i></div>
                                                                     <div class="invalid-feedback"></div>
@@ -125,7 +125,7 @@
                                                             <div class="" id="plataformaDiv1">
                                                                 <label for="plataforma1">Plataforma*</label>
                                                                 <div class="form-group">
-                                                                    <select id="plataforma1" name="plataformas[]" class="form-control" required data-error="Por favor ingresa la plataforma">
+                                                                    <select id="plataforma1" name="plataforma1" class="form-control" required data-error="Por favor ingresa la plataforma">
                                                                         <option value="">Seleccione la plataforma*</option>
                                                                     </select>
                                                                     <div class="input-group-icon"><i class="las la-warehouse"></i></div>
