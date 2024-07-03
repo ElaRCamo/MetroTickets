@@ -78,7 +78,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-sm-4" id="normaArchivo">
-                                                <label for="normaFile">Seleccione el Documento de la Norma</label>
+                                                <label for="normaFile">Documento de la Norma</label>
                                                 <div class="form-group " >
                                                     <input type="file" class="form-control" id="normaFile" name="normaFile" placeholder="Seleccione el documento de la norma" data-error="Por favor seleccione el archivo de la norma">
                                                     <div class="input-group-icon"><i class="las la-file-pdf"></i></div>
