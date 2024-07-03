@@ -104,14 +104,6 @@
     width:40px;
     vertical-align: middle;
 }
-/*.pruebasEspeciales{
-    border:none;
-    border-radius: 4px 4px 4px 4px;
-    padding:5px 5px 5px 7px;
-    color: #212529;
-}
-pruebasEspeciales: clase para checkbox
-*/
 h6{
     padding-left: 1.5rem;
 }
@@ -143,9 +135,6 @@ h5{
     background-color:#322873;
     color:var(--gold_70);
 }
-/*.pruebasEspeciales{
-    padding-left: 0;
-}*/
 /*Leyenda campos requeridos*/
 .popup-form span.sub-text{
     bottom:50px;
@@ -159,9 +148,9 @@ h5{
 .popup-form .has-error .form-control{
     border-color:#E10014;
 }
-.popup-form .has-error .input-group-icon{
-    background-color:#E10014;
-    color:#EFEDE9;
+.popup-form .has-error .input-group-icon {
+    background-color: #E10014;
+    color: #EFEDE9;
 }
 
 .popup-form .invalid-feedback {
@@ -298,15 +287,6 @@ h5{
 #divGenerales h6{
     margin: 0;
     padding-left: 0;
-}
-
-.numParteInput{
-    background-color: transparent;
-    font-weight: bold;
-    color: var(--main-color);
-    border: none;
-    text-align: center;
-    min-width: 100%;
 }
 
 #capturaCotas{
