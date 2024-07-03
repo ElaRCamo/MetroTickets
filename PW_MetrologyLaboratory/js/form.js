@@ -112,7 +112,7 @@ function initTooltips() {
     var tooltipsDibujo = document.querySelectorAll("[id^='tooltipDibujo']");
     var imgRevDib = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/revDibujo.png';
     tooltipsDibujo.forEach(function(tooltip) {
-        mostrarImagenTooltip(tooltip, imgRevDib,300,120);
+        mostrarImagenTooltip(tooltip, imgRevDib,250,120);
     });
 }
 
@@ -245,35 +245,57 @@ function validarFormNewRequest() {
     const esTipoPruebaValido = validarSelect('tipoPrueba');
     const esSubtipoValido = validarSelect('subtipoPrueba');
     const esInputImgValido = validarInput('imgCotas');
-    const esNormaValido = validarInput('norma');
+    const esNormaValido = validarInput('norma'); //No es obligatorio
     const esArchivoValido = validarInput('normaFile');
     const esObservacionesValido = validarInput('especificaciones');
+    let piezas = validarPiezas();
+    let sonTodasPiezasValidas = (
+        piezas.esClienteValido && piezas.esPlataformaValida && piezas.esNumParteValido &&
+        piezas.esCdadValida && piezas.esrevDibujoValido && piezas.esmodeloMateValido
+    );
+    let sonPiezasValidasColor = (
+        piezas.esClienteValido && piezas.esPlataformaValida && piezas.esNumParteValido && piezas.esCdadValida
+    );
+    let subtipo= id("subtipoPrueba").value;
 
-
+    //Validacion dependiendo el tipo de prueba
     if(tipoPrueba === '1' || tipoPrueba === '2' || tipoPrueba === '6') { // IDL/IFD | SOFTNESS | OTRO
-
-
+        if(esTipoPruebaValido && esNormaValido && esObservacionesValido && sonTodasPiezasValidas){
+            console.log("Inputs validos.");
+        }
     } else if (tipoPrueba === '3') { // DIMENSIONAL
-
-
+        if(subtipo === '2'){ //Dimensional-cotas especificas
+            if(esTipoPruebaValido && esSubtipoValido && esInputImgValido && sonTodasPiezasValidas){
+                console.log("Inputs validos.");
+            }
+        }else{
+            if(esTipoPruebaValido && esObservacionesValido && sonTodasPiezasValidas){
+                console.log("Inputs validos.");
+            }
+        }
     } else if(tipoPrueba === '4'){ // COLOR
-
-    }else if(tipoPrueba === '5') { //MUNSELL
-
+        if(esTipoPruebaValido && esObservacionesValido && sonPiezasValidasColor){
+            console.log("Inputs validos.");
+        }
+    /*}else if(tipoPrueba === '5') { //MUNSELL*/
     }else {
         console.log("Hay campos sin completar.");
     }
 
 
-        console.log("esActualizacion: " + esActualizacion);
-        if (esActualizacion === false) {
-            validacionSolicitud();
-        } else if (esActualizacion === true) {
-            actualizarSolicitud();
-        }
+
 }
 
-function validarMateriales(indexMaterial) {
+function initGuardarDatos(){
+    console.log("esActualizacion: " + esActualizacion);
+       if (esActualizacion === false) {
+           validacionSolicitud();
+       } else if (esActualizacion === true) {
+           actualizarSolicitud();
+       }
+}
+
+function validarPiezas() {
     let esClienteValido = true;
     let esPlataformaValida = true;
     let esNumParteValido = true;
