@@ -264,16 +264,16 @@ function validarFormNewRequest() {
     } else if (tipoPrueba === '3') { // DIMENSIONAL
         if(subtipo === '2'){ //Dimensional-cotas especificas
             if(esTipoPruebaValido && esSubtipoValido && esInputImgValido && sonTodasPiezasValidas){
-                console.log("Inputs validos.");
+                initGuardarDatos();
             }
         }else{
             if(esTipoPruebaValido && esObservacionesValido && sonTodasPiezasValidas){
-                console.log("Inputs validos.");
+                initGuardarDatos();
             }
         }
     } else if(tipoPrueba === '4'){ // COLOR
         if(esTipoPruebaValido && esObservacionesValido && sonPiezasValidasColor){
-            console.log("Inputs validos.");
+            initGuardarDatos();
         }
     /*}else if(tipoPrueba === '5') { //MUNSELL*/
     }else {
@@ -306,9 +306,9 @@ function validarPiezas() {
         esrevDibujoValido = esrevDibujoValido && validarInput('revDibujo' + i);
         esmodeloMateValido = esmodeloMateValido && validarInput('modeloMate' + i);
     }
-    console.log("esClienteValido: "+ esClienteValido +"\nesPlataformaValida "+esPlataformaValida);
+    /*console.log("esClienteValido: "+ esClienteValido +"\nesPlataformaValida "+esPlataformaValida);
     console.log("esNumParteValido: "+ esNumParteValido +"\nesCdadValida "+esCdadValida);
-    console.log("esrevDibujoValido: "+ esrevDibujoValido +"\nesmodeloMateValido "+esmodeloMateValido);
+    console.log("esrevDibujoValido: "+ esrevDibujoValido +"\nesmodeloMateValido "+esmodeloMateValido);*/
 
     // Devuelve un objeto con el resultado final de cada validación
     return {
