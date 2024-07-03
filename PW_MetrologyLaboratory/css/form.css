@@ -315,7 +315,7 @@ h5{
 
 /*TOOLTIP*/
 /*Ubica el logo de ? dentro del input*/
-[id^='tooltipModelo'] {
+[id^='tooltipModelo'], [id^='revDibujo']{
     position: absolute;
     right: 0.5rem;
     top: 10%;
