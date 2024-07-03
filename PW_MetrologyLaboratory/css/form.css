@@ -340,3 +340,7 @@ h5{
 #reporteMensual label{
     padding-bottom: 0.5rem;
 }
+
+.mostrar {
+    display: block !important;
+}
