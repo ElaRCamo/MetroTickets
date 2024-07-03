@@ -223,6 +223,7 @@ function agregarPieza(indexMaterial) {
         + '</div>'
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
+    llenarCliente(indexMaterial);
 }
 
 
