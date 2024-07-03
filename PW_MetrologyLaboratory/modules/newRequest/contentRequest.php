@@ -38,7 +38,7 @@
                                             <div class="col-sm-4" id="selectTipoPrueba">
                                                 <label for="tipoPrueba">Tipo de Prueba*</label>
                                                 <div class="form-group">
-                                                    <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba(); llenarCliente(1);" name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione un tipo de prueba válido.">
+                                                    <select class="form-control" id="tipoPrueba" onchange="banderaTipoPrueba(); llenarCliente(1); initTooltipModMate();" name="tiposPrueba" title="TipoDePrueba" required data-error="Por favor seleccione un tipo de prueba válido.">
                                                         <option value="">Seleccione el tipo de prueba*</option>
                                                     </select>
                                                     <div class="input-group-icon"><i class="las la-ruler-combined"></i></div>
