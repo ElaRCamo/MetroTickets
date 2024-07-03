@@ -90,7 +90,7 @@ function validarInput(idInput) {
             inputElement.parentElement.classList.add('has-error');
             if (feedbackElement) {
                 feedbackElement.textContent = inputElement.getAttribute('data-error');
-                feedbackElement.classList.add('mostrar');
+                feedbackElement.style.display = 'block';
             }
             return false;
         } else {
