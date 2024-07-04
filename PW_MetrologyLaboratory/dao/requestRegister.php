@@ -14,15 +14,18 @@ if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], 
 
     list($response, $norma, $normaFile) = manejarNormaFile($tipoPrueba, $id_prueba, $_FILES, $_POST);
 
-    // Convertir los datos de las piezas en arrays
-    $plataformas    = explode(', ', $_POST['plataformas']);
-    $numsParte      = explode(', ', $_POST['numsParte']);
-    $cdadPiezas = explode(', ', $_POST['cantidades']);
-    $revDibujos     = explode(', ', $_POST['revDibujos']);
-    $modMatematicos = explode(', ', $_POST['modMatematicos']);
+    if($response['status']==='success'){
+        // Convertir los datos de las piezas en arrays
+        $plataformas    = explode(', ', $_POST['plataformas']);
+        $numsParte      = explode(', ', $_POST['numsParte']);
+        $cdadPiezas     = explode(', ', $_POST['cantidades']);
+        $revDibujos     = explode(', ', $_POST['revDibujos']);
+        $modMatematicos = explode(', ', $_POST['modMatematicos']);
 
-    // Llamar a la función para registrar la solicitud
-    $response = RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba);
+        // Llamar a la función para registrar la solicitud
+        $response = RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba);
+    }
+
 } else {
     // Mostrar mensaje de error si faltan datos en el formulario
     $response = array("status" => "error", 'message' => "Error: Faltan datos en el formulario");
@@ -67,7 +70,7 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
         $response = array('status' => 'error', 'message' => 'Error en RegistrarSolicitud');
     } else {
         $conex->commit();
-        $response = array('status' => 'success', 'message' => 'Datos insertados correctamente');
+        $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
     }
     $conex->close();
     return $response;
