@@ -28,7 +28,7 @@ function resumenPrueba($id_prueba){
                                 id_tipoEvaluacion,
                                 id_pruebaEspecial
                             FROM 
-                                Prueba s
+                                Pruebas s
                                 LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
                             WHERE 
                                 id_prueba = '$id_prueba'

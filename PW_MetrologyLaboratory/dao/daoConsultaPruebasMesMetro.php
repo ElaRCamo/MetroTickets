@@ -12,7 +12,7 @@ function ContadorPruebas()
     $anio_actual = date('Y');
 
     $datos = mysqli_query($conex, "SELECT COUNT(p.id_prueba) AS Pruebas, MONTH(p.FechaRespuesta) AS Mes, u.nombreUsuario AS NombreMetrologo 
-                                           FROM Prueba p JOIN Usuario u ON p.id_metrologo = u.id_usuario 
+                                           FROM Pruebas p JOIN Usuario u ON p.id_metrologo = u.id_usuario 
                                           WHERE YEAR(p.FechaRespuesta) = $anio_actual AND p.id_metrologo <> '00000000' 
                                           GROUP BY MONTH(p.FechaRespuesta), u.nombreUsuario 
                                           ORDER BY Mes, NombreMetrologo;");

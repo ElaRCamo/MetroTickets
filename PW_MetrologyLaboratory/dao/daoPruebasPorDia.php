@@ -9,7 +9,7 @@ function PruebasPorDia(){
     $conex = $con->conectar();
 
     $datos = mysqli_query($conex, "SELECT ROUND(COUNT(*) / DAY(LAST_DAY(fechaRespuesta)), 1) AS eficienciaOperativa
-                                           FROM Prueba
+                                           FROM Pruebas
                                           WHERE MONTH(fechaRespuesta) = MONTH(CURRENT_DATE())
                                             AND YEAR(fechaRespuesta) = YEAR(CURRENT_DATE())
                                             AND id_estatusPrueba = 3;");

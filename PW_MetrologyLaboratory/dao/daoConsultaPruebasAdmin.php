@@ -24,7 +24,7 @@ function resumenPrueba(){
                 s.id_solicitante,
                 u_solic.nombreUsuario AS nombreSolic
             FROM
-                Prueba s
+                Pruebas s
                     LEFT JOIN Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
                     LEFT JOIN Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
                     LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba

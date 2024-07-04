@@ -9,7 +9,7 @@ function PruebasMesActual($fecha_busqueda){
     $conex = $con->conectar();
 
     $datos = mysqli_query($conex, "SELECT COUNT(*)
-                                          FROM Prueba
+                                          FROM Pruebas
                                          WHERE fechaRespuesta LIKE '$fecha_busqueda'
                                            AND id_estatusPrueba = 3;");
 

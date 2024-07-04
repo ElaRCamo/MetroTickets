@@ -58,7 +58,7 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPr
     // Iniciar transacción
     $conex->begin_transaction();
 
-    $updateSolicitud = $conex->prepare("UPDATE `Prueba` 
+    $updateSolicitud = $conex->prepare("UPDATE `Pruebas` 
                                                  SET `fechaSolicitud` = ?, `especificaciones` = ?, `normaNombre` = ?, `normaArchivo` = ?, `id_solicitante` = ?, 
                                                      `id_tipoPrueba` = ?, `id_pruebaEspecial` = ?, `otroTipoEspecial` = ? 
                                                WHERE `id_prueba` = ?");

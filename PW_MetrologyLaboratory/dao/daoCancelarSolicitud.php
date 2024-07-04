@@ -46,7 +46,7 @@ function cancelarSolicitud($id_prueba)
     $conex = $con->conectar();
 
     // Preparar la sentencia
-    $stmt = $conex->prepare("UPDATE Prueba SET id_estatusPrueba = 6 WHERE id_prueba = ?");
+    $stmt = $conex->prepare("UPDATE Pruebas SET id_estatusPrueba = 6 WHERE id_prueba = ?");
     $stmt->bind_param("s", $id_prueba);
 
     // Ejecutar la sentencia y verificar el resultado

@@ -10,7 +10,7 @@ function tiempRespuesta($fecha_busqueda){
     $conex = $con->conectar();
 
     $datos = mysqli_query($conex, "SELECT ROUND(AVG(TIMESTAMPDIFF(DAY, fechaSolicitud, fechaRespuesta)), 1) AS tiempoPromedioRespuestaDias 
-                                           FROM Prueba 
+                                           FROM Pruebas 
                                           WHERE fechaRespuesta LIKE '$fecha_busqueda' 
                                             AND id_estatusPrueba = 3;");
 

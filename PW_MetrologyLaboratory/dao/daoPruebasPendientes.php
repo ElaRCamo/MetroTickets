@@ -8,7 +8,7 @@ function PruebasPendientes(){
     $conex = $con->conectar();
 
     $datos = mysqli_query($conex, "SELECT COUNT(*)
-                                          FROM Prueba
+                                          FROM Pruebas
                                          WHERE id_estatusPrueba = 1
                                             OR id_estatusPrueba = 2;");
 
