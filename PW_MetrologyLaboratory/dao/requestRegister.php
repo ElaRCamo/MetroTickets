@@ -73,34 +73,34 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
     return $response;
 }
 
-function manejarNormaFile($tipoPrueba, $id_prueba, $files, $post) {
+function manejarNormaFile($tipoPrueba, $id_prueba, $_FILES, $_POST) {
 
     if ($tipoPrueba == 1 || $tipoPrueba == 2 || $tipoPrueba == 6) { // si se requiere norma por tipo de prueba
 
-        if (isset($files['norma'],  $files['normaFile']) && $files['normaFile']['error'] == UPLOAD_ERR_OK) { // verifica si el archivo ha sido cargado correctamente
+        if (isset($_POST['norma'],  $_FILES['normaFile']) && $_FILES['normaFile']['error'] == UPLOAD_ERR_OK) { // verifica si el archivo ha sido cargado correctamente
             $norma = $_POST['norma'];
             // guardar los files de la norma
             $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/norms/";
             // Quitar espacios del nombre del archivo:
-            $nombreArchivo = $files["normaFile"]["name"];
+            $nombreArchivo = $_FILES["normaFile"]["name"];
             $normaFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
             $normaFile = $target_dir . $normaFileName;
             $moverNormaFile = "../files/norms/" . $normaFileName;
 
-            if ($files["normaFile"]["error"] > 0) {
-                $response = array("error" => "Error: " . $files["normaFile"]["error"]);
+            if ($_FILES["normaFile"]["error"] > 0) {
+                $response = array("error" => "Error: " . $_FILES["normaFile"]["error"]);
             } else {
                 // Mover el archivo cargado a la ubicación deseada
-                if (move_uploaded_file($files["normaFile"]["tmp_name"], $moverNormaFile)) {
+                if (move_uploaded_file($_FILES["normaFile"]["tmp_name"], $moverNormaFile)) {
                     $response = array("status" => "success","message" => "El archivo " . htmlspecialchars($normaFileName) . " ha sido subido correctamente.");
                 } else {
                     $response = array("error" => "Hubo un error al mover el archivo.");
                 }
             }
-        } elseif (isset($files['norma'], $post['normaFile']) && is_string($post['normaFile'])) { // No hay archivo cargado, es un string
+        } elseif (isset($_POST['norma'], $_POST['normaFile']) && is_string($_POST['normaFile'])) { // No hay archivo cargado, es un string
             $norma = $_POST['norma'];
             $response = array("status" => "success");
-            $normaFile = $post['normaFile'];
+            $normaFile = $_POST['normaFile'];
         } else {
             $norma = 'error';
             $normaFile = 'error';
