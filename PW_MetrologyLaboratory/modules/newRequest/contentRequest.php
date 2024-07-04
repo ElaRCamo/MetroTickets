@@ -275,12 +275,15 @@
                         <div id="divTableSol">
                             <h5 id="titleResumen">PIEZAS PARA MEDICIÓN</h5>
                             <div id="divTableSol2">
-                                <table class="table table-striped table-responsive" id="materialesSolicitud">
+                                <table class="table table-striped table-responsive" id="piezasSolicitud">
                                     <thead>
                                     <tr>
                                         <th>No. de Parte</th>
-                                        <th>Material</th>
                                         <th>Cantidad</th>
+                                        <th>Plataforma</th>
+                                        <th>Cliente</th>
+                                        <th>Revisión de dibujo</th>
+                                        <th>Modelo matemático</th>
                                     </tr>
                                     </thead>
                                     <tbody>

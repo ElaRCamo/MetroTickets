@@ -179,7 +179,7 @@ function agregarPieza() {
         + '<div class="" id="plataformaDiv' + indexMaterial + '">'
         + '<label for="plataforma'+ indexMaterial + '">Plataforma*</label>'
         + '<div class="form-group" >'
-        + '<select id="plataforma' + indexMaterial + '" name="plataformas'+ indexMaterial + '" class="form-control" onchange="llenarDescMaterial(' + indexMaterial + ')" required data-error="Por favor ingresa la plataforma">'
+        + '<select id="plataforma' + indexMaterial + '" name="plataformas'+ indexMaterial + '" class="form-control" required data-error="Por favor ingresa la plataforma">'
         + '<option value="">Seleccione la plataforma*</option>'
         + '</select>'
         + '<div class="input-group-icon"><i class="las la-warehouse"></i></div>'
@@ -542,7 +542,7 @@ function resumenSolicitud(id_prueba) {
         $('#normaNombreSol').text(data.normaNombre);
         id("archivoNormaSol").href = data.normaArchivo;
 
-        var tabla = document.getElementById("materialesSolicitud");
+        var tabla = document.getElementById("piezasSolicitud");
         var tbody = tabla.getElementsByTagName("tbody")[0];
 
         // Limpiar contenido previo de la tabla
@@ -553,16 +553,28 @@ function resumenSolicitud(id_prueba) {
             var fila = document.createElement("tr");
 
             var numeroDeParteT = document.createElement("td");
-            numeroDeParteT.textContent = response.data[j].numeroDeParte;
+            numeroDeParteT.textContent = response.data[j].numParte;
             fila.appendChild(numeroDeParteT);
-
-            var descMaterialesT = document.createElement("td");
-            descMaterialesT.textContent = response.data[j].descripcionMaterial;
-            fila.appendChild(descMaterialesT);
 
             var cdadMaterialesT = document.createElement("td");
             cdadMaterialesT.textContent = response.data[j].cantidad;
             fila.appendChild(cdadMaterialesT);
+
+            var plataformaT = document.createElement("td");
+            plataformaT.textContent = response.data[j].descripcionPlataforma;
+            fila.appendChild(plataformaT);
+
+            var clienteT = document.createElement("td");
+            clienteT .textContent = response.data[j].descripcionCliente;
+            fila.appendChild(clienteT );
+
+            var revDibujoT = document.createElement("td");
+            revDibujoT .textContent = response.data[j].revisionDibujo;
+            fila.appendChild(revDibujoT );
+
+            var modMateT = document.createElement("td");
+            modMateT .textContent = response.data[j].ModMatematico;
+            fila.appendChild(modMateT );
 
             tbody.appendChild(fila);
         }
