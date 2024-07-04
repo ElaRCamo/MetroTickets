@@ -347,58 +347,6 @@ async function registrarSolicitud() {
             console.error("Error al registrar la solicitud:", error);
         }
 }*/
-function enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario){
-    const data = new FormData();
-
-    data.append('id_prueba',id_prueba);
-    data.append('solicitante',solicitante);
-    data.append('emailUsuario',emailUsuario);
-
-    fetch('https://arketipo.mx/MailerSolicitudPruebaS.php',{
-        method: 'POST',
-        body: data
-    })
-        .then(function (response){
-            if (response.ok){
-                //alert('Correo Solicitante: prueba: ' +id_prueba+ 'user: ' + solicitante +' email: ' + emailUsuario);
-                enviarCorreoNuevaSolicitudLab(id_prueba, solicitante);
-            }else{
-                throw "Error en la llamada Ajax";
-            }
-        })
-        .then(function (texto) {
-            console.log(texto);
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
-}
-
-function enviarCorreoNuevaSolicitudLab(id_prueba, solicitante){
-    const data = new FormData();
-
-    data.append('id_prueba',id_prueba);
-    data.append('solicitante',solicitante);
-
-    fetch('https://arketipo.mx/MailerSolicitudPruebaLab.php',{
-        method: 'POST',
-        body: data
-    })
-        .then(function (response){
-            if (response.ok){
-                //alert('Correo Lab: prueba: ' +id_prueba+ 'user: ' + solicitante);
-                console.log("Correos enviados");
-            }else{
-                throw "Error en la llamada Ajax";
-            }
-        })
-        .then(function (texto) {
-            console.log(texto);
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
-}
 
 
 function registrarMaterial() {

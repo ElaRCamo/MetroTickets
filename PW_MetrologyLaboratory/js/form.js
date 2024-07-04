@@ -415,14 +415,14 @@ function obtenerSesion() {
 }
 
 function registrarSolicitud(nuevoId) {
-    console.log("entrando en registrarSolicitud " );
+    console.log("entrando en registrarSolicitud ");
 
     const dataForm = new FormData();
-    var idNomina           = id("idUsuario");
-    var tipoPrueba         = id("tipoPrueba");
-    var especificaciones   = id ("especificaciones");
-    var fechaSolicitud    = new Date();
-    var fechaFormateada  = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
+    var idNomina = id("idUsuario");
+    var tipoPrueba = id("tipoPrueba");
+    var especificaciones = id("especificaciones");
+    var fechaSolicitud = new Date();
+    var fechaFormateada = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
 
     dataForm.append('id_prueba', nuevoId);
     dataForm.append('fechaSolicitud', fechaFormateada);
@@ -431,11 +431,11 @@ function registrarSolicitud(nuevoId) {
     dataForm.append('especificaciones', especificaciones.value.trim());
 
 
-    if(tipoPrueba === '1' || tipoPrueba === '2' || tipoPrueba === '6') { // IDL/IFD | SOFTNESS | OTRO
-        let norma             = id("norma");
+    if (tipoPrueba === '1' || tipoPrueba === '2' || tipoPrueba === '6') { // IDL/IFD | SOFTNESS | OTRO
+        let norma = id("norma");
         dataForm.append('norma', norma.value.trim());
 
-        let inputArchivo      = id('normaFile');
+        let inputArchivo = id('normaFile');
         // Verificar si hay archivos seleccionados
         if (inputArchivo.files.length > 0) {
             // Hay archivos cargados
@@ -446,8 +446,8 @@ function registrarSolicitud(nuevoId) {
             dataForm.append('normaFile', inputArchivo);
         }
     } else if (tipoPrueba === '3') { // DIMENSIONAL
-        let subtipo= id("subtipoPrueba");
-        if(subtipo.value === '2'){ //Dimensional-cotas especificas
+        let subtipo = id("subtipoPrueba");
+        if (subtipo.value === '2') { //Dimensional-cotas especificas
             let imagenCotas = id("imgCotas");
             dataForm.append('imagenCotas', imagenCotas.files[0]);
         }
@@ -465,11 +465,11 @@ function registrarSolicitud(nuevoId) {
 
     for (var k = 1; k <= indexMaterial; k++) {
         // Para agregar material por número de parte
-        var plataforma    = id('plataforma' + k);
-        var numeroParte       = id('numeroParte' + k);
-        var cdadMaterial       = id('cdadMaterial' + k);
-        var revDibujo       = id('revDibujo' + k);
-        var modeloMate       = id('modeloMate' + k);
+        var plataforma = id('plataforma' + k);
+        var numeroParte = id('numeroParte' + k);
+        var cdadMaterial = id('cdadMaterial' + k);
+        var revDibujo = id('revDibujo' + k);
+        var modeloMate = id('modeloMate' + k);
 
         // Añadimos los valores a los arrays correspondientes
         plataformas.push(plataforma.value.trim());
@@ -488,36 +488,98 @@ function registrarSolicitud(nuevoId) {
 
     let formDataString = "FormData: \n";
     for (let pair of dataForm.entries()) {
-        formDataString += pair[0]+ ', ' + pair[1] + '\n';
+        formDataString += pair[0] + ', ' + pair[1] + '\n';
     }
     alert(formDataString);
 
     fetch('../../dao/requestRegister.php', {
         method: 'POST',
         body: dataForm
-    })
-        .then(function(response) {
-            console.log('response.ok: ', response.ok);
-            if (response.ok) {
-                return response.text().then(showResult);
-            } else {
-                showError('status code: ' + response.status);
-                throw new Error('Error en la solicitud: ' + response.status);
-            }
-        })
-        .then(function(data) {
-            resumenSolicitud(nuevoId);
-        }).then(function(data) {
-            // Si la inserción de datos fue exitosa, llamar a las funciones
-            enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
-    }).catch(function(error) {
-        if (error instanceof TypeError && error.message.includes('Error')) {
-            console.error('Error en el procesamiento de datos:', error);
-        } else {
-            console.error('Error al insertar datos:', error);
+    }).then(function (response) {
+        if (!response.ok) {
+            console.log('Problem');
+            return;
         }
+        return response.json();
+    }).then(function (data) {
+        if (data.status === 'success') {
+            console.log(data.message);
+            resumenSolicitud(nuevoId);
+            enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
+        } else if (data.status === 'error') {
+            console.log(data.message);
+            Swal.fire({
+                title: "Error",
+                text: data.message,
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        }
+    }).catch(error => {
+        //console.error(error);
+        Swal.fire({
+            title: "Error",
+            text: error.message,
+            icon: "error",
+            confirmButtonText: "OK"
+        });
     });
 }
+
+
+function enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario){
+    const data = new FormData();
+
+    data.append('id_prueba',id_prueba);
+    data.append('solicitante',solicitante);
+    data.append('emailUsuario',emailUsuario);
+
+    fetch('https://arketipo.mx/MailerSolicitudPruebaS.php',{
+        method: 'POST',
+        body: data
+    })
+        .then(function (response){
+            if (response.ok){
+                //alert('Correo Solicitante: prueba: ' +id_prueba+ 'user: ' + solicitante +' email: ' + emailUsuario);
+                enviarCorreoNuevaSolicitudLab(id_prueba, solicitante);
+            }else{
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}
+
+function enviarCorreoNuevaSolicitudLab(id_prueba, solicitante){
+    const data = new FormData();
+
+    data.append('id_prueba',id_prueba);
+    data.append('solicitante',solicitante);
+
+    fetch('https://arketipo.mx/MailerSolicitudPruebaLab.php',{
+        method: 'POST',
+        body: data
+    })
+        .then(function (response){
+            if (response.ok){
+                //alert('Correo Lab: prueba: ' +id_prueba+ 'user: ' + solicitante);
+                console.log("Correos enviados");
+            }else{
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}
+
 
 /***************************************************************************************
  * ***************************************************************************************
