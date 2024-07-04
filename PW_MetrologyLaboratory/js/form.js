@@ -431,21 +431,20 @@ function registrarSolicitud(nuevoId) {
     dataForm.append('especificaciones', especificaciones.value.trim());
 
 
-    if (tipoPrueba === '1' || tipoPrueba === '2' || tipoPrueba === '6') { // IDL/IFD | SOFTNESS | OTRO
+    if (tipoPrueba.value === '1' || tipoPrueba.value === '2' || tipoPrueba.value === '6') { // IDL/IFD | SOFTNESS | OTRO
         let norma = id("norma");
         dataForm.append('norma', norma.value.trim());
 
         let inputArchivo = id('normaFile');
         // Verificar si hay archivos seleccionados
-        if (inputArchivo.files.length > 0) {
-            // Hay archivos cargados
+        if (inputArchivo.files.length > 0) { // Hay archivos cargados
             dataForm.append('normaFile', inputArchivo.files[0]);
-        } else {
-            // No hay archivos cargados
+
+        } else { // No hay archivos cargados
             inputArchivo = "Ningún archivo seleccionado"
             dataForm.append('normaFile', inputArchivo);
         }
-    } else if (tipoPrueba === '3') { // DIMENSIONAL
+    } else if (tipoPrueba.value === '3') { // DIMENSIONAL
         let subtipo = id("subtipoPrueba");
         if (subtipo.value === '2') { //Dimensional-cotas especificas
             let imagenCotas = id("imgCotas");
