@@ -17,12 +17,12 @@ if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], 
     // Convertir los datos de las piezas en arrays
     $plataformas    = explode(', ', $_POST['plataformas']);
     $numsParte      = explode(', ', $_POST['numsParte']);
-    $cdadMateriales = explode(', ', $_POST['cantidades']);
+    $cdadPiezas = explode(', ', $_POST['cantidades']);
     $revDibujos     = explode(', ', $_POST['revDibujos']);
     $modMatematicos = explode(', ', $_POST['modMatematicos']);
 
     // Llamar a la función para registrar la solicitud
-    $response = RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $plataformas,$numsParte, $cdadMateriales, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba);
+    $response = RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba);
 } else {
     // Mostrar mensaje de error si faltan datos en el formulario
     $response = array("status" => "error", 'message' => "Error: Faltan datos en el formulario");
@@ -31,7 +31,7 @@ echo json_encode($response);
 exit;
 
 
-function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $plataformas,$numsParte, $cdadMateriales, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba)
+function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
@@ -47,17 +47,17 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
     $rInsertMaterial = true;
 
     //Registrar Piezas
-    for ($i = 0; $i < count($cdadMateriales); $i++) {
-        $numsParte     = $numsParte[$i];
+    for ($i = 0; $i < count($cdadPiezas); $i++) {
+        $numParte     = $numsParte[$i];
         $plataforma    = $plataformas[$i];
-        $cdadMaterial  = $cdadMateriales[$i];
+        $cdadPieza  = $cdadPiezas[$i];
         $revDibujo     = $revDibujos[$i];
         $modMatematico = $modMatematicos[$i];
 
         $insertMaterial = $conex->prepare("INSERT INTO `Piezas` (`id_prueba`, `numParte`,`cantidad`, `id_plataforma`,`revisionDibujo`, `modMatematico`) 
                                                  VALUES (?, ?, ?, ?, ?, ?)");
 
-        $insertMaterial->bind_param("ssiiss", $id_prueba, $numsParte,$cdadMaterial, $plataforma,$revDibujo,$modMatematico);
+        $insertMaterial->bind_param("ssiiss", $id_prueba, $numParte,$cdadPieza, $plataforma,$revDibujo,$modMatematico);
         $rInsertMaterial = $rInsertMaterial && $insertMaterial->execute();
     }
 
