@@ -15,10 +15,10 @@ if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], 
     list($response, $norma, $normaFile) = manejarNormaFile($tipoPrueba, $id_prueba, $_FILES, $_POST);
 
     // Convertir los datos de las piezas en arrays
-    $plataformas = explode(', ', $_POST['plataformas']);
-    $numsParte = explode(', ', $_POST['numsParte']);
+    $plataformas    = explode(', ', $_POST['plataformas']);
+    $numsParte      = explode(', ', $_POST['numsParte']);
     $cdadMateriales = explode(', ', $_POST['cantidades']);
-    $revDibujos = explode(', ', $_POST['revDibujos']);
+    $revDibujos     = explode(', ', $_POST['revDibujos']);
     $modMatematicos = explode(', ', $_POST['modMatematicos']);
 
     // Llamar a la función para registrar la solicitud
@@ -29,6 +29,49 @@ if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], 
 }
 echo json_encode($response);
 exit;
+
+
+function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $plataformas,$numsParte, $cdadMateriales, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba)
+{
+    $con = new LocalConector();
+    $conex = $con->conectar();
+
+    // Iniciar transacción
+    $conex->begin_transaction();
+
+    $insertSolicitud = $conex->prepare("INSERT INTO `Pruebas` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`,`id_solicitante`, `id_tipoPrueba`) 
+                                              VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $insertSolicitud->bind_param("ssssssi", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba);
+    $rInsertSolicitud = $insertSolicitud->execute();
+
+    $rInsertMaterial = true;
+
+    //Registrar Piezas
+    for ($i = 0; $i < count($cdadMateriales); $i++) {
+        $numsParte     = $numsParte[$i];
+        $plataforma    = $plataformas[$i];
+        $cdadMaterial  = $cdadMateriales[$i];
+        $revDibujo     = $revDibujos[$i];
+        $modMatematico = $modMatematicos[$i];
+
+        $insertMaterial = $conex->prepare("INSERT INTO `Piezas` (`id_prueba`, `numParte`,`cantidad`, `id_plataforma`,`revisionDibujo`, `modMatematico`) 
+                                                 VALUES (?, ?, ?, ?, ?, ?)");
+
+        $insertMaterial->bind_param("ssiiss", $id_prueba, $numsParte,$cdadMaterial, $plataforma,$revDibujo,$modMatematico);
+        $rInsertMaterial = $rInsertMaterial && $insertMaterial->execute();
+    }
+
+    // Confirmar o hacer rollback de la transacción
+    if(!$rInsertSolicitud || !$rInsertMaterial) {
+        $conex->rollback();
+        $response = array('status' => 'error', 'message' => 'Error en RegistrarSolicitud');
+    } else {
+        $conex->commit();
+        $response = array('status' => 'success', 'message' => 'Datos insertados correctamente');
+    }
+    $conex->close();
+    return $response;
+}
 
 function manejarNormaFile($tipoPrueba, $id_prueba, $files, $post) {
 
@@ -69,50 +112,6 @@ function manejarNormaFile($tipoPrueba, $id_prueba, $files, $post) {
         $norma = 'No aplica';
     }
     return array($response, $norma, $normaFile);
-}
-
-
-
-function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $plataformas,$numsParte, $cdadMateriales, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba)
-{
-    $con = new LocalConector();
-    $conex = $con->conectar();
-
-    // Iniciar transacción
-    $conex->begin_transaction();
-
-    $insertSolicitud = $conex->prepare("INSERT INTO `Pruebas` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`,`id_solicitante`, `id_tipoPrueba`) 
-                                              VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $insertSolicitud->bind_param("ssssssi", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba);
-    $rInsertSolicitud = $insertSolicitud->execute();
-
-    $rInsertMaterial = true;
-
-    //Registrar Piezas
-    for ($i = 0; $i < count($numsParte); $i++) {
-        $numsParte = $numsParte[$i];
-        $plataforma = $plataformas[$i];
-        $cdadMaterial = $cdadMateriales[$i];
-        $revDibujo = $revDibujos[$i];
-        $modMatematico = $modMatematicos[$i];
-
-        $insertMaterial = $conex->prepare("INSERT INTO `Piezas` (`id_prueba`, `numParte`,`cantidad`, `id_plataforma`,`revisionDibujo`, `modMatematico`) 
-                                                 VALUES (?, ?, ?, ?, ?, ?)");
-
-        $insertMaterial->bind_param("ssiiss", $id_prueba, $numsParte,$cdadMaterial, $plataforma,$revDibujo,$modMatematico);
-        $rInsertMaterial = $rInsertMaterial && $insertMaterial->execute();
-    }
-
-    // Confirmar o hacer rollback de la transacción
-    if(!$rInsertSolicitud || !$rInsertMaterial) {
-        $conex->rollback();
-        $response = array('status' => 'error', 'message' => 'Error en RegistrarSolicitud');
-    } else {
-        $conex->commit();
-        $response = array('status' => 'success', 'message' => 'Datos insertados correctamente');
-    }
-    $conex->close();
-    return $response;
 }
 
 //bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.

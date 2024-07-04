@@ -43,14 +43,14 @@ if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], 
     $cdadMateriales = explode(', ', $_POST['cantidades']);
 
     // Llamar a la función para registrar la solicitud
-    RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba);
+    ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba);
 } else {
     // Mostrar mensaje de error si faltan datos en el formulario
     echo json_encode(array("error" => true, 'message' => "<script>alert('Error: Faltan datos en el formulario')</script>"));
 }
 
 
-function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba)
+function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $tipoPruebaEspecial, $otroPrueba, $especificaciones, $descMateriales, $cdadMateriales, $fechaSolicitud, $id_prueba)
 {
     $con = new LocalConector();
     $conex = $con->conectar();

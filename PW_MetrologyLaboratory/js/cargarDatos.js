@@ -139,54 +139,6 @@ function plataformaModal(){
     });
 }
 
-function resumenSolicitud(id_prueba) {
-
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSolicitudPrueba.php?id_prueba=' + id_prueba, function (response) {
-        var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
-        let TP = data.id_tipoPrueba;
-
-        // Actualizar el contenido de la ventana modal con los datos obtenidos
-        $('#solicitudNumero').text(data.id_prueba);
-        $('#fechaSolicitud').text(data.fechaSolicitud);
-        $('#solicitante').text(data.nombreSolic);
-        $('#tipoPruebaSolicitud').text(data.descripcionPrueba);
-        $('#observacionesSolicitud').text(data.especificaciones);
-        $('#estatusSolicitud').text(data.descripcionEstatus);
-        $('#normaNombreSol').text(data.normaNombre);
-        id("archivoNormaSol").href = data.normaArchivo;
-
-        var tabla = document.getElementById("materialesSolicitud");
-        var tbody = tabla.getElementsByTagName("tbody")[0];
-
-        // Limpiar contenido previo de la tabla
-        tbody.innerHTML = '';
-
-        // Iterar sobre los materiales y crear filas y celdas de tabla
-        for (var j = 0; j < response.data.length; j++) {
-            var fila = document.createElement("tr");
-
-            var numeroDeParteT = document.createElement("td");
-            numeroDeParteT.textContent = response.data[j].numeroDeParte;
-            fila.appendChild(numeroDeParteT);
-
-            var descMaterialesT = document.createElement("td");
-            descMaterialesT.textContent = response.data[j].descripcionMaterial;
-            fila.appendChild(descMaterialesT);
-
-            var cdadMaterialesT = document.createElement("td");
-            cdadMaterialesT.textContent = response.data[j].cantidad;
-            fila.appendChild(cdadMaterialesT);
-
-            tbody.appendChild(fila);
-        }
-        id_review = id_prueba;
-        // Mostrar la ventana modal con id RequestReview
-        $('#RequestReview').modal('show');
-        mostrarOpciones(TP);
-        ocultarContenido("obs",20);
-    });
-
-}
 
 // DataTables
 let dataTable;
