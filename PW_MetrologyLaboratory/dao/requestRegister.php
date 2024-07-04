@@ -48,9 +48,9 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
 
     //Registrar Piezas
     for ($i = 0; $i < count($cdadPiezas); $i++) {
-        $numParte     = $numsParte[$i];
+        $numParte      = $numsParte[$i];
         $plataforma    = $plataformas[$i];
-        $cdadPieza  = $cdadPiezas[$i];
+        $cdadPieza     = $cdadPiezas[$i];
         $revDibujo     = $revDibujos[$i];
         $modMatematico = $modMatematicos[$i];
 
