@@ -1,3 +1,8 @@
+/***************************************************************************************
+ * ***************************************************************************************
+ * *********************FUNCIONES DE ESTILOS PARA EL FORMULARIO***************************
+ * ***************************************************************************************
+ * ***************************************************************************************/
 const mostrarBloque = (elemento, mostrar) => {
     elemento.style.display = mostrar ? "block" : "none";
 };
@@ -238,6 +243,12 @@ function agregarPieza() {
     newRow.appendTo('#contenedorFormulario');
 }
 
+/***************************************************************************************
+ * ***************************************************************************************
+ * *********************FUNCIONES PARA VALIDAR UNA NUEVA SOLICITUD************************
+ * ***************************************************************************************
+ * ***************************************************************************************/
+
 function validarFormNewRequest() {
     let tipoPrueba = id("tipoPrueba").value;
     const esTipoPruebaValido = validarSelect('tipoPrueba');
@@ -259,7 +270,7 @@ function validarFormNewRequest() {
     //Validacion dependiendo el tipo de prueba
     if(tipoPrueba === '1' || tipoPrueba === '2' || tipoPrueba === '6') { // IDL/IFD | SOFTNESS | OTRO
         if(esTipoPruebaValido && esNormaValido && esObservacionesValido && sonTodasPiezasValidas){
-            console.log("Inputs validos.");
+            initGuardarDatos();
         }
     } else if (tipoPrueba === '3') { // DIMENSIONAL
         if(subtipo === '2'){ //Dimensional-cotas especificas
@@ -279,15 +290,6 @@ function validarFormNewRequest() {
     }else {
         console.log("Hay campos sin completar.");
     }
-}
-
-function initGuardarDatos(){
-    console.log("esActualizacion: " + esActualizacion);
-       if (esActualizacion === false) {
-           validacionSolicitud();
-       } else if (esActualizacion === true) {
-           actualizarSolicitud();
-       }
 }
 
 function validarPiezas() {
@@ -321,6 +323,220 @@ function validarPiezas() {
     };
 }
 
+/***************************************************************************************
+ * ***************************************************************************************
+ * *********************FUNCIONES PARA GUARDAR UNA NUEVA SOLICITUD************************
+ * ***************************************************************************************
+ * ***************************************************************************************/
+
+function initGuardarDatos(){
+    console.log("esActualizacion: " + esActualizacion);
+    if (esActualizacion === false) {
+        validacionSolicitud();
+    } else if (esActualizacion === true) {
+        actualizarSolicitud();
+    }
+}
+
+
+function validacionSolicitud() {
+    const id_pruebaPromise      = obtenerNuevoId(); // Obtener el nuevo ID de forma asíncrona
+    const sesionIniciadaPromise = validarSesion(); // Validar la sesión de forma asíncrona
+
+    Promise.all([id_pruebaPromise, sesionIniciadaPromise])
+        .then(respuestas => {
+            const id_prueba      = respuestas[0];
+            const sesionIniciada = respuestas[1];
+
+            if (sesionIniciada && id_prueba !== null && id_prueba !== undefined) {
+                //alert("Se ejecuta registrarSolicitud "+id_prueba)
+                registrarSolicitud(id_prueba);
+            } else if(sesionIniciada === false) {
+                // Si la sesión no está iniciada, mostrar un mensaje de error
+                Swal.fire("¡La sesión no está iniciada!");
+            }
+        })
+        .catch(error => {
+            Swal.fire("¡Error al validar la solicitud!");
+        });
+}
+
+function obtenerNuevoId() {
+    return idPrueba().then(function(nuevoId) {
+        console.log("obtenerNuevoId-Nuevo ID:", nuevoId);
+        return nuevoId;
+    }).catch(function(error) {
+        console.error("Error al obtener el nuevo ID:", error);
+    });
+}
+function idPrueba() {
+    return new Promise(function(resolve, reject) {
+        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function(data) {
+            var fecha = new Date();
+            var anio = fecha.getFullYear();
+            var nuevoId;
+            let idMaximo = data.data[0].max_id_prueba;
+
+            if (idMaximo == null) {
+                nuevoId = anio + "-0001";
+            }else{
+                var idMaxPartes = idMaximo.split("-");
+                var anioIdMax = parseInt(idMaxPartes[0]); // Convertir a número
+                var consecutivoId = idMaxPartes[1];
+
+                if (anioIdMax === anio) {
+                    nuevoId = anioIdMax + "-" + (parseInt(consecutivoId) + 1).toString().padStart(4, '0');
+                } else {//cambio de año
+                    nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
+                }
+            }
+            resolve(nuevoId); // Resolver la promesa con el nuevo ID
+        });
+    });
+}
+
+function validarSesion() {
+    return obtenerSesion().then(function(sesionIniciada) {
+        //console.log("Obterner estatus de la sesión: ", sesionIniciada);
+        return sesionIniciada;
+    }).catch(function(error) {
+        console.error("Error al validar la sesión", error);
+    });
+}
+
+function obtenerSesion() {
+    return new Promise(function(resolve, reject) {
+        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSesionIniciada.php', function(data) {
+            let sesionIniciada = data.sesionIniciada;
+            resolve(sesionIniciada); // Resolver la promesa con el nuevo ID
+        });
+    });
+}
+
+function registrarSolicitud(nuevoId) {
+
+    const dataForm = new FormData();
+    var idNomina           = id("idUsuario");
+    var tipoPrueba         = id("tipoPrueba");
+    var especificaciones   = id ("especificaciones");
+    var fechaSolicitud    = new Date();
+    var fechaFormateada  = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
+
+    dataForm.append('id_prueba', nuevoId);
+    dataForm.append('fechaSolicitud', fechaFormateada);
+    dataForm.append('tipoPrueba', tipoPrueba.value.trim());
+    dataForm.append('idUsuario', idNomina.value.trim());
+    dataForm.append('especificaciones', especificaciones.value.trim());
+
+
+    if(tipoPrueba === '1' || tipoPrueba === '2' || tipoPrueba === '6') { // IDL/IFD | SOFTNESS | OTRO
+        let norma             = id("norma");
+        dataForm.append('norma', norma.value.trim());
+
+        let inputArchivo      = id('normaFile');
+        // Verificar si hay archivos seleccionados
+        if (inputArchivo.files.length > 0) {
+            // Hay archivos cargados
+            dataForm.append('normaFile', inputArchivo.files[0]);
+        } else {
+            // No hay archivos cargados
+            inputArchivo = "Ningún archivo seleccionado"
+            dataForm.append('normaFile', inputArchivo);
+        }
+    } else if (tipoPrueba === '3') { // DIMENSIONAL
+        let subtipo= id("subtipoPrueba");
+        if(subtipo.value === '2'){ //Dimensional-cotas especificas
+            let imagenCotas = id("imgCotas");
+            dataForm.append('imagenCotas', imagenCotas.files[0]);
+        }
+        dataForm.append('subtipoPrueba', subtipo.value.trim());
+    }
+    // /*}else if(tipoPrueba === '5') { //MUNSELL*/
+
+
+    let plataformas = [];
+    let numsParte = [];
+    let cantidades = [];
+    let revDibujos = [];
+    let modMatematicos = [];
+
+
+    for (var k = 1; k <= indexMaterial; k++) {
+        // Para agregar material por número de parte
+        var plataforma    = id('plataforma' + k);
+        var numeroParte       = id('numeroParte' + k);
+        var cdadMaterial       = id('cdadMaterial' + k);
+        var revDibujo       = id('revDibujo' + k);
+        var modeloMate       = id('modeloMate' + k);
+
+        // Añadimos los valores a los arrays correspondientes
+        plataformas.push(plataforma.value.trim());
+        numsParte.push(numeroParte.value.trim());
+        cantidades.push(cdadMaterial.value.trim());
+        revDibujos.push(revDibujo.value.trim());
+        modMatematicos.push(modeloMate.value.trim());
+    }
+    // Agregamos los arrays al FormData
+    dataForm.append('plataformas', plataformas.join(', '));
+    dataForm.append('numsParte', numsParte.join(', '));
+    dataForm.append('cantidades', cantidades.join(', '));
+    dataForm.append('revDibujos', revDibujos.join(', '));
+    dataForm.append('modMatematicos', modMatematicos.join(', '));
+
+
+    let formDataString = "FormData: \n";
+    for (let pair of dataForm.entries()) {
+        formDataString += pair[0]+ ', ' + pair[1] + '\n';
+    }
+    alert(formDataString);
+
+    fetch('../../dao/requestRegister.php', {
+        method: 'POST',
+        body: dataForm
+    })
+        .then(function(response) {
+            console.log('response.ok: ', response.ok);
+            if (response.ok) {
+                return response.text().then(showResult);
+            } else {
+                showError('status code: ' + response.status);
+                throw new Error('Error en la solicitud: ' + response.status);
+            }
+        })
+        .then(function(data) {
+            resumenSolicitud(nuevoId);
+        }).then(function(data) {
+            // Si la inserción de datos fue exitosa, llamar a las funciones
+            enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
+    }).catch(function(error) {
+        if (error instanceof TypeError && error.message.includes('Error')) {
+            console.error('Error en el procesamiento de datos:', error);
+        } else {
+            console.error('Error al insertar datos:', error);
+        }
+    });
+}
+
+/***************************************************************************************
+ * ***************************************************************************************
+ * *******************FUNCIONES PARA CONFIRMAR UNA NUEVA SOLICITUD************************
+ * ***************************************************************************************
+ * ***************************************************************************************/
+
+
+
+
+/*****************************************
+ *************************************************
+ * ***************************************************
+ * ***************************************************
+ * funciones no validadas ---> ****************************
+ * ********************************************************
+ * ****************************************************
+ * *************************************************
+ * ********************************************/
+
+
 function validarPersonal(indexPersonal) {
     let esNominaValido = true;
     let esNombreValida = true;
@@ -341,30 +557,6 @@ function validarPersonal(indexPersonal) {
         esAreaValida: esAreaValida
     };
 }
-/*****************************************
- *************************************************
- * ***************************************************
- * ***************************************************
- * funciones no validadas ---> ****************************
- * ********************************************************
- * ****************************************************
- * *************************************************
- * ********************************************/
-
-let  esActualizacion = false;
-// ¿Se va actualizar una solicitud?
-const id_update = new URLSearchParams(window.location.search).get('id_update');
-function esActualizacionPrueba(){
-    if (id_update !== null && id_update !== '') {
-        cargarDatosPrueba(id_update);
-        actualizarTituloH1(id_update);
-        showButton("updateRequest");
-        hideButton("submitRequest");
-        esActualizacion = true;
-    }else{
-        hideButton("updateRequest");
-    }
-}
 
 function actualizarTituloH1(id_update) {
     const divh1 = document.querySelector("#divh1");
@@ -378,15 +570,6 @@ function actualizarTituloH1(id_update) {
         aviso.textContent = " ";
     }
 }
-
-<!-- Para agregar material por número de parte -->
-const divNumeroParte         = id("numeroParte1");
-const divDescripcionMaterial = id("descripcionMaterial1");
-const divPlataforma          = id("plataformaDiv1");
-const divOEM                 = id("div-OEM1");
-const divCantidadMaterial    = id("cantidadMaterial1");
-let tipo;
-
 
 function redirectToRequestsIndex() {
     window.location.href = "../requests/requestsIndex.php";

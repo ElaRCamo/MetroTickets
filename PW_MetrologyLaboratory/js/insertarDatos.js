@@ -156,91 +156,17 @@ function recuperarPassword() {
     }
 }
 
-function idPrueba() {
-    return new Promise(function(resolve, reject) {
-        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function(data) {
-            var fecha = new Date();
-            var anio = fecha.getFullYear();
-            var nuevoId;
-            let idMaximo = data.data[0].max_id_prueba;
-
-            if (idMaximo == null) {
-                nuevoId = anio + "-0001";
-            }else{
-                var idMaxPartes = idMaximo.split("-");
-                var anioIdMax = parseInt(idMaxPartes[0]); // Convertir a número
-                var consecutivoId = idMaxPartes[1];
-
-                if (anioIdMax === anio) {
-                    nuevoId = anioIdMax + "-" + (parseInt(consecutivoId) + 1).toString().padStart(4, '0');
-                } else {//cambio de año
-                    nuevoId = anio + "-0001"; // Asumiendo que el consecutivo inicia en 1
-                }
-            }
-            resolve(nuevoId); // Resolver la promesa con el nuevo ID
-        });
-    });
-}
-
-function obtenerNuevoId() {
-    return idPrueba().then(function(nuevoId) {
-        console.log("obtenerNuevoId-Nuevo ID:", nuevoId);
-        return nuevoId;
-    }).catch(function(error) {
-        console.error("Error al obtener el nuevo ID:", error);
-    });
-}
-
-function obtenerSesion() {
-    return new Promise(function(resolve, reject) {
-        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSesionIniciada.php', function(data) {
-            let sesionIniciada = data.sesionIniciada;
-            resolve(sesionIniciada); // Resolver la promesa con el nuevo ID
-        });
-    });
-}
-function validarSesion() {
-    return obtenerSesion().then(function(sesionIniciada) {
-        console.log("Obterner estatus de la sesión: ", sesionIniciada);
-        return sesionIniciada;
-
-    }).catch(function(error) {
-        console.error("Error al validar la sesión", error);
-    });
-}
-
-function validacionSolicitud() {
-    const id_pruebaPromise      = obtenerNuevoId(); // Obtener el nuevo ID de forma asíncrona
-    const sesionIniciadaPromise = validarSesion(); // Validar la sesión de forma asíncrona
-
-    Promise.all([id_pruebaPromise, sesionIniciadaPromise])
-        .then(respuestas => {
-            const id_prueba      = respuestas[0];
-            const sesionIniciada = respuestas[1];
-
-            if (sesionIniciada && id_prueba !== null && id_prueba !== undefined) {
-                //alert("Se ejecuta registrarSolicitud "+id_prueba)
-                registrarSolicitud(id_prueba);
-            } else if(sesionIniciada === false) {
-                // Si la sesión no está iniciada, mostrar un mensaje de error
-                Swal.fire("¡La sesión no está iniciada!");
-            }
-        })
-        .catch(error => {
-            Swal.fire("¡Error al validar la solicitud!");
-        });
-}
 function showResult(result) {
     // Código para manejar el resultado exitoso
     console.log('Result: ', result);
 }
 
 function showError(error) {
-    // Código para manejar el error
+    // Código para manejar el error98ik
     console.error('Error: ', error);
 }
 
-function registrarSolicitud(nuevoId) {
+function registrarSolicitud_nhibhibhi(nuevoId) {
 
         const dataForm = new FormData();
 
