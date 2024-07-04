@@ -9,12 +9,12 @@ function resumenPrueba($id_prueba){
     $conex = $con->conectar();
 
     $datosPrueba =  mysqli_query($conex,
-        "SELECT dm.numeroDeParte, 
-                        m.cantidad, 
-                        dm.descripcionMaterial, 
-                        dm.imgMaterial, 
+        "SELECT   z.numParte, 
+                        z.cantidad, 
                         c.descripcionCliente, 
                         p.descripcionPlataforma,
+                        z.revisionDibujo, 
+                        z.ModMatematico,
                         prueba.id_prueba, 
                         prueba.fechaSolicitud, 
                         prueba.descripcionEstatus, 
@@ -28,11 +28,10 @@ function resumenPrueba($id_prueba){
                         prueba.id_solicitante, 
                         prueba.nombreSolic  
                     FROM   
-                        Material m
-                        JOIN DescripcionMaterial dm ON m.id_descripcion = dm.id_descripcion
-                        JOIN Plataforma p ON dm.id_plataforma = p.id_plataforma
+                        Piezas z
+                        JOIN Plataforma p ON z.id_plataforma = p.id_plataforma
                         JOIN Cliente c ON p.id_cliente = c.id_cliente
-                        JOIN EstatusMaterial em ON m.id_estatusMaterial = em.id_estatusMaterial
+                        JOIN EstatusPiezas ep ON z.id_estatus = ep.id_estatus
                         JOIN (
                             SELECT 
                                 id_prueba, 
@@ -56,7 +55,7 @@ function resumenPrueba($id_prueba){
                                 LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
                             WHERE 
                                 id_prueba = '$id_prueba'
-                        ) AS prueba ON m.id_prueba = prueba.id_prueba;
+                        ) AS prueba ON z.id_prueba = prueba.id_prueba;
 ");
 
     $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
