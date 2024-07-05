@@ -184,7 +184,7 @@
                                             <table class="table table-borderless" id="personalTitulo">
                                                 <tr>
                                                     <td class="tdH6">
-                                                        <h6>REGISTRO DE PERSONAL</h6>
+                                                        <h6>REGISTRO DE PERSONAL jbihjbkjhbjkbhjbkijb</h6>
                                                     </td>
                                                     <td class="tdButton">
                                                         <button type="button" id="addPersonal1"><i class="las la-plus-square"></i>Agregar</button>
