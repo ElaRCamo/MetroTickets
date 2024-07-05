@@ -90,7 +90,7 @@ function manejarSubtipoPrueba($tipoPrueba,$id_prueba,$files, $post){
             // Nombre y ruta del archivo
             $fechaActual = date('Y-m-d_H-i-s');
             $archivo = $files['imagenCotas']['name'];
-            $imgName = $fechaActual . '-' . $id_prueba;
+            $imgName = $fechaActual . '_' . $id_prueba;
 
             $extension = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
             $extensionesPermitidas = array("gif", "jpeg", "jpg", "png");
@@ -103,6 +103,7 @@ function manejarSubtipoPrueba($tipoPrueba,$id_prueba,$files, $post){
                 move_uploaded_file($temp, $moverImgFile);
                 $response = array('status' => 'success');
             }else{
+                $img='error';
                 $response = array('status' => 'error', 'message' => 'Error: Extensión no permitida.');
             }
         } else if(isset($post['subtipoPrueba']) && $post['subtipoPrueba'] == 1){
