@@ -79,9 +79,10 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
 }
 
 function manejarSubtipoPrueba($tipoPrueba,$id_prueba,$files, $post){
+
     if ($tipoPrueba == 3){ //DIMENSIONAL
         // Manejar la imagen si se ha subido
-        if (isset($post['subtipoPrueba'],$files['imagenCotas']) && $files['imagenCotas']['error'] === UPLOAD_ERR_OK) {
+        if (isset($files['imagenCotas'],$post['subtipoPrueba']) && $post['subtipoPrueba'] == 2 && $files['imagenCotas']['error'] === UPLOAD_ERR_OK) {
             $subtipo = $post['subtipoPrueba'];
             // Directorio de destino para la carga de files
             $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/cotas/";
@@ -104,8 +105,11 @@ function manejarSubtipoPrueba($tipoPrueba,$id_prueba,$files, $post){
             }else{
                 $response = array('status' => 'error', 'message' => 'Error: Extensión no permitida.');
             }
-
-        } else {
+        } else if(isset($post['subtipoPrueba']) && $post['subtipoPrueba'] == 1){
+            $response = array("status" => "success");
+            $img = 'No aplica';
+            $subtipo = $post['subtipoPrueba'];
+        }else {
             // No se recibió ni un archivo ni un string válido
             $img = "Error";
             $subtipo = 0;
