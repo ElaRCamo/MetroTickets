@@ -241,6 +241,57 @@ function agregarPieza() {
     newRow.appendTo('#contenedorFormulario');
 }
 
+
+function agregarPersonal() {
+    indexPersonal++;
+
+    var newRow = $('<div id="newRow' + indexPersonal + '" class="row row-cols-xl-3 clearfix">'
+        + '<div class="col-xl-12">'
+        + '<div class="row">'
+        + '<div class="col-sm-4">'
+        + '<div class="" id="divNumNomina' + indexPersonal + '">'
+        + '<label for="numNomina' + indexPersonal + '">Número de nómina*</label>'
+        + '<div class="form-group">'
+        + '<input id="numNomina' + indexPersonal + '" name="numNomina' + indexPersonal + '" type="text" class="form-control" placeholder="Número de nómina*" required data-error="Por favor ingresa el número de nómina">'
+        + '<div class="input-group-icon"><i class="las la-cubes"></i></div>'
+        + '<div class="invalid-feedback"></div>'
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-sm-4">'
+        + '<div class="" id="divNombrePersonal' + indexPersonal + '">'
+        + '<label for="nombrePersonal' + indexPersonal + '">Nombre de inspector/operador*</label>'
+        + '<div class="form-group">'
+        + '<input id="nombrePersonal' + indexPersonal + '" name="nombrePersonal' + indexPersonal + '" type="text" class="form-control" placeholder="Nombre de inspector/operador*" required data-error="Por favor ingresa el nombre del inspector/operador">'
+        + '<div class="input-group-icon"><i class="las la-cubes"></i></div>'
+        + '<div class="invalid-feedback"></div>'
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-sm-4">'
+        + '<div class="" id="divArea' + indexPersonal + '">'
+        + '<label for="area' + indexPersonal + '">Área/linea de produccion*</label>'
+        + '<div class="form-group">'
+        + '<input id="area' + indexPersonal + '" name="area' + indexPersonal + '" type="text" class="form-control" placeholder="Área/linea de produccion*" required data-error="Por favor ingresa el área/linea de producción">'
+        + '<div class="input-group-icon"><i class="las la-cubes"></i></div>'
+        + '<div class="invalid-feedback"></div>'
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="col-xl-4">'
+        + '</div>'
+        + '<div class="col-xl-4">'
+        + '</div>'
+        + '<div class="col-xl-4 buttons-container" id="divButtons' + indexPersonal + '">'
+        + '<a href="#" class="remove-lnk removeBtn" id="' + indexPersonal + '"><i class="las la-trash-alt"></i></a>'
+        + '<a href="#" class="agregarButton" id="addPersonal' + indexPersonal + '"><i class="las la-plus-square"></i></a>'
+        + '</div>'
+        + '</div>');
+    newRow.appendTo('#contenedorFormulario');
+}
+
 /*****************************************************************************************
  * *********************FUNCIONES PARA CARGAR DATOS A LOS INPUTS**************************
  * ***************************************************************************************/
@@ -324,10 +375,8 @@ function llenarPlataforma(i) {
     });
 }
 
-/***************************************************************************************
- * ***************************************************************************************
+/*****************************************************************************************
  * *********************FUNCIONES PARA VALIDAR UNA NUEVA SOLICITUD************************
- * ***************************************************************************************
  * ***************************************************************************************/
 
 function validarFormNewRequest() {
@@ -529,37 +578,59 @@ function registrarSolicitud(nuevoId) {
         }
         dataForm.append('subtipoPrueba', subtipo.value.trim());
     }
-    // /*}else if(tipoPrueba === '5') { //MUNSELL*/
+
+    if(tipoPrueba === '5') { //MUNSELL
+        let nominas = [];
+        let nombres = [];
+        let areas = [];
+
+        for (var k = 1; k <= indexMaterial; k++) {
+            // Para agregar material por número de parte
+            var nomina = id('numNomina' + k);
+            var nombre = id('nombrePersonal' + k);
+            var area = id('area' + k);
 
 
-    let plataformas = [];
-    let numsParte = [];
-    let cantidades = [];
-    let revDibujos = [];
-    let modMatematicos = [];
+            // Añadimos los valores a los arrays correspondientes
+            nominas.push(nomina.value.trim());
+            nombres.push(nombre.value.trim());
+            areas.push(area.value.trim());
 
+        }
+        // Agregamos los arrays al FormData
+        dataForm.append('nominas', nominas.join(', '));
+        dataForm.append('nombres', nombres.join(', '));
+        dataForm.append('areas', areas.join(', '));
 
-    for (var k = 1; k <= indexMaterial; k++) {
-        // Para agregar material por número de parte
-        var plataforma = id('plataforma' + k);
-        var numeroParte = id('numeroParte' + k);
-        var cdadMaterial = id('cdadMaterial' + k);
-        var revDibujo = id('revDibujo' + k);
-        var modeloMate = id('modeloMate' + k);
+    }else{ //Cualquier otro tipo de prueba
+        let plataformas = [];
+        let numsParte = [];
+        let cantidades = [];
+        let revDibujos = [];
+        let modMatematicos = [];
 
-        // Añadimos los valores a los arrays correspondientes
-        plataformas.push(plataforma.value.trim());
-        numsParte.push(numeroParte.value.trim());
-        cantidades.push(cdadMaterial.value.trim());
-        revDibujos.push(revDibujo.value.trim());
-        modMatematicos.push(modeloMate.value.trim());
+        for (var k = 1; k <= indexMaterial; k++) {
+            // Para agregar material por número de parte
+            var plataforma = id('plataforma' + k);
+            var numeroParte = id('numeroParte' + k);
+            var cdadMaterial = id('cdadMaterial' + k);
+            var revDibujo = id('revDibujo' + k);
+            var modeloMate = id('modeloMate' + k);
+
+            // Añadimos los valores a los arrays correspondientes
+            plataformas.push(plataforma.value.trim());
+            numsParte.push(numeroParte.value.trim());
+            cantidades.push(cdadMaterial.value.trim());
+            revDibujos.push(revDibujo.value.trim());
+            modMatematicos.push(modeloMate.value.trim());
+        }
+        // Agregamos los arrays al FormData
+        dataForm.append('plataformas', plataformas.join(', '));
+        dataForm.append('numsParte', numsParte.join(', '));
+        dataForm.append('cantidades', cantidades.join(', '));
+        dataForm.append('revDibujos', revDibujos.join(', '));
+        dataForm.append('modMatematicos', modMatematicos.join(', '));
     }
-    // Agregamos los arrays al FormData
-    dataForm.append('plataformas', plataformas.join(', '));
-    dataForm.append('numsParte', numsParte.join(', '));
-    dataForm.append('cantidades', cantidades.join(', '));
-    dataForm.append('revDibujos', revDibujos.join(', '));
-    dataForm.append('modMatematicos', modMatematicos.join(', '));
 
 
     let formDataString = "FormData: \n";

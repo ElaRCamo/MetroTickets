@@ -53,8 +53,8 @@
     ?>
 
     <script type="text/javascript">
-
         let indexMaterial = 1;
+        let indexPersonal = 1;
         let emailUsuario = <?php echo json_encode($_SESSION['emailUsuario']); ?>;
         let solicitante = <?php echo json_encode($_SESSION['nombreUsuario']); ?>;
         let  esActualizacion = false;
@@ -79,6 +79,11 @@
                 agregarPieza();
                 llenarCliente(indexMaterial);
                 initTooltips();
+            });
+
+            $(document).on('click', '[id^="addPersonal"]', function(e) {
+                e.preventDefault();
+                agregarPersonal();
             });
 
             $(document).on('click', '.remove-lnk', function(e) {

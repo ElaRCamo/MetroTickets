@@ -166,4 +166,50 @@ Reunión 21/06/2024
 l22141412@queretaro.tecnm.mx
 
 
+Reunión Oscar 28/06/2024
+Especificaciones via correo electronico.
+
+
+Código sql para crear una tabla que se llame estatusPiezas con las columnas y datos:
+ id_estatusPiesas 	descripcionEstatus 	detallesEstatus 	
+	1 		Pendiente 	El solicitante aún no ha entregado el material para iniciar con las pruebas
+	2 		En inspección 	Material recibido, en proceso de inspección
+	3 		Aprobado 	El material ha sido aceptado y está listo para las mediciones
+	4 		Rechazado 	El material no cumple con los requisitos
+	5 		Por recoger 	Material disponible para ser recogido por el solicitante
+	6 		Cancelado 	Pruebas canceladas, material no requerido
+
+
+
+
+munsell no llevan registro de piezas, llevan registro de personal
+
+registro de personal
+- numero de nomina
+- nombre de inspector/operador
+- area/linea de produccion
+ varios operadores
+
+Poner imagen de revisión de dibujo
+
+color no es obligatorio:
+revision de dibujo 
+ni modelo matematico
+
+Actividades pensientes en lugar de pruebas pendientes
+
+
+Indicadores:
+cumplimiento fecha compromiso-fecha respuesta -> completada en tiempo
+
+
+grafico por tipo de pruebas
+por mes
+
+
+cuántas pruebas se realizaron en mes
+
+
+
+
 
