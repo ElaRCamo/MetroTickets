@@ -1,7 +1,5 @@
-/***************************************************************************************
- * ***************************************************************************************
+/*****************************************************************************************
  * *********************FUNCIONES DE ESTILOS PARA EL FORMULARIO***************************
- * ***************************************************************************************
  * ***************************************************************************************/
 const mostrarBloque = (elemento, mostrar) => {
     elemento.style.display = mostrar ? "block" : "none";
@@ -241,6 +239,89 @@ function agregarPieza() {
         + '</div>'
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
+}
+
+/*****************************************************************************************
+ * *********************FUNCIONES PARA CARGAR DATOS A LOS INPUTS**************************
+ * ***************************************************************************************/
+function llenarTipoPrueba() {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php', function (data) {
+        var selectS = id("tipoPrueba");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione el tipo de prueba*";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
+        for (var i = 0; i < data.data.length; i++) {
+            var createOptionS = document.createElement("option");
+            createOptionS.value = data.data[i].id_tipoPrueba;
+            createOptionS.text = data.data[i].descripcionPrueba;
+            selectS.appendChild(createOptionS);
+        }
+    });
+}
+
+function llenarSubtipoPrueba() {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSubtipoPrueba.php?id_tipoPrueba=' + id("tipoPrueba").value, function (data) {
+        var selectS = id("subtipoPrueba");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione el subtipo de prueba*";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
+        for (var i = 0; i < data.data.length; i++) {
+            var createOptionS = document.createElement("option");
+            createOptionS.value = data.data[i].id_subtipo;
+            createOptionS.text = data.data[i].descripcion;
+            selectS.appendChild(createOptionS);
+        }
+    });
+}
+
+
+let dataClientes;
+function llenarCliente(i){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
+        var selectS = id("cliente" + i);
+        selectS.innerHTML = ""; //limpiar contenido
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Especifique el cliente(OEM)*";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[j].id_cliente;
+            createOption.text = data.data[j].descripcionCliente;
+            selectS.appendChild(createOption);
+        }
+        dataClientes = data;
+    });
+}
+
+
+function llenarPlataforma(i) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + id("cliente" + i).value, function (data) {
+        var selectS = id("plataforma"+ i);
+        selectS.innerHTML = ""; //limpiar contenido
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione la plataforma*";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOptionS = document.createElement("option");
+            createOptionS.value = data.data[j].id_plataforma;
+            createOptionS.text = data.data[j].descripcionPlataforma;
+            selectS.appendChild(createOptionS);
+        }
+    });
 }
 
 /***************************************************************************************
