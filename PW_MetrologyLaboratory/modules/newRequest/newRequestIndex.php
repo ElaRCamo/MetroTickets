@@ -80,16 +80,21 @@
                 llenarCliente(indexMaterial);
                 initTooltips();
             });
+            $(document).on('click', '.remove-lnk', function(e) {
+                e.preventDefault();
+                var id = $(this).attr("id");
+                $('#newRow' + id).remove();
+            });
 
             $(document).on('click', '[id^="addPersonal"]', function(e) {
                 e.preventDefault();
                 agregarPersonal();
             });
 
-            $(document).on('click', '.remove-lnk', function(e) {
+            $(document).on('click', '.remove-lnkP', function(e) {
                 e.preventDefault();
                 var id = $(this).attr("id");
-                $('#newRow' + id).remove();
+                $('#newRowPer' + id).remove();
             });
         });
     </script>
