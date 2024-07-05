@@ -397,6 +397,11 @@ function validarFormNewRequest() {
     );
     let subtipo= id("subtipoPrueba").value;
 
+    let personal = validarPersonal();
+    let sonDatosValidosPersonal = (
+        personal.esNominaValido && personal.esNombreValida && personal.esAreaValida
+    );
+
     //Validacion dependiendo el tipo de prueba
     if(tipoPrueba === '1' || tipoPrueba === '2' || tipoPrueba === '6') { // IDL/IFD | SOFTNESS | OTRO
         if(esTipoPruebaValido && esNormaValido && esObservacionesValido && sonTodasPiezasValidas){
@@ -416,7 +421,10 @@ function validarFormNewRequest() {
         if(esTipoPruebaValido && esObservacionesValido && sonPiezasValidasColor){
             initGuardarDatos();
         }
-    /*}else if(tipoPrueba === '5') { //MUNSELL*/
+    }else if(tipoPrueba === '5') { //MUNSELL
+        if(esTipoPruebaValido && esObservacionesValido && sonDatosValidosPersonal){
+            initGuardarDatos();
+        }
     }else {
         console.log("Hay campos sin completar.");
     }
@@ -450,6 +458,28 @@ function validarPiezas() {
         esCdadValida: esCdadValida,
         esrevDibujoValido: esrevDibujoValido,
         esmodeloMateValido: esmodeloMateValido
+    };
+}
+
+
+function validarPersonal(indexPersonal) {
+    let esNominaValido = true;
+    let esNombreValida = true;
+    let esAreaValida = true;
+
+    for (let i = 1; i <= indexPersonal; i++) {
+        esNominaValido = esNominaValido && validarInput('numNomina' + i);
+        esNombreValida = esNombreValida && validarInput('nombrePersonal' + i);
+        esAreaValida = esAreaValida && validarInput('area' + i);
+    }
+    console.log("esNominaValido: "+ esNominaValido +"\nesNombreValida "+esNombreValida);
+    console.log("esNombreValida: "+ esNombreValida);
+
+    // Devuelve un objeto con el resultado final de cada validación
+    return {
+        esNominaValido: esNominaValido,
+        esNombreValida: esNombreValida,
+        esAreaValida: esAreaValida
     };
 }
 
@@ -808,26 +838,6 @@ function resumenSolicitud(id_prueba) {
  * ********************************************/
 
 
-function validarPersonal(indexPersonal) {
-    let esNominaValido = true;
-    let esNombreValida = true;
-    let esAreaValida = true;
-
-    for (let i = 1; i <= indexPersonal; i++) {
-        esNominaValido = esNominaValido && validarInput('numNomina' + i);
-        esNombreValida = esNombreValida && validarInput('nombrePersonal' + i);
-        esAreaValida = esAreaValida && validarInput('area' + i);
-    }
-    console.log("esNominaValido: "+ esNominaValido +"\nesNombreValida "+esNombreValida);
-    console.log("esNombreValida: "+ esNombreValida);
-
-    // Devuelve un objeto con el resultado final de cada validación
-    return {
-        esNominaValido: esNominaValido,
-        esNombreValida: esNombreValida,
-        esAreaValida: esAreaValida
-    };
-}
 
 function actualizarTituloH1(id_update) {
     const divh1 = document.querySelector("#divh1");
