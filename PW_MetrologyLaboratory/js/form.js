@@ -608,6 +608,7 @@ function registrarSolicitud(nuevoId) {
         }
         dataForm.append('subtipoPrueba', subtipo.value.trim());
     }
+    alert("tipo de prueba: "+ tipoPrueba);
 
     if(tipoPrueba === '5') { //MUNSELL
         let nominas = [];
