@@ -83,6 +83,7 @@
                 e.preventDefault();
                 var id = $(this).attr("id");
                 $('#newRow' + id).remove();
+                indexMaterial--;
             });
             $(document).on('click', '[id^="addPersonal"]', function(e) {
                 e.preventDefault();
@@ -92,6 +93,7 @@
                 e.preventDefault();
                 var id = $(this).attr("id");
                 $('#newRowPer' + id).remove();
+                indexPersonal--;
             });
         });
     </script>
