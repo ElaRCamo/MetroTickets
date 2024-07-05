@@ -610,7 +610,7 @@ function registrarSolicitud(nuevoId) {
     }
     alert("tipo de prueba: "+ tipoPrueba);
 
-    if(tipoPrueba === '5') { //MUNSELL
+    if(tipoPrueba.value === '5') { //MUNSELL
         let nominas = [];
         let nombres = [];
         let areas = [];
