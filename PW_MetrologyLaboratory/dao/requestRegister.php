@@ -80,7 +80,7 @@ function manejarNormaFile($tipoPrueba, $id_prueba, $files, $post) {
 
     if ($tipoPrueba == 1 || $tipoPrueba == 2 || $tipoPrueba == 6) { // si se requiere norma por tipo de prueba
 
-        if (isset($files['norma'],  $files['normaFile']) && $files['normaFile']['error'] == UPLOAD_ERR_OK) { // verifica si el archivo ha sido cargado correctamente
+        if (isset($post['norma'],  $files['normaFile']) && $files['normaFile']['error'] == UPLOAD_ERR_OK) { // verifica si el archivo ha sido cargado correctamente
             $norma = $_POST['norma'];
             // guardar los files de la norma
             $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/norms/";
@@ -107,7 +107,7 @@ function manejarNormaFile($tipoPrueba, $id_prueba, $files, $post) {
         } else {
             $norma = 'error';
             $normaFile = 'error';
-            $response = array("status" => "error", 'message' => "Error: Faltan datos en el formulario");
+            $response = array("status" => "error", 'message' => "Error: Faltan datos en el formulario(pdf)");
         }
     } else { // El tipo de prueba no requiere especificar norma
         $response = array("status" => "success");
