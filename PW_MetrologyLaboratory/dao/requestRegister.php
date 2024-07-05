@@ -100,7 +100,7 @@ function manejarNormaFile($tipoPrueba, $id_prueba, $files, $post) {
                     $response = array("error" => "Hubo un error al mover el archivo.");
                 }
             }
-        } elseif (isset($files['norma'], $post['normaFile']) && is_string($post['normaFile'])) { // No hay archivo cargado, es un string
+        } elseif (isset($post['norma'], $post['normaFile']) && is_string($post['normaFile'])) { // No hay archivo cargado, es un string
             $norma = $_POST['norma'];
             $response = array("status" => "success");
             $normaFile = $post['normaFile'];

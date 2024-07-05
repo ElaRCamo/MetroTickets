@@ -330,7 +330,6 @@ function validarPiezas() {
  * ***************************************************************************************/
 
 function initGuardarDatos(){
-    console.log("esActualizacion: " + esActualizacion);
     if (esActualizacion === false) {
         validacionSolicitud();
     } else if (esActualizacion === true) {
@@ -340,7 +339,6 @@ function initGuardarDatos(){
 
 
 function validacionSolicitud() {
-    console.log("entrando en validacionSolicitud " );
     const id_pruebaPromise      = obtenerNuevoId(); // Obtener el nuevo ID de forma asíncrona
     const sesionIniciadaPromise = validarSesion(); // Validar la sesión de forma asíncrona
 
@@ -364,7 +362,7 @@ function validacionSolicitud() {
 
 function obtenerNuevoId() {
     return idPrueba().then(function(nuevoId) {
-        console.log("obtenerNuevoId-Nuevo ID:", nuevoId);
+        //console.log("obtenerNuevoId-Nuevo ID:", nuevoId);
         return nuevoId;
     }).catch(function(error) {
         console.error("Error al obtener el nuevo ID:", error);
@@ -398,7 +396,7 @@ function idPrueba() {
 
 function validarSesion() {
     return obtenerSesion().then(function(sesionIniciada) {
-        console.log("Obterner estatus de la sesión: ", sesionIniciada);
+        //console.log("Obterner estatus de la sesión: ", sesionIniciada);
         return sesionIniciada;
     }).catch(function(error) {
         console.error("Error al validar la sesión", error);
@@ -415,8 +413,6 @@ function obtenerSesion() {
 }
 
 function registrarSolicitud(nuevoId) {
-    console.log("entrando en registrarSolicitud ");
-
     const dataForm = new FormData();
     var idNomina = id("idUsuario");
     var tipoPrueba = id("tipoPrueba");
