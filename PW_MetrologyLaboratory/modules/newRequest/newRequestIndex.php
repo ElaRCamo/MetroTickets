@@ -73,7 +73,6 @@
         }
 
         $(document).ready(function() {
-
             $(document).on('click', '[id^="addNumParte"]', function(e) {
                 e.preventDefault();
                 agregarPieza();
@@ -85,12 +84,10 @@
                 var id = $(this).attr("id");
                 $('#newRow' + id).remove();
             });
-
             $(document).on('click', '[id^="addPersonal"]', function(e) {
                 e.preventDefault();
                 agregarPersonal();
             });
-
             $(document).on('click', '.remove-lnkP', function(e) {
                 e.preventDefault();
                 var id = $(this).attr("id");
