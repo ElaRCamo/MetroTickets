@@ -11,19 +11,21 @@ if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], 
     $idUsuario            = $_SESSION['nomina'];
     $especificaciones     = $_POST['especificaciones'];
     $fechaSolicitud       = $_POST['fechaSolicitud'];
+    // Convertir los datos de las piezas en arrays
+    $plataformas    = explode(', ', $_POST['plataformas']);
+    $numsParte      = explode(', ', $_POST['numsParte']);
+    $cdadPiezas     = explode(', ', $_POST['cantidades']);
+    $revDibujos     = explode(', ', $_POST['revDibujos']);
+    $modMatematicos = explode(', ', $_POST['modMatematicos']);
 
     list($response, $norma, $normaFile) = manejarNormaFile($tipoPrueba, $id_prueba, $_FILES, $_POST);
 
     if($response['status']==='success'){
-        // Convertir los datos de las piezas en arrays
-        $plataformas    = explode(', ', $_POST['plataformas']);
-        $numsParte      = explode(', ', $_POST['numsParte']);
-        $cdadPiezas     = explode(', ', $_POST['cantidades']);
-        $revDibujos     = explode(', ', $_POST['revDibujos']);
-        $modMatematicos = explode(', ', $_POST['modMatematicos']);
-
-        // Llamar a la función para registrar la solicitud
-        $response = RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba);
+        list($response,$imagenCotas,$subtipo) = manejarSubtipoPrueba($tipoPrueba,$id_prueba,$_FILES, $_POST);
+        if($response['status']==='success'){
+            // Llamar a la función para registrar la solicitud
+            $response = RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $imagenCotas,$subtipo,$plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba);
+        }
     }
 
 } else {
@@ -34,7 +36,7 @@ echo json_encode($response);
 exit;
 
 
-function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba)
+function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $imagenCotas,$subtipo,$plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
@@ -42,9 +44,9 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
     // Iniciar transacción
     $conex->begin_transaction();
 
-    $insertSolicitud = $conex->prepare("INSERT INTO `Pruebas` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`,`id_solicitante`, `id_tipoPrueba`) 
-                                              VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $insertSolicitud->bind_param("ssssssi", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba);
+    $insertSolicitud = $conex->prepare("INSERT INTO `Pruebas` (`id_prueba`, `fechaSolicitud`,  `especificaciones`, `normaNombre`, `normaArchivo`,`id_solicitante`, `id_tipoPrueba`, `id_subtipo`, `imagenCotas`) 
+                                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $insertSolicitud->bind_param("ssssssiis", $id_prueba, $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $subtipo, $imagenCotas);
     $rInsertSolicitud = $insertSolicitud->execute();
 
     $rInsertMaterial = true;
@@ -74,6 +76,47 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
     }
     $conex->close();
     return $response;
+}
+
+function manejarSubtipoPrueba($tipoPrueba,$id_prueba,$files, $post){
+    if ($tipoPrueba == 3){ //DIMENSIONAL
+        // Manejar la imagen si se ha subido
+        if (isset($post['subtipoPrueba'],$files['imagenCotas']) && $files['imagenCotas']['error'] === UPLOAD_ERR_OK) {
+            $subtipo = $post['subtipoPrueba'];
+            // Directorio de destino para la carga de files
+            $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/cotas/";
+
+            // Nombre y ruta del archivo
+            $fechaActual = date('Y-m-d_H-i-s');
+            $archivo = $files['imagenCotas']['name'];
+            $imgName = $fechaActual . '-' . $id_prueba;
+
+            $extension = strtolower(pathinfo($archivo, PATHINFO_EXTENSION));
+            $extensionesPermitidas = array("gif", "jpeg", "jpg", "png");
+            $img = $target_dir . $imgName . "." . $extension;
+
+            // Mover el archivo al directorio de destino
+            $temp   = $files['imagenCotas']['tmp_name'];
+            $moverImgFile = "../imgs/cotas/" . $imgName. "." . $extension;
+            if (in_array($extension, $extensionesPermitidas)) {
+                move_uploaded_file($temp, $moverImgFile);
+                $response = array('status' => 'success');
+            }else{
+                $response = array('status' => 'error', 'message' => 'Error: Extensión no permitida.');
+            }
+
+        } else {
+            // No se recibió ni un archivo ni un string válido
+            $img = "Error";
+            $subtipo = 0;
+            $response = array('status' => 'error', 'message' => 'Error: Faltan datos en el formulario(img).');
+        }
+    } else { // El tipo de prueba no requiere especificar norma
+        $response = array("status" => "success");
+        $img = 'No aplica';
+        $subtipo = 0;//No aplica
+    }
+    return array($response,$img,$subtipo);
 }
 
 function manejarNormaFile($tipoPrueba, $id_prueba, $files, $post) {
