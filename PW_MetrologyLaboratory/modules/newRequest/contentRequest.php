@@ -93,6 +93,19 @@
                                                     <div class="invalid-feedback"></div>
                                                 </div>
                                             </div>
+                                            <!-- Para agregar registro de personal-->
+                                            <div class="form-group col-sm-12" id="addPersonalTitle">
+                                                <table class="table table-borderless" id="personalTitulo">
+                                                    <tr>
+                                                        <td class="tdH6">
+                                                            <h6>REGISTRO DE PERSONAL</h6>
+                                                        </td>
+                                                        <td class="tdButton">
+                                                            <button type="button" id="addPersonal1"><i class="las la-plus-square"></i>Agregar</button>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
                                             <!-- Para agregar material por número de parte-->
                                             <div class="form-group col-sm-12" id="agregarNumParte">
                                                 <table class="table table-borderless" id="materialesTitulo">
@@ -180,18 +193,6 @@
                                             </div>
                                         </div>
                                         <!-- Para agregar registro de personal-->
-                                        <div class="form-group col-sm-12" id="addPersonalTitle">
-                                            <table class="table table-borderless" id="personalTitulo">
-                                                <tr>
-                                                    <td class="tdH6">
-                                                        <h6>REGISTRO DE PERSONAL jbihjbkjhbjkbhjbkijb</h6>
-                                                    </td>
-                                                    <td class="tdButton">
-                                                        <button type="button" id="addPersonal1"><i class="las la-plus-square"></i>Agregar</button>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
                                         <div class="row row-cols-xl-2 clearfix" id="newRowPer1">
                                             <div class="col-xl-12">
                                                 <div class="row">
