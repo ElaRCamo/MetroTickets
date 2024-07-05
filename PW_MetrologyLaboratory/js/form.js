@@ -462,7 +462,7 @@ function validarPiezas() {
 }
 
 
-function validarPersonal(indexPersonal) {
+function validarPersonal() {
     let esNominaValido = true;
     let esNombreValida = true;
     let esAreaValida = true;
