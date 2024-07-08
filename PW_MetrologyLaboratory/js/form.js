@@ -435,7 +435,6 @@ function validarFormNewRequest() {
 }
 
 function obtenerRowIds(row){
-    alert("row:" + row);
     // Selecciona todos los divs cuyo id empieza con row
     var divs = document.querySelectorAll('div[id^="'+row+'"]');
     var numeros = [];
@@ -486,16 +485,16 @@ function validarPiezas(idsPiezas) {
 }
 
 
-function validarPersonal() {
+function validarPersonal(idsPersonal) {
     let esNominaValido = true;
     let esNombreValida = true;
     let esAreaValida = true;
 
-    for (let i = 1; i <= indexPersonal; i++) {
-        esNominaValido = esNominaValido && validarInput('numNomina' + i);
-        esNombreValida = esNombreValida && validarInput('nombrePersonal' + i);
-        esAreaValida = esAreaValida && validarInput('area' + i);
-    }
+    idsPersonal.forEach(function (idRow) {
+        esNominaValido = esNominaValido && validarInput('numNomina' + idRow);
+        esNombreValida = esNombreValida && validarInput('nombrePersonal' + idRow);
+        esAreaValida = esAreaValida && validarInput('area' + idRow);
+    });
     console.log("esNominaValido: "+ esNominaValido +"\nesNombreValida "+esNombreValida);
     console.log("esNombreValida: "+ esNombreValida);
 
