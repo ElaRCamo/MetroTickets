@@ -449,7 +449,6 @@ function obtenerRowIds(row){
         // Agrega el número al array
         numeros.push(numero);
     });
-    alert("numeros: "+ numeros);
     return numeros;
 }
 
@@ -690,7 +689,7 @@ function registrarSolicitud(nuevoId) {
     for (let pair of dataForm.entries()) {
         formDataString += pair[0] + ', ' + pair[1] + '\n';
     }
-    alert(formDataString);
+    //alert(formDataString);
 
     fetch('../../dao/requestRegister.php', {
         method: 'POST',
