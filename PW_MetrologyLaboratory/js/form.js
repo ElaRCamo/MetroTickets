@@ -234,7 +234,7 @@ function agregarPieza() {
         + '<div class="col-xl-4">'
         + '</div>'
         + '<div class="col-xl-4 buttons-container" id="divButtons' + indexMaterial + '">'
-        + '<a href="#" class="remove-lnk removeBtn" id="' + indexMaterial + '" onclick="eliminarRow('newRow',\'' + indexMaterial + '\')"><i class="las la-trash-alt"></i></a>'
+        + '<a href="#" class="remove-lnk removeBtn" id="' + indexMaterial + '" onclick="eliminarRow(\'newRow\',\'' + indexMaterial + '\')"><i class="las la-trash-alt"></i></a>'
         + '<a href="#" class="agregarButton" id="addNumParte' + indexMaterial + '" onclick="agregarPieza()"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
