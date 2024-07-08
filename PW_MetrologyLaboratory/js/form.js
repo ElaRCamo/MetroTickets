@@ -158,7 +158,7 @@ function mostrarImagenTooltip(tooltip, imageUrl, width, height) {
 function agregarPieza() {
     indexMaterial++;
 
-    var newRow = $('<div id="newRow' + indexMaterial + '" class="row row-cols-xl-3 clearfix">'
+    var newRow = $("<div id=\"newRow" + indexMaterial + '" class="row row-cols-xl-3 clearfix">'
         + '<div class="col-xl-12">'
         + '<div class="row">'
         + '<div class="col-sm-4">'
@@ -234,7 +234,7 @@ function agregarPieza() {
         + '<div class="col-xl-4">'
         + '</div>'
         + '<div class="col-xl-4 buttons-container" id="divButtons' + indexMaterial + '">'
-        + '<a href="#" class="remove-lnk removeBtn" id="' + indexMaterial + '" onclick="eliminarRow(indexMaterial)"><i class="las la-trash-alt"></i></a>'
+        + '<a href="#" class="remove-lnk removeBtn" id="' + indexMaterial + '" onclick="eliminarRow(\'' + newRow + '\',\'' + indexMaterial + '\')"><i class="las la-trash-alt"></i></a>'
         + '<a href="#" class="agregarButton" id="addNumParte' + indexMaterial + '" onclick="agregarPieza()"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
@@ -242,12 +242,12 @@ function agregarPieza() {
 
 }
 
-function eliminarRow(id) {
-    const element = document.getElementById('newRow' + id);
+function eliminarRow(row,id) {
+    const element = document.getElementById(row + id);
     if (element) {
         element.remove();
     } else {
-        console.log('Element with id "newRow' + id + '" not found.');
+        console.log('Element with id"' + row + id + '" not found.');
     }
 }
 
