@@ -234,7 +234,7 @@ function agregarPieza() {
         + '<div class="col-xl-4">'
         + '</div>'
         + '<div class="col-xl-4 buttons-container" id="divButtons' + indexMaterial + '">'
-        + '<a href="#" class="remove-lnk removeBtn" id="' + indexMaterial + '" ><i class="las la-trash-alt"></i></a>'
+        + '<a href="#" class="remove-lnk-num-parte removeBtn" id="' + indexMaterial + '" ><i class="las la-trash-alt"></i></a>'
         + '<a href="#" class="agregarButton" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
@@ -284,7 +284,7 @@ function agregarPersonal() {
         + '<div class="col-xl-4">'
         + '</div>'
         + '<div class="col-xl-4 buttons-container" id="divButtons' + indexPersonal + '">'
-        + '<a href="#" class="remove-lnk removeBtn" id="' + indexPersonal + '"><i class="las la-trash-alt"></i></a>'
+        + '<a href="#" class="remove-lnk-personal removeBtn" id="' + indexPersonal + '"><i class="las la-trash-alt"></i></a>'
         + '<a href="#" class="agregarButton" id="addPersonal' + indexPersonal + '"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');

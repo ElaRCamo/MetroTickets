@@ -78,7 +78,7 @@
                 llenarCliente(indexMaterial);
                 initTooltips();
             });
-            $(document).on('click', '.remove-lnk', function(e) {
+            $(document).on('click', '.remove-lnk-num-parte', function(e) {
                 e.preventDefault();
                 var id = $(this).attr("id");
                 $('#newRow' + id).remove();
@@ -87,13 +87,12 @@
                 e.preventDefault();
                 agregarPersonal();
             });
-            $(document).on('click', '.remove-lnk', function(e) {
+            $(document).on('click', '.remove-lnk-personal', function(e) {
                 e.preventDefault();
                 var id = $(this).attr("id");
                 $('#newRowPer' + id).remove();
             });
         });
-
     </script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
