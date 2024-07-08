@@ -177,7 +177,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     <tbody>
                         <?php foreach ($resultados as $resultado){?>
                         <tr>
-                            <td><?php echo $resultado['numeroDeParte'];?> </td>
+                            <td><?php echo $resultado['numParte'];?> </td>
                             <td><?php echo $resultado['cantidad'];?></td>
                             <td><?php echo $resultado['descripcionCliente'];?></td>
                             <td><?php echo $resultado['descripcionPlataforma'];?></td>
@@ -211,7 +211,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     </tr>
                     <tr>
                         <th class="">Resultados:</th>
-                        <td id=""  colspan="3"><?php echo $resultados[0]['rutaResultados'];?></td>
+                        <td id=""  colspan="3"><?php echo $resultados[0]['resultados'];?></td>
                     </tr>
                     </tbody>
                 </table>
