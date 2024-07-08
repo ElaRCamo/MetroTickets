@@ -192,7 +192,7 @@
                                                 </div>
                                             </div>
                                             <!-- Para agregar registro de personal-->
-                                            <div class="row row-cols-xl-2 clearfix" id="newRowPer1">
+                                            <div class="row row-cols-xl-2 clearfix" id="newPerRow1">
                                                 <div class="col-xl-12">
                                                     <div class="row">
                                                         <div class="col-sm-4">

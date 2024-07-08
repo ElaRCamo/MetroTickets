@@ -18,7 +18,7 @@ function banderaTipoPrueba() {
     const divCotas = id("divCotas");
     const divImgCotas = id("divImgCotas");
     const divTitlePersonal = id("addPersonalTitle");
-    const divAddPersonal = id("newRowPer1");
+    const divAddPersonal = id("newPerRow1");
 
     let tipoPrueba = selTipoPrueba.value;
 
@@ -244,7 +244,7 @@ function agregarPieza() {
 function agregarPersonal() {
     indexPersonal++;
 
-    const newRowPer = $('<div id=\"newRowPer' + indexPersonal + '" class="row row-cols-xl-3 clearfix">'
+    const newPerRow = $('<div id=\"newPerRow' + indexPersonal + '" class="row row-cols-xl-3 clearfix">'
         + '<div class="col-xl-12">'
         + '<div class="row">'
         + '<div class="col-sm-4">'
@@ -288,7 +288,7 @@ function agregarPersonal() {
         + '<a href="#" class="agregarButton" id="addPersonal' + indexPersonal + '"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
-    newRowPer.appendTo('#contenedorFormulario');
+    newPerRow.appendTo('#contenedorFormulario');
 }
 
 /*****************************************************************************************
@@ -613,8 +613,8 @@ function registrarSolicitud(nuevoId) {
     var divs = document.querySelectorAll('div[id^="newRow"]');
     var count = divs.length;
 
-    // Selecciona todos los elementos div cuyos id empiezan con "newRowPer"
-    var divsPer = document.querySelectorAll('div[id^="newRowPer"]');
+    // Selecciona todos los elementos div cuyos id empiezan con "newPerRow"
+    var divsPer = document.querySelectorAll('div[id^="newPerRow"]');
     var countPer = divsPer.length;
 
     alert("count: "+ count + " countPer: "+countPer);
