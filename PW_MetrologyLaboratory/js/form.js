@@ -704,7 +704,11 @@ function registrarSolicitud(nuevoId) {
     }).then(function (data) {
         if (data.status === 'success') {
             console.log(data.message);
-            resumenSolicitud(nuevoId);
+            if (tipoPrueba.value === '5'){
+                resumenMunsell(nuevoId);
+            }else{
+                resumenSolicitud(nuevoId);
+            }
             enviarCorreoNuevaSolicitud(nuevoId, solicitante, emailUsuario);
         } else if (data.status === 'error') {
             console.log(data.message);
@@ -848,7 +852,51 @@ function resumenSolicitud(id_prueba) {
     });
 
 }
+function resumenMunsell(id_prueba) {
 
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSolMunsellPrueba.php?id_prueba=' + id_prueba, function (response) {
+        var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
+        let TP = data.id_tipoPrueba;
+
+        // Actualizar el contenido de la ventana modal con los datos obtenidos
+        $('#solicitudNumeroM').text(data.id_prueba);
+        $('#fechaSolicitudM').text(data.fechaSolicitud);
+        $('#solicitanteM').text(data.nombreSolic);
+        $('#tipoPruebaSolicitudM').text(data.descripcionPrueba);
+        $('#observacionesSolicitudM').text(data.especificaciones);
+        $('#estatusSolicitudM').text(data.descripcionEstatus);
+
+        var tabla = document.getElementById("personalSolicitud");
+        var tbody = tabla.getElementsByTagName("tbody")[0];
+
+        // Limpiar contenido previo de la tabla
+        tbody.innerHTML = '';
+
+        // Iterar sobre los materiales y crear filas y celdas de tabla
+        for (var j = 0; j < response.data.length; j++) {
+            var fila = document.createElement("tr");
+
+            var nominaMunsell = document.createElement("td");
+            nominaMunsell.textContent = response.data[j].nomina;
+            fila.appendChild(nominaMunsell);
+
+            var nombreMunsell = document.createElement("td");
+            nombreMunsell.textContent = response.data[j].nombre;
+            fila.appendChild(nombreMunsell);
+
+            var areaMunsell = document.createElement("td");
+            areaMunsell.textContent = response.data[j].area;
+            fila.appendChild(areaMunsell);
+
+            tbody.appendChild(fila);
+        }
+        id_review = id_prueba;
+        // Mostrar la ventana modal con id RequestReview
+        $('#RequestReviewMunsell').modal('show');
+        ocultarContenido("obs",20);
+    });
+
+}
 
 /*****************************************
  *************************************************
