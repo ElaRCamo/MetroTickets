@@ -191,7 +191,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+
                                         <!-- Para agregar registro de personal-->
                                         <div class="row row-cols-xl-2 clearfix" id="newRowPer1">
                                             <div class="col-xl-12">
@@ -228,6 +228,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
                                         </div>
                                         <div class="form-group last col-sm-12 buttons" >
                                             <button type="button" id="submitRequest"  class="btn btn-custom" onclick="validarFormNewRequest()"><i class='las la-paper-plane'></i>Enviar</button>
