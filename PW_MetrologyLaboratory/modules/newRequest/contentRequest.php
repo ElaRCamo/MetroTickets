@@ -101,7 +101,7 @@
                                                             <h6>REGISTRO DE PERSONAL</h6>
                                                         </td>
                                                         <td class="tdButton">
-                                                            <button type="button" id="addPersonal1"><i class="las la-plus-square"></i>Agregar</button>
+                                                            <button type="button" id="addPersonal1" onclick="agregarPersonal()"><i class="las la-plus-square"></i>Agregar</button>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -114,7 +114,7 @@
                                                             <h6>REGISTRO DE PIEZAS</h6>
                                                         </td>
                                                         <td class="tdButton">
-                                                            <button type="button" id="addNumParte1"><i class="las la-plus-square"></i>Agregar pieza</button>
+                                                            <button type="button" id="addNumParte1" onclick="agregarPieza()"><i class="las la-plus-square"></i>Agregar pieza</button>
                                                         </td>
                                                     </tr>
                                                 </table>

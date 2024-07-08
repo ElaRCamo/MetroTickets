@@ -206,7 +206,6 @@ cumplimiento fecha compromiso-fecha respuesta -> completada en tiempo
 grafico por tipo de pruebas
 por mes
 
-
 cuántas pruebas se realizaron en mes
 
 

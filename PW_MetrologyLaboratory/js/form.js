@@ -234,13 +234,22 @@ function agregarPieza() {
         + '<div class="col-xl-4">'
         + '</div>'
         + '<div class="col-xl-4 buttons-container" id="divButtons' + indexMaterial + '">'
-        + '<a href="#" class="remove-lnk removeBtn" id="' + indexMaterial + '"><i class="las la-trash-alt"></i></a>'
-        + '<a href="#" class="agregarButton" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i></a>'
+        + '<a href="#" class="remove-lnk removeBtn" id="' + indexMaterial + '" onclick="eliminarRow(indexMaterial)"><i class="las la-trash-alt"></i></a>'
+        + '<a href="#" class="agregarButton" id="addNumParte' + indexMaterial + '" onclick="agregarPieza()"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
+
 }
 
+function eliminarRow(id) {
+    const element = document.getElementById('newRow' + id);
+    if (element) {
+        element.remove();
+    } else {
+        console.log('Element with id "newRow' + id + '" not found.');
+    }
+}
 
 function agregarPersonal() {
     indexPersonal++;
@@ -285,11 +294,19 @@ function agregarPersonal() {
         + '<div class="col-xl-4">'
         + '</div>'
         + '<div class="col-xl-4 buttons-container" id="divButtons' + indexPersonal + '">'
-        + '<a href="#" class="remove-lnkP removeBtn" id="' + indexPersonal + '"><i class="las la-trash-alt"></i></a>'
-        + '<a href="#" class="agregarButton" id="addPersonal' + indexPersonal + '"><i class="las la-plus-square"></i></a>'
+        + '<a href="#" class="remove-lnkP removeBtn" id="' + indexPersonal + '" onclick="eliminarRowPersonal(indexPersonal)"><i class="las la-trash-alt"></i></a>'
+        + '<a href="#" class="agregarButton" id="addPersonal' + indexPersonal + '" onclick="agregarPersonal()"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
+}
+
+function eliminarRowPersonal(id) {
+    $(document).on('click', '.remove-lnkP', function(e) {
+        e.preventDefault();
+        //var id = $(this).attr("id");
+        $('#newRow' + id).remove();
+    });
 }
 
 /*****************************************************************************************
