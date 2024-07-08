@@ -279,7 +279,7 @@ function agregarPersonal() {
         + '</div>'
         + '<div class="col-sm-4">'
         + '<div class="" id="divArea' + indexPersonal + '">'
-        + '<label for="area' + indexPersonal + '">Área/linea de produccion*</label>'
+        + '<label for="area' + indexPersonal + '">Área/linea de producción*</label>'
         + '<div class="form-group">'
         + '<input id="area' + indexPersonal + '" name="area' + indexPersonal + '" type="text" class="form-control" placeholder="Área/linea de produccion*" required data-error="Por favor ingresa el área/linea de producción">'
         + '<div class="input-group-icon"><i class="las la-cubes"></i></div>'

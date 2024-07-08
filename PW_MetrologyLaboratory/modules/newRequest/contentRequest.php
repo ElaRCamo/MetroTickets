@@ -191,52 +191,51 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                        <!-- Para agregar registro de personal-->
-                                        <div class="row row-cols-xl-2 clearfix" id="newRowPer1">
-                                            <div class="col-xl-12">
-                                                <div class="row">
-                                                    <div class="col-sm-4">
-                                                        <div class="" id="divNumNomina1">
-                                                            <label for="numNomina1">Número de nómina*</label>
-                                                            <div class="form-group">
-                                                                <input id="numNomina1" name="numNomina1" type="text" class="form-control" placeholder="Número de nómina*" required data-error="Por favor ingresa el número de parte">
-                                                                <div class="input-group-icon"><i class="las la-cubes"></i></div>
-                                                                <div class="invalid-feedback"></div>
+                                            <!-- Para agregar registro de personal-->
+                                            <div class="row row-cols-xl-2 clearfix" id="newRowPer1">
+                                                <div class="col-xl-12">
+                                                    <div class="row">
+                                                        <div class="col-sm-4">
+                                                            <div class="" id="divNumNomina1">
+                                                                <label for="numNomina1">Número de nómina*</label>
+                                                                <div class="form-group">
+                                                                    <input id="numNomina1" name="numNomina1" type="text" class="form-control" placeholder="Número de nómina*" required data-error="Por favor ingresa el número de parte">
+                                                                    <div class="input-group-icon"><i class="las la-cubes"></i></div>
+                                                                    <div class="invalid-feedback"></div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="" id="divNombrePersonal1">
-                                                            <label for="nombrePersonal1">Nombre de inspector/operador*</label>
-                                                            <div class="form-group">
-                                                                <input id="nombrePersonal1" name="nombrePersonal1" type="text" class="form-control" placeholder="Nombre de inspector/operador*" required data-error="Por favor ingresa la cantidad">
-                                                                <div class="input-group-icon"><i class="las la-cubes"></i></div>
-                                                                <div class="invalid-feedback"></div>
+                                                        <div class="col-sm-4">
+                                                            <div class="" id="divNombrePersonal1">
+                                                                <label for="nombrePersonal1">Nombre de inspector/operador*</label>
+                                                                <div class="form-group">
+                                                                    <input id="nombrePersonal1" name="nombrePersonal1" type="text" class="form-control" placeholder="Nombre de inspector/operador*" required data-error="Por favor ingresa la cantidad">
+                                                                    <div class="input-group-icon"><i class="las la-cubes"></i></div>
+                                                                    <div class="invalid-feedback"></div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <div class="" id="divArea1">
-                                                            <label for="area1">Área/linea de produccion*</label>
-                                                            <div class="form-group">
-                                                                <input id="area1" name="area1" type="text" class="form-control" placeholder="Área/linea de produccion*" required data-error="Por favor ingresa la revisión de dibujo">
-                                                                <div class="input-group-icon"><i class="las la-cubes"></i></div>
-                                                                <div class="invalid-feedback"></div>
+                                                        <div class="col-sm-4">
+                                                            <div class="" id="divArea1">
+                                                                <label for="area1">Área/linea de producción*</label>
+                                                                <div class="form-group">
+                                                                    <input id="area1" name="area1" type="text" class="form-control" placeholder="Área/linea de produccion*" required data-error="Por favor ingresa la revisión de dibujo">
+                                                                    <div class="input-group-icon"><i class="las la-cubes"></i></div>
+                                                                    <div class="invalid-feedback"></div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        </div>
-                                        <div class="form-group last col-sm-12 buttons" >
-                                            <button type="button" id="submitRequest"  class="btn btn-custom" onclick="validarFormNewRequest()"><i class='las la-paper-plane'></i>Enviar</button>
-                                            <button type="button" id="updateRequest"  class="btn btn-custom" onclick="validarFormNewRequest()"><i class="las la-save" ></i>Guardar</button>
-                                            <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
-                                        </div><!-- end form-group -->
-                                        <div class="sub-text">*Campos requeridos</div>
-                                        <div class="clearfix"></div>
+                                            <div class="form-group last col-sm-12 buttons" >
+                                                <button type="button" id="submitRequest"  class="btn btn-custom" onclick="validarFormNewRequest()"><i class='las la-paper-plane'></i>Enviar</button>
+                                                <button type="button" id="updateRequest"  class="btn btn-custom" onclick="validarFormNewRequest()"><i class="las la-save" ></i>Guardar</button>
+                                                <button type="reset" id="reset" class="btn btn-custom"><i class="las la-undo-alt"></i> Restaurar </button>
+                                            </div><!-- end form-group -->
+                                            <div class="sub-text">*Campos requeridos</div>
+                                            <div class="clearfix"></div>
+                                        </div><!-- end #contenedorFormulario-->
                                     </form>
                                 </div>
                             </div>
