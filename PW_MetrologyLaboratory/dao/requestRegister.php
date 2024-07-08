@@ -107,28 +107,28 @@ function RegistrarSolicitudMunsell($tipoPrueba, $norma, $normaFile, $idUsuario, 
     $rGuardarObjetos = true;
 
     //Registrar Personal
-    for ($i = 0; $i < count($nominas); $i++) {
-        $nomina = $nominas[$i];
-        $nombre = $nombres[$i];
-        $area = $areas[$i];
+        for ($i = 0; $i < count($nominas); $i++) {
+            $nomina = $nominas[$i];
+            $nombre = $nombres[$i];
+            $area = $areas[$i];
 
-        $insertMaterial = $conex->prepare("INSERT INTO `PersonalMunsell` (`id_prueba`, `nomina`, `nombre`, `area`) 
-                                                 VALUES (?, ?, ?, ?)");
+            $insertMaterial = $conex->prepare("INSERT INTO `PersonalMunsell` (`id_prueba`, `nomina`, `nombre`, `area`) 
+                                                     VALUES (?, ?, ?, ?)");
 
-        $insertMaterial->bind_param("ssss", $id_prueba, $nomina, $nombre, $area);
-        $rGuardarObjetos = $rGuardarObjetos && $insertMaterial->execute();
-
-        // Confirmar o hacer rollback de la transacción
-        if (!$rInsertSolicitud || !$rGuardarObjetos) {
-            $conex->rollback();
-            $response = array('status' => 'error', 'message' => 'Error en Registrar Solicitud');
-        } else {
-            $conex->commit();
-            $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
+            $insertMaterial->bind_param("ssss", $id_prueba, $nomina, $nombre, $area);
+            $rGuardarObjetos = $rGuardarObjetos && $insertMaterial->execute();
         }
-        $conex->close();
-        return $response;
+
+    // Confirmar o hacer rollback de la transacción
+    if (!$rInsertSolicitud || !$rGuardarObjetos) {
+        $conex->rollback();
+        $response = array('status' => 'error', 'message' => 'Error en Registrar Solicitud');
+    } else {
+        $conex->commit();
+        $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
     }
+    $conex->close();
+    return $response;
 }
 
 

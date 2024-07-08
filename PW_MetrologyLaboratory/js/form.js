@@ -469,9 +469,6 @@ function validarPiezas(idsPiezas) {
         esrevDibujoValido = esrevDibujoValido && validarInput('revDibujo' + id);
         esmodeloMateValido = esmodeloMateValido && validarInput('modeloMate' + id);
     });
-    /*console.log("esClienteValido: "+ esClienteValido +"\nesPlataformaValida "+esPlataformaValida);
-    console.log("esNumParteValido: "+ esNumParteValido +"\nesCdadValida "+esCdadValida);
-    console.log("esrevDibujoValido: "+ esrevDibujoValido +"\nesmodeloMateValido "+esmodeloMateValido);*/
 
     // Devuelve un objeto con el resultado final de cada validación
     return {
@@ -495,8 +492,6 @@ function validarPersonal(idsPersonal) {
         esNombreValida = esNombreValida && validarInput('nombrePersonal' + idRow);
         esAreaValida = esAreaValida && validarInput('area' + idRow);
     });
-    console.log("esNominaValido: "+ esNominaValido +"\nesNombreValida "+esNombreValida);
-    console.log("esNombreValida: "+ esNombreValida);
 
     // Devuelve un objeto con el resultado final de cada validación
     return {
@@ -634,11 +629,9 @@ function registrarSolicitud(nuevoId) {
         dataForm.append('subtipoPrueba', subtipo.value.trim());
     }
 
-    let idsRow = obtenerRowIds("newRow");
-    let idsRowPer = obtenerRowIds("newPerRow");
-    alert("idsNewRow: "+ idsRow + " idsNewRowPer: "+idsRowPer);
 
     if(tipoPrueba.value === '5') { //MUNSELL
+        let idsRowPer = obtenerRowIds("newPerRow");
         let nominas = [];
         let nombres = [];
         let areas = [];
@@ -662,6 +655,7 @@ function registrarSolicitud(nuevoId) {
         dataForm.append('areas', areas.join(', '));
 
     }else{ //Cualquier otro tipo de prueba
+        let idsRow = obtenerRowIds("newRow");
         let plataformas = [];
         let numsParte = [];
         let cantidades = [];
