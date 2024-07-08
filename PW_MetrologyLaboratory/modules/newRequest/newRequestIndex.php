@@ -71,6 +71,29 @@
                 hideButton("updateRequest");
             }
         }
+        $(document).ready(function() {
+            $(document).on('click', '[id^="addNumParte"]', function(e) {
+                e.preventDefault();
+                agregarPieza();
+                llenarCliente(indexMaterial);
+                initTooltips();
+            });
+            $(document).on('click', '.remove-lnk', function(e) {
+                e.preventDefault();
+                var id = $(this).attr("id");
+                $('#newRow' + id).remove();
+            });
+            $(document).on('click', '[id^="addPersonal"]', function(e) {
+                e.preventDefault();
+                agregarPersonal();
+            });
+            $(document).on('click', '.remove-lnk', function(e) {
+                e.preventDefault();
+                var id = $(this).attr("id");
+                $('#newRowPer' + id).remove();
+            });
+        });
+
     </script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>

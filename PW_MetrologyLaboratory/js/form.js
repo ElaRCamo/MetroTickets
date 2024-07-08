@@ -234,8 +234,8 @@ function agregarPieza() {
         + '<div class="col-xl-4">'
         + '</div>'
         + '<div class="col-xl-4 buttons-container" id="divButtons' + indexMaterial + '">'
-        + '<a href="#" class="remove-lnk removeBtn" id="' + indexMaterial + '" onclick="eliminarRow(\'newRow\',\'' + indexMaterial + '\')"><i class="las la-trash-alt"></i></a>'
-        + '<a href="#" class="agregarButton" id="addNumParte' + indexMaterial + '" onclick="agregarPieza()"><i class="las la-plus-square"></i></a>'
+        + '<a href="#" class="remove-lnk removeBtn" id="' + indexMaterial + '" ><i class="las la-trash-alt"></i></a>'
+        + '<a href="#" class="agregarButton" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
@@ -249,6 +249,7 @@ function eliminarRow(row,id) {
         console.log('Element with id"' + row + id + '" not found.');
     }
 }
+//onclick="eliminarRow(\'newRow\',\'' + indexMaterial + '\')"
 
 function agregarPersonal() {
     indexPersonal++;
@@ -294,18 +295,11 @@ function agregarPersonal() {
         + '</div>'
         + '<div class="col-xl-4 buttons-container" id="divButtons' + indexPersonal + '">'
         + '<a href="#" class="remove-lnk removeBtn" id="' + indexPersonal + '"><i class="las la-trash-alt"></i></a>'
-        + '<a href="#" class="agregarButton" id="addPersonal' + indexPersonal + '" onclick="agregarPersonal()"><i class="las la-plus-square"></i></a>'
+        + '<a href="#" class="agregarButton" id="addPersonal' + indexPersonal + '"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
 }
-
-    $(document).on('click', '.remove-lnk', function(e) {
-        e.preventDefault();
-        var id = $(this).attr("id");
-        $('#newRowPer' + id).remove();
-    });
-
 
 /*****************************************************************************************
  * *********************FUNCIONES PARA CARGAR DATOS A LOS INPUTS**************************
