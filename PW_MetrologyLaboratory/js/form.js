@@ -609,12 +609,22 @@ function registrarSolicitud(nuevoId) {
     }
     alert("tipo de prueba: "+ tipoPrueba);
 
+    // Selecciona todos los elementos div cuyos id empiezan con "newRow"
+    var divs = document.querySelectorAll('div[id^="newRow"]');
+    var count = divs.length;
+
+    // Selecciona todos los elementos div cuyos id empiezan con "newRowPer"
+    var divsPer = document.querySelectorAll('div[id^="newRowPer"]');
+    var countPer = divsPer.length;
+
+    alert("count: "+ count + " countPer: "+countPer);
+
     if(tipoPrueba.value === '5') { //MUNSELL
         let nominas = [];
         let nombres = [];
         let areas = [];
 
-        for (var k = 1; k <= indexMaterial; k++) {
+        for (var k = 1; k <= countPer; k++) {
             // Para agregar material por número de parte
             var nomina = id('numNomina' + k);
             var nombre = id('nombrePersonal' + k);
@@ -639,7 +649,7 @@ function registrarSolicitud(nuevoId) {
         let revDibujos = [];
         let modMatematicos = [];
 
-        for (var k = 1; k <= indexMaterial; k++) {
+        for (var k = 1; k <= count; k++) {
             // Para agregar material por número de parte
             var plataforma = id('plataforma' + k);
             var numeroParte = id('numeroParte' + k);
