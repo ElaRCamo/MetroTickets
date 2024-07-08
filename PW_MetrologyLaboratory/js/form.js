@@ -574,8 +574,9 @@ function obtenerSesion() {
 }
 
 function obtenerRowIds(row){
+    alert("row:" + row);
     // Selecciona todos los divs cuyo id empieza con row
-    var divs = document.querySelectorAll('div[id^=row]');
+    var divs = document.querySelectorAll('div[id^="'+row+'"]');
 
     var numeros = [];
 
@@ -592,7 +593,7 @@ function obtenerRowIds(row){
     });
 
 // Muestra el array de números
-   alert(numeros);
+   alert("numeros: "+ numeros);
    return numeros;
 }
 
