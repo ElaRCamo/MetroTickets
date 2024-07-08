@@ -234,16 +234,15 @@ function agregarPieza() {
         + '<div class="col-xl-4">'
         + '</div>'
         + '<div class="col-xl-4 buttons-container" id="divButtons' + indexMaterial + '">'
-        + '<a href="#" class="remove-lnk removeBtn" id="' + indexMaterial + '" onclick="eliminarRow(\'' + newRow + '\',\'' + indexMaterial + '\')"><i class="las la-trash-alt"></i></a>'
+        + '<a href="#" class="remove-lnk removeBtn" id="' + indexMaterial + '" onclick="eliminarRow('newRow',\'' + indexMaterial + '\')"><i class="las la-trash-alt"></i></a>'
         + '<a href="#" class="agregarButton" id="addNumParte' + indexMaterial + '" onclick="agregarPieza()"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
-
 }
 
 function eliminarRow(row,id) {
-    const element = document.getElementById(row + id);
+    const element = document.getElementById('"'+ row + id + '"');
     if (element) {
         element.remove();
     } else {
@@ -294,20 +293,19 @@ function agregarPersonal() {
         + '<div class="col-xl-4">'
         + '</div>'
         + '<div class="col-xl-4 buttons-container" id="divButtons' + indexPersonal + '">'
-        + '<a href="#" class="remove-lnkP removeBtn" id="' + indexPersonal + '" onclick="eliminarRowPersonal(indexPersonal)"><i class="las la-trash-alt"></i></a>'
+        + '<a href="#" class="remove-lnk removeBtn" id="' + indexPersonal + '"><i class="las la-trash-alt"></i></a>'
         + '<a href="#" class="agregarButton" id="addPersonal' + indexPersonal + '" onclick="agregarPersonal()"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
 }
 
-function eliminarRowPersonal(id) {
-    $(document).on('click', '.remove-lnkP', function(e) {
+    $(document).on('click', '.remove-lnk', function(e) {
         e.preventDefault();
-        //var id = $(this).attr("id");
-        $('#newRow' + id).remove();
+        var id = $(this).attr("id");
+        $('#newRowPer' + id).remove();
     });
-}
+
 
 /*****************************************************************************************
  * *********************FUNCIONES PARA CARGAR DATOS A LOS INPUTS**************************
