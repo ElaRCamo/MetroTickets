@@ -158,7 +158,7 @@ function mostrarImagenTooltip(tooltip, imageUrl, width, height) {
 function agregarPieza() {
     indexMaterial++;
 
-    var newRow = $("<div id=\"newRow" + indexMaterial + '" class="row row-cols-xl-3 clearfix">'
+    const newRow = $("<div id=\"newRow" + indexMaterial + '" class="row row-cols-xl-3 clearfix">'
         + '<div class="col-xl-12">'
         + '<div class="row">'
         + '<div class="col-sm-4">'
@@ -244,7 +244,7 @@ function agregarPieza() {
 function agregarPersonal() {
     indexPersonal++;
 
-    var newRow = $('<div id=\"newRowPer' + indexPersonal + '" class="row row-cols-xl-3 clearfix">'
+    const newRowPer = $('<div id=\"newRowPer' + indexPersonal + '" class="row row-cols-xl-3 clearfix">'
         + '<div class="col-xl-12">'
         + '<div class="row">'
         + '<div class="col-sm-4">'
@@ -288,7 +288,7 @@ function agregarPersonal() {
         + '<a href="#" class="agregarButton" id="addPersonal' + indexPersonal + '"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
-    newRow.appendTo('#contenedorFormulario');
+    newRowPer.appendTo('#contenedorFormulario');
 }
 
 /*****************************************************************************************
