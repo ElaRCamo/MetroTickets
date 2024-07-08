@@ -381,54 +381,77 @@ function llenarPlataforma(i) {
 function validarFormNewRequest() {
     let tipoPrueba = id("tipoPrueba").value;
     const esTipoPruebaValido = validarSelect('tipoPrueba');
-    const esSubtipoValido = validarSelect('subtipoPrueba');
-    const esInputImgValido = validarInput('imgCotas');
-    const esNormaValido = validarInput('norma');
-    //const esArchivoValido = validarInput('normaFile');//No es obligatorio
     const esObservacionesValido = validarInput('especificaciones');
-    let idsPiezas = obtenerRowIds("newRow");
-    let piezas = validarPiezas(idsPiezas);
-    let sonTodasPiezasValidas = (
-        piezas.esClienteValido && piezas.esPlataformaValida && piezas.esNumParteValido &&
-        piezas.esCdadValida && piezas.esrevDibujoValido && piezas.esmodeloMateValido
-    );
-    let sonPiezasValidasColor = (
-        piezas.esClienteValido && piezas.esPlataformaValida && piezas.esNumParteValido && piezas.esCdadValida
-    );
-    let subtipo= id("subtipoPrueba").value;
 
-    let idsPersonal = obtenerRowIds("newPerRow");
-    let personal = validarPersonal(idsPersonal);
-    let sonDatosValidosPersonal = (
-        personal.esNominaValido && personal.esNombreValida && personal.esAreaValida
-    );
+    if(tipoPrueba === '5'){
+        let idsPersonal = obtenerRowIds("newPerRow");
+        let personal = validarPersonal(idsPersonal);
+        let sonDatosValidosPersonal = (
+            personal.esNominaValido && personal.esNombreValida && personal.esAreaValida
+        );
 
-    //Validacion dependiendo el tipo de prueba
-    if(tipoPrueba === '1' || tipoPrueba === '2' || tipoPrueba === '6') { // IDL/IFD | SOFTNESS | OTRO
-        if(esTipoPruebaValido && esNormaValido && esObservacionesValido && sonTodasPiezasValidas){
-            initGuardarDatos();
-        }
-    } else if (tipoPrueba === '3') { // DIMENSIONAL
-        if(subtipo === '2'){ //Dimensional-cotas especificas
-            if(esTipoPruebaValido && esSubtipoValido && esInputImgValido && sonTodasPiezasValidas){
-                initGuardarDatos();
-            }
-        }else{
-            if(esTipoPruebaValido && esObservacionesValido && sonTodasPiezasValidas){
-                initGuardarDatos();
-            }
-        }
-    } else if(tipoPrueba === '4'){ // COLOR
-        if(esTipoPruebaValido && esObservacionesValido && sonPiezasValidasColor){
-            initGuardarDatos();
-        }
-    }else if(tipoPrueba === '5') { //MUNSELL
         if(esTipoPruebaValido && esObservacionesValido && sonDatosValidosPersonal){
             initGuardarDatos();
         }
-    }else {
+    }else if(tipoPrueba !== '' && tipoPrueba !== null){
+        const esSubtipoValido = validarSelect('subtipoPrueba');
+        const esInputImgValido = validarInput('imgCotas');
+        const esNormaValido = validarInput('norma');
+        //const esArchivoValido = validarInput('normaFile');//No es obligatorio
+        let idsPiezas = obtenerRowIds("newRow");
+        let piezas = validarPiezas(idsPiezas);
+        let sonTodasPiezasValidas = (
+            piezas.esClienteValido && piezas.esPlataformaValida && piezas.esNumParteValido &&
+            piezas.esCdadValida && piezas.esrevDibujoValido && piezas.esmodeloMateValido
+        );
+        let sonPiezasValidasColor = (
+            piezas.esClienteValido && piezas.esPlataformaValida && piezas.esNumParteValido && piezas.esCdadValida
+        );
+        let subtipo= id("subtipoPrueba").value;
+
+        //Validacion dependiendo el tipo de prueba
+        if(tipoPrueba === '1' || tipoPrueba === '2' || tipoPrueba === '6') { // IDL/IFD | SOFTNESS | OTRO
+            if(esTipoPruebaValido && esNormaValido && esObservacionesValido && sonTodasPiezasValidas){
+                initGuardarDatos();
+            }
+        } else if (tipoPrueba === '3') { // DIMENSIONAL
+            if(subtipo === '2'){ //Dimensional-cotas especificas
+                if(esTipoPruebaValido && esSubtipoValido && esInputImgValido && sonTodasPiezasValidas){
+                    initGuardarDatos();
+                }
+            }else{
+                if(esTipoPruebaValido && esObservacionesValido && sonTodasPiezasValidas){
+                    initGuardarDatos();
+                }
+            }
+        } else if(tipoPrueba === '4'){ // COLOR
+            if(esTipoPruebaValido && esObservacionesValido && sonPiezasValidasColor){
+                initGuardarDatos();
+            }
+        }
+    } else {
         console.log("Hay campos sin completar.");
     }
+}
+
+function obtenerRowIds(row){
+    alert("row:" + row);
+    // Selecciona todos los divs cuyo id empieza con row
+    var divs = document.querySelectorAll('div[id^="'+row+'"]');
+    var numeros = [];
+
+    // Recorre los divs seleccionados
+    divs.forEach(function(div) {
+        // Obtiene el id del div
+        var id = div.id;
+        // Extrae el número
+        var numero = id.replace(row, '');
+
+        // Agrega el número al array
+        numeros.push(numero);
+    });
+    alert("numeros: "+ numeros);
+    return numeros;
 }
 
 function validarPiezas(idsPiezas) {
@@ -573,29 +596,7 @@ function obtenerSesion() {
     });
 }
 
-function obtenerRowIds(row){
-    alert("row:" + row);
-    // Selecciona todos los divs cuyo id empieza con row
-    var divs = document.querySelectorAll('div[id^="'+row+'"]');
 
-    var numeros = [];
-
-    // Recorre los divs seleccionados
-    divs.forEach(function(div) {
-        // Obtiene el id del div
-        var id = div.id;
-
-        // Extrae el número que sigue a "newRow"
-        var numero = id.replace(row, '');
-
-        // Agrega el número al array
-        numeros.push(numero);
-    });
-
-// Muestra el array de números
-   alert("numeros: "+ numeros);
-   return numeros;
-}
 
 function registrarSolicitud(nuevoId) {
     const dataForm = new FormData();
