@@ -1,5 +1,11 @@
 const id = str => document.getElementById(str);
 
+function reviewPDF(ID_PRUEBA) {
+    var url = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/pruebaPDF.php?id_prueba=" + ID_PRUEBA;
+    window.open(url, '_blank');
+}
+
+
 /*****************************************
  *************************************************
  * ***************************************************

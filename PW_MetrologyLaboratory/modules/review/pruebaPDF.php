@@ -44,7 +44,6 @@ $datosPrueba =  mysqli_query($conex,
                                 "SELECT   prueba.id_prueba, 
                                                     prueba.fechaSolicitud, 
                                                     prueba.fechaRespuesta, 
-                                                    prueba.fechaActualizacion,
                                                     prueba.descripcionEstatus,
                                                     prueba.descripcionPrioridad,
                                                     prueba.descripcionPrueba, 
@@ -52,30 +51,28 @@ $datosPrueba =  mysqli_query($conex,
                                                     prueba.especificacionesLab,
                                                     prueba.normaNombre,
                                                     prueba.normaArchivo,
-                                                    prueba.rutaResultados,
+                                                    prueba.resultados,
                                                     prueba.id_metrologo, 
                                                     prueba.nombreMetro,  
                                                     prueba.id_solicitante, 
                                                     prueba.nombreSolic,
-                                                    dm.numeroDeParte, 
+                                                    m.numParte, 
                                                     m.cantidad, 
-                                                    dm.descripcionMaterial, 
-                                                    dm.imgMaterial, 
                                                     c.descripcionCliente, 
                                                     p.descripcionPlataforma,
+                                                    m.revisionDibujo,
+                                                    m.modMatematico,
                                                     em.descripcionEstatus AS estatusMaterial
                                                 FROM   
-                                                    Material m
-                                                    JOIN DescripcionMaterial dm ON m.id_descripcion = dm.id_descripcion
-                                                    JOIN Plataforma p ON dm.id_plataforma = p.id_plataforma
+                                                    Piezas m
+                                                    JOIN Plataforma p ON m.id_plataforma = p.id_plataforma
                                                     JOIN Cliente c ON p.id_cliente = c.id_cliente
-                                                    JOIN EstatusMaterial em ON m.id_estatusMaterial = em.id_estatusMaterial
+                                                    JOIN EstatusPiezas em ON m.id_estatus = em.id_estatus
                                                     JOIN (
                                                         SELECT 
                                                             id_prueba, 
                                                             fechaSolicitud, 
                                                             fechaRespuesta,
-                                                            fechaActualizacion,
                                                             descripcionEstatus,
                                                             descripcionPrioridad,
                                                             descripcionPrueba,
@@ -83,13 +80,13 @@ $datosPrueba =  mysqli_query($conex,
                                                             especificacionesLab,
                                                             normaNombre,
                                                             normaArchivo,
-                                                            rutaResultados,
+                                                            resultados,
                                                             s.id_metrologo, 
                                                             u_metro.nombreUsuario AS nombreMetro,
                                                             s.id_solicitante, 
                                                             u_solic.nombreUsuario AS nombreSolic
                                                         FROM 
-                                                            Prueba s
+                                                            Pruebas s
                                                             LEFT JOIN Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
                                                             LEFT JOIN Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
                                                             LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
@@ -169,10 +166,11 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     <thead>
                     <tr>
                         <th>No. de Parte</th>
-                        <th>Material</th>
                         <th>Cantidad</th>
                         <th>Cliente</th>
                         <th>Plataforma</th>
+                        <th>Revisión de Dibujo</th>
+                        <th>Modelo Matemático</th>
                         <th>Estatus</th>
                     </tr>
                     </thead>
@@ -180,10 +178,11 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                         <?php foreach ($resultados as $resultado){?>
                         <tr>
                             <td><?php echo $resultado['numeroDeParte'];?> </td>
-                            <td><?php echo $resultado['descripcionMaterial'];?></td>
                             <td><?php echo $resultado['cantidad'];?></td>
                             <td><?php echo $resultado['descripcionCliente'];?></td>
                             <td><?php echo $resultado['descripcionPlataforma'];?></td>
+                            <td><?php echo $resultado['revisionDibujo'];?></td>
+                            <td><?php echo $resultado['modMatematico'];?></td>
                             <td><?php echo $resultado['estatusMaterial'];?></td>
                         </tr>
                         <?php }?>
@@ -217,9 +216,9 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     </tbody>
                 </table>
             </div>
-            <div  id="divUpdate">
-                <span >Ultima actualización: <span class="" id="fechaUpdateR"><?php echo $resultados[0]['fechaActualizacion'];?></span></span>
-            </div>
+            <!--div  id="divUpdate">
+                <span >Ultima actualización: <span class="" id="fechaUpdateR"><php echo $resultados[0]['fechaActualizacion'];?></span></span>
+            </div> -->
         </div>
     </div>
 </main>
