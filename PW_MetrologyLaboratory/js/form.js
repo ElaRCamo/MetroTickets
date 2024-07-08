@@ -634,28 +634,21 @@ function registrarSolicitud(nuevoId) {
         }
         dataForm.append('subtipoPrueba', subtipo.value.trim());
     }
-    alert("tipo de prueba: "+ tipoPrueba);
 
-    // Selecciona todos los elementos div cuyos id empiezan con "newRow"
-    var divs = document.querySelectorAll('div[id^="newRow"]');
-    var count = divs.length;
-
-    // Selecciona todos los elementos div cuyos id empiezan con "newPerRow"
-    var divsPer = document.querySelectorAll('div[id^="newPerRow"]');
-    var countPer = divsPer.length;
-
-    alert("count: "+ count + " countPer: "+countPer);
+    let idsRow = obtenerRowIds("newRow");
+    let idsRowPer = obtenerRowIds("newPerRow");
+    alert("idsNewRow: "+ idsRow + " idsNewRowPer: "+idsRowPer);
 
     if(tipoPrueba.value === '5') { //MUNSELL
         let nominas = [];
         let nombres = [];
         let areas = [];
 
-        for (var k = 1; k <= countPer; k++) {
+        idsRowPer.forEach (function(idRow) {
             // Para agregar material por número de parte
-            var nomina = id('numNomina' + k);
-            var nombre = id('nombrePersonal' + k);
-            var area = id('area' + k);
+            var nomina = id('numNomina' + idRow);
+            var nombre = id('nombrePersonal' + idRow);
+            var area = id('area' + idRow);
 
 
             // Añadimos los valores a los arrays correspondientes
@@ -663,7 +656,7 @@ function registrarSolicitud(nuevoId) {
             nombres.push(nombre.value.trim());
             areas.push(area.value.trim());
 
-        }
+        });
         // Agregamos los arrays al FormData
         dataForm.append('nominas', nominas.join(', '));
         dataForm.append('nombres', nombres.join(', '));
@@ -676,13 +669,13 @@ function registrarSolicitud(nuevoId) {
         let revDibujos = [];
         let modMatematicos = [];
 
-        for (var k = 1; k <= count; k++) {
+        idsRow.forEach (function(idRow) {
             // Para agregar material por número de parte
-            var plataforma = id('plataforma' + k);
-            var numeroParte = id('numeroParte' + k);
-            var cdadMaterial = id('cdadMaterial' + k);
-            var revDibujo = id('revDibujo' + k);
-            var modeloMate = id('modeloMate' + k);
+            var plataforma = id('plataforma' + idRow);
+            var numeroParte = id('numeroParte' + idRow);
+            var cdadMaterial = id('cdadMaterial' + idRow);
+            var revDibujo = id('revDibujo' + idRow);
+            var modeloMate = id('modeloMate' + idRow);
 
             // Añadimos los valores a los arrays correspondientes
             plataformas.push(plataforma.value.trim());
@@ -690,7 +683,7 @@ function registrarSolicitud(nuevoId) {
             cantidades.push(cdadMaterial.value.trim());
             revDibujos.push(revDibujo.value.trim());
             modMatematicos.push(modeloMate.value.trim());
-        }
+        });
         // Agregamos los arrays al FormData
         dataForm.append('plataformas', plataformas.join(', '));
         dataForm.append('numsParte', numsParte.join(', '));
