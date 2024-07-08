@@ -216,17 +216,7 @@ h5{
     background-color: var(--main-color);
 }
 
-[id^="imgMaterial"]{
-    display: flex;
-    justify-content: center; /* Centrar horizontalmente*/
-    align-items: center; /* Centrar verticalmente*/
-}
-
-[id^="imagenMaterial"]{
-    height: 100px;
-}
-
-[id^="newRow"]{
+[id^="newRow"],[id^="newPerRow"]{
     margin-bottom: 20px;
 }
 #agregarNumParte,#addPersonalTitle,
@@ -326,7 +316,7 @@ h5{
 
 /*Ocultar divs con inputs opcionales*/
 #divSubtipoPrueba, #normaNombre, #normaArchivo, #detallesPrueba,
-#newRow1, #newRowPer1,
+#newRow1, #newPerRow1,
 #divCotas, #divImgCotas, #agregarNumParte,#addPersonalTitle,
 #button:hover,
 #submitRequest{
