@@ -47,6 +47,10 @@ $datosPrueba =  mysqli_query($conex,
                                                     prueba.descripcionEstatus,
                                                     prueba.descripcionPrioridad,
                                                     prueba.descripcionPrueba, 
+                                                    prueba.id_tipoPrueba,
+                                                    prueba.id_subtipo,
+                                                    prueba.descripcion, 
+                                                    prueba.imagenCotas,
                                                     prueba.especificaciones,
                                                     prueba.especificacionesLab,
                                                     prueba.normaNombre,
@@ -75,6 +79,10 @@ $datosPrueba =  mysqli_query($conex,
                                                             fechaRespuesta,
                                                             descripcionEstatus,
                                                             descripcionPrioridad,
+                                                            s.id_tipoPrueba,
+                                                            s.id_subtipo,
+                                                            descripcion, 
+                                                            imagenCotas,
                                                             descripcionPrueba,
                                                             especificaciones,
                                                             especificacionesLab,
@@ -90,6 +98,7 @@ $datosPrueba =  mysqli_query($conex,
                                                             LEFT JOIN Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
                                                             LEFT JOIN Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
                                                             LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
+                                                            LEFT JOIN SubtipoPrueba sp ON s.id_subtipo = sp.id_subtipo
                                                             LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
                                                             LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
                                                         WHERE 
@@ -137,22 +146,44 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                         <th class=""> Solicitante:</th>
                         <td><?php echo $resultados[0]['nombreSolic'];?> </td>
                     </tr>
-                    <tr>
-                        <th class="">Norma: </th>
-                        <td><?php echo $resultados[0]['normaNombre'];?></td>
-                        <th class="">Documento de la norma: </th>
-                        <td> <?php $urlCompleta = $resultados[0]['normaArchivo'];
+
+                    <!-- Mostrar norma solo para los tipos de prueba que correspondan -->
+                    <?php
+                    $tipoPrueba = $resultados[0]['id_tipoPrueba'];
+                    $subtipoPrueba = $resultados[0]['id_subtipo'];
+                    if ($tipoPrueba === 3 && $subtipoPrueba === 2): // dimensional
+                        ?>
+                        <tr>
+                            <th class="">Imagen Cotas: </th>
+                            <td>echo '<a href=".$resultados[0]['normaNombre'].">Consultar imagen</a>';</td>
+                        </tr>
+                    <?php endif; ?>
+
+                    <!-- Mostrar imagen cotas para tipo DIMENSIONAL -->
+                    <?php
+                    if ($tipoPrueba === 1 || $tipoPrueba === 2 || $tipoPrueba === 6): // IDL/IFD | SOFTNESS | OTRO
+                        ?>
+                        <tr>
+                            <th class="">Norma: </th>
+                            <td><?php echo $resultados[0]['normaNombre'];?></td>
+                            <th class="">Documento de la norma: </th>
+                            <td>
+                                <?php
+                                $urlCompleta = $resultados[0]['normaArchivo'];
                                 if($urlCompleta != 'No aplica' && $urlCompleta != 'Ningún archivo seleccionado'){
                                     $nombreArchivo = substr($urlCompleta, strrpos($urlCompleta, '/') + 1);
                                     $numeroReferencia = explode('-', $nombreArchivo)[1];
                                     $nombreArchivoSinPDF = substr($nombreArchivo, 0, strrpos($nombreArchivo, '.')); // Eliminar la extensión .pdf
                                     $nombreArchivoMostrado = substr($nombreArchivoSinPDF, strlen($numeroReferencia) + 1);
                                     echo '<a href="' . $urlCompleta . '">' . $nombreArchivoMostrado . '</a>';
-                                }else{
+                                } else {
                                     echo $urlCompleta;
                                 }
-                            ?>
-                    </tr>
+                                ?>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+
                     <tr>
                         <th class="">Especifícaciones/Comentarios: </th>
                         <td colspan="3"><?php echo $resultados[0]['especificaciones'];?></td>
