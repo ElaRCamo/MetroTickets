@@ -386,7 +386,8 @@ function validarFormNewRequest() {
     const esNormaValido = validarInput('norma');
     //const esArchivoValido = validarInput('normaFile');//No es obligatorio
     const esObservacionesValido = validarInput('especificaciones');
-    let piezas = validarPiezas();
+    let idsPiezas = obtenerRowIds("newRow");
+    let piezas = validarPiezas(idsPiezas);
     let sonTodasPiezasValidas = (
         piezas.esClienteValido && piezas.esPlataformaValida && piezas.esNumParteValido &&
         piezas.esCdadValida && piezas.esrevDibujoValido && piezas.esmodeloMateValido
@@ -396,7 +397,8 @@ function validarFormNewRequest() {
     );
     let subtipo= id("subtipoPrueba").value;
 
-    let personal = validarPersonal();
+    let idsPersonal = obtenerRowIds("newPerRow");
+    let personal = validarPersonal(idsPersonal);
     let sonDatosValidosPersonal = (
         personal.esNominaValido && personal.esNombreValida && personal.esAreaValida
     );
@@ -429,7 +431,7 @@ function validarFormNewRequest() {
     }
 }
 
-function validarPiezas() {
+function validarPiezas(idsPiezas) {
     let esClienteValido = true;
     let esPlataformaValida = true;
     let esNumParteValido = true;
@@ -437,14 +439,14 @@ function validarPiezas() {
     let esrevDibujoValido = true;
     let esmodeloMateValido = true;
 
-    for (let i = 1; i <= indexMaterial; i++) {
-        esClienteValido = esClienteValido && validarSelect('cliente' + i);
-        esPlataformaValida = esPlataformaValida && validarSelect('plataforma' + i);
-        esNumParteValido = esNumParteValido && validarInput('numeroParte' + i);
-        esCdadValida = esCdadValida && validarInput('cdadMaterial' + i);
-        esrevDibujoValido = esrevDibujoValido && validarInput('revDibujo' + i);
-        esmodeloMateValido = esmodeloMateValido && validarInput('modeloMate' + i);
-    }
+    idsPiezas.forEach(function (id){
+        esClienteValido = esClienteValido && validarSelect('cliente' + id);
+        esPlataformaValida = esPlataformaValida && validarSelect('plataforma' + id);
+        esNumParteValido = esNumParteValido && validarInput('numeroParte' + id);
+        esCdadValida = esCdadValida && validarInput('cdadMaterial' + id);
+        esrevDibujoValido = esrevDibujoValido && validarInput('revDibujo' + id);
+        esmodeloMateValido = esmodeloMateValido && validarInput('modeloMate' + id);
+    });
     /*console.log("esClienteValido: "+ esClienteValido +"\nesPlataformaValida "+esPlataformaValida);
     console.log("esNumParteValido: "+ esNumParteValido +"\nesCdadValida "+esCdadValida);
     console.log("esrevDibujoValido: "+ esrevDibujoValido +"\nesmodeloMateValido "+esmodeloMateValido);*/
@@ -569,6 +571,29 @@ function obtenerSesion() {
             resolve(sesionIniciada); // Resolver la promesa con el nuevo ID
         });
     });
+}
+
+function obtenerRowIds(row){
+    // Selecciona todos los divs cuyo id empieza con row
+    var divs = document.querySelectorAll('div[id^=row]');
+
+    var numeros = [];
+
+    // Recorre los divs seleccionados
+    divs.forEach(function(div) {
+        // Obtiene el id del div
+        var id = div.id;
+
+        // Extrae el número que sigue a "newRow"
+        var numero = id.replace(row, '');
+
+        // Agrega el número al array
+        numeros.push(numero);
+    });
+
+// Muestra el array de números
+   alert(numeros);
+   return numeros;
 }
 
 function registrarSolicitud(nuevoId) {
