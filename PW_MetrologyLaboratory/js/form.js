@@ -241,20 +241,10 @@ function agregarPieza() {
     newRow.appendTo('#contenedorFormulario');
 }
 
-function eliminarRow(row,id) {
-    const element = document.getElementById('"'+ row + id + '"');
-    if (element) {
-        element.remove();
-    } else {
-        console.log('Element with id"' + row + id + '" not found.');
-    }
-}
-//onclick="eliminarRow(\'newRow\',\'' + indexMaterial + '\')"
-
 function agregarPersonal() {
     indexPersonal++;
 
-    var newRow = $('<div id="newRowPer' + indexPersonal + '" class="row row-cols-xl-3 clearfix">'
+    var newRow = $('<div id=\"newRowPer' + indexPersonal + '" class="row row-cols-xl-3 clearfix">'
         + '<div class="col-xl-12">'
         + '<div class="row">'
         + '<div class="col-sm-4">'

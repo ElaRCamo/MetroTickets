@@ -342,3 +342,13 @@ function agregarPieza() {
         + '</div>');
     newRow.appendTo('#contenedorFormulario');
 }
+
+function eliminarRow(row,id) {
+    const element = document.getElementById('"'+ row + id + '"');
+    if (element) {
+        element.remove();
+    } else {
+        console.log('Element with id"' + row + id + '" not found.');
+    }
+}
+//onclick="eliminarRow(\'newRow\',\'' + indexMaterial + '\')"

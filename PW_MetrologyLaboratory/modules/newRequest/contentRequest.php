@@ -228,6 +228,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div><!-- end #contenedorFormulario-->
                                             <div class="form-group last col-sm-12 buttons" >
                                                 <button type="button" id="submitRequest"  class="btn btn-custom" onclick="validarFormNewRequest()"><i class='las la-paper-plane'></i>Enviar</button>
                                                 <button type="button" id="updateRequest"  class="btn btn-custom" onclick="validarFormNewRequest()"><i class="las la-save" ></i>Guardar</button>
@@ -235,7 +236,6 @@
                                             </div><!-- end form-group -->
                                             <div class="sub-text">*Campos requeridos</div>
                                             <div class="clearfix"></div>
-                                        </div><!-- end #contenedorFormulario-->
                                     </form>
                                 </div>
                             </div>
