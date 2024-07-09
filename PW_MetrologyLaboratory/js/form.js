@@ -898,14 +898,26 @@ function resumenMunsell(id_prueba) {
 /*****************************************************************************************
  * ************************FUNCIONES PARA ACTUALIZAR UNA SOLICITUD************************
  * ***************************************************************************************/
-
+function cualEsTipoPrueba(id_prueba){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPruebaConID.php?id_prueba=' + id_prueba,  function (response) {
+        let tipoPrueba = response.data[0].id_tipoPrueba;
+        alert("TipoPrueba: " + tipoPrueba);
+        if (tipoPrueba === '5') { // Munsell
+            alert("Tipo de prueba munsell");
+        }else{
+            cargarDatosPrueba(id_prueba);
+        }
+    }).catch(function(error) {
+        // Manejar errores si la solicitud falla
+        console.error('Error en la solicitud JSON: ', error);
+    });
+}
 function cargarDatosPrueba(id_update){
 
     var divSelectTipoPrueba = id("selectTipoPrueba");
     divSelectTipoPrueba.style.display = "block";
 
-    var cliente,idCliente, idPlataforma, idEvaluacionPrueba, idTipoPrueba, idTipoEspecial, otroPrueba, idMaterial;
-
+    var idTipoPrueba,cliente,idCliente, idPlataforma, idMaterial;
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
         var data = response.data[0];
@@ -919,9 +931,6 @@ function cargarDatosPrueba(id_update){
                 break;
             }
         }
-        idTipoEspecial = data.id_pruebaEspecial;
-        otroPrueba = id("otroPrueba");
-        otroPrueba.value = data.otroTipoEspecial;
 
         var norma = id("norma");
         norma.value = data.normaNombre;
@@ -929,7 +938,7 @@ function cargarDatosPrueba(id_update){
         var especificaciones = id("especificaciones");
         especificaciones.value = data.especificaciones;
 
-        //-----------------MATERIALES---------------------
+        //-----------------------PIEZAS---------------------------
         for (var l = 0; l < response.data.length; l++) {
 
             idCliente = response.data[l].id_cliente;
