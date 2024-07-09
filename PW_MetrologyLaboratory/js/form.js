@@ -923,11 +923,9 @@ function cargarDatosPrueba(id_update){
 
         let idTipoPrueba = data.id_tipoPrueba;
         let subtipo = data.id_subtipo;
-        llenarTipoPruebaUpdate(idTipoPrueba, subtipo);
+        let imgCotas = data.imagenCotas;
+        llenarTipoPruebaUpdate(idTipoPrueba, subtipo, imgCotas);
 
-        if(subtipo === '2'){
-            id("capturaCotas").src = data.imagenCotas;
-        }
 
         var norma = id("norma");
         norma.value = data.normaNombre;

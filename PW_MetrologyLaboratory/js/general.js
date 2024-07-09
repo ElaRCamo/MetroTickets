@@ -6,7 +6,7 @@ function reviewPDF(ID_PRUEBA) {
 }
 
 
-function llenarTipoPruebaUpdate(idTipoPrueba, subtipo) {
+function llenarTipoPruebaUpdate(idTipoPrueba, subtipo, imgCotas) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php', function (data) {
         var selectS = id("tipoPrueba");
         selectS.innerHTML = ""; //limpiar contenido
@@ -31,6 +31,7 @@ function llenarTipoPruebaUpdate(idTipoPrueba, subtipo) {
             llenarSubtipoUpdate(idTipoPrueba, subtipo);
             if(subtipo === '2'){
                 fsubtipoPrueba();
+                id("capturaCotas").src = imgCotas;
             }
         }
     }).catch(function(error) {
