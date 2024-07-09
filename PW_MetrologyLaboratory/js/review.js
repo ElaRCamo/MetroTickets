@@ -19,6 +19,7 @@ function resumenPrueba(ID_PRUEBA){
 
         // SUBTIPO
         let tipoPrueba = data.id_tipoPrueba;
+        alert("tipoPrueba: "+tipoPrueba);
 
         if(tipoPrueba !== '3'){ // DIMENSIONAL
             id("trSubtipo").style.display = "block";
