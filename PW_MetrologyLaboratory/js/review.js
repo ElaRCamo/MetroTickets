@@ -19,10 +19,12 @@ function resumenPrueba(ID_PRUEBA){
 
         // SUBTIPO
         let tipoPrueba = data.id_tipoPrueba;
-        alert("tipoPrueba: "+tipoPrueba);
 
         if(tipoPrueba !== '3'){ // DIMENSIONAL
-            id("trSubtipo").style.display = "block";
+            document.querySelectorAll(".trSubtipo").forEach(function(element) {
+                element.style.display = "block";
+            });
+
             $('#subtipoR').text(data.descripcion);
 
             if(data.id_subtipo === '2'){ // Cotas especificas

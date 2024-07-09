@@ -33,10 +33,10 @@
                             <th class="p-2 mb-2"> Solicitante:</th>
                             <td id="solicitanteR"> </td>
                         </tr>
-                        <tr id="trSubtipo">
-                            <th class="p-2 mb-2">Subtipo: </th>
+                        <tr class="trSubtipo">
+                            <th class="p-2 mb-2 trSubtipo">Subtipo: </th>
                             <td id="subtipoR"></td>
-                            <th class="p-2 mb-2">Imagen Cotas: </th>
+                            <th class="p-2 mb-2 trSubtipo">Imagen Cotas: </th>
                             <td><a id="imagenCotasR" href=""><span id="textImgR"></span></a></td>
                         </tr>
                         <tr id="trNorma">

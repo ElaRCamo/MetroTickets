@@ -970,6 +970,6 @@ table tbody tr {
 #divFechaCompromiso{
     display: none;
 }
-#trSubtipo, #trNorma{
+.trSubtipo, #trNorma{
     display: none;
 }
