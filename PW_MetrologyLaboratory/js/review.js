@@ -42,7 +42,7 @@ function resumenPrueba(ID_PRUEBA){
 
             var normaArchivo = data.normaArchivo;
 
-            if (normaArchivo !== "No aplica" || normaArchivo !== "Ningún archivo seleccionado") {
+            /*if (normaArchivo !== "No aplica" || normaArchivo !== "Ningún archivo seleccionado") {
                 // Se agrega texto del enlace
                 id("archivoNormaR").href = normaArchivo;
                 var nombreArchivo = normaArchivo.substring(normaArchivo.lastIndexOf('/') + 1);
@@ -53,7 +53,7 @@ function resumenPrueba(ID_PRUEBA){
             } else {
                 id("archivoNormaR").textContent = normaArchivo;
                 id("archivoNormaR").style.pointerEvents = "none"; // Deshabilitar el clic en el enlace
-            }
+            }*/
         }else {
             id("trNorma").style.display = "none";
         }
