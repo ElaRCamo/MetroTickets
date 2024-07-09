@@ -849,6 +849,20 @@ function resumenSolicitud(id_prueba) {
     });
 
 }
+
+function mostrarOpciones(TP){
+    const elementosOcultos = document.querySelectorAll('.resumenHidden');
+    if (TP!==1 || TP !== 2 || TP !== 6) {
+        elementosOcultos.forEach(function(elemento) {
+            elemento.style.display = 'block';
+        });
+    }else{
+        elementosOcultos.forEach(function(elemento) {
+            elemento.style.display = 'none';
+        });
+    }
+}
+
 function resumenMunsell(id_prueba) {
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSolMunsellPrueba.php?id_prueba=' + id_prueba, function (response) {
@@ -945,7 +959,7 @@ function cargarDatosPrueba(id_update){
             llenarPlataformaUpdate(indexMaterial, idCliente, idPlataforma);
 
             var numParte = id("numeroParte" + indexMaterial);
-            numParte.value = "Núm. de parte: " + response.data[i].numParte;
+            numParte.value = response.data[i].numParte;
 
             var cdadMaterial = id("cdadMaterial" + indexMaterial);
             cdadMaterial.value = response.data[i].cantidad;
@@ -1045,6 +1059,29 @@ function llenarPlataformaUpdate(i, idCliente, idPlataforma) {
         });
 }
 
+function actualizarTituloH1(id_update) {
+    const divh1 = document.querySelector("#divh1");
+    const titulo1 = divh1.querySelector("h1");
+    const aviso = divh1.querySelector("span");
+
+    if (titulo1) {
+        titulo1.textContent = "Actualizar Solicitud " + id_update;
+    }
+    if (aviso){
+        aviso.textContent = " ";
+    }
+}
+
+
+function showButton(id_button){
+    const button = id(id_button);
+    button.style.display = "inline-block";
+}
+
+function hideButton(id_button){
+    const button = id(id_button);
+    button.style.display = "none";
+}
 
 
 /*****************************************
@@ -1059,45 +1096,8 @@ function llenarPlataformaUpdate(i, idCliente, idPlataforma) {
 
 
 
-
-
-
-function actualizarTituloH1(id_update) {
-    const divh1 = document.querySelector("#divh1");
-    const titulo1 = divh1.querySelector("h1");
-    const aviso = divh1.querySelector("span");
-
-    if (titulo1) {
-        titulo1.textContent = "Actualizar Solicitud " + id_update;
-    }
-    if (aviso){
-        aviso.textContent = " ";
-    }
-}
-
 function redirectToRequestsIndex() {
     window.location.href = "../requests/requestsIndex.php";
 }
 
-function mostrarOpciones(TP){
-    const elementosOcultos = document.querySelectorAll('.resumenHidden');
-    if (TP!==3 || TP !== 4 || TP !== 5 ) {
-        elementosOcultos.forEach(function(elemento) {
-            elemento.style.display = 'none';
-        });
-    }else{
-        elementosOcultos.forEach(function(elemento) {
-            elemento.style.display = 'block';
-        });
-    }
-}
 
-function showButton(id_button){
-    const button = id(id_button);
-    button.style.display = "inline-block";
-}
-
-function hideButton(id_button){
-    const button = id(id_button);
-    button.style.display = "none";
-}
