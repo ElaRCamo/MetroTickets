@@ -147,10 +147,12 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                         <td><?php echo $resultados[0]['nombreSolic'];?> </td>
                     </tr>
 
-                    <!-- Mostrar norma solo para los tipos de prueba que correspondan -->
+                    <!-- Mostrar imagen cotas para tipo DIMENSIONAL -->
                     <?php
                     $tipoPrueba = $resultados[0]['id_tipoPrueba'];
                     $subtipoPrueba = $resultados[0]['id_subtipo'];
+                    echo "Tipo: ".$tipoPrueba."Subtipo: ".$subtipoPrueba;
+
                     if ($tipoPrueba === 3 && $subtipoPrueba === 2): // dimensional
                         ?>
                         <tr>
@@ -159,7 +161,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                         </tr>
                     <?php endif; ?>
 
-                    <!-- Mostrar imagen cotas para tipo DIMENSIONAL -->
+                    <!-- Mostrar norma solo para los tipos de prueba que correspondan -->
                     <?php
                     if ($tipoPrueba === 1 || $tipoPrueba === 2 || $tipoPrueba === 6): // IDL/IFD | SOFTNESS | OTRO
                         ?>
