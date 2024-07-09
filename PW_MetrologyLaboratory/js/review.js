@@ -57,6 +57,7 @@ function resumenPrueba(ID_PRUEBA){
             enlaceResultados.href = resultadosPrueba;
         } else {
             enlaceResultados.removeAttribute('href');  // Remueve el href para que no sea un enlace
+            enlaceResultados.style.pointerEvents = "none";
             enlaceResultados.textContent = resultadosPrueba;
         }
 
