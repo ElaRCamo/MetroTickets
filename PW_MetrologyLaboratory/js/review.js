@@ -32,18 +32,18 @@ function resumenPrueba(ID_PRUEBA){
             $('#tipoPruebaSolicitudR').text(data.descripcionPrueba + ": "+ data.descripcionEspecial);
         }
 
-        var urlCompleta = data.normaArchivo;
+        var normaArchivo = data.normaArchivo;
 
-        if (urlCompleta !== "No aplica") {
+        if (normaArchivo !== "No aplica" || normaArchivo !== "Ningún archivo seleccionado") {
             // Se agrega texto del enlace
-            id("archivoNormaR").href = urlCompleta;
-            var nombreArchivo = urlCompleta.substring(urlCompleta.lastIndexOf('/') + 1);
+            id("archivoNormaR").href = normaArchivo;
+            var nombreArchivo = normaArchivo.substring(normaArchivo.lastIndexOf('/') + 1);
             var numeroReferencia = nombreArchivo.split('-')[1];
             var nombreArchivoSinPDF = nombreArchivo.substring(0, nombreArchivo.lastIndexOf('.')); // Eliminar la extensión .pdf
             id("nombreArchivo").textContent = nombreArchivoSinPDF.substring(numeroReferencia.length + 1);
-            id("archivoNormaR").href = urlCompleta;
+            id("archivoNormaR").href = normaArchivo;
         }else {
-            id("archivoNormaR").textContent = "No aplica";
+            id("archivoNormaR").textContent = normaArchivo;
             id("archivoNormaR").style.pointerEvents = "none"; // Deshabilitar el clic en el enlace
         }
 
@@ -82,12 +82,8 @@ function resumenPrueba(ID_PRUEBA){
             var fila = document.createElement("tr");
 
             var numeroDeParteT = document.createElement("td");
-            numeroDeParteT.textContent = response.data[j].numeroDeParte;
+            numeroDeParteT.textContent = response.data[j].numParte;
             fila.appendChild(numeroDeParteT);
-
-            var descMaterialesT = document.createElement("td");
-            descMaterialesT.textContent = response.data[j].descripcionMaterial;
-            fila.appendChild(descMaterialesT);
 
             var cdadMaterialesT = document.createElement("td");
             cdadMaterialesT.textContent = response.data[j].cantidad;
@@ -100,6 +96,14 @@ function resumenPrueba(ID_PRUEBA){
             var plataformaMaterialesT = document.createElement("td");
             plataformaMaterialesT.textContent = response.data[j].descripcionPlataforma;
             fila.appendChild(plataformaMaterialesT);
+
+            var revisionDibujoT = document.createElement("td");
+            revisionDibujoT.textContent = response.data[j].revisionDibujo;
+            fila.appendChild(revisionDibujoT);
+
+            var modMatematicoT = document.createElement("td");
+            modMatematicoT.textContent = response.data[j].modMatematico;
+            fila.appendChild(modMatematicoT);
 
             var estatusMaterialT = document.createElement("td");
             estatusMaterialT.textContent = response.data[j].estatusMaterial;
