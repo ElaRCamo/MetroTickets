@@ -64,115 +64,6 @@
 
         }
     });
-    function actualizarTitulo() {
-        var titulo5 = document.querySelector("#modalResultados h5");
-        if (titulo5) {
-            titulo5.textContent = "Responder Solicitud " + id_review;
-        }
-    }
-
-    function updatePrueba(){
-        <?php if ($tipoUser== 3){ ?>
-            //Solo se puede actualizar si esta en espera de aprobación o en estatus rechazado
-            window.location.href = "../newRequest/newRequestIndex.php?id_update="+ id_review;
-
-        <?php
-        } else if($tipoUser== 1 || $tipoUser== 2){?>
-            //Se cargan los valores que ya se definieron
-            llenarEstatusPrueba();
-            llenarPrioridadPrueba();
-            consultarMetrologos();
-            document.getElementById("observacionesAdmin").value = obs_Solicitud;
-            llenarResultados();
-        <?php } ?>
-    }
-    function llenarResultados(){
-        const inputResultadosGuardados = document.getElementById('resultadosGuardados');
-        const btnResultados = document.getElementById('btnCambiarResultados');
-        const divResultados = document.getElementById('divCambiarResultados');
-        let enlaceResultados = document.getElementById('resultadosGuardados');
-
-        if (resultadosSol === null || resultadosSol === '') {
-            inputResultadosGuardados.style.display = 'none';
-            btnResultados.style.display = 'none';
-        }else {
-            let esUrl = esURL(resultadosSol);
-            if (esUrl) {
-                enlaceResultados.href = resultadosSol;
-                enlaceResultados.textContent = `${resultadosSol}`;
-            } else {
-                enlaceResultados.removeAttribute('href');  // Remueve el href para que no sea un enlace
-                enlaceResultados.textContent = `${resultadosSol}`;
-            }
-            divResultados.style.display = 'none';
-        }
-    }
-
-    function esURL(cadena) {
-        let urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;  // Expresión regular para verificar si resultadosSol es una URL
-        let esUrl;
-        esUrl = urlRegex.test(cadena);
-        return esUrl;
-    }
-
-    function checkedInput() {
-        const rutaRadio = document.getElementById('rutaRadio');
-        const archivoRadio = document.getElementById('archivoRadio');
-        const divResultados = document.getElementById('divCambiarResultados');
-        let esUrl = esURL(resultadosSol);
-
-        divResultados.style.display = 'block';
-
-        if (esUrl) { // Es una url
-            archivoRadio.checked = true;
-        } else { // Es una ruta local
-            rutaRadio.checked = true;
-        }
-    }
-
-    function cambiarResultado(){
-        const divResultados = document.getElementById('divResultados');
-        const selectEstatus = document.getElementById('estatusPruebaAdmin');
-
-        if (selectEstatus.value === '4') {
-            divResultados.style.display = 'block';
-            selectInputResultado();
-        } else {
-            divResultados.style.display = 'none';
-        }
-    }
-
-    function selectInputResultado() {
-        const rutaRadio = document.getElementById('rutaRadio');
-        const archivoRadio = document.getElementById('archivoRadio');
-        const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
-        const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
-
-        if (rutaRadio.checked) {
-            resultadosAdminRuta.style.display = 'block';
-            resultadosAdminArchivo.style.display = 'none';
-        } else if (archivoRadio.checked) {
-            resultadosAdminRuta.style.display = 'none';
-            resultadosAdminArchivo.style.display = 'block';
-        }
-    }
-
-    function fechaCompromiso(){
-        const selectEstatus = document.getElementById('estatusPruebaAdmin');
-        const divFechaCompromiso = document.getElementById('divFechaCompromiso');
-        const inputFechaCompromiso = document.getElementById('iFechaCompromiso');
-        //fecha de hoy en formato YYYY-MM-DD
-        var hoy = new Date().toISOString().split('T')[0];
-
-        if (selectEstatus.value === '2') { //Estatus aprobado
-            divFechaCompromiso.style.display = 'block';
-            inputFechaCompromiso.setAttribute('min', hoy);
-        } else if (selectEstatus.value === '1' || selectEstatus.value === '3' || selectEstatus.value === '4' || selectEstatus.value === '5' || selectEstatus.value === '6'){
-            divFechaCompromiso.style.display = 'none';
-        }
-
-    }
-
     // Event listener for modal shown event
     document.addEventListener('DOMContentLoaded', function() {
         $('#modalResultados').on('shown.bs.modal', function () {
@@ -185,6 +76,22 @@
             selectEstatus.addEventListener('change', cambiarResultado);
         });
     });
+
+    function updatePrueba(){
+        <?php if ($tipoUser== 3){ ?>
+                //Solo se puede actualizar si esta en espera de aprobación o en estatus rechazado
+                window.location.href = "../newRequest/newRequestIndex.php?id_update="+ id_review;
+
+        <?php
+        } else if($tipoUser== 1 || $tipoUser== 2){?>
+                //Se cargan los valores que ya se definieron
+                llenarEstatusPrueba();
+                llenarPrioridadPrueba();
+                consultarMetrologos();
+                document.getElementById("observacionesAdmin").value = obs_Solicitud;
+                llenarResultados();
+        <?php } ?>
+    }
 </script>
 <script src="../../js/general.js"></script>
 <script src="../../js/review.js"></script>
