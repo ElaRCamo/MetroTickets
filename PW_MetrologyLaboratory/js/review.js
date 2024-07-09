@@ -20,7 +20,7 @@ function resumenPrueba(ID_PRUEBA){
         // SUBTIPO
         let tipoPrueba = data.id_tipoPrueba;
 
-        if(tipoPrueba !== '3') { // DIMENSIONAL
+        if(tipoPrueba === '3') { // DIMENSIONAL
             rowSubtipo();
 
             $('#subtipoR').text(data.descripcion);
@@ -35,7 +35,7 @@ function resumenPrueba(ID_PRUEBA){
         }
 
         // NORMA
-        if (tipoPrueba !== '1' && tipoPrueba !== '2' && tipoPrueba !== '6') { // ILD/IFD | SOFTNESS | OTRO
+        if (tipoPrueba === '1' && tipoPrueba === '2' && tipoPrueba === '6') { // ILD/IFD | SOFTNESS | OTRO
             rowNorma();
 
             $('#normaNombreR').text(data.normaNombre);
