@@ -34,6 +34,12 @@
                             <td id="solicitanteR"> </td>
                         </tr>
                         <tr>
+                            <th class="p-2 mb-2">Subtipo: </th>
+                            <td id="subtipoR"></td>
+                            <th class="p-2 mb-2">Imagen Cotas: </th>
+                            <td><a id="imagenCotasR" href=""><span id="textImgR"></span></a></td>
+                        </tr>
+                        <tr>
                             <th class="p-2 mb-2">Norma: </th>
                             <td id="normaNombreR"></td>
                             <th class="p-2 mb-2">Documento de la norma: </th>
@@ -52,10 +58,11 @@
                     <thead>
                     <tr>
                         <th>No. de Parte</th>
-                        <th>Material</th>
                         <th>Cantidad</th>
                         <th>Cliente</th>
                         <th>Plataforma</th>
+                        <th>Revisión de Dibujo</th>
+                        <th>Modelo Matemático</th>
                         <th>Estatus</th>
                     </tr>
                     </thead>
@@ -91,9 +98,9 @@
                     </tbody>
                 </table>
             </div>
-            <div  id="divUpdate">
+            <!-- <div  id="divUpdate">
                 <span >Ultima actualización: <span class="" id="fechaUpdateR"></span></span>
-            </div>
+            </div> -->
         </div>
     </div>
 </main>
