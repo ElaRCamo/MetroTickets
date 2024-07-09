@@ -956,9 +956,9 @@ function cargarDatosPrueba(id_update){
             var modMatematico = id("modeloMate" + indexMaterial);
             modMatematico.value = response.data[i].modMatematico;
 
-
-            if ((i + 1) <= response.data.length) {
+            if ((i + 1) < response.data.length) {
                 agregarPieza();
+                llenarClientesUpdate(indexMaterial, idCliente)
             }
         }
     }).then(function() {
