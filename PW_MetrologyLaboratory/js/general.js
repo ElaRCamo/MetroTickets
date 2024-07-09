@@ -6,6 +6,29 @@ function reviewPDF(ID_PRUEBA) {
 }
 
 
+function llenarTipoPruebaUpdate(idTipoPrueba) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php', function (data) {
+        var selectS = id("tipoPrueba");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione el tipo de prueba*";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
+        for (var i = 0; i < data.data.length; i++) {
+            var createOptionS = document.createElement("option");
+            createOptionS.value = data.data[i].id_tipoPrueba;
+            createOptionS.text = data.data[i].descripcionPrueba;
+            selectS.appendChild(createOptionS);
+            if (data.data[i].id_tipoPrueba === idTipoPrueba) {
+                createOptionS.selected = true;
+            }
+        }
+        banderaTipoPrueba();
+    });
+}
+
 /*****************************************
  *************************************************
  * ***************************************************

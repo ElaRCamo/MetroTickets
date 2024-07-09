@@ -202,54 +202,7 @@ function reviewPage(ID_PRUEBA){
     window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/index.php?id_prueba=" + ID_PRUEBA;
 }
 
-function llenarTipoPruebaUpdate(idEvaluacion,idTipoPrueba,idTipoEspecial) {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php?id_tipoEvaluacion=' + idEvaluacion, function (data) {
-        var selectS = id("tipoPrueba");
-        selectS.innerHTML = ""; //limpiar contenido
 
-        var createOptionDef = document.createElement("option");
-        createOptionDef.text = "Seleccione el tipo de prueba*";
-        createOptionDef.value = "";
-        selectS.appendChild(createOptionDef);
-
-        for (var i = 0; i < data.data.length; i++) {
-            var createOptionS = document.createElement("option");
-            createOptionS.value = data.data[i].id_tipoPrueba;
-            createOptionS.text = data.data[i].descripcionPrueba;
-            selectS.appendChild(createOptionS);
-            if (data.data[i].id_tipoPrueba === idTipoPrueba) {
-                createOptionS.selected = true;
-            }
-        }
-        banderaTipoPrueba();
-        if(idTipoPrueba === '5'){
-            llenarPruebaEspecialUpdate(idTipoEspecial);
-        }
-    });
-}
-
-function llenarPruebaEspecialUpdate(idTipoEspecial){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPruebaEspecial.php', function (data){
-        var selectS = id("tipoPruebaEspecial");
-        selectS.innerHTML = ""; //limpiar contenido
-
-        var createOptionDef = document.createElement("option");
-        createOptionDef.text = "Especifique el tipo de prueba*";
-        createOptionDef.value = "";
-        selectS.appendChild(createOptionDef);
-
-        for (var i = 0; i < data.data.length; i++) {
-            var createOption = document.createElement("option");
-            createOption.value = data.data[i].id_pruebaEspecial;
-            createOption.text = data.data[i].descripcionEspecial;
-            selectS.appendChild(createOption);
-            if (data.data[i].id_pruebaEspecial === idTipoEspecial) {
-                createOption.selected = true;
-            }
-        }
-        otroTipoPrueba();
-    });
-}
 function llenarClientesUpdate(i, idCliente) {
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php')
