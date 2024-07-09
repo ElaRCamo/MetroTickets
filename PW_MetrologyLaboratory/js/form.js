@@ -852,7 +852,7 @@ function resumenSolicitud(id_prueba) {
 
 function mostrarOpciones(TP){
     const elementosOcultos = document.querySelectorAll('.resumenHidden');
-    if (TP!==1 || TP !== 2 || TP !== 6) {
+    if (TP === '1' || TP === '2' || TP === '6') {
         elementosOcultos.forEach(function(elemento) {
             elemento.style.display = 'block';
         });
