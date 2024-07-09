@@ -940,7 +940,6 @@ function cargarDatosPrueba(id_update){
 
             idCliente = response.data[l].id_cliente;
             idPlataforma = response.data[l].id_plataforma;
-            idMaterial = response.data[l].id_descripcion;
 
             // Seleccionar cliente
             /* cliente = id("cliente" + indexMaterial);
@@ -951,7 +950,7 @@ function cargarDatosPrueba(id_update){
                      cliente.options[k].selected = true;
                      break;
                  }
-             }*/
+             }
 
             llenarClientesUpdate(indexMaterial, idCliente)
 
@@ -970,7 +969,7 @@ function cargarDatosPrueba(id_update){
             if ((l + 1) < response.data.length) {
                 agregarMaterial();
                 llenarClientesUpdate(indexMaterial, idCliente)
-            }
+            }*/
         }
     }).then(function() {
 
