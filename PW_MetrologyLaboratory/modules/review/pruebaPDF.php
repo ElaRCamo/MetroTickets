@@ -151,19 +151,18 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     <?php
                     $tipoPrueba = $resultados[0]['id_tipoPrueba'];
                     $subtipoPrueba = $resultados[0]['id_subtipo'];
-                    $imagen = $resultados[0]['imagenCotas'];?>
-                    <td><?php echo "Tipo: ".$tipoPrueba." Subtipo: ".$subtipoPrueba. " Imagen:".$imagen;?> </td>
+                    $imagen = $resultados[0]['imagenCotas'];
 
-                    <?php if ($tipoPrueba === '3' && $subtipoPrueba === '2'): // dimensional ?>
+                    if ($tipoPrueba === '3' && $subtipoPrueba === '2'): // dimensional ?>
                         <tr>
                             <th class="">Imagen Cotas: </th>
-                            <td><?php echo '<a href="'.$resultados[0]['imagenCotas'].'">Consultar imagen</a>'; ?></td>
+                            <td><?php echo '<a href="'.$imagen.'">Consultar imagen</a>'; ?></td>
                         </tr>
                     <?php endif; ?>
 
                     <!-- Mostrar norma solo para los tipos de prueba que correspondan -->
                     <?php
-                    if ($tipoPrueba === 1 || $tipoPrueba === 2 || $tipoPrueba === 6): // IDL/IFD | SOFTNESS | OTRO
+                    if ($tipoPrueba === '1' || $tipoPrueba === '2' || $tipoPrueba === '6'): // IDL/IFD | SOFTNESS | OTRO
                         ?>
                         <tr>
                             <th class="">Norma: </th>
