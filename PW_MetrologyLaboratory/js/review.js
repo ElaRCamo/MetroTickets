@@ -32,8 +32,6 @@ function resumenPrueba(ID_PRUEBA){
                 id("imagenCotasR").style.pointerEvents = "none";
                 $('#textImgR').text("No aplica");
             }
-        } else {
-            id("trSubtipo").style.display = "none";
         }
 
         // NORMA
