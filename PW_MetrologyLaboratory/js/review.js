@@ -164,9 +164,16 @@ function rowSubtipo(){
     fila.appendChild(thImagen);
     fila.appendChild(tdImagen);
 
-    // Añadir la fila a la tabla
-    var tbody = document.querySelector('#miTabla tbody');
-    tbody.appendChild(fila);
+    // Seleccionar el cuerpo de la tabla y la fila de referencia
+    var tbody = document.querySelector('#datosGeneralesTable tbody');
+    var filaReferencia = document.querySelector('#trTipoPrueba');
+
+    // Insertar la nueva fila después de la fila de referencia
+    if (filaReferencia && filaReferencia.nextSibling) {
+        tbody.insertBefore(fila, filaReferencia.nextSibling);
+    } else {
+        tbody.appendChild(fila);
+    }
 }
 
 function updateLinkActualizar(id, estatus) {

@@ -27,7 +27,7 @@
                             <th class="p-2 mb-2"> Fecha de Solicitud: </th>
                             <td id="fechaSolicitudR"> </td>
                         </tr>
-                        <tr>
+                        <tr id="trTipoPrueba">
                             <th class="p-2 mb-2">Tipo de Prueba: </th>
                             <td id="tipoPruebaSolicitudR"></td>
                             <th class="p-2 mb-2"> Solicitante:</th>
