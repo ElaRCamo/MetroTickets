@@ -154,7 +154,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     $imagen = $resultados[0]['imagenCotas'];?>
                     <td><?php echo "Tipo: ".$tipoPrueba." Subtipo: ".$subtipoPrueba. " Imagen:".$imagen;?> </td>
 
-                    <?php if ($tipoPrueba === 3 && $subtipoPrueba === 2): // dimensional ?>
+                    <?php if ($tipoPrueba === '3' && $subtipoPrueba === '2'): // dimensional ?>
                         <tr>
                             <th class="">Imagen Cotas: </th>
                             <td><?php echo '<a href="'.$resultados[0]['imagenCotas'].'">Consultar imagen</a>'; ?></td>
