@@ -8,8 +8,7 @@ function resumenPrueba($id_prueba){
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $datosPrueba =  mysqli_query($conex,
-                                    "SELECT   prueba.id_prueba, 
+    $datosPrueba =  mysqli_query($conex, "SELECT   prueba.id_prueba, 
                                                     prueba.fechaSolicitud, 
                                                     prueba.fechaRespuesta, 
                                                     prueba.descripcionEstatus,
