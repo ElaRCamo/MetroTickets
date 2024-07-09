@@ -14,9 +14,12 @@ function resumenPrueba(ID_PRUEBA){
         var data = response.data[0]; // primer objeto dentro de 'data'
         $('#numeroPruebaR').text(data.id_prueba);
         $('#fechaSolicitudR').text(data.fechaSolicitud);
+        $('#tipoPruebaSolicitudR').text(data.descripcionPrueba);
+        $('#solicitanteR').text(data.nombreSolic);
+
+
         $('#fechaRespuestaR').text(data.fechaRespuesta);
         $('#fechaCompromisoR').text(data.fechaCompromiso);
-        $('#fechaUpdateR').text(data.fechaActualizacion);
         $('#solicitanteR').text(data.nombreSolic);
         $('#metrologoR').text(data.nombreMetro);
         $('#observacionesSolR').text(data.especificaciones);
