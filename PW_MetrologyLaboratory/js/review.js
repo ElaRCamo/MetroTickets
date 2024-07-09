@@ -51,7 +51,7 @@ function resumenPrueba(ID_PRUEBA){
 
         //Resultados es una ruta o un enlace:
         let enlaceResultados = document.getElementById('rutaResultadosR');
-        var resultadosPrueba = data.rutaResultados;
+        var resultadosPrueba = data.resultados;
         let esUrl = esURL(resultadosPrueba);
         if (esUrl) {
             enlaceResultados.href = resultadosPrueba;
@@ -114,4 +114,25 @@ function resumenPrueba(ID_PRUEBA){
     }).then(function (){
         updateLinkActualizar(id_estatusSol,estatusSol);
     });
+}
+
+function updateLinkActualizar(id, estatus) {
+    if(tipoUser === '3'){
+        var link = document.getElementById('updateBtnS');
+
+        if (link) {
+            if (id === '1' || id === '5') { // Pendiente de aprobación || Rechazado
+                link.setAttribute('onclick', 'updatePrueba();');
+                link.style.pointerEvents = 'auto';
+                link.style.cursor = 'pointer';
+            } else {
+                // Cambia el texto del enlace
+                link.innerHTML = '<i class="lar la-lightbulb"></i>Estatus: ' + estatus + '<br>(No es posible actualizar)';
+                link.removeAttribute('onclick');
+                link.removeAttribute('href');
+                link.style.pointerEvents = 'none';
+                link.style.cursor = 'default';
+            }
+        }
+    }
 }
