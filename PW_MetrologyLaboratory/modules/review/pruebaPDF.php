@@ -176,7 +176,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                         <tr>
                             <th class="">Norma: </th>
                             <td><?php echo $resultados[0]['normaNombre'];?></td>
-                            <th class="">Documento de la norma: </th>
+                            <th class="">Documento (norma): </th>
                             <td>
                                 <?php
                                 $urlCompleta = $resultados[0]['normaArchivo'];
