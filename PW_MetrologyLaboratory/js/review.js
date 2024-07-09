@@ -17,16 +17,7 @@ function resumenPrueba(ID_PRUEBA){
         $('#tipoPruebaSolicitudR').text(data.descripcionPrueba);
         $('#solicitanteR').text(data.nombreSolic);
 
-
-        $('#fechaRespuestaR').text(data.fechaRespuesta);
-        $('#fechaCompromisoR').text(data.fechaCompromiso);
-        $('#solicitanteR').text(data.nombreSolic);
-        $('#metrologoR').text(data.nombreMetro);
-        $('#observacionesSolR').text(data.especificaciones);
-        $('#estatusSolicitudR').text(data.descripcionEstatus);
-        $('#prioridadR').text(data.descripcionPrioridad);
-        $('#normaNombreR').text(data.normaNombre);
-
+        // SUBTIPO
         let tipoPrueba = data.id_tipoPrueba;
 
         if(tipoPrueba !== '3'){ // DIMENSIONAL
@@ -44,8 +35,10 @@ function resumenPrueba(ID_PRUEBA){
             id("trSubtipo").style.display = "none";
         }
 
+        // NORMA
         if(tipoPrueba !== '1' && tipoPrueba !== '2' && tipoPrueba !== '6') { // ILD/IFD | SOFTNESS | OTRO
             id("trNorma").style.display = "block";
+            $('#normaNombreR').text(data.normaNombre);
 
             var normaArchivo = data.normaArchivo;
 
@@ -65,6 +58,12 @@ function resumenPrueba(ID_PRUEBA){
             id("trNorma").style.display = "none";
         }
 
+        $('#observacionesSolR').text(data.especificaciones);
+        $('#fechaCompromisoR').text(data.fechaCompromiso);
+        $('#metrologoR').text(data.nombreMetro);
+        $('#estatusSolicitudR').text(data.descripcionEstatus);
+        $('#prioridadR').text(data.descripcionPrioridad);
+        $('#fechaRespuestaR').text(data.fechaRespuesta);
         $('#observacionesLabR').text(data.especificacionesLab);
 
         //Resultados es una ruta o un enlace:
@@ -84,7 +83,7 @@ function resumenPrueba(ID_PRUEBA){
         id_prioridadSol = data.id_prioridad;
         id_metrologoSol = data.id_metrologo;
         obs_Solicitud = data.especificacionesLab;
-        resultadosSol = data.rutaResultados;
+        resultadosSol = data.resultados;
         solicitantePrueba = data.nombreSolic;
         emailSolicitante = data.correoSolic;
 
