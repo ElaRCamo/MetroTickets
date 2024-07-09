@@ -24,16 +24,16 @@
                         <tr class="bg-primary">
                             <th class="p-2 mb-2">No. de solicitud: </th>
                             <td id="numeroPruebaR"> </td>
-                            <th class="p-2 mb-2" > Fecha de Solicitud: </th>
+                            <th class="p-2 mb-2"> Fecha de Solicitud: </th>
                             <td id="fechaSolicitudR"> </td>
                         </tr>
                         <tr>
                             <th class="p-2 mb-2">Tipo de Prueba: </th>
-                            <td id="tipoPruebaSolicitudR" ></td>
+                            <td id="tipoPruebaSolicitudR"></td>
                             <th class="p-2 mb-2"> Solicitante:</th>
                             <td id="solicitanteR"> </td>
                         </tr>
-                        <tr>
+                        <tr id="trSubtipo">
                             <th class="p-2 mb-2">Subtipo: </th>
                             <td id="subtipoR"></td>
                             <th class="p-2 mb-2">Imagen Cotas: </th>

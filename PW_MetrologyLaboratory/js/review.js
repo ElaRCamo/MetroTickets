@@ -24,13 +24,21 @@ function resumenPrueba(ID_PRUEBA){
         $('#prioridadR').text(data.descripcionPrioridad);
         $('#normaNombreR').text(data.normaNombre);
 
-        if(data.id_tipoPrueba !== '5'){
-            $('#tipoPruebaSolicitudR').text(data.descripcionPrueba);
-        } else if(data.id_tipoPrueba === '5' && data.id_pruebaEspecial === '4'){
-            $('#tipoPruebaSolicitudR').text( data.descripcionPrueba + ": "+ data.otroTipoEspecial);
-        }else if(data.id_tipoPrueba === '5'){
-            $('#tipoPruebaSolicitudR').text(data.descripcionPrueba + ": "+ data.descripcionEspecial);
+        if(data.id_tipoPrueba !== '3'){ // DIMENSIONAL
+            id("trSubtipo").style.display = "block";
+            $('#subtipoR').text(data.descripcion);
+
+            if(data.id_subtipo === '2'){ // Cotas especificas
+                id("imagenCotasR").href = data.descripcion;
+                $('#textImgR').text("Ver imagen");
+            }else if(data.id_subtipo === '1'){ //Full layout
+                id("imagenCotasR").style.pointerEvents = "none";
+                $('#textImgR').text("No aplica");
+            }
+        } else {
+            id("trSubtipo").style.display = "none";
         }
+
 
         var normaArchivo = data.normaArchivo;
 
