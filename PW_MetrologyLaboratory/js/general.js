@@ -29,6 +29,9 @@ function llenarTipoPruebaUpdate(idTipoPrueba, subtipo) {
     }).then(function() {
         if(idTipoPrueba === '3'){
             llenarSubtipoUpdate(idTipoPrueba, subtipo);
+            if(subtipo === '2'){
+                fsubtipoPrueba();
+            }
         }
     }).catch(function(error) {
         // Manejar errores si la solicitud falla
