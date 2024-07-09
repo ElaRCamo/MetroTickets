@@ -26,11 +26,11 @@ function resumenPrueba(ID_PRUEBA){
             $('#subtipoR').text(data.descripcion);
 
             if (data.id_subtipo === '2') { // Cotas especificas
-                id("imagenCotasR").href = data.descripcion;
+                id("imagenCotasR").href = data.imagenCotas;
                 $('#textImgR').text("Ver imagen");
             } else if (data.id_subtipo === '1') { //Full layout
                 id("imagenCotasR").style.pointerEvents = "none";
-                $('#textImgR').text("No aplica");
+                $('#textImgR').text(data.imagenCotas);
             }
         }
 
