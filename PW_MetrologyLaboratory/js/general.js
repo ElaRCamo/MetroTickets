@@ -30,7 +30,10 @@ function llenarTipoPruebaUpdate(idTipoPrueba, subtipo, imgCotas) {
         if(idTipoPrueba === '3'){
             llenarSubtipoUpdate(idTipoPrueba, subtipo);
             if(subtipo === '2'){
-                fsubtipoPrueba();
+                const divCotas = id("divCotas");
+                const divPreview = id("divImgCotas");
+                mostrarBloque(divCotas, true);
+                mostrarBloque(divPreview, true);
                 id("capturaCotas").src = imgCotas;
             }
         }
