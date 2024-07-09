@@ -2,9 +2,9 @@
 
 include_once('connection.php');
 $id_prueba = $_GET['id_prueba'];
-resumenPrueba($id_prueba);
+resumenPruebaUpdate($id_prueba);
 
-function resumenPrueba($id_prueba){
+function resumenPruebaUpdate($id_prueba){
     $con = new LocalConector();
     $conex = $con->conectar();
 
