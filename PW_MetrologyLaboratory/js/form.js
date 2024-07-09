@@ -957,7 +957,7 @@ function cargarDatosPrueba(id_update){
             modMatematico.value = response.data[i].modMatematico;
 
 
-            if ((i + 1) < response.data.length) {
+            if ((i + 1) <= response.data.length) {
                 agregarPieza();
                 llenarClientesUpdate(indexMaterial, idCliente)
             }
