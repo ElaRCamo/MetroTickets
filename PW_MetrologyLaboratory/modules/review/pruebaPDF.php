@@ -150,8 +150,9 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     <!-- Mostrar imagen cotas para tipo DIMENSIONAL -->
                     <?php
                     $tipoPrueba = $resultados[0]['id_tipoPrueba'];
-                    $subtipoPrueba = $resultados[0]['id_subtipo'];?>
-                    <td><?php echo "Tipo: ".$tipoPrueba."Subtipo: ".$subtipoPrueba;?> </td>
+                    $subtipoPrueba = $resultados[0]['id_subtipo'];
+                    $imagen = $resultados[0]['imagenCotas'];?>
+                    <td><?php echo "Tipo: ".$tipoPrueba." Subtipo: ".$subtipoPrueba. " Imagen:".$imagen;?> </td>
 
                     <?php if ($tipoPrueba === 3 && $subtipoPrueba === 2): // dimensional ?>
                         <tr>
