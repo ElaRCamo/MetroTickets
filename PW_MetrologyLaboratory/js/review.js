@@ -36,9 +36,9 @@ function resumenPrueba(ID_PRUEBA){
 
         // NORMA
         if (tipoPrueba !== '1' && tipoPrueba !== '2' && tipoPrueba !== '6') { // ILD/IFD | SOFTNESS | OTRO
-            id("trNorma").style.display = "block";
-            $('#normaNombreR').text(data.normaNombre);
+            rowNorma();
 
+            $('#normaNombreR').text(data.normaNombre);
             var normaArchivo = data.normaArchivo;
 
             /*if (normaArchivo !== "No aplica" || normaArchivo !== "Ningún archivo seleccionado") {
@@ -53,8 +53,6 @@ function resumenPrueba(ID_PRUEBA){
                 id("archivoNormaR").textContent = normaArchivo;
                 id("archivoNormaR").style.pointerEvents = "none"; // Deshabilitar el clic en el enlace
             }*/
-        }else {
-            id("trNorma").style.display = "none";
         }
 
         $('#observacionesSolR').text(data.especificaciones);
@@ -174,8 +172,51 @@ function rowSubtipo(){
     }
 }
 
+function rowNorma() {
+    // Crear la fila
+    var fila = document.createElement('tr');
+    fila.id = 'trNorma';
+
+    // Crear las celdas y sus contenidos
+    var thNorma = document.createElement('th');
+    thNorma.className = "p-2 mb-2";
+    thNorma.textContent = 'Norma:';
+    var tdNorma = document.createElement('td');
+    tdNorma.id = 'normaNombreR';
+
+    var thDocumento = document.createElement('th');
+    thDocumento.className = "p-2 mb-2";
+    thDocumento.textContent = 'Documento de la norma:';
+    var tdDocumento = document.createElement('td');
+    var link = document.createElement('a');
+    link.id = 'archivoNormaR';
+    link.href = '#'; // Puedes cambiar el enlace
+    var span = document.createElement('span');
+    span.id = 'nombreArchivo';
+    link.appendChild(span);
+    tdDocumento.appendChild(link);
+
+    // Añadir las celdas a la fila
+    fila.appendChild(thNorma);
+    fila.appendChild(tdNorma);
+    fila.appendChild(thDocumento);
+    fila.appendChild(tdDocumento);
+
+    // Seleccionar el cuerpo de la tabla y la fila de referencia
+    var tbody = document.querySelector('#datosGeneralesTable tbody');
+    var filaReferencia = document.querySelector('#trTipoPrueba');
+
+    // Insertar la nueva fila después de la fila de referencia
+    if (filaReferencia && filaReferencia.nextSibling) {
+        tbody.insertBefore(fila, filaReferencia.nextSibling);
+    } else {
+        tbody.appendChild(fila);
+    }
+}
+
+
 function updateLinkActualizar(id, estatus) {
-    if(tipoUser === '3'){
+    if (tipoUser === '3') {
         var link = document.getElementById('updateBtnS');
 
         if (link) {

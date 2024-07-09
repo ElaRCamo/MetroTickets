@@ -33,12 +33,6 @@
                             <th class="p-2 mb-2"> Solicitante:</th>
                             <td id="solicitanteR"> </td>
                         </tr>
-                        <tr id="trNorma">
-                            <th class="p-2 mb-2">Norma: </th>
-                            <td id="normaNombreR"></td>
-                            <th class="p-2 mb-2">Documento de la norma: </th>
-                            <td><a id="archivoNormaR" href=""><span id="nombreArchivo"></span></a></td>
-                        </tr>
                         <tr>
                             <th class="p-2 mb-2">Especifícaciones / comentarios: </th>
                             <td id="observacionesSolR" colspan="3"></td>
