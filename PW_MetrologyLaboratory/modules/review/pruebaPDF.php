@@ -153,10 +153,18 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     $subtipoPrueba = $resultados[0]['id_subtipo'];
                     $imagen = $resultados[0]['imagenCotas'];
 
-                    if ($tipoPrueba === '3' && $subtipoPrueba === '2'): // dimensional ?>
+                    if ($tipoPrueba === '3'): // dimensional ?>
                         <tr>
+                            <th class="">Subtipo: </th>
+                            <td><?php echo $subtipoPrueba; ?></td>
                             <th class="">Imagen Cotas: </th>
-                            <td><?php echo '<a href="'.$imagen.'">Consultar imagen</a>'; ?></td>
+                            <td>
+                                <?php if ($subtipoPrueba === '2'): ?>
+                                    <a href="<?php echo $imagen; ?>">Consultar imagen</a>
+                                <?php elseif ($subtipoPrueba === '1'): ?>
+                                    <a href="#">No aplica</a>
+                                <?php endif; ?>
+                            </td>
                         </tr>
                     <?php endif; ?>
 
