@@ -901,7 +901,6 @@ function resumenMunsell(id_prueba) {
 function cualEsTipoPrueba(id_prueba){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPruebaConID.php?id_prueba=' + id_prueba,  function (response) {
         let tipoPrueba = response.data[0].id_tipoPrueba;
-        alert("TipoPrueba: " + tipoPrueba);
         if (tipoPrueba === '5') { // Munsell
             alert("Tipo de prueba munsell");
         }else{
@@ -914,16 +913,17 @@ function cualEsTipoPrueba(id_prueba){
 }
 function cargarDatosPrueba(id_update){
 
-    var divSelectTipoPrueba = id("selectTipoPrueba");
+    let divSelectTipoPrueba = id("selectTipoPrueba");
     divSelectTipoPrueba.style.display = "block";
 
-    var idTipoPrueba,cliente,idCliente, idPlataforma, idMaterial;
+    var idCliente, idPlataforma, idMaterial;
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
-        var data = response.data[0];
+        let data = response.data[0];
 
-        idTipoPrueba = data.id_tipoPrueba;
-        llenarTipoPruebaUpdate(idTipoPrueba);
+        let idTipoPrueba = data.id_tipoPrueba;
+        let subtipo = data.id_subtipo;
+        llenarTipoPruebaUpdate(idTipoPrueba, subtipo);
 
         var norma = id("norma");
         norma.value = data.normaNombre;
@@ -969,10 +969,32 @@ function cargarDatosPrueba(id_update){
             }
         }
     }).then(function() {
-        llenarTipoPruebaUpdate(idEvaluacionPrueba,idTipoPrueba,idTipoEspecial);
+
     }).catch(function(error) {
         // Manejar errores si la solicitud falla
         console.error('Error en la solicitud JSON: ', error);
+    });
+}
+
+function llenarSubtipoUpdate(tipoPrueba, subtipo) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSubtipoPrueba.php?id_tipoPrueba=' + tipoPrueba, function (data) {
+        var selectS = id("subtipoPrueba");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        var createOptionDef = document.createElement("option");
+        createOptionDef.text = "Seleccione el subtipo de prueba*";
+        createOptionDef.value = "";
+        selectS.appendChild(createOptionDef);
+
+        for (var i = 0; i < data.data.length; i++) {
+            var createOptionS = document.createElement("option");
+            createOptionS.value = data.data[i].id_subtipo;
+            createOptionS.text = data.data[i].descripcion;
+            selectS.appendChild(createOptionS);
+            if (data.data[i].id_subtipo === subtipo) {
+                createOptionS.selected = true;
+            }
+        }
     });
 }
 

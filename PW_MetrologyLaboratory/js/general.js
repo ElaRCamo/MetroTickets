@@ -6,7 +6,7 @@ function reviewPDF(ID_PRUEBA) {
 }
 
 
-function llenarTipoPruebaUpdate(idTipoPrueba) {
+function llenarTipoPruebaUpdate(idTipoPrueba, subtipo) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php', function (data) {
         var selectS = id("tipoPrueba");
         selectS.innerHTML = ""; //limpiar contenido
@@ -26,6 +26,13 @@ function llenarTipoPruebaUpdate(idTipoPrueba) {
             }
         }
         banderaTipoPrueba();
+    }).then(function() {
+        if(idTipoPrueba === '3'){
+            llenarSubtipoUpdate(idTipoPrueba, subtipo);
+        }
+    }).catch(function(error) {
+        // Manejar errores si la solicitud falla
+        console.error('Error en la solicitud JSON: ', error);
     });
 }
 
