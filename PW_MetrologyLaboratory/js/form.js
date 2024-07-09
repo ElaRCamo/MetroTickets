@@ -959,7 +959,6 @@ function cargarDatosPrueba(id_update){
 
             if ((i + 1) <= response.data.length) {
                 agregarPieza();
-                llenarClientesUpdate(indexMaterial, idCliente)
             }
         }
     }).then(function() {
