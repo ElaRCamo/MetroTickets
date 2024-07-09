@@ -17,9 +17,9 @@ function resumenPrueba(ID_PRUEBA){
         $('#tipoPruebaSolicitudR').text(data.descripcionPrueba);
         $('#solicitanteR').text(data.nombreSolic);
 
-        // SUBTIPO
         let tipoPrueba = data.id_tipoPrueba;
 
+        // SUBTIPO
         if(tipoPrueba === '3') { // DIMENSIONAL
             rowSubtipo();
 
