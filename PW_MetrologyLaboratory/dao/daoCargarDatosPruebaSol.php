@@ -10,34 +10,31 @@ function resumenPrueba($id_prueba){
 
     $datosPrueba =  mysqli_query($conex,
         "SELECT   prueba.id_prueba,
-                        prueba.id_tipoEvaluacion,
                         prueba.id_tipoPrueba,
-                        prueba.id_pruebaEspecial,
-                        prueba.otroTipoEspecial,
                         prueba.especificaciones,
+                        prueba.id_subtipo,
+                        prueba.imagenCotas,
                         prueba.normaNombre,
                         prueba.normaArchivo,
-                        dm.numeroDeParte, 
+                        m.numParte, 
                         m.cantidad, 
-                        m.id_descripcion,
-                        dm.imgMaterial, 
-                        c.id_cliente,
-                        p.id_plataforma
+                        c.id_cliente, 
+                        p.id_plataforma,
+                        m.revisionDibujo,
+                        m.modMatematico
                     FROM   
-                        Material m
-                        JOIN DescripcionMaterial dm ON m.id_descripcion = dm.id_descripcion
-                        JOIN Plataforma p ON dm.id_plataforma = p.id_plataforma
+                        Piezas m
+                        JOIN Plataforma p ON m.id_plataforma = p.id_plataforma
                         JOIN Cliente c ON p.id_cliente = c.id_cliente
                         JOIN (
                             SELECT 
                                 id_prueba,
                                 s.id_tipoPrueba,
-                                id_tipoEvaluacion,
+                                s.id_subtipo, 
+                                imagenCotas,
                                 especificaciones,
                                 normaNombre,
-                                normaArchivo,
-                                otroTipoEspecial,
-                                id_pruebaEspecial
+                                normaArchivo
                             FROM 
                                 Pruebas s
                                 LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
