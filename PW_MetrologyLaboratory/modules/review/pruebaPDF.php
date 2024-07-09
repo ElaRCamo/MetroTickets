@@ -155,7 +155,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                         ?>
                         <tr>
                             <th class="">Imagen Cotas: </th>
-                            <td>echo '<a href=".$resultados[0]['normaNombre'].">Consultar imagen</a>';</td>
+                            <td>echo '<a href=".$resultados[0]['imagenCotas'].">Consultar imagen</a>';</td>
                         </tr>
                     <?php endif; ?>
 
