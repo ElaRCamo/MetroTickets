@@ -73,12 +73,9 @@ function resumenPrueba($id_prueba){
                                                             LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
                                                         WHERE 
                                                             id_prueba = '$id_prueba'
-                                                    ) AS prueba ON m.id_prueba = prueba.id_prueba;
-");
+                                                    ) AS prueba ON m.id_prueba = prueba.id_prueba;");
 
     $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
-
 }
-
 ?>
