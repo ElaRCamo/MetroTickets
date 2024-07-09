@@ -33,12 +33,6 @@
                             <th class="p-2 mb-2"> Solicitante:</th>
                             <td id="solicitanteR"> </td>
                         </tr>
-                        <tr class="trSubtipo">
-                            <th class="p-2 mb-2 trSubtipo">Subtipo: </th>
-                            <td id="subtipoR"></td>
-                            <th class="p-2 mb-2 trSubtipo">Imagen Cotas: </th>
-                            <td><a id="imagenCotasR" href=""><span id="textImgR"></span></a></td>
-                        </tr>
                         <tr id="trNorma">
                             <th class="p-2 mb-2">Norma: </th>
                             <td id="normaNombreR"></td>

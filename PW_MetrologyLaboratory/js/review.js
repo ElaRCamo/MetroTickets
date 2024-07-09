@@ -20,17 +20,15 @@ function resumenPrueba(ID_PRUEBA){
         // SUBTIPO
         let tipoPrueba = data.id_tipoPrueba;
 
-        if(tipoPrueba !== '3'){ // DIMENSIONAL
-            document.querySelectorAll(".trSubtipo").forEach(function(element) {
-                element.style.display = "show";
-            });
+        if(tipoPrueba !== '3') { // DIMENSIONAL
+            rowSubtipo();
 
             $('#subtipoR').text(data.descripcion);
 
-            if(data.id_subtipo === '2'){ // Cotas especificas
+            if (data.id_subtipo === '2') { // Cotas especificas
                 id("imagenCotasR").href = data.descripcion;
                 $('#textImgR').text("Ver imagen");
-            }else if(data.id_subtipo === '1'){ //Full layout
+            } else if (data.id_subtipo === '1') { //Full layout
                 id("imagenCotasR").style.pointerEvents = "none";
                 $('#textImgR').text("No aplica");
             }
@@ -39,7 +37,7 @@ function resumenPrueba(ID_PRUEBA){
         }
 
         // NORMA
-        if(tipoPrueba !== '1' && tipoPrueba !== '2' && tipoPrueba !== '6') { // ILD/IFD | SOFTNESS | OTRO
+        if (tipoPrueba !== '1' && tipoPrueba !== '2' && tipoPrueba !== '6') { // ILD/IFD | SOFTNESS | OTRO
             id("trNorma").style.display = "block";
             $('#normaNombreR').text(data.normaNombre);
 
@@ -135,6 +133,40 @@ function resumenPrueba(ID_PRUEBA){
     }).then(function (){
         updateLinkActualizar(id_estatusSol,estatusSol);
     });
+}
+
+function rowSubtipo(){
+    // Crear la fila
+    var fila = document.createElement('tr');
+
+    // Crear las celdas y sus contenidos
+    var thSubtipo = document.createElement('th');
+    thSubtipo.className = "p-2 mb-2";
+    thSubtipo.textContent = 'Subtipo:';
+    var tdSubtipo = document.createElement('td');
+    tdSubtipo.id = 'subtipoR';
+
+    var thImagen = document.createElement('th');
+    thImagen.className = "p-2 mb-2";
+    thImagen.textContent = 'Imagen Cotas:';
+    var tdImagen = document.createElement('td');
+    var link = document.createElement('a');
+    link.id = 'imagenCotasR';
+    link.href = '#'; // Puedes cambiar el enlace
+    var span = document.createElement('span');
+    span.id = 'textImgR';
+    link.appendChild(span);
+    tdImagen.appendChild(link);
+
+    // Añadir las celdas a la fila
+    fila.appendChild(thSubtipo);
+    fila.appendChild(tdSubtipo);
+    fila.appendChild(thImagen);
+    fila.appendChild(tdImagen);
+
+    // Añadir la fila a la tabla
+    var tbody = document.querySelector('#miTabla tbody');
+    tbody.appendChild(fila);
 }
 
 function updateLinkActualizar(id, estatus) {
