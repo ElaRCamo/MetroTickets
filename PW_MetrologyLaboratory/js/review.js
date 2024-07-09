@@ -22,7 +22,7 @@ function resumenPrueba(ID_PRUEBA){
 
         if(tipoPrueba !== '3'){ // DIMENSIONAL
             document.querySelectorAll(".trSubtipo").forEach(function(element) {
-                element.style.display = "block";
+                element.style.display = "show";
             });
 
             $('#subtipoR').text(data.descripcion);
