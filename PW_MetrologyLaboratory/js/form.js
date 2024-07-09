@@ -803,7 +803,9 @@ function resumenSolicitud(id_prueba) {
         $('#observacionesSolicitud').text(data.especificaciones);
         $('#estatusSolicitud').text(data.descripcionEstatus);
         $('#normaNombreSol').text(data.normaNombre);
-        id("archivoNormaSol").href = data.normaArchivo;
+
+        let archivo = data.normaArchivo;
+        id("archivoNormaSol").href = archivo;
 
         var tabla = document.getElementById("piezasSolicitud");
         var tbody = tabla.getElementsByTagName("tbody")[0];
@@ -844,18 +846,19 @@ function resumenSolicitud(id_prueba) {
         id_review = id_prueba;
         // Mostrar la ventana modal con id RequestReview
         $('#RequestReview').modal('show');
-        mostrarOpciones(TP);
+        mostrarOpciones(TP,archivo);
         ocultarContenido("obs",20);
     });
 
 }
 
-function mostrarOpciones(TP){
+function mostrarOpciones(TP,archivo){
     const elementosOcultos = document.querySelectorAll('.resumenHidden');
     if (TP === '1' || TP === '2' || TP === '6') {
         elementosOcultos.forEach(function(elemento) {
             elemento.style.display = 'block';
         });
+        id("spanNorma").text = archivo;
     }else{
         elementosOcultos.forEach(function(elemento) {
             elemento.style.display = 'none';

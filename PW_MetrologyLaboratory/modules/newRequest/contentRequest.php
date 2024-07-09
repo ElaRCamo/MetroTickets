@@ -267,7 +267,7 @@
                         <p><strong>Fecha de Solicitud:     </strong><span id="fechaSolicitud"></span></p>
                         <p><strong>Solicitante:            </strong><span id="solicitante"></span></p>
                         <p><strong>Observaciones/Comentarios:          </strong><span class="obs" id="observacionesSolicitud"></span></p>
-                        <p class="resumenHidden"><strong>Documento de la norma:  </strong><span ><a id="archivoNormaSol" href="">Archivo pdf</a></span></p><br>
+                        <p class="resumenHidden"><strong>Documento de la norma:  </strong><a id="archivoNormaSol" href=""><span id="spanNorma"></span></a></p><br>
                     </div>
                     <div class="">
 
