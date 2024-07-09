@@ -39,7 +39,7 @@
                             <th class="p-2 mb-2">Imagen Cotas: </th>
                             <td><a id="imagenCotasR" href=""><span id="textImgR"></span></a></td>
                         </tr>
-                        <tr>
+                        <tr id="trNorma">
                             <th class="p-2 mb-2">Norma: </th>
                             <td id="normaNombreR"></td>
                             <th class="p-2 mb-2">Documento de la norma: </th>

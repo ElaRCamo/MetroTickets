@@ -24,7 +24,9 @@ function resumenPrueba(ID_PRUEBA){
         $('#prioridadR').text(data.descripcionPrioridad);
         $('#normaNombreR').text(data.normaNombre);
 
-        if(data.id_tipoPrueba !== '3'){ // DIMENSIONAL
+        let tipoPrueba = data.id_tipoPrueba;
+
+        if(tipoPrueba !== '3'){ // DIMENSIONAL
             id("trSubtipo").style.display = "block";
             $('#subtipoR').text(data.descripcion);
 
@@ -39,20 +41,25 @@ function resumenPrueba(ID_PRUEBA){
             id("trSubtipo").style.display = "none";
         }
 
+        if(tipoPrueba !== '1' && tipoPrueba !== '2' && tipoPrueba !== '6') { // ILD/IFD | SOFTNESS | OTRO
+            id("trNorma").style.display = "block";
 
-        var normaArchivo = data.normaArchivo;
+            var normaArchivo = data.normaArchivo;
 
-        if (normaArchivo !== "No aplica" || normaArchivo !== "Ningún archivo seleccionado") {
-            // Se agrega texto del enlace
-            id("archivoNormaR").href = normaArchivo;
-            var nombreArchivo = normaArchivo.substring(normaArchivo.lastIndexOf('/') + 1);
-            var numeroReferencia = nombreArchivo.split('-')[1];
-            var nombreArchivoSinPDF = nombreArchivo.substring(0, nombreArchivo.lastIndexOf('.')); // Eliminar la extensión .pdf
-            id("nombreArchivo").textContent = nombreArchivoSinPDF.substring(numeroReferencia.length + 1);
-            id("archivoNormaR").href = normaArchivo;
+            if (normaArchivo !== "No aplica" || normaArchivo !== "Ningún archivo seleccionado") {
+                // Se agrega texto del enlace
+                id("archivoNormaR").href = normaArchivo;
+                var nombreArchivo = normaArchivo.substring(normaArchivo.lastIndexOf('/') + 1);
+                var numeroReferencia = nombreArchivo.split('-')[1];
+                var nombreArchivoSinPDF = nombreArchivo.substring(0, nombreArchivo.lastIndexOf('.')); // Eliminar la extensión .pdf
+                id("nombreArchivo").textContent = nombreArchivoSinPDF.substring(numeroReferencia.length + 1);
+                id("archivoNormaR").href = normaArchivo;
+            } else {
+                id("archivoNormaR").textContent = normaArchivo;
+                id("archivoNormaR").style.pointerEvents = "none"; // Deshabilitar el clic en el enlace
+            }
         }else {
-            id("archivoNormaR").textContent = normaArchivo;
-            id("archivoNormaR").style.pointerEvents = "none"; // Deshabilitar el clic en el enlace
+            id("trNorma").style.display = "none";
         }
 
         $('#observacionesLabR').text(data.especificacionesLab);
