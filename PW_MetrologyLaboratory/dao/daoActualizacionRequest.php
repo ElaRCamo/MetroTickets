@@ -343,8 +343,15 @@ function ActualizarPiezas($conex,$plataformas, $numsParte, $cdadPiezas, $revDibu
     }
 
     // Confirmar o hacer rollback de la transacción
-    if(!$rUpdateQuery || !$rInsertQuery || $rDeleteQuery ) {
+    if(!$rUpdateQuery || !$rInsertQuery || !$rDeleteQuery ) {
         //$conex->rollback();
+       /* if(!$rUpdateQuery ) {
+
+        }if(!$rInsertQuery || $rDeleteQuery ) {
+
+        }if(!$rUpdateQuery || !$rInsertQuery || $rDeleteQuery ) {
+
+        }*/
         $response = array('status' => 'error', 'message' => 'Error al actualizar las piezas');
     } else {
         //$conex->commit();
