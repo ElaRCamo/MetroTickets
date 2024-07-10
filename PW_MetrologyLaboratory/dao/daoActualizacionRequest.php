@@ -276,11 +276,11 @@ function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $espec
 
 function ActualizarPiezas($plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba)
 {
-    $con = new LocalConector();
+    /*$con = new LocalConector();
     $conex = $con->conectar();
 
-    // Iniciar transacción
-    $conex->begin_transaction();
+     //Iniciar transacción
+    $conex->begin_transaction();*/
 
     // Consultando las piezas ya registradas
     $selectQuery = $conex->prepare("SELECT id_pieza, numParte, cantidad, id_plataforma, revisionDibujo, modMatematico FROM Piezas WHERE id_prueba = ?");
