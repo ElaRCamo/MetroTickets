@@ -37,12 +37,11 @@ if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], 
 
                 if($esActualizacion){
                     // Llamar a la función para actualizar la solicitud
-                    $response = ActualizarSolicitud($esActualizacion,$tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $imagenCotas,$subtipo,$plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba);
+                    $response = ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $imagenCotas,$subtipo,$plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba);
                 }else{
                     // Llamar a la función para registrar la solicitud
                     $response = RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $imagenCotas,$subtipo,$plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba);
                 }
-
             }else {
                 // Mostrar mensaje de error si faltan datos en el formulario
                 $response = array("status" => "error", 'message' => "Error: Faltan datos en el formulario(objs).");
@@ -228,8 +227,7 @@ function manejarNormaFile($tipoPrueba, $id_prueba, $files, $post)
     return array($response, $norma, $normaFile);
 }
 
-
-function ActualizarSolicitud($esActualizacion,$tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $imagenCotas,$subtipo,$plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba)
+function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $imagenCotas,$subtipo,$plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
@@ -251,18 +249,12 @@ function ActualizarSolicitud($esActualizacion,$tipoPrueba, $norma, $normaFile, $
     $rUpdateSolicitud = $updateSolicitud->execute();
 
     // Actualizar Piezas
-    if ($esActualizacion) {
-        // Llama a ActualizarPiezas aquí
-        $response = ActualizarPiezas($conex, $plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba);
-        if($response['status']==='success'){
-            $rGuardarObjetos = true;
-        }else{
-            $rGuardarObjetos = false;
-        }
+    $response = ActualizarPiezas($conex, $plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba);
+    if($response['status']==='success'){
+        $rGuardarObjetos = true;
     }else{
         $rGuardarObjetos = false;
     }
-
 
     // Confirmar o hacer rollback de la transacción
     if(!$rUpdateSolicitud || !$rGuardarObjetos) {
@@ -347,7 +339,6 @@ function ActualizarPiezas($conexUpdate,$plataformas, $numsParte, $cdadPiezas, $r
         }
     }
 
-
     if(!$rUpdateQuery || !$rInsertQuery || !$rDeleteQuery ) {
         //$conexUpdate->rollback();
         $response = array('status' => 'error', 'message' => 'Error al actualizar las piezas');
@@ -360,5 +351,4 @@ function ActualizarPiezas($conexUpdate,$plataformas, $numsParte, $cdadPiezas, $r
 }
 //bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.
 //ssssssi": especifica el tipo de datos de los parámetros que se están vinculando(cada "s" indica que el parámetro es una cadena (string) y cada "i" indica que el parámetro es un entero (integer))
-
 ?>
