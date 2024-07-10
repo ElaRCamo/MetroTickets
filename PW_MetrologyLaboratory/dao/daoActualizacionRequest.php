@@ -252,7 +252,7 @@ function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $espec
     $rUpdateSolicitud = $updateSolicitud->execute();
 
     // Actualizar Piezas
-    $response = ActualizarPiezas($plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba);
+    $response = ActualizarPiezas($conex, $plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba);
     if($response['status']==='success'){
         $rGuardarObjetos = true;
     }else{
@@ -274,7 +274,7 @@ function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $espec
 }
 
 
-function ActualizarPiezas($plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba)
+function ActualizarPiezas($conex,$plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba)
 {
     /*$con = new LocalConector();
     $conex = $con->conectar();
