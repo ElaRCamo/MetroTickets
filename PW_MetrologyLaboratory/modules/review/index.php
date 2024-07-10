@@ -20,11 +20,28 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
+        //Sacar los datos de la sesión
         session_start();
             $nombreUser = $_SESSION['nombreUsuario'];
             $tipoUser = $_SESSION['tipoUsuario'];
             $idUsuario = $_SESSION['nomina'];
             $fotoUsuario = $_SESSION['fotoUsuario'];
+
+        // Obtener el id_prueba
+            // Obtener la parte de la consulta de la URL actual
+            $queryString = $_SERVER['QUERY_STRING'];
+
+            // Obtener los parámetros de la consulta en un array asociativo
+            parse_str($queryString, $params);
+
+            // Verificar si existe el parámetro id_prueba y obtener su valor
+            if (isset($params['id_prueba'])) {
+                $id_prueba = $params['id_prueba'];
+
+            } else {
+                $id_prueba = "No aplica";
+            }
+
         if ($tipoUser == null){
             header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
         }
@@ -44,15 +61,16 @@
             include 'modalResultados.php';
     ?>
 <script>
-    let id_review;
+    let id_review =  <?php echo json_encode($id_prueba); ?>;
+        alert("id_review: "+ id_review);
     let id_user = <?php echo json_encode($_SESSION['nomina']); ?>;
     let tipoUser = <?php echo json_encode($_SESSION['tipoUsuario']); ?>;
 
     document.addEventListener("DOMContentLoaded", function() {
         // Obtener el valor de id_prueba de la URL
-        var urlParams = new URLSearchParams(window.location.search);
+        //var urlParams = new URLSearchParams(window.location.search);
 
-        id_review = urlParams.get('id_prueba');
+        //id_review = urlParams.get('id_prueba');
 
         // Llamar a la función resumenPrueba con el id_prueba obtenido
         if (id_review) {
