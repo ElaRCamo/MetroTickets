@@ -189,7 +189,6 @@ function manejarSubtipoPrueba($tipoPrueba, $id_prueba, $files, $post)
 
 function manejarNormaFile($tipoPrueba, $id_prueba, $files, $post)
 {
-
     if ($tipoPrueba == 1 || $tipoPrueba == 2 || $tipoPrueba == 6) { // si se requiere norma por tipo de prueba
 
         if (isset($post['norma'], $files['normaFile']) && $files['normaFile']['error'] == UPLOAD_ERR_OK) { // verifica si el archivo ha sido cargado correctamente
@@ -342,16 +341,8 @@ function ActualizarPiezas($conex,$plataformas, $numsParte, $cdadPiezas, $revDibu
         }
     }
 
-    // Confirmar o hacer rollback de la transacción
     if(!$rUpdateQuery || !$rInsertQuery || !$rDeleteQuery ) {
         //$conex->rollback();
-       /* if(!$rUpdateQuery ) {
-
-        }if(!$rInsertQuery || $rDeleteQuery ) {
-
-        }if(!$rUpdateQuery || !$rInsertQuery || $rDeleteQuery ) {
-
-        }*/
         $response = array('status' => 'error', 'message' => 'Error al actualizar las piezas');
     } else {
         //$conex->commit();

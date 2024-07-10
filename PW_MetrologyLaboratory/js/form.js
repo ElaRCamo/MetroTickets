@@ -508,8 +508,7 @@ function validarPersonal(idsPersonal) {
 
 function initGuardarDatos(){
     if(esActualizacion){
-        let daoUpdate = '../../dao/daoActualizacionRequest.php';
-        actualizarSolicitud(id_update, daoUpdate, true);
+        actualizarSolicitud(id_update, true);
     }else{
         validacionSolicitud();
     }
@@ -527,8 +526,7 @@ function validacionSolicitud() {
 
             if (sesionIniciada && id_prueba !== null && id_prueba !== undefined) {
                 //alert("Se ejecuta registrarSolicitud "+id_prueba)
-                let daoRegistro = '../../dao/requestRegister.php';
-                actualizarSolicitud(id_prueba, daoRegistro, false);
+                actualizarSolicitud(id_prueba,false);
 
                 //registrarSolicitud(id_prueba);
             } else if(sesionIniciada === false) {
@@ -594,7 +592,7 @@ function obtenerSesion() {
 }
 
 
-function actualizarSolicitud(id_prueba, dao, esActualizacion){
+function actualizarSolicitud(id_prueba, esActualizacion){
     const dataForm = new FormData();
 
     var idNomina           = id("idUsuario");
@@ -693,7 +691,7 @@ function actualizarSolicitud(id_prueba, dao, esActualizacion){
     }
     alert(formDataString);
 
-    fetch(dao, {
+    fetch('../../dao/daoActualizacionRequest.php', {
         method: 'POST',
         body: dataForm
     }).then(function (response) {
