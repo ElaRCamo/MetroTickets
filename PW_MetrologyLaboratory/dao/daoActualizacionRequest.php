@@ -273,16 +273,16 @@ function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $espec
 }
 
 
-function ActualizarPiezas($conex,$plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba)
+function ActualizarPiezas($conexUpdate,$plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba)
 {
     /*$con = new LocalConector();
-    $conex = $con->conectar();
+    $conexUpdate = $con->conectar();
 
      //Iniciar transacción
-    $conex->begin_transaction();*/
+    $conexUpdate->begin_transaction();*/
 
     // Consultando las piezas ya registradas
-    $selectQuery = $conex->prepare("SELECT id_pieza, numParte, cantidad, id_plataforma, revisionDibujo, modMatematico FROM Piezas WHERE id_prueba = ?");
+    $selectQuery = $conexUpdate->prepare("SELECT id_pieza, numParte, cantidad, id_plataforma, revisionDibujo, modMatematico FROM Piezas WHERE id_prueba = ?");
     $selectQuery->bind_param("s", $id_prueba);
     $selectQuery->execute();
     $result = $selectQuery->get_result();
@@ -321,12 +321,12 @@ function ActualizarPiezas($conex,$plataformas, $numsParte, $cdadPiezas, $revDibu
     foreach ($newPiezas as $numParte => $pieza) {
         if (isset($existingPiezas[$numParte])) {
             // Si la pieza ya existe, actualizarla
-            $updateQuery = $conex->prepare("UPDATE Piezas SET cantidad = ?, id_plataforma = ?, revisionDibujo = ?, modMatematico = ? WHERE id_pieza = ?");
+            $updateQuery = $conexUpdate->prepare("UPDATE Piezas SET cantidad = ?, id_plataforma = ?, revisionDibujo = ?, modMatematico = ? WHERE id_pieza = ?");
             $updateQuery->bind_param("iissi", $pieza['cantidad'], $pieza['id_plataforma'], $pieza['revisionDibujo'], $pieza['modMatematico'], $existingPiezas[$numParte]['id_pieza']);
             $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
         } else {
             // Si la pieza no existe, insertarla
-            $insertQuery = $conex->prepare("INSERT INTO Piezas (numParte, cantidad, id_plataforma, revisionDibujo, modMatematico, id_prueba) VALUES (?, ?, ?, ?, ?, ?)");
+            $insertQuery = $conexUpdate->prepare("INSERT INTO Piezas (numParte, cantidad, id_plataforma, revisionDibujo, modMatematico, id_prueba) VALUES (?, ?, ?, ?, ?, ?)");
             $insertQuery->bind_param("siisss", $numParte, $pieza['cantidad'], $pieza['id_plataforma'], $pieza['revisionDibujo'], $pieza['modMatematico'], $id_prueba);
             $rInsertQuery = $rInsertQuery && $insertQuery->execute();
         }
@@ -335,20 +335,20 @@ function ActualizarPiezas($conex,$plataformas, $numsParte, $cdadPiezas, $revDibu
     // Eliminar piezas que ya no están en los datos proporcionados por el usuario
     foreach ($existingPiezas as $numParte => $pieza) {
         if (!isset($newPiezas[$numParte])) {
-            $deleteQuery = $conex->prepare("DELETE FROM Piezas WHERE id_pieza = ?");
+            $deleteQuery = $conexUpdate->prepare("DELETE FROM Piezas WHERE id_pieza = ?");
             $deleteQuery->bind_param("i", $pieza['id_pieza']);
             $rDeleteQuery = $rDeleteQuery && $deleteQuery->execute();
         }
     }
 
     if(!$rUpdateQuery || !$rInsertQuery || !$rDeleteQuery ) {
-        //$conex->rollback();
+        //$conexUpdate->rollback();
         $response = array('status' => 'error', 'message' => 'Error al actualizar las piezas');
     } else {
-        //$conex->commit();
+        //$conexUpdate->commit();
         $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
     }
-    //$conex->close();
+    //$conexUpdate->close();
     return $response;
 }
 //bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.
