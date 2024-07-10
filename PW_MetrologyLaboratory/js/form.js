@@ -510,7 +510,7 @@ function initGuardarDatos(){
     if (esActualizacion === false) {
         validacionSolicitud();
     } else if (esActualizacion === true) {
-        actualizarSolicitud();
+        actualizarSolicitud(id_update);
     }
 }
 
@@ -852,6 +852,9 @@ function resumenSolicitud(id_prueba) {
 
 }
 
+/**********************************************************************************
+ ******************FALTA VALIDAR:function mostrarOpciones**************************
+ * *******************************************************************************/
 function mostrarOpciones(TP,archivo){
     const elementosOcultos = document.querySelectorAll('.resumenHidden');
     if (TP === '1' || TP === '2' || TP === '6') {
@@ -928,6 +931,7 @@ function cualEsTipoPrueba(id_prueba){
         console.error('Error en la solicitud JSON: ', error);
     });
 }
+
 function cargarDatosPrueba(id_update){
 
     let divSelectTipoPrueba = id("selectTipoPrueba");
@@ -1086,6 +1090,144 @@ function hideButton(id_button){
     button.style.display = "none";
 }
 
+function actualizarSolicitud(id_prueba){
+    const dataForm = new FormData();
+
+    var idNomina           = id("idUsuario");
+    var tipoPrueba         = id("tipoPrueba");
+    var especificaciones   = id ("especificaciones");
+    var fechaSolicitud    = new Date();
+    var fechaFormateada  = fechaSolicitud.getFullYear() + '-' + (fechaSolicitud.getMonth() + 1) + '-' + fechaSolicitud.getDate();
+
+    dataForm.append('id_prueba', id_prueba);
+    dataForm.append('fechaSolicitud', fechaFormateada);
+    dataForm.append('tipoPrueba', tipoPrueba.value.trim());
+    dataForm.append('idUsuario', idNomina.value.trim());
+    dataForm.append('especificaciones', especificaciones.value.trim());
+
+    if (tipoPrueba.value === '1' || tipoPrueba.value === '2' || tipoPrueba.value === '6') { // IDL/IFD | SOFTNESS | OTRO
+        let norma = id("norma");
+        dataForm.append('norma', norma.value.trim());
+
+        let inputArchivo = id('normaFile');
+        // Verificar si hay archivos seleccionados
+        if (inputArchivo.files.length > 0) { // Hay archivos cargados
+            dataForm.append('normaFile', inputArchivo.files[0]);
+
+        } else { // No hay archivos cargados
+            inputArchivo = "Ningún archivo seleccionado"
+            dataForm.append('normaFile', inputArchivo);
+        }
+    } else if (tipoPrueba.value === '3') { // DIMENSIONAL
+        let subtipo = id("subtipoPrueba");
+        if (subtipo.value === '2') { //Dimensional-cotas especificas
+            let imagenCotas = id("imgCotas");
+            dataForm.append('imagenCotas', imagenCotas.files[0]);
+        }
+        dataForm.append('subtipoPrueba', subtipo.value.trim());
+    }
+
+
+    if(tipoPrueba.value === '5') { //MUNSELL
+        let idsRowPer = obtenerRowIds("newPerRow");
+        let nominas = [];
+        let nombres = [];
+        let areas = [];
+
+        idsRowPer.forEach (function(idRow) {
+            // Para agregar material por número de parte
+            var nomina = id('numNomina' + idRow);
+            var nombre = id('nombrePersonal' + idRow);
+            var area = id('area' + idRow);
+
+
+            // Añadimos los valores a los arrays correspondientes
+            nominas.push(nomina.value.trim());
+            nombres.push(nombre.value.trim());
+            areas.push(area.value.trim());
+
+        });
+        // Agregamos los arrays al FormData
+        dataForm.append('nominas', nominas.join(', '));
+        dataForm.append('nombres', nombres.join(', '));
+        dataForm.append('areas', areas.join(', '));
+
+    }else{ //Cualquier otro tipo de prueba
+        let idsRow = obtenerRowIds("newRow");
+        let plataformas = [];
+        let numsParte = [];
+        let cantidades = [];
+        let revDibujos = [];
+        let modMatematicos = [];
+
+        idsRow.forEach (function(idRow) {
+            // Para agregar material por número de parte
+            var plataforma = id('plataforma' + idRow);
+            var numeroParte = id('numeroParte' + idRow);
+            var cdadMaterial = id('cdadMaterial' + idRow);
+            var revDibujo = id('revDibujo' + idRow);
+            var modeloMate = id('modeloMate' + idRow);
+
+            // Añadimos los valores a los arrays correspondientes
+            plataformas.push(plataforma.value.trim());
+            numsParte.push(numeroParte.value.trim());
+            cantidades.push(cdadMaterial.value.trim());
+            revDibujos.push(revDibujo.value.trim());
+            modMatematicos.push(modeloMate.value.trim());
+        });
+        // Agregamos los arrays al FormData
+        dataForm.append('plataformas', plataformas.join(', '));
+        dataForm.append('numsParte', numsParte.join(', '));
+        dataForm.append('cantidades', cantidades.join(', '));
+        dataForm.append('revDibujos', revDibujos.join(', '));
+        dataForm.append('modMatematicos', modMatematicos.join(', '));
+    }
+
+    let formDataString = "FormData: \n";
+    for (let pair of dataForm.entries()) {
+        formDataString += pair[0] + ', ' + pair[1] + '\n';
+    }
+    alert(formDataString);
+
+    fetch('../../dao/daoActualizacionRequest.php', {
+        method: 'POST',
+        body: dataForm
+    }).then(function (response) {
+        if (!response.ok) {
+            console.log('Problem');
+            return;
+        }
+        return response.json();
+    }).then(function (data) {
+        if (data.status === 'success') {
+            console.log(data.message);
+            if (tipoPrueba.value === '5'){
+                resumenMunsell(id_prueba);
+            }else{
+                resumenSolicitud(id_prueba);
+            }
+            // Si la inserción de datos fue exitosa, llamar a las funciones
+            correoActualizacionPrueba(5,id_prueba, solicitante, emailUsuario);
+            correoActualizacionPruebaLab(id_prueba);
+        } else if (data.status === 'error') {
+            console.log(data.message);
+            Swal.fire({
+                title: "Error",
+                text: data.message,
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        }
+    }).catch(error => {
+        //console.error(error);
+        Swal.fire({
+            title: "Error",
+            text: error.message,
+            icon: "error",
+            confirmButtonText: "OK"
+        });
+    });
+}
 
 /*****************************************
  *************************************************

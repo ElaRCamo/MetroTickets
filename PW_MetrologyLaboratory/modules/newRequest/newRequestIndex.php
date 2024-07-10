@@ -63,7 +63,6 @@
         function esActualizacionPrueba(){
             if (id_update !== null && id_update !== '') {
                 cualEsTipoPrueba(id_update)
-                //cargarDatosPrueba(id_update);
                 actualizarTituloH1(id_update);
                 showButton("updateRequest");
                 hideButton("submitRequest");
