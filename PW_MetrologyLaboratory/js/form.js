@@ -528,7 +528,7 @@ function validacionSolicitud() {
             if (sesionIniciada && id_prueba !== null && id_prueba !== undefined) {
                 //alert("Se ejecuta registrarSolicitud "+id_prueba)
                 let daoRegistro = '../../dao/requestRegister.php';
-                actualizarSolicitud(id_update, daoRegistro);
+                actualizarSolicitud(id_prueba, daoRegistro);
 
                 //registrarSolicitud(id_prueba);
             } else if(sesionIniciada === false) {
