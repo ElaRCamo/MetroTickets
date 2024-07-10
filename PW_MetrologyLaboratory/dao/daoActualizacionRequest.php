@@ -326,6 +326,14 @@ function ActualizarPiezas($conexUpdate,$plataformas, $numsParte, $cdadPiezas, $r
             $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
         } else {
             // Si la pieza no existe, insertarla
+            // Si la pieza no existe, insertarla
+            // Si la pieza no existe, insertarla
+            // Si la pieza no existe, insertarla
+            // Si la pieza no existe, insertarla
+            // Si la pieza no existe, insertarla
+            // Si la pieza no existe, insertarla
+            // Si la pieza no existe, insertarla
+
             $insertQuery = $conexUpdate->prepare("INSERT INTO Piezas (numParte, cantidad, id_plataforma, revisionDibujo, modMatematico, id_prueba) VALUES (?, ?, ?, ?, ?, ?)");
             $insertQuery->bind_param("siisss", $numParte, $pieza['cantidad'], $pieza['id_plataforma'], $pieza['revisionDibujo'], $pieza['modMatematico'], $id_prueba);
             $rInsertQuery = $rInsertQuery && $insertQuery->execute();
