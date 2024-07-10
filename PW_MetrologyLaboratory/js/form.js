@@ -508,7 +508,8 @@ function validarPersonal(idsPersonal) {
 
 function initGuardarDatos(){
     if(esActualizacion){
-        actualizarSolicitud(id_update, true);
+        let daoUpdate = '../../dao/daoActualizacionRequest.php';
+        actualizarSolicitud(id_update, daoUpdate, true);
     }else{
         validacionSolicitud();
     }
@@ -526,7 +527,8 @@ function validacionSolicitud() {
 
             if (sesionIniciada && id_prueba !== null && id_prueba !== undefined) {
                 //alert("Se ejecuta registrarSolicitud "+id_prueba)
-                actualizarSolicitud(id_prueba,false);
+                let daoRegistro = '../../dao/requestRegister.php';
+                actualizarSolicitud(id_prueba, daoRegistro,false);
 
                 //registrarSolicitud(id_prueba);
             } else if(sesionIniciada === false) {
@@ -592,7 +594,7 @@ function obtenerSesion() {
 }
 
 
-function actualizarSolicitud(id_prueba, esActualizacion){
+function actualizarSolicitud(id_prueba, dao, esActualizacion){
     const dataForm = new FormData();
 
     var idNomina           = id("idUsuario");
@@ -691,7 +693,7 @@ function actualizarSolicitud(id_prueba, esActualizacion){
     }
     alert(formDataString);
 
-    fetch('../../dao/daoActualizacionRequest.php', {
+    fetch(dao, {
         method: 'POST',
         body: dataForm
     }).then(function (response) {
@@ -1097,61 +1099,6 @@ function hideButton(id_button){
     button.style.display = "none";
 }
 
-
-function correoActualizacionPrueba(estatusPrueba, id_prueba, solicitantePrueba, emailSolicitante){
-    const data = new FormData();
-    let dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/Mailer/MailerActualizacionPrueba.php';
-
-    data.append('id_prueba',id_prueba);
-    data.append('solicitante',solicitantePrueba);
-    data.append('emailSolicitante',emailSolicitante);
-
-    if(estatusPrueba === '4'){
-        dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/Mailer/MailerPruebaCompletada.php';
-    }
-
-    fetch(dao,{
-        method: 'POST',
-        body: data
-    })
-        .then(function (response){
-            if (response.ok){
-                //alert('Correo Actualizacion: prueba: ' +id_prueba+ 'user: ' + solicitantePrueba +' email: ' + emailSolicitante);
-            }else{
-                throw "Error en la llamada Ajax";
-            }
-        })
-        .then(function (texto) {
-            console.log(texto);
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
-}
-function correoActualizacionPruebaLab(id_prueba){
-    const data = new FormData();
-
-    data.append('id_prueba',id_prueba);
-
-    fetch('https://arketipo.mx/MailerActualizacionPruebaLab.php',{
-        method: 'POST',
-        body: data
-    })
-        .then(function (response){
-            if (response.ok){
-                //alert('Correo Actualizacion: prueba: ' +id_prueba+ 'user: ' + solicitantePrueba);
-                console.log("Correos enviados");
-            }else{
-                throw "Error en la llamada Ajax";
-            }
-        })
-        .then(function (texto) {
-            console.log(texto);
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
-}
 
 /*****************************************
  *************************************************
