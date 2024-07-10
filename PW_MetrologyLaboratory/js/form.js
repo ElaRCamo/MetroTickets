@@ -510,7 +510,8 @@ function initGuardarDatos(){
     if (esActualizacion === false) {
         validacionSolicitud();
     } else if (esActualizacion === true) {
-        actualizarSolicitud(id_update);
+        let daoUpdate = '../../dao/daoActualizacionRequest.php';
+        actualizarSolicitud(id_update, daoUpdate);
     }
 }
 
@@ -526,7 +527,10 @@ function validacionSolicitud() {
 
             if (sesionIniciada && id_prueba !== null && id_prueba !== undefined) {
                 //alert("Se ejecuta registrarSolicitud "+id_prueba)
-                registrarSolicitud(id_prueba);
+                let daoRegistro = '../../dao/requestRegister.php';
+                actualizarSolicitud(id_update, daoRegistro);
+
+                //registrarSolicitud(id_prueba);
             } else if(sesionIniciada === false) {
                 // Si la sesión no está iniciada, mostrar un mensaje de error
                 Swal.fire("¡La sesión no está iniciada!");
@@ -1090,7 +1094,7 @@ function hideButton(id_button){
     button.style.display = "none";
 }
 
-function actualizarSolicitud(id_prueba){
+function actualizarSolicitud(id_prueba, dao){
     const dataForm = new FormData();
 
     var idNomina           = id("idUsuario");
@@ -1189,7 +1193,7 @@ function actualizarSolicitud(id_prueba){
     }
     alert(formDataString);
 
-    fetch('../../dao/daoActualizacionRequest.php', {
+    fetch(dao, {
         method: 'POST',
         body: dataForm
     }).then(function (response) {
@@ -1201,14 +1205,20 @@ function actualizarSolicitud(id_prueba){
     }).then(function (data) {
         if (data.status === 'success') {
             console.log(data.message);
+            // Si la inserción de datos fue exitosa, llamar a las funciones
+
             if (tipoPrueba.value === '5'){
                 resumenMunsell(id_prueba);
             }else{
                 resumenSolicitud(id_prueba);
             }
-            // Si la inserción de datos fue exitosa, llamar a las funciones
-            correoActualizacionPrueba(5,id_prueba, solicitante, emailUsuario);
-            correoActualizacionPruebaLab(id_prueba);
+
+            if (esActualizacion){
+                correoActualizacionPrueba(5,id_prueba, solicitante, emailUsuario);
+                correoActualizacionPruebaLab(id_prueba);
+            }else{
+                enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario);
+            }
         } else if (data.status === 'error') {
             console.log(data.message);
             Swal.fire({
