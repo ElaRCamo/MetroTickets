@@ -251,30 +251,20 @@ function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $espec
     $updateSolicitud->bind_param("ssssssiis", $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $subtipo, $imagenCotas, $id_prueba);
     $rUpdateSolicitud = $updateSolicitud->execute();
 
-    $rGuardarObjetos = true;
-
     // Actualizar Piezas
-    for ($i = 0; $i < count($cdadPiezas); $i++) {
-        $numParte      = $numsParte[$i];
-        $plataforma    = $plataformas[$i];
-        $cdadPieza     = $cdadPiezas[$i];
-        $revDibujo     = $revDibujos[$i];
-        $modMatematico = $modMatematicos[$i];
-
-        $updateMaterial = $conex->prepare("UPDATE `Piezas` 
-                                       SET `cantidad` = ?, 
-                                           `id_plataforma` = ?, 
-                                           `revisionDibujo` = ?, 
-                                           `modMatematico` = ?
-                                       WHERE `id_prueba` = ? AND `numParte` = ?");
-        $updateMaterial->bind_param("issiis", $cdadPieza, $plataforma, $revDibujo, $modMatematico, $id_prueba, $numParte);
-        $rGuardarObjetos = $rGuardarObjetos && $updateMaterial->execute();
+    $response = ActualizarPiezas($plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba);
+    if($response['status']==='success'){
+        $rGuardarObjetos = true;
+    }else{
+        $rGuardarObjetos = false;
     }
 
     // Confirmar o hacer rollback de la transacción
     if(!$rUpdateSolicitud || !$rGuardarObjetos) {
         $conex->rollback();
-        $response = array('status' => 'error', 'message' => 'Error en Actualizar la Solicitud');
+        if(!$rUpdateSolicitud){
+            $response = array('status' => 'error', 'message' => 'Error en Actualizar la Solicitud');
+        }
     } else {
         $conex->commit();
         $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
@@ -284,6 +274,85 @@ function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $espec
 }
 
 
+function ActualizarPiezas($plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba)
+{
+    $con = new LocalConector();
+    $conex = $con->conectar();
+
+    // Iniciar transacción
+    $conex->begin_transaction();
+
+    // Consultando las piezas ya registradas
+    $selectQuery = $conex->prepare("SELECT id_pieza, numParte, cantidad, id_plataforma, revisionDibujo, modMatematico FROM Piezas WHERE id_prueba = ?");
+    $selectQuery->bind_param("s", $id_prueba);
+    $selectQuery->execute();
+    $result = $selectQuery->get_result();
+
+    $existingPiezas = [];
+    while ($row = $result->fetch_assoc()) {
+        $existingPiezas[$row['numParte']] = [
+            'id_pieza' => $row['id_pieza'],
+            'cantidad' => $row['cantidad'],
+            'id_plataforma' => $row['id_plataforma'],
+            'revisionDibujo' => $row['revisionDibujo'],
+            'modMatematico' => $row['modMatematico']
+        ];
+    }
+
+    // Preparar los nuevos datos proporcionados por el usuario
+    $newPiezas = [];
+    for ($i = 0; $i < count($numsParte); $i++) {
+        $numParte = $numsParte[$i];
+        $plataforma = $plataformas[$i];
+        $cdadPieza = $cdadPiezas[$i];
+        $revDibujo = $revDibujos[$i];
+        $modMatematico = $modMatematicos[$i];
+
+        $newPiezas[$numParte] = [
+            'cantidad' => $cdadPieza,
+            'id_plataforma' => $plataforma,
+            'revisionDibujo' => $revDibujo,
+            'modMatematico' => $modMatematico
+        ];
+    }
+
+    $rUpdateQuery = $rInsertQuery = $rDeleteQuery = true;
+
+    // Actualizar o insertar nuevas piezas
+    foreach ($newPiezas as $numParte => $pieza) {
+        if (isset($existingPiezas[$numParte])) {
+            // Si la pieza ya existe, actualizarla
+            $updateQuery = $conex->prepare("UPDATE Piezas SET cantidad = ?, id_plataforma = ?, revisionDibujo = ?, modMatematico = ? WHERE id_pieza = ?");
+            $updateQuery->bind_param("iissi", $pieza['cantidad'], $pieza['id_plataforma'], $pieza['revisionDibujo'], $pieza['modMatematico'], $existingPiezas[$numParte]['id_pieza']);
+            $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
+        } else {
+            // Si la pieza no existe, insertarla
+            $insertQuery = $conex->prepare("INSERT INTO Piezas (numParte, cantidad, id_plataforma, revisionDibujo, modMatematico, id_prueba) VALUES (?, ?, ?, ?, ?, ?)");
+            $insertQuery->bind_param("siisss", $numParte, $pieza['cantidad'], $pieza['id_plataforma'], $pieza['revisionDibujo'], $pieza['modMatematico'], $id_prueba);
+            $rInsertQuery = $rInsertQuery && $insertQuery->execute();
+        }
+    }
+
+    // Eliminar piezas que ya no están en los datos proporcionados por el usuario
+    foreach ($existingPiezas as $numParte => $pieza) {
+        if (!isset($newPiezas[$numParte])) {
+            $deleteQuery = $conex->prepare("DELETE FROM Piezas WHERE id_pieza = ?");
+            $deleteQuery->bind_param("i", $pieza['id_pieza']);
+            $rDeleteQuery = $rDeleteQuery && $deleteQuery->execute();
+        }
+    }
+
+    // Confirmar o hacer rollback de la transacción
+    if(!$rUpdateQuery || !$rInsertQuery || $rDeleteQuery ) {
+        $conex->rollback();
+        $response = array('status' => 'error', 'message' => 'Error al actualizar las piezas');
+    } else {
+        $conex->commit();
+        $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
+    }
+    $conex->close();
+    return $response;
+}
 //bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.
 //ssssssi": especifica el tipo de datos de los parámetros que se están vinculando(cada "s" indica que el parámetro es una cadena (string) y cada "i" indica que el parámetro es un entero (integer))
 
