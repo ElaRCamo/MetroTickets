@@ -344,13 +344,13 @@ function ActualizarPiezas($conex,$plataformas, $numsParte, $cdadPiezas, $revDibu
 
     // Confirmar o hacer rollback de la transacción
     if(!$rUpdateQuery || !$rInsertQuery || $rDeleteQuery ) {
-        $conex->rollback();
+        //$conex->rollback();
         $response = array('status' => 'error', 'message' => 'Error al actualizar las piezas');
     } else {
-        $conex->commit();
+        //$conex->commit();
         $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
     }
-    $conex->close();
+    //$conex->close();
     return $response;
 }
 //bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.
