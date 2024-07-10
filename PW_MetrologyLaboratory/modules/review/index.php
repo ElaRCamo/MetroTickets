@@ -37,12 +37,42 @@
             // Verificar si existe el parámetro id_prueba y obtener su valor
             if (isset($params['id_prueba'])) {
                 $id_prueba = $params['id_prueba'];
-
+                $consultaSolicitante = consultarSolicitante($id_prueba);
+                $solicitante = $consultaSolicitante['id_solicitante'];
             } else {
                 $id_prueba = "No aplica";
+                $solicitante = "No aplica";
             }
 
-        if ($tipoUser == null){
+            function consultarSolicitante($id_prueba)
+            {
+                $con = new LocalConector();
+                $conex = $con->conectar();
+                // Consultando las piezas ya registradas
+                $selectQuery = $conex->prepare("SELECT id_solicitante FROM Pruebas WHERE id_prueba = ?");
+                $selectQuery->bind_param("s", $id_prueba);
+                $selectQuery->execute();
+                $result = $selectQuery->get_result();
+
+                if (!$result) {
+                    $response = array('status' => 'error', 'message' => 'Error al consultar solicitante');
+                } else {
+                    $row = $result->fetch_assoc();
+                    if ($row) {
+                        $response = array('status' => 'success', 'id_solicitante' => $row['id_solicitante']);
+                    } else {
+                        $response = array('status' => 'error', 'message' => 'No se encontró el solicitante');
+                    }
+                }
+
+                // Cerrando la declaración y la conexión
+                $selectQuery->close();
+                $conex->close();
+
+                return $response;
+            }
+
+        if ($tipoUser == null || $idUsuario !== $solicitante){
             header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
         }
         ?>
@@ -61,16 +91,15 @@
             include 'modalResultados.php';
     ?>
 <script>
-    let id_review =  <?php echo json_encode($id_prueba); ?>;
-        alert("id_review: "+ id_review);
+    let id_review;
     let id_user = <?php echo json_encode($_SESSION['nomina']); ?>;
     let tipoUser = <?php echo json_encode($_SESSION['tipoUsuario']); ?>;
 
     document.addEventListener("DOMContentLoaded", function() {
         // Obtener el valor de id_prueba de la URL
-        //var urlParams = new URLSearchParams(window.location.search);
+        var urlParams = new URLSearchParams(window.location.search);
 
-        //id_review = urlParams.get('id_prueba');
+        id_review = urlParams.get('id_prueba');
 
         // Llamar a la función resumenPrueba con el id_prueba obtenido
         if (id_review) {
