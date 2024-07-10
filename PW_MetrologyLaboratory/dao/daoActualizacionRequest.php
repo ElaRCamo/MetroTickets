@@ -37,7 +37,7 @@ if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], 
 
                 if($esActualizacion){
                     // Llamar a la función para actualizar la solicitud
-                    $response = ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $imagenCotas,$subtipo,$plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba);
+                    $response = ActualizarSolicitud($esActualizacion,$tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $imagenCotas,$subtipo,$plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba);
                 }else{
                     // Llamar a la función para registrar la solicitud
                     $response = RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $imagenCotas,$subtipo,$plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba);
@@ -229,7 +229,7 @@ function manejarNormaFile($tipoPrueba, $id_prueba, $files, $post)
 }
 
 
-function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $imagenCotas,$subtipo,$plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba)
+function ActualizarSolicitud($esActualizacion,$tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $imagenCotas,$subtipo,$plataformas,$numsParte, $cdadPiezas, $revDibujos,$modMatematicos, $fechaSolicitud, $id_prueba)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
@@ -251,12 +251,18 @@ function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $espec
     $rUpdateSolicitud = $updateSolicitud->execute();
 
     // Actualizar Piezas
-    $response = ActualizarPiezas($conex, $plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba);
-    if($response['status']==='success'){
-        $rGuardarObjetos = true;
+    if ($esActualizacion) {
+        // Llama a ActualizarPiezas aquí
+        $response = ActualizarPiezas($conex, $plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba);
+        if($response['status']==='success'){
+            $rGuardarObjetos = true;
+        }else{
+            $rGuardarObjetos = false;
+        }
     }else{
         $rGuardarObjetos = false;
     }
+
 
     // Confirmar o hacer rollback de la transacción
     if(!$rUpdateSolicitud || !$rGuardarObjetos) {
@@ -326,14 +332,6 @@ function ActualizarPiezas($conexUpdate,$plataformas, $numsParte, $cdadPiezas, $r
             $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
         } else {
             // Si la pieza no existe, insertarla
-            // Si la pieza no existe, insertarla
-            // Si la pieza no existe, insertarla
-            // Si la pieza no existe, insertarla
-            // Si la pieza no existe, insertarla
-            // Si la pieza no existe, insertarla
-            // Si la pieza no existe, insertarla
-            // Si la pieza no existe, insertarla
-
             $insertQuery = $conexUpdate->prepare("INSERT INTO Piezas (numParte, cantidad, id_plataforma, revisionDibujo, modMatematico, id_prueba) VALUES (?, ?, ?, ?, ?, ?)");
             $insertQuery->bind_param("siisss", $numParte, $pieza['cantidad'], $pieza['id_plataforma'], $pieza['revisionDibujo'], $pieza['modMatematico'], $id_prueba);
             $rInsertQuery = $rInsertQuery && $insertQuery->execute();
@@ -348,6 +346,7 @@ function ActualizarPiezas($conexUpdate,$plataformas, $numsParte, $cdadPiezas, $r
             $rDeleteQuery = $rDeleteQuery && $deleteQuery->execute();
         }
     }
+
 
     if(!$rUpdateQuery || !$rInsertQuery || !$rDeleteQuery ) {
         //$conexUpdate->rollback();
