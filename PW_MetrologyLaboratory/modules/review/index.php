@@ -72,8 +72,10 @@
                 return $response;
             }
 
-        if ($tipoUser == null || $idUsuario !== $solicitante){
+        if ($tipoUser == null){
             header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
+        }else if($idUsuario !== $solicitante){
+            header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
         }
         ?>
 </head>
