@@ -42,7 +42,7 @@
                 if (isset($params['id_prueba'])) {
                     $id_prueba = $params['id_prueba'];
                     echo  $idUsuario;
-                    $solicitante = '00030293';
+                    $solicitante = '00030299';
                     /*
                     // Supongamos que tienes una función consultarSolicitante definida en alguna parte
                     $consultaSolicitante = consultarSolicitante($id_prueba);
