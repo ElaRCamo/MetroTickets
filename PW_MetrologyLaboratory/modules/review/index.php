@@ -35,7 +35,27 @@
         header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
         exit();
     } else if ($tipoUser == 3) {
-        $solicitante = "00030293";
+        // Obtener la parte de la consulta de la URL actual
+        $queryString = $_SERVER['QUERY_STRING'];
+
+        // Obtener los parámetros de la consulta en un array asociativo
+        parse_str($queryString, $params);
+
+        // Verificar si existe el parámetro id_prueba y obtener su valor
+        if (isset($params['id_prueba'])) {
+            $id_prueba = $params['id_prueba'];
+            echo $idUsuario;
+            $solicitante = 5;
+
+            $consultaSolicitante = consultarSolicitante($id_prueba);
+            // Verificar y manejar la respuesta de la consulta
+            if ($consultaSolicitante['status'] == 'success') {
+                $solicitante = $consultaSolicitante['id_solicitante'];
+            } else {
+                $solicitante = "No se encontró solicitante";
+            }
+        }
+
     } else {
         $id_prueba = "No aplica";
         $solicitante = "No aplica";
