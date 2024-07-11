@@ -21,7 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
 
-    require('../../dao/daoConsultarSolicitante.php');
+    require('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarSolicitante.php');
 
     session_start();
     $nombreUser = $_SESSION['nombreUsuario'];
