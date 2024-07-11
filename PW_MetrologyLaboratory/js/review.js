@@ -263,7 +263,6 @@ function llenarPrioridadPrueba(prioridad){
 }
 
 function llenarEstatusPrueba(estatus){
-    alert("estatus: "+estatus);
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPrueba.php', function (data){
         var selectS = id("estatusPruebaAdmin");
         selectS.innerHTML = ""; //limpiar contenido
