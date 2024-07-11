@@ -102,18 +102,19 @@
     });
 
     function updatePrueba(){
-        if(tipoUser === 3){
+        <?php if ($tipoUser== 3){ ?>
             //Solo se puede actualizar si esta en espera de aprobación o en estatus rechazado
             window.location.href = "../newRequest/newRequestIndex.php?id_update="+ id_review;
 
-        } else if(tipoUser === 1 || tipoUser === 2){
+        <?php
+        } else if($tipoUser== 1 || $tipoUser== 2){?>
             //Se cargan los valores que ya se definieron
             llenarEstatusPrueba();
             llenarPrioridadPrueba();
             consultarMetrologos();
             document.getElementById("observacionesAdmin").value = obs_Solicitud;
             llenarResultados();
-        }
+        <?php } ?>
     }
 </script>
 <script src="../../js/general.js"></script>
