@@ -27,7 +27,7 @@
             $tipoUser = $_SESSION['tipoUsuario'];
             $idUsuario = $_SESSION['nomina'];
             $fotoUsuario = $_SESSION['fotoUsuario'];
-
+/*
         // Obtener la parte de la consulta de la URL actual
         $queryString = $_SERVER['QUERY_STRING'];
 
@@ -54,7 +54,7 @@
 
         echo $tipoUser;
         echo $idUsuario;
-        echo $solicitante;
+        echo $solicitante;*/
 
         if ($tipoUser == null){
             header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
