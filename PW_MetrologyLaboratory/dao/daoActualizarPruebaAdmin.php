@@ -84,7 +84,7 @@ function consultarFechaCompromiso($id_prueba) {
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $query = "SELECT fechaCompromiso FROM Prueba WHERE id_prueba = '$id_prueba';";
+    $query = "SELECT fechaCompromiso FROM Pruebas WHERE id_prueba = '$id_prueba';";
     $result = mysqli_query($conex, $query);
 
     if ($result) {
