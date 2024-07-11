@@ -35,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $resultados = subirArchivo($target_dir, $id_prueba, $input_name);
         }
 
-        $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados, $fechaUpdate,$fechaCompromiso, $id_admin);
+        $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso, $id_admin);
     }else{
         $response = array("status" => 'error', "message" => "Faltan datos en el formulario.");
     }
@@ -44,27 +44,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 echo json_encode($response);
 
-function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados, $fechaUpdate,$fechaCompromiso, $id_admin) {
+function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso, $id_admin) {
     $con = new LocalConector();
     $conex = $con->conectar();
 
     if($resultados !== "" && $id_estatus === '4') { //Estatus completado
         $stmt = $conex->prepare("UPDATE Pruebas
-                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, fechaRespuesta = ?, id_administrador = ?
+                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, resultados = ?, fechaRespuesta = ?, id_administrador = ?
                                     WHERE id_prueba = ?");
-        $stmt->bind_param("iisssssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $fechaUpdate, $fechaUpdate, $id_admin, $id_prueba);
+        $stmt->bind_param("iissssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados,  $fechaUpdate, $id_admin, $id_prueba);
         $query=1;
     }else if($fechaCompromiso !== '0000-00-00' && $id_estatus === '2'){ //Estatus aprobado
         $stmt = $conex->prepare("UPDATE Pruebas
-                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, fechaCompromiso = ?,id_administrador = ?
+                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, resultados = ?, fechaCompromiso = ?,id_administrador = ?
                                     WHERE id_prueba = ?");
-        $stmt->bind_param("iisssssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $fechaUpdate, $fechaCompromiso, $id_admin, $id_prueba);
+        $stmt->bind_param("iissssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $fechaCompromiso, $id_admin, $id_prueba);
         $query=2;
     }else{
         $stmt = $conex->prepare("UPDATE Pruebas
-                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, rutaResultados = ?, fechaActualizacion = ?, id_administrador = ?
+                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, resultados = ?, id_administrador = ?
                                     WHERE id_prueba = ?");
-        $stmt->bind_param("iissssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $fechaUpdate, $id_admin, $id_prueba);
+        $stmt->bind_param("iisssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $id_admin, $id_prueba);
         $query=3;
     }
 
