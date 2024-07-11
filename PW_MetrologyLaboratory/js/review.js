@@ -52,7 +52,7 @@ function resumenPrueba(ID_PRUEBA){
                 var numeroReferencia = nombreArchivo.split('-')[1];
                 var nombreArchivoSinPDF = nombreArchivo.substring(0, nombreArchivo.lastIndexOf('.')); // Eliminar la extensión .pdf
 
-                alert("nombreArchivo: "+nombreArchivo+"\n numeroReferencia: "+numeroReferencia+ "\nnombreArchivoSinPDF: "+nombreArchivoSinPDF)
+               // alert("nombreArchivo: "+nombreArchivo+"\n numeroReferencia: "+numeroReferencia+ "\nnombreArchivoSinPDF: "+nombreArchivoSinPDF)
                 id("nombreArchivo").textContent = nombreArchivoSinPDF.substring(numeroReferencia.length + 1);
                 id("archivoNormaR").href = normaArchivo;
             } else {
@@ -344,7 +344,7 @@ function  updatePruebaAdmin(id_review, id_user){
     if(estatusPruebaAdmin.value==='2'){
         data.append('fechaCompromiso', fechaCompromiso.value.trim());
     }
-    alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados+", fechaUpdate "+ fechaFormateada);
+    //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados+", fechaUpdate "+ fechaFormateada);
 
 
     const swalWithBootstrapButtons = Swal.mixin({

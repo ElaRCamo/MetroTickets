@@ -71,7 +71,7 @@
 
                     <div class="">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
-                        <button type="button" class="btn btn-secondary" onclick="updatePruebaAdmin(id_review,id_user)"><i class="las la-save"></i>Guardar</button>
+                        <button type="button" class="btn btn-secondary" onclick="updatePruebaAdmin(id_review,id_user)" data-bs-dismiss="modal"><i class="las la-save"></i>Guardar</button>
                     </div>
                 </form>
             </div>
