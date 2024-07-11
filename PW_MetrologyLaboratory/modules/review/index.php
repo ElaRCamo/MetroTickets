@@ -22,8 +22,7 @@
 </head>
 <body >
 <?php
-    # Permisos
-    require_once('../../dao/validacionPermisosReview.php');
+
     # Header section
     require_once('../../header.php');
     require_once('../../navbar.php');
@@ -34,13 +33,13 @@
     require_once('../../footer.php');
     # Ventanas modales
     require_once('modalResultados.php');
+# Permisos
+require_once('../../dao/validacionPermisosReview.php');
     ?>
 <script>
     let id_review;
     let id_user = <?php echo json_encode($_SESSION['nomina']); ?>;
     let tipoUser = <?php echo json_encode($_SESSION['tipoUsuario']); ?>;
-    //if(tipoUser === 3)
-    //let esSolicitante = consultarSolicitante()
 
     document.addEventListener("DOMContentLoaded", function() {
         // Obtener el valor de id_prueba de la URL
@@ -73,16 +72,16 @@
 
     function updatePrueba(){
         if(tipoUser === 3){
-                //Solo se puede actualizar si esta en espera de aprobación o en estatus rechazado
-                window.location.href = "../newRequest/newRequestIndex.php?id_update="+ id_review;
+            //Solo se puede actualizar si esta en espera de aprobación o en estatus rechazado
+            window.location.href = "../newRequest/newRequestIndex.php?id_update="+ id_review;
 
-        } else if(tipoUser=== 1 || tipoUser=== 2){
-                //Se cargan los valores que ya se definieron
-                llenarEstatusPrueba();
-                llenarPrioridadPrueba();
-                consultarMetrologos();
-                document.getElementById("observacionesAdmin").value = obs_Solicitud;
-                llenarResultados();
+        } else if(tipoUser === 1 || tipoUser === 2){
+            //Se cargan los valores que ya se definieron
+            llenarEstatusPrueba();
+            llenarPrioridadPrueba();
+            consultarMetrologos();
+            document.getElementById("observacionesAdmin").value = obs_Solicitud;
+            llenarResultados();
         }
     }
 </script>
