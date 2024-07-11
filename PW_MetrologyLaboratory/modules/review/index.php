@@ -40,7 +40,7 @@
         exit(); // Añadir exit después de header para asegurar que el script se detenga
     } else if ($tipoUser == 3) {
         echo '<div>Tu mensaje aquí</div>';
-        $solicitante = 3;
+        $solicitante = '00030293';
         echo $solicitante;
 
         if ($idUsuario !== $solicitante) {
