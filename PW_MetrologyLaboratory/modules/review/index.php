@@ -35,7 +35,6 @@
         header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
         exit(); // Añadir exit después de header para asegurar que el script se detenga
     } else if ($tipoUser == 3) {
-        echo '<div>Tu mensaje aquí</div>';
         $solicitante = '00030293';
         echo $solicitante;
 
