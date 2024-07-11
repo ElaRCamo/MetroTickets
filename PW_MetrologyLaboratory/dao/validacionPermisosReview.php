@@ -7,7 +7,6 @@ $tipoUser = $_SESSION['tipoUsuario'];
 $idUsuario = $_SESSION['nomina'];
 $fotoUsuario = $_SESSION['fotoUsuario'];
 
-echo "tipo user:".$tipoUser;
 $solicitante = "No aplica";
 
 if ($tipoUser == null) {
@@ -34,8 +33,6 @@ if ($tipoUser == null) {
         }
     }
 }
-echo " Solicitante: ".$solicitante;
-echo " idUsuario: ".$idUsuario;
 
 if ($idUsuario !== $solicitante) {
     header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
