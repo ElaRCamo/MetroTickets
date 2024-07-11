@@ -79,11 +79,22 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
             $rGuardarObjetos = $rGuardarObjetos && $insertMaterial->execute();
         }
 
+    //Registrar cambios en bitacora
+    $descripcion = "Solicitud creada.";
+    $response =  registrarCambioBitacoora($conex,$id_prueba,$descripcion,$idUsuario);
+    $rGuardarBitacora = false;
+    if($response['status']==='success'){
+        $rGuardarBitacora = true;
+    }
+
     // Confirmar o hacer rollback de la transacción
-    if(!$rInsertSolicitud || !$rGuardarObjetos) {
+    if(!$rInsertSolicitud || !$rGuardarObjetos || !$rGuardarBitacora) {
         $conex->rollback();
-        $response = array('status' => 'error', 'message' => 'Error en Registrar Solicitud');
+        if(!$rInsertSolicitud || !$rGuardarObjetos){
+            $response = array('status' => 'error', 'message' => 'Error en Registrar Solicitud');
+        }
     } else {
+
         $conex->commit();
         $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
     }

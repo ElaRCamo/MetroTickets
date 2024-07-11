@@ -186,22 +186,7 @@ function ActualizarPiezas($conexUpdate,$plataformas, $numsParte, $cdadPiezas, $r
     return $response;
 }
 
-function registrarCambioBitacoora($conexCambio,$id_prueba,$descripcion,$id_usuario)
-{
-    $fecha = date('Y-m-d H:i:s');
-    $rInsertQuery = true;
-    // Si la pieza no existe, insertarla
-    $insertQuery = $conexCambio->prepare("INSERT INTO BitacoraCambios (id_prueba, fecha, descripcion,id_usuario) VALUES (?, ?, ?, ?)");
-    $insertQuery->bind_param("ssss", $id_prueba, $fecha, $descripcion, $id_usuario);
-    $rInsertQuery = $rInsertQuery && $insertQuery->execute();
 
-    if(!$rInsertQuery  ) {
-        $response = array('status' => 'error', 'message' => 'Error al actualizar la bitacora');
-    } else {
-        $response = array('status' => 'success', 'message' => 'Cambios registrados');
-    }
-    return $response;
-}
 //bind_param(): Es un método de la clase mysqli_stmt que se utiliza para vincular parámetros a la consulta preparada.
 //ssssssi": especifica el tipo de datos de los parámetros que se están vinculando(cada "s" indica que el parámetro es una cadena (string) y cada "i" indica que el parámetro es un entero (integer))
 ?>

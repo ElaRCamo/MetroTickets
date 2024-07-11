@@ -127,4 +127,21 @@ function manejarNormaFile($tipoPrueba, $id_prueba, $files, $post)
     }
     return array($response, $norma, $normaFile);
 }
+
+function registrarCambioBitacoora($conexCambio,$id_prueba,$descripcion,$id_usuario)
+{
+    $fecha = date('Y-m-d H:i:s');
+    $rInsertQuery = true;
+    // Si la pieza no existe, insertarla
+    $insertQuery = $conexCambio->prepare("INSERT INTO BitacoraCambios (id_prueba, fecha, descripcion,id_usuario) VALUES (?, ?, ?, ?)");
+    $insertQuery->bind_param("ssss", $id_prueba, $fecha, $descripcion, $id_usuario);
+    $rInsertQuery = $rInsertQuery && $insertQuery->execute();
+
+    if(!$rInsertQuery  ) {
+        $response = array('status' => 'error', 'message' => 'Error al actualizar la bitacora');
+    } else {
+        $response = array('status' => 'success', 'message' => 'Cambios registrados');
+    }
+    return $response;
+}
 ?>
