@@ -76,19 +76,29 @@ function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $espec
     $response = ActualizarPiezas($conex, $plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba);
     if($response['status']==='success'){
         $rGuardarObjetos = true;
+
+        //Registrar cambios en bitacora
+        $descripcion = "Usuario actualiza solicitud.";
+        $response =  registrarCambioBitacoora($conex,$id_prueba,$descripcion,$idUsuario);
+
+        if($response['status']==='success'){
+            $rGuardarBitacora = true;
+        }else{
+            $rGuardarBitacora = false;
+        }
     }else{
         $rGuardarObjetos = false;
+        $rGuardarBitacora = false;
     }
 
     // Confirmar o hacer rollback de la transacción
-    if(!$rUpdateSolicitud || !$rGuardarObjetos) {
+    if(!$rUpdateSolicitud || !$rGuardarObjetos || !$rGuardarBitacora) {
         $conex->rollback();
         if(!$rUpdateSolicitud){
             $response = array('status' => 'error', 'message' => 'Error en Actualizar la Solicitud');
         }
     } else {
-        $descripcion = "Usuario actualiza ";
-        $response =  registrarCambioBitacoora($conex,$id_prueba,$descripcion,$idUsuario);
+
         $conex->commit();
         //$response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
     }
