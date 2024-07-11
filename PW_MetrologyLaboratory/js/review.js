@@ -244,7 +244,7 @@ function updateLinkActualizar(id, estatus) {
  * *********************FUNCIONES PARA ACTUALIZAR DATOS ADMIN ****************************
  * ***************************************************************************************/
 
-function llenarPrioridadPrueba(){
+function llenarPrioridadPrueba(prioridad){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPrioridadPrueba.php', function (data){
         var selectS = id("prioridadPruebaAdmin");
         selectS.innerHTML = ""; //limpiar contenido
@@ -254,14 +254,14 @@ function llenarPrioridadPrueba(){
             createOption.value = data.data[j].id_prioridad;
             createOption.text = data.data[j].descripcionPrioridad;
             selectS.appendChild(createOption);
-            if (data.data[j].id_prioridad === id_prioridadSol) {
+            if (data.data[j].id_prioridad === prioridad) {
                 createOption.selected = true;
             }
         }
     });
 }
 
-function llenarEstatusPrueba(){
+function llenarEstatusPrueba(estatus){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPrueba.php', function (data){
         var selectS = id("estatusPruebaAdmin");
         selectS.innerHTML = ""; //limpiar contenido
@@ -272,14 +272,14 @@ function llenarEstatusPrueba(){
             createOption.text = data.data[j].descripcionEstatus;
             selectS.appendChild(createOption);
             // Si el valor actual coincide con id_estatusSol, se selecciona por defecto
-            if (data.data[j].id_estatusPrueba === id_estatusSol) {
+            if (data.data[j].id_estatusPrueba === estatus) {
                 createOption.selected = true;
             }
         }
     });
 }
 
-function consultarMetrologos(){
+function consultarMetrologos(metrologo){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoMetrologos.php', function (data){
         var selectS = id("metrologoAdmin");
         selectS.innerHTML = ""; //limpiar contenido
@@ -289,7 +289,7 @@ function consultarMetrologos(){
             createOption.value = data.data[j].id_usuario;
             createOption.text = data.data[j].nombreUsuario;
             selectS.appendChild(createOption);
-            if (data.data[j].id_usuario === id_metrologoSol) {
+            if (data.data[j].id_usuario === metrologo) {
                 createOption.selected = true;
             }
         }

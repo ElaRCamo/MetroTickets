@@ -110,9 +110,9 @@
         <?php
         } else if($tipoUser== 1 || $tipoUser== 2){?>
             //Se cargan los valores que ya se definieron
-            llenarEstatusPrueba();
-            llenarPrioridadPrueba();
-            consultarMetrologos();
+            llenarEstatusPrueba(id_estatusSol);
+            llenarPrioridadPrueba(id_prioridadSol);
+            consultarMetrologos(id_metrologoSol);
             document.getElementById("observacionesAdmin").value = obs_Solicitud;
             llenarResultados();
         <?php } ?>
