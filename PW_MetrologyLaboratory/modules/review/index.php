@@ -74,7 +74,7 @@
     # Content section
     require_once('../../footer.php');
     # Ventanas modales
-            include 'modalResultados.php';
+    include 'modalResultados.php';
     ?>
 <script>
     let id_review;
