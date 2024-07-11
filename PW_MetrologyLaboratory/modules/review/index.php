@@ -43,8 +43,8 @@
     }
     echo "Solicitante: ".$solicitante;
     echo "$idUsuario: ".$idUsuario;
-    if ($idUsuario !== $solicitante) {
 
+    if ($idUsuario !== $solicitante) {
         header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
         exit();
     }
