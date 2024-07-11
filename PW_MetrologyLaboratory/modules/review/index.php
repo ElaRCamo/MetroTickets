@@ -41,8 +41,10 @@
         $id_prueba = "No aplica";
         $solicitante = "No aplica";
     }
+    echo "Solicitante: ".$solicitante;
+    echo "$idUsuario: ".$idUsuario;
     if ($idUsuario !== $solicitante) {
-        echo "Solicitante: ".$solicitante;
+
         header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
         exit();
     }
