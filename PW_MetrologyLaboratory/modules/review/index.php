@@ -27,6 +27,7 @@
             $tipoUser = $_SESSION['tipoUsuario'];
             $idUsuario = $_SESSION['nomina'];
             $fotoUsuario = $_SESSION['fotoUsuario'];
+            echo $nombreUser.$tipoUser.$idUsuario.$fotoUsuario;
 
         // Obtener el id_prueba
             // Obtener la parte de la consulta de la URL actual
