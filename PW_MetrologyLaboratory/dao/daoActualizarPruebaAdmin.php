@@ -1,6 +1,7 @@
 <?php
 
 include_once('connection.php');
+require_once('funcionesRequest.php');
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_GET['id_prueba'], $_POST['estatusPruebaAdmin'], $_POST['prioridadPruebaAdmin'], $_POST['metrologoAdmin'], $_POST['observacionesAdmin'])){
@@ -35,7 +36,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $resultados = subirArchivo($target_dir, $id_prueba, $input_name);
         }
 
-        $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso);
+        $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin);
+
     }else{
         $response = array("status" => 'error', "message" => "Faltan datos en el formulario.");
     }
@@ -44,9 +46,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 echo json_encode($response);
 
-function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso) {
+function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin) {
     $con = new LocalConector();
     $conex = $con->conectar();
+
+    // Iniciar transacción
+    $conex->begin_transaction();
 
     if($resultados !== "" && $id_estatus === '4') { //Estatus completado
         $stmt = $conex->prepare("UPDATE Pruebas
@@ -70,10 +75,18 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
 
     //$response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query);
 
-    if ($stmt->execute()) {
+    $descripcion = "Admin actualiza la solicitud.";
+    $responseBitacora = registrarCambioBitacoora($conex,$id_prueba,$descripcion,$id_admin);
+
+    if ($stmt->execute() && $responseBitacora["status"] === "success") {
+        $conex->commit();
         $response = array("status" => "success", "message" => "Prueba actualizada");
     } else {
+        $conex->rollback();
         $response = array("status" => 'error', "message" => "Error.");
+        if($responseBitacora["status"] !== "success"){
+            $response = $responseBitacora;
+        }
     }
     $stmt->close();
     $conex->close();
