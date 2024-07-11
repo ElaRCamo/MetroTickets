@@ -245,6 +245,7 @@ function updateLinkActualizar(id, estatus) {
  * ***************************************************************************************/
 
 function llenarPrioridadPrueba(prioridad){
+    alert("prioridad: "+prioridad);
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPrioridadPrueba.php', function (data){
         var selectS = id("prioridadPruebaAdmin");
         selectS.innerHTML = ""; //limpiar contenido
@@ -262,6 +263,7 @@ function llenarPrioridadPrueba(prioridad){
 }
 
 function llenarEstatusPrueba(estatus){
+    alert("estatus: "+estatus);
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPrueba.php', function (data){
         var selectS = id("estatusPruebaAdmin");
         selectS.innerHTML = ""; //limpiar contenido
