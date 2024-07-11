@@ -39,6 +39,8 @@
     if (isset($params['id_prueba'])) {
         $id_prueba = $params['id_prueba'];
         $consultaSolicitante = consultarSolicitante($id_prueba);
+        echo $consultaSolicitante['status'];
+        echo $consultaSolicitante['id_prueba'];
         if ($consultaSolicitante['status'] == 'success') {
             $solicitante = $consultaSolicitante['id_solicitante'];
         } else {
