@@ -1,6 +1,6 @@
 <?php
 
-require('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarSolicitante.php');
+require_once('../../dao/daoConsultarSolicitante.php');
 
 session_start();
 $nombreUser = $_SESSION['nombreUsuario'];
