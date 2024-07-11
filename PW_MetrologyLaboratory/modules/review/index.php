@@ -20,7 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
-    //include_once('../../dao/daoConsultarSolicitante.php');
+    include_once('../../dao/daoConsultarSolicitante.php');
         //Sacar los datos de la sesión
         session_start();
             $nombreUser = $_SESSION['nombreUsuario'];
@@ -28,39 +28,42 @@
             $idUsuario = $_SESSION['nomina'];
             $fotoUsuario = $_SESSION['fotoUsuario'];
 
-        // Obtener la parte de la consulta de la URL actual
-        $queryString = $_SERVER['QUERY_STRING'];
+            if ($tipoUser == null){
+                header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
+            } else if($tipoUser === 3){
 
-        // Obtener los parámetros de la consulta en un array asociativo
-        parse_str($queryString, $params);
+                // Obtener la parte de la consulta de la URL actual
+                $queryString = $_SERVER['QUERY_STRING'];
 
-        // Verificar si existe el parámetro id_prueba y obtener su valor
-        if (isset($params['id_prueba'])) {
-            $id_prueba = $params['id_prueba'];
+                // Obtener los parámetros de la consulta en un array asociativo
+                parse_str($queryString, $params);
 
-            // Supongamos que tienes una función consultarSolicitante definida en alguna parte
-            $consultaSolicitante = consultarSolicitante($id_prueba);
+                // Verificar si existe el parámetro id_prueba y obtener su valor
+                if (isset($params['id_prueba'])) {
+                    $id_prueba = $params['id_prueba'];
 
-            // Verificar y manejar la respuesta de la consulta
-            if ($consultaSolicitante['status'] == 'success') {
-                $solicitante = $consultaSolicitante['id_solicitante'];
-            } else {
-                $solicitante = "No se encontró solicitante";
+                    // Supongamos que tienes una función consultarSolicitante definida en alguna parte
+                    $consultaSolicitante = consultarSolicitante($id_prueba);
+
+                    // Verificar y manejar la respuesta de la consulta
+                    if ($consultaSolicitante['status'] == 'success') {
+                        $solicitante = $consultaSolicitante['id_solicitante'];
+                    } else {
+                        $solicitante = "No se encontró solicitante";
+                    }
+                } else {
+                    $id_prueba = "No aplica";
+                    $solicitante = "No aplica";
+                }
+
+                echo $tipoUser;
+                echo $idUsuario;
+                echo $solicitante;
+
+                if($idUsuario !== $solicitante){
+                    header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
+                }
             }
-        } else {
-            $id_prueba = "No aplica";
-            $solicitante = "No aplica";
-        }
-
-        echo $tipoUser;
-        echo $idUsuario;
-        echo $solicitante;
-
-        if ($tipoUser == null){
-            header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
-        }else if($idUsuario !== $solicitante){
-            header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
-        }
         ?>
 </head>
 <body >
