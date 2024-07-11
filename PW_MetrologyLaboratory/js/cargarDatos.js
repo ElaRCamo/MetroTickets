@@ -739,58 +739,6 @@ const TablaAdminUsuariosDes = async () => {
     }
 };
 
-function llenarPrioridadPrueba(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPrioridadPrueba.php', function (data){
-        var selectS = id("prioridadPruebaAdmin");
-        selectS.innerHTML = ""; //limpiar contenido
-
-        for (var j = 0; j < data.data.length; j++) {
-            var createOption = document.createElement("option");
-            createOption.value = data.data[j].id_prioridad;
-            createOption.text = data.data[j].descripcionPrioridad;
-            selectS.appendChild(createOption);
-            if (data.data[j].id_prioridad === id_prioridadSol) {
-                createOption.selected = true;
-            }
-        }
-    });
-}
-
-function llenarEstatusPrueba(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPrueba.php', function (data){
-        var selectS = id("estatusPruebaAdmin");
-        selectS.innerHTML = ""; //limpiar contenido
-
-        for (var j = 0; j < data.data.length; j++) {
-            var createOption = document.createElement("option");
-            createOption.value = data.data[j].id_estatusPrueba;
-            createOption.text = data.data[j].descripcionEstatus;
-            selectS.appendChild(createOption);
-            // Si el valor actual coincide con id_estatusSol, se selecciona por defecto
-            if (data.data[j].id_estatusPrueba === id_estatusSol) {
-                createOption.selected = true;
-            }
-        }
-    });
-}
-
-function consultarMetrologos(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoMetrologos.php', function (data){
-        var selectS = id("metrologoAdmin");
-        selectS.innerHTML = ""; //limpiar contenido
-
-        for (var j = 0; j < data.data.length; j++) {
-            var createOption = document.createElement("option");
-            createOption.value = data.data[j].id_usuario;
-            createOption.text = data.data[j].nombreUsuario;
-            selectS.appendChild(createOption);
-            if (data.data[j].id_usuario === id_metrologoSol) {
-                createOption.selected = true;
-            }
-        }
-    });
-}
-
 
 function pruebasRealizadasMesActual(){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPruebasMes.php', function (data){
