@@ -27,25 +27,12 @@
             $tipoUser = $_SESSION['tipoUsuario'];
             $idUsuario = $_SESSION['nomina'];
             $fotoUsuario = $_SESSION['fotoUsuario'];
-            echo $nombreUser.$tipoUser.$idUsuario.$fotoUsuario;
-
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
 
     // Obtener la parte de la consulta de la URL actual
     $queryString = $_SERVER['QUERY_STRING'];
 
-    // Depuración: Imprimir el query string
-    echo "Query String: " . $queryString . "<br>";
-
     // Obtener los parámetros de la consulta en un array asociativo
     parse_str($queryString, $params);
-
-    // Depuración: Imprimir los parámetros obtenidos
-    echo "Parámetros: ";
-    print_r($params);
-    echo "<br>";
 
     // Verificar si existe el parámetro id_prueba y obtener su valor
     if (isset($params['id_prueba'])) {
@@ -57,16 +44,15 @@
         // Verificar y manejar la respuesta de la consulta
         if ($consultaSolicitante['status'] == 'success') {
             $solicitante = $consultaSolicitante['id_solicitante'];
+            echo "Solicitante: " . $solicitante . "<br>";
         } else {
             $solicitante = "No se encontró solicitante";
         }
 
         echo "Status: " . $consultaSolicitante['status'] . "<br>";
-        echo "Solicitante: " . $solicitante . "<br>";
     } else {
         $id_prueba = "No aplica";
         $solicitante = "No aplica";
-        echo "Solicitante: " . $solicitante . "<br>";
     }
 
     if ($tipoUser == null){
