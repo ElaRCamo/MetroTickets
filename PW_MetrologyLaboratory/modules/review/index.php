@@ -21,7 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
 
-    include_once('../../dao/daoConsultarSolicitante.php');
+    include('../../dao/daoConsultarSolicitante.php');
 
     session_start();
     $nombreUser = $_SESSION['nombreUsuario'];
