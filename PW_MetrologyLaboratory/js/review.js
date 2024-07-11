@@ -51,6 +51,8 @@ function resumenPrueba(ID_PRUEBA){
                 var nombreArchivo = normaArchivo.substring(normaArchivo.lastIndexOf('/') + 1);
                 var numeroReferencia = nombreArchivo.split('-')[1];
                 var nombreArchivoSinPDF = nombreArchivo.substring(0, nombreArchivo.lastIndexOf('.')); // Eliminar la extensión .pdf
+
+                alert("nombreArchivo: "+nombreArchivo+"\n numeroReferencia: "+numeroReferencia+ "\nnombreArchivoSinPDF: "+nombreArchivoSinPDF)
                 id("nombreArchivo").textContent = nombreArchivoSinPDF.substring(numeroReferencia.length + 1);
                 id("archivoNormaR").href = normaArchivo;
             } else {
