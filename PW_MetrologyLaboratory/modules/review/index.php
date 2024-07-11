@@ -36,12 +36,13 @@
         exit();
     } else if ($tipoUser == 3) {
         $solicitante = "00030293";
-        echo $solicitante;
+
     } else {
         $id_prueba = "No aplica";
         $solicitante = "No aplica";
     }
     if ($idUsuario !== $solicitante) {
+        echo "Solicitante: ".$solicitante;
         header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
         exit();
     }
