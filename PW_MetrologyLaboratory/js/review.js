@@ -30,7 +30,7 @@ function resumenPrueba(ID_PRUEBA){
                 $('#textImgR').text("Ver imagen");
             } else if (data.id_subtipo === '1') { //Full layout
                 id("imagenCotasR").style.pointerEvents = "none";
-                $('#textImgR').text(data.imagenCotas);
+                $('#textImgR').text("No aplica");
             }
         }
 
