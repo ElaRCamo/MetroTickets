@@ -62,12 +62,10 @@
         }
 
         echo "Status: " . $consultaSolicitante['status'] . "<br>";
-        echo "ID Prueba: " . $consultaSolicitante['id_prueba'] . "<br>";
         echo "Solicitante: " . $solicitante . "<br>";
     } else {
         $id_prueba = "No aplica";
         $solicitante = "No aplica";
-        echo "ID Prueba: " . $id_prueba . "<br>";
         echo "Solicitante: " . $solicitante . "<br>";
     }
 
