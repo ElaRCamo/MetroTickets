@@ -58,7 +58,6 @@ function resumenPrueba(ID_PRUEBA){
             } else {
                 id("archivoNormaR").textContent = normaArchivo;
                 id("archivoNormaR").style.pointerEvents = "none"; // Deshabilitar el clic en el enlace
-                alert("normaArchivo no es una URL válida.");
             }
 
         }
