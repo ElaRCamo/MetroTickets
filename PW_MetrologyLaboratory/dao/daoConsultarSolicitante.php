@@ -3,6 +3,7 @@ include_once('connection.php');
 header('Content-Type: application/json');
 $id_prueba = "2024-0164";
 consultarSolicitante($id_prueba);
+$response = "hola";
 function consultarSolicitante($id_prueba)
 {
     $response = array('status' => 'error', 'message' => 'Error desconocido');
@@ -41,4 +42,6 @@ function consultarSolicitante($id_prueba)
 
     return $response;
 }
+echo json_encode($response);
+exit;
 ?>
