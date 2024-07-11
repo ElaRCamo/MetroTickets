@@ -43,7 +43,7 @@
         $solicitante = '00030293';
         echo $solicitante;
 
-        if ($idUsuario !== $solicitante) {
+        if ($idUsuario != $solicitante) {
             header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
             exit(); // Añadir exit después de header para asegurar que el script se detenga
         }
