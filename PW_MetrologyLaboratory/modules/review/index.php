@@ -29,27 +29,34 @@
             $fotoUsuario = $_SESSION['fotoUsuario'];
             echo $nombreUser.$tipoUser.$idUsuario.$fotoUsuario;
 
-        // Obtener el id_prueba
-            // Obtener la parte de la consulta de la URL actual
-            $queryString = $_SERVER['QUERY_STRING'];
+    // Obtener la parte de la consulta de la URL actual
+    $queryString = $_SERVER['QUERY_STRING'];
 
-            // Obtener los parámetros de la consulta en un array asociativo
-            parse_str($queryString, $params);
+    // Obtener los parámetros de la consulta en un array asociativo
+    parse_str($queryString, $params);
 
     // Verificar si existe el parámetro id_prueba y obtener su valor
     if (isset($params['id_prueba'])) {
         $id_prueba = $params['id_prueba'];
+
+        // Supongamos que tienes una función consultarSolicitante definida en alguna parte
         $consultaSolicitante = consultarSolicitante($id_prueba);
-        echo $consultaSolicitante['status'];
-        echo $consultaSolicitante['id_prueba'];
+
+        // Verificar y manejar la respuesta de la consulta
         if ($consultaSolicitante['status'] == 'success') {
             $solicitante = $consultaSolicitante['id_solicitante'];
         } else {
             $solicitante = "No se encontró solicitante";
         }
+
+        echo "Status: " . $consultaSolicitante['status'] . "<br>";
+        echo "ID Prueba: " . $consultaSolicitante['id_prueba'] . "<br>";
+        echo "Solicitante: " . $solicitante . "<br>";
     } else {
         $id_prueba = "No aplica";
         $solicitante = "No aplica";
+        echo "ID Prueba: " . $id_prueba . "<br>";
+        echo "Solicitante: " . $solicitante . "<br>";
     }
 
     if ($tipoUser == null){
