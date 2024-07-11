@@ -21,11 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
-    include_once('../../dao/daoConsultarSolicitante.php');
+    //include_once('../../dao/daoConsultarSolicitante.php');
 
     session_start();
     $nombreUser = $_SESSION['nombreUsuario'];
