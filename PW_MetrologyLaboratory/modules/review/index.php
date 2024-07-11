@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,7 +19,6 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 <body >
 <?php
@@ -74,19 +72,18 @@
     });
 
     function updatePrueba(){
-        <?php if ($tipoUser== 3){ ?>
+        if(tipoUser === 3){
                 //Solo se puede actualizar si esta en espera de aprobación o en estatus rechazado
                 window.location.href = "../newRequest/newRequestIndex.php?id_update="+ id_review;
 
-        <?php
-        } else if($tipoUser== 1 || $tipoUser== 2){?>
+        } else if(tipoUser=== 1 || tipoUser=== 2){
                 //Se cargan los valores que ya se definieron
                 llenarEstatusPrueba();
                 llenarPrioridadPrueba();
                 consultarMetrologos();
                 document.getElementById("observacionesAdmin").value = obs_Solicitud;
                 llenarResultados();
-        <?php } ?>
+        }
     }
 </script>
 <script src="../../js/general.js"></script>
