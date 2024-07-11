@@ -20,7 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
-    include_once('../../dao/daoConsultarSolicitante.php');
+    //include_once('../../dao/daoConsultarSolicitante.php');
         //Sacar los datos de la sesión
         session_start();
             $nombreUser = $_SESSION['nombreUsuario'];
@@ -41,7 +41,9 @@
                 // Verificar si existe el parámetro id_prueba y obtener su valor
                 if (isset($params['id_prueba'])) {
                     $id_prueba = $params['id_prueba'];
-
+                    echo  $idUsuario;
+                    $solicitante = '00030293';
+                    /*
                     // Supongamos que tienes una función consultarSolicitante definida en alguna parte
                     $consultaSolicitante = consultarSolicitante($id_prueba);
 
@@ -50,7 +52,7 @@
                         $solicitante = $consultaSolicitante['id_solicitante'];
                     } else {
                         $solicitante = "No se encontró solicitante";
-                    }
+                    }*/
                 } else {
                     $id_prueba = "No aplica";
                     $solicitante = "No aplica";
