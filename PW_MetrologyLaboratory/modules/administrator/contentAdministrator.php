@@ -184,7 +184,7 @@
     </div>
 </div>
 
-//Previsualizar imagen
+<!--Previsualizar imagen-->
 <script>
     function previewImage(event) {
         const reader = new FileReader();
