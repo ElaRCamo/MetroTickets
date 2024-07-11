@@ -20,55 +20,37 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
+
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
     include_once('../../dao/daoConsultarSolicitante.php');
-        //Sacar los datos de la sesión
-        session_start();
-        $nombreUser = $_SESSION['nombreUsuario'];
-        $tipoUser = $_SESSION['tipoUsuario'];
-        $idUsuario = $_SESSION['nomina'];
-        $fotoUsuario = $_SESSION['fotoUsuario'];
 
-        if ($tipoUser == null) {
-            header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
+    session_start();
+    $nombreUser = $_SESSION['nombreUsuario'];
+    $tipoUser = $_SESSION['tipoUsuario'];
+    $idUsuario = $_SESSION['nomina'];
+    $fotoUsuario = $_SESSION['fotoUsuario'];
+
+    if ($tipoUser == null) {
+        header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
+        exit(); // Añadir exit después de header para asegurar que el script se detenga
+    } else if ($tipoUser === 3) {
+        echo '<div>Tu mensaje aquí</div>';
+        $solicitante = 3;
+        echo $solicitante;
+
+        if ($idUsuario !== $solicitante) {
+            header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
             exit(); // Añadir exit después de header para asegurar que el script se detenga
-        } else if ($tipoUser === 3) {
-            echo '<div>Tu mensaje aquí</div>';
-            $solicitante = 3;
-            echo $solicitante;
-
-            /*// Obtener la parte de la consulta de la URL actual
-                        $queryString = $_SERVER['QUERY_STRING'];
-
-                        // Obtener los parámetros de la consulta en un array asociativo
-                        parse_str($queryString, $params);
-
-                        // Verificar si existe el parámetro id_prueba y obtener su valor
-                        if (isset($params['id_prueba'])) {
-                            $id_prueba = $params['id_prueba'];
-                            echo  $idUsuario;
-                            $solicitante = 5;
-                            /*
-                            // Supongamos que tienes una función consultarSolicitante definida en alguna parte
-                            $consultaSolicitante = consultarSolicitante($id_prueba);
-
-                            // Verificar y manejar la respuesta de la consulta
-                            if ($consultaSolicitante['status'] == 'success') {
-                                $solicitante = $consultaSolicitante['id_solicitante'];
-                            } else {
-                                $solicitante = "No se encontró solicitante";
-                            }*/
-
-            // Comprobar si el idUsuario es diferente del solicitante
-            if ($idUsuario !== $solicitante) {
-                header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
-                exit(); // Añadir exit después de header para asegurar que el script se detenga
-            }
-        } else {
-            $id_prueba = "No aplica";
-            $solicitante = "No aplica";
         }
+    } else {
+        $id_prueba = "No aplica";
+        $solicitante = "No aplica";
+    }
 
-        ?>
+    ?>
 </head>
 <body >
 <?php
