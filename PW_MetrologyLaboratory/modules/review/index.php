@@ -20,7 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
-    include_once('../../dao/daoConsultarSolicitante.php');
+    //include_once('../../dao/daoConsultarSolicitante.php');
         //Sacar los datos de la sesión
         session_start();
             $nombreUser = $_SESSION['nombreUsuario'];
