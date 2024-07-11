@@ -46,12 +46,13 @@
 
             $solicitante = consultarSolicitante($id_prueba);
         }
+
+        if ($idUsuario !== $solicitante) {
+            header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
+            exit();
+        }
     }
 
-    if ($idUsuario !== $solicitante) {
-        header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
-        exit();
-    }
     ?>
 </head>
 <body >
