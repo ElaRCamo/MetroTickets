@@ -44,14 +44,7 @@
         if (isset($params['id_prueba'])) {
             $id_prueba = $params['id_prueba'];
 
-            $consultaSolicitante = consultarSolicitante($id_prueba);
-
-            // Verificar y manejar la respuesta de la consulta
-            if ($consultaSolicitante['status'] == 'success') {
-                $solicitante = $consultaSolicitante['id_solicitante'];
-            } else {
-                $solicitante = "No se encontró solicitante";
-            }
+            $solicitante = consultarSolicitante($id_prueba);
         }
     }
 
