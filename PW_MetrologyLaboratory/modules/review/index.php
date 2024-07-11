@@ -33,6 +33,8 @@
     $idUsuario = $_SESSION['nomina'];
     $fotoUsuario = $_SESSION['fotoUsuario'];
 
+    echo "tipo user:".$tipoUser;
+
     if ($tipoUser == null) {
         header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
         exit(); // Añadir exit después de header para asegurar que el script se detenga
