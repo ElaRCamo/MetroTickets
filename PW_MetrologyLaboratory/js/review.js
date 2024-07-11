@@ -245,7 +245,6 @@ function updateLinkActualizar(id, estatus) {
  * ***************************************************************************************/
 
 function llenarPrioridadPrueba(prioridad){
-    alert("prioridad: "+prioridad);
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPrioridadPrueba.php', function (data){
         var selectS = id("prioridadPruebaAdmin");
         selectS.innerHTML = ""; //limpiar contenido
