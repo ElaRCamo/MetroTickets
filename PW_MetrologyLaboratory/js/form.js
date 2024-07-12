@@ -501,7 +501,7 @@ function validarPersonal(idsPersonal) {
 }
 
 /*****************************************************************************************
- * *********************FUNCIONES PARA GUARDAR UNA NUEVA SOLICITUD************************
+ * ******************FUNCIONES PARA GUARDAR/ACTUALIZAR UNA SOLICITUD**********************
  * ***************************************************************************************/
 
 function initGuardarDatos(){
