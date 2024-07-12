@@ -477,6 +477,9 @@ table tbody tr {
 
 
 @media only screen and (max-width: 1200px) {
+    .fechaH{
+        text-align: center;
+    }
     .analytics {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -632,20 +635,6 @@ table tbody tr {
 .form-group  span {
     display:none;
 }
-/*tabla-formulario
-.newRequestTabla table{
-    table-layout: fixed;
-    width:100%;
-}
-
-.tableOpe td {
-    width: 20%;
-    word-wrap: break-word;
-}
-.tableTec td {
-    width: 15%;
-    word-wrap: break-word;
-}*/
 .logoRight {
     display: flex;
     justify-content: center;
