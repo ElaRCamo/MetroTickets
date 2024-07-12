@@ -21,7 +21,7 @@ function PruebasCumplidas($anio, $mes) {
             YEAR(fechaCompromiso) AS anio,
             SUM(CASE WHEN fechaRespuesta <= fechaCompromiso THEN 1 ELSE 0 END) AS pruebasCumplidas,
             COUNT(*) AS totalPruebas,
-            (SUM(CASE WHEN fechaRespuesta <= fechaCompromiso THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS porcentajeCumplimiento
+            ROUND((SUM(CASE WHEN fechaRespuesta <= fechaCompromiso THEN 1 ELSE 0 END) / COUNT(*)) * 100, 2) AS porcentajeCumplimiento
         FROM Pruebas
         WHERE YEAR(fechaCompromiso) = $anio
           AND MONTH(fechaCompromiso) = $mes
