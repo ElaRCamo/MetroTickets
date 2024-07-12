@@ -46,17 +46,11 @@ echo "id_pruebas: " . $id_prueba;
 echo "query: " . $queryTipoPrueba;
 // Ejecutar la consulta
 $resultado = $conex->query($queryTipoPrueba);
-
-// Verificar si se obtuvo un resultado
-if ($resultado->num_rows > 0) {
     // Obtener la fila del resultado
     $fila = $resultado->fetch_assoc();
     // Asignar el id_tipoPrueba a una variable
     $id_tipoPrueba = $fila['id_tipoPrueba'];
-    echo "El id_tipoPrueba es: " . $id_tipoPrueba;
-} else {
-    echo "No se encontró ningún tipo de prueba con el id_prueba especificado.";
-}
+
 
 $queryDatosMunsell = "SELECT   prueba.id_prueba, 
                                                     prueba.fechaSolicitud, 
@@ -171,7 +165,7 @@ $queryDatosPrueba = "SELECT   prueba.id_prueba,
                                                             id_prueba = '$id_prueba'
                                                     ) AS prueba ON m.id_prueba = prueba.id_prueba;";
 
-if($id_tipoPrueba === 5){
+if($id_tipoPrueba === '5'){
     $queryEjecutar = $queryDatosMunsell;
 }else{
     $queryEjecutar = $queryDatosPrueba;
