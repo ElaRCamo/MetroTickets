@@ -772,7 +772,7 @@ function pruebasPorDia(){
 
 function cumplimientoFechaResp() {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCumplimientoFechaResp.php', function (data){
-        var cumplimiento = data.data[0].eficienciaOperativa;
+        var cumplimiento = data.data[0].porcentajeCumplimiento;
         document.getElementById("cumplimiento").innerText = cumplimiento + ' %';
     });
 }
