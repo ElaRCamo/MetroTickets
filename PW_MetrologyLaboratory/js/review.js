@@ -6,6 +6,8 @@ let obs_Solicitud;
 let resultadosSol;
 let solicitantePrueba;
 let emailSolicitante;
+let indiceRowNorma=false;
+let indiceRowSubtipo=false;
 
 /*****************************************************************************************
  * ****************************FUNCIONES PARA CARGAR DATOS *******************************
@@ -139,85 +141,94 @@ function resumenPrueba(ID_PRUEBA){
 }
 
 function rowSubtipo(){
-    // Crear la fila
-    var fila = document.createElement('tr');
 
-    // Crear las celdas y sus contenidos
-    var thSubtipo = document.createElement('th');
-    thSubtipo.className = "p-2 mb-2";
-    thSubtipo.textContent = 'Subtipo:';
-    var tdSubtipo = document.createElement('td');
-    tdSubtipo.id = 'subtipoR';
+    if(!indiceRowSubtipo){
+        // Crear la fila
+        var fila = document.createElement('tr');
 
-    var thImagen = document.createElement('th');
-    thImagen.className = "p-2 mb-2";
-    thImagen.textContent = 'Imagen Cotas:';
-    var tdImagen = document.createElement('td');
-    var link = document.createElement('a');
-    link.id = 'imagenCotasR';
-    link.href = '#'; // Puedes cambiar el enlace
-    var span = document.createElement('span');
-    span.id = 'textImgR';
-    link.appendChild(span);
-    tdImagen.appendChild(link);
+        // Crear las celdas y sus contenidos
+        var thSubtipo = document.createElement('th');
+        thSubtipo.className = "p-2 mb-2";
+        thSubtipo.textContent = 'Subtipo:';
+        var tdSubtipo = document.createElement('td');
+        tdSubtipo.id = 'subtipoR';
 
-    // Añadir las celdas a la fila
-    fila.appendChild(thSubtipo);
-    fila.appendChild(tdSubtipo);
-    fila.appendChild(thImagen);
-    fila.appendChild(tdImagen);
+        var thImagen = document.createElement('th');
+        thImagen.className = "p-2 mb-2";
+        thImagen.textContent = 'Imagen Cotas:';
+        var tdImagen = document.createElement('td');
+        var link = document.createElement('a');
+        link.id = 'imagenCotasR';
+        link.href = '#'; // Puedes cambiar el enlace
+        var span = document.createElement('span');
+        span.id = 'textImgR';
+        link.appendChild(span);
+        tdImagen.appendChild(link);
 
-    // Seleccionar el cuerpo de la tabla y la fila de referencia
-    var tbody = document.querySelector('#datosGeneralesTable tbody');
-    var filaReferencia = document.querySelector('#trTipoPrueba');
+        // Añadir las celdas a la fila
+        fila.appendChild(thSubtipo);
+        fila.appendChild(tdSubtipo);
+        fila.appendChild(thImagen);
+        fila.appendChild(tdImagen);
 
-    // Insertar la nueva fila después de la fila de referencia
-    if (filaReferencia && filaReferencia.nextSibling) {
-        tbody.insertBefore(fila, filaReferencia.nextSibling);
-    } else {
-        tbody.appendChild(fila);
+        // Seleccionar el cuerpo de la tabla y la fila de referencia
+        var tbody = document.querySelector('#datosGeneralesTable tbody');
+        var filaReferencia = document.querySelector('#trTipoPrueba');
+
+        // Insertar la nueva fila después de la fila de referencia
+        if (filaReferencia && filaReferencia.nextSibling) {
+            tbody.insertBefore(fila, filaReferencia.nextSibling);
+        } else {
+            tbody.appendChild(fila);
+        }
+
+        indiceRowSubtipo = true;
     }
 }
 
 function rowNorma() {
-    // Crear la fila
-    var fila = document.createElement('tr');
-    fila.id = 'trNorma';
 
-    // Crear las celdas y sus contenidos
-    var thNorma = document.createElement('th');
-    thNorma.className = "p-2 mb-2";
-    thNorma.textContent = 'Norma:';
-    var tdNorma = document.createElement('td');
-    tdNorma.id = 'normaNombreR';
+    if(!indiceRowNorma){
+        // Crear la fila
+        var fila = document.createElement('tr');
+        fila.id = 'trNorma';
 
-    var thDocumento = document.createElement('th');
-    thDocumento.className = "p-2 mb-2";
-    thDocumento.textContent = 'Documento de la norma:';
-    var tdDocumento = document.createElement('td');
-    var link = document.createElement('a');
-    link.id = 'archivoNormaR';
-    link.href = '#'; // Puedes cambiar el enlace
-    var span = document.createElement('span');
-    span.id = 'nombreArchivo';
-    link.appendChild(span);
-    tdDocumento.appendChild(link);
+        // Crear las celdas y sus contenidos
+        var thNorma = document.createElement('th');
+        thNorma.className = "p-2 mb-2";
+        thNorma.textContent = 'Norma:';
+        var tdNorma = document.createElement('td');
+        tdNorma.id = 'normaNombreR';
 
-    // Añadir las celdas a la fila
-    fila.appendChild(thNorma);
-    fila.appendChild(tdNorma);
-    fila.appendChild(thDocumento);
-    fila.appendChild(tdDocumento);
+        var thDocumento = document.createElement('th');
+        thDocumento.className = "p-2 mb-2";
+        thDocumento.textContent = 'Documento de la norma:';
+        var tdDocumento = document.createElement('td');
+        var link = document.createElement('a');
+        link.id = 'archivoNormaR';
+        link.href = '#'; // Puedes cambiar el enlace
+        var span = document.createElement('span');
+        span.id = 'nombreArchivo';
+        link.appendChild(span);
+        tdDocumento.appendChild(link);
 
-    // Seleccionar el cuerpo de la tabla y la fila de referencia
-    var tbody = document.querySelector('#datosGeneralesTable tbody');
-    var filaReferencia = document.querySelector('#trTipoPrueba');
+        // Añadir las celdas a la fila
+        fila.appendChild(thNorma);
+        fila.appendChild(tdNorma);
+        fila.appendChild(thDocumento);
+        fila.appendChild(tdDocumento);
 
-    // Insertar la nueva fila después de la fila de referencia
-    if (filaReferencia && filaReferencia.nextSibling) {
-        tbody.insertBefore(fila, filaReferencia.nextSibling);
-    } else {
-        tbody.appendChild(fila);
+        // Seleccionar el cuerpo de la tabla y la fila de referencia
+        var tbody = document.querySelector('#datosGeneralesTable tbody');
+        var filaReferencia = document.querySelector('#trTipoPrueba');
+
+        // Insertar la nueva fila después de la fila de referencia
+        if (filaReferencia && filaReferencia.nextSibling) {
+            tbody.insertBefore(fila, filaReferencia.nextSibling);
+        } else {
+            tbody.appendChild(fila);
+        }
+        indiceRowNorma = true;
     }
 }
 
@@ -401,10 +412,6 @@ function  updatePruebaAdmin(id_review, id_user){
         }
     });
 }
-
-/*****************************************************************************************
- * *******************FUNCIONES que falta validar************************
- * ***************************************************************************************/
 function actualizarTitulo() {
     var titulo5 = document.querySelector("#modalResultados h5");
     if (titulo5) {
