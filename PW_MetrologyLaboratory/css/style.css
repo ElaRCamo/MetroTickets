@@ -335,16 +335,16 @@ main {
 }
 
 #cardActRealizadas {
-    background: #05BBEE
+    background: #69A032;
 }
 #cardActPendientes {
-    background: #d94459;
+    background: #E10014;
 }
 #cardTiempoResp {
-    background: #9EBB6A;
+    background: #0AA0E1;
 }
 #cardEficiencia {
-    background: #605296;
+    background: #322873;
 }
 
 .records {
