@@ -209,25 +209,83 @@
         chart.render();
     }
     function pruebasMesTipoPrueba() {
-        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasMesMetro.php', function(data) {
+        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaTipoPrueba.php', function(data) {
             const transformedData = {};
 
             data.data.forEach(entry => {
                 const month = parseInt(entry.Mes);
-                const metrologo = entry.NombreMetrologo;
+                const tipoPrueba = entry.descripcionPrueba;
                 const pruebas = parseInt(entry.Pruebas);
 
-                if (!transformedData[metrologo]) {
-                    transformedData[metrologo] = Array(12).fill(0); // Asumiendo 12 meses
+                if (!transformedData[tipoPrueba]) {
+                    transformedData[tipoPrueba] = Array(12).fill(0); // Asumiendo 12 meses
                 }
-                transformedData[metrologo][month - 1] = pruebas; // Meses en ApexCharts son 0-indexed
+                transformedData[tipoPrueba][month - 1] = pruebas; // Meses en ApexCharts son 0-indexed
             });
 
             graficaPruebasMesMetro(transformedData);
         });
     }
 
+    function graficaPruebasMesTipo(transformedData) {
+        const seriesData = Object.keys(transformedData).map(tipoPrueba => ({
+            name: tipoPrueba,
+            data: transformedData[tipoPrueba]
+        }));
 
+        var options = {
+            series: seriesData,
+            chart: {
+                type: 'bar',
+                height: 350
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '55%',
+                    endingShape: 'rounded'
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            },
+            yaxis: {
+                title: {
+                    text: 'Pruebas'
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return val + " pruebas";
+                    }
+                }
+            },
+            title: {
+                text: 'Pruebas solicitadas por tipo de prueba, '+ anioActual,
+                floating: true,
+                offsetY: 0,
+                align: 'center',
+                style: {
+                    color: '#005195'
+                }
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#graficoPorTipoPrueba"), options);
+        chart.render();
+    }
 
 
     function pruebasMesMetrologo() {
@@ -245,9 +303,10 @@
                 transformedData[metrologo][month - 1] = pruebas; // Meses en ApexCharts son 0-indexed
             });
 
-            graficaPruebasMesMetro(transformedData);
+            graficaPruebasMesTipo(transformedData);
         });
     }
+
 
     function graficaPruebasMesMetro(transformedData) {
         const seriesData = Object.keys(transformedData).map(metrologo => ({
