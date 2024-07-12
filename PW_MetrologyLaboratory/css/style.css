@@ -321,18 +321,15 @@ main {
 }
 
 .card-head h2 {
-    color: var(--main-color);
     font-size: 1.5rem;
     font-weight: 500;
 }
 
 .card-head span {
     font-size: 3.2rem;
-    color: var(--main-color);
 }
 
 .card-progress small {
-    color: var(--main-color);
     font-size: .8rem;
     font-weight: 600;
 }
