@@ -42,22 +42,21 @@ include_once('../../dao/connection.php');
 $con = new LocalConector();
 $conex = $con->conectar();
 
-// Determinar el tipo de prueba
 $queryTipoPrueba = "SELECT id_tipoPrueba FROM Pruebas WHERE id_prueba = '$id_prueba'";
-$consultaTipo = mysqli_query($conex, $queryTipoPrueba);
 
-if ($consultaTipo) {
-    $datos = mysqli_fetch_all($consultaTipo, MYSQLI_ASSOC);
-    if (!empty($datos)) {
-        $tipo = $datos[0]['id_tipoPrueba'];
-        echo "El tipo de prueba es: " . $tipo;
-    } else {
-        echo "No se encontraron datos para el id_prueba: " . $id_prueba;
-    }
+// Ejecutar la consulta
+$resultado = $conex->query($queryTipoPrueba);
+
+// Verificar si se obtuvo un resultado
+if ($resultado->num_rows > 0) {
+    // Obtener la fila del resultado
+    $fila = $resultado->fetch_assoc();
+    // Asignar el id_tipoPrueba a una variable
+    $id_tipoPrueba = $fila['id_tipoPrueba'];
+    echo "El id_tipoPrueba es: " . $id_tipoPrueba;
 } else {
-    echo "Error en la consulta: " . mysqli_error($conex);
+    echo "No se encontró ningún tipo de prueba con el id_prueba especificado.";
 }
-
 
 $queryDatosMunsell = "SELECT   prueba.id_prueba, 
                                                     prueba.fechaSolicitud, 
@@ -172,7 +171,7 @@ $queryDatosPrueba = "SELECT   prueba.id_prueba,
                                                             id_prueba = '$id_prueba'
                                                     ) AS prueba ON m.id_prueba = prueba.id_prueba;";
 
-if($tipo === 5){
+if($id_tipoPrueba === 5){
     $queryEjecutar = $queryDatosMunsell;
 }else{
     $queryEjecutar = $queryDatosPrueba;
@@ -180,7 +179,8 @@ if($tipo === 5){
 $datosPrueba =  mysqli_query($conex, $queryEjecutar);
 
 $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
-
+// Cerrar la conexión (opcional, pero recomendado)
+$conex->close();
 ?>
 <main>
     <div class="page-header row headerLogo">
