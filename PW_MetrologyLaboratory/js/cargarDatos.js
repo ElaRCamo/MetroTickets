@@ -771,13 +771,11 @@ function pruebasPorDia(){
 }
 
 function cumplimientoFechaResp() {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPruebasPorDia.php', function (data){
-        var pruebasPorDia = data.data[0].eficienciaOperativa;
-        document.getElementById("pruebasPorDiaSpan").innerText = pruebasPorDia;
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCumplimientoFechaResp.php', function (data){
+        var cumplimiento = data.data[0].eficienciaOperativa;
+        document.getElementById("cumplimiento").innerText = cumplimiento + ' %';
     });
 }
-
-
 
 
 /*Queda pendiente de integracion 23/04/2024
