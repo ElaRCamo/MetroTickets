@@ -77,6 +77,7 @@
                 <div class="row">
                     <div class="col-xl-12" id="graficoPorTipoPrueba"></div>
                 </div>
+                <div class="row"></div>
                 <div class="row" id="graficosMetrologos">
                     <div class="col-xl-6" id="graficoPruebasPorMes"></div>
                     <div class="col-xl-6" id="graficoPorMesPorMetro"></div>
