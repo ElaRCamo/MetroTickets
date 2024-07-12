@@ -477,9 +477,6 @@ table tbody tr {
 
 
 @media only screen and (max-width: 1200px) {
-    .fechaH{
-        text-align: center;
-    }
     .analytics {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -509,6 +506,9 @@ table tbody tr {
 }
 
 @media only screen and (max-width: 768px) {
+    .fechaH{
+        text-align: center;
+    }
     .analytics {
         grid-template-columns: 100%;
     }
