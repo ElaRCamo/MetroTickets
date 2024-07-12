@@ -308,10 +308,10 @@ main {
 
 .card {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background: #E9edf2;
+    color: #E9edf2;
     padding: 1rem;
     border-radius: 0.6rem;
-    border-color: var(--main-color);
+    border-color: #E9edf2;
 }
 
 .card-head {
@@ -335,19 +335,6 @@ main {
     color: var(--main-color);
     font-size: .8rem;
     font-weight: 600;
-}
-
-.card-indicator {
-    margin: .7rem 0;
-    height: 10px;
-    border-radius: 4px;
-    background: #e9edf2;
-    overflow: hidden;
-}
-
-.indicator {
-    height: 10px;
-    border-radius: 4px;
 }
 
 #cardActRealizadas {
