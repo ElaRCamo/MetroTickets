@@ -158,7 +158,7 @@ $queryDatosPrueba = "SELECT   prueba.id_prueba,
 
 $consultaTipo =  mysqli_query($conex, $queryTipoPrueba);
 $datos = mysqli_fetch_all($consultaTipo, MYSQLI_ASSOC);
-$tipo= $datos[0]['id_prueba'];
+$tipo= $datos[0]['id_tipoPrueba'];
 
 
 if($tipo === 5){
