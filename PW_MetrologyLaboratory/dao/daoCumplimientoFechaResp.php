@@ -23,8 +23,8 @@ function PruebasCumplidas($anio, $mes) {
             COUNT(*) AS totalPruebas,
             (SUM(CASE WHEN fechaRespuesta <= fechaCompromiso THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS porcentajeCumplimiento
         FROM Pruebas
-        WHERE YEAR(fechaCompromiso) = '$anio'
-          AND MONTH(fechaCompromiso) = '$mes'
+        WHERE YEAR(fechaCompromiso) = $anio
+          AND MONTH(fechaCompromiso) = $mes
         GROUP BY mes, anio
         ORDER BY anio, mes;
     ";

@@ -67,7 +67,7 @@
                         <small>CUMPLIMIENTO</small>
                     </div>
                     <div class="card-head">
-                        <h2><span id="cumplimiento"></span> %</h2>
+                        <h2><span id="cumplimiento"></span></h2>
                         <span class="las la-award"></span>
                     </div>
 
