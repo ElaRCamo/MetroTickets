@@ -37,11 +37,27 @@ ob_start();
 $date = date('d-m-Y');
 $css=file_get_contents("../../css/pdf.css");
 include_once('../../dao/connection.php');
+
+// Crear una nueva instancia de la conexión
 $con = new LocalConector();
 $conex = $con->conectar();
 
-//Determinar El tipo de prueba
+// Determinar el tipo de prueba
 $queryTipoPrueba = "SELECT id_tipoPrueba FROM Pruebas WHERE id_prueba = '$id_prueba'";
+$consultaTipo = mysqli_query($conex, $queryTipoPrueba);
+
+if ($consultaTipo) {
+    $datos = mysqli_fetch_all($consultaTipo, MYSQLI_ASSOC);
+    if (!empty($datos)) {
+        $tipo = $datos[0]['id_tipoPrueba'];
+        echo "El tipo de prueba es: " . $tipo;
+    } else {
+        echo "No se encontraron datos para el id_prueba: " . $id_prueba;
+    }
+} else {
+    echo "Error en la consulta: " . mysqli_error($conex);
+}
+
 
 $queryDatosMunsell = "SELECT   prueba.id_prueba, 
                                                     prueba.fechaSolicitud, 
@@ -155,11 +171,6 @@ $queryDatosPrueba = "SELECT   prueba.id_prueba,
                                                         WHERE 
                                                             id_prueba = '$id_prueba'
                                                     ) AS prueba ON m.id_prueba = prueba.id_prueba;";
-
-$consultaTipo =  mysqli_query($conex, $queryTipoPrueba);
-$datos = mysqli_fetch_all($consultaTipo, MYSQLI_ASSOC);
-$tipo= $datos[0]['id_tipoPrueba'];
-
 
 if($tipo === 5){
     $queryEjecutar = $queryDatosMunsell;
