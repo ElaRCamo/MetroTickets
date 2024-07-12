@@ -225,7 +225,7 @@
                 transformedData[tipoPrueba][month - 1] = pruebas; // Meses en ApexCharts son 0-indexed
             });
 
-            graficaPruebasMesMetro(transformedData);
+            graficaPruebasMesTipo(transformedData);
         });
     }
 
@@ -305,7 +305,7 @@
                 transformedData[metrologo][month - 1] = pruebas; // Meses en ApexCharts son 0-indexed
             });
 
-            graficaPruebasMesTipo(transformedData);
+            graficaPruebasMesMetro(transformedData);
         });
     }
 
