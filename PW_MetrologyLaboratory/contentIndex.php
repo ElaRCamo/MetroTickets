@@ -34,19 +34,13 @@
         <div class="page-content">
             <div class="analytics">
                 <div class="card">
-                    <table>
-                        <tr>
-                            <td> <span class="las la-ruler-combined"></span></td>
-                            <td>
-                                <div class="card-progress">
-                                    <small>ACTIVIDADES REALIZADAS ESTE MES</small>
-                                </div>
-                                <div class="card-head">
-                                    <h2><span id="numeroPruebas"></span></h2>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="card-progress">
+                        <small>ACTIVIDADES REALIZADAS ESTE MES</small>
+                    </div>
+                    <div class="card-head">
+                        <h2><span id="numeroPruebas"></span></h2>
+                        <span class="las la-ruler-combined"></span>
+                    </div>
                 </div>
                 <div class="card">
                     <div class="card-progress">
@@ -63,7 +57,7 @@
                         <small>TIEMPO DE RESPUESTA</small>
                     </div>
                     <div class="card-head">
-                        <h2><span id="tiempoRespuesaSpan"></span>DÍAS/PRUEBA</h2>
+                        <h2><span id="tiempoRespuesaSpan"></span> DÍAS/PRUEBA</h2>
                         <span class="lar la-clock"></span>
                     </div>
                 </div>
@@ -72,7 +66,7 @@
                         <small>EFICIENCIA OPERATIVA</small>
                     </div>
                     <div class="card-head">
-                        <h2><span id="pruebasPorDiaSpan"></span>PRUEBAS/DÍA</h2>
+                        <h2><span id="pruebasPorDiaSpan"></span> PRUEBAS/DÍA</h2>
                         <span class="las la-chart-line"></span>
                     </div>
 
