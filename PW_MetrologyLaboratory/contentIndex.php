@@ -208,6 +208,8 @@
         var chart = new ApexCharts(document.querySelector("#graficoPruebasPorMes"), options);
         chart.render();
     }
+
+    pruebasMesTipoPrueba();
     function pruebasMesTipoPrueba() {
         $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaTipoPrueba.php', function(data) {
             const transformedData = {};
