@@ -80,7 +80,20 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
         }
 
     //Registrar cambios en bitacora
-    $descripcion = "Solicitud creada.";
+    $descripcion = "Solicitud creada. Se concatenan los valores de las variables: "
+        . "tipoPrueba = " . $tipoPrueba . ", "
+        . "norma = " . $norma . ", "
+        . "normaFile = " . $normaFile . ", "
+        . "especificaciones = " . $especificaciones . ", "
+        . "imagenCotas = " . $imagenCotas . ", "
+        . "subtipo = " . $subtipo . ", "
+        . "plataformas = " . $plataformas . ", "
+        . "numsParte = " . $numsParte . ", "
+        . "cdadPiezas = " . $cdadPiezas . ", "
+        . "revDibujos = " . $revDibujos . ", "
+        . "modMatematicos = " . $modMatematicos . ", "
+        . "fechaSolicitud = " . $fechaSolicitud;
+
     $response =  registrarCambioBitacoora($conex,$id_prueba,$descripcion,$idUsuario);
     $rGuardarBitacora = false;
     if($response['status']==='success'){

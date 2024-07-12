@@ -10,7 +10,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $id_prioridad = $_POST['prioridadPruebaAdmin'];
         $id_metrologo = $_POST['metrologoAdmin'];
         $observaciones = $_POST['observacionesAdmin'];
-        $fechaUpdate = $_POST['fechaUpdate'];
         $id_admin = $_POST['id_user'];
 
         //Se agrega fecha compromiso:
@@ -27,6 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // 'resultadosAdmin' está en $_POST
         if (isset($_POST['resultadosAdmin'])) {
             $resultados = $_POST['resultadosAdmin'];
+            $fechaResultados = date('Y-m-d:H:i:s');
         }
         //'resultadosAdmin' está en $_FILES
         elseif (isset($_FILES['resultadosAdmin'])) {
@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $resultados = subirArchivo($target_dir, $id_prueba, $input_name);
         }
 
-        $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin);
+        $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin,$fechaResultados);
 
     }else{
         $response = array("status" => 'error', "message" => "Faltan datos en el formulario.");
@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 echo json_encode($response);
 
-function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin) {
+function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin,$fechaResultados) {
     $con = new LocalConector();
     $conex = $con->conectar();
 
@@ -57,7 +57,7 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
         $stmt = $conex->prepare("UPDATE Pruebas
                                       SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, resultados = ?, fechaRespuesta = ?
                                     WHERE id_prueba = ?");
-        $stmt->bind_param("iisssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados,  $fechaUpdate, $id_prueba);
+        $stmt->bind_param("iisssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados,  $fechaResultados, $id_prueba);
         $query=1;
     }else if($fechaCompromiso !== '0000-00-00' && $id_estatus === '2'){ //Estatus aprobado
         $stmt = $conex->prepare("UPDATE Pruebas
@@ -75,7 +75,15 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
 
     //$response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query);
 
-    $descripcion = "Admin actualiza la solicitud.";
+    $descripcion = "Admin actualiza la solicitud. Se concatenan los valores de las variables: "
+        . "id_estatus = " . $id_estatus . ", "
+        . "id_prioridad = " . $id_prioridad . ", "
+        . "id_metrologo = " . $id_metrologo . ", "
+        . "observaciones = " . $observaciones . ", "
+        . "resultados = " . $resultados . ", "
+        . "fechaCompromiso = " . $fechaCompromiso . ", "
+        . "fechaResultados = " . $fechaResultados;
+
     $responseBitacora = registrarCambioBitacoora($conex,$id_prueba,$descripcion,$id_admin);
 
     if ($stmt->execute() && $responseBitacora["status"] === "success") {
