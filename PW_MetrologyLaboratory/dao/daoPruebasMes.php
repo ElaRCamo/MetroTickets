@@ -11,9 +11,11 @@ function PruebasMesActual($fecha_busqueda){
     $datos = mysqli_query($conex, "SELECT COUNT(*)
                                           FROM Pruebas
                                          WHERE fechaRespuesta LIKE '$fecha_busqueda'
-                                           AND id_estatusPrueba = 3;");
+                                           AND id_estatusPrueba = 4;");
 
     $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
 }
+
+//SELECT COUNT(*) FROM Pruebas WHERE fechaRespuesta LIKE '2024-07%' AND id_estatusPrueba = 3;
 ?>
