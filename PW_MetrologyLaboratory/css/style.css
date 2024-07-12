@@ -291,6 +291,7 @@ main {
 
 .page-header h1, .page-header small {
     color: var(--main-color);
+    font-weight: bold;
 }
 
 .page-content {
@@ -817,7 +818,7 @@ table tbody tr {
 
 .fechaH {
     margin: 0;
-    text-align: center;
+    text-align: justify;
     color: var(--main-color);
     text-transform: uppercase;
     font-weight: bold;

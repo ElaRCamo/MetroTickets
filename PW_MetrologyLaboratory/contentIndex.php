@@ -3,8 +3,6 @@
             <div class="col divTitle contenedorFecha">
                 <!--<small id="saludoH">¡Hola ?php global $nombreUser; echo $nombreUser; ?>!</small>-->
                 <h1 class="fechaH">LABORATORIO DE METROLOGÍA</h1>
-
-
                     <h6 class="fechaH">Indicadores <?php
                     $meses = array(
                         1 => "Enero",
@@ -66,10 +64,10 @@
                 </div>
                 <div class="card" id="cardEficiencia">
                     <div class="card-progress">
-                        <small>EFICIENCIA OPERATIVA</small>
+                        <small>CUMPLIMIENTO</small>
                     </div>
                     <div class="card-head">
-                        <h2><span id="pruebasPorDiaSpan"></span> PRUEBAS/DÍA</h2>
+                        <h2><span id="pruebasPorDiaSpan"></span> %</h2>
                         <span class="las la-award"></span>
                     </div>
 
@@ -292,6 +290,4 @@
     }
 
     pruebasMesMetrologo();
-
-
 </script>

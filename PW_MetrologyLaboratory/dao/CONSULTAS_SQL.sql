@@ -1,3 +1,18 @@
+SELECT
+    MONTH(fechaCompromiso) AS mes,
+    YEAR(fechaCompromiso) AS anio,
+    SUM(CASE WHEN fechaRespuesta <= fechaCompromiso THEN 1 ELSE 0 END) AS pruebasCumplidas,
+    COUNT(*) AS totalPruebas,
+    (SUM(CASE WHEN fechaRespuesta <= fechaCompromiso THEN 1 ELSE 0 END) / COUNT(*)) * 100 AS porcentajeCumplimiento
+FROM Pruebas
+WHERE YEAR(fechaCompromiso) = 2024 -- Puedes cambiar el año según tus necesidades
+GROUP BY mes, anio
+ORDER BY anio, mes;
+
+
+
+
+
 CREATE TABLE restablecer_password (
                                       id INT AUTO_INCREMENT PRIMARY KEY,
                                       id_usuario VARCHAR(20) NOT NULL,
