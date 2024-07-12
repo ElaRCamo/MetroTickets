@@ -42,8 +42,6 @@ $con = new LocalConector();
 $conex = $con->conectar();
 
 $queryTipoPrueba = "SELECT id_tipoPrueba FROM Pruebas WHERE id_prueba = '$id_prueba'";
-echo "id_pruebas: " . $id_prueba;
-echo "query: " . $queryTipoPrueba;
 // Ejecutar la consulta
 $resultado = $conex->query($queryTipoPrueba);
     // Obtener la fila del resultado
