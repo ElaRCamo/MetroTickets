@@ -6,7 +6,7 @@ let obs_Solicitud;
 let resultadosSol;
 let solicitantePrueba;
 let emailSolicitante;
-let indiceRowNorma=false;
+let indiceRowNorma=false; //Para que la fila se genere una sola vez
 let indiceRowSubtipo=false;
 
 /*****************************************************************************************
@@ -231,7 +231,6 @@ function rowNorma() {
         indiceRowNorma = true;
     }
 }
-
 
 function updateLinkActualizar(id, estatus) {
     if (tipoUser === '3') {

@@ -10,7 +10,7 @@ function ContadorMes($anio){
     $conex = $con->conectar();
 
     $datos = mysqli_query($conex, "SELECT DISTINCT MONTH(fechaRespuesta) AS mes
-                                           FROM Prueba
+                                           FROM Pruebas
                                           WHERE YEAR(fechaRespuesta) = $anio AND fechaRespuesta IS NOT NULL 
                                             AND fechaRespuesta != '0000-00-00'
                                           ORDER BY mes");
