@@ -75,13 +75,11 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6" id="graficoPruebasPorMes"></div>
-                    <div class="col-sm-6" id="graficoPorMesPorMetro"></div>
+                    <div class="col-xl-6" id="graficoPruebasPorMes"></div>
+                    <div class="col-xl-6" id="graficoPorTipoPrueba"></div>
                 </div>
-                <div class="row" id="graficosCirculares">
-                    <div class="col"></div>
-                    <div class="col"></div>
-                    <div class="col"></div>
+                <div class="row" id="graficosMetrologos">
+                    <div class="col-xl-6" id="graficoPorMesPorMetro"></div>
                 </div>
             </div>
         </div>
@@ -210,6 +208,28 @@
         var chart = new ApexCharts(document.querySelector("#graficoPruebasPorMes"), options);
         chart.render();
     }
+    function pruebasMesTipoPrueba() {
+        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasMesMetro.php', function(data) {
+            const transformedData = {};
+
+            data.data.forEach(entry => {
+                const month = parseInt(entry.Mes);
+                const metrologo = entry.NombreMetrologo;
+                const pruebas = parseInt(entry.Pruebas);
+
+                if (!transformedData[metrologo]) {
+                    transformedData[metrologo] = Array(12).fill(0); // Asumiendo 12 meses
+                }
+                transformedData[metrologo][month - 1] = pruebas; // Meses en ApexCharts son 0-indexed
+            });
+
+            graficaPruebasMesMetro(transformedData);
+        });
+    }
+
+
+
+
     function pruebasMesMetrologo() {
         $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasMesMetro.php', function(data) {
             const transformedData = {};
