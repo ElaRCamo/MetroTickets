@@ -34,41 +34,48 @@
         <div class="page-content">
             <div class="analytics">
                 <div class="card">
-                    <div class="card-head">
-                        <h2><span id="numeroPruebas"></span></h2>
-                        <span class="las la-ruler-combined"></span>
-                    </div>
-                    <div class="card-progress">
-                        <small>Pruebas realizadas este mes</small>
-                    </div>
+                    <table>
+                        <tr>
+                            <td> <span class="las la-ruler-combined"></span></td>
+                            <td>
+                                <div class="card-progress">
+                                    <small>ACTIVIDADES REALIZADAS ESTE MES</small>
+                                </div>
+                                <div class="card-head">
+                                    <h2><span id="numeroPruebas"></span></h2>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="card">
+                    <div class="card-progress">
+                        <small>ACTIVIDADES PENDIENTES</small>
+                    </div>
                     <div class="card-head">
                         <h2><span id="pruebasPendientes"></span></h2>
                         <span class="las la-pencil-ruler"></span>
                     </div>
-                    <div class="card-progress">
-                        <small>Pruebas pendientes </small>
-                    </div>
                 </div>
 
                 <div class="card">
-                    <div class="card-head">
-                        <h2><span id="tiempoRespuesaSpan"></span> días/prueba</h2>
-                        <span class="lar la-clock"></span>
-                    </div>
                     <div class="card-progress">
-                            <small>Tiempo de respuesta</small>
+                        <small>TIEMPO DE RESPUESTA</small>
+                    </div>
+                    <div class="card-head">
+                        <h2><span id="tiempoRespuesaSpan"></span>DÍAS/PRUEBA</h2>
+                        <span class="lar la-clock"></span>
                     </div>
                 </div>
                 <div class="card">
+                    <div class="card-progress">
+                        <small>EFICIENCIA OPERATIVA</small>
+                    </div>
                     <div class="card-head">
-                        <h2><span id="pruebasPorDiaSpan"></span> pruebas/día</h2>
+                        <h2><span id="pruebasPorDiaSpan"></span>PRUEBAS/DÍA</h2>
                         <span class="las la-chart-line"></span>
                     </div>
-                    <div class="card-progress">
-                        <small>Eficiencia Operativa</small>
-                    </div>
+
                 </div>
             </div>
             <div class="container">
