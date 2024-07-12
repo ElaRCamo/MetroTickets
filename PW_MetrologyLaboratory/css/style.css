@@ -951,7 +951,6 @@ table tbody tr {
     display: none;
 }
 
-#divGraficoTipo{
+#divGraficoTipo, #graficosMetrologos{
     padding-top: 1.5rem;
-    padding-botom: 3.5rem;
 }
