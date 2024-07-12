@@ -950,3 +950,8 @@ table tbody tr {
 #divFechaCompromiso{
     display: none;
 }
+
+#divGraficoTipo{
+    padding-top: 1.5rem;
+    padding-botom: 3.5rem;
+}
