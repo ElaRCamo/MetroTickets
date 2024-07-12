@@ -14,7 +14,7 @@ $actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $url_parts = parse_url($actual_link);// Obtener las partes de la URL
 parse_str($url_parts['query'], $query_params);// Obtener los parámetros de consulta
 $id_prueba = $query_params['id_prueba'];// Extraer el ID de la prueba
-echo "id_pruebas: " . $id_prueba;
+
 ob_start();
 ?>
 
@@ -43,7 +43,8 @@ $con = new LocalConector();
 $conex = $con->conectar();
 
 $queryTipoPrueba = "SELECT id_tipoPrueba FROM Pruebas WHERE id_prueba = '$id_prueba'";
-
+echo "id_pruebas: " . $id_prueba;
+echo "query: " . $queryTipoPrueba;
 // Ejecutar la consulta
 $resultado = $conex->query($queryTipoPrueba);
 
