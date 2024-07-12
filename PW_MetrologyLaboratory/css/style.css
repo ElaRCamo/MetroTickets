@@ -350,20 +350,17 @@ main {
     border-radius: 4px;
 }
 
-.indicator.one {
+#cardActRealizadas {
     background: #0AA0E1;
 }
-
-.indicator.two {
+#cardActPendientes {
+    background: #E10014;
+}
+#cardTiempoResp {
     background: #69A032;
 }
-
-.indicator.three {
+#cardEficiencia {
     background: #322873;
-}
-
-.indicator.four {
-    background: #E10014;
 }
 
 .records {

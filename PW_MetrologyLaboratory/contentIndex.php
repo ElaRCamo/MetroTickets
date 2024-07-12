@@ -33,7 +33,7 @@
         </div>
         <div class="page-content">
             <div class="analytics">
-                <div class="card">
+                <div class="card" id="cardActRealizadas">
                     <div class="card-progress">
                         <small>ACTIVIDADES REALIZADAS ESTE MES</small>
                     </div>
@@ -42,7 +42,7 @@
                         <span class="las la-ruler-combined"></span>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" id="cardActPendientes">
                     <div class="card-progress">
                         <small>ACTIVIDADES PENDIENTES</small>
                     </div>
@@ -52,8 +52,8 @@
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-progress">
+                <div class="card" id="cardTiempoResp">
+                    <div class="card-progress" >
                         <small>TIEMPO DE RESPUESTA</small>
                     </div>
                     <div class="card-head">
@@ -61,7 +61,7 @@
                         <span class="lar la-clock"></span>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" id="cardEficiencia">
                     <div class="card-progress">
                         <small>EFICIENCIA OPERATIVA</small>
                     </div>
