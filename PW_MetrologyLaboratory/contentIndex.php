@@ -2,7 +2,10 @@
         <div class="page-header row headerLogo">
             <div class="col divTitle contenedorFecha">
                 <!--<small id="saludoH">¡Hola ?php global $nombreUser; echo $nombreUser; ?>!</small>-->
-                <h3 class="fechaH">Indicadores <?php
+                <h1 class="fechaH">LABORATORIO DE METROLOGÍA</h1>
+
+
+                    <h6 class="fechaH">Indicadores <?php
                     $meses = array(
                         1 => "Enero",
                         2 => "Febrero",
@@ -19,8 +22,8 @@
                     );
                     echo $meses[date("n")];
                     ?>
-                    <!--php setlocale(LC_TIME, 'es_ES.UTF-8'); echo strftime('%B'); ?> --></h3>
-                <h6 class="fechaH"><?php echo date("d/m/Y"); ?></h6>
+                    <!--php setlocale(LC_TIME, 'es_ES.UTF-8'); echo strftime('%B'); ?> -->
+                <?php echo date("d/m/Y"); ?></h6>
             </div>
             <div class="logoRight col-sm-3">
                 <div>
@@ -39,7 +42,7 @@
                     </div>
                     <div class="card-head">
                         <h2><span id="numeroPruebas"></span></h2>
-                        <span class="las la-ruler-combined"></span>
+                        <span class="las la-check-square"></span>
                     </div>
                 </div>
                 <div class="card" id="cardActPendientes">
@@ -48,7 +51,7 @@
                     </div>
                     <div class="card-head">
                         <h2><span id="pruebasPendientes"></span></h2>
-                        <span class="las la-pencil-ruler"></span>
+                        <span class="las la-tools"></span>
                     </div>
                 </div>
 
@@ -67,7 +70,7 @@
                     </div>
                     <div class="card-head">
                         <h2><span id="pruebasPorDiaSpan"></span> PRUEBAS/DÍA</h2>
-                        <span class="las la-chart-line"></span>
+                        <span class="las la-award"></span>
                     </div>
 
                 </div>

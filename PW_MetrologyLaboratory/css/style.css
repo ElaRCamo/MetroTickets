@@ -284,7 +284,7 @@ main {
 
 .page-header {
     padding: 1.3rem 1rem;
-    background: #E9edf2;
+    background:#E5EEF7;
     border-bottom: 1px solid #dee2e8;
     margin:0;
 }
@@ -326,7 +326,7 @@ main {
 }
 
 .card-head span {
-    font-size: 3.2rem;
+    font-size: 3.5rem;
 }
 
 .card-progress small {
@@ -812,17 +812,15 @@ table tbody tr {
 
 .contenedorFecha{
     max-width: 100%;
-    background-color: var(--main-color);
     padding: 20px;
-    border-radius: 0.6rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .fechaH {
     margin: 0;
     text-align: center;
-    color: #f1f4f9;
+    color: var(--main-color);
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 .graphics{
