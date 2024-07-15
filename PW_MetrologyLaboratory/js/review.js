@@ -25,9 +25,8 @@ function consultaTipoPrueba(id_prueba){
     });
 }
 function resumenPrueba(dao){
-
+    alert("dao: "+dao);
     $.getJSON(dao, function (response) {
-        alert("dao: "+dao);
         //codigo para actualizar campos
         var data = response.data[0]; // primer objeto dentro de 'data'
         alert("data: "+data);
