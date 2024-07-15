@@ -14,7 +14,9 @@ let indiceRowSubtipo=false;
  * ***************************************************************************************/
 function consultarDatos(id_prueba){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarTipoPrueba.php?id_prueba=' + id_prueba, function (response) {
-        let tipoPrueba = data.data['id_tipoPrueba'];
+        let tipoPrueba = data.id_tipoPrueba;
+
+        resumenPrueba(id_prueba, tipoPrueba);
     });
 }
 function resumenPrueba(ID_PRUEBA){
@@ -105,44 +107,69 @@ function resumenPrueba(ID_PRUEBA){
         // Limpiar contenido previo de la tabla
         tbody.innerHTML = '';
 
-        let titulo = 'PIEZAS PARA MEDICIÓN';
-        let headers = ['No. de Parte', 'Cantidad', 'Cliente', 'Plataforma', 'Revisión de Dibujo', 'Modelo Matemático', 'Estatus'];
-        tablaPiezasyPersonal(titulo, headers);
+        if(tipoPrueba === '5'){
+            let titulo = 'PERSONAL';
+            let headers = ['No. de Nómina', 'Nombre', 'Área'];
+            tablaPiezasyPersonal(titulo, headers);
 
-        // Iterar sobre los materiales y crear filas y celdas de tabla
-        for (var j = 0; j < response.data.length; j++) {
-            var fila = document.createElement("tr");
+            for (var j = 0; j < response.data.length; j++) {
+                var fila = document.createElement("tr");
 
-            var numeroDeParteT = document.createElement("td");
-            numeroDeParteT.textContent = response.data[j].numParte;
-            fila.appendChild(numeroDeParteT);
+                var numNomina = document.createElement("td");
+                numNomina.textContent = response.data[j].numParte;
+                fila.appendChild(numNomina);
 
-            var cdadMaterialesT = document.createElement("td");
-            cdadMaterialesT.textContent = response.data[j].cantidad;
-            fila.appendChild(cdadMaterialesT);
+                var nombre = document.createElement("td");
+                nombre.textContent = response.data[j].cantidad;
+                fila.appendChild(nombre);
 
-            var clienteMaterialesT = document.createElement("td");
-            clienteMaterialesT.textContent = response.data[j].descripcionCliente;
-            fila.appendChild(clienteMaterialesT);
+                var area = document.createElement("td");
+                area.textContent = response.data[j].descripcionCliente;
+                fila.appendChild(area);
 
-            var plataformaMaterialesT = document.createElement("td");
-            plataformaMaterialesT.textContent = response.data[j].descripcionPlataforma;
-            fila.appendChild(plataformaMaterialesT);
+                tbody.appendChild(fila);
+            }
+        }else{
+            let titulo = 'PIEZAS PARA MEDICIÓN';
+            let headers = ['No. de Parte', 'Cantidad', 'Cliente', 'Plataforma', 'Revisión de Dibujo', 'Modelo Matemático', 'Estatus'];
+            tablaPiezasyPersonal(titulo, headers);
 
-            var revisionDibujoT = document.createElement("td");
-            revisionDibujoT.textContent = response.data[j].revisionDibujo;
-            fila.appendChild(revisionDibujoT);
+            // Iterar sobre los materiales y crear filas y celdas de tabla
+            for (var j = 0; j < response.data.length; j++) {
+                var fila = document.createElement("tr");
 
-            var modMatematicoT = document.createElement("td");
-            modMatematicoT.textContent = response.data[j].modMatematico;
-            fila.appendChild(modMatematicoT);
+                var numeroDeParteT = document.createElement("td");
+                numeroDeParteT.textContent = response.data[j].numParte;
+                fila.appendChild(numeroDeParteT);
 
-            var estatusMaterialT = document.createElement("td");
-            estatusMaterialT.textContent = response.data[j].estatusMaterial;
-            fila.appendChild(estatusMaterialT);
+                var cdadMaterialesT = document.createElement("td");
+                cdadMaterialesT.textContent = response.data[j].cantidad;
+                fila.appendChild(cdadMaterialesT);
 
-            tbody.appendChild(fila);
+                var clienteMaterialesT = document.createElement("td");
+                clienteMaterialesT.textContent = response.data[j].descripcionCliente;
+                fila.appendChild(clienteMaterialesT);
+
+                var plataformaMaterialesT = document.createElement("td");
+                plataformaMaterialesT.textContent = response.data[j].descripcionPlataforma;
+                fila.appendChild(plataformaMaterialesT);
+
+                var revisionDibujoT = document.createElement("td");
+                revisionDibujoT.textContent = response.data[j].revisionDibujo;
+                fila.appendChild(revisionDibujoT);
+
+                var modMatematicoT = document.createElement("td");
+                modMatematicoT.textContent = response.data[j].modMatematico;
+                fila.appendChild(modMatematicoT);
+
+                var estatusMaterialT = document.createElement("td");
+                estatusMaterialT.textContent = response.data[j].estatusMaterial;
+                fila.appendChild(estatusMaterialT);
+
+                tbody.appendChild(fila);
+            }
         }
+
     }).then(function (){
         updateLinkActualizar(id_estatusSol,estatusSol);
     });

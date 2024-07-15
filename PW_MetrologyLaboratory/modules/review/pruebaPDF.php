@@ -275,7 +275,7 @@ $conex->close();
             if ($tipoPrueba === '5'):
             ?>
             <div id="" class="table-responsive">
-                <h5 id="materialPDF">PIEZAS PARA MEDICIÓN</h5>
+                <h5 id="materialPDF">PERSONAL</h5>
                 <table class="table table-striped" id="materialesResumenPDF">
                     <thead>
                     <tr>
