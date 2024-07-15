@@ -338,7 +338,7 @@ $conex->close();
                                 <th class="">Fecha de Compromiso:</th>
                                 <td id=""><?php echo $resultados[0]['fechaCompromiso'];?></td>
                                 <th class="">Metrólogo:</th>
-                                <td id=""><?php echo $resultados[0]['nombreMetro'];?> </td>
+                                <td id=""><?php echo $resultados[0]['nombreMetro'];?></td>
                             </tr>
                             <tr>
                                 <th class="">Estatus: </th>
