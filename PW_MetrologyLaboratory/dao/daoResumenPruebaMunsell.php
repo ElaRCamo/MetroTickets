@@ -40,7 +40,7 @@ function resumenPrueba($id_prueba){
                                         descripcionEstatus,
                                         descripcionPrioridad,
                                         s.id_tipoPrueba, 
-                                        id_prioridad,
+                                        s.id_prioridad,
                                         descripcionPrueba,
                                         especificaciones,
                                         especificacionesLab,
