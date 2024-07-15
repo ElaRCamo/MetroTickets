@@ -348,7 +348,7 @@ $conex->close();
                             </tr>
                             <tr>
                                 <th class="">Resultados:</th>
-                                <td id=""  colspan="3"><?php echo $resultados[0]['resultados'];?></td>
+                                <td id="" ><?php echo $resultados[0]['resultados'];?></td>
                                 <th class="">Fecha de Respuesta:</th>
                                 <td id=""><?php echo $resultados[0]['fechaRespuesta'];?></td>
                             </tr>
