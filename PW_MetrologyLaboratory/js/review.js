@@ -15,11 +15,11 @@ let indiceRowSubtipo=false;
 function consultaTipoPrueba(id_prueba){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarTipoPrueba.php?id_prueba=' + id_prueba, function (response) {
         let tipoPrueba = response.id_tipoPrueba;
-        let dao = "";
+        let dao = '';
         if(tipoPrueba === '5'){
-            dao = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPruebaMunsell.php?id_prueba="+ id_prueba;
+            dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPruebaMunsell.php?id_prueba='+ id_prueba;
         }else{
-            dao = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba="+ id_prueba;
+            dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba='+ id_prueba;
         }
         resumenPrueba(id_prueba, dao);
     });
