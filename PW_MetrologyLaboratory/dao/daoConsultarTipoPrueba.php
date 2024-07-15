@@ -1,5 +1,9 @@
 <?php
 include_once('connection.php');
+
+$id_prueba = $_GET ['id_prueba'];
+
+consultarTipoPrueba($id_prueba);
 function consultarTipoPrueba($id_prueba)
 {
     // Crear una nueva instancia de la conexión
@@ -14,5 +18,8 @@ function consultarTipoPrueba($id_prueba)
 
     $conex -> close();
 
-    return $fila['id_tipoPrueba'];
+    //return $fila['id_tipoPrueba'];
+
+    $resultado = mysqli_fetch_all($fila, MYSQLI_ASSOC);
+    echo json_encode(array("data" => $resultado));
 }

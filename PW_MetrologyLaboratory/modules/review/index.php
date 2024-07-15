@@ -43,10 +43,7 @@
         // Verificar si existe el parámetro id_prueba y obtener su valor
         if (isset($params['id_prueba'])) {
             $id_prueba = $params['id_prueba'];
-
             $solicitante = consultarSolicitante($id_prueba);
-            //$tipoPrueba = consultarTipoPrueba($id_prueba);
-
         }
 
         if ($idUsuario !== $solicitante) {
@@ -54,7 +51,6 @@
             exit();
         }
     }
-
     ?>
 </head>
 <body >

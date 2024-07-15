@@ -12,7 +12,11 @@ let indiceRowSubtipo=false;
 /*****************************************************************************************
  * ****************************FUNCIONES PARA CARGAR DATOS *******************************
  * ***************************************************************************************/
-
+function consultarDatos(id_prueba){
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarTipoPrueba.php?id_prueba=' + id_prueba, function (response) {
+        let tipoPrueba = data.data['id_tipoPrueba'];
+    });
+}
 function resumenPrueba(ID_PRUEBA){
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + ID_PRUEBA, function (response) {
