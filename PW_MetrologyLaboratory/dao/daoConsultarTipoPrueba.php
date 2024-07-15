@@ -13,5 +13,7 @@ function consultarTipoPrueba($id_prueba)
     // Obtener la fila del resultado
     $fila = $resultado->fetch_assoc();
 
+    $conex -> close();
+
     return $fila['id_tipoPrueba'];
 }
