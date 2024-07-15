@@ -46,6 +46,7 @@
 
             $solicitante = consultarSolicitante($id_prueba);
             $tipoPrueba = consultarTipoPrueba($id_prueba);
+            echo "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm".$tipoPrueba;
         }
 
         if ($idUsuario !== $solicitante) {
@@ -73,9 +74,7 @@
     let id_review;
     let id_user = <?php echo json_encode($_SESSION['nomina']); ?>;
     let tipoUser = <?php echo json_encode($_SESSION['tipoUsuario']); ?>;
-    let tipoPrueba = <?php global $tipoPrueba; echo $tipoPrueba; ?>;
-    alert("tipoPrueba: ");
-    alert(tipoPrueba);
+
 
     document.addEventListener("DOMContentLoaded", function() {
         // Obtener el valor de id_prueba de la URL
