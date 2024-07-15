@@ -40,6 +40,13 @@
                     </tbody>
                 </table>
             </div>
+            <div id="divTableResume" class="table-responsive">
+                <h5 id="materialRTittle"></h5>
+                <table class="table table-striped" id="materialesResumen">
+
+                    <tbody></tbody>
+                </table>
+            </div>
             <div id="divTablePrueba" class="table-responsive">
                 <h5 id="titleTablaP">RESULTADOS</h5>
                 <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTable">

@@ -106,16 +106,16 @@ function resumenPrueba(dao){
 
         //console.log("resumenPrueba: id_estatusSol"+id_estatusSol, "estatusSol "+estatusSol);
 
+        var tabla = document.getElementById("materialesResumen");
+        var tbody = tabla.getElementsByTagName("tbody")[0];
+
+        // Limpiar contenido previo de la tabla
+        tbody.innerHTML = '';
+
         if(tipoPrueba === '5'){
             let titulo = 'PERSONAL';
             let headers = ['No. de Nómina', 'Nombre', 'Área'];
             tablaPiezasyPersonal(titulo, headers);
-            var tabla = document.getElementById("materialesResumen");
-            var tbody = tabla.getElementsByTagName("tbody")[0];
-
-            // Limpiar contenido previo de la tabla
-            tbody.innerHTML = '';
-
 
             for (var j = 0; j < response.data.length; j++) {
                 var fila = document.createElement("tr");
@@ -138,12 +138,6 @@ function resumenPrueba(dao){
             let titulo = 'PIEZAS PARA MEDICIÓN';
             let headers = ['No. de Parte', 'Cantidad', 'Cliente', 'Plataforma', 'Revisión de Dibujo', 'Modelo Matemático', 'Estatus'];
             tablaPiezasyPersonal(titulo, headers);
-            var tabla = document.getElementById("materialesResumen");
-            var tbody = tabla.getElementsByTagName("tbody")[0];
-
-            // Limpiar contenido previo de la tabla
-            tbody.innerHTML = '';
-
 
             // Iterar sobre los materiales y crear filas y celdas de tabla
             for (var j = 0; j < response.data.length; j++) {
@@ -187,20 +181,13 @@ function resumenPrueba(dao){
 }
 
 function tablaPiezasyPersonal(titulo, headers) {
-    // Crear el contenedor principal
-    var divTableResume = document.createElement('div');
-    divTableResume.id = 'divTableResume';
-    divTableResume.className = 'table-responsive';
 
     // Crear el título
-    var h5 = document.createElement('h5');
-    h5.id = 'materialRTittle';
+    var h5 = id("materialRTittle");
     h5.textContent = titulo;
 
     // Crear la tabla
-    var table = document.createElement('table');
-    table.className = 'table table-striped';
-    table.id = 'materialesResumen';
+    var table = id("materialesResumen");
 
     // Crear el encabezado de la tabla
     var thead = document.createElement('thead');
@@ -220,15 +207,7 @@ function tablaPiezasyPersonal(titulo, headers) {
     // Añadir el encabezado y el cuerpo a la tabla
     table.appendChild(thead);
     table.appendChild(tbody);
-
-    // Añadir el título y la tabla al contenedor principal
-    divTableResume.appendChild(h5);
-    divTableResume.appendChild(table);
-
-    // Añadir el contenedor principal al body o a cualquier otro contenedor deseado
-    document.body.appendChild(divTableResume);
 }
-
 
 function rowSubtipo(){
 
