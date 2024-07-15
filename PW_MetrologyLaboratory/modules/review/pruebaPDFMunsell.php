@@ -171,7 +171,7 @@ if($id_tipoPrueba === '5'){
 $datosPrueba =  mysqli_query($conex, $queryEjecutar);
 
 $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
-// Cerrar la conexión (opcional, pero recomendado)
+// Cerrar la conexión
 $conex->close();
 ?>
 <main>
@@ -212,6 +212,54 @@ $conex->close();
                         <th class=""> Solicitante:</th>
                         <td><?php echo $resultados[0]['nombreSolic'];?> </td>
                     </tr>
+
+                    <!-- Mostrar imagen cotas para tipo DIMENSIONAL -->
+                    <?php
+                    $tipoPrueba = $resultados[0]['id_tipoPrueba'];
+                    $subtipoPrueba = $resultados[0]['id_subtipo'];
+                    $descSubtipo = $resultados[0]['descripcion'];
+                    $imagen = $resultados[0]['imagenCotas'];
+
+                    if ($tipoPrueba === '3'): // dimensional ?>
+                        <tr>
+                            <th class="">Subtipo: </th>
+                            <td><?php echo $descSubtipo; ?></td>
+                            <th class="">Imagen Cotas: </th>
+                            <td>
+                                <?php if ($subtipoPrueba === '2'): ?>
+                                    <a href="<?php echo $imagen; ?>">Consultar imagen</a>
+                                <?php elseif ($subtipoPrueba === '1'): ?>
+                                    <a href="#">No aplica</a>
+                                <?php endif; ?>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+
+                    <!-- Mostrar norma solo para los tipos de prueba que correspondan -->
+                    <?php
+                    if ($tipoPrueba === '1' || $tipoPrueba === '2' || $tipoPrueba === '6'): // IDL/IFD | SOFTNESS | OTRO
+                        ?>
+                        <tr>
+                            <th class="">Norma: </th>
+                            <td><?php echo $resultados[0]['normaNombre'];?></td>
+                            <th class="">Documento (norma): </th>
+                            <td>
+                                <?php
+                                $urlCompleta = $resultados[0]['normaArchivo'];
+                                if($urlCompleta != 'No aplica' && $urlCompleta != 'Ningún archivo seleccionado'){
+                                    $nombreArchivo = substr($urlCompleta, strrpos($urlCompleta, '/') + 1);
+                                    $numeroReferencia = explode('-', $nombreArchivo)[1];
+                                    $nombreArchivoSinPDF = substr($nombreArchivo, 0, strrpos($nombreArchivo, '.')); // Eliminar la extensión .pdf
+                                    $nombreArchivoMostrado = substr($nombreArchivoSinPDF, strlen($numeroReferencia) + 1);
+                                    echo '<a href="' . $urlCompleta . '">' . $nombreArchivoMostrado . '</a>';
+                                } else {
+                                    echo $urlCompleta;
+                                }
+                                ?>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+
                     <tr>
                         <th class="">Especifícaciones/ Comentarios: </th>
                         <td colspan="3"><?php echo $resultados[0]['especificaciones'];?></td>
@@ -219,6 +267,11 @@ $conex->close();
                     </tbody>
                 </table>
             </div>
+
+            <!-- Mostrar tabla para Munsell -->
+            <?php
+            if ($tipoPrueba === '5'):
+            ?>
             <div id="" class="table-responsive">
                 <h5 id="materialPDF">PIEZAS PARA MEDICIÓN</h5>
                 <table class="table table-striped" id="materialesResumenPDF">
@@ -267,6 +320,66 @@ $conex->close();
                     </tbody>
                 </table>
             </div>
+            <?php  //Otro tipo de prueba
+            else:
+                ?>
+                <div id="" class="table-responsive">
+                    <h5 id="materialPDF">PIEZAS PARA MEDICIÓN</h5>
+                    <table class="table table-striped" id="materialesResumenPDF">
+                        <thead>
+                        <tr>
+                            <th>No. de Parte</th>
+                            <th>Cantidad</th>
+                            <th>Cliente</th>
+                            <th>Plataforma</th>
+                            <th>Revisión de Dibujo</th>
+                            <th>Modelo Matemático</th>
+                            <th>Estatus</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($resultados as $resultado){?>
+                            <tr>
+                                <td><?php echo $resultado['numParte'];?> </td>
+                                <td><?php echo $resultado['cantidad'];?></td>
+                                <td><?php echo $resultado['descripcionCliente'];?></td>
+                                <td><?php echo $resultado['descripcionPlataforma'];?></td>
+                                <td><?php echo $resultado['revisionDibujo'];?></td>
+                                <td><?php echo $resultado['modMatematico'];?></td>
+                                <td><?php echo $resultado['estatusMaterial'];?></td>
+                            </tr>
+                        <?php }?>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="" class="table-responsive">
+                    <h5 id="titleTablaPDF">RESULTADOS</h5>
+                    <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTablePDF">
+                        <tbody>
+                        <tr>
+                            <th class="">Fecha de Respuesta:</th>
+                            <td id=""><?php echo $resultados[0]['fechaRespuesta'];?></td>
+                            <th class="">Metrólogo:</th>
+                            <td id=""><?php echo $resultados[0]['nombreMetro'];?> </td>
+                        </tr>
+                        <tr>
+                            <th class="">Estatus: </th>
+                            <td id="" ><?php echo $resultados[0]['descripcionEstatus'];?></td>
+                            <th class="">Prioridad:</th>
+                            <td id=""> <?php echo $resultados[0]['descripcionPrioridad'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="">Observaciones:</th>
+                            <td id="" colspan="3"><?php echo $resultados[0]['especificacionesLab'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="">Resultados:</th>
+                            <td id=""  colspan="3"><?php echo $resultados[0]['resultados'];?></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            <?php endif; ?>
             <!--div  id="divUpdate">
                 <span >Ultima actualización: <span class="" id="fechaUpdateR"><php echo $resultados[0]['fechaActualizacion'];?></span></span>
             </div> -->
