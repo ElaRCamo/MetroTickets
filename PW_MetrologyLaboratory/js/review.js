@@ -14,7 +14,7 @@ let indiceRowSubtipo=false;
  * ***************************************************************************************/
 function consultaTipoPrueba(id_prueba){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarTipoPrueba.php?id_prueba=' + id_prueba, function (response) {
-        let tipoPrueba = data.id_tipoPrueba;
+        let tipoPrueba = response.id_tipoPrueba;
         let dao = "";
         if(tipoPrueba === '5'){
             dao = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPruebaMunsell.php?id_prueba="+ id_prueba;
