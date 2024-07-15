@@ -103,6 +103,7 @@ $queryDatosMunsell = "SELECT   prueba.id_prueba,
 $queryDatosPrueba = "SELECT   prueba.id_prueba, 
                                 prueba.fechaSolicitud, 
                                 prueba.fechaRespuesta, 
+                                prueba.fechaCompromiso,
                                 prueba.descripcionEstatus,
                                 prueba.descripcionPrioridad,
                                 prueba.descripcionPrueba, 
@@ -136,6 +137,7 @@ $queryDatosPrueba = "SELECT   prueba.id_prueba,
                                         id_prueba, 
                                         fechaSolicitud, 
                                         fechaRespuesta,
+                                        fechaCompromiso,
                                         descripcionEstatus,
                                         descripcionPrioridad,
                                         s.id_tipoPrueba,
@@ -359,8 +361,8 @@ $conex->close();
                     <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTablePDF">
                         <tbody>
                         <tr>
-                            <th class="">Fecha de Respuesta:</th>
-                            <td id=""><?php echo $resultados[0]['fechaRespuesta'];?></td>
+                            <th class="">Fecha de Compromiso:</th>
+                            <td id=""><?php echo $resultados[0]['fechaCompromiso'];?></td>
                             <th class="">Metrólogo:</th>
                             <td id=""><?php echo $resultados[0]['nombreMetro'];?> </td>
                         </tr>
@@ -371,12 +373,14 @@ $conex->close();
                             <td id=""> <?php echo $resultados[0]['descripcionPrioridad'];?></td>
                         </tr>
                         <tr>
-                            <th class="">Observaciones:</th>
-                            <td id="" colspan="3"><?php echo $resultados[0]['especificacionesLab'];?></td>
-                        </tr>
-                        <tr>
                             <th class="">Resultados:</th>
                             <td id=""  colspan="3"><?php echo $resultados[0]['resultados'];?></td>
+                            <th class="">Fecha de Respuesta:</th>
+                            <td id=""><?php echo $resultados[0]['fechaRespuesta'];?></td>
+                        </tr>
+                        <tr>
+                            <th class="">Observaciones:</th>
+                            <td id="" colspan="3"><?php echo $resultados[0]['especificacionesLab'];?></td>
                         </tr>
                         </tbody>
                     </table>
