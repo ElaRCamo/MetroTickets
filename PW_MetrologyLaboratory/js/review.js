@@ -498,6 +498,7 @@ function capturarResultados(estatusPruebaAdmin){
             resultados = enlaceResultados.href;
         }
     }
+    alert("resultados: "+resultados);
     return resultados;
 }
 
