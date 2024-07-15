@@ -27,8 +27,10 @@ function consultaTipoPrueba(id_prueba){
 function resumenPrueba(dao){
 
     $.getJSON(dao, function (response) {
+        alert("dao: "+dao);
         //codigo para actualizar campos
         var data = response.data[0]; // primer objeto dentro de 'data'
+        alert("data: "+data);
         $('#numeroPruebaR').text(data.id_prueba);
         $('#fechaSolicitudR').text(data.fechaSolicitud);
         $('#tipoPruebaSolicitudR').text(data.descripcionPrueba);
