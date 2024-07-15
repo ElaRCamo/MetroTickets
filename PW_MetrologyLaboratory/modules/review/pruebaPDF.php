@@ -356,6 +356,7 @@ $conex->close();
                         </tbody>
                     </table>
                 </div>
+            <?php endif; ?>
                 <div id="" class="table-responsive">
                     <h5 id="titleTablaPDF">RESULTADOS</h5>
                     <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTablePDF">
@@ -385,7 +386,6 @@ $conex->close();
                         </tbody>
                     </table>
                 </div>
-            <?php endif; ?>
             <!--div  id="divUpdate">
                 <span >Ultima actualización: <span class="" id="fechaUpdateR"><php echo $resultados[0]['fechaActualizacion'];?></span></span>
             </div> -->
