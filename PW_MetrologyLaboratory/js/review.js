@@ -40,7 +40,6 @@ function resumenPrueba(dao){
         // SUBTIPO
         if(tipoPrueba === '3') { // DIMENSIONAL
             rowSubtipo();
-
             $('#subtipoR').text(data.descripcion);
 
             if (data.id_subtipo === '2') { // Cotas especificas

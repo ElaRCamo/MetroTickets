@@ -55,8 +55,7 @@
 </head>
 <body >
 <?php
-    # Header section
-    require_once('../../header.php');
+
 
     # Content section
     require_once('contentReview.php');
@@ -102,7 +101,6 @@
         <?php if ($tipoUser== 3){ ?>
             //Solo se puede actualizar si esta en espera de aprobación o en estatus rechazado
             window.location.href = "../newRequest/newRequestIndex.php?id_update="+ id_review;
-
         <?php
         } else if($tipoUser== 1 || $tipoUser== 2){?>
             //Se cargan los valores que ya se definieron
