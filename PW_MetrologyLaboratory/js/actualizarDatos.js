@@ -71,36 +71,6 @@ function actualizarPassword(){
     }
 }
 
-
-function capturarResultados(estatusPruebaAdmin){
-
-    var divInputsResultados = id("divCambiarResultados");
-    const rutaRadio = document.getElementById('rutaRadio');
-    const archivoRadio = document.getElementById('archivoRadio');
-    const enlaceResultados = document.getElementById('resultadosGuardados');
-    var resultados = "Sin resultados";
-
-    //Validar estatus de la prueba
-    if (estatusPruebaAdmin.value === '4' && divInputsResultados !== null && divInputsResultados.offsetParent !== null ){ //Estatus completado(hay resultados)
-        const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
-        const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
-        if (rutaRadio.checked && resultadosAdminRuta !== null && resultadosAdminRuta.value !== '') {
-            resultados = resultadosAdminRuta.value.trim();
-        }else if (archivoRadio.checked && resultadosAdminArchivo !== null && resultadosAdminArchivo.value !== '') {
-            resultados = resultadosAdminArchivo.files[0];
-        }
-    }else if(enlaceResultados !== null) {
-        if (rutaRadio.checked) {
-            resultados = enlaceResultados.textContent;
-        }else if(archivoRadio.checked) {
-            resultados = enlaceResultados.href;
-        }
-    }
-    return resultados;
-}
-
-
-
 function editarCliente(id_cliente){
 
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnCliente.php?id_cliente=' + id_cliente, function (data) {

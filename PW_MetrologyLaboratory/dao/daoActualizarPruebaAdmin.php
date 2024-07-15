@@ -23,6 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verificar si resultados es un string o un archivo
         $resultados = '';
+        $fechaResultados = '0000-00-00';
         // 'resultadosAdmin' está en $_POST
         if (isset($_POST['resultadosAdmin'])) {
             $resultados = $_POST['resultadosAdmin'];
@@ -34,6 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $input_name = "resultadosAdmin";
             // Si es un archivo, obtenemos el nombre del archivo
             $resultados = subirArchivo($target_dir, $id_prueba, $input_name);
+            $fechaResultados = date('Y-m-d:H:i:s');
         }
 
         $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin,$fechaResultados);

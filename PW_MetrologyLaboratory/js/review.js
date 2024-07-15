@@ -8,6 +8,7 @@ let solicitantePrueba;
 let emailSolicitante;
 let indiceRowNorma=false; //Para que la fila se genere una sola vez
 let indiceRowSubtipo=false;
+let indiceTabla=false;
 
 /*****************************************************************************************
  * ****************************FUNCIONES PARA CARGAR DATOS *******************************
@@ -181,31 +182,36 @@ function resumenPrueba(dao){
 
 function tablaPiezasyPersonal(titulo, headers) {
 
-    // Crear el título
-    var h5 = id("materialRTittle");
-    h5.textContent = titulo;
+    if(!indiceTabla){
 
-    // Crear la tabla
-    var table = id("materialesResumen");
+        // Crear el título
+        var h5 = id("materialRTittle");
+        h5.textContent = titulo;
 
-    // Crear el encabezado de la tabla
-    var thead = document.createElement('thead');
-    var tr = document.createElement('tr');
+        // Crear la tabla
+        var table = id("materialesResumen");
 
-    headers.forEach(function(header) {
-        var th = document.createElement('th');
-        th.textContent = header;
-        tr.appendChild(th);
-    });
+        // Crear el encabezado de la tabla
+        var thead = document.createElement('thead');
+        var tr = document.createElement('tr');
 
-    thead.appendChild(tr);
+        headers.forEach(function(header) {
+            var th = document.createElement('th');
+            th.textContent = header;
+            tr.appendChild(th);
+        });
 
-    // Crear el cuerpo de la tabla
-    var tbody = document.createElement('tbody');
+        thead.appendChild(tr);
 
-    // Añadir el encabezado y el cuerpo a la tabla
-    table.appendChild(thead);
-    table.appendChild(tbody);
+        // Crear el cuerpo de la tabla
+        var tbody = document.createElement('tbody');
+
+        // Añadir el encabezado y el cuerpo a la tabla
+        table.appendChild(thead);
+        table.appendChild(tbody);
+
+        indiceTabla = true;
+    }
 }
 
 function rowSubtipo(){
@@ -475,6 +481,33 @@ function  updatePruebaAdmin(id_review, id_user){
         }
     });
 }
+
+function capturarResultados(estatusPruebaAdmin){
+    var divInputsResultados = id("divCambiarResultados");
+    const rutaRadio = document.getElementById('rutaRadio');
+    const archivoRadio = document.getElementById('archivoRadio');
+    const enlaceResultados = document.getElementById('resultadosGuardados');
+    var resultados = "Sin resultados";
+
+    //Validar estatus de la prueba
+    if (estatusPruebaAdmin.value === '4' && divInputsResultados !== null && divInputsResultados.offsetParent !== null ){ //Estatus completado(hay resultados)
+        const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
+        const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
+        if (rutaRadio.checked && resultadosAdminRuta !== null && resultadosAdminRuta.value !== '') {
+            resultados = resultadosAdminRuta.value.trim();
+        }else if (archivoRadio.checked && resultadosAdminArchivo !== null && resultadosAdminArchivo.value !== '') {
+            resultados = resultadosAdminArchivo.files[0];
+        }
+    }else if(enlaceResultados !== null) {
+        if (rutaRadio.checked) {
+            resultados = enlaceResultados.textContent;
+        }else if(archivoRadio.checked) {
+            resultados = enlaceResultados.href;
+        }
+    }
+    return resultados;
+}
+
 function actualizarTitulo() {
     var titulo5 = document.querySelector("#modalResultados h5");
     if (titulo5) {
