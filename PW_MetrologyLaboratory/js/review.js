@@ -418,7 +418,7 @@ function  updatePruebaAdmin(id_review, id_user){
     if(estatusPruebaAdmin.value==='2'){
         data.append('fechaCompromiso', fechaCompromiso.value.trim());
     }
-    alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados+", fechaUpdate "+ fechaFormateada);
+    alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados);
 
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
