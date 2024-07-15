@@ -14,6 +14,7 @@ $actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $url_parts = parse_url($actual_link);// Obtener las partes de la URL
 parse_str($url_parts['query'], $query_params);// Obtener los parámetros de consulta
 $id_prueba = $query_params['id_prueba'];// Extraer el ID de la prueba
+
 ob_start();
 ?>
 
@@ -36,70 +37,11 @@ ob_start();
 $date = date('d-m-Y');
 $css=file_get_contents("../../css/pdf.css");
 include_once('../../dao/connection.php');
-
-// Crear una nueva instancia de la conexión
 $con = new LocalConector();
 $conex = $con->conectar();
 
-$queryTipoPrueba = "SELECT id_tipoPrueba FROM Pruebas WHERE id_prueba = '$id_prueba'";
-// Ejecutar la consulta
-$resultado = $conex->query($queryTipoPrueba);
-    // Obtener la fila del resultado
-    $fila = $resultado->fetch_assoc();
-    // Asignar el id_tipoPrueba a una variable
-    $id_tipoPrueba = $fila['id_tipoPrueba'];
-
-
-$queryDatosMunsell = "SELECT   prueba.id_prueba, 
-                                                    prueba.fechaSolicitud, 
-                                                    prueba.fechaRespuesta, 
-                                                    prueba.fechaCompromiso,
-                                                    prueba.descripcionEstatus,
-                                                    prueba.descripcionPrioridad,
-                                                    prueba.descripcionPrueba, 
-                                                    prueba.id_tipoPrueba,
-                                                    prueba.especificaciones,
-                                                    prueba.especificacionesLab,
-                                                    prueba.resultados,
-                                                    prueba.id_metrologo, 
-                                                    prueba.nombreMetro,  
-                                                    prueba.id_solicitante, 
-                                                    prueba.nombreSolic,
-                                                    pm.nomina,
-                                                    pm.nombre,
-                                                    pm.area
-                                                FROM   
-                                                    PersonalMunsell pm
-                                                    JOIN (
-                                                        SELECT 
-                                                            id_prueba, 
-                                                            fechaSolicitud, 
-                                                            fechaRespuesta,
-                                                            fechaCompromiso,
-                                                            descripcionEstatus,
-                                                            descripcionPrioridad,
-                                                            s.id_tipoPrueba, 
-                                                            descripcionPrueba,
-                                                            especificaciones,
-                                                            especificacionesLab,
-                                                            resultados,
-                                                            s.id_metrologo, 
-                                                            u_metro.nombreUsuario AS nombreMetro,
-                                                            s.id_solicitante, 
-                                                            u_solic.nombreUsuario AS nombreSolic
-                                                        FROM 
-                                                            Pruebas s
-                                                            LEFT JOIN Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
-                                                            LEFT JOIN Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
-                                                            LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
-                                                            LEFT JOIN SubtipoPrueba sp ON s.id_subtipo = sp.id_subtipo
-                                                            LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
-                                                            LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
-                                                        WHERE 
-                                                            id_prueba = '$id_prueba'
-                                                    ) AS prueba ON pm.id_prueba = prueba.id_prueba;";
-
-$queryDatosPrueba = "SELECT   prueba.id_prueba, 
+$datosPrueba =  mysqli_query($conex,
+                                "SELECT   prueba.id_prueba, 
                                                     prueba.fechaSolicitud, 
                                                     prueba.fechaRespuesta, 
                                                     prueba.descripcionEstatus,
@@ -161,18 +103,10 @@ $queryDatosPrueba = "SELECT   prueba.id_prueba,
                                                             LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
                                                         WHERE 
                                                             id_prueba = '$id_prueba'
-                                                    ) AS prueba ON m.id_prueba = prueba.id_prueba;";
-
-if($id_tipoPrueba === '5'){
-    $queryEjecutar = $queryDatosMunsell;
-}else{
-    $queryEjecutar = $queryDatosPrueba;
-}
-$datosPrueba =  mysqli_query($conex, $queryEjecutar);
+                                                    ) AS prueba ON m.id_prueba = prueba.id_prueba;");
 
 $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
-// Cerrar la conexión
-$conex->close();
+
 ?>
 <main>
     <div class="page-header row headerLogo">
@@ -216,12 +150,11 @@ $conex->close();
                     <!-- Mostrar imagen cotas para tipo DIMENSIONAL -->
                     <?php
                     $tipoPrueba = $resultados[0]['id_tipoPrueba'];
+                    $subtipoPrueba = $resultados[0]['id_subtipo'];
+                    $descSubtipo = $resultados[0]['descripcion'];
+                    $imagen = $resultados[0]['imagenCotas'];
 
-
-                    if ($tipoPrueba === '3'):// dimensional
-                        $subtipoPrueba = $resultados[0]['id_subtipo'];
-                        $descSubtipo = $resultados[0]['descripcion'];
-                        $imagen = $resultados[0]['imagenCotas']; ?>
+                    if ($tipoPrueba === '3'): // dimensional ?>
                         <tr>
                             <th class="">Subtipo: </th>
                             <td><?php echo $descSubtipo; ?></td>
@@ -268,27 +201,30 @@ $conex->close();
                     </tbody>
                 </table>
             </div>
-
-            <!-- Mostrar tabla para Munsell -->
-            <?php
-            if ($tipoPrueba === '5'):
-            ?>
             <div id="" class="table-responsive">
                 <h5 id="materialPDF">PIEZAS PARA MEDICIÓN</h5>
                 <table class="table table-striped" id="materialesResumenPDF">
                     <thead>
                     <tr>
-                        <th>No. Nómina</th>
-                        <th>Nombre</th>
-                        <th>Área</th>
+                        <th>No. de Parte</th>
+                        <th>Cantidad</th>
+                        <th>Cliente</th>
+                        <th>Plataforma</th>
+                        <th>Revisión de Dibujo</th>
+                        <th>Modelo Matemático</th>
+                        <th>Estatus</th>
                     </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($resultados as $resultado){?>
                         <tr>
-                            <td><?php echo $resultado['nomina'];?> </td>
-                            <td><?php echo $resultado['nombre'];?></td>
-                            <td><?php echo $resultado['area'];?></td>
+                            <td><?php echo $resultado['numParte'];?> </td>
+                            <td><?php echo $resultado['cantidad'];?></td>
+                            <td><?php echo $resultado['descripcionCliente'];?></td>
+                            <td><?php echo $resultado['descripcionPlataforma'];?></td>
+                            <td><?php echo $resultado['revisionDibujo'];?></td>
+                            <td><?php echo $resultado['modMatematico'];?></td>
+                            <td><?php echo $resultado['estatusMaterial'];?></td>
                         </tr>
                         <?php }?>
                     </tbody>
@@ -321,66 +257,6 @@ $conex->close();
                     </tbody>
                 </table>
             </div>
-            <?php  //Otro tipo de prueba
-            else:
-                ?>
-                <div id="" class="table-responsive">
-                    <h5 id="materialPDF">PIEZAS PARA MEDICIÓN</h5>
-                    <table class="table table-striped" id="materialesResumenPDF">
-                        <thead>
-                        <tr>
-                            <th>No. de Parte</th>
-                            <th>Cantidad</th>
-                            <th>Cliente</th>
-                            <th>Plataforma</th>
-                            <th>Revisión de Dibujo</th>
-                            <th>Modelo Matemático</th>
-                            <th>Estatus</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php foreach ($resultados as $resultado){?>
-                            <tr>
-                                <td><?php echo $resultado['numParte'];?> </td>
-                                <td><?php echo $resultado['cantidad'];?></td>
-                                <td><?php echo $resultado['descripcionCliente'];?></td>
-                                <td><?php echo $resultado['descripcionPlataforma'];?></td>
-                                <td><?php echo $resultado['revisionDibujo'];?></td>
-                                <td><?php echo $resultado['modMatematico'];?></td>
-                                <td><?php echo $resultado['estatusMaterial'];?></td>
-                            </tr>
-                        <?php }?>
-                        </tbody>
-                    </table>
-                </div>
-                <div id="" class="table-responsive">
-                    <h5 id="titleTablaPDF">RESULTADOS</h5>
-                    <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTablePDF">
-                        <tbody>
-                        <tr>
-                            <th class="">Fecha de Respuesta:</th>
-                            <td id=""><?php echo $resultados[0]['fechaRespuesta'];?></td>
-                            <th class="">Metrólogo:</th>
-                            <td id=""><?php echo $resultados[0]['nombreMetro'];?> </td>
-                        </tr>
-                        <tr>
-                            <th class="">Estatus: </th>
-                            <td id="" ><?php echo $resultados[0]['descripcionEstatus'];?></td>
-                            <th class="">Prioridad:</th>
-                            <td id=""> <?php echo $resultados[0]['descripcionPrioridad'];?></td>
-                        </tr>
-                        <tr>
-                            <th class="">Observaciones:</th>
-                            <td id="" colspan="3"><?php echo $resultados[0]['especificacionesLab'];?></td>
-                        </tr>
-                        <tr>
-                            <th class="">Resultados:</th>
-                            <td id=""  colspan="3"><?php echo $resultados[0]['resultados'];?></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            <?php endif; ?>
             <!--div  id="divUpdate">
                 <span >Ultima actualización: <span class="" id="fechaUpdateR"><php echo $resultados[0]['fechaActualizacion'];?></span></span>
             </div> -->
