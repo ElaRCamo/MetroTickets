@@ -297,35 +297,6 @@ $conex->close();
                     </tbody>
                 </table>
             </div>
-            <div id="" class="table-responsive">
-                <h5 id="titleTablaPDF">RESULTADOS</h5>
-                <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTablePDF">
-                    <tbody>
-                        <tr>
-                            <th class="">Fecha de Compromiso:</th>
-                            <td id=""><?php echo $resultados[0]['fechaCompromiso'];?></td>
-                            <th class="">Metrólogo:</th>
-                            <td id=""><?php echo $resultados[0]['nombreMetro'];?> </td>
-                        </tr>
-                        <tr>
-                            <th class="">Estatus: </th>
-                            <td id="" ><?php echo $resultados[0]['descripcionEstatus'];?></td>
-                            <th class="">Prioridad:</th>
-                            <td id=""> <?php echo $resultados[0]['descripcionPrioridad'];?></td>
-                        </tr>
-                        <tr>
-                            <th class="">Resultados:</th>
-                            <td id=""  colspan="3"><?php echo $resultados[0]['resultados'];?></td>
-                            <th class="">Fecha de Respuesta:</th>
-                            <td id=""><?php echo $resultados[0]['fechaRespuesta'];?></td>
-                        </tr>
-                        <tr>
-                            <th class="">Observaciones:</th>
-                            <td id="" colspan="3"><?php echo $resultados[0]['especificacionesLab'];?></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
             <?php  //Otro tipo de prueba
             else:
                 ?>
@@ -358,6 +329,7 @@ $conex->close();
                         </tbody>
                     </table>
                 </div>
+            <?php endif; ?>
                 <div id="" class="table-responsive">
                     <h5 id="titleTablaPDF">RESULTADOS</h5>
                     <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTablePDF">
@@ -387,7 +359,6 @@ $conex->close();
                         </tbody>
                     </table>
                 </div>
-            <?php endif; ?>
             <!--div  id="divUpdate">
                 <span >Ultima actualización: <span class="" id="fechaUpdateR"><php echo $resultados[0]['fechaActualizacion'];?></span></span>
             </div> -->
