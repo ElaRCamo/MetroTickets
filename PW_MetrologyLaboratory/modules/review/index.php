@@ -80,7 +80,7 @@
 
         // Llamar a la función resumenPrueba con el id_prueba obtenido
         if (id_review) {
-            resumenPrueba(id_review);
+            consultaTipoPrueba(id_review);
              var titulo = document.querySelector("h1");
             if (titulo) {
                 titulo.textContent = "Resumen de Solicitud " + id_review;

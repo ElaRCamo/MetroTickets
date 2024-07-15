@@ -12,16 +12,21 @@ let indiceRowSubtipo=false;
 /*****************************************************************************************
  * ****************************FUNCIONES PARA CARGAR DATOS *******************************
  * ***************************************************************************************/
-function consultarDatos(id_prueba){
+function consultaTipoPrueba(id_prueba){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarTipoPrueba.php?id_prueba=' + id_prueba, function (response) {
         let tipoPrueba = data.id_tipoPrueba;
-
-        resumenPrueba(id_prueba, tipoPrueba);
+        let dao = "";
+        if(tipoPrueba === '5'){
+            dao = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPruebaMunsell.php?id_prueba="+ id_prueba;
+        }else{
+            dao = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba="+ id_prueba;
+        }
+        resumenPrueba(id_prueba, dao);
     });
 }
-function resumenPrueba(ID_PRUEBA){
+function resumenPrueba(dao){
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba=' + ID_PRUEBA, function (response) {
+    $.getJSON(dao, function (response) {
         //codigo para actualizar campos
         var data = response.data[0]; // primer objeto dentro de 'data'
         $('#numeroPruebaR').text(data.id_prueba);
@@ -454,7 +459,7 @@ function  updatePruebaAdmin(id_review, id_user){
                 method: 'POST',
                 body: data
             }).then(res => {
-                resumenPrueba(id_review);
+                consultaTipoPrueba(id_review);
                 if(!res.ok){
                     console.log('Problem');
                     return;
