@@ -40,23 +40,6 @@
                     </tbody>
                 </table>
             </div>
-            <div id="divTableResume" class="table-responsive">
-                <h5 id="materialRTittle">PIEZAS PARA MEDICIÓN</h5>
-                <table class="table table-striped" id="materialesResumen">
-                    <thead>
-                    <tr>
-                        <th>No. de Parte</th>
-                        <th>Cantidad</th>
-                        <th>Cliente</th>
-                        <th>Plataforma</th>
-                        <th>Revisión de Dibujo</th>
-                        <th>Modelo Matemático</th>
-                        <th>Estatus</th>
-                    </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
             <div id="divTablePrueba" class="table-responsive">
                 <h5 id="titleTablaP">RESULTADOS</h5>
                 <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTable">

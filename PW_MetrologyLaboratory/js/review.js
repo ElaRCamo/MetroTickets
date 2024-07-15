@@ -101,6 +101,8 @@ function resumenPrueba(ID_PRUEBA){
         // Limpiar contenido previo de la tabla
         tbody.innerHTML = '';
 
+        tablaPiezas();
+
         // Iterar sobre los materiales y crear filas y celdas de tabla
         for (var j = 0; j < response.data.length; j++) {
             var fila = document.createElement("tr");
@@ -138,6 +140,50 @@ function resumenPrueba(ID_PRUEBA){
     }).then(function (){
         updateLinkActualizar(id_estatusSol,estatusSol);
     });
+}
+
+function tablaPiezas() {
+    // Crear el contenedor principal
+    var divTableResume = document.createElement('div');
+    divTableResume.id = 'divTableResume';
+    divTableResume.className = 'table-responsive';
+
+    // Crear el título
+    var h5 = document.createElement('h5');
+    h5.id = 'materialRTittle';
+    h5.textContent = 'PIEZAS PARA MEDICIÓN';
+
+    // Crear la tabla
+    var table = document.createElement('table');
+    table.className = 'table table-striped';
+    table.id = 'materialesResumen';
+
+    // Crear el encabezado de la tabla
+    var thead = document.createElement('thead');
+    var tr = document.createElement('tr');
+
+    var headers = ['No. de Parte', 'Cantidad', 'Cliente', 'Plataforma', 'Revisión de Dibujo', 'Modelo Matemático', 'Estatus'];
+    headers.forEach(function(header) {
+        var th = document.createElement('th');
+        th.textContent = header;
+        tr.appendChild(th);
+    });
+
+    thead.appendChild(tr);
+
+    // Crear el cuerpo de la tabla
+    var tbody = document.createElement('tbody');
+
+    // Añadir el encabezado y el cuerpo a la tabla
+    table.appendChild(thead);
+    table.appendChild(tbody);
+
+    // Añadir el título y la tabla al contenedor principal
+    divTableResume.appendChild(h5);
+    divTableResume.appendChild(table);
+
+    // Añadir el contenedor principal al body o a cualquier otro contenedor deseado
+    document.body.appendChild(divTableResume);
 }
 
 function rowSubtipo(){
