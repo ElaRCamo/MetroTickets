@@ -101,7 +101,9 @@ function resumenPrueba(ID_PRUEBA){
         // Limpiar contenido previo de la tabla
         tbody.innerHTML = '';
 
-        tablaPiezas();
+        let titulo = 'PIEZAS PARA MEDICIÓN';
+        let headers = ['No. de Parte', 'Cantidad', 'Cliente', 'Plataforma', 'Revisión de Dibujo', 'Modelo Matemático', 'Estatus'];
+        tablaPiezasyPersonal(titulo, headers);
 
         // Iterar sobre los materiales y crear filas y celdas de tabla
         for (var j = 0; j < response.data.length; j++) {
@@ -142,7 +144,7 @@ function resumenPrueba(ID_PRUEBA){
     });
 }
 
-function tablaPiezas() {
+function tablaPiezasyPersonal(titulo, headers) {
     // Crear el contenedor principal
     var divTableResume = document.createElement('div');
     divTableResume.id = 'divTableResume';
@@ -151,7 +153,7 @@ function tablaPiezas() {
     // Crear el título
     var h5 = document.createElement('h5');
     h5.id = 'materialRTittle';
-    h5.textContent = 'PIEZAS PARA MEDICIÓN';
+    h5.textContent = titulo;
 
     // Crear la tabla
     var table = document.createElement('table');
@@ -162,7 +164,6 @@ function tablaPiezas() {
     var thead = document.createElement('thead');
     var tr = document.createElement('tr');
 
-    var headers = ['No. de Parte', 'Cantidad', 'Cliente', 'Plataforma', 'Revisión de Dibujo', 'Modelo Matemático', 'Estatus'];
     headers.forEach(function(header) {
         var th = document.createElement('th');
         th.textContent = header;
@@ -185,6 +186,7 @@ function tablaPiezas() {
     // Añadir el contenedor principal al body o a cualquier otro contenedor deseado
     document.body.appendChild(divTableResume);
 }
+
 
 function rowSubtipo(){
 
