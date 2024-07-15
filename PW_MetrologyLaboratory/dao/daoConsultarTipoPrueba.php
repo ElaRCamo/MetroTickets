@@ -15,5 +15,7 @@ function consultarTipoPrueba($id_prueba)
 
     $conex -> close();
 
+    echo "tipo de prueba".$fila['id_tipoPrueba'];
+
     return $fila['id_tipoPrueba'];
 }
