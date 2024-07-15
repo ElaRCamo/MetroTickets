@@ -121,15 +121,15 @@ function resumenPrueba(dao){
                 var fila = document.createElement("tr");
 
                 var numNomina = document.createElement("td");
-                numNomina.textContent = response.data[j].numParte;
+                numNomina.textContent = response.data[j].nomina;
                 fila.appendChild(numNomina);
 
                 var nombre = document.createElement("td");
-                nombre.textContent = response.data[j].cantidad;
+                nombre.textContent = response.data[j].nombre;
                 fila.appendChild(nombre);
 
                 var area = document.createElement("td");
-                area.textContent = response.data[j].descripcionCliente;
+                area.textContent = response.data[j].area;
                 fila.appendChild(area);
 
                 tbody.appendChild(fila);
