@@ -57,7 +57,6 @@
 <?php
     # Header section
     require_once('../../header.php');
-    require_once('../../navbar.php');
 
     # Content section
     require_once('contentReview.php');
@@ -70,7 +69,6 @@
     let id_review;
     let id_user = <?php echo json_encode($_SESSION['nomina']); ?>;
     let tipoUser = <?php echo json_encode($_SESSION['tipoUsuario']); ?>;
-
 
     document.addEventListener("DOMContentLoaded", function() {
         // Obtener el valor de id_prueba de la URL
@@ -85,7 +83,6 @@
             if (titulo) {
                 titulo.textContent = "Resumen de Solicitud " + id_review;
             }
-
         }
     });
     // Event listener for modal shown event
