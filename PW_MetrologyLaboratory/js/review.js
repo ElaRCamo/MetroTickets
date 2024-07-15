@@ -106,16 +106,16 @@ function resumenPrueba(dao){
 
         //console.log("resumenPrueba: id_estatusSol"+id_estatusSol, "estatusSol "+estatusSol);
 
-        var tabla = document.getElementById("materialesResumen");
-        var tbody = tabla.getElementsByTagName("tbody")[0];
-
-        // Limpiar contenido previo de la tabla
-        tbody.innerHTML = '';
-
         if(tipoPrueba === '5'){
             let titulo = 'PERSONAL';
             let headers = ['No. de Nómina', 'Nombre', 'Área'];
             tablaPiezasyPersonal(titulo, headers);
+            var tabla = document.getElementById("materialesResumen");
+            var tbody = tabla.getElementsByTagName("tbody")[0];
+
+            // Limpiar contenido previo de la tabla
+            tbody.innerHTML = '';
+
 
             for (var j = 0; j < response.data.length; j++) {
                 var fila = document.createElement("tr");
@@ -138,6 +138,12 @@ function resumenPrueba(dao){
             let titulo = 'PIEZAS PARA MEDICIÓN';
             let headers = ['No. de Parte', 'Cantidad', 'Cliente', 'Plataforma', 'Revisión de Dibujo', 'Modelo Matemático', 'Estatus'];
             tablaPiezasyPersonal(titulo, headers);
+            var tabla = document.getElementById("materialesResumen");
+            var tbody = tabla.getElementsByTagName("tbody")[0];
+
+            // Limpiar contenido previo de la tabla
+            tbody.innerHTML = '';
+
 
             // Iterar sobre los materiales y crear filas y celdas de tabla
             for (var j = 0; j < response.data.length; j++) {
