@@ -216,11 +216,12 @@ $conex->close();
                     <!-- Mostrar imagen cotas para tipo DIMENSIONAL -->
                     <?php
                     $tipoPrueba = $resultados[0]['id_tipoPrueba'];
-                    $subtipoPrueba = $resultados[0]['id_subtipo'];
-                    $descSubtipo = $resultados[0]['descripcion'];
-                    $imagen = $resultados[0]['imagenCotas'];
 
-                    if ($tipoPrueba === '3'): // dimensional ?>
+
+                    if ($tipoPrueba === '3'):// dimensional
+                        $subtipoPrueba = $resultados[0]['id_subtipo'];
+                        $descSubtipo = $resultados[0]['descripcion'];
+                        $imagen = $resultados[0]['imagenCotas']; ?>
                         <tr>
                             <th class="">Subtipo: </th>
                             <td><?php echo $descSubtipo; ?></td>
