@@ -72,7 +72,6 @@ function resumenPrueba(dao){
                 id("archivoNormaR").textContent = normaArchivo;
                 id("archivoNormaR").style.pointerEvents = "none"; // Deshabilitar el clic en el enlace
             }
-
         }
 
         $('#observacionesSolR').text(data.especificaciones);
