@@ -74,7 +74,6 @@
     document.addEventListener("DOMContentLoaded", function() {
         // Obtener el valor de id_prueba de la URL
         var urlParams = new URLSearchParams(window.location.search);
-
         id_review = urlParams.get('id_prueba');
 
         // Llamar a la función resumenPrueba con el id_prueba obtenido
@@ -90,7 +89,6 @@
     document.addEventListener('DOMContentLoaded', function() {
         $('#modalResultados').on('shown.bs.modal', function () {
             const selectEstatus = document.getElementById('estatusPruebaAdmin');
-
             // Initial call to cambiarResultado to set initial state
             cambiarResultado();
 

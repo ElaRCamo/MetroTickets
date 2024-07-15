@@ -111,7 +111,7 @@ function resumenPrueba(dao){
         // Limpiar contenido previo de la tabla
         tbody.innerHTML = '';
 
-        if(tipoPrueba === '5'){
+        if(tipoPrueba === '5'){//MUNSELL
             let titulo = 'PERSONAL';
             let headers = ['No. de Nómina', 'Nombre', 'Área'];
             tablaPiezasyPersonal(titulo, headers);
@@ -173,16 +173,13 @@ function resumenPrueba(dao){
                 tbody.appendChild(fila);
             }
         }
-
     }).then(function (){
         updateLinkActualizar(id_estatusSol,estatusSol);
     });
 }
 
 function tablaPiezasyPersonal(titulo, headers) {
-
     if(!indiceTabla){
-
         // Crear el título
         var h5 = id("materialRTittle");
         h5.textContent = titulo;
@@ -199,7 +196,6 @@ function tablaPiezasyPersonal(titulo, headers) {
             th.textContent = header;
             tr.appendChild(th);
         });
-
         thead.appendChild(tr);
 
         // Crear el cuerpo de la tabla
@@ -254,7 +250,6 @@ function rowSubtipo(){
         } else {
             tbody.appendChild(fila);
         }
-
         indiceRowSubtipo = true;
     }
 }
@@ -405,7 +400,6 @@ function llenarResultados(){
 }
 
 function  updatePruebaAdmin(id_review, id_user){
-
     var estatusPruebaAdmin = id("estatusPruebaAdmin");
     var prioridadPruebaAdmin = id("prioridadPruebaAdmin");
     var metrologoAdmin = id("metrologoAdmin");
