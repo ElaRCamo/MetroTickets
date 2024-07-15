@@ -14,12 +14,12 @@ function consultarTipoPrueba($id_prueba)
     // Ejecutar la consulta
     $resultado = $conex->query($queryTipoPrueba);
     // Obtener la fila del resultado
-    $fila = $resultado->fetch_assoc();
+    //$fila = $resultado->fetch_assoc();
 
     $conex -> close();
 
     //return $fila['id_tipoPrueba'];
 
-    $resultado = mysqli_fetch_all($fila, MYSQLI_ASSOC);
+    $resultado = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
 }
