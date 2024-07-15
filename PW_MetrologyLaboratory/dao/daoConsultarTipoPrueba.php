@@ -1,6 +1,5 @@
 <?php
 include_once('connection.php');
-consultarTipoPrueba("2024-0170");
 function consultarTipoPrueba($id_prueba)
 {
     // Crear una nueva instancia de la conexión
@@ -14,8 +13,6 @@ function consultarTipoPrueba($id_prueba)
     $fila = $resultado->fetch_assoc();
 
     $conex -> close();
-
-    echo "tipo de prueba".$fila['id_tipoPrueba'];
 
     return $fila['id_tipoPrueba'];
 }
