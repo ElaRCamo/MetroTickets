@@ -40,19 +40,6 @@
                     </tbody>
                 </table>
             </div>
-            <div id="divTableResume" class="table-responsive">
-                <h5 id="materialRTittle">PERSONAL</h5>
-                <table class="table table-striped" id="materialesResumen">
-                    <thead>
-                    <tr>
-                        <th>No. de Nómina</th>
-                        <th>Nombre</th>
-                        <th>Área</th>
-                    </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
             <div id="divTablePrueba" class="table-responsive">
                 <h5 id="titleTablaP">RESULTADOS</h5>
                 <table class="table table-bordered table-hover table-sm table-responsive" id="resultadosTable">
