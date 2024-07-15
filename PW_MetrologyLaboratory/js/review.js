@@ -21,7 +21,7 @@ function consultaTipoPrueba(id_prueba){
         }else{
             dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba='+ id_prueba;
         }
-        resumenPrueba(id_prueba, dao);
+        resumenPrueba(dao);
     });
 }
 function resumenPrueba(dao){
