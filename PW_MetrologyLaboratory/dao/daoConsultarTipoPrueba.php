@@ -10,12 +10,8 @@ function consultarTipoPrueba($id_prueba)
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    $queryTipoPrueba = "SELECT id_tipoPrueba FROM Pruebas WHERE id_prueba = '$id_prueba'";
-    // Ejecutar la consulta
-    $resultado = $conex->query($queryTipoPrueba);
+    $datos = mysqli_query($conex, "SELECT id_tipoPrueba FROM Pruebas WHERE id_prueba = '$id_prueba'");
 
-    $conex -> close();
-
-    $resultado = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+    $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
 }
