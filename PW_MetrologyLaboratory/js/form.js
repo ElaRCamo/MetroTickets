@@ -1022,9 +1022,9 @@ function cargarDatosPruebaMunsell(id_prueba){
 
             var areaM = id("area" + indexPersonal);
             areaM.value = response.data[i].area;*/
-            var nominaM = id("nomina" + i);
-            var nombreM = id("nombre" + i);
-            var areaM = id("area" + i);
+            var nominaM = id("nomina" + indexPersonal);
+            var nombreM = id("nombre" + indexPersonal);
+            var areaM = id("area" + indexPersonal);
 
             if (nominaM && nombreM && areaM) {
                 nominaM.value = response.data[i].nomina;
