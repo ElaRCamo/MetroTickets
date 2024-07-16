@@ -58,6 +58,7 @@
         let emailUsuario = <?php echo json_encode($_SESSION['emailUsuario']); ?>;
         let solicitante = <?php echo json_encode($_SESSION['nombreUsuario']); ?>;
         let  esActualizacion = false;
+
         // ¿Se va actualizar una solicitud?
         const id_update = new URLSearchParams(window.location.search).get('id_update');
         function esActualizacionPrueba(){
@@ -87,29 +88,12 @@
                 e.preventDefault();
                 var id = $(this).attr("id");
                 $('#newPerRow' + id).remove();
-            });
-           /* $(document).on('click', '[id^="addPersonal"]', function(e) {
-                e.preventDefault();
-                agregarPersonal();
-            });
-
-
-            function removerPersonal(e) {
-            e.preventDefault();
-            var id = $(this).attr("id");
-            $('#newPerRow' + id).remove();
-            }
-            */
         });
-
-
 
         function fAddPersonal(e) {
             e.preventDefault();
             agregarPersonal();
         }
-
-
     </script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>

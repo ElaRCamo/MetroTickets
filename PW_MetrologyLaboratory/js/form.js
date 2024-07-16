@@ -591,7 +591,6 @@ function obtenerSesion() {
     });
 }
 
-
 function actualizarSolicitud(id_prueba, dao, esActualizacion){
     const dataForm = new FormData();
 
@@ -930,6 +929,7 @@ function cualEsTipoPrueba(id_prueba){
         let tipoPrueba = response.data[0].id_tipoPrueba;
         if (tipoPrueba === '5') { // Munsell
             alert("Tipo de prueba munsell");
+            cargarDatosPruebaMunsell(id_prueba);
         }else{
             cargarDatosPrueba(id_prueba);
         }
@@ -987,6 +987,45 @@ function cargarDatosPrueba(id_update){
             if ((i + 1) < response.data.length) {
                 agregarPieza();
                 llenarClientesUpdate(indexMaterial, idCliente)
+            }
+        }
+    }).then(function() {
+
+    }).catch(function(error) {
+        // Manejar errores si la solicitud falla
+        console.error('Error en la solicitud JSON: ', error);
+    });
+}
+
+function cargarDatosPruebaMunsell(id_prueba){
+
+    let divSelectTipoPrueba = id("selectTipoPrueba");
+    divSelectTipoPrueba.style.display = "block";
+
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSolMunsellPrueba.php?id_prueba=' + id_update,  function (response) {
+        let data = response.data[0];
+
+        let idTipoPrueba = data.id_tipoPrueba;
+        llenarTipoPruebaUpdate(idTipoPrueba, "NA", "NA");
+
+        var especificaciones = id("especificaciones");
+        especificaciones.value = data.especificaciones;
+
+
+        //-----------------------PERSONAL---------------------------
+        for (var i = 0; i < response.data.length; i++) {
+
+            var nominaM = id("nomina" + indexMaterial);
+            nominaM.value = response.data[i].nomina;
+
+            var nombreM = id("nombre" + indexMaterial);
+            nombreM.value = response.data[i].nombre;
+
+            var areaM = id("area" + indexMaterial);
+            areaM.value = response.data[i].area;
+
+            if ((i + 1) < response.data.length) {
+                agregarPersonal();
             }
         }
     }).then(function() {
