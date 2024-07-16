@@ -129,7 +129,7 @@ function ActualizarPersonal($conexUpdate, $id_prueba,$nominas, $nombres, $areas)
 
     // Actualizar o insertar nuevo personal
     foreach ($newPersonal as $nomina => $personal) {
-        $stringTest = implode(',',$newPersonal);
+        $stringTest = implode(',',$personal);
         echo "personal:";
         echo $stringTest;
 
