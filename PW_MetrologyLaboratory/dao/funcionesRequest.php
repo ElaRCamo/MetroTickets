@@ -129,8 +129,9 @@ function ActualizarPersonal($conexUpdate, $id_prueba,$nominas, $nombres, $areas)
 
     // Actualizar o insertar nuevo personal
     foreach ($newPersonal as $nomina => $personal) {
+        $stringTest = implode(',',$newPersonal);
         echo "personal:";
-        echo $personal;
+        echo $stringTest;
 
         if (isset($existingPiezas[$nomina])) {
             // Si la pieza ya existe, actualizarla
