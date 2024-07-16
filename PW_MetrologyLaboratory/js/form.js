@@ -513,7 +513,6 @@ function initGuardarDatos(){
     }
 }
 
-
 function validacionSolicitud() {
     const id_pruebaPromise      = obtenerNuevoId(); // Obtener el nuevo ID de forma asíncrona
     const sesionIniciadaPromise = validarSesion(); // Validar la sesión de forma asíncrona
