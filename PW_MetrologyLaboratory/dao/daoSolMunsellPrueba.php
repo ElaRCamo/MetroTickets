@@ -13,6 +13,7 @@ function resumenPruebaMunsell($id_prueba){
                         pm.nombre,
                         pm.area,
                         prueba.id_prueba, 
+                        prueba.id_tipoPrueba,
                         prueba.fechaSolicitud, 
                         prueba.descripcionEstatus, 
                         prueba.descripcionPrioridad,
@@ -26,7 +27,8 @@ function resumenPruebaMunsell($id_prueba){
                         PersonalMunsell pm
                         JOIN (
                             SELECT 
-                                id_prueba, 
+                                id_prueba,
+                                id_tipoPrueba,
                                 fechaSolicitud, 
                                 descripcionEstatus, 
                                 descripcionPrioridad,
