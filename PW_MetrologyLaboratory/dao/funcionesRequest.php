@@ -39,6 +39,125 @@ function RegistrarSolicitudMunsell($tipoPrueba, $norma, $normaFile, $idUsuario, 
     return $response;
 }
 
+function ActualizarSolicitudMunsell($tipoPrueba, $norma, $normaFile, $idUsuario, $especificaciones, $imagenCotas,$subtipo, $fechaSolicitud, $id_prueba,$nominas,$nombres,$areas)
+{
+    $con = new LocalConector();
+    $conex = $con->conectar();
+
+    // Iniciar transacción
+    $conex->begin_transaction();
+
+    // Preparar la consulta de actualización
+    $updateSolicitud = $conex->prepare("UPDATE `Pruebas` 
+                                                SET `fechaSolicitud` = ?, 
+                                                    `especificaciones` = ?, 
+                                                    `normaNombre` = ?, 
+                                                    `normaArchivo` = ?, 
+                                                    `id_solicitante` = ?, 
+                                                    `id_tipoPrueba` = ?, 
+                                                    `id_subtipo` = ?, 
+                                                    `imagenCotas` = ? 
+                                                WHERE `id_prueba` = ?");
+    $updateSolicitud->bind_param("sssssiiss", $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $subtipo, $imagenCotas, $id_prueba);
+    $rUpdateSolicitud = $updateSolicitud->execute();
+
+    // Actualizar Personal
+    $response = ActualizarPersonal($conex, $id_prueba,$nominas, $nombres, $areas);
+
+    if($response['status']==='success'){
+        $rGuardarObjetos = true;
+
+        //Registrar cambios en bitacora
+        $descripcion = "Usuario actualiza solicitud.";
+        $response =  registrarCambioBitacoora($conex,$id_prueba,$descripcion,$idUsuario);
+
+        if($response['status']==='success'){
+            $rGuardarBitacora = true;
+        }else{
+            $rGuardarBitacora = false;
+        }
+    }else{
+        $rGuardarObjetos = false;
+        $rGuardarBitacora = false;
+    }
+
+    // Confirmar o hacer rollback de la transacción
+    if(!$rUpdateSolicitud || !$rGuardarObjetos || !$rGuardarBitacora) {
+        $conex->rollback();
+        if(!$rUpdateSolicitud){
+            $response = array('status' => 'error', 'message' => 'Error en Actualizar la Solicitud');
+        }
+    } else {
+        $conex->commit();
+        //$response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
+    }
+    $conex->close();
+    return $response;
+}
+
+function ActualizarPersonal($conexUpdate, $id_prueba,$nominas, $nombres, $areas)
+{
+    // Consultando las piezas ya registradas
+    $selectQuery = $conexUpdate->prepare("SELECT id_personal, nomina, nombre, area FROM PersonalMunsell WHERE id_prueba = ?");
+    $selectQuery->bind_param("s", $id_prueba);
+    $selectQuery->execute();
+    $result = $selectQuery->get_result();
+
+    $existingPersonal = [];
+    while ($row = $result->fetch_assoc()) {
+        $existingPersonal[$row['nomina']] = [
+            'id_personal' => $row['id_personal'],
+            'nombre' => $row['nombre'],
+            'area' => $row['area']
+        ];
+    }
+
+    // Preparar los nuevos datos proporcionados por el usuario
+    $newPersonal = [];
+    for ($i = 0; $i < count($nominas); $i++) {
+        $nomina = $nominas[$i];
+        $nombre = $nombres[$i];
+        $area = $areas[$i];
+
+        $newPersonal[$nomina] = [
+            'nombre' => $nombre,
+            'area' => $area
+        ];
+    }
+
+    $rUpdateQuery = $rInsertQuery = $rDeleteQuery = true;
+
+    // Actualizar o insertar nuevo personal
+    foreach ($newPersonal as $nomina => $personal) {
+        if (isset($existingPiezas[$nomina])) {
+            // Si la pieza ya existe, actualizarla
+            $updateQuery = $conexUpdate->prepare("UPDATE PersonalMunsell SET nombre = ?, area = ?, nomina = ?  WHERE id_personal = ?");
+            $updateQuery->bind_param("sssi", $personal['nombre'], $personal['area'], $personal['nomina'], $existingPersonal[$nomina]['id_personal']);
+            $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
+        } else {
+            // Si la pieza no existe, insertarla
+            $insertQuery = $conexUpdate->prepare("INSERT INTO PersonalMunsell (id_prueba, nombre, area, nomina) VALUES (?, ?, ?, ?)");
+            $insertQuery->bind_param("ssss", $id_prueba, $personal['nombre'], $personal['area'], $personal[$nomina]);
+            $rInsertQuery = $rInsertQuery && $insertQuery->execute();
+        }
+    }
+
+    // Eliminar piezas que ya no están en los datos proporcionados por el usuario
+    foreach ($existingPersonal as $nomina => $personal) {
+        if (!isset($newPersonal[$nomina])) {
+            $deleteQuery = $conexUpdate->prepare("DELETE FROM PersonalMunsell WHERE id_personal = ?");
+            $deleteQuery->bind_param("i", $personal['id_personal']);
+            $rDeleteQuery = $rDeleteQuery && $deleteQuery->execute();
+        }
+    }
+
+    if(!$rUpdateQuery || !$rInsertQuery || !$rDeleteQuery ) {
+        $response = array('status' => 'error', 'message' => 'Error al actualizar el personal');
+    } else {
+        $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
+    }
+    return $response;
+}
 
 function manejarSubtipoPrueba($tipoPrueba, $id_prueba, $files, $post)
 {
