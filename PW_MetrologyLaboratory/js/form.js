@@ -1006,7 +1006,7 @@ function cargarDatosPruebaMunsell(id_prueba){
         let data = response.data[0];
 
         let idTipoPrueba = data.id_tipoPrueba;
-        llenarTipoPruebaUpdate(idTipoPrueba, "NA", "NA");
+        llenarTipoPruebaUpdate(idTipoPrueba, 0, "NA");
 
         var especificaciones = id("especificaciones");
         especificaciones.value = data.especificaciones;
