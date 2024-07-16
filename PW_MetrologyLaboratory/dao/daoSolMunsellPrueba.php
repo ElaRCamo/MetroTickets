@@ -28,7 +28,7 @@ function resumenPruebaMunsell($id_prueba){
                         JOIN (
                             SELECT 
                                 id_prueba,
-                                id_tipoPrueba,
+                                s.id_tipoPrueba,
                                 fechaSolicitud, 
                                 descripcionEstatus, 
                                 descripcionPrioridad,
