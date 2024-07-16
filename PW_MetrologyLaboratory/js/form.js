@@ -1014,8 +1014,6 @@ function cargarDatosPruebaMunsell(id_prueba){
         //-----------------------PERSONAL---------------------------
         for (var i = 0; i < response.data.length; i++) {
 
-            alert("i"+i+"\nindexPersonal:"+indexPersonal);
-
             var nominaM = id("numNomina" + indexPersonal);
             nominaM.value = response.data[i].nomina;
 
