@@ -1014,21 +1014,30 @@ function cargarDatosPruebaMunsell(id_prueba){
         //-----------------------PERSONAL---------------------------
         for (var i = 0; i < response.data.length; i++) {
 
-            var nominaM = id("nomina" + indexPersonal);
+            /*var nominaM = id("nomina" + indexPersonal);
             nominaM.value = response.data[i].nomina;
 
             var nombreM = id("nombre" + indexPersonal);
             nombreM.value = response.data[i].nombre;
 
             var areaM = id("area" + indexPersonal);
-            areaM.value = response.data[i].area;
+            areaM.value = response.data[i].area;*/
+            var nominaM = id("nomina" + i);
+            var nombreM = id("nombre" + i);
+            var areaM = id("area" + i);
+
+            if (nominaM && nombreM && areaM) {
+                nominaM.value = response.data[i].nomina;
+                nombreM.value = response.data[i].nombre;
+                areaM.value = response.data[i].area;
+            } else {
+                console.error(`Elementos de personal con index ${i} no encontrados.`);
+            }
 
             if ((i + 1) < response.data.length) {
                 agregarPersonal();
             }
         }
-    }).then(function() {
-
     }).catch(function(error) {
         // Manejar errores si la solicitud falla
         console.error('Error en la solicitud JSON: ', error);
