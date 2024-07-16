@@ -138,8 +138,8 @@ function ActualizarPersonal($conexUpdate, $id_prueba,$nominas, $nombres, $areas)
             // Si la pieza no existe, insertarla
             $insertQuery = $conexUpdate->prepare("INSERT INTO PersonalMunsell (id_prueba, nombre, area, nomina) VALUES (?, ?, ?, ?)");
             echo "nomina:".$nomina;
-            echo "personal:".$personal[$nomina];
-            $insertQuery->bind_param("ssss", $id_prueba, $personal['nombre'], $personal['area'], $personal[$nomina]);
+            echo "personal:". $personal[$nomina]['nomina'];
+            $insertQuery->bind_param("ssss", $id_prueba, $personal['nombre'], $personal['area'], $personal[$nomina]['nomina']);
             $rInsertQuery = $rInsertQuery && $insertQuery->execute();
         }
     }
