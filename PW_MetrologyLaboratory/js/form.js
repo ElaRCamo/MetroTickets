@@ -1011,17 +1011,16 @@ function cargarDatosPruebaMunsell(id_prueba){
         var especificaciones = id("especificaciones");
         especificaciones.value = data.especificaciones;
 
-
         //-----------------------PERSONAL---------------------------
         for (var i = 0; i < response.data.length; i++) {
 
-            var nominaM = id("nomina" + indexMaterial);
+            var nominaM = id("nomina" + indexPersonal);
             nominaM.value = response.data[i].nomina;
 
-            var nombreM = id("nombre" + indexMaterial);
+            var nombreM = id("nombre" + indexPersonal);
             nombreM.value = response.data[i].nombre;
 
-            var areaM = id("area" + indexMaterial);
+            var areaM = id("area" + indexPersonal);
             areaM.value = response.data[i].area;
 
             if ((i + 1) < response.data.length) {
