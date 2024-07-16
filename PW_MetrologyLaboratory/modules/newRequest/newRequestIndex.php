@@ -83,22 +83,26 @@
                 var id = $(this).attr("id");
                 $('#newRow' + id).remove();
             });
-           /* $(document).on('click', '[id^="addPersonal"]', function(e) {
-                e.preventDefault();
-                agregarPersonal();
-            });
             $(document).on('click', '.remove-lnk-personal', function(e) {
                 e.preventDefault();
                 var id = $(this).attr("id");
                 $('#newPerRow' + id).remove();
-            });*/
-        });
+            });
+           /* $(document).on('click', '[id^="addPersonal"]', function(e) {
+                e.preventDefault();
+                agregarPersonal();
+            });
 
-        function removerPersonal(e) {
+
+            function removerPersonal(e) {
             e.preventDefault();
             var id = $(this).attr("id");
             $('#newPerRow' + id).remove();
-        }
+            }
+            */
+        });
+
+
 
         function fAddPersonal(e) {
             e.preventDefault();
