@@ -90,7 +90,7 @@
             $(document).on('click', '.remove-lnk-personal', function(e) {
                 e.preventDefault();
                 var id = $(this).attr("id");
-                $('#newRowPer' + id).remove();
+                $('#newPerRow' + id).remove();
             });
         });
     </script>

@@ -216,7 +216,7 @@ h5{
     background-color: var(--main-color);
 }
 
-[id^="newRow"],[id^="newRowPer"]{
+[id^="newRow"],[id^="newPerRow"]{
     margin-bottom: 20px;
 }
 #agregarNumParte,#addPersonalTitle,
@@ -316,7 +316,7 @@ h5{
 
 /*Ocultar divs con inputs opcionales*/
 #divSubtipoPrueba, #normaNombre, #normaArchivo, #detallesPrueba,
-#newRow1, #newRowPer1,
+#newRow1, #newPerRow1,
 #divCotas, #divImgCotas, #agregarNumParte,#addPersonalTitle,
 #button:hover,
 #submitRequest{
