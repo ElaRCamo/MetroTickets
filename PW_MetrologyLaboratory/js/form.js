@@ -928,7 +928,6 @@ function cualEsTipoPrueba(id_prueba){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPruebaConID.php?id_prueba=' + id_prueba,  function (response) {
         let tipoPrueba = response.data[0].id_tipoPrueba;
         if (tipoPrueba === '5') { // Munsell
-            alert("Tipo de prueba munsell");
             cargarDatosPruebaMunsell(id_prueba);
         }else{
             cargarDatosPrueba(id_prueba);
