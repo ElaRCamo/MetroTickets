@@ -88,6 +88,7 @@
                 e.preventDefault();
                 var id = $(this).attr("id");
                 $('#newPerRow' + id).remove();
+            });
         });
 
         function fAddPersonal(e) {
