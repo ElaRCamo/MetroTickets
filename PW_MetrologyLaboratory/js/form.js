@@ -929,7 +929,7 @@ function cualEsTipoPrueba(id_prueba){
         let tipoPrueba = response.data[0].id_tipoPrueba;
         if (tipoPrueba === '5') { // Munsell
             alert("Tipo de prueba munsell");
-            //cargarDatosPruebaMunsell(id_prueba);
+            cargarDatosPruebaMunsell(id_prueba);
         }else{
             cargarDatosPrueba(id_prueba);
         }
