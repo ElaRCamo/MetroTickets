@@ -234,8 +234,8 @@ function agregarPieza() {
         + '<div class="col-xl-4">'
         + '</div>'
         + '<div class="col-xl-4 buttons-container" id="divButtons' + indexMaterial + '">'
-        + '<a href="#" class="remove-lnk-num-parte removeBtn" id="' + indexMaterial + '" ><i class="las la-trash-alt"></i></a>'
-        + '<a href="#" class="agregarButton" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i></a>'
+        + '<a href="#" class="remove-lnk-num-parte removeBtn"  onclick="removerPersonal(event); return false;" id="' + indexMaterial + '" ><i class="las la-trash-alt"></i></a>'
+        + '<a href="#" class="agregarButton" onclick="fAddPersonal(); return false;" id="addNumParte' + indexMaterial + '"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
     newRow.appendTo('#contenedorFormulario');

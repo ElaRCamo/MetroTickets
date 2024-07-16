@@ -83,7 +83,7 @@
                 var id = $(this).attr("id");
                 $('#newRow' + id).remove();
             });
-            $(document).on('click', '[id^="addPersonal"]', function(e) {
+           /* $(document).on('click', '[id^="addPersonal"]', function(e) {
                 e.preventDefault();
                 agregarPersonal();
             });
@@ -91,8 +91,21 @@
                 e.preventDefault();
                 var id = $(this).attr("id");
                 $('#newPerRow' + id).remove();
-            });
+            });*/
         });
+
+        function removerPersonal(e) {
+            e.preventDefault();
+            var id = $(this).attr("id");
+            $('#newPerRow' + id).remove();
+        }
+
+        function fAddPersonal(e) {
+            e.preventDefault();
+            agregarPersonal();
+        }
+
+
     </script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
