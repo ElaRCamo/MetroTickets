@@ -36,16 +36,15 @@ function desactivarPlataforma($id_plataforma)
         if($response['status']==='success'){
             $conex->commit();
             $respuesta = array("success" => true, "message" => "Plataforma activada");
-            echo json_encode($respuesta);
         }else{
             $conex->rollback();
             $respuesta = $response;
         }
     } else {
         $respuesta = array("success" => false, "message" => "Error.");
-        echo json_encode($respuesta);
     }
     $stmt->close();
     $conex->close();
+    echo json_encode($respuesta);
 }
 ?>

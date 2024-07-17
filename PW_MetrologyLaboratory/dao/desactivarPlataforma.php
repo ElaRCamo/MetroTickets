@@ -1,6 +1,8 @@
 <?php
 header('Content-Type: application/json');
 include_once('connection.php');
+require_once('functionsAdmin.php');
+session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['id_plataforma'])){
@@ -21,20 +23,28 @@ function desactivarPlataforma($id_plataforma)
     $conex = $con->conectar();
 
     $stmt = $conex->prepare("UPDATE Plataforma P
-                                    LEFT JOIN DescripcionMaterial M ON P.id_plataforma = M.id_plataforma
-                                    SET P.estatus = 0,
-                                        M.estatus = 0
+                                    SET P.estatus = 0
                                     WHERE P.id_plataforma = ?");
     $stmt->bind_param("i", $id_plataforma);
 
+
     if ($stmt->execute()) {
-        $stmt->close();
-        $conex->close();
-        return array('status' => 'success', 'message' => 'Plataforma desactivada.');
+        //Registrar cambios en bitacora
+        $descripcion = "Plataforma desactivada: ".$id_plataforma. ".";
+        $response =  registrarCambioAdmin($conex, $descripcion,$_SESSION['nomina']);
+
+        if($response['status']==='success'){
+            $conex->commit();
+            $respuesta = array("success" => true, "message" => "Plataforma desactivada");
+        }else{
+            $conex->rollback();
+            $respuesta = $response;
+        }
     } else {
-        $stmt->close();
-        $conex->close();
-        return array('status' => 'error', 'message' => 'Error al actualizar la plataforma.');
+        $respuesta = array("success" => false, "message" => "Error.");
     }
+    $stmt->close();
+    $conex->close();
+    echo json_encode($respuesta);
 }
 ?>
