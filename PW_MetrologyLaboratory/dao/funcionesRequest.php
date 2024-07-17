@@ -129,10 +129,6 @@ function ActualizarPersonal($conexUpdate, $id_prueba,$nominas, $nombres, $areas)
 
     // Actualizar o insertar nuevo personal
     foreach ($newPersonal as $nomina => $personal) {
-        $stringTest = implode(',',$personal);
-        echo "personal:";
-        echo $stringTest;
-
         if (isset($existingPersonal[$nomina])) {
             // Si la pieza ya existe, actualizarla
             $updateQuery = $conexUpdate->prepare("UPDATE PersonalMunsell SET nombre = ?, area = ?, nomina = ?  WHERE id_personal = ?");
@@ -141,11 +137,9 @@ function ActualizarPersonal($conexUpdate, $id_prueba,$nominas, $nombres, $areas)
         } else {
             // Si la pieza no existe, insertarla
             $insertQuery = $conexUpdate->prepare("INSERT INTO PersonalMunsell (id_prueba, nombre, area, nomina) VALUES (?, ?, ?, ?)");
-
             $insertQuery->bind_param("ssss", $id_prueba, $personal['nombre'], $personal['area'], $nomina);
             $rInsertQuery = $rInsertQuery && $insertQuery->execute();
         }
-
     }
 
     // Eliminar piezas que ya no están en los datos proporcionados por el usuario
