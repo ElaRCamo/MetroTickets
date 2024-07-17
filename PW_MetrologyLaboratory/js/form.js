@@ -284,7 +284,7 @@ function agregarPersonal() {
         + '</div>'
         + '<div class="col-xl-4 buttons-container" id="divButtons' + indexPersonal + '">'
         + '<a href="#" class="remove-lnk-personal removeBtn" id="' + indexPersonal + '"><i class="las la-trash-alt"></i></a>'
-        + '<a href="#" class="agregarButton"  id="addPersonal' + indexPersonal + '"><i class="las la-plus-square" onclick="fAddPersonal()"></i></a>'
+        + '<a href="#" class="agregarButton" onclick="fAddPersonal(event)" id="addPersonal' + indexPersonal + '"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
     newPerRow.appendTo('#contenedorFormulario');
