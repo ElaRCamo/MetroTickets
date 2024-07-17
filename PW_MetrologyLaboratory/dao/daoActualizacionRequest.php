@@ -60,8 +60,7 @@ function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $espec
     $conex->begin_transaction();
 
     $updateSolicitud = $conex->prepare("UPDATE `Pruebas` 
-                                                SET `fechaSolicitud` = ?, 
-                                                    `especificaciones` = ?, 
+                                                SET `especificaciones` = ?, 
                                                     `normaNombre` = ?, 
                                                     `normaArchivo` = ?, 
                                                     `id_solicitante` = ?, 
@@ -69,7 +68,7 @@ function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $espec
                                                     `id_subtipo` = ?, 
                                                     `imagenCotas` = ?
                                                 WHERE `id_prueba` = ?");
-    $updateSolicitud->bind_param("ssssssiis", $fechaSolicitud, $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $subtipo, $imagenCotas, $id_prueba);
+    $updateSolicitud->bind_param("sssssiis", $especificaciones, $norma, $normaFile, $idUsuario, $tipoPrueba, $subtipo, $imagenCotas, $id_prueba);
     $rUpdateSolicitud = $updateSolicitud->execute();
 
     // Actualizar Piezas
@@ -78,7 +77,18 @@ function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $espec
         $rGuardarObjetos = true;
 
         //Registrar cambios en bitacora
-        $descripcion = "Usuario actualiza solicitud.";
+        $descripcion = "Solicitud actualizada. Se concatenan los valores de las variables: "
+            . "tipoPrueba = " . $tipoPrueba . ", "
+            . "norma = " . $norma . ", "
+            . "normaFile = " . $normaFile . ", "
+            . "especificaciones = " . $especificaciones . ", "
+            . "imagenCotas = " . $imagenCotas . ", "
+            . "subtipo = " . $subtipo . ", "
+            . "plataformas = " . implode(", ", $plataformas) . ", "
+            . "numsParte = " . implode(", ", $numsParte) . ", "
+            . "cdadPiezas = " . implode(", ", $cdadPiezas) . ", "
+            . "revDibujos = " . implode(", ", $revDibujos) . ", "
+            . "modMatematicos = " . implode(", ", $modMatematicos);
         $response =  registrarCambioBitacoora($conex,$id_prueba,$descripcion,$idUsuario);
 
         if($response['status']==='success'){
