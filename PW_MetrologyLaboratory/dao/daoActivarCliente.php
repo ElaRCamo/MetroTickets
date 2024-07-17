@@ -7,16 +7,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_GET['id_cliente'])){
         // Obtiene el valor del parámetro id_cliente
         $id_cliente = $_GET['id_cliente'];
-        desactivarCliente($id_cliente);
+        $respuesta = desactivarCliente($id_cliente);
     }else{
         $respuesta = array("success" => false, "message" => "ID de cliente no proporcionado.");
-        echo json_encode($respuesta);
     }
 } else {
     $respuesta = array("success" => false, "message" => "Se esperaba REQUEST_METHOD");
-    echo json_encode($respuesta);
 }
-
+echo json_encode($respuesta);
 function desactivarCliente($id_cliente)
 {
     $con = new LocalConector();
@@ -53,11 +51,10 @@ function desactivarCliente($id_cliente)
         $conex->rollback();
         $respuesta = array("success" => false, "message" => "Error.");
     }
-
-    echo json_encode($respuesta);
-
     $stmt1->close();
     $stmt2->close();
     $conex->close();
+
+   return $respuesta;
 }
 ?>
