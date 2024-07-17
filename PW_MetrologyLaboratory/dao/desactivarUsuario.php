@@ -27,15 +27,23 @@ function desactivarUsuario($id_usuario)
     $stmt->bind_param("s", $id_usuario);
 
     if ($stmt->execute()) {
-        $respuesta = array("success" => true, "message" => "Perfil de usuario desactivado");
-        echo json_encode($respuesta);
+        //Registrar cambios en bitacora
+        $descripcion = "Usuario desactivado: ".$id_usuario. ".";
+        $response = registrarCambioAdmin($conex, $descripcion,$_SESSION['nomina']);
+
+        if($response['status']==='success'){
+            $conex->commit();
+            $respuesta = array("success" => true, "message" => "Usuario desactivado");
+        }else{
+            $conex->rollback();
+            $respuesta = $response;
+        }
     } else {
         $respuesta = array("success" => false, "message" => "Error.");
-        echo json_encode($respuesta);
+
     }
     $stmt->close();
     $conex->close();
-
+    echo json_encode($respuesta);
 }
-
 ?>

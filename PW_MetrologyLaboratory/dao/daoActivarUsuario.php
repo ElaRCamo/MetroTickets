@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_GET['id_usuario'])){
         // Obtiene el valor del parámetro id_cliente
         $id_usuario = $_GET['id_usuario'];
-        desactivarUsuario($id_usuario);
+        activarUsuario($id_usuario);
     }else{
         $respuesta = array("success" => false, "message" => "ID del usuario no proporcionado.");
         echo json_encode($respuesta);
@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     echo json_encode($respuesta);
 }
 
-function desactivarUsuario($id_usuario)
+function activarUsuario($id_usuario)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
