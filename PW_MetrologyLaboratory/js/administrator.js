@@ -584,7 +584,7 @@ function desactivarCliente(id_cliente) {
 
     swalWithBootstrapButtons.fire({
         title: "¿Estás seguro(a)?",
-        text: "Todas las plataformas y materiales asociados a este cliente también se desactivarán.",
+        text: "El cliente y sus plataformas ya no estarán disponibles para hacer solicitudes.",
         icon: "warning",
         showCancelButton: true,
         confirmButtonText: "¡Sí, desactivar!",
@@ -601,7 +601,6 @@ function desactivarCliente(id_cliente) {
             }).then(res => {
                 initDataTableClientes();
                 initDataTablePlataformas();
-                initDataTableMateriales();
                 if(!res.ok){
                     console.log('Problem');
                     return;
@@ -713,7 +712,6 @@ function  actualizarPlataforma(id_plataforma){
                     icon: "success"
                 });
                 initDataTablePlataformas();
-                initDataTableMateriales();
             } else {
                 throw "Error en la llamada Ajax";
             }
@@ -763,7 +761,7 @@ function desactivarPlataforma(id_plataforma) {
 
     swalWithBootstrapButtons.fire({
         title: "¿Estás seguro(a)?",
-        text: "Todos los materiales asociados a esta plataforma también se desactivarán.",
+        text: "La plataforma ya no estará disponible para hacer solicitudes.",
         icon: "warning",
         showCancelButton: true,
         confirmButtonText: "¡Sí, desactivar!",
@@ -800,7 +798,6 @@ function desactivarPlataforma(id_plataforma) {
                     }
                 }).then(function (){
                 initDataTablePlataformas();
-                initDataTableMateriales();
             })
                 .catch(error =>{
                     //console.log(error);
