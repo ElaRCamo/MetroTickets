@@ -7,7 +7,7 @@ function registrarCambioAdmin($conexCambio,$descripcion,$id_usuario)
     echo " fadmin nomina:".$_SESSION['nomina'];
     echo "descripcion:".$descripcion;
 
-    $insertQuery = $conexCambio->prepare("INSERT INTO CambiosAdmin (fecha, descripcion,id_usuario) VALUES (?, ?, ?)");
+    $insertQuery = $conexCambio->prepare("INSERT INTO CambiosAdmin (fecha, descripcion,id_Admin) VALUES (?, ?, ?)");
     $insertQuery->bind_param("sss", $fecha, $descripcion, $id_usuario);
     $rInsertQuery = $rInsertQuery && $insertQuery->execute();
 
