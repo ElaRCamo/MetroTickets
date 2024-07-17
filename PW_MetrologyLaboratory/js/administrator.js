@@ -490,6 +490,7 @@ function registrarCliente(){
                     icon: "success"
                 });
                 initDataTableClientes();
+                clienteModal();
             } else {
                 throw "Error en la llamada Ajax";
             }
@@ -539,6 +540,7 @@ function actualizarCliente(id_cliente){
                 });
                 initDataTableClientes();
                 initDataTablePlataformas();
+                clienteModal();
             } else {
                 throw "Error en la llamada Ajax";
             }
@@ -560,6 +562,7 @@ function activarCliente(id_cliente){
     }).then(res => {
         initDataTableClientesDes();
         initDataTablePlataformasDes();
+        clienteModal();
         if(!res.ok){
             console.log('Problem');
             return;
