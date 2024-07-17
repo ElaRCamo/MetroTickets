@@ -133,7 +133,7 @@ function ActualizarPersonal($conexUpdate, $id_prueba,$nominas, $nombres, $areas)
         echo "personal:";
         echo $stringTest;
 
-        if (isset($existingPiezas[$nomina])) {
+        if (isset($existingPersonal[$nomina])) {
             // Si la pieza ya existe, actualizarla
             $updateQuery = $conexUpdate->prepare("UPDATE PersonalMunsell SET nombre = ?, area = ?, nomina = ?  WHERE id_personal = ?");
             $updateQuery->bind_param("sssi", $personal['nombre'], $personal['area'], $personal['nomina'], $existingPersonal[$nomina]['id_personal']);
