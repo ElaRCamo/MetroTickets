@@ -7,15 +7,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_GET['id_plataforma'])){
         // Obtiene el valor del parámetro id_cliente
         $id_plataforma = $_GET['id_plataforma'];
-        desactivarPlataforma($id_plataforma);
+        $respuesta = desactivarPlataforma($id_plataforma);
     }else{
         $respuesta = array("success" => false, "message" => "ID de la plataforma no proporcionado.");
-        echo json_encode($respuesta);
     }
 } else {
     $respuesta = array("success" => false, "message" => "Se esperaba REQUEST_METHOD");
-    echo json_encode($respuesta);
 }
+echo json_encode($respuesta);
 
 function desactivarPlataforma($id_plataforma)
 {
@@ -45,6 +44,6 @@ function desactivarPlataforma($id_plataforma)
     }
     $stmt->close();
     $conex->close();
-    echo json_encode($respuesta);
+    return $respuesta;
 }
 ?>

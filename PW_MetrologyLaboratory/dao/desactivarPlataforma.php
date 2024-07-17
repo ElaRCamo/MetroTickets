@@ -45,6 +45,6 @@ function desactivarPlataforma($id_plataforma)
     }
     $stmt->close();
     $conex->close();
-    echo json_encode($respuesta);
+    return $respuesta;
 }
 ?>
