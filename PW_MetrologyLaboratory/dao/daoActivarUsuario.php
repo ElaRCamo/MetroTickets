@@ -7,15 +7,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_GET['id_usuario'])){
         // Obtiene el valor del parámetro id_cliente
         $id_usuario = $_GET['id_usuario'];
-        activarUsuario($id_usuario);
+        $respuesta = activarUsuario($id_usuario);
     }else{
         $respuesta = array("success" => false, "message" => "ID del usuario no proporcionado.");
-        echo json_encode($respuesta);
     }
 } else {
     $respuesta = array("success" => false, "message" => "Se esperaba REQUEST_METHOD");
-    echo json_encode($respuesta);
 }
+echo json_encode($respuesta);
 
 function activarUsuario($id_usuario)
 {
@@ -45,6 +44,6 @@ function activarUsuario($id_usuario)
     }
     $stmt->close();
     $conex->close();
-    echo json_encode($respuesta);
+    return $respuesta;
 }
 ?>
