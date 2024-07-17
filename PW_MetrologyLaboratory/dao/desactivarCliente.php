@@ -55,6 +55,6 @@ function desactivarCliente($id_cliente)
     $stmt2->close();
     $conex->close();
 
-    return json_encode($respuesta);
+    return $respuesta;
 }
 ?>
