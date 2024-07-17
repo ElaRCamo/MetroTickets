@@ -1,6 +1,7 @@
 <?php
-
 include_once('connection.php');
+require_once('functionsAdmin.php');
+session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_GET['id_usuario'])){
@@ -27,15 +28,23 @@ function desactivarUsuario($id_usuario)
     $stmt->bind_param("s", $id_usuario);
 
     if ($stmt->execute()) {
-        $respuesta = array("success" => true, "message" => "Perfil de usuario activado");
-        echo json_encode($respuesta);
+        //Registrar cambios en bitacora
+        $descripcion = "Usuario activado: ".$id_usuario. ".";
+        $response = registrarCambioAdmin($conex, $descripcion,$_SESSION['nomina']);
+
+        if($response['status']==='success'){
+            $conex->commit();
+            $respuesta = array("success" => true, "message" => "Usuario activado");
+        }else{
+            $conex->rollback();
+            $respuesta = $response;
+        }
+
     } else {
         $respuesta = array("success" => false, "message" => "Error.");
-        echo json_encode($respuesta);
     }
     $stmt->close();
     $conex->close();
-
+    echo json_encode($respuesta);
 }
-
 ?>
