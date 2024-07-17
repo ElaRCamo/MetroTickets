@@ -1,6 +1,7 @@
 <?php
-
 include_once('connection.php');
+require_once('functionsAdmin.php');
+session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_GET['id_plataforma'])){
@@ -20,24 +21,31 @@ function desactivarPlataforma($id_plataforma)
 {
     $con = new LocalConector();
     $conex = $con->conectar();
+    $conex->begin_transaction();
 
     $stmt = $conex->prepare("UPDATE Plataforma P
-                                LEFT JOIN DescripcionMaterial M ON P.id_plataforma = M.id_plataforma
-                                    SET P.estatus = 1,
-                                        M.estatus = 1
+                                    SET P.estatus = 1
                                     WHERE P.id_plataforma = ?");
     $stmt->bind_param("i", $id_plataforma);
 
     if ($stmt->execute()) {
-        $respuesta = array("success" => true, "message" => "Plataforma activada");
-        echo json_encode($respuesta);
+        //Registrar cambios en bitacora
+        $descripcion = "Plataforma activada: ".$id_plataforma. ".";
+        $response =  registrarCambioAdmin($conex, $descripcion,$_SESSION['nomina']);
+
+        if($response['status']==='success'){
+            $conex->commit();
+            $respuesta = array("success" => true, "message" => "Plataforma activada");
+            echo json_encode($respuesta);
+        }else{
+            $conex->rollback();
+            $respuesta = $response;
+        }
     } else {
         $respuesta = array("success" => false, "message" => "Error.");
         echo json_encode($respuesta);
     }
     $stmt->close();
     $conex->close();
-
 }
-
 ?>
