@@ -674,6 +674,8 @@ function actualizarSolicitud(id_prueba, dao, esActualizacion){
             revDibujos.push(revDibujo.value.trim());
             modMatematicos.push(modeloMate.value.trim());
         });
+        let NoRepetidos = validarNoRepetidos(numsParte);
+        alert("NoRepetidos"+NoRepetidos)
         if(validarNoRepetidos(numsParte)){
             // Agregamos los arrays al FormData
             dataForm.append('plataformas', plataformas.join(', '));
