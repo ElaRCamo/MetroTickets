@@ -646,6 +646,16 @@ function actualizarSolicitud(id_prueba, dao, esActualizacion){
             areas.push(area.value.trim());
 
         });
+
+        if(!validarNoRepetidos(nominas)){
+            Swal.fire({
+                title: "Error",
+                text: "Números de parte duplicados",
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        }
+
         // Agregamos los arrays al FormData
         dataForm.append('nominas', nominas.join(', '));
         dataForm.append('nombres', nombres.join(', '));
@@ -674,16 +684,8 @@ function actualizarSolicitud(id_prueba, dao, esActualizacion){
             revDibujos.push(revDibujo.value.trim());
             modMatematicos.push(modeloMate.value.trim());
         });
-        let NoRepetidos = validarNoRepetidos(numsParte);
-        alert("NoRepetidos"+NoRepetidos)
-        if(validarNoRepetidos(numsParte)){
-            // Agregamos los arrays al FormData
-            dataForm.append('plataformas', plataformas.join(', '));
-            dataForm.append('numsParte', numsParte.join(', '));
-            dataForm.append('cantidades', cantidades.join(', '));
-            dataForm.append('revDibujos', revDibujos.join(', '));
-            dataForm.append('modMatematicos', modMatematicos.join(', '));
-        }else{
+
+        if(!validarNoRepetidos(numsParte)){
             Swal.fire({
                 title: "Error",
                 text: "Números de parte duplicados",
@@ -691,7 +693,15 @@ function actualizarSolicitud(id_prueba, dao, esActualizacion){
                 confirmButtonText: "OK"
             });
         }
+
+            // Agregamos los arrays al FormData
+            dataForm.append('plataformas', plataformas.join(', '));
+            dataForm.append('numsParte', numsParte.join(', '));
+            dataForm.append('cantidades', cantidades.join(', '));
+            dataForm.append('revDibujos', revDibujos.join(', '));
+            dataForm.append('modMatematicos', modMatematicos.join(', '));
     }
+
 
     let formDataString = "FormData: \n";
     for (let pair of dataForm.entries()) {
