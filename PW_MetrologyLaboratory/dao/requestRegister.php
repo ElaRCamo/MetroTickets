@@ -1,17 +1,17 @@
 <?php
-include_once('connection.php');
-include_once('funcionesRequest.php');
+require_once('connection.php');
+require_once('funcionesRequest.php');
 session_start();
 header('Content-Type: application/json');
 
 // Verificar si los datos están presentes y asignarlos de manera segura
 if(isset($_POST['tipoPrueba'], $_SESSION['nomina'], $_POST['especificaciones'], $_POST['fechaSolicitud'], $_POST['id_prueba'])) {
     // Asignar variables
-    $tipoPrueba     = $_POST['tipoPrueba'];
-    $id_prueba      = $_POST['id_prueba'];
-    $idUsuario            = $_SESSION['nomina'];
-    $especificaciones     = $_POST['especificaciones'];
-    $fechaSolicitud       = $_POST['fechaSolicitud'];
+    $tipoPrueba       = $_POST['tipoPrueba'];
+    $id_prueba        = $_POST['id_prueba'];
+    $idUsuario        = $_SESSION['nomina'];
+    $especificaciones = $_POST['especificaciones'];
+    $fechaSolicitud   = $_POST['fechaSolicitud'];
 
     list($response, $norma, $normaFile) = manejarNormaFile($tipoPrueba, $id_prueba, $_FILES, $_POST);
 

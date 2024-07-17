@@ -27,11 +27,33 @@ function RegistrarSolicitudMunsell($tipoPrueba, $norma, $normaFile, $idUsuario, 
         $rGuardarObjetos = $rGuardarObjetos && $insertMaterial->execute();
     }
 
+    // Registrar cambios en bitacora
+    $descripcion = "Solicitud creada. Se concatenan los valores de las variables: "
+        . "tipoPrueba = " . $tipoPrueba . ", "
+        . "norma = " . $norma . ", "
+        . "normaFile = " . $normaFile . ", "
+        . "especificaciones = " . $especificaciones . ", "
+        . "imagenCotas = " . $imagenCotas . ", "
+        . "subtipo = " . $subtipo . ", "
+        . "nominas = " . implode(", ", $nominas) . ", "
+        . "nombres = " . implode(", ", $nombres) . ", "
+        . "areas = " . implode(", ", $areas) . ", "
+        . "fechaSolicitud = " . $fechaSolicitud;
+
+    $response =  registrarCambioBitacoora($conex,$id_prueba,$descripcion,$idUsuario);
+    $rGuardarBitacora = false;
+    if($response['status']==='success'){
+        $rGuardarBitacora = true;
+    }
+
     // Confirmar o hacer rollback de la transacción
-    if (!$rInsertSolicitud || !$rGuardarObjetos) {
+    if(!$rInsertSolicitud || !$rGuardarObjetos || !$rGuardarBitacora) {
         $conex->rollback();
-        $response = array('status' => 'error', 'message' => 'Error en Registrar Solicitud');
+        if(!$rInsertSolicitud || !$rGuardarObjetos){
+            $response = array('status' => 'error', 'message' => 'Error en Registrar Solicitud');
+        }
     } else {
+
         $conex->commit();
         $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
     }
@@ -153,7 +175,6 @@ function ActualizarPersonal($conexUpdate, $id_prueba, $nominas, $nombres, $areas
             }
         }
     }
-
     return ['status' => 'success', 'message' => 'Datos guardados correctamente'];
 }
 
