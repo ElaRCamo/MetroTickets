@@ -663,7 +663,6 @@ function registrarPlataforma(){
     });
 }
 
-
 function editarPlataforma(id_plataforma){
     console.log("id_plataforma para editar: " + id_plataforma);
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnaPlataforma.php?id_plataforma=' + id_plataforma, function (data) {
@@ -776,37 +775,23 @@ function desactivarPlataforma(id_plataforma) {
                 method: 'POST',
                 body: data
             }).then(res => {
-                if(!res.ok){
-                    throw "Error en la llamada Ajax";
+                if(res.ok){
+                    swalWithBootstrapButtons.fire({
+                        title: "¡Desactivada!",
+                        text: "La platafroma ha sido desactivada.",
+                        icon: "success"
+                    });
+                    initDataTablePlataformas();
+                }else{
+                    console.log('Problem');
+                    return;
                 }
                 return res.json();
-            })
-                .then(data => {
-                    if (data.status === 'success') {
-                        console.log(data.message);
-                        Swal.fire({
-                            title: "Solicitud exitosa",
-                            text: "Plataforma desactivada",
-                            icon: "success",
-                            confirmButtonText: "OK"
-                        })
-                    } else if (data.status === 'error') {
-                        console.log(data.message);
-                        Swal.fire({
-                            title: "Error",
-                            text: data.message,
-                            icon: "error",
-                            confirmButtonText: "OK"
-                        });
-                    }
-                }).then(function (){
-                initDataTablePlataformas();
-            })
-                .catch(error =>{
+            }).catch(error =>{
                     //console.log(error);
                     Swal.fire({
                         title: "Error",
-                        text: "Hubo un problema al procesar tu solicitud. Por favor, intenta de nuevo más tarde.",
+                        text: error.message,
                         icon: "error",
                         confirmButtonText: "OK"
                     });
