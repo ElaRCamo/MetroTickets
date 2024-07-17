@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{@popperjs/core, bootstrap, jquery-3.6.4, jspdf, line-awesome, sweetalert2}" />
+    <file url="PROJECT" libraries="{@popperjs/core, bootstrap, dataTables.bootstrap5, jquery, jquery.dataTables}" />
   </component>
 </project>

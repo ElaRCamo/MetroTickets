@@ -468,3 +468,322 @@ function plataformaModal(){
         }
     });
 }
+
+/*****************************************************************************************
+ * ************************FUNCIONES CLIENTES: AGREGAR/MODIFICAR *************************
+ * ***************************************************************************************/
+
+
+function registrarCliente(){
+    var descClienteN= id("descClienteN");
+    const dataForm = new FormData();
+    dataForm.append('descClienteN', descClienteN.value.trim());
+
+    fetch('../../dao/daoNuevoCliente.php', {
+        method: 'POST',
+        body: dataForm
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                Swal.fire({
+                    title: "¡Cliente agregado exitosamente!",
+                    icon: "success"
+                });
+                initDataTableClientes();
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}
+
+
+function editarCliente(id_cliente){
+
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnCliente.php?id_cliente=' + id_cliente, function (data) {
+        var inputCliente = id("descClienteE");
+        inputCliente.value = data.data[0].descripcionCliente;
+    });
+
+    var btnActualizarCliente = document.getElementById('btn-updCliente');
+    if (btnActualizarCliente) { // Verifica que el botón exista en el DOM
+        btnActualizarCliente.onclick = function () {
+            actualizarCliente(id_cliente);
+        };
+    }
+}
+
+function actualizarCliente(id_cliente){
+    console.log("id_cliente para editar: " + id_cliente);
+    var descClienteE= id("descClienteE");
+    const data = new FormData();
+    data.append('id_cliente',id_cliente);
+    data.append('descClienteE',descClienteE.value.trim());
+
+    //alert ("id:"+id_cliente+" desc: "+descClienteE.value.trim())
+
+    fetch('../../dao/daoActualizarCliente.php', {
+        method: 'POST',
+        body: data
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                Swal.fire({
+                    title: "¡Cliente actualizado exitosamente!",
+                    icon: "success"
+                });
+                initDataTableClientes();
+                initDataTablePlataformas();
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}
+function activarCliente(id_cliente){
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarCliente.php?id_cliente='+id_cliente,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(id_cliente)
+    }).then(res => {
+        initDataTableClientesDes();
+        initDataTablePlataformasDes();
+        if(!res.ok){
+            console.log('Problem');
+            return;
+        }
+        return res.json();
+    })
+        .then(data => {
+            Swal.fire("¡Cliente activado!");
+        })
+        .catch(error =>{
+            console.log(error);
+        });
+}
+
+/*****************************************************************************************
+ * **************************FUNCIONES PLATAFORMA: AGREGAR/MODIFICAR *********************
+ * ***************************************************************************************/
+
+function registrarPlataforma(){
+    var descPlataformaN= id("descPlataformaN");
+    var descPClienteN =  id("descPClienteN");
+    const dataForm = new FormData();
+    dataForm.append('descPlataformaN', descPlataformaN.value.trim());
+    dataForm.append('descPClienteN', descPClienteN.value.trim());
+
+    fetch('../../dao/daoNuevaPlataforma.php', {
+        method: 'POST',
+        body: dataForm
+    }).then(function (response) {
+        if (response.ok) { //respuesta
+            Swal.fire({
+                title: "¡Plataforma agregada con éxito!",
+                icon: "success"
+            });
+            initDataTablePlataformas();
+        } else {
+            throw "Error en la llamada Ajax";
+        }
+    }).then(function (texto) {
+        console.log(texto);
+    }).catch(function (err) {
+        console.log(err);
+    });
+}
+
+
+function editarPlataforma(id_plataforma){
+    console.log("id_plataforma para editar: " + id_plataforma);
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnaPlataforma.php?id_plataforma=' + id_plataforma, function (data) {
+        var inputPlataforma = id("descPlataformaE");
+        inputPlataforma.value = data.data[0].descripcionPlataforma;
+
+        var selectS = id("descPClienteE");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[j].id_cliente;
+            createOption.text = data.data[j].descripcionCliente;
+            selectS.appendChild(createOption);
+            if (data.data[j].id_plataforma === id_plataforma) {
+                createOption.selected = true;
+            }
+        }
+    });
+
+    var btnActualizarPlataforma = document.getElementById('btn-updPlataforma');
+    if (btnActualizarPlataforma) { // Verifica que el botón exista en el DOM
+        btnActualizarPlataforma.onclick = function() {
+            actualizarPlataforma(id_plataforma);
+        };
+    }
+}
+function  actualizarPlataforma(id_plataforma){
+    console.log("id_plataforma para actualizar: " + id_plataforma);
+
+    var descPlataformaE= id("descPlataformaE");
+    var descPClienteE= id("descPClienteE");
+
+    const data = new FormData();
+    data.append('id_plataforma',id_plataforma);
+    data.append('descPlataformaE',descPlataformaE.value.trim());
+    data.append('descPClienteE',descPClienteE.value.trim());
+
+    //alert ("id:"+id_plataforma+" desc Plata: "+descPlataformaE.value.trim()+" desc cliente: "+descPClienteE.value.trim())
+
+    fetch('../../dao/daoActualizarPlataforma.php', {
+        method: 'POST',
+        body: data
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                Swal.fire({
+                    title: "¡Plataforma actualizada exitosamente!",
+                    icon: "success"
+                });
+                initDataTablePlataformas();
+                initDataTableMateriales();
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+
+}
+function activarPlataforma(id_plataforma){
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarPlataforma.php?id_plataforma='+id_plataforma,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(id_plataforma)
+    }).then(res => {
+        initDataTablePlataformasDes();
+        if(!res.ok){
+            console.log('Problem');
+            return;
+        }
+        return res.json();
+    })
+        .then(data => {
+            Swal.fire("¡Plataforma activada!");
+        })
+        .catch(error =>{
+            console.log(error);
+        });
+}
+
+/*****************************************************************************************
+ * ***********************FUNCIONES USUARIOS: MODIFICAR/DESACTIVAR ***********************
+ * ***************************************************************************************/
+
+
+function editarUsuario(id_usuario){
+    console.log("id_usuario para editar: " + id_usuario);
+
+
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnUsuario.php?id_usuario=' + id_usuario, function (data) {
+        var inputNombre = id("nombreUsuarioE");
+        inputNombre.value = data.data[0].nombreUsuario;
+
+        var inputCorreo = id("correoE");
+        inputCorreo.value = data.data[0].correoElectronico;
+
+        //imgActual
+        id("fotoUsuarioE").src = data.data[0].foto;
+
+        var selectS = id("tipoDeUsuarioE");
+        selectS.innerHTML = ""; //limpiar contenido
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[j].id_tipoUsuario;
+            createOption.text = data.data[j].descripcionTipo;
+            selectS.appendChild(createOption);
+            if (data.data[j].id_usuario === id_usuario) {
+                createOption.selected = true;
+            }
+        }
+    });
+
+    var btnActualizarUsuario = document.getElementById('btn-updUsuario');
+    if (btnActualizarUsuario) { // Verifica que el botón exista en el DOM
+        btnActualizarUsuario.onclick = function() {
+            actualizarUsuario(id_usuario);
+        };
+    }
+}
+function actualizarUsuario(id_usuario){
+    console.log("actualizar user: " + id_usuario);
+
+    var tipoDeUsuarioE= id("tipoDeUsuarioE");
+    const data = new FormData();
+    data.append('id_usuario',id_usuario);
+    data.append('tipoDeUsuarioE',tipoDeUsuarioE.value.trim());
+
+    //alert ("id:"+id_usuario+" tipoDeUsuarioE: "+tipoDeUsuarioE.value.trim())
+
+    fetch('../../dao/daoActualizarUsuario.php', {
+        method: 'POST',
+        body: data
+    })
+        .then(function (response) {
+            if (response.ok) { //respuesta
+                Swal.fire({
+                    title: "¡Usuario actualizado exitosamente!",
+                    icon: "success"
+                });
+                initDataTableUsuarios();
+            } else {
+                throw "Error en la llamada Ajax";
+            }
+        })
+        .then(function (texto) {
+            console.log(texto);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+}
+function activarUsuario(id_usuario){
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarUsuario.php?id_usuario='+id_usuario,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(id_usuario)
+    }).then(res => {
+        initDataTableUsuariosDes();
+        if(!res.ok){
+            console.log('Problem');
+            return;
+        }
+        return res.json();
+    })
+        .then(data => {
+            Swal.fire("¡Perfil de usuario activado!");
+        })
+        .catch(error =>{
+            console.log(error);
+        });
+}

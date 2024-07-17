@@ -52,7 +52,6 @@
         # Ventanas modales
             include 'clientes.php';
             include 'plataformas.php';
-            include 'materiales.php';
             include 'usuarios.php';
     ?>
     <script>
