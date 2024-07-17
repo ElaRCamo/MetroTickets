@@ -599,24 +599,27 @@ function desactivarCliente(id_cliente) {
                 },
                 body: JSON.stringify(id_cliente)
             }).then(res => {
-                if(!res.ok){
-                    console.log('Problem');
-                    return;
-                }
-                return res.json();
-            }).then(data => {
-                    console.log('Success');
+                if(res.ok){
                     swalWithBootstrapButtons.fire({
                         title: "¡Desactivado!",
                         text: "El cliente ha sido desactivado.",
                         icon: "success"
                     });
-            }).then(function (){
-                initDataTableClientes();
-                initDataTablePlataformas();
+                    initDataTableClientes();
+                    initDataTablePlataformas();
+                }else{
+                    console.log('Problem');
+                    return;
+                }
+                return res.json();
             }).catch(error =>{
-                    console.log(error);
+                Swal.fire({
+                    title: "Error",
+                    text: error.message,
+                    icon: "error",
+                    confirmButtonText: "OK"
                 });
+            });
         } else if (
             result.dismiss === Swal.DismissReason.cancel
         ) {
@@ -628,6 +631,7 @@ function desactivarCliente(id_cliente) {
         }
     });
 }
+
 /*****************************************************************************************
  * **************************FUNCIONES PLATAFORMA: AGREGAR/MODIFICAR *********************
  * ***************************************************************************************/
