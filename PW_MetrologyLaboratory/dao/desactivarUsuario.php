@@ -1,6 +1,7 @@
 <?php
-
 include_once('connection.php');
+require_once('functionsAdmin.php');
+session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_GET['id_usuario'])){
