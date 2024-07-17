@@ -931,8 +931,14 @@ function desactivarUsuario(id_usuario){
                 },
                 body: JSON.stringify(id_usuario)
             }).then(res => {
-                initDataTableUsuarios();
-                if(!res.ok){
+                if(res.ok){
+                    swalWithBootstrapButtons.fire({
+                        title: "¡Desactivado!",
+                        text: "El cliente ha sido desactivado.",
+                        icon: "success"
+                    });
+                    initDataTableUsuarios();
+                }else{
                     console.log('Problem');
                     return;
                 }
@@ -947,7 +953,12 @@ function desactivarUsuario(id_usuario){
                     });
                 })
                 .catch(error =>{
-                    console.log(error);
+                    Swal.fire({
+                        title: "Error",
+                        text: error.message,
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    });
                 });
         } else if (
             result.dismiss === Swal.DismissReason.cancel
