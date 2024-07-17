@@ -94,8 +94,7 @@ function ActualizarSolicitudMunsell($tipoPrueba, $norma, $normaFile, $idUsuario,
     $conex->close();
     return $response;
 }
-
-function ActualizarPersonal($conexUpdate, $id_prueba,$nominas, $nombres, $areas)
+function ActualizarPersonal($conexUpdate, $id_prueba, $nominas, $nombres, $areas)
 {
     // Consultando las piezas ya registradas
     $selectQuery = $conexUpdate->prepare("SELECT id_personal, nomina, nombre, area FROM PersonalMunsell WHERE id_prueba = ?");
@@ -125,22 +124,22 @@ function ActualizarPersonal($conexUpdate, $id_prueba,$nominas, $nombres, $areas)
         ];
     }
 
-    $rUpdateQuery = $rInsertQuery = $rDeleteQuery = true;
-
     // Actualizar o insertar nuevo personal
     foreach ($newPersonal as $nomina => $personal) {
         if (isset($existingPersonal[$nomina])) {
             // Si la pieza ya existe, actualizarla
-            $updateQuery = $conexUpdate->prepare("UPDATE PersonalMunsell SET nombre = ?, area = ?, nomina = ?  WHERE id_personal = ?");
-            $updateQuery->bind_param("sssi", $personal['nombre'], $personal['area'], $personal['nomina'], $existingPersonal[$nomina]['id_personal']);
-            echo "updateQuery: ".$updateQuery;
-            $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
+            $updateQuery = $conexUpdate->prepare("UPDATE PersonalMunsell SET nombre = ?, area = ? WHERE id_personal = ?");
+            $updateQuery->bind_param("ssi", $personal['nombre'], $personal['area'], $existingPersonal[$nomina]['id_personal']);
+            if (!$updateQuery->execute()) {
+                return ['status' => 'error', 'message' => 'Error al actualizar el personal'];
+            }
         } else {
             // Si la pieza no existe, insertarla
             $insertQuery = $conexUpdate->prepare("INSERT INTO PersonalMunsell (id_prueba, nombre, area, nomina) VALUES (?, ?, ?, ?)");
             $insertQuery->bind_param("ssss", $id_prueba, $personal['nombre'], $personal['area'], $nomina);
-            echo "insertQuery: ".$insertQuery;
-            $rInsertQuery = $rInsertQuery && $insertQuery->execute();
+            if (!$insertQuery->execute()) {
+                return ['status' => 'error', 'message' => 'Error al insertar nuevo personal'];
+            }
         }
     }
 
@@ -149,18 +148,15 @@ function ActualizarPersonal($conexUpdate, $id_prueba,$nominas, $nombres, $areas)
         if (!isset($newPersonal[$nomina])) {
             $deleteQuery = $conexUpdate->prepare("DELETE FROM PersonalMunsell WHERE id_personal = ?");
             $deleteQuery->bind_param("i", $personal['id_personal']);
-            echo "insertQuery: ".$deleteQuery;
-            $rDeleteQuery = $rDeleteQuery && $deleteQuery->execute();
+            if (!$deleteQuery->execute()) {
+                return ['status' => 'error', 'message' => 'Error al eliminar personal'];
+            }
         }
     }
 
-    if(!$rUpdateQuery || !$rInsertQuery || !$rDeleteQuery ) {
-        $response = array('status' => 'error', 'message' => 'Error al actualizar el personal');
-    } else {
-        $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
-    }
-    return $response;
+    return ['status' => 'success', 'message' => 'Datos guardados correctamente'];
 }
+
 
 function manejarSubtipoPrueba($tipoPrueba, $id_prueba, $files, $post)
 {

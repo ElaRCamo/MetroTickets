@@ -106,7 +106,6 @@ function ActualizarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $espec
     return $response;
 }
 
-
 function ActualizarPiezas($conexUpdate,$plataformas, $numsParte, $cdadPiezas, $revDibujos, $modMatematicos, $id_prueba)
 {
     /*$con = new LocalConector();
