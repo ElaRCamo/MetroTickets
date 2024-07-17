@@ -599,23 +599,22 @@ function desactivarCliente(id_cliente) {
                 },
                 body: JSON.stringify(id_cliente)
             }).then(res => {
-                initDataTableClientes();
-                initDataTablePlataformas();
                 if(!res.ok){
                     console.log('Problem');
                     return;
                 }
                 return res.json();
-            })
-                .then(data => {
+            }).then(data => {
                     console.log('Success');
                     swalWithBootstrapButtons.fire({
                         title: "¡Desactivado!",
                         text: "El cliente ha sido desactivado.",
                         icon: "success"
                     });
-                })
-                .catch(error =>{
+            }).then(function (){
+                initDataTableClientes();
+                initDataTablePlataformas();
+            }).catch(error =>{
                     console.log(error);
                 });
         } else if (
@@ -623,7 +622,7 @@ function desactivarCliente(id_cliente) {
         ) {
             swalWithBootstrapButtons.fire({
                 title: "Cancelado",
-                text: "El cliente sigue activo y visible para todos.",
+                text: "El cliente sigue activo y disponible para hacer solicitudes.",
                 icon: "error"
             });
         }
