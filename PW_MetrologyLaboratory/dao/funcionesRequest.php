@@ -280,8 +280,8 @@ function registrarCambioBitacoora($conexCambio,$id_prueba,$descripcion,$id_usuar
 {
     $fecha = date('Y-m-d H:i:s');
     $rInsertQuery = true;
-    // Si la pieza no existe, insertarla
-    $insertQuery = $conexCambio->prepare("INSERT INTO BitacoraCambios (id_prueba, fecha, descripcion,id_usuario) VALUES (?, ?, ?, ?)");
+
+    $insertQuery = $conexCambio->prepare("INSERT INTO CambiosPruebas (id_prueba, fecha, descripcion,id_usuario) VALUES (?, ?, ?, ?)");
     $insertQuery->bind_param("ssss", $id_prueba, $fecha, $descripcion, $id_usuario);
     $rInsertQuery = $rInsertQuery && $insertQuery->execute();
 

@@ -650,7 +650,7 @@ function actualizarSolicitud(id_prueba, dao, esActualizacion){
         if(!validarNoRepetidos(nominas)){
             Swal.fire({
                 title: "Error",
-                text: "Números de parte duplicados",
+                text: "Números de nómina duplicados",
                 icon: "error",
                 confirmButtonText: "OK"
             });

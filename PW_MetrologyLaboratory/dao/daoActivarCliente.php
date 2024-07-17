@@ -1,6 +1,7 @@
 <?php
-
 include_once('connection.php');
+require_once('functionsAdmin.php');
+session_start();
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_GET['id_cliente'])){
@@ -28,18 +29,25 @@ function desactivarCliente($id_cliente)
     $stmt1->bind_param("i", $id_cliente);
 
     $stmt2 = $conex->prepare("UPDATE Plataforma P
-                                    JOIN DescripcionMaterial M ON P.id_plataforma = M.id_plataforma
-                                    SET P.estatus = 1,
-                                        M.estatus = 1
+                                    SET P.estatus = 1
                                     WHERE P.id_cliente = ?");
     $stmt2->bind_param("i", $id_cliente);
 
     $success = $stmt1->execute() && $stmt2->execute();
 
     if ($success) {
-        // Commit si todas las consultas se ejecutaron correctamente
-        $conex->commit();
-        $respuesta = array("success" => true, "message" => "Cliente desactivado");
+        //Registrar cambios en bitacora
+        $descripcion = "Cliente activado: ".$id_cliente. " con sus respectivas plataformas.";
+        $response =  registrarCambioAdmin($conex, $descripcion,$_SESSION['nomina']);
+
+        if($response['status']==='success'){
+            // Commit si todas las consultas se ejecutaron correctamente
+            $conex->commit();
+            $respuesta = array("success" => true, "message" => "Cliente y plataformas activados");
+        }else{
+            $conex->rollback();
+            $respuesta = $response;
+        }
     } else {
         // Rollback en caso de error
         $conex->rollback();
