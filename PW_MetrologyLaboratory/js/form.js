@@ -1147,17 +1147,6 @@ function actualizarTituloH1(id_update) {
     }
 }
 
-
-function showButton(id_button){
-    const button = id(id_button);
-    button.style.display = "inline-block";
-}
-
-function hideButton(id_button){
-    const button = id(id_button);
-    button.style.display = "none";
-}
-
 function correoActualizacionPrueba(estatusPrueba, id_prueba, solicitantePrueba, emailSolicitante){
     const data = new FormData();
     let dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/Mailer/MailerActualizacionPrueba.php';

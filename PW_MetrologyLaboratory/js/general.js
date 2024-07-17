@@ -47,6 +47,19 @@ function isValidURL(url) {
     var regex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/;
     return regex.test(url);
 }
+
+
+function showButton(id_button){
+    const button = id(id_button);
+    button.style.display = "inline-block";
+}
+
+function hideButton(id_button){
+    const button = id(id_button);
+    button.style.display = "none";
+}
+
+
 /*****************************************
  *************************************************
  * ***************************************************
