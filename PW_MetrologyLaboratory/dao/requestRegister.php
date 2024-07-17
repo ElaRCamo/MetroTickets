@@ -79,7 +79,7 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
             $rGuardarObjetos = $rGuardarObjetos && $insertMaterial->execute();
         }
 
-    //Registrar cambios en bitacora
+    // Registrar cambios en bitacora
     $descripcion = "Solicitud creada. Se concatenan los valores de las variables: "
         . "tipoPrueba = " . $tipoPrueba . ", "
         . "norma = " . $norma . ", "
@@ -87,11 +87,11 @@ function RegistrarSolicitud($tipoPrueba, $norma, $normaFile, $idUsuario, $especi
         . "especificaciones = " . $especificaciones . ", "
         . "imagenCotas = " . $imagenCotas . ", "
         . "subtipo = " . $subtipo . ", "
-        . "plataformas = " . $plataformas . ", "
-        . "numsParte = " . $numsParte . ", "
-        . "cdadPiezas = " . $cdadPiezas . ", "
-        . "revDibujos = " . $revDibujos . ", "
-        . "modMatematicos = " . $modMatematicos . ", "
+        . "plataformas = " . implode(", ", $plataformas) . ", "
+        . "numsParte = " . implode(", ", $numsParte) . ", "
+        . "cdadPiezas = " . implode(", ", $cdadPiezas) . ", "
+        . "revDibujos = " . implode(", ", $revDibujos) . ", "
+        . "modMatematicos = " . implode(", ", $modMatematicos) . ", "
         . "fechaSolicitud = " . $fechaSolicitud;
 
     $response =  registrarCambioBitacoora($conex,$id_prueba,$descripcion,$idUsuario);
