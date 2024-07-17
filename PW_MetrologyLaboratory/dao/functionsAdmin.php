@@ -4,9 +4,6 @@ function registrarCambioAdmin($conexCambio,$descripcion,$id_usuario)
     $fecha = date('Y-m-d H:i:s');
     $rInsertQuery = true;
 
-    echo " fadmin nomina:".$_SESSION['nomina'];
-    echo "descripcion:".$descripcion;
-
     $insertQuery = $conexCambio->prepare("INSERT INTO CambiosAdmin (fecha, descripcion,id_admin) VALUES (?, ?, ?)");
     $insertQuery->bind_param("sss", $fecha, $descripcion, $id_usuario);
     $rInsertQuery = $rInsertQuery && $insertQuery->execute();
