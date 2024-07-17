@@ -654,6 +654,7 @@ function actualizarSolicitud(id_prueba, dao, esActualizacion){
                 icon: "error",
                 confirmButtonText: "OK"
             });
+            return;
         }
 
         // Agregamos los arrays al FormData
@@ -692,6 +693,7 @@ function actualizarSolicitud(id_prueba, dao, esActualizacion){
                 icon: "error",
                 confirmButtonText: "OK"
             });
+            return;
         }
 
             // Agregamos los arrays al FormData
