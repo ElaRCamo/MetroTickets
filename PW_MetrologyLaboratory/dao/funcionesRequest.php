@@ -133,11 +133,13 @@ function ActualizarPersonal($conexUpdate, $id_prueba,$nominas, $nombres, $areas)
             // Si la pieza ya existe, actualizarla
             $updateQuery = $conexUpdate->prepare("UPDATE PersonalMunsell SET nombre = ?, area = ?, nomina = ?  WHERE id_personal = ?");
             $updateQuery->bind_param("sssi", $personal['nombre'], $personal['area'], $personal['nomina'], $existingPersonal[$nomina]['id_personal']);
+            echo "updateQuery: ".$updateQuery;
             $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
         } else {
             // Si la pieza no existe, insertarla
             $insertQuery = $conexUpdate->prepare("INSERT INTO PersonalMunsell (id_prueba, nombre, area, nomina) VALUES (?, ?, ?, ?)");
             $insertQuery->bind_param("ssss", $id_prueba, $personal['nombre'], $personal['area'], $nomina);
+            echo "insertQuery: ".$insertQuery;
             $rInsertQuery = $rInsertQuery && $insertQuery->execute();
         }
     }
@@ -147,6 +149,7 @@ function ActualizarPersonal($conexUpdate, $id_prueba,$nominas, $nombres, $areas)
         if (!isset($newPersonal[$nomina])) {
             $deleteQuery = $conexUpdate->prepare("DELETE FROM PersonalMunsell WHERE id_personal = ?");
             $deleteQuery->bind_param("i", $personal['id_personal']);
+            echo "insertQuery: ".$deleteQuery;
             $rDeleteQuery = $rDeleteQuery && $deleteQuery->execute();
         }
     }
