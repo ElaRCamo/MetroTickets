@@ -34,7 +34,7 @@ function desactivarCliente($id_cliente)
     $stmt2->bind_param("i", $id_cliente);
 
     $success = $stmt1->execute() && $stmt2->execute();
-
+echo "nomina:".$_SESSION['nomina'];
     if ($success) {
         //Registrar cambios en bitacora
         $descripcion = "Cliente desactivado: ".$id_cliente. " con sus respectivas plataformas.";
