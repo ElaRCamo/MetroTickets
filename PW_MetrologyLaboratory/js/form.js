@@ -4,7 +4,6 @@
 const mostrarBloque = (elemento, mostrar) => {
     elemento.style.display = mostrar ? "block" : "none";
 };
-
 function banderaTipoPrueba() {
 
     const selTipoPrueba = id("tipoPrueba");
@@ -285,7 +284,7 @@ function agregarPersonal() {
         + '</div>'
         + '<div class="col-xl-4 buttons-container" id="divButtons' + indexPersonal + '">'
         + '<a href="#" class="remove-lnk-personal removeBtn" id="' + indexPersonal + '"><i class="las la-trash-alt"></i></a>'
-        + '<a href="#" class="agregarButton" id="addPersonal' + indexPersonal + '"><i class="las la-plus-square"></i></a>'
+        + '<a href="#" class="agregarButton" onclick="fAddPersonal()" id="addPersonal' + indexPersonal + '"><i class="las la-plus-square"></i></a>'
         + '</div>'
         + '</div>');
     newPerRow.appendTo('#contenedorFormulario');
