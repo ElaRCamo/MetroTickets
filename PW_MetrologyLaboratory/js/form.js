@@ -674,12 +674,21 @@ function actualizarSolicitud(id_prueba, dao, esActualizacion){
             revDibujos.push(revDibujo.value.trim());
             modMatematicos.push(modeloMate.value.trim());
         });
-        // Agregamos los arrays al FormData
-        dataForm.append('plataformas', plataformas.join(', '));
-        dataForm.append('numsParte', numsParte.join(', '));
-        dataForm.append('cantidades', cantidades.join(', '));
-        dataForm.append('revDibujos', revDibujos.join(', '));
-        dataForm.append('modMatematicos', modMatematicos.join(', '));
+        if(validarNoRepetidos(numsParte)){
+            // Agregamos los arrays al FormData
+            dataForm.append('plataformas', plataformas.join(', '));
+            dataForm.append('numsParte', numsParte.join(', '));
+            dataForm.append('cantidades', cantidades.join(', '));
+            dataForm.append('revDibujos', revDibujos.join(', '));
+            dataForm.append('modMatematicos', modMatematicos.join(', '));
+        }else{
+            Swal.fire({
+                title: "Error",
+                text: "Números de parte duplicados",
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        }
     }
 
     let formDataString = "FormData: \n";
@@ -732,6 +741,11 @@ function actualizarSolicitud(id_prueba, dao, esActualizacion){
             confirmButtonText: "OK"
         });
     });
+}
+
+function validarNoRepetidos(array) {
+    let elementosUnicos = new Set(array); //se crea un set (donde no se pueden repetir elementos)
+    return elementosUnicos.size === array.length; //(si length son iguales entonces no hay elemntos repetidos)
 }
 
 function enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario){
