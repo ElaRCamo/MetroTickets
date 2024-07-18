@@ -73,7 +73,7 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
                     <td>${item.fechaCompromiso}</td>
                     <td>${item.estatusVisual}</td>
                     <td>${item.descripcionPrueba}</td>
-                    <td>${item.descripcionPrioridad}</td>
+                    <td>${item.prioridadVisual}</td>
                     <td>${item.nombreSolic}</td>
                     <td>${item.nombreMetro}</td>
                     <td>
