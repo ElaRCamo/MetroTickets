@@ -106,6 +106,7 @@
             alert("id_tipoPruebaSol: "+id_tipoPruebaSol);
             if (id_tipoPruebaSol !== '5'){
                 tablaEstatusPiezas();
+                alert("holis ");
             }
             //Se cargan los valores que ya se definieron
             llenarEstatusPrueba(id_estatusSol);
