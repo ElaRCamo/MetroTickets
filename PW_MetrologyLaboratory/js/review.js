@@ -403,7 +403,9 @@ function validarResultados(id_review, id_user){
     var estatusPruebaAdmin = id("estatusPruebaAdmin");
     var metrologoAdmin = id("metrologoAdmin");
 
-    if(estatusPruebaAdmin.value.trim() !== '1' && (metrologoAdmin.value.trim() === null || metrologoAdmin.value.trim() === '')){
+    alert("estatusPruebaAdmin: "+estatusPruebaAdmin.value+"\nmetrologoAdmin: "+metrologoAdmin.value )
+
+    if(estatusPruebaAdmin.value !== '1' && (metrologoAdmin.value === null || metrologoAdmin.value === '')){
         Swal.fire({
             title: "Error",
             text: "Debe asignar un metrologo.",
