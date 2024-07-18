@@ -945,5 +945,5 @@ table tbody tr {
 }
 
 #listadoPruebasBody span{
-    display: inline;
+    visibility: visible;
 }
