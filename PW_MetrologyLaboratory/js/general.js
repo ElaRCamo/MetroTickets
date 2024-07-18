@@ -1,16 +1,5 @@
 const id = str => document.getElementById(str);
 
-
-function showResult(result) {
-    // Código para manejar el resultado exitoso
-    console.log('Result: ', result);
-}
-
-function showError(error) {
-    // Código para manejar el error98ik
-    console.error('Error: ', error);
-}
-
 function reviewPDF(ID_PRUEBA) {
     var url = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/pruebaPDF.php?id_prueba=" + ID_PRUEBA;
     window.open(url, '_blank');
