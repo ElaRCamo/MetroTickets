@@ -404,14 +404,14 @@ function validarResultados(id_review, id_user){
     var metrologoAdmin = id("metrologoAdmin");
 
     if(estatusPruebaAdmin.value.trim() !== '1' && (metrologoAdmin.value.trim() === null || metrologoAdmin.value.trim() === '')){
-        swalWithBootstrapButtons.fire({
+        Swal.fire({
             title: "Error",
             text: "Debe asignar un metrologo.",
             icon: "error"
         });
-        return;
+        //return;
     }else{
-        //updatePruebaAdmin(id_review, id_user);
+        updatePruebaAdmin(id_review, id_user);
     }
 }
 
