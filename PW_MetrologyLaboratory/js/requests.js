@@ -13,7 +13,7 @@ const dataTableOptions = {
     ],
     pageLength:10,
     destroy: true,
-    order: [[0, 'desc']], // Ordenar por la columna 0 en orden ascendente
+    order: [[0, 'desc']], // Ordenar por la columna 0
     language:{
         lengthMenu: "Mostrar _MENU_ registros pór página",
         sZeroRecords: "Ninguna prueba encontrada",
