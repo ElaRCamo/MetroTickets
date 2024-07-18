@@ -426,16 +426,13 @@ function validarResultados(id_review, id_user){
             text: "Debe asignar observaciones.",
             icon: "error"
         });
-    }
-    else{
-        //updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmin,fechaCompromiso);
-        alert("actualizar prueba");
+    }else{
+        updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmin,fechaCompromiso, observacionesAdmin);
     }
 }
 
-function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmin, fechaCompromiso){
+function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmin, fechaCompromiso, observacionesAdmin){
     var prioridadPruebaAdmin = id("prioridadPruebaAdmin");
-
     var resultados = capturarResultados(estatusPruebaAdmin);
     const data = new FormData();
 
@@ -449,7 +446,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     if(estatusPruebaAdmin.value==='2'){
         data.append('fechaCompromiso', fechaCompromiso.value.trim());
     }
-    //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados);
+    alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados);
 
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
