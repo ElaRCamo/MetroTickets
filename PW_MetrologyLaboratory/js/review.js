@@ -404,7 +404,7 @@ function validarResultados(id_review, id_user){
     var metrologoAdmin = id("metrologoAdmin");
     var fechaCompromiso = id("iFechaCompromiso");
 
-    alert("fechaCompromiso: "+fechaCompromiso.value+"\nmetrologoAdmin: "+metrologoAdmin.value )
+    alert("fechaCompromiso: "+fechaCompromiso.value+"\nestatusPruebaAdmin: "+estatusPruebaAdmin.value )
 
     if(estatusPruebaAdmin.value !== '1' && metrologoAdmin.value === '00000000'){
         Swal.fire({
@@ -413,7 +413,7 @@ function validarResultados(id_review, id_user){
             icon: "error"
         });
         //return;
-    }else if(estatusPruebaAdmin.value !== '1' && fechaCompromiso.value === '00000000'){
+    }else if(estatusPruebaAdmin.value === '2' && (fechaCompromiso.value === '' || fechaCompromiso.value === null)){
         Swal.fire({
             title: "Error",
             text: "Debe asignar fecha compromiso.",
