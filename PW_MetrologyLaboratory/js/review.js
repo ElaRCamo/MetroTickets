@@ -405,7 +405,7 @@ function validarResultados(id_review, id_user){
 
     alert("estatusPruebaAdmin: "+estatusPruebaAdmin.value+"\nmetrologoAdmin: "+metrologoAdmin.value )
 
-    if(estatusPruebaAdmin.value !== '1' && metrologoAdmin.value === '000000'){
+    if(estatusPruebaAdmin.value !== 1 && metrologoAdmin.value === '000000'){
         Swal.fire({
             title: "Error",
             text: "Debe asignar un metrologo.",
@@ -413,7 +413,7 @@ function validarResultados(id_review, id_user){
         });
         //return;
     }else{
-        updatePruebaAdmin(id_review, id_user);
+        //updatePruebaAdmin(id_review, id_user);
     }
 }
 
