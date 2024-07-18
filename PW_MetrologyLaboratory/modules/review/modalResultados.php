@@ -47,7 +47,7 @@
                                         <th>Estatus</th>
                                     </tr>
                                     </thead>
-                                    <tbody></tbody>
+                                    <tbody id="tbodyPiezas"></tbody>
                                 </table>
                             </div>
                         </div>

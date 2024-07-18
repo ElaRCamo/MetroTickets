@@ -10,6 +10,7 @@ let emailSolicitante;
 let indiceRowNorma=false; //Para que la fila se genere una sola vez
 let indiceRowSubtipo=false;
 let indiceTabla=false;
+let dao = '';
 
 /*****************************************************************************************
  * ****************************FUNCIONES PARA CARGAR DATOS *******************************
@@ -17,7 +18,6 @@ let indiceTabla=false;
 function consultaTipoPrueba(id_prueba){
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarTipoPrueba.php?id_prueba=' + id_prueba, function (response) {
         let tipoPrueba = response.data[0].id_tipoPrueba;
-        let dao = '';
         if(tipoPrueba === '5'){
             dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPruebaMunsell.php?id_prueba='+ id_prueba;
         }else{
@@ -613,10 +613,32 @@ function fechaCompromiso(){
 
 }
 
-function tablaEstatusPiezas(){
+function tablaEstatusPiezas() {
     const divTablaPiezas = id("divTablaPiezas");
     divTablaPiezas.style.display = "block";
+
+    $.getJSON(dao, function (response) {
+
+        // Obtener la referencia al tbody donde se agregarán las filas
+        var tbodyPiezas = document.getElementById("tbodyPiezas");
+
+        // Iterar sobre los materiales y crear filas y celdas de tabla
+        for (var j = 0; j < response.data.length; j++) {
+            var fila = document.createElement("tr");
+
+            var numeroDeParteT = document.createElement("td");
+            numeroDeParteT.textContent = response.data[j].numParte;
+            fila.appendChild(numeroDeParteT);
+
+            var estatusMaterialT = document.createElement("td");
+            estatusMaterialT.textContent = response.data[j].estatusMaterial;
+            fila.appendChild(estatusMaterialT);
+
+            tbodyPiezas.appendChild(fila);
+        }
+    })
 }
+
 
 const TablaPruebasSolicitante = async (id_solicitante) => {
     try {

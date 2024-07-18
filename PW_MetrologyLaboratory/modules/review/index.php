@@ -103,10 +103,8 @@
             window.location.href = "../newRequest/newRequestIndex.php?id_update="+ id_review;
         <?php
         } else if($tipoUser== 1 || $tipoUser== 2){?>
-            alert("id_tipoPruebaSol: "+id_tipoPruebaSol);
             if (id_tipoPruebaSol !== '5'){
-                tablaEstatusPiezas();
-                alert("holis ");
+                tablaEstatusPiezas(dao);
             }
             //Se cargan los valores que ya se definieron
             llenarEstatusPrueba(id_estatusSol);
