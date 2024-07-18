@@ -15,7 +15,6 @@ function resumenPrueba($id_solicitante){
                     s.fechaSolicitud,
                     s.fechaRespuesta,
                     s.fechaCompromiso,
-                    ep.descripcionEstatus,
                     p.descripcionPrioridad,
                     s.id_tipoPrueba,
                     tp.descripcionPrueba,
@@ -24,8 +23,8 @@ function resumenPrueba($id_solicitante){
                     u_metro.nombreUsuario AS nombreMetro,
                     s.id_solicitante,
                     u_solic.nombreUsuario AS nombreSolic,
-                    CASE 
-                        WHEN s.id_estatusPrueba = 1 THEN '<span class=''label label-success''>Confirmado</span>'
+                    CASE
+                        WHEN s.id_estatusPrueba = 1 THEN CONCAT('<span class=\"label label-success\">', ep.descripcionEstatus, '</span>')
                         ELSE ep.descripcionEstatus
                     END AS estatusVisual
                 FROM
@@ -39,7 +38,8 @@ function resumenPrueba($id_solicitante){
                     s.id_solicitante = '$id_solicitante'
                     AND s.id_estatusPrueba <> 6
                 ORDER BY
-                    s.id_prueba DESC;");
+                    s.id_prueba DESC;
+                ");
 
     $resultado= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
