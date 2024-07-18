@@ -435,15 +435,6 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     var prioridadPruebaAdmin = id("prioridadPruebaAdmin");
     var resultados = capturarResultados(estatusPruebaAdmin);
 
-    if(resultados === "Sin resultados"){
-        Swal.fire({
-            title: "Error",
-            text: "Debe indicar los resultados de la prueba.",
-            icon: "error"
-        });
-        return;
-    }
-
     const data = new FormData();
 
     data.append('resultadosAdmin', resultados);
@@ -535,6 +526,15 @@ function capturarResultados(estatusPruebaAdmin){
         }else if(archivoRadio.checked) {
             resultados = enlaceResultados.href;
         }
+    }
+
+    if(resultados === "Sin resultados"){
+        Swal.fire({
+            title: "Error",
+            text: "Debe indicar los resultados de la prueba.",
+            icon: "error"
+        });
+        return;
     }
     return resultados;
 }
