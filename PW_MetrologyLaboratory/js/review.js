@@ -1,6 +1,7 @@
 let id_estatusSol;
 let estatusSol;
 let id_prioridadSol;
+let id_tipoPruebaSol;
 let id_metrologoSol;
 let obs_Solicitud;
 let resultadosSol;
@@ -95,6 +96,7 @@ function resumenPrueba(dao){
         }
 
         id_estatusSol = data.id_estatusPrueba;
+        id_tipoPruebaSol = data.id_tipoPrueba;
         estatusSol = data.descripcionEstatus;
         id_prioridadSol = data.id_prioridad;
         id_metrologoSol = data.id_metrologo;
@@ -610,3 +612,51 @@ function fechaCompromiso(){
     }
 
 }
+
+function tablaEstatusPiezas(){
+    const divTablaPiezas = id("divTablaPiezas");
+    divTablaPiezas.display = "block";
+}
+
+const TablaPruebasSolicitante = async (id_solicitante) => {
+    try {
+        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante=${id_solicitante}`);
+
+        if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
+        }
+
+        const result = await response.json();
+
+        let content = '';
+        result.data.forEach((item) => {
+            content += `
+                <tr>
+                    <td onclick="reviewPage('${item.id_prueba}')" class="idEnlace">${item.id_prueba}</td>
+                    <td>${item.descripcionPrueba}</td>
+                    <td>${item.fechaSolicitud}</td>
+                    <td>${item.nombreSolic}</td>
+                    <td>${item.fechaCompromiso}</td>
+                    <td>${item.nombreMetro}</td>
+                    <td>${item.estatusVisual}</td>
+                    <td>${item.prioridadVisual}</td>
+                    <td>
+                        <button class="btn btn-success" onclick="reviewPage('${item.id_prueba}')">
+                            <i class="las la-eye"></i><span>Consultar</span>
+                        </button>
+                        <button class="btn btn-secondary" onclick="reviewPDF('${item.id_prueba}')">
+                            <i class="las la-file-pdf"></i><span>PDF</span>
+                        </button>
+                        <button class="btn btn-danger" onclick="cancelarSolicitud('${item.id_prueba}')">
+                            <i class="las la-trash"></i></i><span>Cancelar</span>
+                        </button>
+                    </td>
+                </tr>`;
+        });
+
+        listadoPruebasBody.innerHTML = content;
+        ocultarContenido("textVerMas", 40);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};

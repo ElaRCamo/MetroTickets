@@ -107,6 +107,9 @@
             llenarEstatusPrueba(id_estatusSol);
             llenarPrioridadPrueba(id_prioridadSol);
             consultarMetrologos(id_metrologoSol);
+            if (id_tipoPruebaSol !== '5'){
+                tablaEstatusPiezas();
+            }
             document.getElementById("observacionesAdmin").value = obs_Solicitud;
             llenarResultados();
         <?php } ?>

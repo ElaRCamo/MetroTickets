@@ -738,19 +738,20 @@ table tbody tr {
     padding: 2% 5%;
 }
 #containerPruebaR p,#containerPruebaR span, #RequestReview p, #RequestReview span,
-#materialesResumen th, #piezasSolicitud th{
+#materialesResumen th, #piezasSolicitud th, #piezasEstatus th{
     color:var(--main-color);
 }
 #containerPruebaR p,#containerPruebaR span{
     font-size: 1.2rem;
 }
-#materialRTittle, #titleResumen, #titleResumenM, #titleTablaP{
+#materialRTittle, #titleResumen, #titleResumenM, #titleTablaP, #titleResPiezasEstatus{
     color:var(--gold_70);
     text-align: center;
     background-color: var(--main-color);
     padding: 0.5%;
 }
-#materialesResumen thead th, #piezasSolicitud thead th {
+#materialesResumen thead th, #piezasSolicitud thead th,
+#piezasEstatus thead th{
     padding: 0.3rem;
     text-align: center;
     font-size: 1rem;
@@ -946,4 +947,8 @@ table tbody tr {
 
 .btn-success {
     background-color: var(--main-color) !important;
+}
+
+#divTablaPiezas{
+    display: none;
 }

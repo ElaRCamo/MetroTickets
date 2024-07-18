@@ -36,12 +36,27 @@
                             </select>
                         </div>
                     </div>
+                    <div class="row" id="divTablaPiezas">
+                        <div>
+                            <h5 id="titleResPiezasEstatus">ESTATUS DE LAS PIEZAS</h5>
+                            <div>
+                                <table class="table table-striped table-responsive" id="piezasEstatus">
+                                    <thead>
+                                    <tr>
+                                        <th>No. de Parte</th>
+                                        <th>Estatus</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                     <div class="mb-3">
                         <div class="help-block with-errors"></div>
                         <label for="observacionesAdmin" class="form-label">Observaciones: </label>
                         <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
                     </div>
-
                     <div class="mb-3" id="divResultados">
                         <div class="help-block with-errors"></div>
                         <div class="d-flex align-items-center">
@@ -68,7 +83,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
                         <button type="button" class="btn btn-secondary" onclick="validarResultados(id_review,id_user)" data-bs-dismiss="modal"><i class="las la-save"></i>Guardar</button>

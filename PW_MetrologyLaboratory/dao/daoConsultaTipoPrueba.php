@@ -20,5 +20,4 @@ function ContadorPruebas()
     return json_encode(array("data" => $resultado));
 }
 
-
 ?>
