@@ -24,8 +24,18 @@ function resumenPrueba($id_solicitante){
                     s.id_solicitante,
                     u_solic.nombreUsuario AS nombreSolic,
                     CASE
-                        WHEN s.id_estatusPrueba = 1 THEN CONCAT('<span class=\"label label-success\">', ep.descripcionEstatus, '</span>')
-                        ELSE ep.descripcionEstatus
+                        WHEN s.id_estatusPrueba = 1 
+                            THEN CONCAT('<span class=\"badge badge-primary\">', ep.descripcionEstatus, '</span>')
+                        WHEN s.id_estatusPrueba = 2 
+                            THEN CONCAT('<span class=\"badge badge-secondary\">', ep.descripcionEstatus, '</span>')
+                        WHEN s.id_estatusPrueba = 3 
+                            THEN CONCAT('<span class=\"badge badge-warning\">', ep.descripcionEstatus, '</span>')
+                        WHEN s.id_estatusPrueba = 4 
+                            THEN CONCAT('<span class=\"badge badge-success\">', ep.descripcionEstatus, '</span>')
+                        WHEN s.id_estatusPrueba = 5 
+                            THEN CONCAT('<span class=\"badge badge-warning\">', ep.descripcionEstatus, '</span>')
+                        WHEN s.id_estatusPrueba = 6 
+                            THEN CONCAT('<span class=\"badge badge-dark\">', ep.descripcionEstatus, '</span>')
                     END AS estatusVisual
                 FROM
                     Pruebas s
