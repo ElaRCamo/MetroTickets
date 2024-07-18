@@ -615,7 +615,7 @@ function fechaCompromiso(){
 
 function tablaEstatusPiezas(){
     const divTablaPiezas = id("divTablaPiezas");
-    divTablaPiezas.display = "block";
+    divTablaPiezas.style.display = "block";
 }
 
 const TablaPruebasSolicitante = async (id_solicitante) => {
