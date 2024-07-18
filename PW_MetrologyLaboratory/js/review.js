@@ -652,6 +652,7 @@ function tablaEstatusPiezas() {
 
             // Llamar a la función estatusPiezas para llenar el select
             estatusPiezas(select, response.data[j].estatusMaterial);
+            alert("estatus:"+response.data[j].estatusMaterial);
 
             estatusMaterialT.appendChild(select);
             fila.appendChild(estatusMaterialT);
