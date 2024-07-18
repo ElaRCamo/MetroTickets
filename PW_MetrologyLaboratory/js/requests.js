@@ -69,13 +69,13 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
             content += `
                 <tr>
                     <td onclick="reviewPage('${item.id_prueba}')" class="idEnlace">${item.id_prueba}</td>
-                    <td>${item.fechaSolicitud}</td>
-                    <td>${item.fechaCompromiso}</td>
-                    <td>${item.estatusVisual}</td>
                     <td>${item.descripcionPrueba}</td>
-                    <td>${item.prioridadVisual}</td>
+                    <td>${item.fechaSolicitud}</td>
                     <td>${item.nombreSolic}</td>
+                    <td>${item.fechaCompromiso}</td>
                     <td>${item.nombreMetro}</td>
+                    <td>${item.estatusVisual}</td>
+                    <td>${item.prioridadVisual}</td>
                     <td>
                         <button class="btn btn-success" onclick="reviewPage('${item.id_prueba}')">
                             <i class="las la-eye"></i><span>Consultar</span>
