@@ -48,7 +48,7 @@
             require_once('footer.php')
     ?>
     <script src="js/general.js"></script>
-    <script src="js/requests.js"></script>
+    <script src="js/indicators.js"></script>
 
     <script>
         window.onload = function() {

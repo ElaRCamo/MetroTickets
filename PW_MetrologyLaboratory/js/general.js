@@ -16,7 +16,6 @@ function reviewPDF(ID_PRUEBA) {
     window.open(url, '_blank');
 }
 
-
 function llenarTipoPruebaUpdate(idTipoPrueba, subtipo, imgCotas) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php', function (data) {
         var selectS = id("tipoPrueba");
