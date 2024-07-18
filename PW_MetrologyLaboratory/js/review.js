@@ -411,7 +411,7 @@ function validarResultados(id_review, id_user){
         });
         return;
     }else{
-        updatePruebaAdmin(id_review, id_user);
+        //updatePruebaAdmin(id_review, id_user);
     }
 }
 
