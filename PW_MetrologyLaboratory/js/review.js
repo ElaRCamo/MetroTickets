@@ -399,6 +399,22 @@ function llenarResultados(){
     }
 }
 
+function validarResultados(id_review, id_user){
+    var estatusPruebaAdmin = id("estatusPruebaAdmin");
+    var metrologoAdmin = id("metrologoAdmin");
+
+    if(estatusPruebaAdmin.value.trim() !== '1' && (metrologoAdmin.value.trim() === null || metrologoAdmin.value.trim() === '')){
+        swalWithBootstrapButtons.fire({
+            title: "Error",
+            text: "Debe asignar un metrologo.",
+            icon: "error"
+        });
+        return;
+    }else{
+        updatePruebaAdmin(id_review, id_user);
+    }
+}
+
 function  updatePruebaAdmin(id_review, id_user){
     var estatusPruebaAdmin = id("estatusPruebaAdmin");
     var prioridadPruebaAdmin = id("prioridadPruebaAdmin");
