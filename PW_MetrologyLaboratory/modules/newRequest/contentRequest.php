@@ -129,7 +129,7 @@
                                                                     <select id="cliente1" name="cliente1" class="form-control" onchange="llenarPlataforma(1)" required data-error="Por favor ingresa el area solicitante">
                                                                         <option value="">Seleccione el cliente*</option>
                                                                     </select>
-                                                                    <div class="input-group-icon"><i class="las la-car"></i></div>
+                                                                    <div class="input-group-icon"><i class="las la-car-alt"></i></div>
                                                                     <div class="invalid-feedback"></div>
                                                                 </div>
                                                             </div>
@@ -161,7 +161,7 @@
                                                                 <label for="cdadMaterial1">Cantidad*</label>
                                                                 <div class="form-group">
                                                                     <input id="cdadMaterial1" name="cdadMaterial1" type="number" class="form-control" placeholder="Cantidad*" required data-error="Por favor ingresa la cantidad">
-                                                                    <div class="input-group-icon"><i class="las la-cubes"></i></div>
+                                                                    <div class="input-group-icon"><i class="lab la-slack"></i></div>
                                                                     <div class="invalid-feedback"></div>
                                                                 </div>
                                                             </div>
@@ -172,7 +172,7 @@
                                                                 <div class="form-group">
                                                                     <input id="revDibujo1" name="revDibujo1" type="text" maxlength="3" class="form-control" placeholder="Revisión de dibujo*" required data-error="Por favor ingresa la revisión de dibujo">
                                                                     <i class="far fa-question-circle position-absolute" id="tooltipDibujo1"></i>
-                                                                    <div class="input-group-icon"><i class="las la-cubes"></i></div>
+                                                                    <div class="input-group-icon"><i class="las la-ruler-vertical"></i></div>
                                                                     <div class="invalid-feedback"></div>
                                                                 </div>
                                                             </div>
@@ -183,7 +183,7 @@
                                                                 <div class="form-group">
                                                                     <input id="modeloMate1" name="modeloMate1" type="text" maxlength="3" class="form-control" placeholder="Mod. Matemático*" required data-error="Por favor ingresa el modelo matemático">
                                                                     <i class="far fa-question-circle position-absolute" id="tooltipModelo1"></i>
-                                                                    <div class="input-group-icon"><i class="las la-cubes"></i></div>
+                                                                    <div class="input-group-icon"><i class="las la-ruler-horizontal"></i></div>
                                                                     <div class="invalid-feedback"></div>
                                                                 </div>
                                                             </div>
@@ -200,7 +200,7 @@
                                                                 <label for="numNomina1">Número de nómina*</label>
                                                                 <div class="form-group">
                                                                     <input id="numNomina1" name="numNomina1" type="text" class="form-control" placeholder="Número de nómina*" required data-error="Por favor ingresa el número de parte">
-                                                                    <div class="input-group-icon"><i class="las la-cubes"></i></div>
+                                                                    <div class="input-group-icon"><i class="las la-id-card"></i></div>
                                                                     <div class="invalid-feedback"></div>
                                                                 </div>
                                                             </div>
@@ -210,7 +210,7 @@
                                                                 <label for="nombrePersonal1">Nombre de inspector/operador*</label>
                                                                 <div class="form-group">
                                                                     <input id="nombrePersonal1" name="nombrePersonal1" type="text" class="form-control" placeholder="Nombre de inspector/operador*" required data-error="Por favor ingresa la cantidad">
-                                                                    <div class="input-group-icon"><i class="las la-cubes"></i></div>
+                                                                    <div class="input-group-icon"><i class="las la-user"></i></div>
                                                                     <div class="invalid-feedback"></div>
                                                                 </div>
                                                             </div>
@@ -220,7 +220,7 @@
                                                                 <label for="area1">Área/linea de producción*</label>
                                                                 <div class="form-group">
                                                                     <input id="area1" name="area1" type="text" class="form-control" placeholder="Área/linea de produccion*" required data-error="Por favor ingresa la revisión de dibujo">
-                                                                    <div class="input-group-icon"><i class="las la-cubes"></i></div>
+                                                                    <div class="input-group-icon"><i class="las la-industry"></i></div>
                                                                     <div class="invalid-feedback"></div>
                                                                 </div>
                                                             </div>
