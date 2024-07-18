@@ -107,5 +107,3 @@
             reader.readAsDataURL(event.target.files[0]);
         }
     </script>
-
-    <script src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/js/actualizarDatos.js"></script>
