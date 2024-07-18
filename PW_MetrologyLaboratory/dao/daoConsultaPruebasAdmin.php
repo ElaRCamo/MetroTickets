@@ -14,15 +14,37 @@ function resumenPrueba(){
                 fechaSolicitud,
                 fechaRespuesta,
                 fechaCompromiso,
-                descripcionEstatus,
-                descripcionPrioridad,
                 s.id_tipoPrueba,
                 descripcionPrueba,
                 especificaciones,
                 s.id_metrologo,
                 u_metro.nombreUsuario AS nombreMetro,
                 s.id_solicitante,
-                u_solic.nombreUsuario AS nombreSolic
+                u_solic.nombreUsuario AS nombreSolic,
+                CASE
+                    WHEN s.id_estatusPrueba = 1 
+                        THEN CONCAT('<span class=\"badge bg-warning text-dark\">', ep.descripcionEstatus, '</span>')
+                    WHEN s.id_estatusPrueba = 2 
+                        THEN CONCAT('<span class=\"badge bg-primary\">', ep.descripcionEstatus, '</span>')
+                    WHEN s.id_estatusPrueba = 3 
+                        THEN CONCAT('<span class=\"badge bg-info text-dark\">', ep.descripcionEstatus, '</span>')
+                    WHEN s.id_estatusPrueba = 4 
+                        THEN CONCAT('<span class=\"badge bg-success\">', ep.descripcionEstatus, '</span>')
+                    WHEN s.id_estatusPrueba = 5 
+                        THEN CONCAT('<span class=\"badge bg-danger\">', ep.descripcionEstatus, '</span>')
+                    WHEN s.id_estatusPrueba = 6 
+                        THEN CONCAT('<span class=\"badge bg-dark\">', ep.descripcionEstatus, '</span>')
+                END AS estatusVisual,
+                CASE
+                    WHEN s.id_prioridad = 1 
+                        THEN CONCAT('<span class=\"badge bg-secondary\">', p.descripcionPrioridad, '</span>')
+                    WHEN s.id_prioridad = 2 
+                        THEN CONCAT('<span class=\"badge bg-success\">', p.descripcionPrioridad, '</span>')
+                    WHEN s.id_prioridad = 3 
+                        THEN CONCAT('<span class=\"badge bg-warning text-dark\">', p.descripcionPrioridad, '</span>')
+                    WHEN s.id_prioridad = 4 
+                        THEN CONCAT('<span class=\"badge bg-danger\">', p.descripcionPrioridad, '</span>')
+                END AS prioridadVisual
             FROM
                 Pruebas s
                     LEFT JOIN Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
