@@ -404,7 +404,7 @@ function validarResultados(id_review, id_user){
     var metrologoAdmin = id("metrologoAdmin");
     var fechaCompromiso = id("iFechaCompromiso");
 
-    alert("fechaCompromiso: "+fechaCompromiso.value+"\nestatusPruebaAdmin: "+estatusPruebaAdmin.value )
+    //alert("fechaCompromiso: "+fechaCompromiso.value+"\nestatusPruebaAdmin: "+estatusPruebaAdmin.value )
 
     if(estatusPruebaAdmin.value !== '1' && metrologoAdmin.value === '00000000'){
         Swal.fire({
@@ -419,17 +419,16 @@ function validarResultados(id_review, id_user){
             text: "Debe asignar fecha compromiso.",
             icon: "error"
         });
-        //return;
     }
     else{
         //updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmin,fechaCompromiso);
+        alert("actualizar prueba");
     }
 }
 
 function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmin, fechaCompromiso){
     var prioridadPruebaAdmin = id("prioridadPruebaAdmin");
     var observacionesAdmin = id("observacionesAdmin");
-
     var resultados = capturarResultados(estatusPruebaAdmin);
     const data = new FormData();
 
