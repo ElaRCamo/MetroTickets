@@ -33,6 +33,7 @@
     ?>
 </head>
 <body>
+
     <?php
         # Header section
             require_once('../../header.php');

@@ -25,9 +25,9 @@ function resumenPrueba($id_solicitante){
                     u_solic.nombreUsuario AS nombreSolic,
                     CASE
                         WHEN s.id_estatusPrueba = 1 
-                            THEN CONCAT('<span class=\"badge bg-primary\">', ep.descripcionEstatus, '</span>')
-                        WHEN s.id_estatusPrueba = 2 
                             THEN CONCAT('<span class=\"badge bg-secondary\">', ep.descripcionEstatus, '</span>')
+                        WHEN s.id_estatusPrueba = 2 
+                            THEN CONCAT('<span class=\"badge bg-primary\">', ep.descripcionEstatus, '</span>')
                         WHEN s.id_estatusPrueba = 3 
                             THEN CONCAT('<span class=\"badge bg-warning text-dark\">', ep.descripcionEstatus, '</span>')
                         WHEN s.id_estatusPrueba = 4 
