@@ -944,6 +944,6 @@ table tbody tr {
     padding-top: 1.5rem;
 }
 
-#listadoPruebasBody span{
-    visibility: visible;
+.btn-success {
+    background-color: var(--main-color) !important;
 }
