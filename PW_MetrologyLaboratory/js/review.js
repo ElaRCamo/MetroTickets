@@ -613,12 +613,27 @@ function fechaCompromiso(){
 
 }
 
+function estatusPiezas(selectElement, estatusSelecionado) {
+    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPiezas.php', function (data) {
+        selectElement.innerHTML = ""; // Limpiar contenido
+
+        for (var j = 0; j < data.data.length; j++) {
+            var createOption = document.createElement("option");
+            createOption.value = data.data[j].id_estatus;
+            createOption.text = data.data[j].descripcionEstatus;
+            selectElement.appendChild(createOption);
+            if (data.data[j].id_estatus === estatusSelecionado) {
+                createOption.selected = true;
+            }
+        }
+    });
+}
+
 function tablaEstatusPiezas() {
     const divTablaPiezas = id("divTablaPiezas");
     divTablaPiezas.style.display = "block";
 
     $.getJSON(dao, function (response) {
-
         // Obtener la referencia al tbody donde se agregarán las filas
         var tbodyPiezas = document.getElementById("tbodyPiezas");
 
@@ -631,54 +646,18 @@ function tablaEstatusPiezas() {
             fila.appendChild(numeroDeParteT);
 
             var estatusMaterialT = document.createElement("td");
-            estatusMaterialT.textContent = response.data[j].estatusMaterial;
+
+            // Crear el elemento select
+            var select = document.createElement("select");
+
+            // Llamar a la función estatusPiezas para llenar el select
+            estatusPiezas(select, response.data[j].estatusMaterial);
+
+            estatusMaterialT.appendChild(select);
             fila.appendChild(estatusMaterialT);
 
             tbodyPiezas.appendChild(fila);
         }
-    })
+    });
 }
 
-
-const TablaPruebasSolicitante = async (id_solicitante) => {
-    try {
-        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante=${id_solicitante}`);
-
-        if (!response.ok) {
-            throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
-        }
-
-        const result = await response.json();
-
-        let content = '';
-        result.data.forEach((item) => {
-            content += `
-                <tr>
-                    <td onclick="reviewPage('${item.id_prueba}')" class="idEnlace">${item.id_prueba}</td>
-                    <td>${item.descripcionPrueba}</td>
-                    <td>${item.fechaSolicitud}</td>
-                    <td>${item.nombreSolic}</td>
-                    <td>${item.fechaCompromiso}</td>
-                    <td>${item.nombreMetro}</td>
-                    <td>${item.estatusVisual}</td>
-                    <td>${item.prioridadVisual}</td>
-                    <td>
-                        <button class="btn btn-success" onclick="reviewPage('${item.id_prueba}')">
-                            <i class="las la-eye"></i><span>Consultar</span>
-                        </button>
-                        <button class="btn btn-secondary" onclick="reviewPDF('${item.id_prueba}')">
-                            <i class="las la-file-pdf"></i><span>PDF</span>
-                        </button>
-                        <button class="btn btn-danger" onclick="cancelarSolicitud('${item.id_prueba}')">
-                            <i class="las la-trash"></i></i><span>Cancelar</span>
-                        </button>
-                    </td>
-                </tr>`;
-        });
-
-        listadoPruebasBody.innerHTML = content;
-        ocultarContenido("textVerMas", 40);
-    } catch (error) {
-        console.error('Error:', error);
-    }
-};
