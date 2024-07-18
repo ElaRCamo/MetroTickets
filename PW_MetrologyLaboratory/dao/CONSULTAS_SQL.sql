@@ -1,4 +1,34 @@
 SELECT
+    id_prueba,
+    fechaSolicitud,
+    fechaRespuesta,
+    fechaCompromiso,
+    descripcionEstatus,
+    descripcionPrioridad,
+    s.id_tipoPrueba,
+    descripcionPrueba,
+    especificaciones,
+    s.id_metrologo,
+    u_metro.nombreUsuario AS nombreMetro,
+    s.id_solicitante,
+    u_solic.nombreUsuario AS nombreSolic
+FROM
+    Pruebas s
+        LEFT JOIN Usuario u_metro ON s.id_metrologo = u_metro.id_usuario
+        LEFT JOIN Usuario u_solic ON s.id_solicitante = u_solic.id_usuario
+        LEFT JOIN TipoPrueba tp ON s.id_tipoPrueba = tp.id_tipoPrueba
+        LEFT JOIN EstatusPrueba ep ON s.id_estatusPrueba = ep.id_estatusPrueba
+        LEFT JOIN Prioridad p ON s.id_prioridad = p.id_prioridad
+WHERE
+    id_solicitante = '$id_solicitante'
+  AND s.id_estatusPrueba <> 6
+ORDER BY id_prueba DESC;
+
+
+
+
+
+SELECT
     MONTH(fechaCompromiso) AS mes,
     YEAR(fechaCompromiso) AS anio,
     SUM(CASE WHEN fechaRespuesta <= fechaCompromiso THEN 1 ELSE 0 END) AS pruebasCumplidas,
