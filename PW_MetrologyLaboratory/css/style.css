@@ -943,3 +943,7 @@ table tbody tr {
 #divGraficoTipo, #graficosMetrologos{
     padding-top: 1.5rem;
 }
+
+#listadoPruebasBody span{
+    display: inline;
+}
