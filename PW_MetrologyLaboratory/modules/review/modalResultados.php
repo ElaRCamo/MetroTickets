@@ -11,7 +11,7 @@
                     <div class="row" id="divTablaResultados">
                         <div>
                             <h5 id="titleGnalResultados">Datos generales</h5>
-                            <table class="table table-hover table-responsive" id="tablaRessultados">
+                            <table class="table table-borderless table-responsive" id="tablaRessultados">
                                 <thead id="titleResultadosT">
                                     <tr>
                                         <th>Estatus</th>
@@ -43,7 +43,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <table class="table table-hover table-responsive" id="tablaObs">
+                            <table class="table table-borderless table-responsive" id="tablaObs">
                                 <thead id="titleObs">
                                     <tr>
                                         <th colspan="4">Observaciones</th>
@@ -123,7 +123,7 @@
                     <div class="row" id="divTablaPiezas">
                         <h5 id="titleResPiezasEstatus">Estatus de las piezas</h5>
                         <div>
-                            <table class="table table-hover table-responsive" id="piezasEstatus">
+                            <table class="table table-borderless table-responsive" id="piezasEstatus">
                                 <thead>
                                 <tr>
                                     <th>No. de Parte</th>
@@ -137,14 +137,14 @@
                         <div class="mb-3" id="divResultados">
                             <h5 id="titResultados">Resultados</h5>
                             <div class="help-block with-errors"></div>
-                            <table class="table table-hover table-responsive">
+                            <table class="table table-borderless table-responsive">
                                 <tr>
                                     <td colspan="3"><a href="#" id="resultadosGuardados" class="form-control me-2"></a></td>
                                     <td><button type="button" id="btnCambiarResultados" onclick="checkedInput()" class="btn btn-primary"><i class="las la-edit"></i></button></td>
                                 </tr>
                             </table>
                             <div id="divCambiarResultados">
-                                <table class="table table-hover table-responsive">
+                                <table class="table table-borderless table-responsive">
                                     <tr>
                                         <td colspan="2">
                                             Modificar resultado:
