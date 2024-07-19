@@ -11,7 +11,7 @@
                     <div class="row" id="divTablaResultados">
                         <div>
                             <h5 id="titleGnalResultados">Datos generales</h5>
-                            <table class="table table-striped table-responsive" id="tablaRessultados">
+                            <table class="table table-hover table-responsive" id="tablaRessultados">
                                 <thead id="titleResultadosT">
                                 <tr>
                                     <th>Estatus</th>
@@ -45,7 +45,7 @@
                                 </table>
 
 
-                            <table class="table table-striped table-responsive" id="tablaObs">
+                            <table class="table table-hover table-responsive" id="tablaObs">
                                 <thead id="titleObs">
                                 <tr>
                                     <th colspan="4">Observaciones</th>
@@ -100,7 +100,7 @@
                         <div>
                             <h5 id="titleResPiezasEstatus">Estatus de las piezas</h5>
                             <div>
-                                <table class="table table-striped table-responsive" id="piezasEstatus">
+                                <table class="table table-hover table-responsive" id="piezasEstatus">
                                     <thead>
                                     <tr>
                                         <th>No. de Parte</th>
