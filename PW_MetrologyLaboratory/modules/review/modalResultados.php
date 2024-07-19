@@ -47,9 +47,7 @@
                         <div>
                             <table class="table table-borderless table-responsive" id="tablaObs">
                                 <thead id="titleObs">
-                                <tr>
                                     <th>Observaciones</th>
-                                </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
