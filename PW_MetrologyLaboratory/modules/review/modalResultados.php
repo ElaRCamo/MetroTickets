@@ -142,35 +142,36 @@
                                     <td colspan="3"><a href="#" id="resultadosGuardados" class="form-control me-2"></a></td>
                                     <td><button type="button" id="btnCambiarResultados" onclick="checkedInput()" class="btn btn-primary"><i class="las la-edit"></i></button></td>
                                 </tr>
-                                <tr id="divCambiarResultados">
-                                    <td colspan="4">
-                                        <table class="table table-hover table-responsive">
-                                            <tr>
-                                                <td>
-                                                    <!-- Checkbox for selecting the type -->
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
-                                                        <label class="form-check-label" for="rutaRadio">Ruta</label>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo" onchange="selectInputResultado()">
-                                                        <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="4">
-                                                    <!-- Input fields that will be shown/hidden -->
-                                                    <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
-                                                    <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
                             </table>
+                            <div id="divCambiarResultados">
+                                <table class="table table-hover table-responsive">
+                                    <tr>
+                                        <td colspan="2">
+                                            Modificar resultado:
+                                        </td>
+                                        <td>
+                                            <!-- Checkbox for selecting the type -->
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
+                                                <label class="form-check-label" for="rutaRadio">Ruta</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo" onchange="selectInputResultado()">
+                                                <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <!-- Input fields that will be shown/hidden -->
+                                            <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
+                                            <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                         <div class="">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
