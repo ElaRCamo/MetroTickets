@@ -1000,10 +1000,13 @@ table tbody tr {
     box-sizing: content-box;
 }
 
-#tablaRessultados {
+#tablaRessultados, #piezasEstatus {
     table-layout: fixed;
     width: 100%;
 }
 #tablaRessultados th, #tablaRessultados td {
     width: 25%; /* Esto hace que cada columna ocupe el 25% del ancho total */
+}
+#piezasEstatus th, #piezasEstatus td {
+    width: 50%;
 }
