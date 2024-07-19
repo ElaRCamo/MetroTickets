@@ -23,20 +23,20 @@
                                 <tbody>
                                 <tr>
                                     <td>
-                                        <select class="form-control" id="estatusPruebaAdmin" onchange="cambiarResultado(); fechaCompromiso();" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus">
+                                        <select class="form-control form-control-sm" id="estatusPruebaAdmin" onchange="cambiarResultado(); fechaCompromiso();" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus">
                                             <option value="">Seleccione estatus de la prueba*</option>
                                         </select>
                                     </td>
                                     <td>
-                                        <input type="date" class="form-control" id="iFechaCompromiso" name="iFechaCompromiso" title="" required data-error="Por favor seleccione la fecha compromiso">
+                                        <input type="date" class="form-control form-control-sm" id="iFechaCompromiso" name="iFechaCompromiso" title="" required data-error="Por favor seleccione la fecha compromiso">
                                     </td>
                                     <td>
-                                        <select class="form-control" id="prioridadPruebaAdmin" name="prioridadPruebaAdmin" title="" required data-error="Por favor seleccione la prioridad">
+                                        <select class="form-control form-control-sm" id="prioridadPruebaAdmin" name="prioridadPruebaAdmin" title="" required data-error="Por favor seleccione la prioridad">
                                             <option value="">Seleccione la prioridad de la prueba*</option>
                                         </select>
                                     </td>
                                     <td>
-                                        <select class="form-control" id="metrologoAdmin" name="metrologoAdmin" title="" required data-error="Por favor asigne la prueba">
+                                        <select class="form-control form-control-sm" id="metrologoAdmin" name="metrologoAdmin" title="" required data-error="Por favor asigne la prueba">
                                             <option value="">Asignar prueba*</option>
                                         </select>
                                     </td>
