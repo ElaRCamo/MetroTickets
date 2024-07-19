@@ -77,7 +77,7 @@
                     </div>-->
                     <div class="row" id="divTablaPiezas">
                         <div>
-                            <h5 id="titleResPiezasEstatus">ESTATUS DE LAS PIEZAS</h5>
+                            <h5 id="titleResPiezasEstatus">Estatus de las piezas</h5>
                             <div>
                                 <table class="table table-striped table-responsive" id="piezasEstatus">
                                     <thead>
