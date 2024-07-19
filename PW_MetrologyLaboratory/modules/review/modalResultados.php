@@ -85,7 +85,7 @@
                                 <table class="table table-borderless table-responsive" id="updateResultados">
                                     <thead id="">
                                     <tr>
-                                        <th>Actualizar resultados:</th>
+                                        <th colspan="2">Actualizar resultados:</th>
                                         <th>
                                             <!-- Checkbox for selecting the type -->
                                             <div class="form-check">
