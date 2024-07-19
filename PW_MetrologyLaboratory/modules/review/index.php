@@ -111,7 +111,6 @@
             llenarFechaCompromiso(fechaCompromisoSol);
             llenarPrioridadPrueba(id_prioridadSol);
             consultarMetrologos(id_metrologoSol);
-            fFechaCompromiso(id_estatusSol);
             document.getElementById("observacionesAdmin").value = obs_Solicitud;
             llenarResultados();
         <?php } ?>

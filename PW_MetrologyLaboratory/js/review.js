@@ -367,6 +367,7 @@ function llenarEstatusPrueba(estatus){
 function llenarFechaCompromiso(fechaCompromiso){
     var inputFecha = document.getElementById('iFechaCompromiso');
     inputFecha.value = fechaCompromiso;
+    fFechaCompromiso(fechaCompromiso);
 }
 
 function consultarMetrologos(metrologo){
@@ -604,10 +605,10 @@ function selectInputResultado() {
     }
 }
 
-function fFechaCompromiso(id_estatusSol){
+function fFechaCompromiso(fechaCompromisoSol){
     const inputFechaCompromiso = document.getElementById('iFechaCompromiso');
-    const inputEstatusPruebaAdmin = document.getElementById('estatusPruebaAdmin');
-    if (id_estatusSol !== '1' || inputEstatusPruebaAdmin.value !== '2') { //Estatus pendiente
+
+    if (fechaCompromisoSol !== '0000-00-00') {
         inputFechaCompromiso.readOnly = true;
     }else {
         inputFechaCompromiso.readOnly = false;
