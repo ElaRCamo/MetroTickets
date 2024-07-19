@@ -646,7 +646,6 @@ function tablaEstatusPiezas() {
         alert(estatus);
         llenarEstatusPrueba(estatus);
 
-
         if(indicePiezas === false){
             // Obtener la referencia al tbody donde se agregarán las filas
             var tbodyPiezas = document.getElementById("tbodyPiezas");
