@@ -759,9 +759,9 @@ table tbody tr {
 }
 #piezasEstatus thead th, #tablaRessultados thead th,
 #tablaObs thead th, #updateResultados thead th{
-    padding: 0rem;
+    padding: 0;
     text-align: center;
-    font-size: 0.875rem;
+    font-size: 1rem;
 }
 #RequestReview small{
     font-size: 1rem;
