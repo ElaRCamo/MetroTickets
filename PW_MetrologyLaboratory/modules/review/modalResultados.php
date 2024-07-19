@@ -40,9 +40,6 @@
                                             <option value="">Asignar prueba*</option>
                                         </select>
                                     </td>
-                                    <td>
-                                        <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
-                                    </td>
                                 </tr>
                                 </tbody>
                                 </table>
