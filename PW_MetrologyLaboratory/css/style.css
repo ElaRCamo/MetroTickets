@@ -971,6 +971,10 @@ table tbody tr {
 
 #piezasEstatus tbody td:first-child {
     padding-left: 0;
-    color: var(--main-color);
+    color: #212529;
     font-weight: normal;
+}
+
+#btnCambiarResultados, #btnGuardarResultados{
+    background-color: var(--main-color) !important;
 }
