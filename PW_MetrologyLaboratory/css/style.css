@@ -746,7 +746,7 @@ table tbody tr {
     font-size: 1.2rem;
 }
 #materialRTittle, #titleResumen, #titleResumenM, #titleTablaP,
-#titleResPiezasEstatus, #titleResultadosT tr{
+#titleResPiezasEstatus, #titleResultadosT tr, #titleGnalResultados{
     color:var(--gold_70);
     text-align: center;
     background-color: var(--main-color);
@@ -953,4 +953,10 @@ table tbody tr {
 
 #divTablaPiezas{
     display: none;
+}
+
+#resultadosModal{
+    background-color: var(--main-color);
+    color: var( --gold_70);
+    font-weight: bold;
 }
