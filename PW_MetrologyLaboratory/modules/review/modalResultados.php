@@ -13,50 +13,48 @@
                             <h5 id="titleGnalResultados">Datos generales</h5>
                             <table class="table table-hover table-responsive" id="tablaRessultados">
                                 <thead id="titleResultadosT">
-                                <tr>
-                                    <th>Estatus</th>
-                                    <th>Fecha compromiso</th>
-                                    <th>Prioridad</th>
-                                    <th>Metrólogo</th>
-                                </tr>
+                                    <tr>
+                                        <th>Estatus</th>
+                                        <th>Fecha compromiso</th>
+                                        <th>Prioridad</th>
+                                        <th>Metrólogo</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <select class="form-control form-control-sm" id="estatusPruebaAdmin" onchange="cambiarResultado(); fechaCompromiso();" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus">
-                                            <option value="">Seleccione estatus de la prueba*</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <input type="date" class="form-control form-control-sm" id="iFechaCompromiso" name="iFechaCompromiso" title="" required data-error="Por favor seleccione la fecha compromiso">
-                                    </td>
-                                    <td>
-                                        <select class="form-control form-control-sm" id="prioridadPruebaAdmin" name="prioridadPruebaAdmin" title="" required data-error="Por favor seleccione la prioridad">
-                                            <option value="">Seleccione la prioridad de la prueba*</option>
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <select class="form-control form-control-sm" id="metrologoAdmin" name="metrologoAdmin" title="" required data-error="Por favor asigne la prueba">
-                                            <option value="">Asignar prueba*</option>
-                                        </select>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>
+                                            <select class="form-control form-control-sm" id="estatusPruebaAdmin" onchange="cambiarResultado(); fechaCompromiso();" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus">
+                                                <option value="">Seleccione estatus de la prueba*</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control form-control-sm" id="iFechaCompromiso" name="iFechaCompromiso" title="" required data-error="Por favor seleccione la fecha compromiso">
+                                        </td>
+                                        <td>
+                                            <select class="form-control form-control-sm" id="prioridadPruebaAdmin" name="prioridadPruebaAdmin" title="" required data-error="Por favor seleccione la prioridad">
+                                                <option value="">Seleccione la prioridad de la prueba*</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select class="form-control form-control-sm" id="metrologoAdmin" name="metrologoAdmin" title="" required data-error="Por favor asigne la prueba">
+                                                <option value="">Asignar prueba*</option>
+                                            </select>
+                                        </td>
+                                    </tr>
                                 </tbody>
-                                </table>
-
-
+                            </table>
                             <table class="table table-hover table-responsive" id="tablaObs">
                                 <thead id="titleObs">
-                                <tr>
-                                    <th colspan="4">Observaciones</th>
-                                </tr>
+                                    <tr>
+                                        <th colspan="4">Observaciones</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>
+                                            <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                     </div>
@@ -95,24 +93,6 @@
                         <label for="observacionesAdmin" class="form-label">Observaciones: </label>
                         <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
                     </div>
-                    -->
-                    <div class="row" id="divTablaPiezas">
-                        <div>
-                            <h5 id="titleResPiezasEstatus">Estatus de las piezas</h5>
-                            <div>
-                                <table class="table table-hover table-responsive" id="piezasEstatus">
-                                    <thead>
-                                    <tr>
-                                        <th>No. de Parte</th>
-                                        <th>Estatus</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="tbodyPiezas"></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="mb-3" id="divResultados">
                         <div class="help-block with-errors"></div>
                         <div class="d-flex align-items-center">
@@ -122,24 +102,78 @@
                         </div>
                         <div class="" id="divCambiarResultados">
                             <div class="">
-                                <!-- Checkbox for selecting the type -->
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
-                                    <label class="form-check-label" for="rutaRadio">Ruta</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo" onchange="selectInputResultado() ">
-                                    <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
-                                </div>
-                            </div>
-                            <div class="">
-                                <!-- Input fields that will be shown/hidden -->
-                                <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
-                                <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
-                            </div>
+                                <-- Checkbox for selecting the type ->
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
+                            <label class="form-check-label" for="rutaRadio">Ruta</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo" onchange="selectInputResultado() ">
+                            <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
                         </div>
                     </div>
                     <div class="">
+                        <-- Input fields that will be shown/hidden ->
+                        <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
+                        <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
+                    </div>
+                        </div>
+                    </div>
+                    -->
+                    <div class="row" id="divTablaPiezas">
+                        <h5 id="titleResPiezasEstatus">Estatus de las piezas</h5>
+                        <div>
+                            <table class="table table-hover table-responsive" id="piezasEstatus">
+                                <thead>
+                                <tr>
+                                    <th>No. de Parte</th>
+                                    <th>Estatus</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tbodyPiezas"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                        <div class="mb-3" id="divResultados">
+                            <div class="help-block with-errors"></div>
+                            <table class="table table-hover table-responsive">
+                                <tr>
+                                    <td><label for="resultadosAdmin" class="form-label me-2">Resultados:</label></td>
+                                    <td><a href="#" id="resultadosGuardados" class="form-control me-2"></a></td>
+                                    <td><button type="button" id="btnCambiarResultados" onclick="checkedInput()" class="btn btn-primary"><i class="las la-edit"></i></button></td>
+                                </tr>
+                                <tr id="divCambiarResultados">
+                                    <td colspan="3">
+                                        <table class="table table-hover table-responsive">
+                                            <tr>
+                                                <td>
+                                                    <!-- Checkbox for selecting the type -->
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
+                                                        <label class="form-check-label" for="rutaRadio">Ruta</label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo" onchange="selectInputResultado()">
+                                                        <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <!-- Input fields that will be shown/hidden -->
+                                                    <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
+                                                    <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
                         <button type="button" class="btn btn-secondary" onclick="validarResultados(id_review,id_user)" data-bs-dismiss="modal"><i class="las la-save"></i>Guardar</button>
                     </div>
