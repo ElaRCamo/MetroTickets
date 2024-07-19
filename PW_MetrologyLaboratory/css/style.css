@@ -963,7 +963,8 @@ table tbody tr {
     background-color: var(--blue_20 );
     color: var(--main-color);
 }
-#titleGnalResultados,#titleObs{
+#titleGnalResultados,#titleObs,#titleResPiezasEstatus,#titResultados{
     text-align: center;
     padding: 0.5%;
+    font-weight: bolder;
 }

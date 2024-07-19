@@ -139,8 +139,7 @@
                             <div class="help-block with-errors"></div>
                             <table class="table table-hover table-responsive">
                                 <tr>
-                                    <td><label for="resultadosAdmin" class="form-label me-2">Resultados:</label></td>
-                                    <td><a href="#" id="resultadosGuardados" class="form-control me-2"></a></td>
+                                    <td colspan="3"><a href="#" id="resultadosGuardados" class="form-control me-2"></a></td>
                                     <td><button type="button" id="btnCambiarResultados" onclick="checkedInput()" class="btn btn-primary"><i class="las la-edit"></i></button></td>
                                 </tr>
                                 <tr id="divCambiarResultados">
