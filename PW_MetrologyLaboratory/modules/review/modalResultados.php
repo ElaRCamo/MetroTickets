@@ -85,7 +85,7 @@
                                 <table class="table table-borderless table-responsive">
                                     <tr>
                                         <td colspan="2">
-                                            Modificar resultado:
+                                            Actualizar resultados:
                                         </td>
                                         <td>
                                             <!-- Checkbox for selecting the type -->
