@@ -995,4 +995,8 @@ table tbody tr {
     font-size: 1.2rem;
     font-weight: bold;
 }
+.btn-closeModal{
+    border: 0;
+    background-color: transparent;
+}
 

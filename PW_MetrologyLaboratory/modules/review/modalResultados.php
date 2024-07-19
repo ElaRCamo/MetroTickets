@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header" id="resultadosModal">
                 <h3 class="modal-title" id="modalResultadosLabel"><strong>Responder solicitud</strong></h3><br>
-                <button type="button" class="btn-close" id="btnCloseX" data-bs-dismiss="modal" onclick="" aria-label="Close"><i class="las la-times"></i></button>
+                <button type="button" class="btn-closeModal" id="btnCloseX" data-bs-dismiss="modal" onclick="" aria-label="Close"><i class="las la-times"></i></button>
             </div>
             <div class="modal-body row">
                 <form method="POST" enctype="multipart/form-data">
