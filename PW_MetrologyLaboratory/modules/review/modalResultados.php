@@ -83,7 +83,7 @@
                             </table>
                             <div id="divCambiarResultados">
                                 <table class="table table-borderless table-responsive">
-                                    <tr>
+                                    <thead>
                                         <td colspan="2">
                                             Actualizar resultados:
                                         </td>
@@ -100,7 +100,7 @@
                                                 <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
                                             </div>
                                         </td>
-                                    </tr>
+                                    </thead>
                                     <tr>
                                         <td colspan="4">
                                             <!-- Input fields that will be shown/hidden -->
@@ -123,7 +123,7 @@
 </div>
 
 
-<!--<div class="row align-items-start">
+                <!--<div class="row align-items-start">
                         <div class="mb-3 col">
                             <div class="help-block with-errors"></div>
                             <label for="estatusPruebaAdmin" class="form-label" >Estatus: </label>
