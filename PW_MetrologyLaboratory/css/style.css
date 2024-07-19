@@ -739,7 +739,7 @@ table tbody tr {
 }
 #containerPruebaR p,#containerPruebaR span, #RequestReview p, #RequestReview span,
 #materialesResumen th, #piezasSolicitud th, #piezasEstatus th,
-#tablaRessultados th{
+#tablaRessultados th, #tablaObs th{
     color:var(--main-color);
 }
 #containerPruebaR p,#containerPruebaR span{
@@ -967,4 +967,10 @@ table tbody tr {
     text-align: center;
     padding: 0.5%;
     font-weight: bolder;
+}
+
+#piezasEstatus tbody td:first-child {
+    padding-left: 0;
+    color: var(--main-color);
+    font-weight: normal;
 }
