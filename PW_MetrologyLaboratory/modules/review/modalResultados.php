@@ -23,7 +23,7 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <select class="form-control form-control-sm" id="estatusPruebaAdmin" onchange="cambiarResultado(); fechaCompromiso();" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus">
+                                            <select class="form-control form-control-sm" id="estatusPruebaAdmin" onchange="cambiarResultado();" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus">
                                                 <option value="">Seleccione estatus de la prueba*</option>
                                             </select>
                                         </td>

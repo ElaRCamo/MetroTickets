@@ -604,20 +604,17 @@ function selectInputResultado() {
     }
 }
 
-function fechaCompromiso(){
-    const selectEstatus = document.getElementById('estatusPruebaAdmin');
-    const divFechaCompromiso = document.getElementById('divFechaCompromiso');
+function fFechaCompromiso(id_estatusSol){
     const inputFechaCompromiso = document.getElementById('iFechaCompromiso');
     //fecha de hoy en formato YYYY-MM-DD
     var hoy = new Date().toISOString().split('T')[0];
 
-    if (selectEstatus.value === '2') { //Estatus aprobado
-        divFechaCompromiso.style.display = 'block';
-        inputFechaCompromiso.setAttribute('min', hoy);
-    } else if (selectEstatus.value === '1' || selectEstatus.value === '3' || selectEstatus.value === '4' || selectEstatus.value === '5' || selectEstatus.value === '6'){
-        divFechaCompromiso.style.display = 'none';
+    if (id_estatusSol !== '1') { //Estatus pendiente
+        inputFechaCompromiso.readOnly = true;
+    }else {
+        // Si el estatus es '1', asegurarse de que el input no sea solo lectura
+        inputFechaCompromiso.readOnly = false;
     }
-
 }
 
 function estatusPiezas(selectElement, estatusSelecionado) {
