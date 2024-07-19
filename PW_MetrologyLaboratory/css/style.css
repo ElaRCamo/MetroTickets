@@ -957,7 +957,7 @@ table tbody tr {
 }
 
 #resultadosModal{
-    background-color: var(--main-color);
-    color: var( --gold_70);
-    font-weight: bold;
+    background-color: var(--blue_20 );
+    color: var(--main-color);
+    font-weight: bolder;
 }

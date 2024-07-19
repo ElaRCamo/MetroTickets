@@ -9,8 +9,8 @@
             <div class="modal-body row">
                 <form method="POST" enctype="multipart/form-data">
                     <div class="row" id="divTablaResultados">
-                        <h5 id="titleGnalResultados">Datos generales</h5>
                         <div>
+                            <h5 id="titleGnalResultados">Datos generales</h5>
                             <table class="table table-striped table-responsive" id="tablaRessultados">
                                 <thead id="titleResultadosT">
                                 <tr>
