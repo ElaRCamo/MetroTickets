@@ -746,14 +746,15 @@ table tbody tr {
     font-size: 1.2rem;
 }
 #materialRTittle, #titleResumen, #titleResumenM, #titleTablaP,
-#titleResPiezasEstatus, #titleResultadosT tr, #titleGnalResultados{
+#titleResPiezasEstatus, #titleResultadosT tr, #titleObs tr,#titleGnalResultados{
     color:var(--gold_70);
     text-align: center;
     background-color: var(--main-color);
     padding: 0.5%;
 }
 #materialesResumen thead th, #piezasSolicitud thead th,
-#piezasEstatus thead th, #tablaRessultados thead th{
+#piezasEstatus thead th, #tablaRessultados thead th,
+#tablaObs thead th{
     padding: 0.3rem;
     text-align: center;
     font-size: 1rem;

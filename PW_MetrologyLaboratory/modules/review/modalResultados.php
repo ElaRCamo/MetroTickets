@@ -40,10 +40,28 @@
                                             <option value="">Asignar prueba*</option>
                                         </select>
                                     </td>
+                                    <td>
+                                        <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
+                                    </td>
                                 </tr>
                                 </tbody>
                                 </table>
-                            </div>
+
+
+                            <table class="table table-striped table-responsive" id="tablaObs">
+                                <thead id="titleObs">
+                                <tr>
+                                    <th colspan="4">Observaciones</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
                     </div>
 
 
@@ -74,7 +92,13 @@
                                 <option value="">Asignar prueba*</option>
                             </select>
                         </div>
-                    </div>-->
+                    </div>
+                    <div class="mb-3">
+                        <div class="help-block with-errors"></div>
+                        <label for="observacionesAdmin" class="form-label">Observaciones: </label>
+                        <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
+                    </div>
+                    -->
                     <div class="row" id="divTablaPiezas">
                         <div>
                             <h5 id="titleResPiezasEstatus">Estatus de las piezas</h5>
@@ -91,11 +115,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <div class="help-block with-errors"></div>
-                        <label for="observacionesAdmin" class="form-label">Observaciones: </label>
-                        <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
-                    </div>
+
                     <div class="mb-3" id="divResultados">
                         <div class="help-block with-errors"></div>
                         <div class="d-flex align-items-center">
