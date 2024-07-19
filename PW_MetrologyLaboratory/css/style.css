@@ -962,11 +962,17 @@ table tbody tr {
 #resultadosModal{
     font-weight: bolder;
 }
-#resultadosModal, #titleGnalResultados,#titleObs,
-#titleResPiezasEstatus,#titResultados{
+#resultadosModal {
     background-color: var(--main-color);
     color: #E5EEF7;
 }
+
+#titleGnalResultados,#titleObs,
+#titleResPiezasEstatus,#titResultados{
+    background-color: var(--blue_20);
+    color: var(--main-color);
+}
+
 #titleGnalResultados,#titleObs,#titleResPiezasEstatus,#titResultados{
     text-align: center;
     padding: 0.5%;
