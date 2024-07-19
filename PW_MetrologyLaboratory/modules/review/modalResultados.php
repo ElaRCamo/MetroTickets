@@ -79,8 +79,8 @@
 
                             <table class="table table-borderless table-responsive" id="">
                                 <tr>
-                                    <td colspan="3"><a href="#" id="resultadosGuardados" class="form-control me-2"></a></td>
-                                    <td><button type="button" id="btnCambiarResultados" onclick="checkedInput()" class="btn btn-primary"><i class="las la-edit"></i></button></td>
+                                    <td colspan="3"><a href="#" id="resultadosGuardados" class="form-control form-control-sm me-2"></a></td>
+                                    <td><button type="button" id="btnCambiarResultados" onclick="checkedInput()" class="btn btn-primary btn-primary btn-sm"><i class="las la-edit"></i></button></td>
                                 </tr>
                             </table>
 
