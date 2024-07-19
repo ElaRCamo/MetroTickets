@@ -992,5 +992,7 @@ table tbody tr {
 
 #btnCloseX{
     color: #E5EEF7 !important;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
