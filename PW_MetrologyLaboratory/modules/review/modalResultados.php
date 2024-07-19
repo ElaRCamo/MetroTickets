@@ -114,10 +114,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="position-relative">
-                        <div class="position-absolute bottom-0 end-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
-                            <button type="button" class="btn btn-primary" id="btnGuardarResultados" onclick="validarResultados(id_review,id_user)" data-bs-dismiss="modal"><i class="las la-save"></i>Guardar</button>
+                    <div>
+                        <div class="position-relative">
+                            <div class="position-absolute bottom-0 end-0">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
+                                <button type="button" class="btn btn-primary" id="btnGuardarResultados" onclick="validarResultados(id_review,id_user)" data-bs-dismiss="modal"><i class="las la-save"></i>Guardar</button>
+                            </div>
                         </div>
                     </div>
                 </form>
