@@ -47,16 +47,16 @@
                         <div>
                             <table class="table table-borderless table-responsive" id="tablaObs">
                                 <thead id="titleObs">
-                                    <tr>
-                                        <th colspan="4">Observaciones</th>
-                                    </tr>
+                                <tr>
+                                    <th>Observaciones</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>
+                                        <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -75,32 +75,36 @@
                         <div id="divResultados">
                             <h5 id="titResultados">Resultados</h5>
                             <div class="help-block with-errors"></div>
-                            <table class="table table-borderless table-responsive">
+
+
+                            <table class="table table-borderless table-responsive" id="">
                                 <tr>
                                     <td colspan="3"><a href="#" id="resultadosGuardados" class="form-control me-2"></a></td>
                                     <td><button type="button" id="btnCambiarResultados" onclick="checkedInput()" class="btn btn-primary"><i class="las la-edit"></i></button></td>
                                 </tr>
                             </table>
+
                             <div id="divCambiarResultados">
-                                <table class="table table-borderless table-responsive">
-                                    <thead>
-                                        <td colspan="2">
-                                            Actualizar resultados:
-                                        </td>
-                                        <td>
+                                <table class="table table-borderless table-responsive" id="">
+                                    <thead id="">
+                                    <tr>
+                                        <th>Actualizar resultados:</th>
+                                        <th>
                                             <!-- Checkbox for selecting the type -->
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
                                                 <label class="form-check-label" for="rutaRadio">Ruta</label>
                                             </div>
-                                        </td>
-                                        <td>
+                                        </th>
+                                        <th>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo" onchange="selectInputResultado()">
                                                 <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
                                             </div>
-                                        </td>
+                                        </th>
+                                    </tr>
                                     </thead>
+                                    <tbody>
                                     <tr>
                                         <td colspan="4">
                                             <!-- Input fields that will be shown/hidden -->
@@ -108,6 +112,7 @@
                                             <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
                                         </td>
                                     </tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
