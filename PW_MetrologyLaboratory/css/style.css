@@ -955,7 +955,9 @@ table tbody tr {
 #divTablaPiezas{
     display: none;
 }
-
+#resultadosModal{
+    font-weight: bolder;
+}
 #resultadosModal, #titleGnalResultados,#titleObs{
     background-color: var(--blue_20 );
     color: var(--main-color);

@@ -3,14 +3,14 @@
     <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
         <div class="modal-content">
             <div class="modal-header" id="resultadosModal">
-                <h2 class="modal-title" id="modalResultadosLabel">Responder solicitud </h2><br>
+                <h3 class="modal-title" id="modalResultadosLabel">Responder solicitud </h3><br>
                 <button type="button" class="btn-close" id="" data-bs-dismiss="modal" onclick="" aria-label="Close"></button>
             </div>
             <div class="modal-body row">
                 <form method="POST" enctype="multipart/form-data">
                     <div class="row" id="divTablaResultados">
+                        <h5 id="titleGnalResultados">Datos generales</h5>
                         <div>
-                            <h5 id="titleGnalResultados">Datos generales</h5>
                             <table class="table table-striped table-responsive" id="tablaRessultados">
                                 <thead id="titleResultadosT">
                                 <tr>
