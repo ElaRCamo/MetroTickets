@@ -636,9 +636,15 @@ function tablaEstatusPiezas() {
     const divTablaPiezas = id("divTablaPiezas");
     divTablaPiezas.style.display = "block";
 
-    if(indicePiezas === false){
+
         alert(dao);
-        $.getJSON(dao, function (response) {
+    $.getJSON(dao, function (response) {
+        let data = response.data[0];
+
+        llenarEstatusPrueba(data.id_estatusPrueba);
+
+
+        if(indicePiezas === false){
             // Obtener la referencia al tbody donde se agregarán las filas
             var tbodyPiezas = document.getElementById("tbodyPiezas");
 
@@ -666,8 +672,8 @@ function tablaEstatusPiezas() {
 
                 tbodyPiezas.appendChild(fila);
             }
-        });
-        indicePiezas = true
-    }
+            indicePiezas = true
+        }
+    });
 }
 
