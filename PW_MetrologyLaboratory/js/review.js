@@ -637,11 +637,14 @@ function tablaEstatusPiezas() {
     divTablaPiezas.style.display = "block";
 
 
-        alert(dao);
+
     $.getJSON(dao, function (response) {
         let data = response.data[0];
 
-        llenarEstatusPrueba(data.id_estatusPrueba);
+        let estatus = data.id_estatusPrueba;
+
+        alert(estatus);
+        llenarEstatusPrueba(estatus);
 
 
         if(indicePiezas === false){
