@@ -143,7 +143,7 @@
                                     <td><button type="button" id="btnCambiarResultados" onclick="checkedInput()" class="btn btn-primary"><i class="las la-edit"></i></button></td>
                                 </tr>
                                 <tr id="divCambiarResultados">
-                                    <td colspan="3">
+                                    <td colspan="4">
                                         <table class="table table-hover table-responsive">
                                             <tr>
                                                 <td>
@@ -161,7 +161,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2">
+                                                <td colspan="4">
                                                     <!-- Input fields that will be shown/hidden -->
                                                     <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
                                                     <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
