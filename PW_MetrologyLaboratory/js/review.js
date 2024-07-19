@@ -606,13 +606,10 @@ function selectInputResultado() {
 
 function fFechaCompromiso(id_estatusSol){
     const inputFechaCompromiso = document.getElementById('iFechaCompromiso');
-    //fecha de hoy en formato YYYY-MM-DD
-    var hoy = new Date().toISOString().split('T')[0];
-
-    if (id_estatusSol !== '1') { //Estatus pendiente
+    const inputEstatusPruebaAdmin = document.getElementById('estatusPruebaAdmin');
+    if (id_estatusSol !== '1' || inputEstatusPruebaAdmin.value !== '2') { //Estatus pendiente
         inputFechaCompromiso.readOnly = true;
     }else {
-        // Si el estatus es '1', asegurarse de que el input no sea solo lectura
         inputFechaCompromiso.readOnly = false;
     }
 }
