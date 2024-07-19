@@ -983,3 +983,7 @@ table tbody tr {
 #btnCambiarResultados, #btnGuardarResultados{
     background-color: var(--main-color) !important;
 }
+
+.btn-close{
+    color: #E5EEF7 !important;
+}
