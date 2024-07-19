@@ -739,7 +739,7 @@ table tbody tr {
 }
 #containerPruebaR p,#containerPruebaR span, #RequestReview p, #RequestReview span,
 #materialesResumen th, #piezasSolicitud th, #piezasEstatus th,
-#tablaRessultados th, #tablaObs th{
+#tablaRessultados th, #tablaObs th, #updateResultados th{
     color:var(--main-color);
 }
 #containerPruebaR p,#containerPruebaR span{
@@ -752,12 +752,16 @@ table tbody tr {
     background-color: var(--main-color);
     padding: 0.5%;
 }
-#materialesResumen thead th, #piezasSolicitud thead th,
-#piezasEstatus thead th, #tablaRessultados thead th,
-#tablaObs thead th{
+#materialesResumen thead th, #piezasSolicitud thead th{
     padding: 0.3rem;
     text-align: center;
     font-size: 1rem;
+}
+#piezasEstatus thead th, #tablaRessultados thead th,
+#tablaObs thead th, #updateResultados thead th{
+    padding: 0rem;
+    text-align: center;
+    font-size: 0.875rem;
 }
 #RequestReview small{
     font-size: 1rem;

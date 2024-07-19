@@ -82,7 +82,7 @@
                                 </tr>
                             </table>
                             <div id="divCambiarResultados">
-                                <table class="table table-borderless table-responsive" id="">
+                                <table class="table table-borderless table-responsive" id="updateResultados">
                                     <thead id="">
                                     <tr>
                                         <th>Actualizar resultados:</th>
