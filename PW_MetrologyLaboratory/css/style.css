@@ -998,5 +998,12 @@ table tbody tr {
     border: 0;
     background-color: transparent;
     box-sizing: content-box;
-    padding: .25em .25em;
+}
+
+#tablaRessultados {
+    table-layout: fixed;
+    width: 100%;
+}
+#tablaRessultados th, #tablaRessultados td {
+    width: 25%; /* Esto hace que cada columna ocupe el 25% del ancho total */
 }
