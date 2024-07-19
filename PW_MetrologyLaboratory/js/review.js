@@ -542,7 +542,7 @@ function capturarResultados(estatusPruebaAdmin){
 }
 
 function actualizarTitulo() {
-    var titulo5 = document.querySelector("#modalResultados h5");
+    var titulo5 = document.querySelector("#modalResultadosLabel");
     if (titulo5) {
         titulo5.textContent = "Responder Solicitud " + id_review;
     }
