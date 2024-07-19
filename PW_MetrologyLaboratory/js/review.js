@@ -365,8 +365,8 @@ function llenarEstatusPrueba(estatus){
 }
 
 function llenarFechaCompromiso(fechaCompromiso){
-    alert("fecha:"+fechaCompromiso);
-    $('#iFechaCompromiso').text(fechaCompromiso);
+    var inputFecha = document.getElementById('iFechaCompromiso');
+    inputFecha.value = fechaCompromiso;
 }
 
 function consultarMetrologos(metrologo){
