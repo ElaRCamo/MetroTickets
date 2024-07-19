@@ -54,7 +54,7 @@
                                 <tbody>
                                 <tr>
                                     <td>
-                                        <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
+                                        <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control form-control-sm"  rows="4"  onchange="" required></textarea>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -92,13 +92,13 @@
                                         <th>
                                             <!-- Checkbox for selecting the type -->
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
+                                                <input class="form-check-input form-control-sm" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
                                                 <label class="form-check-label" for="rutaRadio">Ruta</label>
                                             </div>
                                         </th>
                                         <th>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo" onchange="selectInputResultado()">
+                                                <input class="form-check-input form-control-sm" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo" onchange="selectInputResultado()">
                                                 <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
                                             </div>
                                         </th>
