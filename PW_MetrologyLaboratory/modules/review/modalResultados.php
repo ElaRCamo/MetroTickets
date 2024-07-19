@@ -92,13 +92,13 @@
                                         <th>
                                             <!-- Checkbox for selecting the type -->
                                             <div class="form-check">
-                                                <input class="form-check-input form-control-sm" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
+                                                <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
                                                 <label class="form-check-label" for="rutaRadio">Ruta</label>
                                             </div>
                                         </th>
                                         <th>
                                             <div class="form-check">
-                                                <input class="form-check-input form-control-sm" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo" onchange="selectInputResultado()">
+                                                <input class="form-check-input" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo" onchange="selectInputResultado()">
                                                 <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
                                             </div>
                                         </th>
@@ -108,8 +108,8 @@
                                     <tr>
                                         <td colspan="4">
                                             <!-- Input fields that will be shown/hidden -->
-                                            <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
-                                            <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
+                                            <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control form-control-sm mt-2" placeholder="Escriba la ruta">
+                                            <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control form-control-sm mt-2" accept="application/pdf">
                                         </td>
                                     </tr>
                                     </tbody>
