@@ -3,7 +3,7 @@
     <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
         <div class="modal-content">
             <div class="modal-header" id="resultadosModal">
-                <h5 class="modal-title" id="modalResultadosLabel">Responder solicitud </h5><br>
+                <h2 class="modal-title" id="modalResultadosLabel">Responder solicitud </h2><br>
                 <button type="button" class="btn-close" id="" data-bs-dismiss="modal" onclick="" aria-label="Close"></button>
             </div>
             <div class="modal-body row">
