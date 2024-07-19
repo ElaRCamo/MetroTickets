@@ -649,6 +649,7 @@ function tablaEstatusPiezas() {
 
             // Crear el elemento select
             var select = document.createElement("select");
+            select.classList.add("form-control");
 
             // Llamar a la función estatusPiezas para llenar el select
             estatusPiezas(select, response.data[j].estatusMaterial);
