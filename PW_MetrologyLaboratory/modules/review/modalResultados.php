@@ -114,7 +114,7 @@
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div class="row">
                         <div class="position-relative">
                             <div class="position-absolute bottom-0 end-0">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
