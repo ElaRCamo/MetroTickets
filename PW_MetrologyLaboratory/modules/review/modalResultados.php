@@ -8,7 +8,45 @@
             </div>
             <div class="modal-body row">
                 <form method="POST" enctype="multipart/form-data">
-                    <div class="row align-items-start">
+                    <div class="row" id="divTablaResultados">
+                        <div>
+                            <table class="table table-striped table-responsive" id="tablaRessultados">
+                                <thead id="titleResultadosT">
+                                <tr>
+                                    <th>Estatus</th>
+                                    <th>Fecha compromiso</th>
+                                    <th>Prioridad</th>
+                                    <th>Metrólogo</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <select class="form-control" id="estatusPruebaAdmin" onchange="cambiarResultado(); fechaCompromiso();" name="estatusPruebaAdmin" title="" required data-error="Por favor seleccione el estatus">
+                                            <option value="">Seleccione estatus de la prueba*</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control" id="iFechaCompromiso" name="iFechaCompromiso" title="" required data-error="Por favor seleccione la fecha compromiso">
+                                    </td>
+                                    <td>
+                                        <select class="form-control" id="prioridadPruebaAdmin" name="prioridadPruebaAdmin" title="" required data-error="Por favor seleccione la prioridad">
+                                            <option value="">Seleccione la prioridad de la prueba*</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control" id="metrologoAdmin" name="metrologoAdmin" title="" required data-error="Por favor asigne la prueba">
+                                            <option value="">Asignar prueba*</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                    </div>
+
+
+                    <!--<div class="row align-items-start">
                         <div class="mb-3 col">
                             <div class="help-block with-errors"></div>
                             <label for="estatusPruebaAdmin" class="form-label" >Estatus: </label>
@@ -35,7 +73,7 @@
                                 <option value="">Asignar prueba*</option>
                             </select>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="row" id="divTablaPiezas">
                         <div>
                             <h5 id="titleResPiezasEstatus">ESTATUS DE LAS PIEZAS</h5>

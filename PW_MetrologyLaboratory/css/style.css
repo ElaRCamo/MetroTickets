@@ -738,20 +738,22 @@ table tbody tr {
     padding: 2% 5%;
 }
 #containerPruebaR p,#containerPruebaR span, #RequestReview p, #RequestReview span,
-#materialesResumen th, #piezasSolicitud th, #piezasEstatus th{
+#materialesResumen th, #piezasSolicitud th, #piezasEstatus th,
+#tablaRessultados th{
     color:var(--main-color);
 }
 #containerPruebaR p,#containerPruebaR span{
     font-size: 1.2rem;
 }
-#materialRTittle, #titleResumen, #titleResumenM, #titleTablaP, #titleResPiezasEstatus{
+#materialRTittle, #titleResumen, #titleResumenM, #titleTablaP,
+#titleResPiezasEstatus, #titleResultadosT, #modalResultadosLabel{
     color:var(--gold_70);
     text-align: center;
     background-color: var(--main-color);
     padding: 0.5%;
 }
 #materialesResumen thead th, #piezasSolicitud thead th,
-#piezasEstatus thead th{
+#piezasEstatus thead th, #tablaRessultados thead th{
     padding: 0.3rem;
     text-align: center;
     font-size: 1rem;
