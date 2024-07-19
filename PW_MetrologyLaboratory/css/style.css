@@ -959,5 +959,8 @@ table tbody tr {
 #resultadosModal, #titleGnalResultados,#titleObs{
     background-color: var(--blue_20 );
     color: var(--main-color);
-    font-weight: bolder;
+}
+#titleGnalResultados,#titleObs{
+    text-align: center;
+    padding: 0.5%;
 }
