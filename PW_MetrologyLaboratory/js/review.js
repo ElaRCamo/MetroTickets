@@ -77,6 +77,7 @@ function resumenPrueba(dao){
         }
 
         $('#observacionesSolR').text(data.especificaciones);
+        $('#fechaCompromisoR').text(data.fechaCompromiso);
         $('#metrologoR').text(data.nombreMetro);
         $('#estatusSolicitudR').text(data.descripcionEstatus);
         $('#prioridadR').text(data.descripcionPrioridad);
@@ -364,6 +365,7 @@ function llenarEstatusPrueba(estatus){
 }
 
 function llenarFechaCompromiso(fechaCompromiso){
+    alert("fecha:"+fechaCompromiso);
     $('#iFechaCompromiso').text(fechaCompromiso);
 }
 
