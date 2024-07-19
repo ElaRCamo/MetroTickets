@@ -11,6 +11,7 @@ let emailSolicitante;
 let indiceRowNorma=false; //Para que la fila se genere una sola vez
 let indiceRowSubtipo=false;
 let indiceTabla=false;
+let indicePiezas = false;
 let dao = '';
 
 /*****************************************************************************************
@@ -635,34 +636,38 @@ function tablaEstatusPiezas() {
     const divTablaPiezas = id("divTablaPiezas");
     divTablaPiezas.style.display = "block";
 
-    $.getJSON(dao, function (response) {
-        // Obtener la referencia al tbody donde se agregarán las filas
-        var tbodyPiezas = document.getElementById("tbodyPiezas");
+    if(indicePiezas === false){
+        alert(dao);
+        $.getJSON(dao, function (response) {
+            // Obtener la referencia al tbody donde se agregarán las filas
+            var tbodyPiezas = document.getElementById("tbodyPiezas");
 
-        // Iterar sobre los materiales y crear filas y celdas de tabla
-        for (var j = 0; j < response.data.length; j++) {
-            var fila = document.createElement("tr");
+            // Iterar sobre los materiales y crear filas y celdas de tabla
+            for (var j = 0; j < response.data.length; j++) {
+                var fila = document.createElement("tr");
 
-            var numeroDeParteT = document.createElement("td");
-            numeroDeParteT.textContent = response.data[j].numParte;
-            fila.appendChild(numeroDeParteT);
+                var numeroDeParteT = document.createElement("td");
+                numeroDeParteT.textContent = response.data[j].numParte;
+                fila.appendChild(numeroDeParteT);
 
-            var estatusMaterialT = document.createElement("td");
+                var estatusMaterialT = document.createElement("td");
 
-            // Crear el elemento select
-            var select = document.createElement("select");
-            select.classList.add("form-control");
-            select.classList.add("form-control-sm");
+                // Crear el elemento select
+                var select = document.createElement("select");
+                select.classList.add("form-control");
+                select.classList.add("form-control-sm");
 
-            // Llamar a la función estatusPiezas para llenar el select
-            estatusPiezas(select, response.data[j].estatusMaterial);
-            //alert("estatus:"+response.data[j].estatusMaterial);
+                // Llamar a la función estatusPiezas para llenar el select
+                estatusPiezas(select, response.data[j].estatusMaterial);
+                //alert("estatus:"+response.data[j].estatusMaterial);
 
-            estatusMaterialT.appendChild(select);
-            fila.appendChild(estatusMaterialT);
+                estatusMaterialT.appendChild(select);
+                fila.appendChild(estatusMaterialT);
 
-            tbodyPiezas.appendChild(fila);
-        }
-    });
+                tbodyPiezas.appendChild(fila);
+            }
+        });
+        indicePiezas = true
+    }
 }
 
