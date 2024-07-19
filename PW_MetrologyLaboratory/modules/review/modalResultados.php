@@ -47,72 +47,70 @@
                         <div>
                             <table class="table table-borderless table-responsive" id="tablaObs">
                                 <thead id="titleObs">
-                                <tr>
-                                    <th colspan="4">Observaciones</th>
-                                </tr>
+                                    <tr>
+                                        <th colspan="4">Observaciones</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>
+                                            <textarea type="text" name="observacionesAdmin" id="observacionesAdmin" class="form-control"  rows="4"  onchange="" required></textarea>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="row" id="divTablaPiezas">
+                        <div id="divTablaPiezas">
                             <h5 id="titleResPiezasEstatus">Estatus de las piezas</h5>
-                            <div>
-                                <table class="table table-borderless table-responsive" id="piezasEstatus">
-                                    <thead>
+                            <table class="table table-borderless table-responsive" id="piezasEstatus">
+                                <thead>
+                                <tr>
+                                    <th>No. de Parte</th>
+                                    <th>Estatus</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tbodyPiezas"></tbody>
+                            </table>
+                        </div>
+                        <div id="divResultados">
+                            <h5 id="titResultados">Resultados</h5>
+                            <div class="help-block with-errors"></div>
+                            <table class="table table-borderless table-responsive">
+                                <tr>
+                                    <td colspan="3"><a href="#" id="resultadosGuardados" class="form-control me-2"></a></td>
+                                    <td><button type="button" id="btnCambiarResultados" onclick="checkedInput()" class="btn btn-primary"><i class="las la-edit"></i></button></td>
+                                </tr>
+                            </table>
+                            <div id="divCambiarResultados">
+                                <table class="table table-borderless table-responsive">
                                     <tr>
-                                        <th>No. de Parte</th>
-                                        <th>Estatus</th>
+                                        <td colspan="2">
+                                            Modificar resultado:
+                                        </td>
+                                        <td>
+                                            <!-- Checkbox for selecting the type -->
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
+                                                <label class="form-check-label" for="rutaRadio">Ruta</label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo" onchange="selectInputResultado()">
+                                                <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
+                                            </div>
+                                        </td>
                                     </tr>
-                                    </thead>
-                                    <tbody id="tbodyPiezas"></tbody>
+                                    <tr>
+                                        <td colspan="4">
+                                            <!-- Input fields that will be shown/hidden -->
+                                            <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
+                                            <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
-                            <div class="mb-3" id="divResultados">
-                                <h5 id="titResultados">Resultados</h5>
-                                <div class="help-block with-errors"></div>
-                                <table class="table table-borderless table-responsive">
-                                    <tr>
-                                        <td colspan="3"><a href="#" id="resultadosGuardados" class="form-control me-2"></a></td>
-                                        <td><button type="button" id="btnCambiarResultados" onclick="checkedInput()" class="btn btn-primary"><i class="las la-edit"></i></button></td>
-                                    </tr>
-                                </table>
-                                <div id="divCambiarResultados">
-                                    <table class="table table-borderless table-responsive">
-                                        <tr>
-                                            <td colspan="2">
-                                                Modificar resultado:
-                                            </td>
-                                            <td>
-                                                <!-- Checkbox for selecting the type -->
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="resultadoTipo" id="rutaRadio" value="ruta" onchange="selectInputResultado()" checked>
-                                                    <label class="form-check-label" for="rutaRadio">Ruta</label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="resultadoTipo" id="archivoRadio" value="archivo" onchange="selectInputResultado()">
-                                                    <label class="form-check-label" for="archivoRadio">Archivo PDF</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="4">
-                                                <!-- Input fields that will be shown/hidden -->
-                                                <input type="text" name="resultadosAdmin" id="resultadosAdminRuta" class="form-control mt-2" placeholder="Escriba la ruta">
-                                                <input type="file" name="resultadosAdmin" id="resultadosAdminArchivo" class="form-control mt-2" accept="application/pdf">
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
                     </div>
                     <div class="">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
