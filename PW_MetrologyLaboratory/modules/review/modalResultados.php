@@ -3,7 +3,7 @@
     <div class="modal-lg modal-dialog modal-dialog-centered modal-dialog-scrollable ">
         <div class="modal-content">
             <div class="modal-header" id="resultadosModal">
-                <h3 class="modal-title" id="modalResultadosLabel">Responder solicitud </h3><br>
+                <h3 class="modal-title" id="modalResultadosLabel"><strong>Responder solicitud</strong></h3><br>
                 <button type="button" class="btn-close" id="" data-bs-dismiss="modal" onclick="" aria-label="Close"></button>
             </div>
             <div class="modal-body row">
@@ -135,6 +135,7 @@
                         </div>
                     </div>
                         <div class="mb-3" id="divResultados">
+                            <h5 id="titResultados">Resultados</h5>
                             <div class="help-block with-errors"></div>
                             <table class="table table-hover table-responsive">
                                 <tr>
@@ -172,7 +173,6 @@
                                 </tr>
                             </table>
                         </div>
-
                         <div class="">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>
                         <button type="button" class="btn btn-secondary" onclick="validarResultados(id_review,id_user)" data-bs-dismiss="modal"><i class="las la-save"></i>Guardar</button>
