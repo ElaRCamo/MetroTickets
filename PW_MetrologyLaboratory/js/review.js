@@ -1,4 +1,4 @@
-let id_estatusSol;
+
 let estatusSol;
 let fechaCompromisoSol;
 let id_prioridadSol;
@@ -29,6 +29,8 @@ function consultaTipoPrueba(id_prueba){
     });
 }
 function resumenPrueba(dao){
+    let id_estatusSol;
+
     $.getJSON(dao, function (response) {
         //codigo para actualizar campos
         var data = response.data[0]; // primer objeto dentro de 'data'
@@ -642,9 +644,12 @@ function tablaEstatusPiezas() {
         let data = response.data[0];
 
         let estatus = data.id_estatusPrueba;
-
-        alert(estatus);
         llenarEstatusPrueba(estatus);
+
+        let fechaCom = data.fechaCompromiso;
+        llenarFechaCompromiso(fechaCom);
+
+        alert(fechaCom);
 
         if(indicePiezas === false){
             // Obtener la referencia al tbody donde se agregarán las filas
