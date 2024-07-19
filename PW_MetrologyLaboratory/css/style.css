@@ -989,6 +989,9 @@ table tbody tr {
 #btnCambiarResultados, #btnGuardarResultados{
     background-color: var(--main-color) !important;
 }
+#btnGuardarResultados{
+    margin-left: 0.9rem;
+}
 
 #btnCloseX{
     color: #E5EEF7 !important;
@@ -1010,3 +1013,4 @@ table tbody tr {
 #piezasEstatus th, #piezasEstatus td {
     width: 50%;
 }
+
