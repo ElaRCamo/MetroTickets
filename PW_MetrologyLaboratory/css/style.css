@@ -964,8 +964,8 @@ table tbody tr {
 }
 #resultadosModal, #titleGnalResultados,#titleObs,
 #titleResPiezasEstatus,#titResultados{
-    background-color: var(--blue_20 );
-    color: var(--main-color);
+    background-color: var(--main-color);
+    color: #E5EEF7;
 }
 #titleGnalResultados,#titleObs,#titleResPiezasEstatus,#titResultados{
     text-align: center;
