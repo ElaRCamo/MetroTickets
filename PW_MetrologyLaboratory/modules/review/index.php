@@ -108,6 +108,7 @@
             }
             //Se cargan los valores que ya se definieron
             llenarEstatusPrueba(id_estatusSol);
+            llenarFechaCompromiso(fechaCompromisoSol);
             llenarPrioridadPrueba(id_prioridadSol);
             consultarMetrologos(id_metrologoSol);
             document.getElementById("observacionesAdmin").value = obs_Solicitud;

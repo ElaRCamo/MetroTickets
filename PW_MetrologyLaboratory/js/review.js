@@ -1,5 +1,6 @@
 let id_estatusSol;
 let estatusSol;
+let fechaCompromisoSol;
 let id_prioridadSol;
 let id_tipoPruebaSol;
 let id_metrologoSol;
@@ -76,7 +77,6 @@ function resumenPrueba(dao){
         }
 
         $('#observacionesSolR').text(data.especificaciones);
-        $('#fechaCompromisoR').text(data.fechaCompromiso);
         $('#metrologoR').text(data.nombreMetro);
         $('#estatusSolicitudR').text(data.descripcionEstatus);
         $('#prioridadR').text(data.descripcionPrioridad);
@@ -98,6 +98,7 @@ function resumenPrueba(dao){
         id_estatusSol = data.id_estatusPrueba;
         id_tipoPruebaSol = data.id_tipoPrueba;
         estatusSol = data.descripcionEstatus;
+        fechaCompromisoSol = data.fechaCompromiso;
         id_prioridadSol = data.id_prioridad;
         id_metrologoSol = data.id_metrologo;
         obs_Solicitud = data.especificacionesLab;
@@ -360,6 +361,10 @@ function llenarEstatusPrueba(estatus){
             }
         }
     });
+}
+
+function llenarFechaCompromiso(fechaCompromiso){
+    $('#iFechaCompromiso').text(fechaCompromiso);
 }
 
 function consultarMetrologos(metrologo){
