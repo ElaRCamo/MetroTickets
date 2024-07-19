@@ -1000,7 +1000,7 @@ table tbody tr {
     box-sizing: content-box;
 }
 
-#tablaRessultados, #piezasEstatus {
+#tablaRessultados, #piezasEstatus, #updateResultados {
     table-layout: fixed;
     width: 100%;
 }
