@@ -75,15 +75,12 @@
                         <div id="divResultados">
                             <h5 id="titResultados">Resultados</h5>
                             <div class="help-block with-errors"></div>
-
-
                             <table class="table table-borderless table-responsive" id="">
                                 <tr>
-                                    <td colspan="3"><a href="#" id="resultadosGuardados" class="form-control form-control-sm me-2"></a></td>
+                                    <td colspan="3"><a href="#" id="resultadosGuardados" class="form-control form-control-sm"></a></td>
                                     <td><button type="button" id="btnCambiarResultados" onclick="checkedInput()" class="btn btn-primary btn-primary btn-sm"><i class="las la-edit"></i></button></td>
                                 </tr>
                             </table>
-
                             <div id="divCambiarResultados">
                                 <table class="table table-borderless table-responsive" id="">
                                     <thead id="">
