@@ -36,6 +36,7 @@ function resumenPrueba($id_prueba){
                                                     p.descripcionPlataforma,
                                                     m.revisionDibujo,
                                                     m.modMatematico,
+                                                    em.id_estatus,
                                                     em.descripcionEstatus AS estatusMaterial
                                                 FROM   
                                                     Piezas m

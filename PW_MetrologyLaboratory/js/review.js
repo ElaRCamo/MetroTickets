@@ -676,8 +676,7 @@ function cargarDatosResultados(dao) {
                     tbodyPiezas.appendChild(fila);
 
                     // Llamar a la función estatusPiezas para llenar el select
-                    let estatusPiezas = response.data[j].estatusMaterial;
-                    console.log('estatusSelect_'+ estatusPiezas);
+                    let estatusPiezas = response.data[j].id_estatus;
                     fEstatusPiezas(selectId, estatusPiezas);
                 }
                 indicePiezas = true;
