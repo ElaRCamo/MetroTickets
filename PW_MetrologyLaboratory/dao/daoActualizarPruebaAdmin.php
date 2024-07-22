@@ -99,16 +99,23 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
             $stringNumParte .= $numParte . ', ';
             $stringEstatus .= $estatusPieza . ', ';
 
+            // Preparar los valores para la consulta
+            $escapedNumParte = $conex->real_escape_string($numParte);
+            $escapedEstatusPieza = $conex->real_escape_string($estatusPieza);
+            $escapedIdPrueba = $conex->real_escape_string($id_prueba);
+
+            // Construir la consulta con los valores reales
+            $queryWithValues = "UPDATE Piezas
+                            SET id_estatus = '{$escapedEstatusPieza}'
+                            WHERE numParte = '{$escapedNumParte}' AND id_prueba = '{$escapedIdPrueba}'";
+
+            // Mostrar la consulta con los valores
+            echo "Ejecutando query: " . $queryWithValues . "<br>";
+
             // Preparar la consulta
-            $query = "UPDATE Piezas
-                  SET id_estatus = ?
-                  WHERE numParte = ? AND id_prueba = ?";
-            $stmt = $conex->prepare($query);
-
-            // Mostrar la consulta que se va a ejecutar
-            echo "Ejecutando query: " . $query . "<br>";
-
-            // Bind de parámetros
+            $stmt = $conex->prepare("UPDATE Piezas
+                                 SET id_estatus = ?
+                                 WHERE numParte = ? AND id_prueba = ?");
             $stmt->bind_param("iss", $estatusPieza, $numParte, $id_prueba);
 
             // Ejecutar la consulta
@@ -129,6 +136,7 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
 
         echo 'No se realizó la actualización, tipoPrueba es 5.';
     }
+
 
 
 
