@@ -93,39 +93,21 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
         $stringEstatus = '';
 
         // Registrar Piezas
+        $rGuardarPiezas = true;
+
         for ($i = 0; $i < count($numsParte); $i++) {
-            $numParte = $numsParte[$i];
-            $estatusPieza = $estatusPiezas[$i];
+            $numParte      = $numsParte[$i];
+            $estatusPieza    = $estatusPiezas[$i];
 
             // Concatenar valores a las variables string
             $stringNumParte .= $numParte . ', ';
             $stringEstatus .= $estatusPieza . ', ';
 
-            // Preparar los valores para la consulta
-            $escapedNumParte = $conex->real_escape_string($numParte);
-            $escapedEstatusPieza = $conex->real_escape_string($estatusPieza);
-            $escapedIdPrueba = $conex->real_escape_string($id_prueba);
-
-            // Construir la consulta con los valores reales
-            $queryWithValues = "UPDATE Piezas
-                            SET id_estatus = '{$escapedEstatusPieza}'
-                            WHERE numParte = '{$escapedNumParte}' AND id_prueba = '{$escapedIdPrueba}'";
-
-            // Mostrar la consulta con los valores
-            echo "Ejecutando query: " . $queryWithValues . "<br>";
-
-            // Preparar la consulta
-            $stmt = $conex->prepare("UPDATE Piezas
-                                 SET id_estatus = ?
-                                 WHERE numParte = ? AND id_prueba = ?");
-            $stmt->bind_param("iss", $estatusPieza, $numParte, $id_prueba);
-
-            // Ejecutar la consulta
-            if ($stmt->execute()) {
-                echo 'Actualización realizada para numParte = ' . $numParte . '<br>';
-            } else {
-                echo 'Error: ' . $stmt->error;
-            }
+            $updateMaterial = $conex->prepare("UPDATE Piezas
+                                                        SET id_estatus = ?
+                                                        WHERE numParte = ? AND id_prueba = ?");
+            $updateMaterial->bind_param("iss", $estatusPieza, $numParte, $id_prueba);
+            $rGuardarPiezas = $rGuardarPiezas && $updateMaterial->execute();
         }
 
         // Eliminar la última coma y espacio de las cadenas concatenadas
