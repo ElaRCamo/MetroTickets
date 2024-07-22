@@ -454,6 +454,14 @@ function lllllllllllllllllllll(row){
     return numeros;
 }
 
+// Función para mostrar los valores del arreglo en un alert
+function mostrarValores(arreglo, nombreArreglo) {
+    let mensaje = nombreArreglo + ":\n";
+    for (let i = 0; i < arreglo.length; i++) {
+        mensaje += arreglo[i] + "\n";
+    }
+    alert(mensaje);
+}
 
 function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmin, fechaCompromiso, observacionesAdmin){
     var prioridadPruebaAdmin = id("prioridadPruebaAdmin");
@@ -494,20 +502,11 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         data.append('piezas', piezas.join(', '));
 
 
-        // Función para mostrar los valores del arreglo en un alert
-        function mostrarValores(arreglo, nombreArreglo) {
-            let mensaje = nombreArreglo + ":\n";
-            for (let i = 0; i < arreglo.length; i++) {
-                mensaje += arreglo[i] + "\n";
-            }
-            alert(mensaje);
-        }
 
 // Mostrar los valores de los arreglos estatuss y piezas
         mostrarValores(estatuss, 'Estatus');
         mostrarValores(piezas, 'Piezas');
     }
-
 
     alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados);
 
