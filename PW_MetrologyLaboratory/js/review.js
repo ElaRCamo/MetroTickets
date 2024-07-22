@@ -648,7 +648,7 @@ function cargarDatosResultados(dao) {
 
         if(tipoPrueba !== '5' ){
 
-            if(indicePiezas === false){
+            if(!indicePiezas){
                 divTablaPiezas.style.display = "block";
                 // Obtener la referencia al tbody donde se agregarán las filas
                 var tbodyPiezas = document.getElementById("tbodyPiezas");
@@ -668,14 +668,13 @@ function cargarDatosResultados(dao) {
                     select.classList.add("form-control");
                     select.classList.add("form-control-sm");
 
-                    // Llamar a la función estatusPiezas para llenar el select
-                    estatusPiezas(select, response.data[j].estatusMaterial);
-                    //alert("estatus:"+response.data[j].estatusMaterial);
-
                     estatusMaterialT.appendChild(select);
                     fila.appendChild(estatusMaterialT);
-
                     tbodyPiezas.appendChild(fila);
+
+                    // Llamar a la función estatusPiezas para llenar el select
+                    estatusPiezas = response.data[j].estatusMaterial;
+                    estatusPiezas(select, estatusPiezas);
                 }
                 indicePiezas = true
             }
@@ -686,6 +685,7 @@ function cargarDatosResultados(dao) {
         llenarFechaCompromiso(fechaCom);
         llenarPrioridadPrueba(prioridad);
         consultarMetrologos(metrologo);
+
     });
 }
 
