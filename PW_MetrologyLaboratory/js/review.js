@@ -646,7 +646,7 @@ function cargarDatosResultados(dao) {
 
         if(tipoPrueba !== '5' ){
 
-            if(!indicePiezas){
+            if (!indicePiezas) {
                 divTablaPiezas.style.display = "block";
                 // Obtener la referencia al tbody donde se agregarán las filas
                 var tbodyPiezas = document.getElementById("tbodyPiezas");
@@ -666,16 +666,21 @@ function cargarDatosResultados(dao) {
                     select.classList.add("form-control");
                     select.classList.add("form-control-sm");
 
+                    // Generar un id único para el select
+                    var selectId = 'estatusSelect_' + j;
+                    select.id = selectId;
+
                     estatusMaterialT.appendChild(select);
                     fila.appendChild(estatusMaterialT);
                     tbodyPiezas.appendChild(fila);
 
                     // Llamar a la función estatusPiezas para llenar el select
                     let estatusPiezas = response.data[j].estatusMaterial;
-                    fEstatusPiezas(select, estatusPiezas);
+                    fEstatusPiezas(selectId, estatusPiezas);
                 }
-                indicePiezas = true
+                indicePiezas = true;
             }
+
         }
 
     }).then(function (){
