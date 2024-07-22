@@ -481,29 +481,30 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     }
 
     if(tipoPruebaSol !== '5'){
-        var tdNumsParte = document.querySelectorAll('td[id^="tdNumParte_"]');
-        var cantidadElementos = tdNumsParte.length;
+        // Arrays para almacenar los valores
+        let numPartes = [];
+        let estatusPartes = [];
 
-        let estatuss = [];
-        let piezas = [];
+// Obtener todas las filas del tbody
+        let filas = document.querySelectorAll("#tbodyPiezas tr");
 
-        for (let i = 0; i < cantidadElementos; i++) {
-            // Para agregar material por número de parte
-            var estatus = document.getElementById('estatusSelect_' + i);
-            var pieza = tdNumsParte[i];
+// Iterar sobre las filas
+        filas.forEach((fila, index) => {
+            // Obtener el número de parte
+            let numParte = document.querySelector(`#tdNumParteId_${index}`).innerText;
 
-            // Verificar que los elementos existen
-            if (estatus && pieza) {
-                console.log('estatusSelect_' + i, estatus.value.trim()); // Depuración
-                console.log('tdNumParte_' + i, pieza.innerText.trim()); // Depuración
+            // Obtener el estatus seleccionado
+            let estatusSelect = document.querySelector(`#estatusSelect_${index}`);
+            let estatus = estatusSelect.options[estatusSelect.selectedIndex].text;
 
-                // Añadimos los valores a los arrays correspondientes
-                estatuss.push(estatus.value.trim());
-                piezas.push(pieza.innerText.trim());
-            } else {
-                console.error('Elemento no encontrado para índice: ' + i);
-            }
-        }
+            // Agregar los valores a los arrays
+            numPartes.push(numParte);
+            estatusPartes.push(estatus);
+        });
+
+        console.log(numPartes);
+        console.log(estatusPartes);
+
 
         // Agregamos los arrays al FormData
         data.append('estatuss', estatuss.join(','));
