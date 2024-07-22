@@ -96,8 +96,11 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
         $rGuardarPiezas = true;
 
         for ($i = 0; $i < count($numsParte); $i++) {
-            $numParte      = $numsParte[$i];
-            $estatusPieza    = $estatusPiezas[$i];
+            $numParte     = $numsParte[$i];
+            $estatusPieza = $estatusPiezas[$i];
+
+            echo 'numParte: '.$numParte;
+            echo 'estatusPieza: '.$estatusPieza;
 
             // Concatenar valores a las variables string
             $stringNumParte .= $numParte . ', ';
