@@ -107,8 +107,6 @@
                 tablaEstatusPiezas(dao);
             }
             //Se cargan los valores que ya se definieron
-
-            document.getElementById("observacionesAdmin").value = obs_Solicitud;
             llenarResultados();
         <?php } ?>
     }
