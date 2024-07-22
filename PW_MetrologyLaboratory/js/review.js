@@ -473,19 +473,25 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     }
 
     if(tipoPruebaSol !== '5'){
-        var tdEstatus = document.querySelectorAll('div[id^="estatusSelect_"]');
+        var tdNumsParte = document.querySelectorAll('td[id^="tdNumParte_"]');
+        var cantidadElementos = tdNumsParte.length;
+
         let estatuss = [];
         let piezas = [];
-        //estatusSelect_
-        for(i=0; i<idSelect; i++){
-            // Para agregar material por número de parte
-            var estatus = id('estatusSelect_' + idRow);
-            var pieza = id('estatusSelect_' + idRow);
+
+        tdNumsParte.forEach(function(td) {
+            var i=0;
+            // Para agregar pieza por número de parte
+            var estatus = id('estatusSelect_' + i);
+            var pieza = id('tdNumParte_' + i);
 
             // Añadimos los valores a los arrays correspondientes
             estatuss.push(estatus.value.trim());
             piezas.push(pieza.value.trim());
-        }
+            i++;
+
+            alert('numParte: ' + pieza.textContent.trim() + ', Estatus: ' + estatus.value.trim());
+        });
 
         // Agregamos los arrays al FormData
         data.append('estatuss', estatuss.join(', '));
