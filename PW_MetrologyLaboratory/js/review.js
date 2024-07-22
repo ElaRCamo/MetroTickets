@@ -646,7 +646,7 @@ function cargarDatosResultados(dao) {
 
         alert(tipoPrueba);
 
-        if(tipoPrueba === '5' ){
+        if(tipoPrueba !== '5' ){
 
             if(indicePiezas === false){
                 divTablaPiezas.style.display = "block";
