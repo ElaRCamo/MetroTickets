@@ -47,9 +47,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $numsParte = "No aplica";
             $estatusPiezas = "No aplica";
         }
-        echo "explode:".$numsParte;
-        echo "explode:".$estatusPiezas;
-
 
         $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin,$fechaResultados,$tipoPrueba,$numsParte,$estatusPiezas);
 
@@ -90,42 +87,44 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
 
 
 
-    if ($tipoPrueba !== '5') {
-        // Inicializar las variables de cadena
-        $stringNumParte = '';
-        $stringEstatus = '';
+    // Inicializa las variables string
+    $stringNumParte = '';
+    $stringEstatus = '';
 
-        // Registrar Piezas
-        $rGuardarPiezas = true;
-
+// Verifica que los arrays tengan la misma longitud
+    if (count($numsParte) === count($estatusPiezas)) {
         for ($i = 0; $i < count($numsParte); $i++) {
             $numParte     = $numsParte[$i];
             $estatusPieza = $estatusPiezas[$i];
-
-            echo 'numParte: '.$numParte;
-            echo 'estatusPieza: '.$estatusPieza;
 
             // Concatenar valores a las variables string
             $stringNumParte .= $numParte . ', ';
             $stringEstatus .= $estatusPieza . ', ';
 
+            // Imprimir cada par de valores
+            echo "numParte: $numParte, estatusPieza: $estatusPieza\n";
+
+            // Preparar y ejecutar la consulta
             $updateMaterial = $conex->prepare("UPDATE Piezas
-                                                        SET id_estatus = ?
-                                                        WHERE numParte = ? AND id_prueba = ?");
+                                           SET id_estatus = ?
+                                           WHERE numParte = ? AND id_prueba = ?");
             $updateMaterial->bind_param("iss", $estatusPieza, $numParte, $id_prueba);
+
+            // Inicializa $rGuardarPiezas antes de usarla en el bucle
+            if ($i == 0) {
+                $rGuardarPiezas = true;
+            }
+
             $rGuardarPiezas = $rGuardarPiezas && $updateMaterial->execute();
         }
-
-        // Eliminar la última coma y espacio de las cadenas concatenadas
-        $stringNumParte = rtrim($stringNumParte, ', ');
-        $stringEstatus = rtrim($stringEstatus, ', ');
-
     } else {
-        $stringNumParte = $numsParte;
-        $stringEstatus = $estatusPiezas;
-
-        echo 'No se realizó la actualización, tipoPrueba es 5.';
+        echo "Los arrays numsParte y estatusPiezas no tienen la misma longitud.";
     }
+
+// Imprimir los strings concatenados
+    echo "Todos los numParte: $stringNumParte\n";
+    echo "Todos los estatusPieza: $stringEstatus\n";
+
 
 
 
