@@ -85,19 +85,7 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
         $query=3;
     }
 
-    // Verifica el valor de $tipoPrueba
-    echo 'Valor de $tipoPrueba: ' . var_dump($tipoPrueba);
-
-// Verifica si $tipoPrueba es una cadena o entero
-    if (is_string($tipoPrueba)) {
-        echo 'Tipo de $tipoPrueba: cadena';
-    } elseif (is_int($tipoPrueba)) {
-        echo 'Tipo de $tipoPrueba: entero';
-    } else {
-        echo 'Tipo de $tipoPrueba: desconocido';
-    }
-
-    if($tipoPrueba !== '5'){
+    if ($tipoPrueba !== '5') {
         // Inicializar las variables de cadena
         $stringNumParte = '';
         $stringEstatus = '';
@@ -111,24 +99,37 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
             $stringNumParte .= $numParte . ', ';
             $stringEstatus .= $estatusPieza . ', ';
 
-            $stmt = $conex->prepare("UPDATE Piezas
-                             SET id_estatus = ?
-                             WHERE numParte = ? AND id_prueba = ?");
+            // Preparar la consulta
+            $query = "UPDATE Piezas
+                  SET id_estatus = ?
+                  WHERE numParte = ? AND id_prueba = ?";
+            $stmt = $conex->prepare($query);
+
+            // Mostrar la consulta que se va a ejecutar
+            echo "Ejecutando query: " . $query . "<br>";
+
+            // Bind de parámetros
             $stmt->bind_param("iss", $estatusPieza, $numParte, $id_prueba);
-            $stmt->execute();
+
+            // Ejecutar la consulta
+            if ($stmt->execute()) {
+                echo 'Actualización realizada.';
+            } else {
+                echo 'Error: ' . $stmt->error;
+            }
         }
 
         // Eliminar la última coma y espacio de las cadenas concatenadas
         $stringNumParte = rtrim($stringNumParte, ', ');
         $stringEstatus = rtrim($stringEstatus, ', ');
 
-        echo 'Actualización realizada.';
     } else {
         $stringNumParte = $numsParte;
         $stringEstatus = $estatusPiezas;
 
         echo 'No se realizó la actualización, tipoPrueba es 5.';
     }
+
 
 
     //$response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query);
