@@ -677,19 +677,17 @@ function cargarDatosResultados(dao) {
 
                     // Llamar a la función estatusPiezas para llenar el select
                     let estatusPiezas = response.data[j].estatusMaterial;
+                    console.log('estatusSelect_'+ estatusPiezas);
                     fEstatusPiezas(selectId, estatusPiezas);
                 }
                 indicePiezas = true;
             }
-
         }
-
     }).then(function (){
         llenarEstatusPrueba(estatus);
         llenarFechaCompromiso(fechaCom);
         llenarPrioridadPrueba(prioridad);
         consultarMetrologos(metrologo);
-
     });
 }
 
