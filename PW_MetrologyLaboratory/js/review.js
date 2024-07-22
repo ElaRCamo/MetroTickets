@@ -479,24 +479,36 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         let estatuss = [];
         let piezas = [];
 
-        tdNumsParte.forEach(function(td) {
-            var i=0;
-            // Para agregar pieza por número de parte
-            var estatus = id('estatusSelect_' + i);
-            var pieza = id('tdNumParte_' + i);
+        for (let i = 0; i < cantidadElementos; i++) {
+            // Para agregar material por número de parte
+            var estatus = document.getElementById('estatusSelect_' + i);
+            var pieza = tdNumsParte[i];
 
             // Añadimos los valores a los arrays correspondientes
             estatuss.push(estatus.value.trim());
-            piezas.push(pieza.value.trim());
-            i++;
-
-            alert('numParte: ' + pieza.textContent.trim() + ', Estatus: ' + estatus.value.trim());
-        });
+            piezas.push(pieza.innerText.trim());
+        }
 
         // Agregamos los arrays al FormData
         data.append('estatuss', estatuss.join(', '));
         data.append('piezas', piezas.join(', '));
+
+
+        // Función para mostrar los valores del arreglo en un alert
+        function mostrarValores(arreglo, nombreArreglo) {
+            let mensaje = nombreArreglo + ":\n";
+            for (let i = 0; i < arreglo.length; i++) {
+                mensaje += arreglo[i] + "\n";
+            }
+            alert(mensaje);
+        }
+
+// Mostrar los valores de los arreglos estatuss y piezas
+        mostrarValores(estatuss, 'Estatus');
+        mostrarValores(piezas, 'Piezas');
     }
+
+
     alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados);
 
     const swalWithBootstrapButtons = Swal.mixin({
