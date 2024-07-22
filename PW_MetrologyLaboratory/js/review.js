@@ -644,8 +644,6 @@ function cargarDatosResultados(dao) {
         metrologo = data.id_metrologo;
         document.getElementById("observacionesAdmin").value = data.especificacionesLab;
 
-        alert(tipoPrueba);
-
         if(tipoPrueba !== '5' ){
 
             if(!indicePiezas){
@@ -673,7 +671,8 @@ function cargarDatosResultados(dao) {
                     tbodyPiezas.appendChild(fila);
 
                     // Llamar a la función estatusPiezas para llenar el select
-                    estatusPiezas = response.data[j].estatusMaterial;
+                    let estatusPiezas = response.data[j].estatusMaterial;
+                    alert("estatus piezas: "+estatusPiezas);
                     estatusPiezas(select, estatusPiezas);
                 }
                 indicePiezas = true
