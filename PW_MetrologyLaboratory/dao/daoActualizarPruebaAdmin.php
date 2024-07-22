@@ -38,7 +38,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaResultados = date('Y-m-d:H:i:s');
         }
 
-        $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin,$fechaResultados);
+        $tipoPrueba = $_POST['tipoPrueba'];
+
+        if(isset($_POST['estatuss'], $_POST['piezas']) && $tipoPrueba){
+            $numsParte      = explode(', ', $_POST['piezas']);
+            $estatusPiezas  = explode(', ', $_POST['estatuss']);
+        }else{
+            $numsParte = "No aplica";
+            $estatusPiezas = "No aplica";
+        }
+
+        $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin,$fechaResultados,$tipoPrueba,$numsParte,$estatusPiezas);
 
     }else{
         $response = array("status" => 'error', "message" => "Faltan datos en el formulario.");
@@ -48,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 echo json_encode($response);
 
-function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin,$fechaResultados) {
+function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin,$fechaResultados,$tipoPrueba,$numsParte,$estatusPiezas) {
     $con = new LocalConector();
     $conex = $con->conectar();
 
@@ -73,6 +83,19 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
                                     WHERE id_prueba = ?");
         $stmt->bind_param("iissss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $id_prueba);
         $query=3;
+    }
+
+    if($tipoPrueba !== '5'){
+        //Registrar Piezas
+        for ($i = 0; $i < count($numsParte); $i++) {
+            $numParte      = $numsParte[$i];
+            $estatusPieza    = $estatusPiezas[$i];
+
+            $stmt = $conex->prepare("UPDATE Piezas
+                                      SET id_estatus = ?
+                                    WHERE numParte = ? AND id_prueba = ?");
+            $stmt->bind_param("iss", $estatusPieza, $numParte, $id_prueba);
+        }
     }
 
     //$response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query);

@@ -436,24 +436,6 @@ function validarResultados(id_review, id_user){
     }
 }
 
-function lllllllllllllllllllll(row){
-    // Selecciona todos los divs cuyo id empieza con row
-    var divs = document.querySelectorAll('div[id^="'+row+'"]');
-    var numeros = [];
-
-    // Recorre los divs seleccionados
-    divs.forEach(function(div) {
-        // Obtiene el id del div
-        var id = div.id;
-        // Extrae el número
-        var numero = id.replace(row, '');
-
-        // Agrega el número al array
-        numeros.push(numero);
-    });
-    return numeros;
-}
-
 // Función para mostrar los valores del arreglo en un alert
 function mostrarValores(arreglo, nombreArreglo) {
     let mensaje = nombreArreglo + ":\n";
@@ -475,6 +457,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     data.append('metrologoAdmin', metrologoAdmin.value.trim());
     data.append('observacionesAdmin', observacionesAdmin.value.trim());
     data.append('id_user', id_user);
+    data.append('tipoPrueba', tipoPruebaSol);
 
     if(estatusPruebaAdmin.value==='2'){
         data.append('fechaCompromiso', fechaCompromiso.value.trim());
@@ -485,10 +468,10 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         let numPartes = [];
         let estatusPartes = [];
 
-// Obtener todas las filas del tbody
+        // Obtener todas las filas del tbody
         let filas = document.querySelectorAll("#tbodyPiezas tr");
 
-// Iterar sobre las filas
+        // Iterar sobre las filas
         filas.forEach((fila, index) => {
             // Obtener el número de parte
             let numParte = document.querySelector(`#tdNumParteId_${index}`).innerText;
@@ -502,21 +485,16 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
             estatusPartes.push(estatus);
         });
 
-        console.log(numPartes);
-        console.log(estatusPartes);
-
-
         // Agregamos los arrays al FormData
         data.append('estatuss', estatusPartes.join(','));
         data.append('piezas', numPartes.join(','));
 
         // Mostrar los valores de los arreglos estatuss y piezas
-        mostrarValores(numPartes, 'Estatus');
-        mostrarValores(estatusPartes, 'Piezas');
+        //mostrarValores(numPartes, 'Estatus');
+        //mostrarValores(estatusPartes, 'Piezas');
     }
 
-
-    alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados);
+    //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados);
 
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
