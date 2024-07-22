@@ -116,7 +116,7 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
 
     //$response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query);
 
-    $descripcion = "Admin actualiza la solicitud. Se concatenan los valores de las variables: "
+    $descripcion = "Admin actualiza la solicitud. Valores: "
         . "id_estatus = " . $id_estatus . ", "
         . "id_prioridad = " . $id_prioridad . ", "
         . "id_metrologo = " . $id_metrologo . ", "
