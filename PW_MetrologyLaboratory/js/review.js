@@ -672,7 +672,6 @@ function cargarDatosResultados(dao) {
 
                     // Llamar a la función estatusPiezas para llenar el select
                     let estatusPiezas = response.data[j].estatusMaterial;
-                    alert("estatus piezas: "+estatusPiezas);
                     estatusPiezas(select, estatusPiezas);
                 }
                 indicePiezas = true
