@@ -1,7 +1,6 @@
 
 let estatusSol;
 let fechaCompromisoSol;
-let id_prioridadSol;
 let id_tipoPruebaSol;
 let id_metrologoSol;
 let obs_Solicitud;
@@ -103,7 +102,6 @@ function resumenPrueba(dao){
         id_tipoPruebaSol = data.id_tipoPrueba;
         estatusSol = data.descripcionEstatus;
         fechaCompromisoSol = data.fechaCompromiso;
-        id_prioridadSol = data.id_prioridad;
         id_metrologoSol = data.id_metrologo;
         obs_Solicitud = data.especificacionesLab;
         resultadosSol = data.resultados;
@@ -637,19 +635,21 @@ function estatusPiezas(selectElement, estatusSelecionado) {
 function tablaEstatusPiezas() {
     const divTablaPiezas = id("divTablaPiezas");
     divTablaPiezas.style.display = "block";
+    let estatus;
+    let fechaCom;
+    let prioridad;
 
 
 
     $.getJSON(dao, function (response) {
         let data = response.data[0];
 
-        let estatus = data.id_estatusPrueba;
-        llenarEstatusPrueba(estatus);
+        estatus = data.id_estatusPrueba;
+        fechaCom = data.fechaCompromiso;
+        prioridad = data.id_prioridad;
 
-        let fechaCom = data.fechaCompromiso;
-        llenarFechaCompromiso(fechaCom);
 
-        alert(fechaCom);
+        alert(prioridad);
 
         if(indicePiezas === false){
             // Obtener la referencia al tbody donde se agregarán las filas
@@ -681,6 +681,10 @@ function tablaEstatusPiezas() {
             }
             indicePiezas = true
         }
+    }).then(function (){
+        llenarEstatusPrueba(estatus);
+        llenarFechaCompromiso(fechaCom);
+        llenarPrioridadPrueba(id_prioridadSol);
     });
 }
 

@@ -109,7 +109,7 @@
             //Se cargan los valores que ya se definieron
 
 
-            llenarPrioridadPrueba(id_prioridadSol);
+
             consultarMetrologos(id_metrologoSol);
             document.getElementById("observacionesAdmin").value = obs_Solicitud;
             llenarResultados();
