@@ -628,7 +628,6 @@ function estatusPiezas(selectElement, estatusSelecionado) {
 
 function cargarDatosResultados(dao) {
     const divTablaPiezas = id("divTablaPiezas");
-    divTablaPiezas.style.display = "block";
     let tipoPrueba;
     let estatus;
     let fechaCom;
@@ -648,7 +647,9 @@ function cargarDatosResultados(dao) {
         alert(tipoPrueba);
 
         if(tipoPrueba === '5' ){
+
             if(indicePiezas === false){
+                divTablaPiezas.style.display = "block";
                 // Obtener la referencia al tbody donde se agregarán las filas
                 var tbodyPiezas = document.getElementById("tbodyPiezas");
 
