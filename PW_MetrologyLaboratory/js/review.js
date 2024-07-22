@@ -612,6 +612,7 @@ function fFechaCompromiso(fechaCompromisoSol){
 
 function fEstatusPiezas(selectElement, estatusSelecionado) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPiezas.php', function (data) {
+        selectElement = id(selectElement);
         selectElement.innerHTML = ""; // Limpiar contenido
 
         for (var j = 0; j < data.data.length; j++) {
