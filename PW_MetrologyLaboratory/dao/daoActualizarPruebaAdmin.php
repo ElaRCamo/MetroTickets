@@ -85,6 +85,8 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
         $query=3;
     }
 
+
+
     if ($tipoPrueba !== '5') {
         // Inicializar las variables de cadena
         $stringNumParte = '';
@@ -120,7 +122,7 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
 
             // Ejecutar la consulta
             if ($stmt->execute()) {
-                echo 'Actualización realizada.';
+                echo 'Actualización realizada para numParte = ' . $numParte . '<br>';
             } else {
                 echo 'Error: ' . $stmt->error;
             }
