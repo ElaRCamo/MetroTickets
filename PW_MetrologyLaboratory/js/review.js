@@ -1,7 +1,6 @@
 
 let estatusSol;
 let fechaCompromisoSol;
-let id_tipoPruebaSol;
 let resultadosSol;
 let solicitantePrueba;
 let emailSolicitante;
@@ -97,7 +96,6 @@ function resumenPrueba(dao){
         }
 
         id_estatusSol = data.id_estatusPrueba;
-        id_tipoPruebaSol = data.id_tipoPrueba;
         estatusSol = data.descripcionEstatus;
         fechaCompromisoSol = data.fechaCompromiso;
         resultadosSol = data.resultados;
@@ -628,58 +626,60 @@ function estatusPiezas(selectElement, estatusSelecionado) {
     });
 }
 
-function tablaEstatusPiezas() {
+function cargarDatosResultados(dao) {
     const divTablaPiezas = id("divTablaPiezas");
     divTablaPiezas.style.display = "block";
+    let tipoPrueba;
     let estatus;
     let fechaCom;
     let prioridad;
     let metrologo;
 
-
-
     $.getJSON(dao, function (response) {
         let data = response.data[0];
 
+        tipoPrueba = data.id_tipoPrueba;
         estatus = data.id_estatusPrueba;
         fechaCom = data.fechaCompromiso;
         prioridad = data.id_prioridad;
         metrologo = data.id_metrologo;
         document.getElementById("observacionesAdmin").value = data.especificacionesLab;
 
+        alert(tipoPrueba);
 
-        alert(data.especificacionesLab);
+        if(tipoPrueba === '5' ){
+            if(indicePiezas === false){
+                // Obtener la referencia al tbody donde se agregarán las filas
+                var tbodyPiezas = document.getElementById("tbodyPiezas");
 
-        if(indicePiezas === false){
-            // Obtener la referencia al tbody donde se agregarán las filas
-            var tbodyPiezas = document.getElementById("tbodyPiezas");
+                // Iterar sobre los materiales y crear filas y celdas de tabla
+                for (var j = 0; j < response.data.length; j++) {
+                    var fila = document.createElement("tr");
 
-            // Iterar sobre los materiales y crear filas y celdas de tabla
-            for (var j = 0; j < response.data.length; j++) {
-                var fila = document.createElement("tr");
+                    var numeroDeParteT = document.createElement("td");
+                    numeroDeParteT.textContent = response.data[j].numParte;
+                    fila.appendChild(numeroDeParteT);
 
-                var numeroDeParteT = document.createElement("td");
-                numeroDeParteT.textContent = response.data[j].numParte;
-                fila.appendChild(numeroDeParteT);
+                    var estatusMaterialT = document.createElement("td");
 
-                var estatusMaterialT = document.createElement("td");
+                    // Crear el elemento select
+                    var select = document.createElement("select");
+                    select.classList.add("form-control");
+                    select.classList.add("form-control-sm");
 
-                // Crear el elemento select
-                var select = document.createElement("select");
-                select.classList.add("form-control");
-                select.classList.add("form-control-sm");
+                    // Llamar a la función estatusPiezas para llenar el select
+                    estatusPiezas(select, response.data[j].estatusMaterial);
+                    //alert("estatus:"+response.data[j].estatusMaterial);
 
-                // Llamar a la función estatusPiezas para llenar el select
-                estatusPiezas(select, response.data[j].estatusMaterial);
-                //alert("estatus:"+response.data[j].estatusMaterial);
+                    estatusMaterialT.appendChild(select);
+                    fila.appendChild(estatusMaterialT);
 
-                estatusMaterialT.appendChild(select);
-                fila.appendChild(estatusMaterialT);
-
-                tbodyPiezas.appendChild(fila);
+                    tbodyPiezas.appendChild(fila);
+                }
+                indicePiezas = true
             }
-            indicePiezas = true
         }
+
     }).then(function (){
         llenarEstatusPrueba(estatus);
         llenarFechaCompromiso(fechaCom);

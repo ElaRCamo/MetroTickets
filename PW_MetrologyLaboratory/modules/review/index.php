@@ -103,9 +103,7 @@
             window.location.href = "../newRequest/newRequestIndex.php?id_update="+ id_review;
         <?php
         } else if($tipoUser== 1 || $tipoUser== 2){?>
-            if (id_tipoPruebaSol !== '5'){
-                tablaEstatusPiezas(dao);
-            }
+            cargarDatosResultados(dao);
             //Se cargan los valores que ya se definieron
             llenarResultados();
         <?php } ?>
