@@ -610,7 +610,7 @@ function fFechaCompromiso(fechaCompromisoSol){
     }
 }
 
-function estatusPiezas(selectElement, estatusSelecionado) {
+function fEstatusPiezas(selectElement, estatusSelecionado) {
     $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPiezas.php', function (data) {
         selectElement.innerHTML = ""; // Limpiar contenido
 
@@ -672,7 +672,7 @@ function cargarDatosResultados(dao) {
 
                     // Llamar a la función estatusPiezas para llenar el select
                     let estatusPiezas = response.data[j].estatusMaterial;
-                    estatusPiezas(select, estatusPiezas);
+                    fEstatusPiezas(select, estatusPiezas);
                 }
                 indicePiezas = true
             }
