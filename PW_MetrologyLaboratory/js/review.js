@@ -2,7 +2,6 @@
 let estatusSol;
 let fechaCompromisoSol;
 let id_tipoPruebaSol;
-let id_metrologoSol;
 let obs_Solicitud;
 let resultadosSol;
 let solicitantePrueba;
@@ -102,7 +101,6 @@ function resumenPrueba(dao){
         id_tipoPruebaSol = data.id_tipoPrueba;
         estatusSol = data.descripcionEstatus;
         fechaCompromisoSol = data.fechaCompromiso;
-        id_metrologoSol = data.id_metrologo;
         obs_Solicitud = data.especificacionesLab;
         resultadosSol = data.resultados;
         solicitantePrueba = data.nombreSolic;
@@ -638,6 +636,7 @@ function tablaEstatusPiezas() {
     let estatus;
     let fechaCom;
     let prioridad;
+    let metrologo;
 
 
 
@@ -647,9 +646,10 @@ function tablaEstatusPiezas() {
         estatus = data.id_estatusPrueba;
         fechaCom = data.fechaCompromiso;
         prioridad = data.id_prioridad;
+        metrologo = data.id_metrologo;
 
 
-        alert(prioridad);
+        alert(metrologo);
 
         if(indicePiezas === false){
             // Obtener la referencia al tbody donde se agregarán las filas
@@ -684,7 +684,8 @@ function tablaEstatusPiezas() {
     }).then(function (){
         llenarEstatusPrueba(estatus);
         llenarFechaCompromiso(fechaCom);
-        llenarPrioridadPrueba(id_prioridadSol);
+        llenarPrioridadPrueba(prioridad);
+        consultarMetrologos(metrologo);
     });
 }
 
