@@ -1,4 +1,4 @@
-
+let tipoPruebaSol;
 let estatusSol;
 let fechaCompromisoSol;
 let resultadosSol;
@@ -36,10 +36,10 @@ function resumenPrueba(dao){
         $('#tipoPruebaSolicitudR').text(data.descripcionPrueba);
         $('#solicitanteR').text(data.nombreSolic);
 
-        let tipoPrueba = data.id_tipoPrueba;
+        tipoPruebaSol = data.id_tipoPrueba;
 
         // SUBTIPO
-        if(tipoPrueba === '3') { // DIMENSIONAL
+        if(tipoPruebaSol === '3') { // DIMENSIONAL
             rowSubtipo();
             $('#subtipoR').text(data.descripcion);
 
@@ -53,7 +53,7 @@ function resumenPrueba(dao){
         }
 
         // NORMA
-        if (tipoPrueba === '1' || tipoPrueba === '2' || tipoPrueba === '6') { // ILD/IFD | SOFTNESS | OTRO
+        if (tipoPruebaSol === '1' || tipoPruebaSol === '2' || tipoPruebaSol === '6') { // ILD/IFD | SOFTNESS | OTRO
             rowNorma();
 
             $('#normaNombreR').text(data.normaNombre);
@@ -110,7 +110,7 @@ function resumenPrueba(dao){
         // Limpiar contenido previo de la tabla
         tbody.innerHTML = '';
 
-        if(tipoPrueba === '5'){//MUNSELL
+        if(tipoPruebaSol === '5'){//MUNSELL
             let titulo = 'PERSONAL';
             let headers = ['No. de Nómina', 'Nombre', 'Área'];
             tablaPiezasyPersonal(titulo, headers);
@@ -436,6 +436,25 @@ function validarResultados(id_review, id_user){
     }
 }
 
+function lllllllllllllllllllll(row){
+    // Selecciona todos los divs cuyo id empieza con row
+    var divs = document.querySelectorAll('div[id^="'+row+'"]');
+    var numeros = [];
+
+    // Recorre los divs seleccionados
+    divs.forEach(function(div) {
+        // Obtiene el id del div
+        var id = div.id;
+        // Extrae el número
+        var numero = id.replace(row, '');
+
+        // Agrega el número al array
+        numeros.push(numero);
+    });
+    return numeros;
+}
+
+
 function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmin, fechaCompromiso, observacionesAdmin){
     var prioridadPruebaAdmin = id("prioridadPruebaAdmin");
     var resultados = capturarResultados(estatusPruebaAdmin);
@@ -451,6 +470,26 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
 
     if(estatusPruebaAdmin.value==='2'){
         data.append('fechaCompromiso', fechaCompromiso.value.trim());
+    }
+
+    if(tipoPruebaSol !== '5'){
+        var tdEstatus = document.querySelectorAll('div[id^="estatusSelect_"]');
+        let estatuss = [];
+        let piezas = [];
+        //estatusSelect_
+        for(i=0; i<idSelect; i++){
+            // Para agregar material por número de parte
+            var estatus = id('estatusSelect_' + idRow);
+            var pieza = id('estatusSelect_' + idRow);
+
+            // Añadimos los valores a los arrays correspondientes
+            estatuss.push(estatus.value.trim());
+            piezas.push(pieza.value.trim());
+        }
+
+        // Agregamos los arrays al FormData
+        data.append('estatuss', estatuss.join(', '));
+        data.append('piezas', piezas.join(', '));
     }
     alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados);
 
@@ -658,6 +697,9 @@ function cargarDatosResultados(dao) {
 
                     var numeroDeParteT = document.createElement("td");
                     numeroDeParteT.textContent = response.data[j].numParte;
+
+                    var tdNumParte = 'tdNumParteId_' + j;
+                    numeroDeParteT.id = tdNumParte;
                     fila.appendChild(numeroDeParteT);
 
                     var estatusMaterialT = document.createElement("td");
