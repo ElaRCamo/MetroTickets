@@ -86,16 +86,32 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
     }
 
     if($tipoPrueba !== '5'){
-        //Registrar Piezas
+        // Inicializar las variables de cadena
+        $stringNumParte = '';
+        $stringEstatus = '';
+
+        // Registrar Piezas
         for ($i = 0; $i < count($numsParte); $i++) {
-            $numParte      = $numsParte[$i];
-            $estatusPieza    = $estatusPiezas[$i];
+            $numParte = $numsParte[$i];
+            $estatusPieza = $estatusPiezas[$i];
+
+            // Concatenar valores a las variables string
+            $stringNumParte .= $numParte . ', ';
+            $stringEstatus .= $estatusPieza . ', ';
 
             $stmt = $conex->prepare("UPDATE Piezas
-                                      SET id_estatus = ?
-                                    WHERE numParte = ? AND id_prueba = ?");
+                                 SET id_estatus = ?
+                                 WHERE numParte = ? AND id_prueba = ?");
             $stmt->bind_param("iss", $estatusPieza, $numParte, $id_prueba);
+            $stmt->execute();
         }
+
+        // Eliminar la última coma y espacio de las cadenas concatenadas
+        $stringNumParte = rtrim($stringNumParte, ', ');
+        $stringEstatus = rtrim($stringEstatus, ', ');
+    }else{
+        $stringNumParte = $numsParte;
+        $stringEstatus = $estatusPiezas;
     }
 
     //$response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query);
@@ -106,6 +122,8 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
         . "id_metrologo = " . $id_metrologo . ", "
         . "observaciones = " . $observaciones . ", "
         . "resultados = " . $resultados . ", "
+        . "PiezasNumParte = " . $stringNumParte . ", "
+        . "PiezasEstatus = " . $stringEstatus . ", "
         . "fechaCompromiso = " . $fechaCompromiso . ", "
         . "fechaResultados = " . $fechaResultados;
 
