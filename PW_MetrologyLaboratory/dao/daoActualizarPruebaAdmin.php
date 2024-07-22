@@ -41,8 +41,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $tipoPrueba = $_POST['tipoPrueba'];
 
         if(isset($_POST['estatuss'], $_POST['piezas']) && $tipoPrueba){
-            $numsParte      = explode(', ', $_POST['piezas']);
-            $estatusPiezas  = explode(', ', $_POST['estatuss']);
+            $numsParte      = $_POST['piezas'];
+            $estatusPiezas  = $_POST['estatuss'];
         }else{
             $numsParte = "No aplica";
             $estatusPiezas = "No aplica";
