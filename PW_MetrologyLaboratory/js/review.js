@@ -492,21 +492,28 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
             var estatus = document.getElementById('estatusSelect_' + i);
             var pieza = tdNumsParte[i];
 
-            // Añadimos los valores a los arrays correspondientes
-            estatuss.push(estatus.value.trim());
-            piezas.push(pieza.innerText.trim());
+            // Verificar que los elementos existen
+            if (estatus && pieza) {
+                console.log('estatusSelect_' + i, estatus.value.trim()); // Depuración
+                console.log('tdNumParte_' + i, pieza.innerText.trim()); // Depuración
+
+                // Añadimos los valores a los arrays correspondientes
+                estatuss.push(estatus.value.trim());
+                piezas.push(pieza.innerText.trim());
+            } else {
+                console.error('Elemento no encontrado para índice: ' + i);
+            }
         }
 
         // Agregamos los arrays al FormData
-        data.append('estatuss', estatuss.join(', '));
-        data.append('piezas', piezas.join(', '));
+        data.append('estatuss', estatuss.join(','));
+        data.append('piezas', piezas.join(','));
 
-
-
-// Mostrar los valores de los arreglos estatuss y piezas
+        // Mostrar los valores de los arreglos estatuss y piezas
         mostrarValores(estatuss, 'Estatus');
         mostrarValores(piezas, 'Piezas');
     }
+
 
     alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados);
 
