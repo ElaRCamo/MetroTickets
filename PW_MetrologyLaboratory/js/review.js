@@ -493,9 +493,9 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
             // Obtener el número de parte
             let numParte = document.querySelector(`#tdNumParteId_${index}`).innerText;
 
-            // Obtener el estatus seleccionado
+            // Obtener el valor del estatus seleccionado
             let estatusSelect = document.querySelector(`#estatusSelect_${index}`);
-            let estatus = estatusSelect.options[estatusSelect.selectedIndex].text;
+            let estatus = estatusSelect.value;
 
             // Agregar los valores a los arrays
             numPartes.push(numParte);
@@ -507,12 +507,12 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
 
 
         // Agregamos los arrays al FormData
-        data.append('estatuss', estatuss.join(','));
-        data.append('piezas', piezas.join(','));
+        data.append('estatuss', estatusPartes.join(','));
+        data.append('piezas', numPartes.join(','));
 
         // Mostrar los valores de los arreglos estatuss y piezas
-        mostrarValores(estatuss, 'Estatus');
-        mostrarValores(piezas, 'Piezas');
+        mostrarValores(numPartes, 'Estatus');
+        mostrarValores(estatusPartes, 'Piezas');
     }
 
 
