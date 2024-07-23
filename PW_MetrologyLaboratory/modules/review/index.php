@@ -40,14 +40,13 @@
         // Obtener la parte de la consulta de la URL actual
         $queryString = $_SERVER['QUERY_STRING'];
 
-
         // Obtener los parámetros de la consulta en un array asociativo
-        //parse_str($queryString, $params);
+        parse_str($queryString, $params);
 
         // Verificar si existe el parámetro id_prueba y obtener su valor
         if (isset($params['id_prueba'])) {
             $id_prueba = $params['id_prueba'];
-            //$solicitante = consultarSolicitante($id_prueba);
+            $solicitante = consultarSolicitante($id_prueba);
         }
 
         if ($idUsuario !== $solicitante) {
