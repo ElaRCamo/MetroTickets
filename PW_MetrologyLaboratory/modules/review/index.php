@@ -21,9 +21,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
     require_once('../../dao/daoConsultarSolicitante.php');
-    echo ("holis2");
     require_once('../../dao/daoConsultarTipoPrueba.php');
-    echo ("holis3");
     session_start();
 
     $nombreUser = $_SESSION['nombreUsuario'];
@@ -46,6 +44,8 @@
         if (isset($params['id_prueba'])) {
             $id_prueba = $params['id_prueba'];
             $solicitante = consultarSolicitante($id_prueba);
+            echo ("solicitante");
+            echo $solicitante;
         }
 
         if ($idUsuario !== $solicitante) {
