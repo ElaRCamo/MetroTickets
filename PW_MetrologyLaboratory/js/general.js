@@ -136,7 +136,7 @@ function correoActualizacionPrueba(estatusPrueba, id_prueba, solicitantePrueba, 
     data.append('id_prueba',id_prueba);
     data.append('solicitante',solicitantePrueba);
     data.append('emailSolicitante',emailSolicitante);
-
+alert("estatusPrueba: "+estatusPrueba);
     if(estatusPrueba === '4'){
         dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/Mailer/MailerPruebaCompletada.php';
     }
