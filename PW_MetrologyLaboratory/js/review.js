@@ -100,7 +100,7 @@ function resumenPrueba(dao){
         fechaCompromisoSol = data.fechaCompromiso;
         resultadosSol = data.resultados;
         solicitantePrueba = data.nombreSolic;
-        emailSolicitante = data.correoSolic;
+        emailSolicitante = data.emailSol;
 
         //console.log("resumenPrueba: id_estatusSol"+id_estatusSol, "estatusSol "+estatusSol);
 
