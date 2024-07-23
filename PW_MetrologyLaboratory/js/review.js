@@ -524,15 +524,15 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
                     return;
                 }
                 return res.json();
-            })
-                .then(data => {
+            }).then(data => {
                     console.log('Success');
                     swalWithBootstrapButtons.fire({
                         title: "¡Prueba actualizada!",
                         text: "Se han guardado los cambios.",
                         icon: "success"
                     });
-                }).then(function (){
+                resumenPrueba(dao);
+            }).then(function (){
                 correoActualizacionPrueba(estatusPruebaAdmin.value,id_review, solicitantePrueba, emailSolicitante);
             }).then(function (){
                 correoActualizacionPruebaLab(id_review);
