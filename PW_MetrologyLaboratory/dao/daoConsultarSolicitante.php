@@ -30,6 +30,6 @@ function consultarSolicitante($id_prueba)
         $id_solicitante = null;
     }
 
-    echo $id_solicitante;
+    return $id_solicitante;
 }
 ?>
