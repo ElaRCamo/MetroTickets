@@ -60,11 +60,11 @@
     //require_once('../../navbar.php');
 
     # Content section
-    require_once('contentReview.php');
+    //require_once('contentReview.php');
     # Content section
-    require_once('../../footer.php');
+    //require_once('../../footer.php');
     # Ventanas modales
-    require_once('modalResultados.php');
+    //require_once('modalResultados.php');
     ?>
 <script>
     let id_review;
