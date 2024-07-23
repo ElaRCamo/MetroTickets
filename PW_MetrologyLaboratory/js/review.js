@@ -175,6 +175,7 @@ function resumenPrueba(dao){
     }).then(function (){
         updateLinkActualizar(id_estatusSol,estatusSol);
     });
+    llenarResultados();
 }
 
 function tablaPiezasyPersonal(titulo, headers) {
@@ -531,7 +532,6 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
                         text: "Se han guardado los cambios.",
                         icon: "success"
                     });
-                resumenPrueba(dao);
             }).then(function (){
                 correoActualizacionPrueba(estatusPruebaAdmin.value,id_review, solicitantePrueba, emailSolicitante);
             }).then(function (){
