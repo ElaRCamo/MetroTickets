@@ -17,7 +17,7 @@ function ContadorPruebas()
                                           ORDER BY Mes, descripcionPrueba;");
 
     $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
-    echo json_encode(array("data" => $resultado));
+    //echo json_encode(array("data" => $resultado));
 }
 
 ?>
