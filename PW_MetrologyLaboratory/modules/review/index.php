@@ -22,21 +22,22 @@
     <?php
     require_once('../../dao/daoConsultarSolicitante.php');
     require_once('../../dao/daoConsultarTipoPrueba.php');
-
+    echo ("holis1");
     session_start();
+    echo ("holis2");
     $nombreUser = $_SESSION['nombreUsuario'];
     $tipoUser = $_SESSION['tipoUsuario'];
     $idUsuario = $_SESSION['nomina'];
     $fotoUsuario = $_SESSION['fotoUsuario'];
     $solicitante = "No aplica";
-    echo ("holis1");
+    echo ("holis3");
     if ($tipoUser == null) {
         header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
         exit();
     } else if ($tipoUser == 3) {
         // Obtener la parte de la consulta de la URL actual
         $queryString = $_SERVER['QUERY_STRING'];
-        echo ("holis");
+
 
         // Obtener los parámetros de la consulta en un array asociativo
         //parse_str($queryString, $params);
@@ -46,7 +47,7 @@
             $id_prueba = $params['id_prueba'];
             //$solicitante = consultarSolicitante($id_prueba);
         }
-        echo ("holis2");
+
         if ($idUsuario !== $solicitante) {
             header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
             exit();
