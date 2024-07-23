@@ -20,17 +20,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
-    require_once('../../dao/daoConsultarSolicitante.php');
-    require_once('../../dao/daoConsultarTipoPrueba.php');
     echo ("holis1");
-    session_start();
+    require_once('../../dao/daoConsultarSolicitante.php');
     echo ("holis2");
+    require_once('../../dao/daoConsultarTipoPrueba.php');
+    echo ("holis3");
+    session_start();
+
     $nombreUser = $_SESSION['nombreUsuario'];
     $tipoUser = $_SESSION['tipoUsuario'];
     $idUsuario = $_SESSION['nomina'];
     $fotoUsuario = $_SESSION['fotoUsuario'];
     $solicitante = "No aplica";
-    echo ("holis3");
+
     if ($tipoUser == null) {
         header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
         exit();
