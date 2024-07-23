@@ -85,40 +85,40 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
         $query=3;
     }
 
-    // Inicializa las variables string
     $stringNumParte = '';
     $stringEstatus = '';
     $rGuardarPiezas = true;
 
-    // Verifica que los arrays tengan la misma longitud
-    if (count($numsParte) === count($estatusPiezas)) {
-        for ($i = 0; $i < count($estatusPiezas); $i++) {
-            $numParte = $numsParte[$i];
-            $estatusPieza = $estatusPiezas[$i];
+    if($tipoPrueba !== '5'){
+        // Verifica que los arrays tengan la misma longitud
+        if (count($numsParte) === count($estatusPiezas)) {
+            for ($i = 0; $i < count($estatusPiezas); $i++) {
+                $numParte = $numsParte[$i];
+                $estatusPieza = $estatusPiezas[$i];
 
-            // Concatenar valores a las variables string
-            $stringNumParte .= $numParte . ', ';
-            $stringEstatus .= $estatusPieza . ', ';
+                // Concatenar valores a las variables string
+                $stringNumParte .= $numParte . ', ';
+                $stringEstatus .= $estatusPieza . ', ';
 
-            // Imprimir cada par de valores
-            echo "numParte: $numParte, estatusPieza: $estatusPieza\n";
+                // Imprimir cada par de valores
+                echo "numParte: $numParte, estatusPieza: $estatusPieza\n";
 
-            // Preparar y ejecutar la consulta
-            $updateMaterial = $conex->prepare("UPDATE Piezas
+                // Preparar y ejecutar la consulta
+                $updateMaterial = $conex->prepare("UPDATE Piezas
                                                SET id_estatus = ?
                                                WHERE numParte = ? AND id_prueba = ?");
-            $updateMaterial->bind_param("iss", $estatusPieza, $numParte, $id_prueba);
-            $rGuardarPiezas = $rGuardarPiezas && $updateMaterial->execute();
+                $updateMaterial->bind_param("iss", $estatusPieza, $numParte, $id_prueba);
+                $rGuardarPiezas = $rGuardarPiezas && $updateMaterial->execute();
+            }
+
+            // Eliminar la última coma y espacio de las cadenas concatenadas
+            $stringNumParte = rtrim($stringNumParte, ', ');
+            $stringEstatus = rtrim($stringEstatus, ', ');
+
+        } else {
+            echo "Los arrays numsParte y estatusPiezas no tienen la misma longitud.";
         }
-
-        // Eliminar la última coma y espacio de las cadenas concatenadas
-        $stringNumParte = rtrim($stringNumParte, ', ');
-        $stringEstatus = rtrim($stringEstatus, ', ');
-
-    } else {
-        echo "Los arrays numsParte y estatusPiezas no tienen la misma longitud.";
     }
-
     //$response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query);
 
     $descripcion = "Admin actualiza la solicitud. Valores: "
