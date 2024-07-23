@@ -33,7 +33,9 @@ function banderaTipoPrueba() {
         mostrarBloque(divCotas, false);
         mostrarBloque(divImgCotas, false);
         mostrarBloque(divTitlePersonal, false);
-        mostrarBloque(divAddPersonalAll, false);
+        divAddPersonalAll.forEach(div => {
+            div.style.display = 'none';
+        });
 
     } else if (tipoPrueba === '3') { // DIMENSIONAL
         mostrarBloque(divSubtipoPrueba, true);
@@ -45,7 +47,9 @@ function banderaTipoPrueba() {
         mostrarBloque(divNormaNombre, false);
         mostrarBloque(divNormaArchivo, false);
         mostrarBloque(divTitlePersonal, false);
-        mostrarBloque(divAddPersonalAll, false);
+        divAddPersonalAll.forEach(div => {
+            div.style.display = 'none';
+        });
 
     } else if(tipoPrueba === '4'){ // COLOR
         mostrarBloque(divDetallesPrueba, true);
@@ -58,7 +62,9 @@ function banderaTipoPrueba() {
         mostrarBloque(divCotas, false);
         mostrarBloque(divImgCotas, false);
         mostrarBloque(divTitlePersonal, false);
-        mostrarBloque(divAddPersonalAll, false);
+        divAddPersonalAll.forEach(div => {
+            div.style.display = 'none';
+        });
     }else if(tipoPrueba === '5') { //MUNSELL
         mostrarBloque(divTitlePiezas, false);
         mostrarBloque(divRegistroPiezas, false);
