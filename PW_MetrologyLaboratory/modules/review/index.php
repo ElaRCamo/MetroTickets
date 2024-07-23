@@ -44,8 +44,6 @@
         if (isset($params['id_prueba'])) {
             $id_prueba = $params['id_prueba'];
             $solicitante = consultarSolicitante($id_prueba);
-            echo ("solicitante");
-            echo $solicitante;
         }
 
         if ($idUsuario !== $solicitante) {
@@ -58,15 +56,14 @@
 <body >
 <?php
     # Header section
-    //require_once('../../header.php');
-    //require_once('../../navbar.php');
-
+    require_once('../../header.php');
+    require_once('../../navbar.php');
     # Content section
-    //require_once('contentReview.php');
+    require_once('contentReview.php');
     # Content section
-    //require_once('../../footer.php');
+    require_once('../../footer.php');
     # Ventanas modales
-    //require_once('modalResultados.php');
+    require_once('modalResultados.php');
     ?>
 <script>
     let id_review;
