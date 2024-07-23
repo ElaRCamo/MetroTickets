@@ -14,7 +14,7 @@ function consultarTipoPrueba($id_prueba)
 
     $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
 
-    return json_encode(array("data" => $resultado));
+    echo json_encode(array("data" => $resultado));
 }
 
 ?>
