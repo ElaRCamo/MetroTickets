@@ -151,7 +151,7 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
             <div class="col-sm-4 text-center">
                 <small> <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php">Laboratorio de Metrología </a></small><br>
                 <small> laboratoriometrologia@arketipo.com.mx </small><br>
-                <strong><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></strong>
+                <strong><small>LABORATORIO DE METROLOGÍA</small></strong>
             </div>
         </div>
     </div>

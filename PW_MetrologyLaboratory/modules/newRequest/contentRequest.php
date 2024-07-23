@@ -12,7 +12,7 @@
                 <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\imgs\logoGrammer.png"><br>
             </div>
             <div>
-                <span><small>GRAMMER AUTOMOTIVE PUEBLA S. A. DE C. V.</small></span>
+                <span><small>LABORATORIO DE METROLOGÍA</small></span>
             </div>
         </div>
     </div>
