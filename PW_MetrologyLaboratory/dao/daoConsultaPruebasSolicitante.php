@@ -24,17 +24,17 @@ function resumenPrueba($id_solicitante){
                     u_solic.nombreUsuario AS nombreSolic,
                     CASE
                         WHEN s.id_estatusPrueba = 1 
-                            THEN CONCAT('<span class=\"badge bg-warning text-dark\">', ep.descripcionEstatus, '</span>')
+                            THEN CONCAT('<span class=\"badge bg-warning text-dark\" tittle\"descripcion estatus 1\">', ep.descripcionEstatus, '</span>')
                         WHEN s.id_estatusPrueba = 2 
-                            THEN CONCAT('<span class=\"badge bg-primary\">', ep.descripcionEstatus, '</span>')
+                            THEN CONCAT('<span class=\"badge bg-primary\" tittle\"descripcion estatus 2\">', ep.descripcionEstatus, '</span>')
                         WHEN s.id_estatusPrueba = 3 
-                            THEN CONCAT('<span class=\"badge bg-info text-dark\">', ep.descripcionEstatus, '</span>')
+                            THEN CONCAT('<span class=\"badge bg-info text-dark\" tittle\"descripcion estatus 3\">', ep.descripcionEstatus, '</span>')
                         WHEN s.id_estatusPrueba = 4 
-                            THEN CONCAT('<span class=\"badge bg-success\">', ep.descripcionEstatus, '</span>')
+                            THEN CONCAT('<span class=\"badge bg-success\" tittle\"descripcion estatus 4\">', ep.descripcionEstatus, '</span>')
                         WHEN s.id_estatusPrueba = 5 
-                            THEN CONCAT('<span class=\"badge bg-danger\">', ep.descripcionEstatus, '</span>')
+                            THEN CONCAT('<span class=\"badge bg-danger\" tittle\"descripcion estatus 5\">', ep.descripcionEstatus, '</span>')
                         WHEN s.id_estatusPrueba = 6 
-                            THEN CONCAT('<span class=\"badge bg-dark\">', ep.descripcionEstatus, '</span>')
+                            THEN CONCAT('<span class=\"badge bg-dark\" tittle\"descripcion estatus 6\">', ep.descripcionEstatus, '</span>')
                     END AS estatusVisual,
                     CASE
                         WHEN s.id_prioridad = 1 
