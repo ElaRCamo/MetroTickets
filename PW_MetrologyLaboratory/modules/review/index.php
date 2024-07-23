@@ -20,7 +20,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
-    echo ("holis1");
     require_once('../../dao/daoConsultarSolicitante.php');
     echo ("holis2");
     require_once('../../dao/daoConsultarTipoPrueba.php');
