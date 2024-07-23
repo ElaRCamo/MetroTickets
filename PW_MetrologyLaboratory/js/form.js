@@ -17,7 +17,8 @@ function banderaTipoPrueba() {
     const divCotas = id("divCotas");
     const divImgCotas = id("divImgCotas");
     const divTitlePersonal = id("addPersonalTitle");
-    const divAddPersonal = document.querySelectorAll('div[id^="newPerRow"]');
+    const divAddPersonalAll = document.querySelectorAll('div[id^="newPerRow"]');
+    const divAddPersonal = id("newPerRow1");
 
     let tipoPrueba = selTipoPrueba.value;
 
@@ -32,7 +33,7 @@ function banderaTipoPrueba() {
         mostrarBloque(divCotas, false);
         mostrarBloque(divImgCotas, false);
         mostrarBloque(divTitlePersonal, false);
-        mostrarBloque(divAddPersonal, false);
+        mostrarBloque(divAddPersonalAll, false);
 
     } else if (tipoPrueba === '3') { // DIMENSIONAL
         mostrarBloque(divSubtipoPrueba, true);
@@ -44,7 +45,7 @@ function banderaTipoPrueba() {
         mostrarBloque(divNormaNombre, false);
         mostrarBloque(divNormaArchivo, false);
         mostrarBloque(divTitlePersonal, false);
-        mostrarBloque(divAddPersonal, false);
+        mostrarBloque(divAddPersonalAll, false);
 
     } else if(tipoPrueba === '4'){ // COLOR
         mostrarBloque(divDetallesPrueba, true);
@@ -57,7 +58,7 @@ function banderaTipoPrueba() {
         mostrarBloque(divCotas, false);
         mostrarBloque(divImgCotas, false);
         mostrarBloque(divTitlePersonal, false);
-        mostrarBloque(divAddPersonal, false);
+        mostrarBloque(divAddPersonalAll, false);
     }else if(tipoPrueba === '5') { //MUNSELL
         mostrarBloque(divTitlePiezas, false);
         mostrarBloque(divRegistroPiezas, false);
