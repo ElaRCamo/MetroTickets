@@ -646,11 +646,13 @@ function selectInputResultado() {
 
 function fFechaCompromiso(fechaCompromisoSol){
     const inputFechaCompromiso = document.getElementById('iFechaCompromiso');
+    const today = new Date().toISOString().split('T')[0]; // Obtiene la fecha de hoy
 
     if (fechaCompromisoSol !== '0000-00-00') {
         inputFechaCompromiso.readOnly = true;
     }else {
         inputFechaCompromiso.readOnly = false;
+        inputFechaCompromiso.min = today;
     }
 }
 
