@@ -13,7 +13,7 @@ function consultarTipoPrueba($id_prueba)
     $datos = mysqli_query($conex, "SELECT id_tipoPrueba FROM Pruebas WHERE id_prueba = '$id_prueba'");
 
     $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
-    echo ("holis22");
+
     return json_encode(array("data" => $resultado));
 }
 
