@@ -101,7 +101,7 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
                 $stringEstatus .= $estatusPieza . ', ';
 
                 // Imprimir cada par de valores
-                echo "numParte: $numParte, estatusPieza: $estatusPieza\n";
+                //echo "numParte: $numParte, estatusPieza: $estatusPieza\n";
 
                 // Preparar y ejecutar la consulta
                 $updateMaterial = $conex->prepare("UPDATE Piezas
