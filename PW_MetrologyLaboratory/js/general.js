@@ -147,7 +147,7 @@ function correoActualizacionPrueba(estatusPrueba, id_prueba, solicitantePrueba, 
     })
         .then(function (response){
             if (response.ok){
-                alert('Correo Actualizacion: prueba: ' +id_prueba+ 'user: ' + solicitantePrueba +' email: ' + emailSolicitante);
+                //alert('Correo Actualizacion: prueba: ' +id_prueba+ 'user: ' + solicitantePrueba +' email: ' + emailSolicitante);
             }else{
                 throw "Error en la llamada Ajax";
             }
