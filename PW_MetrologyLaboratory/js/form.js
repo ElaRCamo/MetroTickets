@@ -17,7 +17,7 @@ function banderaTipoPrueba() {
     const divCotas = id("divCotas");
     const divImgCotas = id("divImgCotas");
     const divTitlePersonal = id("addPersonalTitle");
-    const divAddPersonal = id("newPerRow1");
+    const divAddPersonal = document.querySelectorAll('div[id^="newPerRow"]');
 
     let tipoPrueba = selTipoPrueba.value;
 
