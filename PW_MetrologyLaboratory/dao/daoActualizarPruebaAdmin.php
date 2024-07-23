@@ -41,8 +41,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $tipoPrueba = $_POST['tipoPrueba'];
 
         if(isset($_POST['estatuss'], $_POST['piezas']) && $tipoPrueba){
-            $numsParte      = explode(', ', $_POST['piezas']);
-            $estatusPiezas  = explode(', ', $_POST['estatuss']);
+            //$numsParte      = explode(', ', $_POST['piezas']);
+            //$estatusPiezas  = explode(', ', $_POST['estatuss']);
+
+            $numsParte = array_map('trim', explode(',', $_POST['piezas']));
+            $estatusPiezas = array_map('trim', explode(',', $_POST['estatuss']));
         }else{
             $numsParte = "No aplica";
             $estatusPiezas = "No aplica";
@@ -87,39 +90,44 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
 
 
 
-    // Inicializa las variables string
-    $stringNumParte = '';
-    $stringEstatus = '';
+        // Inicializa las variables string
+        $stringNumParte = '';
+        $stringEstatus = '';
+        $rGuardarPiezas = true;
 
-// Verifica que los arrays tengan la misma longitud
-    if (count($numsParte) === count($estatusPiezas)) {
-        for ($i = 0; $i < count($numsParte); $i++) {
-            $numParte     = $numsParte[$i];
-            $estatusPieza = $estatusPiezas[$i];
 
-            // Concatenar valores a las variables string
-            $stringNumParte .= $numParte . ', ';
-            $stringEstatus .= $estatusPieza . ', ';
+        // Verifica que los arrays tengan la misma longitud
+        if (count($numsParte) === count($estatusPiezas)) {
+            for ($i = 0; $i < count($estatusPiezas); $i++) {
+                $numParte = $numsParte[$i];
+                $estatusPieza = $estatusPiezas[$i];
 
-            // Imprimir cada par de valores
-            echo "numParte: $numParte, estatusPieza: $estatusPieza\n";
+                // Concatenar valores a las variables string
+                $stringNumParte .= $numParte . ', ';
+                $stringEstatus .= $estatusPieza . ', ';
 
-            // Preparar y ejecutar la consulta
-            $updateMaterial = $conex->prepare("UPDATE Piezas
-                                           SET id_estatus = ?
-                                           WHERE numParte = ? AND id_prueba = ?");
-            $updateMaterial->bind_param("iss", $estatusPieza, $numParte, $id_prueba);
+                // Imprimir cada par de valores
+                echo "numParte: $numParte, estatusPieza: $estatusPieza\n";
 
-            // Inicializa $rGuardarPiezas antes de usarla en el bucle
-            if ($i == 0) {
-                $rGuardarPiezas = true;
+                // Preparar y ejecutar la consulta
+                $updateMaterial = $conex->prepare("UPDATE Piezas
+                                                   SET id_estatus = ?
+                                                   WHERE numParte = ? AND id_prueba = ?");
+                $updateMaterial->bind_param("iss", $estatusPieza, $numParte, $id_prueba);
+                $rGuardarPiezas = $rGuardarPiezas && $updateMaterial->execute();
             }
 
-            $rGuardarPiezas = $rGuardarPiezas && $updateMaterial->execute();
+            // Eliminar la última coma y espacio de las cadenas concatenadas
+            $stringNumParte = rtrim($stringNumParte, ', ');
+            $stringEstatus = rtrim($stringEstatus, ', ');
+
+            echo "Concatenated numParte: $stringNumParte\n";
+            echo "Concatenated estatus: $stringEstatus\n";
+
+        } else {
+            echo "Los arrays numsParte y estatusPiezas no tienen la misma longitud.";
         }
-    } else {
-        echo "Los arrays numsParte y estatusPiezas no tienen la misma longitud.";
-    }
+
 
 // Imprimir los strings concatenados
     echo "Todos los numParte: $stringNumParte\n";
