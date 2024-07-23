@@ -716,7 +716,7 @@ function actualizarSolicitud(id_prueba, dao, esActualizacion){
     for (let pair of dataForm.entries()) {
         formDataString += pair[0] + ', ' + pair[1] + '\n';
     }
-    alert(formDataString);
+    //alert(formDataString);
 
     fetch(dao, {
         method: 'POST',

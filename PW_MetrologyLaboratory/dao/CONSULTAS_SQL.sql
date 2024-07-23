@@ -25,7 +25,7 @@ WHERE
 ORDER BY id_prueba DESC;
 
 
-
+UPDATE Pruebas set id_estatusPrueba = 6 where id_solicitante='00030298';
 
 
 SELECT
