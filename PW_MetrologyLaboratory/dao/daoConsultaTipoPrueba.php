@@ -1,9 +1,9 @@
 <?php
 include_once('connection.php');
 
-ContadorPruebas();
+ConsultarTipoPrueba();
 
-function ContadorPruebas()
+function ConsultarTipoPrueba()
 {
     $con = new LocalConector();
     $conex = $con->conectar();
@@ -17,7 +17,7 @@ function ContadorPruebas()
                                           ORDER BY Mes, descripcionPrueba;");
 
     $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
-    //echo json_encode(array("data" => $resultado));
+    echo json_encode(array("data" => $resultado));
 }
 
 ?>
