@@ -186,12 +186,14 @@ function correoActualizacionPruebaLab(id_prueba){
 
 // Función para formatear la fecha
 const formatearFecha = (fecha) => {
-    let date = new Date(fecha);
-    let meses = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
-    let dia = date.getDate();
-    let mes = meses[date.getMonth()];
-    let anio = date.getFullYear();
-    return `${dia}/${mes}/${anio}`;
+    if (fecha !== '0000-00-00'){
+        let date = new Date(fecha);
+        let meses = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+        let dia = date.getDate();
+        let mes = meses[date.getMonth()];
+        let anio = date.getFullYear();
+        return `${dia}/${mes}/${anio}`;
+    }
 };
 
 
