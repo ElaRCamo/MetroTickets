@@ -587,14 +587,14 @@ function fEstatusPiezas(selectElement, estatusSelecionado) {
 }
 
 function cargarDatosResultados(dao) {
-    const divTablaPiezas = id("divTablaPiezas");
-    const divTablaPersonal = id("divTablaPersonal");
 
     let tipoPrueba;
     let estatus;
     let fechaCom;
     let prioridad;
     let metrologo;
+
+    mostrarReportes();
 
     $.getJSON(dao, function (response) {
         let data = response.data[0];
@@ -609,7 +609,6 @@ function cargarDatosResultados(dao) {
         if(tipoPrueba !== '5' ){
 
             if (!indicePiezas) {
-                divTablaPiezas.style.display = "block";
                 // Obtener la referencia al tbody donde se agregarán las filas
                 var tbodyPiezas = document.getElementById("tbodyPiezas");
 
@@ -657,7 +656,6 @@ function cargarDatosResultados(dao) {
             }
         }else{
             if (!indicePersonal) {
-                divTablaPersonal.style.display = "block";
                 // Obtener la referencia al tbody donde se agregarán las filas
                 var tbodyPiezas = document.getElementById("tbodyPersonalAdmin");
 
@@ -696,5 +694,17 @@ function cargarDatosResultados(dao) {
         llenarPrioridadPrueba(prioridad);
         consultarMetrologos(metrologo);
     });
+}
+
+function mostrarReportes(){
+    const estatusPrueba = id("estatusPruebaAdmin").value;
+    const divTablaPiezas = id("divTablaPiezas");
+    const divTablaPersonal = id("divTablaPersonal");
+
+    if(tipoPruebaSol !== '5' && (estatusPrueba==='3' || estatusPrueba==='4')){
+        divTablaPiezas.style.display = "block";
+    }else if(tipoPruebaSol === '5' && (estatusPrueba==='3' || estatusPrueba==='4')){
+        divTablaPersonal.style.display = "block";
+    }
 }
 
