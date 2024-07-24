@@ -635,6 +635,7 @@ function cargarDatosResultados(dao) {
                     var selectId = 'estatusSelect_' + j;
                     select.id = selectId;
                     estatusMaterialT.appendChild(select);
+                    fila.appendChild(estatusMaterialT);
 
                     // Crear el input de tipo file con id basado en el número de nómina
                     var inputFile = document.createElement("input");
