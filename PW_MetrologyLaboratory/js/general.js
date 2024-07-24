@@ -193,6 +193,9 @@ const formatearFecha = (fecha) => {
         let mes = meses[date.getMonth()];
         let anio = date.getFullYear();
         return `${dia}/${mes}/${anio}`;
+    }else{
+        //return '0000-00-00';
+        return 'No asignada';
     }
 };
 
