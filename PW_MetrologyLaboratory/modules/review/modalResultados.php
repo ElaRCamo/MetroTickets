@@ -73,6 +73,19 @@
                                 <tbody id="tbodyPiezas"></tbody>
                             </table>
                         </div>
+                        <div id="divTablaPersonal">
+                            <h5 id="titleResPersonal">Estatus de las piezas</h5>
+                            <table class="table table-borderless table-responsive" id="tableAdminPersonal">
+                                <thead>
+                                <tr>
+                                    <th>No. de Parte</th>
+                                    <th>Estatus</th>
+                                    <th>Reporte</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tbodyPersonalAdmin"></tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">Close</button>

@@ -7,6 +7,7 @@ let indiceRowNorma=false; //Para que la fila se genere una sola vez
 let indiceRowSubtipo=false;
 let indiceTabla=false;
 let indicePiezas = false;
+let indicePersonal = false;
 let dao = '';
 
 /*****************************************************************************************
@@ -462,6 +463,34 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         // Mostrar los valores de los arreglos estatuss y piezas
         //mostrarValores(numPartes, 'Estatus');
         //mostrarValores(estatusPartes, 'Piezas');
+    }else {
+        // Arrays para almacenar los valores
+        let numNómina = [];
+        let nombres = [];
+        let reportes = [];
+
+        // Obtener todas las filas del tbody
+        let filas = document.querySelectorAll("#tbodyPiezas tr");
+
+        // Iterar sobre las filas
+        filas.forEach((fila, index) => {
+            // Obtener el número de parte
+            let numParte = document.querySelector(`#tdNumParteId_${index}`).innerText;
+
+            // Obtener el valor del estatus seleccionado
+            let estatusSelect = document.querySelector(`#estatusSelect_${index}`);
+            let estatus = estatusSelect.value;
+
+            // Agregar los valores a los arrays
+            numPartes.push(numParte);
+            estatusPartes.push(estatus);
+        });
+
+        // Agregamos los arrays al FormData
+        data.append('estatuss', estatusPartes.join(','));
+        data.append('piezas', numPartes.join(','));
+
+
     }
 
     //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim());
@@ -559,6 +588,8 @@ function fEstatusPiezas(selectElement, estatusSelecionado) {
 
 function cargarDatosResultados(dao) {
     const divTablaPiezas = id("divTablaPiezas");
+    const divTablaPersonal = id("divTablaPersonal");
+
     let tipoPrueba;
     let estatus;
     let fechaCom;
@@ -613,6 +644,33 @@ function cargarDatosResultados(dao) {
                     fEstatusPiezas(selectId, estatusPiezas);
                 }
                 indicePiezas = true;
+            }
+        }else{
+            if (!indicePersonal) {
+                divTablaPersonal.style.display = "block";
+                // Obtener la referencia al tbody donde se agregarán las filas
+                var tbodyPiezas = document.getElementById("tbodyPersonalAdmin");
+
+                // Iterar sobre el personal y crear filas y celdas de tabla
+                for (var j = 0; j < response.data.length; j++) {
+                    var fila = document.createElement("tr");
+
+                    var nomina = document.createElement("td");
+                    nomina.textContent = response.data[j].nomina;
+                    fila.appendChild(nomina);
+
+                    var nombre = document.createElement("td");
+                    nombre.textContent = response.data[j].nombre;
+                    fila.appendChild(nombre);
+
+                    var reporte = document.createElement("td");
+                    reporte.textContent = response.data[j].reportePersonal;
+                    fila.appendChild(reporte);
+
+                    tbodyPiezas.appendChild(fila);
+
+                }
+                indicePersonal = true;
             }
         }
     }).then(function (){

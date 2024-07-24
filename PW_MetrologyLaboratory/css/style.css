@@ -738,7 +738,7 @@ table tbody tr {
     padding: 2% 5%;
 }
 #containerPruebaR p,#containerPruebaR span, #RequestReview p, #RequestReview span,
-#materialesResumen th, #piezasSolicitud th, #piezasEstatus th,
+#materialesResumen th, #piezasSolicitud th, #piezasEstatus th, #tableAdminPersonal th,
 #tablaRessultados th, #tablaObs th{
     color:var(--main-color);
 }
@@ -757,7 +757,8 @@ table tbody tr {
     text-align: center;
     font-size: 1rem;
 }
-#piezasEstatus thead th, #tablaRessultados thead th,
+#piezasEstatus thead th, #tableAdminPersonal thead th,
+#tablaRessultados thead th,
 #tablaObs thead th{
     padding: 0;
     text-align: center;
@@ -956,7 +957,7 @@ table tbody tr {
     background-color: var(--main-color) !important;
 }
 
-#divTablaPiezas{
+#divTablaPiezas, #divTablaPersonal{
     display: none;
 }
 #resultadosModal{
@@ -968,18 +969,18 @@ table tbody tr {
 }
 
 #titleGnalResultados,#titleObs,
-#titleResPiezasEstatus,#titResultados{
+#titleResPiezasEstatus,#titleResPersonal,#titResultados{
     background-color: var(--blue_20);
     color: var(--main-color);
 }
 
-#titleGnalResultados,#titleObs,#titleResPiezasEstatus,#titResultados{
+#titleGnalResultados,#titleObs,#titleResPiezasEstatus,#titleResPersonal,#titResultados{
     text-align: center;
     padding: 0.5%;
     font-weight: bolder;
 }
 
-#piezasEstatus tbody td:first-child {
+#piezasEstatus tbody td:first-child , #tableAdminPersonal tbody td:first-child{
     padding-left: 0;
     color: #212529;
     font-weight: normal;
@@ -1003,14 +1004,14 @@ table tbody tr {
     box-sizing: content-box;
 }
 
-#tablaRessultados, #piezasEstatus {
+#tablaRessultados, #piezasEstatus , #tableAdminPersonal{
     table-layout: fixed;
     width: 100%;
 }
 #tablaRessultados th, #tablaRessultados td {
     width: 25%; /* Esto hace que cada columna ocupe el 25% del ancho total */
 }
-#piezasEstatus th, #piezasEstatus td {
+#piezasEstatus th, #piezasEstatus td, #tableAdminPersonal td {
     width: 50%;
 }
 
