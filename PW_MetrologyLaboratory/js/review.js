@@ -32,7 +32,10 @@ function resumenPrueba(dao){
         var data = response.data[0]; // primer objeto dentro de 'data'
 
         $('#numeroPruebaR').text(data.id_prueba);
-        $('#fechaSolicitudR').text(data.fechaSolicitud);
+
+        let fechaSolicitudFormateada = formatearFecha(data.fechaSolicitud);
+        $('#fechaSolicitudR').text(fechaSolicitudFormateada);
+
         $('#tipoPruebaSolicitudR').text(data.descripcionPrueba);
         $('#solicitanteR').text(data.nombreSolic);
 
@@ -75,12 +78,15 @@ function resumenPrueba(dao){
             }
         }
 
+        let fechaCompromisoFormateada = formatearFecha(data.fechaCompromiso);
+        $('#fechaCompromisoR').text(fechaCompromisoFormateada);
+        let fechaRespFormateada = formatearFecha(data.fechaRespuesta);
+        $('#fechaRespuestaR').text(fechaRespFormateada);
+
         $('#observacionesSolR').text(data.especificaciones);
-        $('#fechaCompromisoR').text(data.fechaCompromiso);
         $('#metrologoR').text(data.nombreMetro);
         $('#estatusSolicitudR').text(data.descripcionEstatus);
         $('#prioridadR').text(data.descripcionPrioridad);
-        $('#fechaRespuestaR').text(data.fechaRespuesta);
         $('#observacionesLabR').text(data.especificacionesLab);
 
         //Resultados es una ruta o un enlace:
@@ -361,7 +367,8 @@ function llenarEstatusPrueba(estatus){
 
 function llenarFechaCompromiso(fechaCompromiso){
     var inputFecha = document.getElementById('iFechaCompromiso');
-    inputFecha.value = fechaCompromiso;
+    let fechaCompromisoFormateada = formatearFecha(fechaCompromiso);
+    inputFecha.value = fechaCompromisoFormateada;
     fFechaCompromiso(fechaCompromiso);
 }
 

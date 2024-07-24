@@ -67,13 +67,18 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
 
         let content = '';
         result.data.forEach((item) => {
+
+            // Formatea las fechas de solicitud y compromiso
+            let fechaSolicitudFormateada = formatearFecha(item.fechaSolicitud);
+            let fechaCompromisoFormateada = formatearFecha(item.fechaCompromiso);
+
             content += `
                 <tr>
                     <td onclick="reviewPage('${item.id_prueba}')" class="idEnlace">${item.id_prueba}</td>
                     <td>${item.descripcionPrueba}</td>
-                    <td>${item.fechaSolicitud}</td>
+                    <td>${fechaSolicitudFormateada}</td>
                     <td>${item.nombreSolic}</td>
-                    <td>${item.fechaCompromiso}</td>
+                    <td>${fechaCompromisoFormateada}</td>
                     <td>${item.nombreMetro}</td>
                     <td>${item.estatusVisual}</td>
                     <td>${item.prioridadVisual}</td>
@@ -110,13 +115,17 @@ const TablaPruebasAdmin = async () => {
 
         let content = '';
         result.data.forEach((item) => {
+            // Formatea las fechas de solicitud y compromiso
+            let fechaSolicitudFormateada = formatearFecha(item.fechaSolicitud);
+            let fechaCompromisoFormateada = formatearFecha(item.fechaCompromiso);
+
             content += `
                 <tr>
                     <td onclick="reviewPage('${item.id_prueba}')" class="idEnlace">${item.id_prueba}</td>
                     <td>${item.descripcionPrueba}</td>
-                    <td>${item.fechaSolicitud}</td>
+                    <td>${fechaSolicitudFormateada}</td>
                     <td>${item.nombreSolic}</td>
-                    <td>${item.fechaCompromiso}</td>
+                    <td>${fechaCompromisoFormateada}</td>
                     <td>${item.nombreMetro}</td>
                     <td>${item.estatusVisual}</td>
                     <td>${item.prioridadVisual}</td>
