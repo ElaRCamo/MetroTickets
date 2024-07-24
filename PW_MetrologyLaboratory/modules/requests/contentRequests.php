@@ -12,7 +12,6 @@
             </div>
         </div>
     </div>
-
     <div class="page-content">
         <div class="records table-responsive">
             <div class="table-Conteiner table-responsive" id="contenedorListadoPruebas">

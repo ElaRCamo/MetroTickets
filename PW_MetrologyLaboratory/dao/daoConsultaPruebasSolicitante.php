@@ -24,17 +24,17 @@ function resumenPrueba($id_solicitante){
                     u_solic.nombreUsuario AS nombreSolic,
                     CASE
                         WHEN s.id_estatusPrueba = 1 
-                            THEN CONCAT('<span class=\"badge bg-warning text-dark\" title=\"descripcion estatus 1\">', ep.descripcionEstatus, '</span>')
+                            THEN CONCAT('<span class=\"badge bg-warning text-dark\" title=\"', ep.detallesEstatus, '\">', ep.descripcionEstatus, '</span>')
                         WHEN s.id_estatusPrueba = 2 
-                            THEN CONCAT('<span class=\"badge bg-primary\" title=\"descripcion estatus 2\">', ep.descripcionEstatus, '</span>')
+                            THEN CONCAT('<span class=\"badge bg-primary\" title=\"', ep.detallesEstatus, '\">', ep.descripcionEstatus, '</span>')
                         WHEN s.id_estatusPrueba = 3 
-                            THEN CONCAT('<span class=\"badge bg-info text-dark\" title=\"descripcion estatus 3\">', ep.descripcionEstatus, '</span>')
+                            THEN CONCAT('<span class=\"badge bg-info text-dark\" title=\"', ep.detallesEstatus, '\">', ep.descripcionEstatus, '</span>')
                         WHEN s.id_estatusPrueba = 4 
-                            THEN CONCAT('<span class=\"badge bg-success\" title=\"descripcion estatus 4\">', ep.descripcionEstatus, '</span>')
+                            THEN CONCAT('<span class=\"badge bg-success\" title=\"', ep.detallesEstatus, '\">', ep.descripcionEstatus, '</span>')
                         WHEN s.id_estatusPrueba = 5 
-                            THEN CONCAT('<span class=\"badge bg-danger\" title=\"descripcion estatus 5\">', ep.descripcionEstatus, '</span>')
+                            THEN CONCAT('<span class=\"badge bg-danger\" title=\"', ep.detallesEstatus, '\">', ep.descripcionEstatus, '</span>')
                         WHEN s.id_estatusPrueba = 6 
-                            THEN CONCAT('<span class=\"badge bg-dark\" title=\"descripcion estatus 6\">', ep.descripcionEstatus, '</span>')
+                            THEN CONCAT('<span class=\"badge bg-dark\" title=\"', ep.detallesEstatus, '\">', ep.descripcionEstatus, '</span>')
                     END AS estatusVisual,
                     CASE
                         WHEN s.id_prioridad = 1 
