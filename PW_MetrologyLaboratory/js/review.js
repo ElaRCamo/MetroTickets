@@ -637,14 +637,16 @@ function cargarDatosResultados(dao) {
                     estatusMaterialT.appendChild(select);
                     fila.appendChild(estatusMaterialT);
 
+                    var reporte = document.createElement("td");
                     // Crear el input de tipo file con id basado en el número de nómina
                     var inputFile = document.createElement("input");
                     inputFile.type = "file";
                     inputFile.id = response.data[j].numParte;
                     inputFile.classList.add("form-control", "form-control-sm", "reporteInput");
                     inputFile.accept = "application/pdf";  // Opcional: solo permitir PDFs
+                    reporte.appendChild(inputFile);
+                    fila.appendChild(reporte);
 
-                    fila.appendChild(inputFile);
                     tbodyPiezas.appendChild(fila);
 
                     // Llamar a la función estatusPiezas para llenar el select
