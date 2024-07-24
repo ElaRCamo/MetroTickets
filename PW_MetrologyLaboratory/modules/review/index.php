@@ -112,10 +112,10 @@
         var input = this.value;
         var dateEntered = new Date(input);
         var day = ("0" + dateEntered.getDate()).slice(-2);
-        var month = ("0" + (dateEntered.getMonth() + 1)).slice(-2);
+        var monthNames = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+        var month = monthNames[dateEntered.getMonth()];
         var year = dateEntered.getFullYear();
         var formattedDate = day + '-' + month + '-' + year;
-        alert('Fecha seleccionada: ' + formattedDate);
     });
 </script>
 <script src="../../js/general.js"></script>
