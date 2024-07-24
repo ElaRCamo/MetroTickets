@@ -668,7 +668,7 @@ function cargarDatosResultados(dao) {
                     var inputFile = document.createElement("input");
                     inputFile.type = "file";
                     inputFile.id = response.data[j].nomina;
-                    inputFile.classList.add("reporteInput");
+                    inputFile.classList.add("form-control, form-control-sm, reporteInput");
                     inputFile.placeholder="Reporte "+response.data[j].nomina;
                     inputFile.accept = "application/pdf";  // Opcional: solo permitir PDFs
 
