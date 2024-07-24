@@ -27,7 +27,8 @@ function resumenPrueba($id_prueba){
                                 prueba.nombreSolic,
                                 pm.nomina,
                                 pm.nombre,
-                                pm.area
+                                pm.area,
+                                pm.reportePersonal
                             FROM   
                                 PersonalMunsell pm
                                 JOIN (

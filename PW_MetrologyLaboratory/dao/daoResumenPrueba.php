@@ -38,7 +38,8 @@ function resumenPrueba($id_prueba){
                                                     m.revisionDibujo,
                                                     m.modMatematico,
                                                     em.id_estatus,
-                                                    em.descripcionEstatus AS estatusMaterial
+                                                    em.descripcionEstatus AS estatusMaterial,
+                                                    em.reportePieza
                                                 FROM   
                                                     Piezas m
                                                     JOIN Plataforma p ON m.id_plataforma = p.id_plataforma

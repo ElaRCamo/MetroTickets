@@ -136,6 +136,10 @@ function resumenPrueba(dao){
                 area.textContent = response.data[j].area;
                 fila.appendChild(area);
 
+                var reporte = document.createElement("td");
+                reporte.textContent = response.data[j].reportePersonal;
+                fila.appendChild(reporte);
+
                 tbody.appendChild(fila);
             }
         }else{
@@ -174,6 +178,10 @@ function resumenPrueba(dao){
                 var estatusMaterialT = document.createElement("td");
                 estatusMaterialT.textContent = response.data[j].estatusMaterial;
                 fila.appendChild(estatusMaterialT);
+
+                var reporte = document.createElement("td");
+                reporte.textContent = response.data[j].reportePieza;
+                fila.appendChild(reporte);
 
                 tbody.appendChild(fila);
             }

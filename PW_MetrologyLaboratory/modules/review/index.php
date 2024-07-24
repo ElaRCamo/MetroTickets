@@ -116,6 +116,9 @@
         var month = monthNames[dateEntered.getMonth()];
         var year = dateEntered.getFullYear();
         var formattedDate = day + '-' + month + '-' + year;
+
+        // Actualiza el valor del campo de entrada con la fecha formateada
+        this.value = formattedDate;
     });
 </script>
 <script src="../../js/general.js"></script>
