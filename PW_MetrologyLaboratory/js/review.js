@@ -438,35 +438,6 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         // Arrays para almacenar los valores
         let numPartes = [];
         let estatusPartes = [];
-
-        // Obtener todas las filas del tbody
-        let filas = document.querySelectorAll("#tbodyPiezas tr");
-
-        // Iterar sobre las filas
-        filas.forEach((fila, index) => {
-            // Obtener el número de parte
-            let numParte = document.querySelector(`#tdNumParteId_${index}`).innerText;
-
-            // Obtener el valor del estatus seleccionado
-            let estatusSelect = document.querySelector(`#estatusSelect_${index}`);
-            let estatus = estatusSelect.value;
-
-            // Agregar los valores a los arrays
-            numPartes.push(numParte);
-            estatusPartes.push(estatus);
-        });
-
-        // Agregamos los arrays al FormData
-        data.append('estatuss', estatusPartes.join(','));
-        data.append('piezas', numPartes.join(','));
-
-        // Mostrar los valores de los arreglos estatuss y piezas
-        //mostrarValores(numPartes, 'Estatus');
-        //mostrarValores(estatusPartes, 'Piezas');
-    }else {
-        // Arrays para almacenar los valores
-        let numNómina = [];
-        let nombres = [];
         let reportes = [];
 
         // Obtener todas las filas del tbody
@@ -481,15 +452,56 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
             let estatusSelect = document.querySelector(`#estatusSelect_${index}`);
             let estatus = estatusSelect.value;
 
+            // Obtener el doccumento cargado en el input si es que hay uno
+            let inputElement = document.querySelector(`#inputReporte_${index}`);
+            let files = inputElement.files;
+
+            let reporte = "Sin resultados";
+            if (files.length > 0) {
+                let reporte = files[0];
+                console.log("Archivo cargado:", reporte.name);
+            }
+
             // Agregar los valores a los arrays
             numPartes.push(numParte);
             estatusPartes.push(estatus);
+            reportes.push(reporte);
         });
 
         // Agregamos los arrays al FormData
         data.append('estatuss', estatusPartes.join(','));
         data.append('piezas', numPartes.join(','));
+        data.append('reportes', reportes.join(','));
 
+        // Mostrar los valores de los arreglos estatuss y piezas
+        //mostrarValores(numPartes, 'Estatus');
+        //mostrarValores(estatusPartes, 'Piezas');
+    }else {
+        // Arrays para almacenar los valores
+        let nominas = [];
+        let nombres = [];
+        let reportes = [];
+
+        // Obtener todas las filas del tbody
+        let filas = document.querySelectorAll("#tbodyPersonalAdmin tr");
+
+        // Iterar sobre las filas
+        filas.forEach((fila, index) => {
+            // Obtener el número de parte
+            let nomina = document.querySelector(`#tdNumParteId_${index}`).innerText;
+            let nombre = document.querySelector(`#tdNumParteId_${index}`).innerText;
+            let reporte = document.querySelector(`#tdNumParteId_${index}`).innerText;
+
+            // Agregar los valores a los arrays
+            nominas.push(nomina);
+            nombres.push(nombre);
+            reportes.push(reporte);
+        });
+
+        // Agregamos los arrays al FormData
+        data.append('nominas', nominas.join(','));
+        data.append('nombres', nombres.join(','));
+        data.append('reportes', reportes.join(','));
 
     }
 
@@ -640,7 +652,7 @@ function cargarDatosResultados(dao) {
                     // Crear el input de tipo file con id basado en el número de nómina
                     var inputFile = document.createElement("input");
                     inputFile.type = "file";
-                    inputFile.id = response.data[j].numParte;
+                    inputFile.id = 'inputReporte_' + j;
                     inputFile.classList.add("form-control", "form-control-sm", "reporteInput");
                     inputFile.accept = "application/pdf";  // Opcional: solo permitir PDFs
                     reporte.appendChild(inputFile);

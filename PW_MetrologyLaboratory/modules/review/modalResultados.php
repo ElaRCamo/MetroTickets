@@ -61,7 +61,7 @@
                             </table>
                         </div>
                         <div id="divTablaPiezas">
-                            <h5 id="titleResPiezasEstatus">Estatus de las piezas</h5>
+                            <h5 id="titleResPiezasEstatus">Piezas</h5>
                             <table class="table table-borderless table-responsive" id="piezasEstatus">
                                 <thead>
                                 <tr>
@@ -74,12 +74,12 @@
                             </table>
                         </div>
                         <div id="divTablaPersonal">
-                            <h5 id="titleResPersonal">Estatus de las piezas</h5>
+                            <h5 id="titleResPersonal">Personal</h5>
                             <table class="table table-borderless table-responsive" id="tableAdminPersonal">
                                 <thead>
                                 <tr>
-                                    <th>No. de Parte</th>
-                                    <th>Estatus</th>
+                                    <th>Nómina</th>
+                                    <th>Nombre</th>
                                     <th>Reporte</th>
                                 </tr>
                                 </thead>
