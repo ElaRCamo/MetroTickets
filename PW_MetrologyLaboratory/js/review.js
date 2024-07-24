@@ -367,8 +367,7 @@ function llenarEstatusPrueba(estatus){
 
 function llenarFechaCompromiso(fechaCompromiso){
     var inputFecha = document.getElementById('iFechaCompromiso');
-    let fechaCompromisoFormateada = formatearFecha(fechaCompromiso);
-    inputFecha.value = fechaCompromisoFormateada;
+    inputFecha.value = fechaCompromiso;
     fFechaCompromiso(fechaCompromiso);
 }
 
