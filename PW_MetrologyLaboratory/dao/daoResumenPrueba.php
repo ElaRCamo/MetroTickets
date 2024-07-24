@@ -39,7 +39,7 @@ function resumenPrueba($id_prueba){
                                                     m.modMatematico,
                                                     em.id_estatus,
                                                     em.descripcionEstatus AS estatusMaterial,
-                                                    em.reportePieza
+                                                    m.reportePieza
                                                 FROM   
                                                     Piezas m
                                                     JOIN Plataforma p ON m.id_plataforma = p.id_plataforma
