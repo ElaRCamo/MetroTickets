@@ -651,7 +651,6 @@ function cargarDatosResultados(dao) {
                 // Obtener la referencia al tbody donde se agregarán las filas
                 var tbodyPiezas = document.getElementById("tbodyPersonalAdmin");
 
-                // Iterar sobre el personal y crear filas y celdas de tabla
                 for (var j = 0; j < response.data.length; j++) {
                     var fila = document.createElement("tr");
 
@@ -664,14 +663,20 @@ function cargarDatosResultados(dao) {
                     fila.appendChild(nombre);
 
                     var reporte = document.createElement("td");
-                    reporte.textContent = response.data[j].reportePersonal;
+
+                    // Crear el input de tipo file con id basado en el número de nómina
+                    var inputFile = document.createElement("input");
+                    inputFile.type = "file";
+                    inputFile.id = response.data[j].nomina;
+                    inputFile.accept = "application/pdf";  // Opcional: solo permitir PDFs
+
+                    reporte.appendChild(inputFile);
                     fila.appendChild(reporte);
 
                     tbodyPiezas.appendChild(fila);
-
                 }
-                indicePersonal = true;
             }
+            indicePersonal = true;
         }
     }).then(function (){
         llenarEstatusPrueba(estatus);
