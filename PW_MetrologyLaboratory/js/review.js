@@ -700,11 +700,14 @@ function mostrarReportes(){
     const estatusPrueba = id("estatusPruebaAdmin").value;
     const divTablaPiezas = id("divTablaPiezas");
     const divTablaPersonal = id("divTablaPersonal");
-
+alert("estatusPrueba:"+estatusPrueba +"tipoPruebaSol:"+tipoPruebaSol)
     if(tipoPruebaSol !== '5' && (estatusPrueba==='3' || estatusPrueba==='4')){
         divTablaPiezas.style.display = "block";
     }else if(tipoPruebaSol === '5' && (estatusPrueba==='3' || estatusPrueba==='4')){
         divTablaPersonal.style.display = "block";
+    }else{
+        divTablaPersonal.style.display = "none";
+        divTablaPiezas.style.display = "none";
     }
 }
 
