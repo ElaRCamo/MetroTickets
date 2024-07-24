@@ -458,7 +458,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
 
             let reporte = "Sin resultados";
             if (files.length > 0) {
-                let reporte = files[0];
+                reporte = files[0];
                 console.log("Archivo cargado:", reporte.name);
             }
 
