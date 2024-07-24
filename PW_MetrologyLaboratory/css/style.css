@@ -1014,4 +1014,8 @@ table tbody tr {
 #piezasEstatus th, #piezasEstatus td, #tableAdminPersonal td {
     width: 50%;
 }
-
+/****Cargar archivo***/
+#reporteInput::file-selector-button {
+    color: #f1f4f9; /*Selectror del input tipo file*/
+    background-color: var(--main-color);
+}
