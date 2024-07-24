@@ -1,7 +1,6 @@
 let tipoPruebaSol;
 let estatusSol;
 let fechaCompromisoSol;
-let resultadosSol;
 let solicitantePrueba;
 let emailSolicitante;
 let indiceRowNorma=false; //Para que la fila se genere una sola vez
@@ -89,22 +88,10 @@ function resumenPrueba(dao){
         $('#prioridadR').text(data.descripcionPrioridad);
         $('#observacionesLabR').text(data.especificacionesLab);
 
-        //Resultados es una ruta o un enlace:
-        let enlaceResultados = document.getElementById('rutaResultadosR');
-        var resultadosPrueba = data.resultados;
-        let esUrl = esURL(resultadosPrueba);
-        if (esUrl) {
-            enlaceResultados.href = resultadosPrueba;
-        } else {
-            enlaceResultados.removeAttribute('href');  // Remueve el href para que no sea un enlace
-            enlaceResultados.style.pointerEvents = "none";
-            enlaceResultados.textContent = resultadosPrueba;
-        }
 
         id_estatusSol = data.id_estatusPrueba;
         estatusSol = data.descripcionEstatus;
         fechaCompromisoSol = data.fechaCompromiso;
-        resultadosSol = data.resultados;
         solicitantePrueba = data.nombreSolic;
         emailSolicitante = data.emailSol;
 
@@ -396,27 +383,6 @@ function consultarMetrologos(metrologo){
     });
 }
 
-function llenarResultados(){
-    const inputResultadosGuardados = document.getElementById('resultadosGuardados');
-    const btnResultados = document.getElementById('btnCambiarResultados');
-    const divResultados = document.getElementById('divCambiarResultados');
-    let enlaceResultados = document.getElementById('resultadosGuardados');
-
-    if (resultadosSol === null || resultadosSol === '') {
-        inputResultadosGuardados.style.display = 'none';
-        btnResultados.style.display = 'none';
-    }else {
-        let esUrl = esURL(resultadosSol);
-        if (esUrl) {
-            enlaceResultados.href = resultadosSol;
-            enlaceResultados.textContent = `${resultadosSol}`;
-        } else {
-            enlaceResultados.removeAttribute('href');  // Remueve el href para que no sea un enlace
-            enlaceResultados.textContent = `${resultadosSol}`;
-        }
-        divResultados.style.display = 'none';
-    }
-}
 
 function validarResultados(id_review, id_user){
     var estatusPruebaAdmin = id("estatusPruebaAdmin");
@@ -450,22 +416,12 @@ function validarResultados(id_review, id_user){
     }
 }
 
-// Función para mostrar los valores del arreglo en un alert
-function mostrarValores(arreglo, nombreArreglo) {
-    let mensaje = nombreArreglo + ":\n";
-    for (let i = 0; i < arreglo.length; i++) {
-        mensaje += arreglo[i] + "\n";
-    }
-    alert(mensaje);
-}
 
 function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmin, fechaCompromiso, observacionesAdmin){
     var prioridadPruebaAdmin = id("prioridadPruebaAdmin");
-    var resultados = capturarResultados(estatusPruebaAdmin);
 
     const data = new FormData();
 
-    data.append('resultadosAdmin', resultados);
     data.append('estatusPruebaAdmin', estatusPruebaAdmin.value.trim());
     data.append('prioridadPruebaAdmin', prioridadPruebaAdmin.value.trim());
     data.append('metrologoAdmin', metrologoAdmin.value.trim());
@@ -508,7 +464,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         //mostrarValores(estatusPartes, 'Piezas');
     }
 
-    //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim()+", resultadosAdmin : "+resultados);
+    //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim());
 
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
@@ -545,9 +501,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
                         text: "Se han guardado los cambios.",
                         icon: "success"
                     });
-                    console.log("resultados");
                 resumenPrueba(dao);
-                llenarResultados();
             }).then(function (){
                 correoActualizacionPrueba(estatusPruebaAdmin.value,id_review, solicitantePrueba, emailSolicitante);
             }).then(function (){
@@ -567,40 +521,6 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     });
 }
 
-function capturarResultados(estatusPruebaAdmin){
-    var divInputsResultados = id("divCambiarResultados");
-    const rutaRadio = document.getElementById('rutaRadio');
-    const archivoRadio = document.getElementById('archivoRadio');
-    const enlaceResultados = document.getElementById('resultadosGuardados');
-    var resultados = "Sin resultados";
-
-    //Validar estatus de la prueba
-    if (estatusPruebaAdmin.value === '4' && divInputsResultados !== null && divInputsResultados.offsetParent !== null ){ //Estatus completado(hay resultados)
-        const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
-        const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
-        if (rutaRadio.checked && resultadosAdminRuta !== null && resultadosAdminRuta.value !== '') {
-            resultados = resultadosAdminRuta.value.trim();
-        }else if (archivoRadio.checked && resultadosAdminArchivo !== null && resultadosAdminArchivo.value !== '') {
-            resultados = resultadosAdminArchivo.files[0];
-        }
-    }else if(enlaceResultados !== null) {
-        if (rutaRadio.checked) {
-            resultados = enlaceResultados.textContent;
-        }else if(archivoRadio.checked) {
-            resultados = enlaceResultados.href;
-        }
-    }
-
-    if(resultados === "Sin resultados"){
-        Swal.fire({
-            title: "Error",
-            text: "Debe indicar los resultados de la prueba.",
-            icon: "error"
-        });
-        return;
-    }
-    return resultados;
-}
 
 function actualizarTitulo() {
     var titulo5 = document.querySelector("#modalResultadosLabel");
@@ -608,56 +528,6 @@ function actualizarTitulo() {
         titulo5.textContent = "Responder Solicitud " + id_review;
     }
 }
-
-function esURL(cadena) {
-    let urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;  // Expresión regular para verificar si resultadosSol es una URL
-    let esUrl;
-    esUrl = urlRegex.test(cadena);
-    return esUrl;
-}
-
-function checkedInput() {
-    const rutaRadio = document.getElementById('rutaRadio');
-    const archivoRadio = document.getElementById('archivoRadio');
-    const divResultados = document.getElementById('divCambiarResultados');
-    let esUrl = esURL(resultadosSol);
-
-    divResultados.style.display = 'block';
-
-    if (esUrl) { // Es una url
-        archivoRadio.checked = true;
-    } else { // Es una ruta local
-        rutaRadio.checked = true;
-    }
-}
-
-function cambiarResultado(){
-    const divResultados = document.getElementById('divResultados');
-    const selectEstatus = document.getElementById('estatusPruebaAdmin');
-
-    if (selectEstatus.value === '4') {
-        divResultados.style.display = 'block';
-        selectInputResultado();
-    } else {
-        divResultados.style.display = 'none';
-    }
-}
-
-function selectInputResultado() {
-    const rutaRadio = document.getElementById('rutaRadio');
-    const archivoRadio = document.getElementById('archivoRadio');
-    const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
-    const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
-
-    if (rutaRadio.checked) {
-        resultadosAdminRuta.style.display = 'block';
-        resultadosAdminArchivo.style.display = 'none';
-    } else if (archivoRadio.checked) {
-        resultadosAdminRuta.style.display = 'none';
-        resultadosAdminArchivo.style.display = 'block';
-    }
-}
-
 function fFechaCompromiso(fechaCompromisoSol){
     const inputFechaCompromiso = document.getElementById('iFechaCompromiso');
     const today = new Date().toISOString().split('T')[0]; // Obtiene la fecha de hoy

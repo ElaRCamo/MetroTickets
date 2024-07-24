@@ -211,6 +211,142 @@ const formatearFecha = (fecha) => {
  * ********************************************/
 
 
+function esURL(cadena) {
+    let urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;  // Expresión regular para verificar si resultadosSol es una URL
+    let esUrl;
+    esUrl = urlRegex.test(cadena);
+    return esUrl;
+}
+
+function checkedInput() {
+    const rutaRadio = document.getElementById('rutaRadio');
+    const archivoRadio = document.getElementById('archivoRadio');
+    const divResultados = document.getElementById('divCambiarResultados');
+    let esUrl = esURL(resultadosSol);
+
+    divResultados.style.display = 'block';
+
+    if (esUrl) { // Es una url
+        archivoRadio.checked = true;
+    } else { // Es una ruta local
+        rutaRadio.checked = true;
+    }
+}
+
+function cambiarResultado(){
+    const divResultados = document.getElementById('divResultados');
+    const selectEstatus = document.getElementById('estatusPruebaAdmin');
+
+    if (selectEstatus.value === '4') {
+        divResultados.style.display = 'block';
+        selectInputResultado();
+    } else {
+        divResultados.style.display = 'none';
+    }
+}
+
+function selectInputResultado() {
+    const rutaRadio = document.getElementById('rutaRadio');
+    const archivoRadio = document.getElementById('archivoRadio');
+    const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
+    const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
+
+    if (rutaRadio.checked) {
+        resultadosAdminRuta.style.display = 'block';
+        resultadosAdminArchivo.style.display = 'none';
+    } else if (archivoRadio.checked) {
+        resultadosAdminRuta.style.display = 'none';
+        resultadosAdminArchivo.style.display = 'block';
+    }
+}
+
+
+// Función para mostrar los valores del arreglo en un alert
+function mostrarValores(arreglo, nombreArreglo) {
+    let mensaje = nombreArreglo + ":\n";
+    for (let i = 0; i < arreglo.length; i++) {
+        mensaje += arreglo[i] + "\n";
+    }
+    alert(mensaje);
+}
+
+
+function capturarResultados(estatusPruebaAdmin){
+    var divInputsResultados = id("divCambiarResultados");
+    const rutaRadio = document.getElementById('rutaRadio');
+    const archivoRadio = document.getElementById('archivoRadio');
+    const enlaceResultados = document.getElementById('resultadosGuardados');
+    var resultados = "Sin resultados";
+
+    //Validar estatus de la prueba
+    if (estatusPruebaAdmin.value === '4' && divInputsResultados !== null && divInputsResultados.offsetParent !== null ){ //Estatus completado(hay resultados)
+        const resultadosAdminRuta = document.getElementById('resultadosAdminRuta');
+        const resultadosAdminArchivo = document.getElementById('resultadosAdminArchivo');
+        if (rutaRadio.checked && resultadosAdminRuta !== null && resultadosAdminRuta.value !== '') {
+            resultados = resultadosAdminRuta.value.trim();
+        }else if (archivoRadio.checked && resultadosAdminArchivo !== null && resultadosAdminArchivo.value !== '') {
+            resultados = resultadosAdminArchivo.files[0];
+        }
+    }else if(enlaceResultados !== null) {
+        if (rutaRadio.checked) {
+            resultados = enlaceResultados.textContent;
+        }else if(archivoRadio.checked) {
+            resultados = enlaceResultados.href;
+        }
+    }
+
+    if(resultados === "Sin resultados"){
+        Swal.fire({
+            title: "Error",
+            text: "Debe indicar los resultados de la prueba.",
+            icon: "error"
+        });
+        return;
+    }
+    return resultados;
+}
+function llenarResultados(){
+    const inputResultadosGuardados = document.getElementById('resultadosGuardados');
+    const btnResultados = document.getElementById('btnCambiarResultados');
+    const divResultados = document.getElementById('divCambiarResultados');
+    let enlaceResultados = document.getElementById('resultadosGuardados');
+
+    if (resultadosSol === null || resultadosSol === '') {
+        inputResultadosGuardados.style.display = 'none';
+        btnResultados.style.display = 'none';
+    }else {
+        let esUrl = esURL(resultadosSol);
+        if (esUrl) {
+            enlaceResultados.href = resultadosSol;
+            enlaceResultados.textContent = `${resultadosSol}`;
+        } else {
+            enlaceResultados.removeAttribute('href');  // Remueve el href para que no sea un enlace
+            enlaceResultados.textContent = `${resultadosSol}`;
+        }
+        divResultados.style.display = 'none';
+    }
+}
+
+function actualizarEnlaceResultados(id, resultadosPrueba) {
+    // Obtiene el elemento usando el id proporcionado
+    let enlaceResultados = document.getElementById(id);
+
+    // Verifica si resultadosPrueba es una URL
+    let esUrl = esURL(resultadosPrueba);
+
+    if (esUrl) {
+        // Si es una URL, actualiza el href del enlace
+        enlaceResultados.href = resultadosPrueba;
+        enlaceResultados.style.pointerEvents = "auto"; // Asegura que el enlace sea clickeable
+        enlaceResultados.textContent = ""; // Limpia el texto si es una URL
+    } else {
+        // Si no es una URL, quita el href y desactiva el enlace
+        enlaceResultados.removeAttribute('href');
+        enlaceResultados.style.pointerEvents = "none";
+        enlaceResultados.textContent = resultadosPrueba;
+    }
+}
+
 function validarCorreo(id,div){
     const correoInput = document.getElementById(id);
     const correo = correoInput.value.trim();

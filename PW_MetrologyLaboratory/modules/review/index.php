@@ -84,17 +84,6 @@
             }
         }
     });
-    // Event listener for modal shown event
-    document.addEventListener('DOMContentLoaded', function() {
-        $('#modalResultados').on('shown.bs.modal', function () {
-            const selectEstatus = document.getElementById('estatusPruebaAdmin');
-            // Initial call to cambiarResultado to set initial state
-            cambiarResultado();
-
-            // Event listener for selectEstatus change
-            selectEstatus.addEventListener('change', cambiarResultado);
-        });
-    });
 
     function updatePrueba(){
         <?php if ($tipoUser== 3){ ?>
@@ -103,8 +92,6 @@
         <?php
         } else if($tipoUser== 1 || $tipoUser== 2){?>
             cargarDatosResultados(dao);
-            //Se cargan los valores que ya se definieron
-            llenarResultados();
         <?php } ?>
     }
 
