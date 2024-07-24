@@ -64,12 +64,6 @@
                         <td id="prioridadR"> </td>
                     </tr>
                     <tr>
-                        <th class="p-2 mb-2 ">Fecha de Respuesta:</th>
-                        <td id="fechaRespuestaR"></td>
-                        <th class="p-2 mb-2">Resultados:</th>
-                        <td colspan="3"><a href="#" id="rutaResultadosR">Resultados</a></td>
-                    </tr>
-                    <tr>
                         <th class="p-2 mb-2">Observaciones:</th>
                         <td id="observacionesLabR" colspan="3"></td>
                     </tr>
