@@ -118,7 +118,7 @@ function resumenPrueba(dao){
 
         if(tipoPruebaSol === '5'){//MUNSELL
             let titulo = 'PERSONAL';
-            let headers = ['No. de Nómina', 'Nombre', 'Área'];
+            let headers = ['No. de Nómina', 'Nombre', 'Área','Reporte'];
             tablaPiezasyPersonal(titulo, headers);
 
             for (var j = 0; j < response.data.length; j++) {
@@ -144,7 +144,7 @@ function resumenPrueba(dao){
             }
         }else{
             let titulo = 'PIEZAS PARA MEDICIÓN';
-            let headers = ['No. de Parte', 'Cantidad', 'Cliente', 'Plataforma', 'Revisión de Dibujo', 'Modelo Matemático', 'Estatus'];
+            let headers = ['No. de Parte', 'Cantidad', 'Cliente', 'Plataforma', 'Revisión de Dibujo', 'Modelo Matemático', 'Estatus','Reporte'];
             tablaPiezasyPersonal(titulo, headers);
 
             // Iterar sobre los materiales y crear filas y celdas de tabla
