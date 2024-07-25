@@ -434,14 +434,14 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         data.append('fechaCompromiso', fechaCompromiso.value.trim());
     }
 
+    let filas;
     if(tipoPruebaSol !== '5'){
         // Arrays para almacenar los valores
         let numPartes = [];
         let estatusPartes = [];
-        let reportes = [];
 
         // Obtener todas las filas del tbody
-        let filas = document.querySelectorAll("#tbodyPiezas tr");
+        filas = document.querySelectorAll("#tbodyPiezas tr");
 
         // Iterar sobre las filas
         filas.forEach((fila, index) => {
@@ -452,26 +452,14 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
             let estatusSelect = document.querySelector(`#estatusSelect_${index}`);
             let estatus = estatusSelect.value;
 
-            // Obtener el doccumento cargado en el input si es que hay uno
-            let inputElement = document.querySelector(`#inputReporte_${index}`);
-            let files = inputElement.files;
-
-            let reporte = "Sin resultados";
-            if (files.length > 0) {
-                reporte = files[0];
-                console.log("Archivo cargado:", reporte.name);
-            }
-
             // Agregar los valores a los arrays
             numPartes.push(numParte);
             estatusPartes.push(estatus);
-            reportes.push(reporte);
         });
 
         // Agregamos los arrays al FormData
         data.append('estatuss', estatusPartes.join(','));
         data.append('piezas', numPartes.join(','));
-        data.append('reportes', reportes.join(','));
 
         // Mostrar los valores de los arreglos estatuss y piezas
         //mostrarValores(numPartes, 'Estatus');
@@ -480,30 +468,41 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         // Arrays para almacenar los valores
         let nominas = [];
         let nombres = [];
-        let reportes = [];
 
         // Obtener todas las filas del tbody
-        let filas = document.querySelectorAll("#tbodyPersonalAdmin tr");
+        filas = document.querySelectorAll("#tbodyPersonalAdmin tr");
 
         // Iterar sobre las filas
         filas.forEach((fila, index) => {
             // Obtener el número de parte
             let nomina = document.querySelector(`#tdNumParteId_${index}`).innerText;
             let nombre = document.querySelector(`#tdNumParteId_${index}`).innerText;
-            let reporte = document.querySelector(`#tdNumParteId_${index}`).innerText;
 
             // Agregar los valores a los arrays
             nominas.push(nomina);
             nombres.push(nombre);
-            reportes.push(reporte);
         });
 
         // Agregamos los arrays al FormData
         data.append('nominas', nominas.join(','));
         data.append('nombres', nombres.join(','));
-        data.append('reportes', reportes.join(','));
 
     }
+
+    filas.forEach((fila, index) => {
+        let reportes = [];
+        // Obtener el doccumento cargado en el input si es que hay uno
+        let inputElement = document.querySelector(`#inputReporte_${index}`);
+        let files = inputElement.files;
+
+        let reporte = "Sin resultados";
+        if (files.length > 0) {
+            reporte = files[0];
+            console.log("Archivo cargado:", reporte.name);
+        }
+        reportes.push(reporte);
+        data.append('reportes', reportes.join(','));
+    });
 
     //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim());
 
