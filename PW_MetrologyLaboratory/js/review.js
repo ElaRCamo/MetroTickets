@@ -495,32 +495,6 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
        /* reportes.forEach(reporte => {
             alert(reporte === "Sin resultados" ? reporte : reporte.name);
         });*/
-        // Guardar reportes
-        let allReportes = []; // Lista para almacenar todos los reportes
-
-        filas.forEach((fila, index) => {
-            let reportes = [];
-            // Obtener el documento cargado en el input si es que hay uno
-            let inputElement = document.querySelector(`#inputReporte_${index}`);
-            let files = inputElement.files;
-
-            let reporte = "Sin resultados";
-            if (files.length > 0) {
-                reporte = files[0];
-                console.log("Archivo cargado:", reporte.name);
-            }
-            reportes.push(reporte);
-            data.append('reportes', reportes.join(','));
-
-            // Agregar los reportes a la lista global
-            reportes.forEach(reporte => {
-                allReportes.push(reporte === "Sin resultados" ? reporte : reporte.name);
-            });
-        });
-
-// Imprimir todos los reportes en un solo alert
-        alert(allReportes.join('\n'));
-
     });
     //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim());
 

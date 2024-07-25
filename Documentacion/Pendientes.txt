@@ -100,6 +100,7 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 ✗   47. Que no te puedas registrar con el mismo correo
     48. No se esta guardando archivo de la norma
     49. Que al consultar la solicitud en pdf, se habra en otra pantalla
+    50. color en estatus piezas
 
 
    
@@ -133,9 +134,10 @@ Reunion 19/06/2024
 
 
 Lorem ipsum dolor sit amet consectetur, adipiscing elit mauris vel. Torquent fusce erat sociosqu tempus mi curae tempor sollicitudin bibendum dapibus vehicula, 
-donec cubilia cursus viverra dignissim morbi justo facilisis diam volutpat litora tincidunt, dictumst magnis primis faucibus est pharetra ante per neque suscipit. 
+donec cubilia cursus viverra dignissim morbi justo facilisis diam volutpat litora tincidunt, 
+dictumst magnis primis faucibus est pharetra ante per neque suscipit. 
 Bibendum venenatis metus dictum dapibus id, ac et eros purus aptent, arcu erat senectus nam.
-s
+
 
 https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/usuarios/fotoPerfilDefault.png
 
@@ -190,25 +192,39 @@ registro de personal
 - area/linea de produccion
  varios operadores
 
-Poner imagen de revisión de dibujo
+✓ Poner imagen de revisión de dibujo
 
-color no es obligatorio:
-revision de dibujo 
-ni modelo matematico
+✓ color no es obligatorio:
+	revision de dibujo 
+	ni modelo matematico
 
-Actividades pensientes en lugar de pruebas pendientes
+✓Actividades pensientes en lugar de pruebas pendientes
 
 
 Indicadores:
-cumplimiento fecha compromiso-fecha respuesta -> completada en tiempo
+✓cumplimiento fecha compromiso-fecha respuesta -> completada en tiempo
 
 
-grafico por tipo de pruebas
+✓grafico por tipo de pruebas
 por mes
 
-cuántas pruebas se realizaron en mes
+✓cuántas pruebas se realizaron en mes
 
+Reunión del 23/07/2024
 
+✓cambiar color tarjeta (quitar rojo)
 
+estatus piezas
+pensiente de aprobacion/pendiente por entregar
+aprobado>aprobado-en fila
+pendiente por recoger
+Completado
 
+Boton para cambiar estatus de piezas
+>Proceso finalizado
 
+Agregar descripcion por cada estatus
+
+cambiar formato de fecha a 2024/jun/05
+
+agregar boton para actializar el estztus de todas las piezas
