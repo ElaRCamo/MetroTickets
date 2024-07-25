@@ -87,11 +87,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 echo json_encode($response);
 
-// Función para determinar si el reporte es un archivo
-function esArchivo($reporte) {
-    return (preg_match('/\.(pdf)$/i', $reporte) === 1);
-}
-
 function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin,$fechaResultados,$tipoPrueba,$numsParte,$estatusPiezas) {
     $con = new LocalConector();
     $conex = $con->conectar();
@@ -334,4 +329,12 @@ function subirArchivo($target_dir, $id_prueba, $input_name) {
     }
     return $archivo;
 }
+
+// Función para determinar si el reporte es un archivo
+function esArchivo($reporte): bool
+{
+    return (preg_match('/\.(pdf)$/i', $reporte) === 1);
+}
+
+
 ?>
