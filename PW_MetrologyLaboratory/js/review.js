@@ -487,13 +487,15 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         let reporte = "Sin resultados";
         if (files.length > 0) {
             reporte = files[0];
-            console.log("Archivo cargado:", reporte.name);
         }
         reportes.push(reporte);
         data.append('reportes', reportes.join(','));
 
-        var reportesString = reportes.join(", ");
-        alert(reportesString);
+        // Imprimir cada elemento de reportes en un alert
+        reportes.forEach(reporte => {
+            alert(reporte === "Sin resultados" ? reporte : reporte.name);
+        });
+
     });
 
 
