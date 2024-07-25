@@ -417,7 +417,6 @@ function validarResultados(id_review, id_user){
     }
 }
 
-
 function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmin, fechaCompromiso, observacionesAdmin){
     var prioridadPruebaAdmin = id("prioridadPruebaAdmin");
 
@@ -478,6 +477,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         data.append('nominas', nominas.join(','));
     }
 
+    //Guardar reportes
     filas.forEach((fila, index) => {
         let reportes = [];
         // Obtener el doccumento cargado en el input si es que hay uno
@@ -492,6 +492,9 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         reportes.push(reporte);
         data.append('reportes', reportes.join(','));
     });
+
+    var reportesString = reportes.join(", ");
+    alert(reportesString);
 
     //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim());
 
@@ -549,7 +552,6 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         }
     });
 }
-
 
 function actualizarTitulo() {
     var titulo5 = document.querySelector("#modalResultadosLabel");

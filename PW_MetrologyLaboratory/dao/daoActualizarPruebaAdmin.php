@@ -37,15 +37,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $resultados = subirArchivo($target_dir, $id_prueba, $input_name);
             $fechaResultados = date('Y-m-d:H:i:s');
         }
+        $reportes = $_POST['reportes'];
 
         $tipoPrueba = $_POST['tipoPrueba'];
 
-        if(isset($_POST['estatuss'], $_POST['piezas']) && $tipoPrueba){
-            $numsParte = array_map('trim', explode(',', $_POST['piezas']));
-            $estatusPiezas = array_map('trim', explode(',', $_POST['estatuss']));
+        if($tipoPrueba === 5){
+            if(isset($_POST['nominas'])){
+                $nominas = array_map('trim', explode(',', $_POST['nominas']));
+            }else{
+                $nominas = "No aplica";
+            }
         }else{
-            $numsParte = "No aplica";
-            $estatusPiezas = "No aplica";
+            if(isset($_POST['estatuss'], $_POST['piezas'])){
+                $numsParte = array_map('trim', explode(',', $_POST['piezas']));
+                $estatusPiezas = array_map('trim', explode(',', $_POST['estatuss']));
+            }else{
+                $numsParte = "No aplica";
+                $estatusPiezas = "No aplica";
+            }
         }
 
         $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin,$fechaResultados,$tipoPrueba,$numsParte,$estatusPiezas);
