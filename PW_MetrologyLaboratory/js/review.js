@@ -491,10 +491,12 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         }
         reportes.push(reporte);
         data.append('reportes', reportes.join(','));
+
+        var reportesString = reportes.join(", ");
+        alert(reportesString);
     });
 
-    var reportesString = reportes.join(", ");
-    alert(reportesString);
+
 
     //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim());
 
