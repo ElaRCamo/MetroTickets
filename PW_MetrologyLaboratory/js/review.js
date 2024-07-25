@@ -467,26 +467,15 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     }else {
         // Arrays para almacenar los valores
         let nominas = [];
-        let nombres = [];
 
         // Obtener todas las filas del tbody
         filas = document.querySelectorAll("#tbodyPersonalAdmin tr");
 
-        // Iterar sobre las filas
         filas.forEach((fila, index) => {
-            // Obtener el número de parte
-            let nomina = document.querySelector(`#tdNumParteId_${index}`).innerText;
-            let nombre = document.querySelector(`#tdNumParteId_${index}`).innerText;
-
-            // Agregar los valores a los arrays
+            let nomina = document.querySelector(`#tdNomina_${index}`).innerText;
             nominas.push(nomina);
-            nombres.push(nombre);
         });
-
-        // Agregamos los arrays al FormData
         data.append('nominas', nominas.join(','));
-        data.append('nombres', nombres.join(','));
-
     }
 
     filas.forEach((fila, index) => {
@@ -674,7 +663,7 @@ function cargarDatosResultados(dao) {
 
                     var nomina = document.createElement("td");
                     nomina.textContent = response.data[j].nomina;
-                    nomina.id = 'nomina_'+ j;
+                    nomina.id = 'tdNomina_'+ j;
                     fila.appendChild(nomina);
 
                     var nombre = document.createElement("td");
