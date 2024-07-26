@@ -21,7 +21,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;
         }
 
-
         // Obtener los reportes como una cadena separada por comas
         $reportes = $_POST['reportes'] ?? '';
 
@@ -77,26 +76,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 echo json_encode($response);
 
-function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba,$numsParte,$estatusPiezas,$reportes) {
+
+function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_admin, $tipoPrueba, $numsParte, $estatusPiezas, $reportes) {
     $con = new LocalConector();
     $conex = $con->conectar();
 
     // Iniciar transacción
     $conex->begin_transaction();
 
-    //Actualizar TablaPruebas
-    $response = actualizarPruebas($conex,$id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso);
+    // Actualizar TablaPruebas
+    $response = actualizarPruebas($conex, $id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso);
+    $stringNumParte = "";
+    $stringEstatus = "";
+    $stringReportes = "";
+    $rGuardarPiezas = true;
 
-    if($response["status"] === "success"){
-        $stringNumParte = '';
-        $stringEstatus = '';
-        $stringReporte = '';
-        $rGuardarPiezas = true;
-        $fechaActual = date("Y-m-d");
-
+    if ($response["status"] === "success") {
         // Verifica que los arrays tengan la misma longitud
-        if (count($numsParte) === count($estatusPiezas) && count($numsParte) === count($reportes)) {
-
+        if (count($numsParte) === count($estatusPiezas)) {
             for ($i = 0; $i < count($estatusPiezas); $i++) {
                 $numParte = $numsParte[$i];
                 $estatusPieza = $estatusPiezas[$i];
@@ -105,38 +102,30 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
                 // Concatenar valores a las variables string
                 $stringNumParte .= $numParte . ', ';
                 $stringEstatus .= $estatusPieza . ', ';
-                $stringReporte .= $reporte . ', ';
+                $stringReportes .= $reporte . ', ';
 
                 // Imprimir cada par de valores
-                echo "numParte: $numParte, estatusPieza: $estatusPieza\n , reporte: $reporte\n";
+                echo "numParte: $numParte, estatusPieza: $estatusPieza, reporte: $reporte\n";
 
                 // Preparar y ejecutar la consulta
                 $updateMaterial = $conex->prepare("UPDATE Piezas
-                                                            SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
-                                                           WHERE numParte = ? AND id_prueba = ?");
-                $updateMaterial->bind_param("issss", $estatusPieza, $reporte, $fechaActual, $numParte, $id_prueba);
+                                                   SET id_estatus = ?, reportePieza = ?, fechaReporte = NOW()
+                                                   WHERE numParte = ? AND id_prueba = ?");
+                $updateMaterial->bind_param("issi", $estatusPieza, $reporte, $numParte, $id_prueba);
                 $rGuardarPiezas = $rGuardarPiezas && $updateMaterial->execute();
             }
 
             // Eliminar la última coma y espacio de las cadenas concatenadas
             $stringNumParte = rtrim($stringNumParte, ', ');
             $stringEstatus = rtrim($stringEstatus, ', ');
-            $stringReporte = rtrim($stringReporte, ', ');
+            $stringReportes = rtrim($stringReportes, ', ');
 
         } else {
-            $response = array('status' =>  'error', 'message' => "Los arrays numsParte y estatusPiezas no tienen la misma longitud.");
+            echo "Los arrays numsParte y estatusPiezas no tienen la misma longitud.";
         }
+    }
 
-        if ($updateMaterial->execute()) {
-            $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
-        } else {
-            $response = array('status' => 'error', 'message' => 'Error al actualizar tabla Pruebas');
-        }
-        $updateMaterial->close();
-        return $response;}
-
-    //$response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query);
-
+    // Descripción de la bitácora
     $descripcion = "Admin actualiza la solicitud. Valores: "
         . "id_estatus = " . $id_estatus . ", "
         . "id_prioridad = " . $id_prioridad . ", "
@@ -144,26 +133,29 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
         . "observaciones = " . $observaciones . ", "
         . "PiezasNumParte = " . $stringNumParte . ", "
         . "PiezasEstatus = " . $stringEstatus . ", "
-        . "Reportes = " . $stringReporte . ", "
-        . "fechaCompromiso = " . $fechaCompromiso ;
+        . "Reportes = " . $stringReportes . ", "
+        . "fechaCompromiso = " . $fechaCompromiso;
 
-    $responseBitacora = registrarCambioBitacoora($conex,$id_prueba,$descripcion,$id_admin);
+    $responseBitacora = registrarCambioBitacoora($conex, $id_prueba, $descripcion, $id_admin);
 
-    if ($stmt->execute() && $responseBitacora["status"] === "success" && $rGuardarPiezas === true) {
+    if ($responseBitacora["status"] === "success" && $rGuardarPiezas === true) {
         $conex->commit();
         $response = array("status" => "success", "message" => "Prueba actualizada");
     } else {
         $conex->rollback();
         $response = array("status" => 'error', "message" => "Error.");
-        if($responseBitacora["status"] !== "success"){
+        if ($responseBitacora["status"] !== "success") {
             $response = $responseBitacora;
         }
     }
-    $stmt->close();
+
     $conex->close();
     return $response;
 }
 
+function actualizarPruebaMunsell($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba, $nominas,$reportes) {
+    echo("Prueba Munsell");
+}
 
 function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso)
 {
@@ -189,76 +181,6 @@ function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad
     return $response;
 }
 
-
-
-function actualizarPruebaMunsell($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba,$estatusPiezas) {
-    $con = new LocalConector();
-    $conex = $con->conectar();
-
-    // Iniciar transacción
-    $conex->begin_transaction();
-
-    $stringNumParte = '';
-    $stringEstatus = '';
-    $rGuardarPiezas = true;
-
-    if($tipoPrueba !== '5'){
-        // Verifica que los arrays tengan la misma longitud
-        if (count($numsParte) === count($estatusPiezas)) {
-            for ($i = 0; $i < count($estatusPiezas); $i++) {
-                $numParte = $numsParte[$i];
-                $estatusPieza = $estatusPiezas[$i];
-
-                // Concatenar valores a las variables string
-                $stringNumParte .= $numParte . ', ';
-                $stringEstatus .= $estatusPieza . ', ';
-
-                // Imprimir cada par de valores
-                //echo "numParte: $numParte, estatusPieza: $estatusPieza\n";
-
-                // Preparar y ejecutar la consulta
-                $updateMaterial = $conex->prepare("UPDATE Piezas
-                                               SET id_estatus = ?
-                                               WHERE numParte = ? AND id_prueba = ?");
-                $updateMaterial->bind_param("iss", $estatusPieza, $numParte, $id_prueba);
-                $rGuardarPiezas = $rGuardarPiezas && $updateMaterial->execute();
-            }
-
-            // Eliminar la última coma y espacio de las cadenas concatenadas
-            $stringNumParte = rtrim($stringNumParte, ', ');
-            $stringEstatus = rtrim($stringEstatus, ', ');
-
-        } else {
-            echo "Los arrays numsParte y estatusPiezas no tienen la misma longitud.";
-        }
-    }
-    //$response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query);
-
-    $descripcion = "Admin actualiza la solicitud. Valores: "
-        . "id_estatus = " . $id_estatus . ", "
-        . "id_prioridad = " . $id_prioridad . ", "
-        . "id_metrologo = " . $id_metrologo . ", "
-        . "observaciones = " . $observaciones . ", "
-        . "PiezasNumParte = " . $stringNumParte . ", "
-        . "PiezasEstatus = " . $stringEstatus . ", "
-        . "fechaCompromiso = " . $fechaCompromiso . ", "
-
-    $responseBitacora = registrarCambioBitacoora($conex,$id_prueba,$descripcion,$id_admin);
-
-    if ($stmt->execute() && $responseBitacora["status"] === "success" && $rGuardarPiezas === true) {
-        $conex->commit();
-        $response = array("status" => "success", "message" => "Prueba actualizada");
-    } else {
-        $conex->rollback();
-        $response = array("status" => 'error', "message" => "Error.");
-        if($responseBitacora["status"] !== "success"){
-            $response = $responseBitacora;
-        }
-    }
-    $stmt->close();
-    $conex->close();
-    return $response;
-}
 
 function consultarFechaCompromiso($id_prueba) {
     $con = new LocalConector();
@@ -325,6 +247,4 @@ function esArchivo($reporte): bool
 {
     return (preg_match('/\.(pdf)$/i', $reporte) === 1);
 }
-
-
 ?>
