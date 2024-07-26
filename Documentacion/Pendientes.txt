@@ -214,17 +214,20 @@ Reunión del 23/07/2024
 
 ✓cambiar color tarjeta (quitar rojo)
 
-estatus piezas
-pensiente de aprobacion/pendiente por entregar
-aprobado>aprobado-en fila
-pendiente por recoger
-Completado
+✓estatus piezas
+	pensiente de aprobacion/pendiente por entregar
+	aprobado>aprobado-en fila
+	pendiente por recoger
+	Completado
+✓Agregar descripcion por cada estatus
+
+✓cambiar formato de fecha a 2024/jun/05
+
+agregar resultado por cada pieza
 
 Boton para cambiar estatus de piezas
 >Proceso finalizado
 
-Agregar descripcion por cada estatus
+agregar boton para actializar el estatus de todas las piezas
 
-cambiar formato de fecha a 2024/jun/05
-
-agregar boton para actializar el estztus de todas las piezas
+que metrologos no tengan permiso para consultar indicadores
