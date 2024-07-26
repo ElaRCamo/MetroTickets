@@ -50,22 +50,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             echo $reporteProcesado;
             $reportesProcesados[] = $reporteProcesado;
         }
-    }}
-        /*$fechaResultados = date('Y-m-d:H:i:s');
-
-
-
 
         $tipoPrueba = $_POST['tipoPrueba'];
-
         if($tipoPrueba === 5){
             if(isset($_POST['nominas'])){
                 $nominas = array_map('trim', explode(',', $_POST['nominas']));
             }else{
                 $nominas = "No aplica";
             }
-            $response = actualizarPruebaMunsell($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba, $nominas, $reportes);
-
+            $response = actualizarPruebaMunsell($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba, $nominas, $reportesProcesados);
         }else{
             if(isset($_POST['estatuss'], $_POST['piezas'])){
                 $numsParte = array_map('trim', explode(',', $_POST['piezas']));
@@ -74,11 +67,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $numsParte = "No aplica";
                 $estatusPiezas = "No aplica";
             }
-            $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba,$numsParte,$estatusPiezas,$reportes);
-
+            $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba,$numsParte,$estatusPiezas,$reportesProcesados);
         }
-
-
     }else{
         $response = array("status" => 'error', "message" => "Faltan datos en el formulario.");
     }
@@ -87,67 +77,64 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 echo json_encode($response);
 
-function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones, $resultados,$fechaCompromiso,$id_admin,$fechaResultados,$tipoPrueba,$numsParte,$estatusPiezas) {
+function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba,$numsParte,$estatusPiezas,$reportes) {
     $con = new LocalConector();
     $conex = $con->conectar();
 
     // Iniciar transacción
     $conex->begin_transaction();
 
-    if($resultados !== "" && $id_estatus === '4') { //Estatus completado
-        $stmt = $conex->prepare("UPDATE Pruebas
-                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, resultados = ?, fechaRespuesta = ?
-                                    WHERE id_prueba = ?");
-        $stmt->bind_param("iisssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados,  $fechaResultados, $id_prueba);
-        $query=1;
-    }else if($fechaCompromiso !== '0000-00-00' && $id_estatus === '2'){ //Estatus aprobado
-        $stmt = $conex->prepare("UPDATE Pruebas
-                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, resultados = ?, fechaCompromiso = ?
-                                    WHERE id_prueba = ?");
-        $stmt->bind_param("iisssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $fechaCompromiso,  $id_prueba);
-        $query=2;
-    }else{
-        $stmt = $conex->prepare("UPDATE Pruebas
-                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, resultados = ?
-                                    WHERE id_prueba = ?");
-        $stmt->bind_param("iissss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $id_prueba);
-        $query=3;
-    }
+    //Actualizar TablaPruebas
+    $response = actualizarPruebas($conex,$id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso);
 
-    $stringNumParte = '';
-    $stringEstatus = '';
-    $rGuardarPiezas = true;
+    if($response["status"] === "success"){
+        $stringNumParte = '';
+        $stringEstatus = '';
+        $stringReporte = '';
+        $rGuardarPiezas = true;
+        $fechaActual = date("Y-m-d");
 
-    if($tipoPrueba !== '5'){
         // Verifica que los arrays tengan la misma longitud
-        if (count($numsParte) === count($estatusPiezas)) {
+        if (count($numsParte) === count($estatusPiezas) && count($numsParte) === count($reportes)) {
+
             for ($i = 0; $i < count($estatusPiezas); $i++) {
                 $numParte = $numsParte[$i];
                 $estatusPieza = $estatusPiezas[$i];
+                $reporte = $reportes[$i];
 
                 // Concatenar valores a las variables string
                 $stringNumParte .= $numParte . ', ';
                 $stringEstatus .= $estatusPieza . ', ';
+                $stringReporte .= $reporte . ', ';
 
                 // Imprimir cada par de valores
-                //echo "numParte: $numParte, estatusPieza: $estatusPieza\n";
+                echo "numParte: $numParte, estatusPieza: $estatusPieza\n , reporte: $reporte\n";
 
                 // Preparar y ejecutar la consulta
                 $updateMaterial = $conex->prepare("UPDATE Piezas
-                                               SET id_estatus = ?
-                                               WHERE numParte = ? AND id_prueba = ?");
-                $updateMaterial->bind_param("iss", $estatusPieza, $numParte, $id_prueba);
+                                                            SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
+                                                           WHERE numParte = ? AND id_prueba = ?");
+                $updateMaterial->bind_param("issss", $estatusPieza, $reporte, $fechaActual, $numParte, $id_prueba);
                 $rGuardarPiezas = $rGuardarPiezas && $updateMaterial->execute();
             }
 
             // Eliminar la última coma y espacio de las cadenas concatenadas
             $stringNumParte = rtrim($stringNumParte, ', ');
             $stringEstatus = rtrim($stringEstatus, ', ');
+            $stringReporte = rtrim($stringReporte, ', ');
 
         } else {
-            echo "Los arrays numsParte y estatusPiezas no tienen la misma longitud.";
+            $response = array('status' =>  'error', 'message' => "Los arrays numsParte y estatusPiezas no tienen la misma longitud.");
         }
-    }
+
+        if ($updateMaterial->execute()) {
+            $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
+        } else {
+            $response = array('status' => 'error', 'message' => 'Error al actualizar tabla Pruebas');
+        }
+        $updateMaterial->close();
+        return $response;}
+
     //$response = array("status" => 'error', "message" => "fechaCompromiso: ".$fechaCompromiso." id_estatus ".$id_estatus." query=".$query);
 
     $descripcion = "Admin actualiza la solicitud. Valores: "
@@ -155,11 +142,10 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
         . "id_prioridad = " . $id_prioridad . ", "
         . "id_metrologo = " . $id_metrologo . ", "
         . "observaciones = " . $observaciones . ", "
-        . "resultados = " . $resultados . ", "
         . "PiezasNumParte = " . $stringNumParte . ", "
         . "PiezasEstatus = " . $stringEstatus . ", "
-        . "fechaCompromiso = " . $fechaCompromiso . ", "
-        . "fechaResultados = " . $fechaResultados;
+        . "Reportes = " . $stringReporte . ", "
+        . "fechaCompromiso = " . $fechaCompromiso ;
 
     $responseBitacora = registrarCambioBitacoora($conex,$id_prueba,$descripcion,$id_admin);
 
@@ -177,6 +163,32 @@ function actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $
     $conex->close();
     return $response;
 }
+
+
+function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso)
+{
+    if ($fechaCompromiso !== '0000-00-00' && $id_estatus === '2') { //Estatus aprobado
+        $stmt = $conexPruebas->prepare("UPDATE Pruebas
+                                           SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaCompromiso = ?
+                                         WHERE id_prueba = ?");
+        $stmt->bind_param("iiissi", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_prueba);
+    } else {
+        $stmt = $conexPruebas->prepare("UPDATE Pruebas
+                                           SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?
+                                         WHERE id_prueba = ?");
+        $stmt->bind_param("iiisi", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $id_prueba);
+    }
+
+    if ($stmt->execute()) {
+        $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
+    } else {
+        $response = array('status' => 'error', 'message' => 'Error al actualizar tabla Pruebas');
+    }
+
+    $stmt->close();
+    return $response;
+}
+
 
 
 function actualizarPruebaMunsell($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba,$estatusPiezas) {
@@ -186,26 +198,6 @@ function actualizarPruebaMunsell($id_prueba,$id_estatus,$id_prioridad, $id_metro
     // Iniciar transacción
     $conex->begin_transaction();
 
-    if($resultados !== "" && $id_estatus === '4') { //Estatus completado
-        $stmt = $conex->prepare("UPDATE Pruebas
-                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, resultados = ?, fechaRespuesta = ?
-                                    WHERE id_prueba = ?");
-        $stmt->bind_param("iisssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados,  $fechaResultados, $id_prueba);
-        $query=1;
-    }else if($fechaCompromiso !== '0000-00-00' && $id_estatus === '2'){ //Estatus aprobado
-        $stmt = $conex->prepare("UPDATE Pruebas
-                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, resultados = ?, fechaCompromiso = ?
-                                    WHERE id_prueba = ?");
-        $stmt->bind_param("iisssss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $fechaCompromiso,  $id_prueba);
-        $query=2;
-    }else{
-        $stmt = $conex->prepare("UPDATE Pruebas
-                                      SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, resultados = ?
-                                    WHERE id_prueba = ?");
-        $stmt->bind_param("iissss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones,$resultados, $id_prueba);
-        $query=3;
-    }
-
     $stringNumParte = '';
     $stringEstatus = '';
     $rGuardarPiezas = true;
@@ -247,11 +239,9 @@ function actualizarPruebaMunsell($id_prueba,$id_estatus,$id_prioridad, $id_metro
         . "id_prioridad = " . $id_prioridad . ", "
         . "id_metrologo = " . $id_metrologo . ", "
         . "observaciones = " . $observaciones . ", "
-        . "resultados = " . $resultados . ", "
         . "PiezasNumParte = " . $stringNumParte . ", "
         . "PiezasEstatus = " . $stringEstatus . ", "
         . "fechaCompromiso = " . $fechaCompromiso . ", "
-        . "fechaResultados = " . $fechaResultados;
 
     $responseBitacora = registrarCambioBitacoora($conex,$id_prueba,$descripcion,$id_admin);
 
@@ -268,7 +258,7 @@ function actualizarPruebaMunsell($id_prueba,$id_estatus,$id_prioridad, $id_metro
     $stmt->close();
     $conex->close();
     return $response;
-}*/
+}
 
 function consultarFechaCompromiso($id_prueba) {
     $con = new LocalConector();
