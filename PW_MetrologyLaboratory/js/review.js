@@ -363,7 +363,11 @@ function llenarEstatusPrueba(estatus){
 
 function llenarFechaCompromiso(fechaCompromiso){
     var inputFecha = document.getElementById('iFechaCompromiso');
-    inputFecha.value = fechaCompromiso;
+    if (fechaCompromiso === '0000-00-00') {
+        inputFecha.value = ''; // Deja el input vacío
+    } else {
+        inputFecha.value = fechaCompromiso;
+    }
     fFechaCompromiso(fechaCompromiso);
 }
 
