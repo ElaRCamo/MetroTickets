@@ -102,7 +102,7 @@
         var monthNames = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
         var month = monthNames[dateEntered.getMonth()];
         var year = dateEntered.getFullYear();
-        var formattedDate = day + '-' + month + '-' + year;
+        var formattedDate = year  + '-' + month + '-' + day;
 
         // Actualiza el valor del campo de entrada con la fecha formateada
         this.value = formattedDate;

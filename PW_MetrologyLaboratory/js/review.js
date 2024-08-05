@@ -368,7 +368,7 @@ function llenarFechaCompromiso(fechaCompromiso){
     } else {
         inputFecha.value = fechaCompromiso;
     }
-    //fFechaCompromiso(fechaCompromiso);
+    fFechaCompromiso(fechaCompromiso);
 }
 
 function consultarMetrologos(metrologo){
@@ -609,7 +609,6 @@ function cargarDatosResultados(dao) {
         tipoPrueba = data.id_tipoPrueba;
         estatus = data.id_estatusPrueba;
         fechaCom = data.fechaCompromiso;
-        alert("fecha:"+fechaCom);
         prioridad = data.id_prioridad;
         metrologo = data.id_metrologo;
         document.getElementById("observacionesAdmin").value = data.especificacionesLab;
