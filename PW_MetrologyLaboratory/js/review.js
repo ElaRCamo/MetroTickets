@@ -368,7 +368,7 @@ function llenarFechaCompromiso(fechaCompromiso){
     } else {
         inputFecha.value = fechaCompromiso;
     }
-    fFechaCompromiso(fechaCompromiso);
+    //fFechaCompromiso(fechaCompromiso);
 }
 
 function consultarMetrologos(metrologo){
