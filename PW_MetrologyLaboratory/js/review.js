@@ -422,6 +422,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
 
     const data = new FormData();
 
+    data.append('id_prueba', id_review);
     data.append('estatusPruebaAdmin', estatusPruebaAdmin.value.trim());
     data.append('prioridadPruebaAdmin', prioridadPruebaAdmin.value.trim());
     data.append('metrologoAdmin', metrologoAdmin.value.trim());
@@ -516,7 +517,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarPruebaAdmin.php?id_prueba='+id_review,{
+            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarPruebaAdmin.php',{
                 method: 'POST',
                 body: data
             }).then(res => {

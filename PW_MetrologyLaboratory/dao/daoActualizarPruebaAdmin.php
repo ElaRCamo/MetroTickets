@@ -4,28 +4,27 @@ include_once('connection.php');
 require_once('funcionesRequest.php');
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_GET['id_prueba'], $_POST['estatusPruebaAdmin'], $_POST['prioridadPruebaAdmin'], $_POST['metrologoAdmin'], $_POST['observacionesAdmin'])) {
-        $id_prueba = $_GET['id_prueba'];
+    if(isset($_POST['id_prueba'], $_POST['estatusPruebaAdmin'], $_POST['prioridadPruebaAdmin'], $_POST['metrologoAdmin'], $_POST['observacionesAdmin'])) {
+        $id_prueba = $_POST['id_prueba'];
         $id_estatus = $_POST['estatusPruebaAdmin'];
         $id_prioridad = $_POST['prioridadPruebaAdmin'];
         $id_metrologo = $_POST['metrologoAdmin'];
         $observaciones = $_POST['observacionesAdmin'];
         $id_admin = $_POST['id_user'];
+        $tipoPrueba = $_POST['tipoPrueba'];
 
         //Se agrega fecha compromiso:
         $fechaCompromisoBD = consultarFechaCompromiso($id_prueba); //fecha guardada en la BD
 
-        if ($fechaCompromisoBD === '0000-00-00') {
+        if ($fechaCompromisoBD === '0000-00-00') {//Si no hay fecha asignada, se actualiza
             $fechaCompromiso = $_POST['fechaCompromiso'] ?? '0000-00-00';
         } else {
-            $fechaCompromiso = $fechaCompromisoBD;
+            $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
-        // Obtener los reportes como una cadena separada por comas
+        // Obtener los reportes(resultado de cada prueba) como una cadena separada por comas
         $reportes = $_POST['reportes'] ?? '';
-
-        // Convertir la cadena en un array
-        $reportesArray = explode(',', $reportes);
+        $reportesArray = explode(',', $reportes);// Convertir la cadena en un array
 
         $reportesProcesados = [];
         foreach ($reportesArray as $reporte) {
@@ -34,24 +33,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             if (esArchivo($reporte)) { // solo se acepta pdf
                 $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
 
-                // Verificar que el archivo está en $_FILES
-                if (isset($_FILES[$reporte])) {
-                    // Si es un archivo, obtenemos el nombre del archivo
-                    $reporteProcesado = subirArchivo($target_dir, $id_prueba, $reporte);
+                if (isset($_FILES[$reporte])) {// Verificar que el archivo está en $_FILES
+                    $reporteProcesado = subirArchivo($target_dir, $id_prueba, $reporte); // Si es un archivo, obtenemos el nombre del archivo
                 } else {
-                    echo "Error: No se encontró el archivo para el reporte '$reporte'.<br>";
                     $reporteProcesado = array("error" => "Archivo no encontrado.");
                 }
-            } else {
-                // Si es un string, se queda igual
+            } else { // Si es un string, se queda igual
                 $reporteProcesado = $reporte;
             }
-            echo $reporteProcesado;
             $reportesProcesados[] = $reporteProcesado;
         }
 
-        $tipoPrueba = $_POST['tipoPrueba'];
-        if($tipoPrueba === 5){
+        if($tipoPrueba === 5){ //Prueba Munsell
             if(isset($_POST['nominas'])){
                 $nominas = array_map('trim', explode(',', $_POST['nominas']));
             }else{
@@ -152,14 +145,39 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
     $conex->close();
     return $response;
 }
+function actualizarPruebaMunsell($id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_admin, $tipoPrueba, $nominas, $reportes) {
+    echo "Prueba Munsell<br>";
+    echo "ID Prueba: " . $id_prueba . "<br>";
+    echo "ID Estatus: " . $id_estatus . "<br>";
+    echo "ID Prioridad: " . $id_prioridad . "<br>";
+    echo "ID Metrologo: " . $id_metrologo . "<br>";
+    echo "Observaciones: " . $observaciones . "<br>";
+    echo "Fecha Compromiso: " . $fechaCompromiso . "<br>";
+    echo "ID Admin: " . $id_admin . "<br>";
+    echo "Tipo Prueba: " . $tipoPrueba . "<br>";
 
-function actualizarPruebaMunsell($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba, $nominas,$reportes) {
-    echo("Prueba Munsell");
+    echo "Nominas:<br>";
+    foreach ($nominas as $nomina) {
+        echo "- " . $nomina . "<br>";
+    }
+
+    echo "Reportes:<br>";
+    foreach ($reportes as $reporte) {
+        echo "- " . $reporte . "<br>";
+    }
+
+    if ($id_prueba === 5) {
+        $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
+    } else {
+        $response = array('status' => 'error', 'message' => 'Error al actualizar prueba Munsell');
+    }
+    return $response;
 }
+
 
 function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso)
 {
-    if ($fechaCompromiso !== '0000-00-00' && $id_estatus === '2') { //Estatus aprobado
+    if ($fechaCompromiso !== '0000-00-00' && $id_estatus === '2') { //Estatus aprobado y sin fecha registrada
         $stmt = $conexPruebas->prepare("UPDATE Pruebas
                                            SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaCompromiso = ?
                                          WHERE id_prueba = ?");
