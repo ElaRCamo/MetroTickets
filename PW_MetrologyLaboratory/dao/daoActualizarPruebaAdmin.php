@@ -191,16 +191,61 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
     $conex->close();
     return $response;
 }
-
 function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso)
 {
-    echo "actualizarPruebas<br>";
-    echo "ID Prueba: " . $id_prueba . "<br>";
-    echo "ID Estatus: " . $id_estatus . "<br>";
-    echo "ID Prioridad: " . $id_prioridad . "<br>";
-    echo "ID Metrologo: " . $id_metrologo . "<br>";
-    echo "Observaciones: " . $observaciones . "<br>";
-    echo "Fecha Compromiso: " . $fechaCompromiso . "<br>";
+
+    // Verificar que el id_metrologo exista en la tabla Usuario
+    $stmt = $conexPruebas->prepare("SELECT id_usuario FROM Usuario WHERE id_usuario = ?");
+    if (!$stmt) {
+        echo "Error en prepare SELECT: " . $conexPruebas->error . "<br>";
+        return array('status' => 'error', 'message' => 'Error en prepare SELECT');
+    }
+    $stmt->bind_param("s", $id_metrologo);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows == 0) {
+        $stmt->close();
+        echo "Error: id_metrologo no existe en la tabla Usuario<br>";
+        return array('status' => 'error', 'message' => 'Error: id_metrologo no existe en la tabla Usuario');
+    }
+    $stmt->close();
+
+    // Preparar la consulta para actualizar la tabla Pruebas
+    if ($fechaCompromiso !== '0000-00-00' && $id_estatus === '2') { // Estatus aprobado y con fecha registrada
+        $stmt = $conexPruebas->prepare("UPDATE Pruebas
+                                           SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaCompromiso = ?
+                                         WHERE id_prueba = ?");
+        if (!$stmt) {
+            echo "Error en prepare UPDATE: " . $conexPruebas->error . "<br>";
+            return array('status' => 'error', 'message' => 'Error en prepare UPDATE');
+        }
+        $stmt->bind_param("iiisss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_prueba);
+    } else {
+        $stmt = $conexPruebas->prepare("UPDATE Pruebas
+                                           SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?
+                                         WHERE id_prueba = ?");
+        if (!$stmt) {
+            echo "Error en prepare UPDATE: " . $conexPruebas->error . "<br>";
+            return array('status' => 'error', 'message' => 'Error en prepare UPDATE');
+        }
+        $stmt->bind_param("iiiss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $id_prueba);
+    }
+
+    if ($stmt->execute()) {
+        $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
+    } else {
+        echo "Error en execute: " . $stmt->error . "<br>";
+        $response = array('status' => 'error', 'message' => 'Error al actualizar tabla Pruebas');
+    }
+
+    $stmt->close();
+    return $response;
+}
+
+/*
+function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso)
+{
 
     if ($fechaCompromiso !== '0000-00-00' && $id_estatus === '2') { // Estatus aprobado y sin fecha registrada
         $stmt = $conexPruebas->prepare("UPDATE Pruebas
@@ -223,6 +268,6 @@ function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad
     $stmt->close();
     return $response;
 }
-
+*/
 
 ?>
