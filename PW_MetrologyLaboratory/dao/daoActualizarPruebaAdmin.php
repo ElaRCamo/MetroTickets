@@ -191,4 +191,44 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
     $conex->close();
     return $response;
 }
+
+
+function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso)
+{
+    echo "actualizarPruebas<br>";
+    echo "ID Prueba: " . $id_prueba . "<br>";
+    echo "ID Estatus: " . $id_estatus . "<br>";
+    echo "ID Prioridad: " . $id_prioridad . "<br>";
+    echo "ID Metrologo: " . $id_metrologo . "<br>";
+    echo "Observaciones: " . $observaciones . "<br>";
+    echo "Fecha Compromiso: " . $fechaCompromiso . "<br>";
+
+
+    if ($fechaCompromiso !== '0000-00-00' && $id_estatus === '2') { //Estatus aprobado y sin fecha registrada
+        $stmt = $conexPruebas->prepare("UPDATE Pruebas
+                                           SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaCompromiso = ?
+                                         WHERE id_prueba = ?");
+        $stmt->bind_param("iiissi", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_prueba);
+
+        echo "Fecha Compromiso: " . "<br>";
+
+    } else {
+        $stmt = $conexPruebas->prepare("UPDATE Pruebas
+                                           SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?
+                                         WHERE id_prueba = ?");
+        $stmt->bind_param("iiisi", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $id_prueba);
+
+        echo "Fecha Compromiso: " . $fechaCompromiso . "<br>";
+    }
+
+    if ($stmt->execute()) {
+        $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
+    } else {
+        $response = array('status' => 'error', 'message' => 'Error al actualizar tabla Pruebas');
+    }
+
+    $stmt->close();
+    return $response;
+}
+
 ?>
