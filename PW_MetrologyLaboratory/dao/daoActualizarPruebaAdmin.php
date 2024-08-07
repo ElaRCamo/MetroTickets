@@ -86,7 +86,6 @@ function consultarFechaCompromiso($id_prueba) {
     }
 }
 
-
 function subirArchivo($target_dir, $id_prueba, $input_name) {
     $archivo = '';
 
@@ -97,11 +96,17 @@ function subirArchivo($target_dir, $id_prueba, $input_name) {
         // Quitar espacios del nombre del archivo
         $nombreArchivo = $_FILES[$input_name]["name"];
         $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
+        $archivoFile = $target_dir . $archivoFileName;
         $moverNormaFile = "../files/results/" . $archivoFileName;
 
         // Mover el archivo cargado a la ubicación deseada
         if (move_uploaded_file($_FILES[$input_name]["tmp_name"], $moverNormaFile)) {
-            $archivo =  $target_dir . $archivoFileName;
+            // Asegurarnos de que $target_dir termine con una barra
+            if (!str_ends_with($target_dir, '/')) {
+                $target_dir .= '/';
+            }
+            // Construir la URL completa usando $target_dir
+            $archivo = $target_dir . $archivoFileName;
         } else {
             $archivo = array("error" => "Hubo un error al mover el archivo.");
         }
