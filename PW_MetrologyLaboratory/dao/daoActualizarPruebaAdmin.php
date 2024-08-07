@@ -91,27 +91,23 @@ function subirArchivo($target_dir, $id_prueba, $input_name) {
 
     // Verificar si el archivo fue subido sin errores
     if ($_FILES[$input_name]["error"] > 0) {
-        $archivo = array("error" => "Error: " . $_FILES[$input_name]["error"]);
+        $response = array("error" => "Error: " . $_FILES[$input_name]["error"]);
     } else {
         // Quitar espacios del nombre del archivo
         $nombreArchivo = $_FILES[$input_name]["name"];
         $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
         $archivoFile = $target_dir . $archivoFileName;
-        $moverNormaFile = "../files/results/" . $archivoFileName;
+        $moverFile = "../files/results/" . $archivoFileName;
 
-        // Mover el archivo cargado a la ubicación deseada
-        if (move_uploaded_file($_FILES[$input_name]["tmp_name"], $moverNormaFile)) {
-            // Asegurarnos de que $target_dir termine con una barra
-            if (!str_ends_with($target_dir, '/')) {
-                $target_dir .= '/';
+            // Mover el archivo cargado a la ubicación deseada
+            if (move_uploaded_file($_FILES[$input_name]["tmp_name"], $moverFile)) {
+                $response =  $archivoFile;
+            } else {
+                $response = array("error" => "Hubo un error al mover el archivo.");
             }
-            // Construir la URL completa usando $target_dir
-            $archivo = $target_dir . $archivoFileName;
-        } else {
-            $archivo = array("error" => "Hubo un error al mover el archivo.");
-        }
+
     }
-    return $archivo;
+    return $response;
 }
 
 // Función para determinar si el reporte es un archivo
