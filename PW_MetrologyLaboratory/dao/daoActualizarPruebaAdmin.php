@@ -192,7 +192,6 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
     return $response;
 }
 
-
 function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso)
 {
     echo "actualizarPruebas<br>";
@@ -203,22 +202,16 @@ function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad
     echo "Observaciones: " . $observaciones . "<br>";
     echo "Fecha Compromiso: " . $fechaCompromiso . "<br>";
 
-
-    if ($fechaCompromiso !== '0000-00-00' && $id_estatus === '2') { //Estatus aprobado y sin fecha registrada
+    if ($fechaCompromiso !== '0000-00-00' && $id_estatus === '2') { // Estatus aprobado y sin fecha registrada
         $stmt = $conexPruebas->prepare("UPDATE Pruebas
                                            SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaCompromiso = ?
                                          WHERE id_prueba = ?");
-        $stmt->bind_param("iiissi", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_prueba);
-
-        echo "Fecha Compromiso: " . "<br>";
-
+        $stmt->bind_param("iiisss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_prueba);
     } else {
         $stmt = $conexPruebas->prepare("UPDATE Pruebas
                                            SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?
                                          WHERE id_prueba = ?");
-        $stmt->bind_param("iiisi", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $id_prueba);
-
-        echo "Fecha Compromiso: " . $fechaCompromiso . "<br>";
+        $stmt->bind_param("iiiss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $id_prueba);
     }
 
     if ($stmt->execute()) {
@@ -230,5 +223,6 @@ function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad
     $stmt->close();
     return $response;
 }
+
 
 ?>
