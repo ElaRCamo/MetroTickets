@@ -106,6 +106,7 @@ function subirArchivo($target_dir, $id_prueba, $input_name) {
             $archivo = array("error" => "Hubo un error al mover el archivo.");
         }
     }
+    echo "archivo: ".$archivo;
     return $archivo;
 }
 
@@ -130,7 +131,7 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
     $rGuardarPiezas = true;
 
     if ($response["status"] === "success") {
-        echo json_encode($response);
+        //echo json_encode($response);
         // Verifica que los arrays tengan la misma longitud
         if (count($numsParte) === count($estatusPiezas)) {
             for ($i = 0; $i < count($estatusPiezas); $i++) {
