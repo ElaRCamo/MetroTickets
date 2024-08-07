@@ -40,6 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             } else { // Si es un string, se queda igual
                 $reporteProcesado = $reporte;
             }
+            echo "reporteProcesado: ".$reporteProcesado;
             $reportesProcesados[] = $reporteProcesado;
         }
 
