@@ -200,13 +200,13 @@ function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad
         $updateQuery = $conexPruebas->prepare("UPDATE Pruebas
                                            SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaCompromiso = ?
                                          WHERE id_prueba = ?");
-        $updateQuery->bind_param("iiisss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_prueba);
+        $updateQuery->bind_param("iissss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_prueba);
 
     } else {
         $updateQuery = $conexPruebas->prepare("UPDATE Pruebas
                                            SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?
                                          WHERE id_prueba = ?");
-        $updateQuery->bind_param("iiiss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $id_prueba);
+        $updateQuery->bind_param("iisss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $id_prueba);
     }
 
     $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
