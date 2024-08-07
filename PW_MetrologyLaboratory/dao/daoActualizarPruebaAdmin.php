@@ -97,17 +97,15 @@ function subirArchivo($target_dir, $id_prueba, $input_name) {
         // Quitar espacios del nombre del archivo
         $nombreArchivo = $_FILES[$input_name]["name"];
         $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
-        $archivoFile = $target_dir . $archivoFileName;
         $moverNormaFile = "../files/results/" . $archivoFileName;
 
         // Mover el archivo cargado a la ubicación deseada
         if (move_uploaded_file($_FILES[$input_name]["tmp_name"], $moverNormaFile)) {
-            $archivo = $archivoFile;
+            $archivo =  $target_dir . $archivoFileName;
         } else {
             $archivo = array("error" => "Hubo un error al mover el archivo.");
         }
     }
-    echo "archivo: ".$archivo;
     return $archivo;
 }
 
