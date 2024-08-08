@@ -22,44 +22,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
-        // Obtener los reportes (resultado de cada prueba) desde FormData
-        $reportes = $_FILES['reportes'] ?? [];
+        // Obtener los reportes (resultado de cada prueba) como una cadena separada por comas
+        $reportes = $_POST['reportes'] ?? '';
+        $reportesArray = explode(',', $reportes); // Convertir la cadena en un array
+
         $reportesProcesados = [];
-
-// Verificar que se han recibido reportes
-        if (!empty($reportes['name'])) {
-            foreach ($reportes['name'] as $index => $name) {
-                $tmp_name = $reportes['tmp_name'][$index];
-                $error = $reportes['error'][$index];
-                $type = $reportes['type'][$index];
-
-                // Comprobar si se ha enviado un archivo o texto
-                if ($error === UPLOAD_ERR_OK) {
-                    // Si es un archivo, procesarlo
-                    if (esArchivo($type)) { // Función para verificar el tipo de archivo
-                        $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
-                        $target_file = $target_dir . basename($name);
-
-                        if (move_uploaded_file($tmp_name, $target_file)) {
-                            $reportesProcesados[] = $target_file; // URL completa del archivo
-                        } else {
-                            $reportesProcesados[] = "Error: No se pudo subir el archivo.";
-                        }
-                    } else {
-                        $reportesProcesados[] = "Error: Tipo de archivo no permitido.";
-                    }
-                } else {
-                    // Si es un texto, añadirlo directamente
-                    $reportesProcesados[] = "Sin resultados";
-                }
+        foreach ($reportesArray as $reporte) {
+            // Verifica si $reporte es un objeto en lugar de una cadena
+            if (is_object($reporte) && property_exists($reporte, 'name')) {
+                $reporte = $reporte->name; // Extraer el nombre del archivo
             }
-        }
 
-// Mostrar resultados procesados
-        foreach ($reportesProcesados as $reporteProcesado) {
-            echo "reporteProcesado: " . $reporteProcesado . "\n";
-        }
+            // Asegúrate de que $reporte es una cadena antes de continuar
+            if (is_string($reporte) && esArchivo($reporte)) { // Solo se acepta PDF
+                $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
 
+                if (isset($_FILES[$reporte])) { // Verificar que el archivo está en $_FILES
+                    $reporteProcesado = subirArchivo($target_dir, $id_prueba, $reporte); // Si es un archivo, obtenemos la URL completa
+                } else {
+                    $reporteProcesado = "Error: Archivo no encontrado.";
+                }
+            } else { // Si es un string, se queda igual
+                $reporteProcesado = $reporte;
+            }
+
+            echo "reporteProcesado: " . $reporteProcesado . "\n"; // Mostrar el resultado
+            $reportesProcesados[] = $reporteProcesado;
+        }
 
 
         if($tipoPrueba === '5'){ //Prueba Munsell
@@ -122,7 +111,7 @@ function subirArchivo($target_dir, $id_prueba, $input_name) {
                 $target_dir .= '/';
             }
             // Construir la URL completa usando $target_dir
-            return $target_dir . $nombreArchivo;
+            return $target_dir . $archivoFileName;
         } else {
             return "Error: Hubo un error al mover el archivo.";
         }
