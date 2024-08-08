@@ -34,12 +34,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     // No hay archivo, verifica en $_POST
                     if (isset($_POST['reportes'][$index])) {
                         $reporte = $_POST['reportes'][$index];
-                        $reportesProcesados[$index] = ($reporte === "Sin resultados") ? "Sin resultados" : $reporte;
+                        if ($reporte === "Sin resultados") {
+                            $reportesProcesados[$index] = "Sin resultados";
+                        } else {
+                            $reportesProcesados[$index] = $reporte;
+                        }
                     }
                 } else {
                     // Procesa el archivo
                     if ($_FILES['reportes']['error'][$index] > 0) {
-                        $reportesProcesados[$index] = "Error: " . $_FILES['reportes']['error'][$index];
+                        $archivo = array("error" => "Error: " . $_FILES['reportes']['error'][$index]);
                     } else {
                         $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
                         $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
@@ -47,11 +51,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         $moverNormaFile = "../files/results/" . $archivoFileName;
 
                         if (move_uploaded_file($_FILES['reportes']['tmp_name'][$index], $moverNormaFile)) {
-                            $reportesProcesados[$index] = $archivoFile;
+                            $archivo = $archivoFile;
                         } else {
-                            $reportesProcesados[$index] = "Hubo un error al mover el archivo.";
+                            $archivo = array("error" => "Hubo un error al mover el archivo.");
                         }
                     }
+                    $reportesProcesados[$index] = $archivo;
                 }
             }
         }
@@ -59,9 +64,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 // Si sólo se envían cadenas (caso en que $_FILES no está presente)
         if (isset($_POST['reportes']) && is_array($_POST['reportes'])) {
             foreach ($_POST['reportes'] as $index => $reporte) {
-                if (!isset($_FILES['reportes']['name'][$index])) {
-                    // Si el índice no está en $_FILES, sólo maneja las cadenas
-                    $reportesProcesados[$index] = ($reporte === "Sin resultados") ? "Sin resultados" : $reporte;
+                if ($reporte === "Sin resultados") {
+                    $reportesProcesados[$index] = "Sin resultados";
+                } else {
+                    $reportesProcesados[$index] = $reporte; // Maneja casos adicionales si es necesario
                 }
             }
         }
@@ -69,6 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<pre>';
         print_r($reportesProcesados);
         echo '</pre>';
+
 
 
 
