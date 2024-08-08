@@ -285,43 +285,50 @@ function esArchivo($reporte): bool
 
 
 
-// Verifica si 'reportes' está en $_FILES y $_POST
-if (isset($_FILES['reportes']) || isset($_POST['reportes'])) {
-    // Verifica si $_FILES['reportes'] está presente
-    if (isset($_FILES['reportes']) && is_array($_FILES['reportes']['name'])) {
-        foreach ($_FILES['reportes']['name'] as $index => $nombreArchivo) {
-            if ($_FILES['reportes']['error'][$index] === UPLOAD_ERR_NO_FILE) {
-                // Si no hay archivo, verifica en $_POST
+// Obtener los reportes(resultado de cada prueba) como una cadena separada por comas
+$reportesProcesados = [];
+
+// Verifica si 'reportes' está en $_FILES
+if (isset($_FILES['reportes']) && is_array($_FILES['reportes']['name'])) {
+    foreach ($_FILES['reportes']['name'] as $index => $nombreArchivo) {
+        // Verifica si hay un archivo en $_FILES
+        if ($_FILES['reportes']['error'][$index] === UPLOAD_ERR_NO_FILE) {
+            // No hay archivo, verifica en $_POST
+            if (isset($_POST['reportes'][$index])) {
                 $reporte = $_POST['reportes'][$index];
                 if ($reporte === "Sin resultados") {
                     $reportesProcesados[] = "Sin resultados";
-                }
-            } else {
-                if ($_FILES['reportes']['error'][$index] > 0) {
-                    $archivo = array("error" => "Error: " . $_FILES['reportes']['error'][$index]);
                 } else {
-                    $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
-                    $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
-                    $archivoFile = $target_dir . $archivoFileName;
-                    $moverNormaFile = "../files/results/" . $archivoFileName;
-
-                    if (move_uploaded_file($_FILES['reportes']['tmp_name'][$index], $moverNormaFile)) {
-                        $archivo = $archivoFile;
-                    } else {
-                        $archivo = array("error" => "Hubo un error al mover el archivo.");
-                    }
+                    $reportesProcesados[] = $reporte;
                 }
-                $reportesProcesados[] = $archivo;
             }
-        }
-    } elseif (isset($_POST['reportes']) && is_array($_POST['reportes'])) {
-        // Maneja los casos donde solo hay cadenas
-        foreach ($_POST['reportes'] as $reporte) {
-            if ($reporte === "Sin resultados") {
-                $reportesProcesados[] = "Sin resultados";
+        } else {
+            // Procesa el archivo
+            if ($_FILES['reportes']['error'][$index] > 0) {
+                $archivo = array("error" => "Error: " . $_FILES['reportes']['error'][$index]);
             } else {
-                $reportesProcesados[] = $reporte;
+                $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
+                $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
+                $archivoFile = $target_dir . $archivoFileName;
+                $moverNormaFile = "../files/results/" . $archivoFileName;
+
+                if (move_uploaded_file($_FILES['reportes']['tmp_name'][$index], $moverNormaFile)) {
+                    $archivo = $archivoFile;
+                } else {
+                    $archivo = array("error" => "Hubo un error al mover el archivo.");
+                }
             }
+            $reportesProcesados[] = $archivo;
+        }
+    }
+}
+// Si sólo se envían cadenas (caso en que $_FILES no está presente)
+if (isset($_POST['reportes']) && is_array($_POST['reportes'])) {
+    foreach ($_POST['reportes'] as $reporte) {
+        if ($reporte === "Sin resultados") {
+            $reportesProcesados[] = "Sin resultados";
+        } else {
+            $reportesProcesados[] = $reporte; // Maneja casos adicionales si es necesario
         }
     }
 }
@@ -329,4 +336,5 @@ if (isset($_FILES['reportes']) || isset($_POST['reportes'])) {
 echo '<pre>';
 print_r($reportesProcesados);
 echo '</pre>';
+
 ?>
