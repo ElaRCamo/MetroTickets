@@ -25,6 +25,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // Obtener los reportes(resultado de cada prueba) como una cadena separada por comas
         $reportes = $_POST['reportes'] ?? '';
         $reportesArray = explode(',', $reportes);// Convertir la cadena en un array
+        // Imprimir el array
+        echo '<pre>';
+        print_r($reportesArray);
+        echo '</pre>';
 
         $reportesProcesados = [];
         foreach ($reportesArray as $reporte) {
@@ -90,7 +94,7 @@ function subirArchivo($target_dir, $id_prueba, $input_name) {
 
     // Verificar si el archivo fue subido sin errores
     if ($_FILES[$input_name]["error"] > 0) {
-        return "Error: " . $_FILES[$input_name]["error"];
+        $archivo = "Error: " . $_FILES[$input_name]["error"];
     } else {
         // Quitar espacios del nombre del archivo
         $nombreArchivo = $_FILES[$input_name]["name"];
@@ -104,11 +108,12 @@ function subirArchivo($target_dir, $id_prueba, $input_name) {
                 $target_dir .= '/';
             }
             // Construir la URL completa usando $target_dir
-            return $target_dir . $archivoFileName;
+            $archivo = $target_dir . $archivoFileName;
         } else {
-            return "Error: Hubo un error al mover el archivo.";
+            $archivo = "Error: Hubo un error al mover el archivo.";
         }
     }
+    return $archivo;
 }
 
 
