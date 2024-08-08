@@ -493,14 +493,14 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
 
         if (files.length > 0) {
             // Si hay archivos, agregar el archivo
-            data.append('reportes[]', files[0]);
+            reportes.push(files[0]);
         } else {
             // Si no hay archivos, agregar "Sin resultados"
-            data.append('reportes[]', new Blob(["Sin resultados"], { type: "text/plain" }));
+            reportes.push("Sin resultados");
         }
     });
 
-    // Crear una cadena para mostrar en el alert
+// Crear una cadena para mostrar en el alert
     let reportesStr = reportes.map(reporte => {
         if (reporte instanceof File) {
             return `File: ${reporte.name}`;  // Muestra el nombre del archivo
@@ -511,6 +511,15 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
 
 // Mostrar en un alert
     alert(`Reportes: [${reportesStr}]`);
+
+// Añadir los reportes al FormData (ejemplo, esto ya lo conoces)
+    reportes.forEach(reporte => {
+        if (reporte instanceof File) {
+            data.append('reportes[]', reporte);
+        } else {
+            data.append('reportes[]', new Blob([reporte], { type: "text/plain" }));
+        }
+    });
 
     //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim());
 
