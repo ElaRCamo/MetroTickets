@@ -31,67 +31,64 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '</pre>';
 
         $reportesProcesados = [];
-        foreach ($reportesArray as $reporte) {
-
-                if (isset($_FILES[$reporte])) {// Verificar que el archivo está en $_FILES
-
-                    // Verificar si el archivo fue subido sin errores
+        foreach ($_FILES['reportes']['name'] as $index => $nombreArchivo) {
+            if ($_FILES['reportes']['error'][$index] === UPLOAD_ERR_NO_FILE) {
+                // "Sin resultados" no aparece en $_FILES, así que debes verificar en $_POST
+                $reporte = $_POST['reportes'][$index];
+                if ($reporte === "Sin resultados") {
+                    $reportesProcesados[] = "Sin resultados";
+                }
+            } else {
+                if ($_FILES['reportes']['error'][$index] > 0) {
+                    $archivo = array("error" => "Error: " . $_FILES['reportes']['error'][$index]);
+                } else {
                     $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
-                        if ($_FILES[$reporte]["error"] > 0) {
-                            $archivo = array("error" => "Error: " . $_FILES[$reporte]["error"]);
-                        } else {
-                            // Quitar espacios del nombre del archivo
-                            $nombreArchivo = $_FILES[$reporte]["name"];
-                            $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
-                            $archivoFile = $target_dir . $archivoFileName;
-                            $moverNormaFile = "../files/results/" . $archivoFileName;
+                    $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
+                    $archivoFile = $target_dir . $archivoFileName;
+                    $moverNormaFile = "../files/results/" . $archivoFileName;
 
-                            // Mover el archivo cargado a la ubicación deseada
-                            if (move_uploaded_file($_FILES[$reporte]["tmp_name"], $moverNormaFile)) {
-                                $archivo = $archivoFile;
-                            } else {
-                                $archivo = array("error" => "Hubo un error al mover el archivo.");
-                            }
-                        }
-                    $reporteProcesado = $archivo;
-                    echo json_encode($archivo);
-                }else { // Si es un string, se queda igual
-                echo "es string";
-                $reporteProcesado = $reporte;
+                    if (move_uploaded_file($_FILES['reportes']['tmp_name'][$index], $moverNormaFile)) {
+                        $archivo = $archivoFile;
+                    } else {
+                        $archivo = array("error" => "Hubo un error al mover el archivo.");
+                    }
+                }
+                $reportesProcesados[] = $archivo;
             }
-            echo "reporteProcesado: " . $reporteProcesado . "\n"; // Mostrar el resultado
-            $reportesProcesados[] = $reporteProcesado;
         }
+        echo '<pre>';
+        print_r($reportesProcesados);
+        echo '</pre>';
     }}
-/*
-        if($tipoPrueba === '5'){ //Prueba Munsell
-            if(isset($_POST['nominas'])){
-                $nominas = array_map('trim', explode(',', $_POST['nominas']));
+        /*
+                if($tipoPrueba === '5'){ //Prueba Munsell
+                    if(isset($_POST['nominas'])){
+                        $nominas = array_map('trim', explode(',', $_POST['nominas']));
+                    }else{
+                        $nominas = "No aplica";
+                    }
+                    //$response = actualizarPruebaMunsell($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba, $nominas, $reportesProcesados);
+                    $response = array("status" => 'sucess', "message" => "Se ejecuta funcion actualizarPruebaMunsell");
+                }else{
+                    if(isset($_POST['estatuss'], $_POST['piezas'])){
+                        $numsParte = array_map('trim', explode(',', $_POST['piezas']));
+                        $estatusPiezas = array_map('trim', explode(',', $_POST['estatuss']));
+                    }else{
+                        $numsParte = "No aplica";
+                        $estatusPiezas = "No aplica";
+                    }
+                    $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba,$numsParte,$estatusPiezas,$reportesProcesados);
+                    //$response = array("status" => 'sucess', "message" => "Se ejecuta funcion actualizarPrueba");
+                }
             }else{
-                $nominas = "No aplica";
+                $response = array("status" => 'error', "message" => "Faltan datos en el formulario.");
             }
-            //$response = actualizarPruebaMunsell($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba, $nominas, $reportesProcesados);
-            $response = array("status" => 'sucess', "message" => "Se ejecuta funcion actualizarPruebaMunsell");
-        }else{
-            if(isset($_POST['estatuss'], $_POST['piezas'])){
-                $numsParte = array_map('trim', explode(',', $_POST['piezas']));
-                $estatusPiezas = array_map('trim', explode(',', $_POST['estatuss']));
-            }else{
-                $numsParte = "No aplica";
-                $estatusPiezas = "No aplica";
-            }
-            $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba,$numsParte,$estatusPiezas,$reportesProcesados);
-            //$response = array("status" => 'sucess', "message" => "Se ejecuta funcion actualizarPrueba");
+        } else {
+            $response = array("status" => 'error', "message" => "Se esperaba REQUEST_METHOD");
         }
-    }else{
-        $response = array("status" => 'error', "message" => "Faltan datos en el formulario.");
-    }
-} else {
-    $response = array("status" => 'error', "message" => "Se esperaba REQUEST_METHOD");
-}
 
-echo json_encode($response);
-*/
+        echo json_encode($response);
+        */
 
 
 function consultarFechaCompromiso($id_prueba) {
