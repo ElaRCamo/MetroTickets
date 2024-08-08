@@ -483,6 +483,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     }
 
     //Guardar reportes
+    // Crear un array para almacenar todos los reportes
     let reportes = [];
 
     filas.forEach((fila, index) => {
@@ -491,19 +492,25 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         let files = inputElement.files;
 
         if (files.length > 0) {
-            // Si hay archivos, agregar cada archivo al array de reportes
-            for (let i = 0; i < files.length; i++) {
-                reportes.push(files[i]);
-            }
+            // Si hay archivos, agregar el archivo
+            data.append('reportes[]', files[0]);
         } else {
-            // Si no hay archivos, agregar un valor por defecto
-            reportes.push("Sin resultados");
+            // Si no hay archivos, agregar "Sin resultados"
+            data.append('reportes[]', new Blob(["Sin resultados"], { type: "text/plain" }));
         }
     });
 
-    // Añadir todos los reportes juntos al FormData
-    data.append('reportes', JSON.stringify(reportes));
-        alert("reportes: " + JSON.stringify(reportes));
+    // Crear una cadena para mostrar en el alert
+    let reportesStr = reportes.map(reporte => {
+        if (reporte instanceof File) {
+            return `File: ${reporte.name}`;  // Muestra el nombre del archivo
+        } else {
+            return `"${reporte}"`;  // Muestra la cadena "Sin resultados"
+        }
+    }).join(', ');
+
+// Mostrar en un alert
+    alert(`Reportes: [${reportesStr}]`);
 
     //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim());
 
