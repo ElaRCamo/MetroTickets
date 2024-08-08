@@ -491,11 +491,12 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         let files = inputElement.files;
 
         if (files.length > 0) {
-            data.append('reportes[]', files[0]); // Añadir archivo a FormData
+            reportes.push(files[0]);
         } else {
-            data.append('reportes[]', "Sin resultados"); // Añadir texto a FormData
+            reportes.push("Sin resultados");
         }
     });
+    alert(reportes)
 
     //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim());
 
