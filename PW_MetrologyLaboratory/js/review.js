@@ -490,7 +490,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         if (files.length > 0) {
             let file = files[0];
             // Crear un nuevo archivo con el nombre modificado
-            let newFileName = `${index}_${file.name}`;
+            let newFileName = `${index + 1}_${file.name}`;
             let newFile = new File([file], newFileName, { type: file.type });
 
             // Añade el archivo modificado al FormData
