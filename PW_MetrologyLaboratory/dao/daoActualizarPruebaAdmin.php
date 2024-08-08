@@ -22,13 +22,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
-        // Obtener los reportes(resultado de cada prueba) como una cadena separada por comas
         $reportesProcesados = [];
-
-        echo '<pre>';
-        print_r($_FILES);  // Imprime información sobre los archivos
-        print_r($_POST);   // Imprime información sobre las cadenas
-        echo '</pre>';
+        $ordenReportes = [];
 
 // Verifica si 'reportes' está en $_FILES
         if (isset($_FILES['reportes']) && is_array($_FILES['reportes']['name'])) {
@@ -39,9 +34,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     if (isset($_POST['reportes'][$index])) {
                         $reporte = $_POST['reportes'][$index];
                         if ($reporte === "Sin resultados") {
-                            $reportesProcesados[] = "Sin resultados";
+                            $reportesProcesados[$index] = "Sin resultados";
                         } else {
-                            $reportesProcesados[] = $reporte; // Caso raro, manejar si es necesario
+                            $reportesProcesados[$index] = $reporte; // Caso raro, manejar si es necesario
                         }
                     }
                 } else {
@@ -60,21 +55,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                             $archivo = array("error" => "Hubo un error al mover el archivo.");
                         }
                     }
-                    $reportesProcesados[] = $archivo;
+                    $reportesProcesados[$index] = $archivo;
                 }
             }
         }
 
 // Si sólo se envían cadenas (caso en que $_FILES no está presente)
         if (isset($_POST['reportes']) && is_array($_POST['reportes'])) {
-            foreach ($_POST['reportes'] as $reporte) {
-                if ($reporte === "Sin resultados") {
-                    $reportesProcesados[] = "Sin resultados";
-                } else {
-                    $reportesProcesados[] = $reporte; // Maneja casos adicionales si es necesario
+            foreach ($_POST['reportes'] as $index => $reporte) {
+                if (!isset($reportesProcesados[$index])) { // Solo si no se ha procesado antes
+                    if ($reporte === "Sin resultados") {
+                        $reportesProcesados[$index] = "Sin resultados";
+                    } else {
+                        $reportesProcesados[$index] = $reporte; // Maneja casos adicionales si es necesario
+                    }
                 }
             }
         }
+
+// Ordena el array por índice
+        ksort($reportesProcesados);
 
         echo '<pre>';
         print_r($reportesProcesados);
@@ -82,7 +82,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-                if($tipoPrueba === '5'){ //Prueba Munsell
+
+
+
+        if($tipoPrueba === '5'){ //Prueba Munsell
                     if(isset($_POST['nominas'])){
                         $nominas = array_map('trim', explode(',', $_POST['nominas']));
                     }else{
