@@ -23,51 +23,45 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
 
+        // Obtener los reportes (resultado de cada prueba) como una cadena separada por comas
         $reportesProcesados = [];
-        $reportes = isset($_FILES['reportes']) ? $_FILES['reportes'] : null;
-        $reportesPost = isset($_POST['reportes']) ? $_POST['reportes'] : [];
 
-        if ($reportes && is_array($reportes['name'])) {
-            foreach ($reportes['name'] as $index => $nombreArchivo) {
+// Verifica si 'reportes' está en $_FILES
+        if (isset($_FILES['reportes']) && is_array($_FILES['reportes']['name'])) {
+            foreach ($_FILES['reportes']['name'] as $index => $nombreArchivo) {
                 // Verifica si hay un archivo en $_FILES
-                if ($reportes['error'][$index] === UPLOAD_ERR_NO_FILE) {
+                if ($_FILES['reportes']['error'][$index] === UPLOAD_ERR_NO_FILE) {
                     // No hay archivo, verifica en $_POST
-                    if (isset($reportesPost[$index])) {
-                        $reporte = $reportesPost[$index];
-                        if ($reporte === "Sin resultados") {
-                            $reportesProcesados[] = "Sin resultados";
-                        } else {
-                            $reportesProcesados[] = $reporte;
-                        }
+                    if (isset($_POST['reportes'][$index])) {
+                        $reporte = $_POST['reportes'][$index];
+                        $reportesProcesados[$index] = ($reporte === "Sin resultados") ? "Sin resultados" : $reporte;
                     }
                 } else {
                     // Procesa el archivo
-                    if ($reportes['error'][$index] > 0) {
-                        $archivo = array("error" => "Error: " . $reportes['error'][$index]);
+                    if ($_FILES['reportes']['error'][$index] > 0) {
+                        $reportesProcesados[$index] = "Error: " . $_FILES['reportes']['error'][$index];
                     } else {
                         $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
                         $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
                         $archivoFile = $target_dir . $archivoFileName;
                         $moverNormaFile = "../files/results/" . $archivoFileName;
 
-                        if (move_uploaded_file($reportes['tmp_name'][$index], $moverNormaFile)) {
-                            $archivo = $archivoFile;
+                        if (move_uploaded_file($_FILES['reportes']['tmp_name'][$index], $moverNormaFile)) {
+                            $reportesProcesados[$index] = $archivoFile;
                         } else {
-                            $archivo = array("error" => "Hubo un error al mover el archivo.");
+                            $reportesProcesados[$index] = "Hubo un error al mover el archivo.";
                         }
                     }
-                    $reportesProcesados[] = $archivo;
                 }
             }
         }
 
 // Si sólo se envían cadenas (caso en que $_FILES no está presente)
-        if (!$reportes && $reportesPost) {
-            foreach ($reportesPost as $reporte) {
-                if ($reporte === "Sin resultados") {
-                    $reportesProcesados[] = "Sin resultados";
-                } else {
-                    $reportesProcesados[] = $reporte; // Maneja casos adicionales si es necesario
+        if (isset($_POST['reportes']) && is_array($_POST['reportes'])) {
+            foreach ($_POST['reportes'] as $index => $reporte) {
+                if (!isset($_FILES['reportes']['name'][$index])) {
+                    // Si el índice no está en $_FILES, sólo maneja las cadenas
+                    $reportesProcesados[$index] = ($reporte === "Sin resultados") ? "Sin resultados" : $reporte;
                 }
             }
         }
@@ -75,6 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<pre>';
         print_r($reportesProcesados);
         echo '</pre>';
+
 
 
 

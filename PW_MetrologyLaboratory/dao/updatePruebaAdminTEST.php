@@ -284,7 +284,7 @@ function esArchivo($reporte): bool
 
 
 
-
+//guarda los archivos pero no respeta el orden
 // Obtener los reportes(resultado de cada prueba) como una cadena separada por comas
 $reportesProcesados = [];
 
