@@ -63,6 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     $reporteProcesado = array("error" => "Archivo no encontrado.");
                 }
             } else { // Si es un string, se queda igual
+                echo "es string";
                 $reporteProcesado = $reporte;
             }
             echo "reporteProcesado: " . $reporteProcesado . "\n"; // Mostrar el resultado
