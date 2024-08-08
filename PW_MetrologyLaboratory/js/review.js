@@ -483,25 +483,28 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     }
 
     //Guardar reportes
+    let reportes = [];
+
     filas.forEach((fila, index) => {
-        let reportes = [];
-        // Obtener el doccumento cargado en el input si es que hay uno
+        // Obtener el documento cargado en el input si es que hay uno
         let inputElement = document.querySelector(`#inputReporte_${index}`);
         let files = inputElement.files;
 
-        let reporte = "Sin resultados";
         if (files.length > 0) {
-            reporte = files[0];
+            // Si hay archivos, agregar cada archivo al array de reportes
+            for (let i = 0; i < files.length; i++) {
+                reportes.push(files[i]);
+            }
+        } else {
+            // Si no hay archivos, agregar un valor por defecto
+            reportes.push("Sin resultados");
         }
-        reportes.push(reporte);
-        data.append('reportes', reportes.join(','));
-
-        // Imprimir cada elemento de reportes en un alert
-       /* reportes.forEach(reporte => {
-            alert(reporte === "Sin resultados" ? reporte : reporte.name);
-        });*/
-        alert("reportes: " + reportes.join(','));
     });
+
+    // Añadir todos los reportes juntos al FormData
+    data.append('reportes', JSON.stringify(reportes));
+        alert("reportes: " + JSON.stringify(reportes));
+
     //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim());
 
     const swalWithBootstrapButtons = Swal.mixin({
