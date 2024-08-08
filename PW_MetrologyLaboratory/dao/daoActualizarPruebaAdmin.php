@@ -37,8 +37,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
 
                 if (isset($_FILES[$reporte])) {// Verificar que el archivo está en $_FILES
-                    $reporteProcesado = subirArchivo($target_dir, $id_prueba, $reporte); // Si es un archivo, obtenemos el nombre del archivo
-                    echo json_encode($reporteProcesado);
+
+                    // Verificar si el archivo fue subido sin errores
+                        if ($_FILES[$reporte]["error"] > 0) {
+                            $archivo = array("error" => "Error: " . $_FILES[$reporte]["error"]);
+                        } else {
+                            // Quitar espacios del nombre del archivo
+                            $nombreArchivo = $_FILES[$reporte]["name"];
+                            $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
+                            $archivoFile = $target_dir . $archivoFileName;
+                            $moverNormaFile = "../files/results/" . $archivoFileName;
+
+                            // Mover el archivo cargado a la ubicación deseada
+                            if (move_uploaded_file($_FILES[$reporte]["tmp_name"], $moverNormaFile)) {
+                                $archivo = $archivoFile;
+                            } else {
+                                $archivo = array("error" => "Hubo un error al mover el archivo.");
+                            }
+                        }
+                    $reporteProcesado = $archivo;
+                    echo json_encode($archivo);
                 } else {
                     $reporteProcesado = array("error" => "Archivo no encontrado.");
                 }
@@ -74,7 +92,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     $response = array("status" => 'error', "message" => "Se esperaba REQUEST_METHOD");
-}*/
+}
+
+echo json_encode($response);
+*/
 
 
 function consultarFechaCompromiso($id_prueba) {
