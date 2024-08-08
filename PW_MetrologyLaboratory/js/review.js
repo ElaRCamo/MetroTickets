@@ -487,37 +487,13 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     let reportes = [];
 
     filas.forEach((fila, index) => {
-        // Obtener el documento cargado en el input si es que hay uno
         let inputElement = document.querySelector(`#inputReporte_${index}`);
         let files = inputElement.files;
 
         if (files.length > 0) {
-            // Si hay archivos, agregar el archivo
-            reportes.push(files[0]);
+            data.append('reportes[]', files[0]); // Añadir archivo a FormData
         } else {
-            // Si no hay archivos, agregar "Sin resultados"
-            reportes.push("Sin resultados");
-        }
-    });
-
-// Crear una cadena para mostrar en el alert
-    let reportesStr = reportes.map(reporte => {
-        if (reporte instanceof File) {
-            return `File: ${reporte.name}`;  // Muestra el nombre del archivo
-        } else {
-            return `"${reporte}"`;  // Muestra la cadena "Sin resultados"
-        }
-    }).join(', ');
-
-// Mostrar en un alert
-    alert(`Reportes: [${reportesStr}]`);
-
-// Añadir los reportes al FormData (ejemplo, esto ya lo conoces)
-    reportes.forEach(reporte => {
-        if (reporte instanceof File) {
-            data.append('reportes[]', reporte);
-        } else {
-            data.append('reportes[]', new Blob([reporte], { type: "text/plain" }));
+            data.append('reportes[]', "Sin resultados"); // Añadir texto a FormData
         }
     });
 
