@@ -500,6 +500,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
        /* reportes.forEach(reporte => {
             alert(reporte === "Sin resultados" ? reporte : reporte.name);
         });*/
+        alert("reportes: " + reportes.join(','));
     });
     //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim());
 
@@ -707,9 +708,9 @@ function mostrarReportes(){
     const divTablaPiezas = id("divTablaPiezas");
     const divTablaPersonal = id("divTablaPersonal");
 alert("estatusPrueba:"+estatusPrueba +"tipoPruebaSol:"+tipoPruebaSol)
-    if(tipoPruebaSol !== '5' && (estatusPrueba==='3' || estatusPrueba==='4')){
+    if(tipoPruebaSol !== '5' && estatusPrueba==='3'){
         divTablaPiezas.style.display = "block";
-    }else if(tipoPruebaSol === '5' && (estatusPrueba==='3' || estatusPrueba==='4')){
+    }else if(tipoPruebaSol === '5' && estatusPrueba==='3'){
         divTablaPersonal.style.display = "block";
     }else{
         divTablaPersonal.style.display = "none";

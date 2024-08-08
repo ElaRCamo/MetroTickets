@@ -22,8 +22,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
-
-
         // Obtener los reportes (resultado de cada prueba) como una cadena separada por comas
         $reportes = $_POST['reportes'] ?? '';
         $reportesArray = explode(',', $reportes); // Convertir la cadena en un array
