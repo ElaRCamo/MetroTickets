@@ -113,6 +113,7 @@ function subirArchivo($target_dir, $id_prueba, $input_name) {
             $archivo = "Error: Hubo un error al mover el archivo.";
         }
     }
+    echo "SubirArchico resultado: ".$archivo;
     return $archivo;
 }
 
