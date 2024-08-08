@@ -70,8 +70,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         print_r($reportesProcesados);
         echo '</pre>';
 
-    }}
-        /*
+
                 if($tipoPrueba === '5'){ //Prueba Munsell
                     if(isset($_POST['nominas'])){
                         $nominas = array_map('trim', explode(',', $_POST['nominas']));
@@ -99,7 +98,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         echo json_encode($response);
-        */
+
 
 
 function consultarFechaCompromiso($id_prueba) {
