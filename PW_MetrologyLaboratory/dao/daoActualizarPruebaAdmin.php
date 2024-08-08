@@ -33,14 +33,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $reportesProcesados = [];
         foreach ($reportesArray as $reporte) {
 
-            if (preg_match('/\.(pdf)$/i', $reporte) === 1) { // solo se acepta pdf
-                $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
-
-                echo "es pdf";
-
                 if (isset($_FILES[$reporte])) {// Verificar que el archivo está en $_FILES
 
                     // Verificar si el archivo fue subido sin errores
+                    $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
                         if ($_FILES[$reporte]["error"] > 0) {
                             $archivo = array("error" => "Error: " . $_FILES[$reporte]["error"]);
                         } else {
@@ -59,10 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         }
                     $reporteProcesado = $archivo;
                     echo json_encode($archivo);
-                } else {
-                    $reporteProcesado = array("error" => "Archivo no encontrado.");
-                }
-            } else { // Si es un string, se queda igual
+                }else { // Si es un string, se queda igual
                 echo "es string";
                 $reporteProcesado = $reporte;
             }
