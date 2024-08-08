@@ -22,25 +22,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
-        // Obtener los reportes(resultado de cada prueba) como una cadena separada por comas
+        // Obtener los reportes (resultado de cada prueba) como una cadena separada por comas
         $reportes = $_POST['reportes'] ?? '';
-        $reportesArray = explode(',', $reportes);// Convertir la cadena en un array
+        $reportesArray = explode(',', $reportes); // Convertir la cadena en un array
 
         $reportesProcesados = [];
         foreach ($reportesArray as $reporte) {
 
-            if (esArchivo($reporte)) { // solo se acepta pdf
+            if (esArchivo($reporte)) { // Solo se acepta PDF
                 $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
 
-                if (isset($_FILES[$reporte])) {// Verificar que el archivo está en $_FILES
-                    $reporteProcesado = subirArchivo($target_dir, $id_prueba, $reporte); // Si es un archivo, obtenemos el nombre del archivo
+                if (isset($_FILES[$reporte])) { // Verificar que el archivo está en $_FILES
+                    $reporteProcesado = subirArchivo($target_dir, $id_prueba, $reporte); // Si es un archivo, obtenemos la URL completa
                 } else {
-                    $reporteProcesado = array("error" => "Archivo no encontrado.");
+                    $reporteProcesado = "Error: Archivo no encontrado.";
                 }
             } else { // Si es un string, se queda igual
                 $reporteProcesado = $reporte;
             }
-            echo "reporteProcesado: ".$reporteProcesado;
+
+            echo "reporteProcesado: " . $reporteProcesado . "\n";
             $reportesProcesados[] = $reporteProcesado;
         }
 
@@ -85,30 +86,32 @@ function consultarFechaCompromiso($id_prueba) {
         return null;
     }
 }
-
 function subirArchivo($target_dir, $id_prueba, $input_name) {
     $archivo = '';
 
     // Verificar si el archivo fue subido sin errores
     if ($_FILES[$input_name]["error"] > 0) {
-        $response = array("error" => "Error: " . $_FILES[$input_name]["error"]);
+        return "Error: " . $_FILES[$input_name]["error"];
     } else {
         // Quitar espacios del nombre del archivo
         $nombreArchivo = $_FILES[$input_name]["name"];
         $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
-        $archivoFile = $target_dir . $archivoFileName;
-        $moverFile = "../files/results/" . $archivoFileName;
+        $moverNormaFile = "../files/results/" . $archivoFileName;
 
-            // Mover el archivo cargado a la ubicación deseada
-            if (move_uploaded_file($_FILES[$input_name]["tmp_name"], $moverFile)) {
-                $response =  $archivoFile;
-            } else {
-                $response = array("error" => "Hubo un error al mover el archivo.");
+        // Mover el archivo cargado a la ubicación deseada
+        if (move_uploaded_file($_FILES[$input_name]["tmp_name"], $moverNormaFile)) {
+            // Asegurarnos de que $target_dir termine con una barra
+            if (substr($target_dir, -1) !== '/') {
+                $target_dir .= '/';
             }
-
+            // Construir la URL completa usando $target_dir
+            return $target_dir . $archivoFileName;
+        } else {
+            return "Error: Hubo un error al mover el archivo.";
+        }
     }
-    return $response;
 }
+
 
 // Función para determinar si el reporte es un archivo
 function esArchivo($reporte): bool
