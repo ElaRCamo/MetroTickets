@@ -22,14 +22,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
+
+
         // Obtener los reportes (resultado de cada prueba) como una cadena separada por comas
         $reportes = $_POST['reportes'] ?? '';
         $reportesArray = explode(',', $reportes); // Convertir la cadena en un array
 
         $reportesProcesados = [];
         foreach ($reportesArray as $reporte) {
+            // Verifica si $reporte es un objeto en lugar de una cadena
+            if (is_object($reporte) && property_exists($reporte, 'name')) {
+                $reporte = $reporte->name; // Extraer el nombre del archivo
+            }
 
-            if (esArchivo($reporte)) { // Solo se acepta PDF
+            // Asegúrate de que $reporte es una cadena antes de continuar
+            if (is_string($reporte) && esArchivo($reporte)) { // Solo se acepta PDF
                 $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
 
                 if (isset($_FILES[$reporte])) { // Verificar que el archivo está en $_FILES
@@ -41,9 +48,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $reporteProcesado = $reporte;
             }
 
-            echo "reporteProcesado: " . $reporteProcesado . "\n";
+            echo "reporteProcesado: " . $reporteProcesado . "\n"; // Mostrar el resultado
             $reportesProcesados[] = $reporteProcesado;
         }
+
 
         if($tipoPrueba === '5'){ //Prueba Munsell
             if(isset($_POST['nominas'])){
