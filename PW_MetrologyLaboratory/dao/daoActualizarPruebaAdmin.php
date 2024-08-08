@@ -89,28 +89,29 @@ function consultarFechaCompromiso($id_prueba) {
         return null;
     }
 }
-function subirArchivo($target_dir, $id_prueba, $input_name)
-{
+function subirArchivo($target_dir, $id_prueba, $input_name) {
     $archivo = '';
+
     // Verificar si el archivo fue subido sin errores
     if ($_FILES[$input_name]["error"] > 0) {
         $archivo = array("error" => "Error: " . $_FILES[$input_name]["error"]);
-    }
-
-    // Quitar espacios del nombre del archivo
-    $nombreArchivo = $_FILES[$input_name]["name"];
-    $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
-    $archivoFile = $target_dir . $archivoFileName;
-    $moverNormaFile = "../files/results/" . $archivoFileName;
-
-    // Mover el archivo cargado a la ubicación deseada
-    if (move_uploaded_file($_FILES[$input_name]["tmp_name"], $moverNormaFile)) {
-        $archivo = $archivoFile;
     } else {
-        $archivo = array("error" => "Hubo un error al mover el archivo.");
+        // Quitar espacios del nombre del archivo
+        $nombreArchivo = $_FILES[$input_name]["name"];
+        $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
+        $archivoFile = $target_dir . $archivoFileName;
+        $moverNormaFile = "../files/results/" . $archivoFileName;
+
+        // Mover el archivo cargado a la ubicación deseada
+        if (move_uploaded_file($_FILES[$input_name]["tmp_name"], $moverNormaFile)) {
+            $archivo = $archivoFile;
+        } else {
+            $archivo = array("error" => "Hubo un error al mover el archivo.");
+        }
     }
     return $archivo;
 }
+
 
 // Función para determinar si el reporte es un archivo
 function esArchivo($reporte): bool
