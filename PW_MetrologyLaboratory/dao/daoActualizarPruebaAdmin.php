@@ -38,6 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 if (isset($_FILES[$reporte])) {// Verificar que el archivo está en $_FILES
                     $reporteProcesado = subirArchivo($target_dir, $id_prueba, $reporte); // Si es un archivo, obtenemos el nombre del archivo
+                    echo json_encode($reporteProcesado);
                 } else {
                     $reporteProcesado = array("error" => "Archivo no encontrado.");
                 }
@@ -47,7 +48,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "reporteProcesado: " . $reporteProcesado . "\n"; // Mostrar el resultado
             $reportesProcesados[] = $reporteProcesado;
         }
-
+    }}
+/*
         if($tipoPrueba === '5'){ //Prueba Munsell
             if(isset($_POST['nominas'])){
                 $nominas = array_map('trim', explode(',', $_POST['nominas']));
@@ -72,8 +74,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     $response = array("status" => 'error', "message" => "Se esperaba REQUEST_METHOD");
-}
-echo json_encode($response);
+}*/
+
 
 function consultarFechaCompromiso($id_prueba) {
     $con = new LocalConector();
