@@ -22,34 +22,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
-        // Obtener los reportes (resultado de cada prueba) como una cadena separada por comas
+        // Obtener los reportes(resultado de cada prueba) como una cadena separada por comas
         $reportes = $_POST['reportes'] ?? '';
-        $reportesArray = explode(',', $reportes); // Convertir la cadena en un array
+        $reportesArray = explode(',', $reportes);// Convertir la cadena en un array
 
         $reportesProcesados = [];
         foreach ($reportesArray as $reporte) {
-            // Verifica si $reporte es un objeto en lugar de una cadena
-            if (is_object($reporte) && property_exists($reporte, 'name')) {
-                $reporte = $reporte->name; // Extraer el nombre del archivo
-            }
 
-            // Asegúrate de que $reporte es una cadena antes de continuar
-            if (is_string($reporte) && esArchivo($reporte)) { // Solo se acepta PDF
+            if (esArchivo($reporte)) { // solo se acepta pdf
                 $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
 
-                if (isset($_FILES[$reporte])) { // Verificar que el archivo está en $_FILES
-                    $reporteProcesado = subirArchivo($target_dir, $id_prueba, $reporte); // Si es un archivo, obtenemos la URL completa
+                if (isset($_FILES[$reporte])) {// Verificar que el archivo está en $_FILES
+                    $reporteProcesado = subirArchivo($target_dir, $id_prueba, $reporte); // Si es un archivo, obtenemos el nombre del archivo
                 } else {
-                    $reporteProcesado = "Error: Archivo no encontrado.";
+                    $reporteProcesado = array("error" => "Archivo no encontrado.");
                 }
             } else { // Si es un string, se queda igual
                 $reporteProcesado = $reporte;
             }
-
             echo "reporteProcesado: " . $reporteProcesado . "\n"; // Mostrar el resultado
             $reportesProcesados[] = $reporteProcesado;
         }
-
 
         if($tipoPrueba === '5'){ //Prueba Munsell
             if(isset($_POST['nominas'])){
