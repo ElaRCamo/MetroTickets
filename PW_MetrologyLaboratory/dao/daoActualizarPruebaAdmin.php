@@ -33,8 +33,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $reportesProcesados = [];
         foreach ($reportesArray as $reporte) {
 
-            if (esArchivo($reporte)) { // solo se acepta pdf
+            if (preg_match('/\.(pdf)$/i', $reporte) === 1) { // solo se acepta pdf
                 $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
+
+                echo "es pdf";
 
                 if (isset($_FILES[$reporte])) {// Verificar que el archivo está en $_FILES
 
