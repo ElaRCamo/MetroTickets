@@ -483,23 +483,23 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     }
 
     //Guardar reportes
-    // Crear un array para almacenar todos los reportes
-    let reportes = [];
-
     filas.forEach((fila, index) => {
         let inputElement = document.querySelector(`#inputReporte_${index}`);
         let files = inputElement.files;
 
         if (files.length > 0) {
-            // Añade el archivo al FormData
-            data.append('reportes[]', files[0]);
+            let file = files[0];
+            // Crear un nuevo archivo con el nombre modificado
+            let newFileName = `${index}_${file.name}`;
+            let newFile = new File([file], newFileName, { type: file.type });
+
+            // Añade el archivo modificado al FormData
+            data.append('reportes[]', newFile);
         } else {
             // Añade "Sin resultados" como un campo separado
             data.append('reportes[]', "Sin resultados");
         }
     });
-
-    alert(reportes)
 
     //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim());
 
@@ -706,10 +706,10 @@ function mostrarReportes(){
     const estatusPrueba = id("estatusPruebaAdmin").value;
     const divTablaPiezas = id("divTablaPiezas");
     const divTablaPersonal = id("divTablaPersonal");
-alert("estatusPrueba:"+estatusPrueba +"tipoPruebaSol:"+tipoPruebaSol)
-    if(tipoPruebaSol !== '5' && estatusPrueba==='3'){
+
+    if(tipoPruebaSol !== '5' && (estatusPrueba==='3' || estatusSol==='3')){
         divTablaPiezas.style.display = "block";
-    }else if(tipoPruebaSol === '5' && estatusPrueba==='3'){
+    }else if(tipoPruebaSol === '5' && (estatusPrueba==='3' || estatusSol==='3')){
         divTablaPersonal.style.display = "block";
     }else{
         divTablaPersonal.style.display = "none";
