@@ -24,70 +24,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-        // Obtener los reportes(resultado de cada prueba) como una cadena separada por comas
-        $reportesProcesados = [];
+        // Suponiendo que 'reportes' viene como un array en el formulario
+        $reportes = $_POST['reportes'];
 
-        // Verifica si 'reportes' está en $_FILES
-        if (isset($_POST['reportes']) || isset($_FILES['reportes'])) {
-            foreach ($_FILES['reportes']['name'] as $index => $nombreArchivo) {
-                echo "1-if: ";
-                // Verifica si hay un archivo en $_FILES
-                if ($_FILES['reportes']['error'][$index] === UPLOAD_ERR_NO_FILE) {
-                    // No hay archivo, verifica en $_POST
-                    if (isset($_POST['reportes'][$index])) {
-                        $reporte = $_POST['reportes'][$index];
-                        echo "2-reporte post: ".$reporte;
-                        if ($reporte === "Sin resultados") {
-                            $reportesProcesados[] = "Sin resultados";
-                            echo "3-reporte Sin resultados: ".$reporte;
-                        } else {
-                            $reportesProcesados[] = $reporte;
-                            echo "4-reportesProcesados[] : ".$reporte;
-                        }
-
-                    }
-                } else {
-                    echo "5-else: ";
-                    // Procesa el archivo
-                    if ($_FILES['reportes']['error'][$index] > 0) {
-                        $archivo = array("error" => "Error: " . $_FILES['reportes']['error'][$index]);
-                    } else {
-                        $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
-                        $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
-                        $archivoFile = $target_dir . $archivoFileName;
-                        $moverNormaFile = "../files/results/" . $archivoFileName;
-
-                        if (move_uploaded_file($_FILES['reportes']['tmp_name'][$index], $moverNormaFile)) {
-                            $archivo = $archivoFile;
-                        } else {
-                            $archivo = array("error" => "Hubo un error al mover el archivo.");
-                        }
-                    }
-                    $reportesProcesados[] = $archivo;
-                    echo "6-archivo : ".$archivo;
-                }
+        // Iterar sobre los valores en 'reportes'
+        foreach ($reportes as $key => $reporte) {
+            if (is_string($reporte) && strpos($reporte, '[object File]') === false) {
+                // Es una cadena
+                echo "Cadena: $reporte\n";
+            } elseif (isset($_FILES['reportes']['name'][$key])) {
+                // Es un archivo, obtenemos el nombre del archivo
+                $fileName = $_FILES['reportes']['name'][$key];
+                echo "Archivo: $fileName\n";
+            } else {
+                // Otro tipo de dato, si es necesario manejarlo
+                echo "Otro tipo de dato detectado.\n";
             }
         }
-
-
-        echo '<pre>';
-        print_r($reportesProcesados);
-        echo '</pre>';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         if($tipoPrueba === '5'){ //Prueba Munsell
