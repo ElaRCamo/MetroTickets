@@ -337,4 +337,87 @@ echo '<pre>';
 print_r($reportesProcesados);
 echo '</pre>';
 
+
+
+
+
+
+
+
+
+
+
+// Inicialización del array para almacenar los reportes procesados
+$reportesProcesados = [];
+
+// Verificar si 'reportes' está en $_FILES o $_POST
+if (isset($_POST['reportes']) || isset($_FILES['reportes'])) {
+    // Contar el total de reportes (máximo entre el número de archivos y el número de entradas en $_POST)
+    $totalReportes = max(count($_FILES['reportes']['name'] ?? []), count($_POST['reportes'] ?? []));
+    echo "totalReportes:" . $totalReportes;
+
+    // Procesar cada reporte según su índice
+    for ($index = 0; $index < $totalReportes; $index++) {
+
+        // 1. Si existe un archivo en $_FILES para el índice actual
+        if (isset($_FILES['reportes']['name'][$index])) {
+
+            // 2. Verificar si no hay archivo o hay un error
+            if ($_FILES['reportes']['error'][$index] === UPLOAD_ERR_NO_FILE) {
+
+                // Si no hay archivo, verificar en $_POST
+                if (isset($_POST['reportes'][$index])) {
+                    $reporte = $_POST['reportes'][$index];
+                    $reportesProcesados[$index] = ($reporte === "Sin resultados") ? "Sin resultados" : $reporte;
+                } else {
+                    $reportesProcesados[$index] = "Sin resultados";
+                }
+
+            } else {
+                // 3. Procesar el archivo si no hay errores
+                if ($_FILES['reportes']['error'][$index] > 0) {
+                    $archivo = ["error" => "Error: " . $_FILES['reportes']['error'][$index]];
+                } else {
+                    $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
+                    $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $_FILES['reportes']['name'][$index]);
+                    $archivoFile = $target_dir . $archivoFileName;
+                    $moverNormaFile = "../files/results/" . $archivoFileName;
+
+                    if (move_uploaded_file($_FILES['reportes']['tmp_name'][$index], $moverNormaFile)) {
+                        $archivo = $archivoFile;
+                    } else {
+                        $archivo = ["error" => "Hubo un error al mover el archivo."];
+                    }
+                }
+                $reportesProcesados[$index] = $archivo;
+            }
+
+        } else {
+            // 4. Si el índice no está en $_FILES pero sí en $_POST
+            if (isset($_POST['reportes'][$index])) {
+                $reporte = $_POST['reportes'][$index];
+                $reportesProcesados[$index] = ($reporte === "Sin resultados") ? "Sin resultados" : $reporte;
+            } else {
+                // Agregar un valor predeterminado si falta tanto en $_FILES como en $_POST
+                $reportesProcesados[$index] = "Sin resultados";
+            }
+        }
+    }
+}
+
+// 5. Procesar casos donde solo se envían cadenas en $_POST sin archivos
+if (isset($_POST['reportes']) && is_array($_POST['reportes'])) {
+    foreach ($_POST['reportes'] as $index => $reporte) {
+        if (!isset($reportesProcesados[$index])) {
+            $reportesProcesados[$index] = ($reporte === "Sin resultados") ? "Sin resultados" : $reporte;
+        }
+    }
+}
+
+// Imprimir los reportes procesados para verificar
+echo '<pre>';
+print_r($reportesProcesados);
+echo '</pre>';
+
+
 ?>
