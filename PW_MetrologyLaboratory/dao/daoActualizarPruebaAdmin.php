@@ -25,18 +25,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // Procesar reportes usando la función modularizada
         $reportesProcesados = procesarReportes($id_prueba, $_FILES, $_POST);
 
-        // Imprimir resultados
-        for ($i = 0; $i < count($reportesProcesados); $i++) {
-            if (isset($reportesProcesados[$i])) {
-                echo "Índice $i: " . $reportesProcesados[$i] . "<br>";
-            } else {
-                // Agrega "Sin resultados" si no hay ningún archivo o cadena para ese índice
-                echo "Índice $i: Sin resultados<br>";
-            }
-        }
-
-
-
         if($tipoPrueba === '5'){ //Prueba Munsell
             if(isset($_POST['nominas'])){
                 $nominas = array_map('trim', explode(',', $_POST['nominas']));
@@ -103,13 +91,23 @@ function procesarReportes($id_prueba,$files, $postData) {
         foreach ($postData['reportes'] as $index => $value) {
             // Verifica si el valor es una cadena y si no está vacío
             if (is_string($value) && !empty($value)) {
-                // Asegúrate de que el índice esté en el array de reportesProcesados
                 if (!isset($reportesProcesados[$index])) {
-                    $reportesProcesados[$index] = "Cadena - " . htmlspecialchars($value);
+                    $reportesProcesados[$index] = htmlspecialchars($value);
                 }
             }
         }
     }
+
+    // Imprimir resultados
+    /*
+    for ($i = 0; $i < count($reportesProcesados); $i++) {
+        if (isset($reportesProcesados[$i])) {
+            echo "Índice $i: " . $reportesProcesados[$i] . "<br>";
+        } else {
+            // Agrega "Sin resultados" si no hay ningún archivo o cadena para ese índice
+            echo "Índice $i: Sin resultados<br>";
+        }
+    }*/
 
     return $reportesProcesados;
 }
