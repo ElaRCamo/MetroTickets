@@ -22,27 +22,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
-
-// Procesar los archivos y cadenas del formulario
+// Asegúrate de que $_FILES['reportes'] esté definido
         if (isset($_FILES['reportes'])) {
             foreach ($_FILES['reportes']['name'] as $index => $name) {
-                // Verifica si el archivo fue enviado
                 if ($_FILES['reportes']['error'][$index] == UPLOAD_ERR_OK) {
                     echo "Índice $index: Archivo - " . $name . "<br>";
                 } else {
                     echo "Índice $index: Error al cargar archivo.<br>";
                 }
             }
+        } else {
+            echo "No se recibieron archivos.<br>";
         }
 
+// Asegúrate de que $_POST['reportes'] esté definido
         if (isset($_POST['reportes'])) {
             foreach ($_POST['reportes'] as $index => $value) {
-                // Verifica si el valor no es un archivo
                 if (is_string($value) && !empty($value)) {
                     echo "Índice $index: Cadena - " . htmlspecialchars($value) . "<br>";
                 }
             }
+        } else {
+            echo "No se recibieron cadenas.<br>";
         }
+
 
 
         if($tipoPrueba === '5'){ //Prueba Munsell
