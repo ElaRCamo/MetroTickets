@@ -22,6 +22,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
+        echo "reportes[] en post: ";
+        echo '<pre>';
+        print_r($_POST['reportes[]']);
+        echo '</pre>';
+        echo "reportes[] en files: ";
+        echo '<pre>';
+        print_r($_FILES['reportes[]']);
+        echo '</pre>';
+
+
 
 
         // Obtener los reportes (resultado de cada prueba) como una cadena separada por comas
@@ -30,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verifica si 'reportes' está en $_FILES
         if (isset($_POST['reportes']) || isset($_FILES['reportes'])) {
             $totalReportes = max(count($_FILES['reportes']['name']), count($_POST['reportes'] ?? []));
-
+            echo "totalReportes: ".$totalReportes;
             // Procesar archivos
             for ($index = 0; $index < $totalReportes; $index++) {
                 if (isset($_FILES['reportes']['name'][$index])) {
