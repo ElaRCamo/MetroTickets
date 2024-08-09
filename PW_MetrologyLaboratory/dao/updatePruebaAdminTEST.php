@@ -420,4 +420,49 @@ print_r($reportesProcesados);
 echo '</pre>';
 
 
+
+
+
+
+
+
+// Inicializar array para almacenar los reportes procesados
+$reportesProcesados = [];
+
+// Procesar archivos
+if (isset($_FILES['reportes'])) {
+    foreach ($_FILES['reportes']['name'] as $index => $name) {
+        // Verifica si el archivo se cargó correctamente
+        if ($_FILES['reportes']['error'][$index] == UPLOAD_ERR_OK) {
+            // Guarda el nombre del archivo en el array con el índice correspondiente
+            $reportesProcesados[$index] = "Archivo - " . $name;
+        }
+    }
+}
+
+// Procesar cadenas
+if (isset($_POST['reportes'])) {
+    foreach ($_POST['reportes'] as $index => $value) {
+        // Verifica si el valor es una cadena y si no está vacío
+        if (is_string($value) && !empty($value)) {
+            // Asegúrate de que el índice esté en el array de reportesProcesados
+            if (!isset($reportesProcesados[$index])) {
+                $reportesProcesados[$index] = "Cadena - " . htmlspecialchars($value);
+            }
+        }
+    }
+}
+
+// Imprimir resultados
+for ($i = 0; $i < count($reportesProcesados); $i++) {
+    if (isset($reportesProcesados[$i])) {
+        echo "Índice $i: " . $reportesProcesados[$i] . "<br>";
+    } else {
+        // Agrega "Sin resultados" si no hay ningún archivo o cadena para ese índice
+        echo "Índice $i: Sin resultados<br>";
+    }
+}
+
+
+
 ?>
