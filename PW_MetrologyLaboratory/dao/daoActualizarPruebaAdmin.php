@@ -22,30 +22,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
-// Asegúrate de que $_FILES['reportes'] esté definido
+
+// Procesar archivos y cadenas del formulario
         if (isset($_FILES['reportes'])) {
             foreach ($_FILES['reportes']['name'] as $index => $name) {
-                if ($_FILES['reportes']['error'][$index] == UPLOAD_ERR_OK) {
-                    echo "Índice $index: Archivo - " . $name . "<br>";
+                // Extraer el índice del nombre del archivo
+                if (preg_match('/^(\d+)_/', $name, $matches)) {
+                    $fileIndex = $matches[1];
                 } else {
-                    echo "Índice $index: Error al cargar archivo.<br>";
+                    $fileIndex = $index; // Índice por defecto
+                }
+
+                // Verificar errores de carga
+                if ($_FILES['reportes']['error'][$index] == UPLOAD_ERR_OK) {
+                    echo "Índice $fileIndex: Archivo - " . $name . "<br>";
+                } else {
+                    echo "Índice $fileIndex: Error al cargar archivo.<br>";
                 }
             }
-        } else {
-            echo "No se recibieron archivos.<br>";
         }
 
-// Asegúrate de que $_POST['reportes'] esté definido
         if (isset($_POST['reportes'])) {
             foreach ($_POST['reportes'] as $index => $value) {
+                // Verificar si el valor es una cadena
                 if (is_string($value) && !empty($value)) {
                     echo "Índice $index: Cadena - " . htmlspecialchars($value) . "<br>";
                 }
             }
-        } else {
-            echo "No se recibieron cadenas.<br>";
         }
-
 
 
         if($tipoPrueba === '5'){ //Prueba Munsell
