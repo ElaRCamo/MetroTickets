@@ -170,7 +170,7 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
                 $updateMaterial = $conex->prepare("UPDATE Piezas
                                                    SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
                                                    WHERE id_prueba = ? AND numParte = ?");
-                $updateMaterial->bind_param("issi", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
+                $updateMaterial->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
                 $rGuardarPiezas = $rGuardarPiezas && $updateMaterial->execute();
             }
 
