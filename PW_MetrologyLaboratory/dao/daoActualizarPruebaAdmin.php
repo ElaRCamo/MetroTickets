@@ -23,34 +23,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
 
-// Inicializa el array para evitar advertencias de variable indefinida
-        $reportesProcesados = [];
-
-// Suponiendo que 'reportes' viene como un array en el formulario
-        $reportes = $_POST['reportes'];
-        $archivos = $_FILES['reportes'];
-
-// Iteramos sobre los valores en 'reportes' y verificamos cada índice
-        foreach ($reportes as $key => $reporte) {
-            // Verificamos si en el índice correspondiente hay un archivo
-            if (isset($archivos['name'][$key]) && !empty($archivos['name'][$key])) {
-                // Es un archivo, obtenemos el nombre del archivo
-                $fileName = $archivos['name'][$key];
-                echo "Archivo: $fileName\n";
-                $reportesProcesados[] = "Archivo: $fileName";
-            } elseif ($reporte === "Sin resultados") {
-                // Es una cadena
-                echo "Cadena: $reporte\n";
-                $reportesProcesados[] = "Cadena: $reporte";
+// Procesar los archivos y cadenas del formulario
+        if (isset($_FILES['reportes'])) {
+            foreach ($_FILES['reportes']['name'] as $index => $name) {
+                // Verifica si el archivo fue enviado
+                if ($_FILES['reportes']['error'][$index] == UPLOAD_ERR_OK) {
+                    echo "Índice $index: Archivo - " . $name . "<br>";
+                } else {
+                    echo "Índice $index: Error al cargar archivo.<br>";
+                }
             }
         }
 
-// Asegúrate de que estás utilizando $reportesProcesados en el contexto adecuado
-// Puedes depurarla para ver cómo está quedando
-        var_dump($reportesProcesados);
-
-// Continúa con el resto de tu código
-
+        if (isset($_POST['reportes'])) {
+            foreach ($_POST['reportes'] as $index => $value) {
+                // Verifica si el valor no es un archivo
+                if (is_string($value) && !empty($value)) {
+                    echo "Índice $index: Cadena - " . htmlspecialchars($value) . "<br>";
+                }
+            }
+        }
 
 
         if($tipoPrueba === '5'){ //Prueba Munsell
