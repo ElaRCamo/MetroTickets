@@ -482,24 +482,31 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         data.append('nominas', nominas.join(','));
     }
 
-    //Guardar reportes
+// Guardar reportes
     filas.forEach((fila, index) => {
         let inputElement = document.querySelector(`#inputReporte_${index}`);
         let files = inputElement.files;
 
+        // Asegúrate de que el índice sea correcto al agregar datos al FormData
         if (files.length > 0) {
             let file = files[0];
             // Crear un nuevo archivo con el nombre modificado
-            let newFileName = `${index + 1}_${file.name}`;
+            let newFileName = `${index + 1}_${file.name}`; // Usar el índice como prefijo
             let newFile = new File([file], newFileName, { type: file.type });
 
-            // Añade el archivo modificado al FormData
-            data.append('reportes[]', newFile);
+            // Añade el archivo modificado al FormData con el índice correcto
+            data.append(`reportes[${index}]`, newFile);
         } else {
-            // Añade "Sin resultados" como un campo separado
-            data.append('reportes[]', "Sin resultados");
+            // Añade "Sin resultados" como un campo separado con el índice correcto
+            data.append(`reportes[${index}]`, "Sin resultados");
         }
     });
+
+// Mostrar el contenido de FormData en la consola para depuración
+    for (let [key, value] of data.entries()) {
+        console.log(`${key}: ${value}`);
+    }
+
 
     // Mostrar el contenido de FormData en un alert
     let formDataString = '';
