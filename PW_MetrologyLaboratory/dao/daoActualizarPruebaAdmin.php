@@ -22,6 +22,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
+        // Verifica lo que se está recibiendo en el POST
+        var_dump($_POST['reportes']);
+        var_dump($_FILES['reportes']);
+        exit(); // Detiene la ejecución aquí para que puedas ver el resultado
+
 
 
         // Suponiendo que 'reportes' viene como un array en el formulario
