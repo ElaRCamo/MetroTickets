@@ -22,9 +22,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
-
         // Procesar reportes usando la función modularizada
-        $reportesProcesados = procesarReportes($_FILES, $_POST);
+        $reportesProcesados = procesarReportes($id_prueba, $_FILES, $_POST);
 
         // Imprimir resultados
         for ($i = 0; $i < count($reportesProcesados); $i++) {
@@ -82,7 +81,7 @@ function consultarFechaCompromiso($id_prueba) {
 }
 
 // Función para procesar reportes
-function procesarReportes($files, $postData) {
+function procesarReportes($id_prueba,$files, $postData) {
     $reportesProcesados = [];
 
     // Procesar archivos
@@ -90,8 +89,11 @@ function procesarReportes($files, $postData) {
         foreach ($files['reportes']['name'] as $index => $name) {
             // Verifica si el archivo se cargó correctamente
             if ($files['reportes']['error'][$index] == UPLOAD_ERR_OK) {
+                $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
+                $reporteProcesado = subirArchivo($target_dir, $id_prueba, $files['reportes'], $index);
+
                 // Guarda el nombre del archivo en el array con el índice correspondiente
-                $reportesProcesados[$index] = "Archivo - " . $name;
+                $reportesProcesados[$index] = $reporteProcesado;
             }
         }
     }
@@ -111,22 +113,20 @@ function procesarReportes($files, $postData) {
 
     return $reportesProcesados;
 }
-
-function subirArchivo($target_dir, $id_prueba, $input_name) {
-    $archivo = '';
+function subirArchivo($target_dir, $id_prueba, $fileArray, $index) {
 
     // Verificar si el archivo fue subido sin errores
-    if ($_FILES[$input_name]["error"] > 0) {
-        $archivo = array("error" => "Error: " . $_FILES[$input_name]["error"]);
+    if ($fileArray["error"][$index] > 0) {
+        $archivo = array("error" => "Error: " . $fileArray["error"][$index]);
     } else {
         // Quitar espacios del nombre del archivo
-        $nombreArchivo = $_FILES[$input_name]["name"];
+        $nombreArchivo = $fileArray["name"][$index];
         $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
         $archivoFile = $target_dir . $archivoFileName;
         $moverNormaFile = "../files/results/" . $archivoFileName;
 
         // Mover el archivo cargado a la ubicación deseada
-        if (move_uploaded_file($_FILES[$input_name]["tmp_name"], $moverNormaFile)) {
+        if (move_uploaded_file($fileArray["tmp_name"][$index], $moverNormaFile)) {
             $archivo = $archivoFile;
         } else {
             $archivo = array("error" => "Hubo un error al mover el archivo.");
@@ -135,12 +135,6 @@ function subirArchivo($target_dir, $id_prueba, $input_name) {
     return $archivo;
 }
 
-
-// Función para determinar si el reporte es un archivo
-function esArchivo($reporte): bool
-{
-    return (preg_match('/\.(pdf)$/i', $reporte) === 1);
-}
 
 function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_admin, $tipoPrueba, $numsParte, $estatusPiezas, $reportes) {
     $con = new LocalConector();
