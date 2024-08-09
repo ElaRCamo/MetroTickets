@@ -23,33 +23,42 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
 
-// Procesar archivos y cadenas del formulario
+
+        // Inicializar arrays para almacenar archivos y cadenas
+        $archivos = [];
+        $cadenas = [];
+
+// Procesar archivos
         if (isset($_FILES['reportes'])) {
             foreach ($_FILES['reportes']['name'] as $index => $name) {
-                // Extraer el índice del nombre del archivo
-                if (preg_match('/^(\d+)_/', $name, $matches)) {
-                    $fileIndex = $matches[1];
-                } else {
-                    $fileIndex = $index; // Índice por defecto
-                }
-
-                // Verificar errores de carga
+                // Verifica si el archivo se cargó correctamente
                 if ($_FILES['reportes']['error'][$index] == UPLOAD_ERR_OK) {
-                    echo "Índice $fileIndex: Archivo - " . $name . "<br>";
-                } else {
-                    echo "Índice $fileIndex: Error al cargar archivo.<br>";
+                    $fileIndex = $index;
+                    $archivos[$fileIndex] = $name; // Guarda el nombre del archivo por índice
                 }
             }
         }
 
+// Procesar cadenas
         if (isset($_POST['reportes'])) {
             foreach ($_POST['reportes'] as $index => $value) {
-                // Verificar si el valor es una cadena
                 if (is_string($value) && !empty($value)) {
-                    echo "Índice $index: Cadena - " . htmlspecialchars($value) . "<br>";
+                    $cadenaIndex = $index;
+                    $cadenas[$cadenaIndex] = htmlspecialchars($value); // Guarda la cadena por índice
                 }
             }
         }
+
+// Imprimir resultados
+        for ($i = 0; $i < max(count($archivos), count($cadenas)); $i++) {
+            if (isset($archivos[$i])) {
+                echo "Índice $i: Archivo - " . $archivos[$i] . "<br>";
+            }
+            if (isset($cadenas[$i])) {
+                echo "Índice $i: Cadena - " . $cadenas[$i] . "<br>";
+            }
+        }
+
 
 
         if($tipoPrueba === '5'){ //Prueba Munsell
