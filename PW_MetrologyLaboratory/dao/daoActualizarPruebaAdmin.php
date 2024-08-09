@@ -147,6 +147,7 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
     $stringEstatus = "";
     $stringReportes = "";
     $rGuardarPiezas = true;
+    $fecha =  date('Y-m-d H:i:s');
 
     if ($response["status"] === "success") {
         //echo json_encode($response);
@@ -167,9 +168,9 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
 
                 // Preparar y ejecutar la consulta
                 $updateMaterial = $conex->prepare("UPDATE Piezas
-                                                   SET id_estatus = ?, reportePieza = ?, fechaReporte = NOW()
-                                                   WHERE numParte = ? AND id_prueba = ?");
-                $updateMaterial->bind_param("issi", $estatusPieza, $reporte, $numParte, $id_prueba);
+                                                   SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
+                                                   WHERE id_prueba = ? AND numParte = ?");
+                $updateMaterial->bind_param("issi", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
                 $rGuardarPiezas = $rGuardarPiezas && $updateMaterial->execute();
             }
 
