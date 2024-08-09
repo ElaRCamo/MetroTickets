@@ -27,8 +27,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // Obtener los reportes (resultado de cada prueba) como una cadena separada por comas
         $reportesProcesados = [];
 
-// Verifica si 'reportes' está en $_FILES
-        if (isset($_FILES['reportes']) && is_array($_FILES['reportes']['name'])) {
+        // Verifica si 'reportes' está en $_FILES
+        if (isset($_POST['reportes']) || isset($_FILES['reportes'])) {
             $totalReportes = max(count($_FILES['reportes']['name']), count($_POST['reportes'] ?? []));
 
             // Procesar archivos
