@@ -69,21 +69,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        // Si sólo se envían cadenas (caso en que $_FILES no está presente)
-        if (isset($_POST['reportes']) && is_array($_POST['reportes'])) {
-
-            echo "7-solo cadenas : ";
-
-            foreach ($_POST['reportes'] as $reporte) {
-                if ($reporte === "Sin resultados") {
-                    $reportesProcesados[] = "Sin resultados";
-                    echo "8-solo cadenas : ";
-                } else {
-                    $reportesProcesados[] = $reporte; // Maneja casos adicionales si es necesario
-                    echo "9-solo cadenas : ";
-                }
-            }
-        }
 
         echo '<pre>';
         print_r($reportesProcesados);
