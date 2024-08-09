@@ -24,17 +24,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-        // Inicializar arrays para almacenar archivos y cadenas
-        $archivos = [];
-        $cadenas = [];
+        // Inicializar array para almacenar los reportes procesados
+        $reportesProcesados = [];
 
 // Procesar archivos
         if (isset($_FILES['reportes'])) {
             foreach ($_FILES['reportes']['name'] as $index => $name) {
                 // Verifica si el archivo se cargó correctamente
                 if ($_FILES['reportes']['error'][$index] == UPLOAD_ERR_OK) {
-                    $fileIndex = $index;
-                    $archivos[$fileIndex] = $name; // Guarda el nombre del archivo por índice
+                    // Guarda el nombre del archivo en el array con el índice correspondiente
+                    $reportesProcesados[$index] = "Archivo - " . $name;
                 }
             }
         }
@@ -42,22 +41,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 // Procesar cadenas
         if (isset($_POST['reportes'])) {
             foreach ($_POST['reportes'] as $index => $value) {
+                // Verifica si el valor es una cadena y si no está vacío
                 if (is_string($value) && !empty($value)) {
-                    $cadenaIndex = $index;
-                    $cadenas[$cadenaIndex] = htmlspecialchars($value); // Guarda la cadena por índice
+                    // Asegúrate de que el índice esté en el array de reportesProcesados
+                    if (!isset($reportesProcesados[$index])) {
+                        $reportesProcesados[$index] = "Cadena - " . htmlspecialchars($value);
+                    }
                 }
             }
         }
 
 // Imprimir resultados
-        for ($i = 0; $i < max(count($archivos), count($cadenas)); $i++) {
-            if (isset($archivos[$i])) {
-                echo "Índice $i: Archivo - " . $archivos[$i] . "<br>";
-            }
-            if (isset($cadenas[$i])) {
-                echo "Índice $i: Cadena - " . $cadenas[$i] . "<br>";
+        for ($i = 0; $i < count($reportesProcesados); $i++) {
+            if (isset($reportesProcesados[$i])) {
+                echo "Índice $i: " . $reportesProcesados[$i] . "<br>";
+            } else {
+                // Agrega "Sin resultados" si no hay ningún archivo o cadena para ese índice
+                echo "Índice $i: Sin resultados<br>";
             }
         }
+
+
 
 
 
