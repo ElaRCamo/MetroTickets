@@ -22,30 +22,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
-        // Verifica lo que se está recibiendo en el POST
-        var_dump($_POST['reportes']);
-        var_dump($_FILES['reportes']);
-        exit(); // Detiene la ejecución aquí para que puedas ver el resultado
 
-
-
-        // Suponiendo que 'reportes' viene como un array en el formulario
+// Suponiendo que 'reportes' viene como un array en el formulario
         $reportes = $_POST['reportes'];
+        $archivos = $_FILES['reportes'];
 
-        // Iterar sobre los valores en 'reportes'
         foreach ($reportes as $key => $reporte) {
-            if (is_string($reporte) && strpos($reporte, '[object File]') === false) {
+            // Verificamos si en el índice correspondiente hay un archivo
+            if (isset($archivos['name'][$key]) && !empty($archivos['name'][$key])) {
+                // Es un archivo, obtenemos el nombre del archivo
+                $fileName = $archivos['name'][$key];
+                echo "Archivo: $fileName\n";
+            } elseif ($reporte === "Sin resultados") {
                 // Es una cadena
                 echo "Cadena: $reporte\n";
-            } elseif (isset($_FILES['reportes']['name'][$key])) {
-                // Es un archivo, obtenemos el nombre del archivo
-                $fileName = $_FILES['reportes']['name'][$key];
-                echo "Archivo: $fileName\n";
-            } else {
-                // Otro tipo de dato, si es necesario manejarlo
-                echo "Otro tipo de dato detectado.\n";
             }
         }
+
+
 
 
         if($tipoPrueba === '5'){ //Prueba Munsell
