@@ -37,23 +37,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // Obtener los reportes (resultado de cada prueba) como una cadena separada por comas
         $reportesProcesados = [];
 
-        // Verifica si 'reportes' está en $_FILES
+// Verificar si 'reportes' está en $_FILES o $_POST
         if (isset($_POST['reportes']) || isset($_FILES['reportes'])) {
-            $totalReportes = max(count($_FILES['reportes']['name']), count($_POST['reportes'] ?? []));
-            echo "totalReportes: ".$totalReportes;
-            // Procesar archivos
+            $totalReportes = max(count($_FILES['reportes']['name'] ?? []), count($_POST['reportes'] ?? []));
+            echo "totalReportes:" . $totalReportes;
+
+            // Procesar archivos y cadenas
             for ($index = 0; $index < $totalReportes; $index++) {
+
+                // 1. Procesar si hay un archivo en $_FILES
                 if (isset($_FILES['reportes']['name'][$index])) {
+
+                    // 2. Verificar si hay un error al subir el archivo
                     if ($_FILES['reportes']['error'][$index] === UPLOAD_ERR_NO_FILE) {
-                        // No hay archivo, verifica en $_POST
+
+                        // No hay archivo, verificar en $_POST
                         if (isset($_POST['reportes'][$index])) {
                             $reporte = $_POST['reportes'][$index];
                             $reportesProcesados[$index] = ($reporte === "Sin resultados") ? "Sin resultados" : $reporte;
                         } else {
                             $reportesProcesados[$index] = "Sin resultados";
                         }
+
                     } else {
-                        // Procesa el archivo
+
+                        // 3. Procesar el archivo si no hay errores
                         if ($_FILES['reportes']['error'][$index] > 0) {
                             $archivo = ["error" => "Error: " . $_FILES['reportes']['error'][$index]];
                         } else {
@@ -70,28 +78,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                         }
                         $reportesProcesados[$index] = $archivo;
                     }
+
                 } else {
-                    // Si el índice no está en $_FILES pero está en $_POST
+
+                    // 4. Si el índice no está en $_FILES pero está en $_POST
                     if (isset($_POST['reportes'][$index])) {
                         $reporte = $_POST['reportes'][$index];
                         $reportesProcesados[$index] = ($reporte === "Sin resultados") ? "Sin resultados" : $reporte;
                     }
                 }
             }
-        }
 
-// Si sólo se envían cadenas (caso en que $_FILES no está presente o no todas las cadenas están en $_FILES)
-        if (isset($_POST['reportes']) && is_array($_POST['reportes'])) {
-            foreach ($_POST['reportes'] as $index => $reporte) {
-                if (!isset($reportesProcesados[$index])) {
-                    $reportesProcesados[$index] = ($reporte === "Sin resultados") ? "Sin resultados" : $reporte;
+            // 5. Si sólo se envían cadenas (caso en que $_FILES no está presente o no todas las cadenas están en $_FILES)
+            if (isset($_POST['reportes']) && is_array($_POST['reportes'])) {
+                foreach ($_POST['reportes'] as $index => $reporte) {
+                    if (!isset($reportesProcesados[$index])) {
+                        $reportesProcesados[$index] = ($reporte === "Sin resultados") ? "Sin resultados" : $reporte;
+                    }
                 }
             }
+
+            echo '<pre>';
+            print_r($reportesProcesados);
+            echo '</pre>';
         }
 
-        echo '<pre>';
-        print_r($reportesProcesados);
-        echo '</pre>';
+
+
+
+
 
 
 
