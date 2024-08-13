@@ -139,11 +139,10 @@ const TablaPruebasAdmin = async () => {
 
                     if (item.estatusSolicitud === '4') {
                         content += `
-                        <button class="btn btn-warning" onclick="finalizarSolicitud('${item.id_prueba}')">
+                        <button class="btn btn-warning" onclick="finalizarSolicitud('${item.id_prueba}', '${item.id_tipoPrueba}')">
                             <i class="las la-check"></i><span>Finalizar proceso</span>
                         </button>`;
                     }
-
                     content += `
                     </td>
                 </tr>`;
@@ -156,8 +155,47 @@ const TablaPruebasAdmin = async () => {
     }
 };
 
-function finalizarSolicitud(id_prueba){
+function finalizarSolicitud(id_prueba, id_tipoPrueba){
     alert("finalizar solicitud "+id_prueba);
+    const dataForm = new FormData();
+    dataForm.append('id_prueba', id_prueba);
+    dataForm.append('id_tipoPrueba', id_tipoPrueba);
+
+    fetch(dao, {
+        method: 'POST',
+        body: dataForm
+    }).then(function (response) {
+        if (!response.ok) {
+            //console.log('Problem');
+            return;
+        }
+        return response.json();
+    }).then(function (data) {
+        if (data.status === 'success') {
+            //console.log(data.message);
+            // Si la inserción de datos fue exitosa, llamar a las funciones
+
+            //recargar tabla
+            initDataTable();
+        } else if (data.status === 'error') {
+            //console.log(data.message);
+            Swal.fire({
+                title: "Error",
+                text: data.message,
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        }
+    }).catch(error => {
+        //console.error(error);
+        Swal.fire({
+            title: "Error",
+            text: error.message,
+            icon: "error",
+            confirmButtonText: "OK"
+        });
+    });
+
 }
 
 function reviewPage(ID_PRUEBA){
