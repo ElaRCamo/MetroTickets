@@ -157,7 +157,7 @@ const TablaPruebasAdmin = async () => {
 };
 
 function finalizarSolicitud(id_prueba){
-    alert("finalizar solicitud");
+    alert("finalizar solicitud "+id_prueba);
 }
 
 function reviewPage(ID_PRUEBA){
