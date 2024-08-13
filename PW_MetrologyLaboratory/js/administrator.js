@@ -862,28 +862,33 @@ function actualizarUsuario(id_usuario){
     fetch('../../dao/daoActualizarUsuario.php', {
         method: 'POST',
         body: data
-    })
-        .then(function (response) {
-            if (response.ok) { //respuesta
-                Swal.fire({
-                    title: "¡Usuario actualizado exitosamente!",
-                    icon: "success"
-                });
-                initDataTableUsuarios();
-            } else {
-                throw "Error en la llamada Ajax";
-            }
-        }).then(function (data) {
-            if (data.status === 'error') {
-                console.log(data.message);
-                Swal.fire({
-                    title: "Error",
-                    text: data.message,
-                    icon: "error",
-                    confirmButtonText: "OK"
-                });
-            }
-        }).catch(error => {
+    }).then(function (response) {
+        if (!response.ok) {
+            //console.log('Problem');
+            return;
+        }
+        return response.json();
+    }).then(function (data) {
+        if (data.status === 'success') {
+            //console.log(data.message);
+            // Si la inserción de datos fue exitosa, llamar a las funciones
+            Swal.fire({
+                title: "Sucees",
+                text: data.message,
+                icon: "success",
+                confirmButtonText: "OK"
+            });
+            initDataTableUsuarios();
+        } else if (data.status === 'error') {
+            //console.log(data.message);
+            Swal.fire({
+                title: "Error",
+                text: data.message,
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        }
+    }).catch(error => {
         //console.error(error);
         Swal.fire({
             title: "Error",

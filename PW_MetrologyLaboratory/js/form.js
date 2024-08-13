@@ -723,13 +723,13 @@ function actualizarSolicitud(id_prueba, dao, esActualizacion){
         body: dataForm
     }).then(function (response) {
         if (!response.ok) {
-            console.log('Problem');
+            //console.log('Problem');
             return;
         }
         return response.json();
     }).then(function (data) {
         if (data.status === 'success') {
-            console.log(data.message);
+            //console.log(data.message);
             // Si la inserción de datos fue exitosa, llamar a las funciones
 
             if (tipoPrueba.value === '5'){
@@ -745,7 +745,7 @@ function actualizarSolicitud(id_prueba, dao, esActualizacion){
                 enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario);
             }
         } else if (data.status === 'error') {
-            console.log(data.message);
+            //console.log(data.message);
             Swal.fire({
                 title: "Error",
                 text: data.message,
