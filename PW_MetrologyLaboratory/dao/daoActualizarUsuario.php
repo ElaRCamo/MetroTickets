@@ -12,16 +12,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $tipoUsuario = $_POST['tipoDeUsuarioE'];
 
             if($adminTipo === '2' && $tipoUsuario === '1' ){
-                $respuesta = array("error" => false, "message" => "Permisos insuficientes");
+                $respuesta = array("status" => "error", "message" => "Permisos insuficientes");
             }else{
                 $respuesta = actualizarUsuario($id_usuario,$tipoUsuario);
             }
         }else{
-            $respuesta = array("success" => false, "message" => "Faltan datos en el formulario.");
+            $respuesta = array("status" => "error", "message" => "Faltan datos en el formulario.");
         }
 
 } else {
-    $respuesta = array("error" => false, "message" => "Se esperaba REQUEST_METHOD");
+    $respuesta = array("status" => "error", "message" => "Se esperaba REQUEST_METHOD");
 }
 echo json_encode($respuesta);
 
@@ -36,9 +36,9 @@ function actualizarUsuario($id_usuario,$tipoUsuario)
     $stmt->bind_param("is", $tipoUsuario,$id_usuario);
 
     if ($stmt->execute()) {
-        $respuesta = array("success" => true, "message" => "Perfil de usuario actualizado");
+        $respuesta = array("status" => "success", "message" => "Perfil de usuario actualizado");
     } else {
-        $respuesta = array("error" => false, "message" => "Error.");
+        $respuesta = array("status" => "error", "message" => "Error.");
     }
     $stmt->close();
     $conex->close();
