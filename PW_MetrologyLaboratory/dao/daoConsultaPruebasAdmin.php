@@ -11,6 +11,7 @@ function resumenPrueba(){
     $datosPrueba =  mysqli_query($conex,
         "SELECT
                 id_prueba,
+                s.id_estatusPrueba AS estatusSolicitud,
                 fechaSolicitud,
                 fechaRespuesta,
                 fechaCompromiso,

@@ -135,7 +135,16 @@ const TablaPruebasAdmin = async () => {
                         </button>
                         <button class="btn btn-secondary" onclick="reviewPDF('${item.id_prueba}')">
                             <i class="las la-file-pdf"></i><span>PDF</span>
-                        </button>
+                        </button>`;
+
+                    if (item.estatusSolicitud === 4) {
+                        content += `
+                        <button class="btn btn-warning" onclick="finalizarSolicitud('${item.id_prueba}')">
+                            <i class="las la-check"></i><span>Finalizar proceso</span>
+                        </button>`;
+                    }
+
+                    content += `
                     </td>
                 </tr>`;
         });
@@ -147,6 +156,9 @@ const TablaPruebasAdmin = async () => {
     }
 };
 
+function finalizarSolicitud(id_prueba){
+    alert("finalizar solicitud");
+}
 
 function reviewPage(ID_PRUEBA){
     window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/index.php?id_prueba=" + ID_PRUEBA;
