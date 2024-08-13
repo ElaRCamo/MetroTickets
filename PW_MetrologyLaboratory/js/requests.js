@@ -137,7 +137,7 @@ const TablaPruebasAdmin = async () => {
                             <i class="las la-file-pdf"></i><span>PDF</span>
                         </button>`;
 
-                    if (item.estatusSolicitud === 4) {
+                    if (item.estatusSolicitud === '4') {
                         content += `
                         <button class="btn btn-warning" onclick="finalizarSolicitud('${item.id_prueba}')">
                             <i class="las la-check"></i><span>Finalizar proceso</span>
