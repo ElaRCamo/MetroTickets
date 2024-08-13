@@ -873,13 +873,25 @@ function actualizarUsuario(id_usuario){
             } else {
                 throw "Error en la llamada Ajax";
             }
-        })
-        .then(function (texto) {
-            console.log(texto);
-        })
-        .catch(function (err) {
-            console.log(err);
+        }).then(function (data) {
+            if (data.status === 'error') {
+                console.log(data.message);
+                Swal.fire({
+                    title: "Error",
+                    text: data.message,
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
+            }
+        }).catch(error => {
+        //console.error(error);
+        Swal.fire({
+            title: "Error",
+            text: error.message,
+            icon: "error",
+            confirmButtonText: "OK"
         });
+    });
 }
 function activarUsuario(id_usuario){
     fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarUsuario.php?id_usuario='+id_usuario,{
