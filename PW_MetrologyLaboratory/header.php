@@ -11,7 +11,7 @@
         </div>
         <div class="side-menu" id="menuLateral">
             <ul >
-                <?php global $tipoUser; if($tipoUser == 1 || $tipoUser == 2){ ?>
+                <?php global $tipoUser; if($tipoUser == 1){ ?>
                 <li>
                     <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\index.php" class="optionMenu">
                         <span class="las la-home"></span>
@@ -32,13 +32,15 @@
                         <small>Solicitudes</small>
                     </a>
                 </li>
-                <?php if($tipoUser == 1 || $tipoUser == 2){ ?>
+                <?php if($tipoUser == 1 ){ ?>
                 <li>
                     <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/reports/reportsIndex.php" class="optionMenu">
                         <span class="las la-book"></span>
                         <small>Generar reporte</small>
                     </a>
                 </li>
+                <?php }?>
+                <?php if($tipoUser == 1 || $tipoUser == 2){ ?>
                 <li>
                     <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\modules\administrator\administratorIndex.php" class="optionMenu">
                         <span class="las la-cog"></span>
