@@ -6,10 +6,12 @@ session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $adminTipo = $_SESSION['tipoUsuario'];
+    echo "admintipo:".$adminTipo;
 
         if($_POST['id_usuario'] && $_POST['tipoDeUsuarioE'] !== null){
             $id_usuario = $_POST['id_usuario'];
             $tipoUsuario = $_POST['tipoDeUsuarioE'];
+            echo "tipoUsuario:".$tipoUsuario;
 
             if($adminTipo === 2 && $tipoUsuario === 1 ){
                 $respuesta = array("error" => false, "message" => "Permisos insuficientes");
