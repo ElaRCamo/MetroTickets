@@ -14,17 +14,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             if($adminTipo === 2 && $tipoUsuario === 1 ){
                 $respuesta = array("error" => false, "message" => "Permisos insuficientes");
             }else{
-                actualizarUsuario($id_usuario,$tipoUsuario);
+                $respuesta = actualizarUsuario($id_usuario,$tipoUsuario);
             }
         }else{
-            $respuesta = array("success" => false, "message" => "Faltan dtos en el formulario.");
-            echo json_encode($respuesta);
+            $respuesta = array("success" => false, "message" => "Faltan datos en el formulario.");
         }
 
 } else {
     $respuesta = array("error" => false, "message" => "Se esperaba REQUEST_METHOD");
-    echo json_encode($respuesta);
 }
+echo json_encode($respuesta);
 
 function actualizarUsuario($id_usuario,$tipoUsuario)
 {
@@ -38,12 +37,11 @@ function actualizarUsuario($id_usuario,$tipoUsuario)
 
     if ($stmt->execute()) {
         $respuesta = array("success" => true, "message" => "Perfil de usuario actualizado");
-        echo json_encode($respuesta);
     } else {
         $respuesta = array("error" => false, "message" => "Error.");
-        echo json_encode($respuesta);
     }
     $stmt->close();
     $conex->close();
+    return $respuesta;
 }
 ?>
