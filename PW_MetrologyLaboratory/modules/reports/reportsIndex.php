@@ -27,7 +27,6 @@
         if ($tipoUser == null){
             header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
         }elseif($tipoUser == 3 || $tipoUser == 2){
-            echo "<script>alert('Permisos Insuficientes')</script>";
             echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php'>";
         }
     ?>
