@@ -22,7 +22,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $fechaCompromiso = $fechaCompromisoBD;//Se queda igual
         }
 
-        // Procesar reportes usando la función modularizada
         $reportesProcesados = procesarReportes($id_prueba, $_FILES, $_POST);
 
         if($tipoPrueba === '5'){ //Prueba Munsell
@@ -33,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             $response = actualizarPruebaMunsell($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba, $nominas, $reportesProcesados);
         }else{
-            if(isset($_POST['estatuss'], $_POST['piezas'])){
+            if(isset($_POST['estatus'], $_POST['piezas'])){
                 $numsParte = array_map('trim', explode(',', $_POST['piezas']));
                 $estatusPiezas = array_map('trim', explode(',', $_POST['estatuss']));
             }else{
@@ -97,7 +96,7 @@ function procesarReportes($id_prueba,$files, $postData) {
     }
 
     // Imprimir resultados
-    /*
+
     for ($i = 0; $i < count($reportesProcesados); $i++) {
         if (isset($reportesProcesados[$i])) {
             echo "Índice $i: " . $reportesProcesados[$i] . "<br>";
@@ -105,7 +104,7 @@ function procesarReportes($id_prueba,$files, $postData) {
             // Agrega "Sin resultados" si no hay ningún archivo o cadena para ese índice
             echo "Índice $i: Sin resultados<br>";
         }
-    }*/
+    }
 
     return $reportesProcesados;
 }
@@ -244,8 +243,6 @@ function actualizarPruebaMunsell($id_prueba, $id_estatus, $id_prioridad, $id_met
     $rGuardarReportes = true;
     $fecha =  date('Y-m-d H:i:s');
 
-
-
     if ($response["status"] === "success") {
         //echo json_encode($response);
         // Verifica que los arrays tengan la misma longitud
@@ -263,8 +260,8 @@ function actualizarPruebaMunsell($id_prueba, $id_estatus, $id_prioridad, $id_met
 
                 // Preparar y ejecutar la consulta
                 $updateMaterial = $conex->prepare("UPDATE PersonalMunsell
-                                                   SET reportePieza = ?, fechaReporte = ?
-                                                   WHERE id_prueba = ? AND nomina = ?");
+                                                           SET reportePersonal = ?, fechaReporte = ?
+                                                           WHERE id_prueba = ? AND nomina = ?");
                 $updateMaterial->bind_param("ssss", $reporte, $fecha, $id_prueba, $nomina);
                 $rGuardarReportes = $rGuardarReportes && $updateMaterial->execute();
             }
@@ -279,12 +276,12 @@ function actualizarPruebaMunsell($id_prueba, $id_estatus, $id_prioridad, $id_met
 
     // Descripción de la bitácora
     $descripcion = "Admin actualiza la solicitud. Valores: "
-        . "id_estatus = " . $id_estatus . ", "
-        . "id_prioridad = " . $id_prioridad . ", "
-        . "id_metrologo = " . $id_metrologo . ", "
-        . "observaciones = " . $observaciones . ", "
+        . "id_estatus      = " . $id_estatus . ", "
+        . "id_prioridad    = " . $id_prioridad . ", "
+        . "id_metrologo    = " . $id_metrologo . ", "
+        . "observaciones   = " . $observaciones . ", "
         . "PersonalNominas = " . $stringNominas . ", "
-        . "Reportes = " . $stringReportes . ", "
+        . "Reportes        = " . $stringReportes . ", "
         . "fechaCompromiso = " . $fechaCompromiso;
 
     $responseBitacora = registrarCambioBitacoora($conex, $id_prueba, $descripcion, $id_admin);
