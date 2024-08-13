@@ -873,7 +873,7 @@ function actualizarUsuario(id_usuario){
             //console.log(data.message);
             // Si la inserción de datos fue exitosa, llamar a las funciones
             Swal.fire({
-                title: "Sucees",
+                title: "Actualización exitosa",
                 text: data.message,
                 icon: "success",
                 confirmButtonText: "OK"
