@@ -96,7 +96,7 @@ function procesarReportes($id_prueba,$files, $postData) {
     }
 
     // Imprimir resultados
-
+    /*
     for ($i = 0; $i < count($reportesProcesados); $i++) {
         if (isset($reportesProcesados[$i])) {
             echo "Índice $i: " . $reportesProcesados[$i] . "<br>";
@@ -104,7 +104,7 @@ function procesarReportes($id_prueba,$files, $postData) {
             // Agrega "Sin resultados" si no hay ningún archivo o cadena para ese índice
             echo "Índice $i: Sin resultados<br>";
         }
-    }
+    }*/
 
     return $reportesProcesados;
 }
@@ -210,25 +210,6 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
 }
 
 function actualizarPruebaMunsell($id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_admin, $tipoPrueba, $nominas, $reportes) {
-    echo "Prueba Munsell<br>";
-    echo "ID Prueba: " . $id_prueba . "<br>";
-    echo "ID Estatus: " . $id_estatus . "<br>";
-    echo "ID Prioridad: " . $id_prioridad . "<br>";
-    echo "ID Metrologo: " . $id_metrologo . "<br>";
-    echo "Observaciones: " . $observaciones . "<br>";
-    echo "Fecha Compromiso: " . $fechaCompromiso . "<br>";
-    echo "ID Admin: " . $id_admin . "<br>";
-    echo "Tipo Prueba: " . $tipoPrueba . "<br>";
-
-    echo "Nominas:<br>";
-    foreach ($nominas as $nomina) {
-        echo "- " . $nomina . "<br>";
-    }
-
-    echo "Reportes:<br>";
-    foreach ($reportes as $reporte) {
-        echo "- " . $reporte . "<br>";
-    }
 
     $con = new LocalConector();
     $conex = $con->conectar();
@@ -256,7 +237,7 @@ function actualizarPruebaMunsell($id_prueba, $id_estatus, $id_prioridad, $id_met
                 $stringReportes .= $reporte . ', ';
 
                 // Imprimir cada par de valores
-                echo "nomina: $nomina,  reporte: $reporte\n";
+                //echo "nomina: $nomina,  reporte: $reporte\n";
 
                 // Preparar y ejecutar la consulta
                 $updateMaterial = $conex->prepare("UPDATE PersonalMunsell
