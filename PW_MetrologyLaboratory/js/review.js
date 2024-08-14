@@ -512,7 +512,6 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
             });
             return;
         }
-
     });
 
 // Mostrar el contenido de FormData en la consola para depuración
