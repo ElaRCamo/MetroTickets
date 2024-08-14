@@ -155,51 +155,61 @@ const TablaPruebasAdmin = async () => {
     }
 };
 
-function finalizarSolicitud(id_prueba, id_tipoPrueba){
-    const dataForm = new FormData();
-    dataForm.append('id_prueba', id_prueba);
-    dataForm.append('id_tipoPrueba', id_tipoPrueba);
+function finalizarSolicitud(id_prueba, id_tipoPrueba) {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "No podrás revertir esta acción",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#005195',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, finalizar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const dataForm = new FormData();
+            dataForm.append('id_prueba', id_prueba);
+            dataForm.append('id_tipoPrueba', id_tipoPrueba);
 
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoFinalizarSolicitud.php', {
-        method: 'POST',
-        body: dataForm
-    }).then(function (response) {
-        if (!response.ok) {
-            //console.log('Problem');
-            return;
-        }
-        return response.json();
-    }).then(function (data) {
-        if (data.status === 'success') {
-            //console.log(data.message);
-            //recargar tabla
-            initDataTable(id_solicitante).then(r =>
+            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoFinalizarSolicitud.php', {
+                method: 'POST',
+                body: dataForm
+            }).then(function (response) {
+                if (!response.ok) {
+                    //console.log('Problem');
+                    return;
+                }
+                return response.json();
+            }).then(async function (data) {
+                if (data.status === 'success') {
+                    Swal.fire({
+                        title: "Éxito",
+                        text: data.message,
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    })
+                    // recargar tabla
+                    await initDataTable(id_solicitante);
+                } else if (data.status === 'error') {
+                    Swal.fire({
+                        title: "Error",
+                        text: data.message,
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    });
+                }
+            }).catch(error => {
                 Swal.fire({
-                    title: "Success",
-                    text: data.message,
-                    icon: "success",
+                    title: "Error",
+                    text: error.message,
+                    icon: "error",
                     confirmButtonText: "OK"
-                })
-            );
-        } else if (data.status === 'error') {
-            //console.log(data.message);
-            Swal.fire({
-                title: "Error",
-                text: data.message,
-                icon: "error",
-                confirmButtonText: "OK"
+                });
             });
         }
-    }).catch(error => {
-        //console.error(error);
-        Swal.fire({
-            title: "Error",
-            text: error.message,
-            icon: "error",
-            confirmButtonText: "OK"
-        });
     });
 }
+
 
 function reviewPage(ID_PRUEBA){
     window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/index.php?id_prueba=" + ID_PRUEBA;
