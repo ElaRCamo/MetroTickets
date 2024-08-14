@@ -505,7 +505,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
 
         alert("estatus" + estatusPruebaAdmin + " newFile: " + newFile);
 
-        if(estatusPruebaAdmin === '4' && newFile==="Sin resultados"){
+        if(estatusPruebaAdmin.value === '4' && newFile==="Sin resultados"){
             Swal.fire({
                 title: 'Error',
                 text: 'Se debe adjuntar los reportes de todas las piezas.',
