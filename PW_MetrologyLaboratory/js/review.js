@@ -483,7 +483,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     }
 
 // Guardar reportes
-    filas.forEach((fila, index) => {
+    /*filas.forEach((fila, index) => {
         let inputElement = document.querySelector(`#inputReporte_${index}`);
         let files = inputElement.files;
         let newFile = '';
@@ -514,7 +514,43 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
             });
             return;
         }
-    });
+    });*/
+
+    // Guardar reportes
+    for (let index = 0; index < filas.length; index++) {
+        let fila = filas[index];
+        let inputElement = document.querySelector(`#inputReporte_${index}`);
+        let files = inputElement.files;
+        let newFile = '';
+
+        // Asegúrate de que el índice sea correcto al agregar datos al FormData
+        if (files.length > 0) {
+            let file = files[0];
+            // Crear un nuevo archivo con el nombre modificado
+            let newFileName = `${index + 1}_${file.name}`; // Usar el índice como prefijo
+            newFile = new File([file], newFileName, { type: file.type });
+
+            // Añade el archivo modificado al FormData con el índice correcto
+            data.append(`reportes[${index}]`, newFile);
+        } else {
+            newFile = "Sin resultados";
+            // Añade "Sin resultados" como un campo separado con el índice correcto
+            data.append(`reportes[${index}]`, newFile);
+        }
+
+        alert("estatus: " + estatusPruebaAdmin.value + "file: " + newFile);
+
+        if (estatusPruebaAdmin.value === '4' && newFile === "Sin resultados") {
+            Swal.fire({
+                title: 'Error',
+                text: 'Se debe adjuntar los reportes de todas las piezas.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+            return; // Esto interrumpirá toda la función, no solo el bucle
+        }
+    }
+
 
 // Mostrar el contenido de FormData en la consola para depuración
     for (let [key, value] of data.entries()) {
