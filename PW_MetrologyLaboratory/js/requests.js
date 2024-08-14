@@ -160,7 +160,7 @@ function finalizarSolicitud(id_prueba, id_tipoPrueba){
     dataForm.append('id_prueba', id_prueba);
     dataForm.append('id_tipoPrueba', id_tipoPrueba);
 
-    fetch(dao, {
+    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoFinalizarSolicitud.php', {
         method: 'POST',
         body: dataForm
     }).then(function (response) {
@@ -172,7 +172,12 @@ function finalizarSolicitud(id_prueba, id_tipoPrueba){
     }).then(function (data) {
         if (data.status === 'success') {
             //console.log(data.message);
-            // Si la inserción de datos fue exitosa, llamar a las funciones
+            Swal.fire({
+                title: "Success",
+                text: data.message,
+                icon: "success",
+                confirmButtonText: "OK"
+            });
 
             //recargar tabla
             initDataTable();
