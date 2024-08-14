@@ -212,22 +212,26 @@ por mes
 
 Reunión del 23/07/2024
 
-✓cambiar color tarjeta (quitar rojo)
+✓ cambiar color tarjeta (quitar rojo)
 
-✓estatus piezas
+✓ estatus piezas
 	pensiente de aprobacion/pendiente por entregar
 	aprobado>aprobado-en fila
 	pendiente por recoger
 	Completado
-✓Agregar descripcion por cada estatus
+✓ Agregar descripcion por cada estatus
 
-✓cambiar formato de fecha a 2024/jun/05
+✓ cambiar formato de fecha a 2024/jun/05
 
-agregar resultado por cada pieza
+✓ que metrologos no tengan permiso para consultar indicadores
+	se agrega restriccion para que si eres metrologo no puedas cambiar un perfil a administrador
 
-Boton para cambiar estatus de piezas
->Proceso finalizado
+✓ agregar resultado por cada pieza
+	✗Falta cargar pdf a la ventana modal
+	✗Falta mostrar como enlace cada reporte
 
-agregar boton para actializar el estatus de todas las piezas
+✓agregar boton para actializar el estatus de todas las piezas >Proceso finalizado
+	✗ Falta: function finalizarSolicitud
 
-que metrologos no tengan permiso para consultar indicadores
+
+
