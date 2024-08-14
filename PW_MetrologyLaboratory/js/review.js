@@ -503,8 +503,6 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
             data.append(`reportes[${index}]`, newFile);
         }
 
-        alert("estatus" + estatusPruebaAdmin.value + " newFile: " + newFile);
-
         if(estatusPruebaAdmin.value === '4' && newFile==="Sin resultados"){
             Swal.fire({
                 title: 'Error',
@@ -731,13 +729,13 @@ function cargarDatosResultados(dao) {
 }
 
 function mostrarReportes(){
-    const estatusPrueba = id("estatusPruebaAdmin").value;
+    const estatus= id("estatusPruebaAdmin").value;
     const divTablaPiezas = id("divTablaPiezas");
     const divTablaPersonal = id("divTablaPersonal");
 
-    if(tipoPruebaSol !== '5' && (estatusPrueba==='3' || estatusSol==='3')){
+    if(tipoPruebaSol !== '5' && (estatus==='3' || estatus==='4' )){
         divTablaPiezas.style.display = "block";
-    }else if(tipoPruebaSol === '5' && (estatusPrueba==='3' || estatusSol==='3')){
+    }else if(tipoPruebaSol === '5' && (estatus==='3' || estatus==='4')){
         divTablaPersonal.style.display = "block";
     }else{
         divTablaPersonal.style.display = "none";
