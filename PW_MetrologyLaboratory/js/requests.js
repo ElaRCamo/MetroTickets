@@ -156,6 +156,7 @@ const TablaPruebasAdmin = async () => {
 };
 
 function finalizarSolicitud(id_prueba, id_tipoPrueba){
+    console.log("prueba:"+ id_prueba+"tipo:"+id_tipoPrueba)
     const dataForm = new FormData();
     dataForm.append('id_prueba', id_prueba);
     dataForm.append('id_tipoPrueba', id_tipoPrueba);
