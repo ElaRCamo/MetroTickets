@@ -503,6 +503,8 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
             data.append(`reportes[${index}]`, newFile);
         }
 
+        alert("estatus" + estatusPruebaAdmin + " newFile: " + newFile);
+
         if(estatusPruebaAdmin === '4' && newFile==="Sin resultados"){
             Swal.fire({
                 title: 'Error',
