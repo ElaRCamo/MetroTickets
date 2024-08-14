@@ -156,7 +156,6 @@ const TablaPruebasAdmin = async () => {
 };
 
 function finalizarSolicitud(id_prueba, id_tipoPrueba){
-    console.log("prueba:"+ id_prueba+"tipo:"+id_tipoPrueba)
     const dataForm = new FormData();
     dataForm.append('id_prueba', id_prueba);
     dataForm.append('id_tipoPrueba', id_tipoPrueba);
@@ -173,15 +172,15 @@ function finalizarSolicitud(id_prueba, id_tipoPrueba){
     }).then(function (data) {
         if (data.status === 'success') {
             //console.log(data.message);
-            Swal.fire({
-                title: "Success",
-                text: data.message,
-                icon: "success",
-                confirmButtonText: "OK"
-            });
-
             //recargar tabla
-            initDataTable();
+            initDataTable(id_solicitante).then(r =>
+                Swal.fire({
+                    title: "Success",
+                    text: data.message,
+                    icon: "success",
+                    confirmButtonText: "OK"
+                })
+            );
         } else if (data.status === 'error') {
             //console.log(data.message);
             Swal.fire({
@@ -200,7 +199,6 @@ function finalizarSolicitud(id_prueba, id_tipoPrueba){
             confirmButtonText: "OK"
         });
     });
-
 }
 
 function reviewPage(ID_PRUEBA){
