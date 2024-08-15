@@ -256,14 +256,17 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
             $existingPieza = $existingPiezas[$numParte];
 
             if ($pieza['reporte'] !== "Sin resultados") {
-                $estatusPieza = 5;
+
+                if ($estatusPieza !== 6 && $estatusPieza !== 5) {
+                    $estatusPieza = 5;
+                }
                 // No hay reporte previo, actualizar con el nuevo reporte y estatus
                 $updateQuery = $conexUpdate->prepare("UPDATE Piezas
                                                      SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
                                                    WHERE id_prueba = ? AND numParte = ?");
                 $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
             } else {
-                if (($existingPieza['id_estatus'] === 5 || $existingPieza['id_estatus'] === 2) && $pieza['reporte'] === "Sin resultados") {
+                if ($existingPieza['id_estatus'] === 5 || $existingPieza['id_estatus'] === 2) {
                     // Si el estatus es 5, actualizar el reporte existente
                     $updateQuery = $conexUpdate->prepare("UPDATE Piezas
                                                          SET reportePieza = ?, fechaReporte = ?
