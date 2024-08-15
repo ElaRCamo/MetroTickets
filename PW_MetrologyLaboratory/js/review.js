@@ -124,8 +124,10 @@ function resumenPrueba(dao){
                 area.textContent = response.data[j].area;
                 fila.appendChild(area);
 
+                var tdReporte = document.createElement("td");
                 let reporte = response.data[j].reportePersonal;
                 let enlace = document.createElement('a');
+                tdReporte.appendChild(enlace);
 
                 if (isValidURL(reporte)) {
                     // Asignar el valor de 'reporte' al atributo href
