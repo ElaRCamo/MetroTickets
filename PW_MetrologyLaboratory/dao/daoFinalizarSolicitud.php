@@ -55,7 +55,7 @@ function finalizarSolicitud($id_prueba, $id_tipoPrueba)
 
     if($response['status']==='success'){
         $conex->commit();
-        $respuesta = array("success" => true, "message" => "Prueba finalizada exitosamente.");
+        $respuesta = array("status" => "success", "message" => "Prueba finalizada exitosamente.");
     }else{
         $conex->rollback();
         $respuesta = $response;
