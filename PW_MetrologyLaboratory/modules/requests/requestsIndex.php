@@ -51,7 +51,6 @@
         window.addEventListener("load",async () => {
             await initDataTable(id_solicitante);
         })
-
     </script>
     <script src="../../js/general.js"></script>
     <script src="../../js/requests.js"></script>
