@@ -32,14 +32,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             $response = actualizarPruebaMunsell($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba, $nominas, $reportesProcesados);
         }else{
-            if(isset($_POST['estatus'], $_POST['piezas'])){
+            if(isset($_POST['estatuss'], $_POST['piezas'])){
                 $numsParte = array_map('trim', explode(',', $_POST['piezas']));
-                $estatusPiezas = array_map('trim', explode(',', $_POST['estatuss']));
+                $estatussPiezas = array_map('trim', explode(',', $_POST['estatuss']));
             }else{
                 $numsParte = "No aplica";
-                $estatusPiezas = "No aplica";
+                $estatussPiezas = "No aplica";
             }
-            $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba,$numsParte,$estatusPiezas,$reportesProcesados);
+            $response = actualizarPrueba($id_prueba,$id_estatus,$id_prioridad, $id_metrologo, $observaciones,$fechaCompromiso,$id_admin,$tipoPrueba,$numsParte,$estatussPiezas,$reportesProcesados);
         }
     }else{
         $response = array("status" => 'error', "message" => "Faltan datos en el formulario.");
@@ -131,7 +131,7 @@ function subirArchivo($target_dir, $id_prueba, $fileArray, $index) {
 }
 
 
-function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_admin, $tipoPrueba, $numsParte, $estatusPiezas, $reportes) {
+function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_admin, $tipoPrueba, $numsParte, $estatussPiezas, $reportes) {
     $con = new LocalConector();
     $conex = $con->conectar();
 
@@ -149,10 +149,10 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
     if ($response["status"] === "success") {
         //echo json_encode($response);
         // Verifica que los arrays tengan la misma longitud
-        if (count($numsParte) === count($estatusPiezas)) {
-            for ($i = 0; $i < count($estatusPiezas); $i++) {
+        if (count($numsParte) === count($estatussPiezas)) {
+            for ($i = 0; $i < count($estatussPiezas); $i++) {
                 $numParte = $numsParte[$i];
-                $estatusPieza = $estatusPiezas[$i];
+                $estatusPieza = $estatussPiezas[$i];
                 $reporte = $reportes[$i];
 
                 // Concatenar valores a las variables string
