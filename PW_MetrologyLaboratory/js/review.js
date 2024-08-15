@@ -191,25 +191,24 @@ function resumenPrueba(dao){
                 let enlace = document.createElement('a');
                 tdReporte.appendChild(enlace);
 
-                alert(reporte + ',' + isValidURL(reporte));
-
                 if (regex.test(reporte)) {
                     // Asignar el valor de 'reporte' al atributo href
                     enlace.href = reporte;
+
                     // Se agrega texto del enlace
-                    let nombreArchivo = normaArchivo.substring(normaArchivo.lastIndexOf('/') + 1);
+                    let nombreArchivo = reporte.substring(reporte.lastIndexOf('/') + 1); // Se corrige 'normaArchivo' por 'reporte'
                     let numeroReferencia = nombreArchivo.split('-')[1];
                     let nombreArchivoSinPDF = nombreArchivo.substring(0, nombreArchivo.lastIndexOf('.'));
 
-                    //Opcional: Establecer el texto visible del enlace
+                    // Establecer el texto visible del enlace
                     enlace.textContent = nombreArchivoSinPDF.substring(numeroReferencia.length + 1);
                     enlace.target = '_blank';
                 } else {
                     enlace.textContent = reporte;
                     enlace.style.pointerEvents = "none"; // Deshabilitar el clic en el enlace
                 }
-                fila.appendChild(tdReporte);
 
+                fila.appendChild(tdReporte);
                 tbody.appendChild(fila);
             }
         }
