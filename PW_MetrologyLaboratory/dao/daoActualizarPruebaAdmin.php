@@ -265,6 +265,8 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
                                                      SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
                                                    WHERE id_prueba = ? AND numParte = ?");
                 $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
+
+                echo ("query 1");
             } else {
                 if ($existingPieza['id_estatus'] === 5 || $existingPieza['id_estatus'] === 2) {
                     // Si el estatus es 5, actualizar el reporte existente
@@ -272,6 +274,7 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
                                                          SET reportePieza = ?, fechaReporte = ?
                                                        WHERE id_prueba = ? AND numParte = ?");
                     $updateQuery->bind_param("ssss", $reporte, $fecha, $id_prueba, $numParte);
+                    echo ("query 2");
                 } else {
                     $fecha = "0000-00-00";
                     $reporte = "Sin resultados";
@@ -279,6 +282,7 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
                                                      SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
                                                    WHERE id_prueba = ? AND numParte = ?");
                     $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
+                    echo ("query 3");
                 }
             }
             $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
