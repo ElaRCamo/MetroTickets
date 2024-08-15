@@ -100,6 +100,7 @@ function resumenPrueba(dao){
 
         var tabla = document.getElementById("materialesResumen");
         var tbody = tabla.getElementsByTagName("tbody")[0];
+        let regex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/;
 
         // Limpiar contenido previo de la tabla
         tbody.innerHTML = '';
@@ -129,7 +130,7 @@ function resumenPrueba(dao){
                 let enlace = document.createElement('a');
                 tdReporte.appendChild(enlace);
 
-                if (isValidURL(reporte)) {
+                if (regex.test(reporte)) {
                     // Asignar el valor de 'reporte' al atributo href
                     enlace.href = reporte;
                     // Se agrega texto del enlace
@@ -192,7 +193,7 @@ function resumenPrueba(dao){
 
                 alert(reporte + ',' + isValidURL(reporte));
 
-                if (isValidURL(reporte)) {
+                if (regex.test(reporte)) {
                     // Asignar el valor de 'reporte' al atributo href
                     enlace.href = reporte;
                     // Se agrega texto del enlace
