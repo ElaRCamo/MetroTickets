@@ -144,7 +144,7 @@ function resumenPrueba(dao){
                     enlace.textContent = reporte;
                     enlace.style.pointerEvents = "none"; // Deshabilitar el clic en el enlace
                 }
-                fila.appendChild(enlace);
+                fila.appendChild(tdReporte);
 
                 tbody.appendChild(fila);
             }
