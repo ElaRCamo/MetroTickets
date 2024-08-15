@@ -190,7 +190,7 @@ function resumenPrueba(dao){
                 let enlace = document.createElement('a');
                 tdReporte.appendChild(enlace);
 
-                alert(reporte);
+                alert(reporte + ',' + isValidURL(reporte));
 
                 if (isValidURL(reporte)) {
                     // Asignar el valor de 'reporte' al atributo href
