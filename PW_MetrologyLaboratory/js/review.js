@@ -67,7 +67,7 @@ function resumenPrueba(dao){
                 id("archivoNormaR").href = normaArchivo;
                 var nombreArchivo = normaArchivo.substring(normaArchivo.lastIndexOf('/') + 1);
                 var numeroReferencia = nombreArchivo.split('-')[1];
-                var nombreArchivoSinPDF = nombreArchivo.substring(0, nombreArchivo.lastIndexOf('.')); // Eliminar la extensión .pdf
+                var nombreArchivoSinPDF = nombreArchivo.substring(0, nombreArchivo.lastIndexOf('.'));
 
                // alert("nombreArchivo: "+nombreArchivo+"\n numeroReferencia: "+numeroReferencia+ "\nnombreArchivoSinPDF: "+nombreArchivoSinPDF)
                 id("nombreArchivo").textContent = nombreArchivoSinPDF.substring(numeroReferencia.length + 1);
@@ -135,7 +135,7 @@ function resumenPrueba(dao){
                     enlace.href = reporte;
 
                     // Se agrega texto del enlace
-                    let nombreArchivo = reporte.substring(reporte.lastIndexOf('/') + 1); // Se corrige 'normaArchivo' por 'reporte'
+                    let nombreArchivo = reporte.substring(reporte.lastIndexOf('/') + 1);
                     let numeroReferencia = nombreArchivo.split('-')[1];
                     let nombreArchivoSinPDF = nombreArchivo.substring(0, nombreArchivo.lastIndexOf('.'));
 

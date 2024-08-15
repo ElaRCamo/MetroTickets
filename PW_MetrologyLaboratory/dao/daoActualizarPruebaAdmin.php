@@ -23,6 +23,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $reportesProcesados = procesarReportes($id_prueba, $_FILES, $_POST);
+        if(todosContienenURL($reportesProcesados)){ //Si ya se tiene todos los reportes, se asegura el estatus de la prueba a "Completado"
+            $id_estatus = 4;
+        }
 
         if($tipoPrueba === '5'){ //Prueba Munsell
             if(isset($_POST['nominas'])){
@@ -143,11 +146,8 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
     $stringNumParte = "";
     $stringEstatus = "";
     $stringReportes = "";
-    $rGuardarPiezas = true;
-    $fecha =  date('Y-m-d H:i:s');
 
     if ($response["status"] === "success") {
-        //echo json_encode($response);
         // Verifica que los arrays tengan la misma longitud
         if (count($numsParte) === count($estatussPiezas)) {
             for ($i = 0; $i < count($estatussPiezas); $i++) {
@@ -159,16 +159,6 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
                 $stringNumParte .= $numParte . ', ';
                 $stringEstatus .= $estatusPieza . ', ';
                 $stringReportes .= $reporte . ', ';
-
-                // Imprimir cada par de valores
-                //echo "numParte: $numParte, estatusPieza: $estatusPieza, reporte: $reporte\n";
-
-                // Preparar y ejecutar la consulta
-                $updateMaterial = $conex->prepare("UPDATE Piezas
-                                                   SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
-                                                   WHERE id_prueba = ? AND numParte = ?");
-                $updateMaterial->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
-                $rGuardarPiezas = $rGuardarPiezas && $updateMaterial->execute();
             }
 
             // Eliminar la última coma y espacio de las cadenas concatenadas
@@ -176,8 +166,10 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
             $stringEstatus = rtrim($stringEstatus, ', ');
             $stringReportes = rtrim($stringReportes, ', ');
 
+            $response = ActualizarPiezas($conex, $numsParte, $estatussPiezas, $reportes, $id_prueba);
+
         } else {
-            echo "Los arrays numsParte y estatusPiezas no tienen la misma longitud.";
+            $response = array("status" => "error", "message" => "Los arrays numsParte y estatusPiezas no tienen la misma longitud.");
         }
     }
 
@@ -192,15 +184,13 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
         . "Reportes = " . $stringReportes . ", "
         . "fechaCompromiso = " . $fechaCompromiso;
 
-    $responseBitacora = registrarCambioBitacoora($conex, $id_prueba, $descripcion, $id_admin);
-
-    if ($responseBitacora["status"] === "success" && $rGuardarPiezas === true) {
-        $conex->commit();
-        $response = array("status" => "success", "message" => "Prueba actualizada");
-    } else {
-        $conex->rollback();
-        $response = array("status" => 'error', "message" => "Error.");
-        if ($responseBitacora["status"] !== "success") {
+    if ($response["status"] === "success") {
+        $responseBitacora = registrarCambioBitacoora($conex, $id_prueba, $descripcion, $id_admin);
+        if ($responseBitacora["status"] === "success") {
+            $conex->commit();
+            $response = array("status" => "success", "message" => "Prueba actualizada");
+        } else {
+            $conex->rollback();
             $response = $responseBitacora;
         }
     }
@@ -208,6 +198,102 @@ function actualizarPrueba($id_prueba, $id_estatus, $id_prioridad, $id_metrologo,
     $conex->close();
     return $response;
 }
+
+function todosContienenURL($reportes) {
+    // Expresión regular para validar URLs
+    $urlPattern = '/\bhttps?:\/\/\S+/i';
+
+    // Iterar sobre cada elemento de $reportes
+    foreach ($reportes as $reporte) {
+        // Si algún elemento no contiene una URL válida, retornar false
+        if (!preg_match($urlPattern, $reporte)) {
+            return false;
+        }
+    }
+
+    // Si todos los elementos contienen una URL válida, retornar true
+    return true;
+}
+
+function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, $id_prueba)
+{
+    $fecha = date('Y-m-d H:i:s');
+
+    // Consultando las piezas ya registradas
+    $selectQuery = $conexUpdate->prepare("SELECT numParte, id_estatus, reportePieza FROM Piezas WHERE id_prueba = ?");
+    $selectQuery->bind_param("s", $id_prueba);
+    $selectQuery->execute();
+    $result = $selectQuery->get_result();
+
+    $existingPiezas = [];
+    while ($row = $result->fetch_assoc()) {
+        $existingPiezas[$row['numParte']] = [
+            'id_estatus' => $row['id_estatus'],
+            'reportePieza' => $row['reportePieza']
+        ];
+    }
+
+    // Preparar los nuevos datos proporcionados por el usuario
+    $newPiezas = [];
+    for ($i = 0; $i < count($numsParte); $i++) {
+        $numParte = $numsParte[$i];
+        $estatusPieza = $estatussPiezas[$i];
+        $reporte = $reportes[$i];
+
+        $newPiezas[$numParte] = [
+            'estatusPieza' => $estatusPieza,
+            'reporte' => $reporte,
+        ];
+    }
+
+    $rUpdateQuery = true;
+
+    foreach ($newPiezas as $numParte => $pieza) {
+        $estatusPieza = $pieza['estatusPieza'];
+        $reporte = $pieza['reporte'];
+
+        if (isset($existingPiezas[$numParte])) {
+            $existingPieza = $existingPiezas[$numParte];
+
+            if ($existingPieza['reportePieza'] === "Sin resultados") {
+                $estatusPieza = 2;
+                // No hay reporte previo, actualizar con el nuevo reporte y estatus
+                $updateQuery = $conexUpdate->prepare("UPDATE Piezas
+                                                     SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
+                                                   WHERE id_prueba = ? AND numParte = ?");
+                $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
+            } else {
+                // Ya hay un reporte previo
+                if ($estatusPieza != '2') {
+                    // Si el estatus no es 2, borrar el reporte y cambiar el estatus
+                    $reporte = "Sin resultados";
+                    $fecha = "0000-00-00";
+                    $updateQuery = $conexUpdate->prepare("UPDATE Piezas
+                                                         SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
+                                                       WHERE id_prueba = ? AND numParte = ?");
+                    $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
+                } else {
+                    // Si el estatus es 2, actualizar el reporte existente
+                    $updateQuery = $conexUpdate->prepare("UPDATE Piezas
+                                                         SET reportePieza = ?, fechaReporte = ?
+                                                       WHERE id_prueba = ? AND numParte = ?");
+                    $updateQuery->bind_param("ssss", $reporte, $fecha, $id_prueba, $numParte);
+                }
+            }
+
+            $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
+        }
+    }
+
+    if (!$rUpdateQuery) {
+        $response = array('status' => 'error', 'message' => 'Error al actualizar las piezas');
+    } else {
+        $response = array('status' => 'success', 'message' => 'Datos guardados correctamente');
+    }
+
+    return $response;
+}
+
 
 function actualizarPruebaMunsell($id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_admin, $tipoPrueba, $nominas, $reportes) {
 
