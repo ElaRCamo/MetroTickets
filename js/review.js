@@ -398,7 +398,8 @@ function llenarEstatusPrueba(estatus){
             }
         }
     });
-    mostrarReportes();
+    // Asegurar que el valor esté disponible antes de llamar a mostrarReportes
+    setTimeout(mostrarReportes, 0);
 }
 
 function llenarFechaCompromiso(fechaCompromiso){
