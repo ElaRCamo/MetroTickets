@@ -268,11 +268,11 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
                 echo ("query 1");
             } else {
                 //Ya tiene un estatus de completado/pendiente por recoger y no se adjunta nuevo reporte: Se queda el mismo reporte
-                if (($existingPieza['id_estatus'] === 5 || $existingPieza['id_estatus'] === 2) && $existingPieza['reporte'] !== "Sin resultados" ) {
+                if (($existingPieza['id_estatus'] === 5 || $existingPieza['id_estatus'] === 2) && $existingPieza['reportePieza'] !== "Sin resultados" ) {
                     $updateQuery = $conexUpdate->prepare("UPDATE Piezas
                                                              SET id_estatus = ?
                                                            WHERE id_prueba = ? AND numParte = ?");
-                    $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
+                    $updateQuery->bind_param("iss", $estatusPieza, $id_prueba, $numParte);
                     $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
                     echo ("query 2");
                 }//se cambia un estatus diferente a 2/5 (se quiere borrar el reporte existente)
