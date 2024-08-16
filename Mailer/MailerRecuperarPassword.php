@@ -79,16 +79,16 @@ function emailRecuperarPassword($destinatario, $asunto, $mensaje)
         $mail->Host = 'smtp.hostinger.com';
         $mail->Port = 465;
         $mail->SMTPAuth = true;
-        $mail->Username = 'LaboratorioMetrologiaGrammer@arketipo.mx'; //Correo de quien envia el email
+        $mail->Username = 'tickets_metrologia@grammermx.com'; //Correo de quien envia el email
         $mail->Password = 'LMGrammer2024#';
         $mail->SMTPSecure = 'ssl';
-        $mail->setFrom('LaboratorioMetrologiaGrammer@arketipo.mx', 'Laboratorio de Metrología Grammer Automotive Puebla S.A de C.V.');
+        $mail->setFrom('tickets_metrologia@grammermx.com', 'Laboratorio de Metrología Grammer Automotive Puebla S.A de C.V.');
         $mail->CharSet = 'UTF-8';
 
         //Solicitante
         $mail->addAddress($destinatario); //Quién recibirá correo
-        $mail->addBCC('LaboratorioMetrologiaGrammer@arketipo.mx', 'LMGrammer');
-        $mail->addBCC('aleiram.rcamo@gmail.com', 'TI');
+        $mail->addBCC('tickets_metrologia@grammermx.com', 'LMGrammer');
+        $mail->addBCC('extern.mariela.reyes@grammer.com', 'TI');
 
         $mail->Subject = $asunto;
         $mail->isHTML(true);
