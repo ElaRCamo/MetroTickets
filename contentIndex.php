@@ -25,7 +25,7 @@
             </div>
             <div class="logoRight col-sm-3">
                 <div>
-                    <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory\imgs\logoGrammer.png"><br>
+                    <img class="logoGrammer2-img logoR img-responsive" alt="LogoGrammer" src="https://grammermx.com/Metrologia/MetroTickets/imgs\logoGrammer.png"><br>
                 </div>
                 <div>
                     <span><small>LABORATORIO DE METROLOGÍA</small></span>
@@ -92,7 +92,7 @@
 
     pruebasMes();
     function pruebasMes() {
-        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasMes.php', function (data) {
+        $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoConsultaPruebasMes.php', function (data) {
 
             var Ene1 = 0, Feb1 = 0, Mar1 = 0, Abril1 = 0, May1 = 0, Jun1 = 0, Jul1 = 0, Ago1 = 0,
                 Sep1 = 0, Oct1 = 0, Nov1 = 0, Dic1 = 0;
@@ -211,7 +211,7 @@
 
     pruebasMesTipoPrueba();
     function pruebasMesTipoPrueba() {
-        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaTipoPrueba.php', function(data) {
+        $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoConsultaTipoPrueba.php', function(data) {
             const transformedData = {};
 
             data.data.forEach(entry => {
@@ -291,7 +291,7 @@
 
 
     function pruebasMesMetrologo() {
-        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasMesMetro.php', function(data) {
+        $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoConsultaPruebasMesMetro.php', function(data) {
             const transformedData = {};
 
             data.data.forEach(entry => {

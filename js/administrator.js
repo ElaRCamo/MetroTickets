@@ -54,7 +54,7 @@ const initDataTableClientes = async () => {
 
 const TablaAdminClientes = async () => {
     try {
-        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php`);
+        const response = await fetch(`https://grammermx.com/Metrologia/MetroTickets/dao/daoCliente.php`);
         const result = await response.json();
 
         if (!Array.isArray(result.data)) {
@@ -107,7 +107,7 @@ const initDataTableClientesDes = async () => {
 
 const TablaAdminClientesDes = async () => {
     try {
-        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoClienteDes.php`);
+        const response = await fetch(`https://grammermx.com/Metrologia/MetroTickets/dao/daoClienteDes.php`);
         const result = await response.json();
 
         if (!Array.isArray(result.data)) {
@@ -191,7 +191,7 @@ const initDataTablePlataformas = async () => {
 
 const TablaAdminPlataformas = async () => {
     try {
-        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasT.php`);
+        const response = await fetch(`https://grammermx.com/Metrologia/MetroTickets/dao/daoPlataformasT.php`);
         const result = await response.json();
 
         if (!Array.isArray(result.data)) {
@@ -245,7 +245,7 @@ const initDataTablePlataformasDes = async () => {
 
 const TablaAdminPlataformasDes = async () => {
     try {
-        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasTDes.php`);
+        const response = await fetch(`https://grammermx.com/Metrologia/MetroTickets/dao/daoPlataformasTDes.php`);
         const result = await response.json();
 
         if (!Array.isArray(result.data)) {
@@ -328,7 +328,7 @@ const initDataTableUsuarios = async () => {
 }
 const TablaAdminUsuarios = async () => {
     try {
-        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaUsuarios.php`);
+        const response = await fetch(`https://grammermx.com/Metrologia/MetroTickets/dao/daoConsultaUsuarios.php`);
         const result = await response.json();
 
         if (!Array.isArray(result.data)) {
@@ -379,7 +379,7 @@ const initDataTableUsuariosDes = async () => {
 }
 const TablaAdminUsuariosDes = async () => {
     try {
-        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaUsuariosDes.php`);
+        const response = await fetch(`https://grammermx.com/Metrologia/MetroTickets/dao/daoConsultaUsuariosDes.php`);
         const result = await response.json();
 
         if (!Array.isArray(result.data)) {
@@ -412,7 +412,7 @@ const TablaAdminUsuariosDes = async () => {
  * ***************************************************************************************/
 
 function clienteModal(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoCliente.php', function (data){
         var selectS = id("descPClienteN");
         selectS.innerHTML = "";
 
@@ -432,7 +432,7 @@ function clienteModal(){
 }
 
 function consultarPlataformas() {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + id("descMClienteE").value, function (data) {
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoPlataforma.php?id_cliente=' + id("descMClienteE").value, function (data) {
         var selectS = id("descMPlataformaE");
         selectS.innerHTML = ""; //limpiar contenido
 
@@ -451,7 +451,7 @@ function consultarPlataformas() {
 }
 
 function plataformaModal(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataformasT.php', function (data){
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoPlataformasT.php', function (data){
         var selectS = id("descMPlataformaN");
         selectS.innerHTML = "";
 
@@ -506,7 +506,7 @@ function registrarCliente(){
 
 function editarCliente(id_cliente){
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnCliente.php?id_cliente=' + id_cliente, function (data) {
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoConsultarUnCliente.php?id_cliente=' + id_cliente, function (data) {
         var inputCliente = id("descClienteE");
         inputCliente.value = data.data[0].descripcionCliente;
     });
@@ -553,7 +553,7 @@ function actualizarCliente(id_cliente){
         });
 }
 function activarCliente(id_cliente){
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarCliente.php?id_cliente='+id_cliente,{
+    fetch('https://grammermx.com/Metrologia/MetroTickets/dao/daoActivarCliente.php?id_cliente='+id_cliente,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -595,7 +595,7 @@ function desactivarCliente(id_cliente) {
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/desactivarCliente.php?id_cliente='+id_cliente,{
+            fetch('https://grammermx.com/Metrologia/MetroTickets/dao/desactivarCliente.php?id_cliente='+id_cliente,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -668,7 +668,7 @@ function registrarPlataforma(){
 
 function editarPlataforma(id_plataforma){
     console.log("id_plataforma para editar: " + id_plataforma);
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnaPlataforma.php?id_plataforma=' + id_plataforma, function (data) {
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoConsultarUnaPlataforma.php?id_plataforma=' + id_plataforma, function (data) {
         var inputPlataforma = id("descPlataformaE");
         inputPlataforma.value = data.data[0].descripcionPlataforma;
 
@@ -730,7 +730,7 @@ function  actualizarPlataforma(id_plataforma){
 
 }
 function activarPlataforma(id_plataforma){
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarPlataforma.php?id_plataforma='+id_plataforma,{
+    fetch('https://grammermx.com/Metrologia/MetroTickets/dao/daoActivarPlataforma.php?id_plataforma='+id_plataforma,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -774,7 +774,7 @@ function desactivarPlataforma(id_plataforma) {
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/desactivarPlataforma.php',{
+            fetch('https://grammermx.com/Metrologia/MetroTickets/dao/desactivarPlataforma.php',{
                 method: 'POST',
                 body: data
             }).then(res => {
@@ -818,7 +818,7 @@ function editarUsuario(id_usuario){
     console.log("id_usuario para editar: " + id_usuario);
 
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarUnUsuario.php?id_usuario=' + id_usuario, function (data) {
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoConsultarUnUsuario.php?id_usuario=' + id_usuario, function (data) {
         var inputNombre = id("nombreUsuarioE");
         inputNombre.value = data.data[0].nombreUsuario;
 
@@ -899,7 +899,7 @@ function actualizarUsuario(id_usuario){
     });
 }
 function activarUsuario(id_usuario){
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActivarUsuario.php?id_usuario='+id_usuario,{
+    fetch('https://grammermx.com/Metrologia/MetroTickets/dao/daoActivarUsuario.php?id_usuario='+id_usuario,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -941,7 +941,7 @@ function desactivarUsuario(id_usuario){
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/desactivarUsuario.php?id_usuario='+id_usuario,{
+            fetch('https://grammermx.com/Metrologia/MetroTickets/dao/desactivarUsuario.php?id_usuario='+id_usuario,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
