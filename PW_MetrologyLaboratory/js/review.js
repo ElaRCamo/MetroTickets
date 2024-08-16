@@ -577,7 +577,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
             data.append(`reportes[${index}]`, newFile);
         }
 
-        alert("estatus: " + estatusPruebaAdmin.value + "file: " + newFile);
+        //alert("estatus: " + estatusPruebaAdmin.value + "file: " + newFile);
 
         if (estatusPruebaAdmin.value === '4' && newFile === "Sin resultados") {
             Swal.fire({
@@ -602,7 +602,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     for (let [key, value] of data.entries()) {
         formDataString += `${key}: ${value}\n`;
     }
-    alert(formDataString);
+    //alert(formDataString);
 
     //alert("fechaCompromiso " + fechaCompromiso.value.trim()+"estatusPruebaAdmin: "+estatusPruebaAdmin.value.trim() +", prioridadPruebaAdmin: "+prioridadPruebaAdmin.value.trim()+", metrologoAdmin: "+metrologoAdmin.value.trim()+", observacionesAdmin  "+observacionesAdmin.value.trim());
 
