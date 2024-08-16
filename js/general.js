@@ -1,12 +1,13 @@
 const id = str => document.getElementById(str);
+const rutaBase = "https://grammermx.com/Metrologia/MetroTickets";
 
 function reviewPDF(ID_PRUEBA) {
-    var url = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/pruebaPDF.php?id_prueba=" + ID_PRUEBA;
+    var url = rutaBase + "/modules/review/pruebaPDF.php?id_prueba=" + ID_PRUEBA;
     window.open(url, '_blank');
 }
 
 function llenarTipoPruebaUpdate(idTipoPrueba, subtipo, imgCotas) {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php', function (data) {
+    $.getJSON( rutaBase + '/dao/daoTipoPrueba.php', function (data) {
         var selectS = id("tipoPrueba");
         selectS.innerHTML = ""; //limpiar contenido
 
@@ -60,7 +61,7 @@ function hideButton(id_button){
 
 
 function cargarPerfilUsuario(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarPerfilUsuario.php', function (data) {
+    $.getJSON( rutaBase + '/dao/daoConsultarPerfilUsuario.php', function (data) {
         var inputNombre = id("nombrePU");
         inputNombre.value = data.data[0].nombreUsuario;
 
@@ -96,7 +97,7 @@ function updatePerfilUsuario(){
         data.append('fotoPerfil', imagenActualSrc);
     }
 
-    fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarPerfil.php', {
+    fetch(rutaBase + '/dao/daoActualizarPerfil.php', {
         method: 'POST',
         body: data
     }).then(response => {
@@ -131,14 +132,14 @@ function updatePerfilUsuario(){
 
 function correoActualizacionPrueba(estatusPrueba, id_prueba, solicitantePrueba, emailSolicitante){
     const data = new FormData();
-    let dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/Mailer/MailerActualizacionPrueba.php';
+    let dao = rutaBase + '/Mailer/MailerActualizacionPrueba.php';
 
     data.append('id_prueba',id_prueba);
     data.append('solicitante',solicitantePrueba);
     data.append('emailSolicitante',emailSolicitante);
 
     if(estatusPrueba === '4'){
-        dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/Mailer/MailerPruebaCompletada.php';
+        dao = rutaBase + '/Mailer/MailerPruebaCompletada.php';
     }
 
     fetch(dao,{
@@ -164,7 +165,7 @@ function correoActualizacionPruebaLab(id_prueba){
 
     data.append('id_prueba',id_prueba);
 
-    fetch('https://arketipo.mx/MailerActualizacionPruebaLab.php',{
+    fetch(rutaBase + '/Mailer/MailerActualizacionPruebaLab.php',{
         method: 'POST',
         body: data
     })
@@ -416,10 +417,10 @@ function cerrarSesion() {
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             Swal.fire("¡Sesión cerrada exitosamente!");
-            window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php";
+            window.location.href = rutaBase + "/modules/sesion/indexSesion.php";
         }
     };
-    xhttp.open("POST", "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/login.php", true);
+    xhttp.open("POST", rutaBase + "/dao/login.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("cerrarSesion=true");
 }

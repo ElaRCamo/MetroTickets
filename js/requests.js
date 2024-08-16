@@ -57,7 +57,7 @@ const initDataTable = async (solicitante) => {
 
 const TablaPruebasSolicitante = async (id_solicitante) => {
     try {
-        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasSolicitante.php?id_solicitante=${id_solicitante}`);
+        const response = await fetch(`https://grammermx.com/Metrologia/MetroTickets/dao/daoConsultaPruebasSolicitante.php?id_solicitante=${id_solicitante}`);
 
         if (!response.ok) {
             throw new Error(`Error en la solicitud: ${response.status} ${response.statusText}`);
@@ -106,7 +106,7 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
 
 const TablaPruebasAdmin = async () => {
     try {
-        const response = await fetch(`https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultaPruebasAdmin.php`);
+        const response = await fetch(`https://grammermx.com/Metrologia/MetroTickets/dao/daoConsultaPruebasAdmin.php`);
         const result = await response.json();
 
         if (!Array.isArray(result.data)) {
@@ -171,7 +171,7 @@ function finalizarSolicitud(id_prueba, id_tipoPrueba) {
             dataForm.append('id_prueba', id_prueba);
             dataForm.append('id_tipoPrueba', id_tipoPrueba);
 
-            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoFinalizarSolicitud.php', {
+            fetch(rutaBase + '/dao/daoFinalizarSolicitud.php', {
                 method: 'POST',
                 body: dataForm
             }).then(function (response) {
@@ -212,7 +212,7 @@ function finalizarSolicitud(id_prueba, id_tipoPrueba) {
 
 
 function reviewPage(ID_PRUEBA){
-    window.location.href = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/review/index.php?id_prueba=" + ID_PRUEBA;
+    window.location.href = rutaBase + "/modules/review/index.php?id_prueba=" + ID_PRUEBA;
 }
 
 function cancelarSolicitud(id_prueba){
@@ -234,7 +234,7 @@ function cancelarSolicitud(id_prueba){
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCancelarSolicitud.php', {
+            fetch(rutaBase +  '/dao/daoCancelarSolicitud.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

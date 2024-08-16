@@ -14,12 +14,12 @@ let dao = '';
  * ****************************FUNCIONES PARA CARGAR DATOS *******************************
  * ***************************************************************************************/
 function consultaTipoPrueba(id_prueba){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoConsultarTipoPrueba.php?id_prueba=' + id_prueba, function (response) {
+    $.getJSON(rutaBase + 'dao/daoConsultarTipoPrueba.php?id_prueba=' + id_prueba, function (response) {
         let tipoPrueba = response.data[0].id_tipoPrueba;
         if(tipoPrueba === '5'){
-            dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPruebaMunsell.php?id_prueba='+ id_prueba;
+            dao = rutaBase + '/dao/daoResumenPruebaMunsell.php?id_prueba='+ id_prueba;
         }else{
-            dao = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoResumenPrueba.php?id_prueba='+ id_prueba;
+            dao = rutaBase + '/dao/daoResumenPrueba.php?id_prueba='+ id_prueba;
         }
         resumenPrueba(dao);
     });
@@ -366,7 +366,7 @@ function updateLinkActualizar(id, estatus) {
  * ***************************************************************************************/
 
 function llenarPrioridadPrueba(prioridad){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPrioridadPrueba.php', function (data){
+    $.getJSON(rutaBase + '/dao/daoPrioridadPrueba.php', function (data){
         var selectS = id("prioridadPruebaAdmin");
         selectS.innerHTML = ""; //limpiar contenido
 
@@ -383,7 +383,7 @@ function llenarPrioridadPrueba(prioridad){
 }
 
 function llenarEstatusPrueba(estatus){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPrueba.php', function (data){
+    $.getJSON(rutaBase + '/dao/daoEstatusPrueba.php', function (data){
         var selectS = id("estatusPruebaAdmin");
         selectS.innerHTML = ""; //limpiar contenido
 
@@ -413,7 +413,7 @@ function llenarFechaCompromiso(fechaCompromiso){
 }
 
 function consultarMetrologos(metrologo){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoMetrologos.php', function (data){
+    $.getJSON(rutaBase + '/dao/daoMetrologos.php', function (data){
         var selectS = id("metrologoAdmin");
         selectS.innerHTML = ""; //limpiar contenido
 
@@ -626,7 +626,7 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoActualizarPruebaAdmin.php',{
+            fetch(rutaBase + '/dao/daoActualizarPruebaAdmin.php',{
                 method: 'POST',
                 body: data
             }).then(res => {
@@ -682,7 +682,7 @@ function fFechaCompromiso(fechaCompromisoSol){
 }
 
 function fEstatusPiezas(selectElement, estatusSelecionado) {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoEstatusPiezas.php', function (data) {
+    $.getJSON(rutaBase + '/dao/daoEstatusPiezas.php', function (data) {
         selectElement = id(selectElement);
         selectElement.innerHTML = ""; // Limpiar contenido
 

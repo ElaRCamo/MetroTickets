@@ -1,6 +1,6 @@
 
 function llenarAnio(){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoAnio.php', function (data){
+    $.getJSON(rutaBase + '/dao/daoAnio.php', function (data){
         var selectS = id("anioR");
         selectS.innerHTML = "";
 
@@ -15,7 +15,7 @@ function llenarAnio(){
 
 
 function llenarMes() {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoAnioMes.php?anio=' + id("anioR").value, function (data) {
+    $.getJSON(rutaBase + '/dao/daoAnioMes.php?anio=' + id("anioR").value, function (data) {
         var selectS = id("mesR");
         selectS.innerHTML = ""; //limpiar contenido
 
@@ -48,10 +48,10 @@ function generarReporte() {
         var mes = id("mesR");
 
         if(tipo.value === '1'){
-            var url = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/reports/reportePDF.php?anio=" + anio.value + "&mes=" + mes.value;
+            var url = rutaBase + "/modules/reports/reportePDF.php?anio=" + anio.value + "&mes=" + mes.value;
 
         }else if(tipo.value === '2'){
-            var url = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/reports/reportePDF.php?anio=" + anio.value + "&mes=" + mes.value;
+            var url = rutaBase + "/modules/reports/reportePDF.php?anio=" + anio.value + "&mes=" + mes.value;
         }
         console.log(url);
         window.location.href = url;

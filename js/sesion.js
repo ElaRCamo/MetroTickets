@@ -76,7 +76,7 @@ function enviarCorreoNuevoUsuario(nombre, id, correo){
     data.append('id',id);
     data.append('correo',correo);
 
-    fetch('https://arketipo.mx/MailerNuevoUsuario.php',{
+    fetch(rutaBase + '/Mailer/MailerNuevoUsuario.php',{
         method: 'POST',
         body: data
     })
@@ -115,7 +115,7 @@ function actualizarPassword(){
 
             console.log('Token:', token , ' usuario:', id_usuario);
 
-            fetch('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoRestablecerPassword.php',{
+            fetch(rutaBase + '/dao/daoRestablecerPassword.php',{
                 method: 'POST',
                 body: data
             }).then(res => {

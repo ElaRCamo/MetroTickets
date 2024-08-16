@@ -4,7 +4,7 @@ header_remove();
 session_start();
 
 if (!isset($_SESSION['tipoUsuario'])){
-    header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
+    header("Location: https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php");
 }else{
     if($_SESSION['tipoUsuario']=="ok"){
         $nombreUser = $_SESSION['nombreUsuario'];
@@ -190,7 +190,7 @@ $conex->close();
                 </th>
                 <td>
                     <div class="col">
-                        <img class="logoGrammer2-img logoR" alt="LogoGrammer" src="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/logoGrammer.png"><br>
+                        <img class="logoGrammer2-img logoR" alt="LogoGrammer" src="https://grammermx.com/Metrologia/MetroTickets/imgs/logoGrammer.png"><br>
                     </div>
                 </td>
             </tr>
@@ -369,7 +369,7 @@ $conex->close();
     <div class="container-fluid">
         <div class="row" >
             <div class="col-sm-4 text-center">
-                <small> <a href="https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php">Laboratorio de Metrología </a></small><br>
+                <small> <a href="https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php">Laboratorio de Metrología </a></small><br>
                 <small> laboratoriometrologia@arketipo.com.mx </small><br>
                 <strong><small>LABORATORIO DE METROLOGÍA</small></strong>
             </div>

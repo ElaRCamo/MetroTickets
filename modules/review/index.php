@@ -31,7 +31,7 @@
     $solicitante = "No aplica";
 
     if ($tipoUser == null) {
-        header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php");
+        header("Location: https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php");
         exit();
     } else if ($tipoUser == 3) {
         // Obtener la parte de la consulta de la URL actual
@@ -47,7 +47,7 @@
         }
 
         if ($idUsuario !== $solicitante) {
-            header("Location: https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/requests/requestsIndex.php");
+            header("Location: https://grammermx.com/Metrologia/MetroTickets/modules/requests/requestsIndex.php");
             exit();
         }
     }

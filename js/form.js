@@ -112,14 +112,14 @@ function previewImageCotas(event) {
 }
 function initTooltips() {
     var tooltipsMod = document.querySelectorAll("[id^='tooltipModelo']");
-    var imgModMate = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/modeloMatematico.png';
+    var imgModMate = 'https://grammermx.com/Metrologia/MetroTickets/imgs/varios/modeloMatematico.png';
 
     tooltipsMod.forEach(function(tooltip) {
         mostrarImagenTooltip(tooltip, imgModMate, 300,180);
     });
 
     var tooltipsDibujo = document.querySelectorAll("[id^='tooltipDibujo']");
-    var imgRevDib = 'https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/varios/revDibujo.png';
+    var imgRevDib = 'https://grammermx.com/Metrologia/MetroTickets/imgs/varios/revDibujo.png';
     tooltipsDibujo.forEach(function(tooltip) {
         mostrarImagenTooltip(tooltip, imgRevDib,250,120);
     });
@@ -301,7 +301,7 @@ function agregarPersonal() {
  * *********************FUNCIONES PARA CARGAR DATOS A LOS INPUTS**************************
  * ***************************************************************************************/
 function llenarTipoPrueba() {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPrueba.php', function (data) {
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoTipoPrueba.php', function (data) {
         var selectS = id("tipoPrueba");
         selectS.innerHTML = ""; //limpiar contenido
 
@@ -320,7 +320,7 @@ function llenarTipoPrueba() {
 }
 
 function llenarSubtipoPrueba() {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSubtipoPrueba.php?id_tipoPrueba=' + id("tipoPrueba").value, function (data) {
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoSubtipoPrueba.php?id_tipoPrueba=' + id("tipoPrueba").value, function (data) {
         var selectS = id("subtipoPrueba");
         selectS.innerHTML = ""; //limpiar contenido
 
@@ -341,7 +341,7 @@ function llenarSubtipoPrueba() {
 
 let dataClientes;
 function llenarCliente(i){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php', function (data){
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoCliente.php', function (data){
         var selectS = id("cliente" + i);
         selectS.innerHTML = ""; //limpiar contenido
 
@@ -362,7 +362,7 @@ function llenarCliente(i){
 
 
 function llenarPlataforma(i) {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + id("cliente" + i).value, function (data) {
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoPlataforma.php?id_cliente=' + id("cliente" + i).value, function (data) {
         var selectS = id("plataforma"+ i);
         selectS.innerHTML = ""; //limpiar contenido
 
@@ -554,7 +554,7 @@ function obtenerNuevoId() {
 }
 function idPrueba() {
     return new Promise(function(resolve, reject) {
-        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoIdSolicitud.php', function(data) {
+        $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoIdSolicitud.php', function(data) {
             var fecha = new Date();
             var anio = fecha.getFullYear();
             var nuevoId;
@@ -589,7 +589,7 @@ function validarSesion() {
 
 function obtenerSesion() {
     return new Promise(function(resolve, reject) {
-        $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSesionIniciada.php', function(data) {
+        $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoSesionIniciada.php', function(data) {
             let sesionIniciada = data.sesionIniciada;
             resolve(sesionIniciada); // Resolver la promesa con el nuevo ID
         });
@@ -776,7 +776,7 @@ function enviarCorreoNuevaSolicitud(id_prueba, solicitante, emailUsuario){
     data.append('solicitante',solicitante);
     data.append('emailUsuario',emailUsuario);
 
-    fetch('https://arketipo.mx/MailerSolicitudPruebaS.php',{
+    fetch('https://grammermx.com/Metrologia/MetroTickets/Mailer/MailerSolicitudPruebaS.php',{
         method: 'POST',
         body: data
     })
@@ -802,7 +802,7 @@ function enviarCorreoNuevaSolicitudLab(id_prueba, solicitante){
     data.append('id_prueba',id_prueba);
     data.append('solicitante',solicitante);
 
-    fetch('https://arketipo.mx/MailerSolicitudPruebaLab.php',{
+    fetch('https://grammermx.com/Metrologia/MetroTickets/Mailer/MailerSolicitudPruebaLab.php',{
         method: 'POST',
         body: data
     })
@@ -830,7 +830,7 @@ function enviarCorreoNuevaSolicitudLab(id_prueba, solicitante){
 
 function resumenSolicitud(id_prueba) {
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSolicitudPrueba.php?id_prueba=' + id_prueba, function (response) {
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoSolicitudPrueba.php?id_prueba=' + id_prueba, function (response) {
         var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
         let TP = data.id_tipoPrueba;
 
@@ -910,7 +910,7 @@ function mostrarOpciones(TP,archivo){
 /* *******************************************************************************/
 function resumenMunsell(id_prueba) {
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSolMunsellPrueba.php?id_prueba=' + id_prueba, function (response) {
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoSolMunsellPrueba.php?id_prueba=' + id_prueba, function (response) {
         var data = response.data[0]; // Aquí ya estás accediendo al primer objeto dentro de 'data'
         let TP = data.id_tipoPrueba;
 
@@ -958,7 +958,7 @@ function resumenMunsell(id_prueba) {
  * ************************FUNCIONES PARA ACTUALIZAR UNA SOLICITUD************************
  * ***************************************************************************************/
 function cualEsTipoPrueba(id_prueba){
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoTipoPruebaConID.php?id_prueba=' + id_prueba,  function (response) {
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoTipoPruebaConID.php?id_prueba=' + id_prueba,  function (response) {
         let tipoPrueba = response.data[0].id_tipoPrueba;
         if (tipoPrueba === '5') { // Munsell
             cargarDatosPruebaMunsell(id_prueba);
@@ -978,7 +978,7 @@ function cargarDatosPrueba(id_update){
 
     var idCliente, idPlataforma;
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoCargarDatosPruebaSol.php?id_prueba=' + id_update,  function (response) {
         let data = response.data[0];
 
         let idTipoPrueba = data.id_tipoPrueba;
@@ -1034,7 +1034,7 @@ function cargarDatosPruebaMunsell(id_prueba){
     let divSelectTipoPrueba = id("selectTipoPrueba");
     divSelectTipoPrueba.style.display = "block";
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSolMunsellPrueba.php?id_prueba=' + id_update,  function (response) {
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoSolMunsellPrueba.php?id_prueba=' + id_update,  function (response) {
         let data = response.data[0];
 
         let idTipoPrueba = data.id_tipoPrueba;
@@ -1066,7 +1066,7 @@ function cargarDatosPruebaMunsell(id_prueba){
 }
 
 function llenarSubtipoUpdate(tipoPrueba, subtipo) {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoSubtipoPrueba.php?id_tipoPrueba=' + tipoPrueba, function (data) {
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoSubtipoPrueba.php?id_tipoPrueba=' + tipoPrueba, function (data) {
         var selectS = id("subtipoPrueba");
         selectS.innerHTML = ""; //limpiar contenido
 
@@ -1089,7 +1089,7 @@ function llenarSubtipoUpdate(tipoPrueba, subtipo) {
 
 function llenarClientesUpdate(i, idCliente) {
 
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoCliente.php')
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoCliente.php')
         .then(function(data) {
             var selectS = id("cliente" + i);
             selectS.innerHTML = ""; //limpiar contenido
@@ -1116,7 +1116,7 @@ function llenarClientesUpdate(i, idCliente) {
 
 
 function llenarPlataformaUpdate(i, idCliente, idPlataforma) {
-    $.getJSON('https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/dao/daoPlataforma.php?id_cliente=' + idCliente)
+    $.getJSON('https://grammermx.com/Metrologia/MetroTickets/dao/daoPlataforma.php?id_cliente=' + idCliente)
         .then(function(data) {
             var selectS = id("plataforma"+ i);
             selectS.innerHTML = ""; //limpiar contenido
