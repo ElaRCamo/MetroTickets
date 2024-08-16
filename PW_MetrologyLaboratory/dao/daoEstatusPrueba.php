@@ -10,7 +10,7 @@ function ContadorEstatus(){
 
     $datos = mysqli_query($conex, "SELECT id_estatusPrueba,descripcionEstatus 
                                            FROM EstatusPrueba 
-                                          WHERE id_estatusPrueba <> 6 AND WHERE id_estatusPrueba <> 9
+                                          WHERE id_estatusPrueba <> 6 OR id_estatusPrueba <> 9
                                           ORDER BY id_estatusPrueba;");
 
     $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
