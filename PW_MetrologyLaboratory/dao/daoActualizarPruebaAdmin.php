@@ -260,26 +260,26 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
                     $estatusPieza = 5;
                 }
                 $updateQuery = $conexUpdate->prepare("UPDATE Piezas
-                                                     SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
-                                                   WHERE id_prueba = ? AND numParte = ?");
+                                                         SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
+                                                       WHERE id_prueba = ? AND numParte = ?");
                 $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
                 $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
 
                 echo ("query 1");
             } else {
                 //Ya tiene un estatus de completado o finalizado y no se adjunta nuevo reporte
-                if (($existingPieza['id_estatus'] !== 5 && $existingPieza['id_estatus'] !== 2) && $existingPieza['reporte'] === "Sin resultados" ) {
-                    // Si el estatus es 5
+                if (($existingPieza['id_estatus'] === 5 || $existingPieza['id_estatus'] === 2) && $existingPieza['reporte'] !== "Sin resultados" ) {
+                    // Se queda el mismo reporte
                     $updateQuery = $conexUpdate->prepare("UPDATE Piezas
-                                                     SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
-                                                   WHERE id_prueba = ? AND numParte = ?");
+                                                             SET id_estatus = ?
+                                                           WHERE id_prueba = ? AND numParte = ?");
                     $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
                     $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
                     echo ("query 2");
                 }elseif(($pieza['estatusPieza'] !== 5 && $pieza['estatusPieza'] !== 2) && ($existingPieza['id_estatus'] === 5 || $existingPieza['id_estatus'] === 2)){
                     $updateQuery = $conexUpdate->prepare("UPDATE Piezas
-                                                     SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
-                                                   WHERE id_prueba = ? AND numParte = ?");
+                                                             SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
+                                                           WHERE id_prueba = ? AND numParte = ?");
                     $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
                     $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
                     echo ("query 3");
