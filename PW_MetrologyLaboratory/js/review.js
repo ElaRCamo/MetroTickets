@@ -398,6 +398,7 @@ function llenarEstatusPrueba(estatus){
             }
         }
     });
+    mostrarReportes();
 }
 
 function llenarFechaCompromiso(fechaCompromiso){
