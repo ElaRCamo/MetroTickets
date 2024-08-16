@@ -5,9 +5,9 @@ error_reporting(E_ALL);
 
 class LocalConector{
     private $host = "127.0.0.1:3306";
-    private $usuario = "u543707098_MARIELA";
-    private $clave = "Metrologia123";
-    private $db = "u543707098_PRODUCCION";
+    private $usuario = "u909553968_Ela";
+    private $clave = "LMGrammer2024#";
+    private $db = "u909553968_MetroTickects";
     private $conexion;
 
     public function conectar(){
@@ -19,4 +19,3 @@ class LocalConector{
         return $this->conexion;
     }
 }
-
