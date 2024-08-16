@@ -8,6 +8,6 @@ $conexion = mysqli_connect("127.0.0.1:3306","u909553968_Ela","LMGrammer2024#","u
 if($conexion){
     echo 'Conexión exitosa';
 }else{
-    echo 'Conexión fallida';
+    echo 'Conexión fallida :(';
 }
 ?>
