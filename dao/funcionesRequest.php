@@ -195,7 +195,7 @@ function manejarSubtipoPrueba($tipoPrueba, $id_prueba, $files, $post)
         if (isset($files['imagenCotas'], $post['subtipoPrueba']) && $post['subtipoPrueba'] == 2 && $files['imagenCotas']['error'] === UPLOAD_ERR_OK) {
             $subtipo = $post['subtipoPrueba'];
             // Directorio de destino para la carga de files
-            $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/cotas/";
+            $target_dir = "https://grammermx.com/Metrologia/MetroTickets/imgs/cotas/";
 
             // Nombre y ruta del archivo
             $fechaActual = date('Y-m-d_H-i-s');
@@ -242,7 +242,7 @@ function manejarNormaFile($tipoPrueba, $id_prueba, $files, $post)
         if (isset($post['norma'], $files['normaFile']) && $files['normaFile']['error'] == UPLOAD_ERR_OK) { // verifica si el archivo ha sido cargado correctamente
             $norma = $_POST['norma'];
             // guardar los files de la norma
-            $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/norms/";
+            $target_dir = "https://grammermx.com/Metrologia/MetroTickets/files/norms/";
             // Quitar espacios del nombre del archivo:
             $nombreArchivo = $files["normaFile"]["name"];
             $normaFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);

@@ -43,8 +43,8 @@ function emailNuevoUsuario($nombreUsuario,$nomina,$email)
                                 <tbody>
                                     <tr>
                                         <td id='logo' style='background-color:#005195; padding-top:3%; padding-bottom:3%; text-align:center;'>
-                                             <a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php'>
-                                             <img class='logoGrammer2-img' alt='LogoGrammer' src='https://arketipo.mx/logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a><br>
+                                             <a href='https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php'>
+                                             <img class='logoGrammer2-img' alt='LogoGrammer' src='https://grammermx.com/Metrologia/MetroTickets/imgs/logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a><br>
                                              <h4 style='padding-top:3%; display: block; color:#fff; font-weight: bold;'>¡Hola $nombreUsuario!</h4><br>
                                         </td>
                                     </tr>
@@ -62,7 +62,7 @@ function emailNuevoUsuario($nombreUsuario,$nomina,$email)
                                                     <tr  style='text-align:center;'>
                                                         <td class='content-block mensaje' style='text-align:center; padding:2%; color:#005195; margin-bottom: 2%; font-size: 1.2rem;'>
                                                             <h4 class='lead'> ¡Esperamos saber pronto de ti! Para iniciar sesión, da clic en el enlace: <br>
-                                                            <b><a  style='color:#CAC2B6;' class='btn btn-lg btn-primary' href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php'>Iniciar sesión </a></b></h4>
+                                                            <b><a  style='color:#CAC2B6;' class='btn btn-lg btn-primary' href='https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php'>Iniciar sesión </a></b></h4>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -81,7 +81,7 @@ function emailNuevoUsuario($nombreUsuario,$nomina,$email)
                                     <tbody>
                                         <tr>
                                             <td class='aligncenter content-block' style='box-sizing:border-box; font-size:12px; padding:0 0 20px; margin:0 auto;'>
-                                                <a href='https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/modules/sesion/indexSesion.php' style='text-decoration:none; color:#82AFD7; float:none; vertical-align:middle;'>© Grammer Querétaro.</a>
+                                                <a href='https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php' style='text-decoration:none; color:#82AFD7; float:none; vertical-align:middle;'>© Grammer Querétaro.</a>
                                             </td>
                                         </tr>
                                     </tbody>

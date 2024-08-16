@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // Manejar la imagen si se ha subido
         if (isset($_FILES['fotoPerfil']) && $_FILES['fotoPerfil']['error'] === UPLOAD_ERR_OK) {
             // Directorio de destino para la carga de files
-            $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/usuarios/";
+            $target_dir = "https://grammermx.com/Metrologia/MetroTickets/imgs/usuarios/";
 
             // Nombre y ruta del archivo
             $fechaActual = date('Y-m-d_H-i-s');
@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         else {
             // No se recibió ni un archivo ni un string válido
-           $img = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/usuarios/fotoPerfilDefault.png 	";
+           $img = "https://grammermx.com/Metrologia/MetroTickets/imgs/usuarios/fotoPerfilDefault.png 	";
         }
         $respuesta = actualizarUsuario($Nomina,$img);
     }else{

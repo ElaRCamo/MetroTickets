@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Manejar la imagen si se ha subido
     if (isset($_FILES['imgMaterialE']) && $_FILES['imgMaterialE']['error'] === UPLOAD_ERR_OK) {
         // Directorio de destino para la carga de files
-        $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
+        $target_dir = "https://grammermx.com/Metrologia/MetroTickets/imgs/materials/";
 
         // Nombre y ruta del archivo
         $fechaActual = date('Y-m-d_H-i-s');

@@ -77,7 +77,7 @@ function procesarReportes($id_prueba,$files, $postData) {
         foreach ($files['reportes']['name'] as $index => $name) {
             // Verifica si el archivo se cargó correctamente
             if ($files['reportes']['error'][$index] == UPLOAD_ERR_OK) {
-                $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/files/results/";
+                $target_dir = "https://grammermx.com/Metrologia/MetroTickets/files/results/";
                 $reporteProcesado = subirArchivo($target_dir, $id_prueba, $files['reportes'], $index);
 
                 // Guarda el nombre del archivo en el array con el índice correspondiente

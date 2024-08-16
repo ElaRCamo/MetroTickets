@@ -11,7 +11,7 @@ if(isset($_POST['descMaterialN'],$_POST['numParteN'],$_FILES['imgMaterialN'],$_P
         echo "Error: " . $_FILES["imgMaterialN"]["error"];
     } else {
         $fechaActual = date('Y-m-d_H-i-s');
-        $target_dir = "https://arketipo.mx/Produccion/ML/PW_MetrologyLaboratory/imgs/materials/";
+        $target_dir = "https://grammermx.com/Metrologia/MetroTickets/imgs/materials/";
         $archivo = $_FILES['imgMaterialN']['name'];
         $imgName = $fechaActual . '-' . $numParte . '-' . str_replace(' ', '-', $descMaterial);
         $img = $target_dir . $imgName;
