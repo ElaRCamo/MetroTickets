@@ -270,8 +270,8 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
 
                 echo "existente reporte: ".$existingPieza['reportePieza']."\n";
                 echo "existente estatus: ".$existingPieza['id_estatus']."\n";
-                echo "nuevo reporte: ".$existingPieza['reporte']."\n";
-                echo "nuevo estatus: ".$existingPieza['estatusPieza']."\n";
+                echo "nuevo reporte: ".$pieza['reporte']."\n";
+                echo "nuevo estatus: ".$pieza['estatusPieza']."\n";
 
 
                 //Ya tiene un estatus de completado/pendiente por recoger y no se adjunta nuevo reporte: Se queda el mismo reporte
