@@ -97,8 +97,8 @@ function emailSolicitud($id_prueba,$Solicitante )
     $mail = new PHPMailer(true);
 
     try {
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER; //Para que envie msjs de todo lo que esta pasando
-        //$mail->SMTPDebug =0;
+        //$mail->SMTPDebug = SMTP::DEBUG_SERVER; //Para que envie msjs de todo lo que esta pasando
+        $mail->SMTPDebug =0;
         $mail->isSMTP();
         $mail->Host = 'smtp.hostinger.com';
         $mail->Port = 465;
