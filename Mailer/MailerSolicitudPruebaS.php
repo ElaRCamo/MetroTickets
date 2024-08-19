@@ -19,8 +19,7 @@ emailSolicitud($id_prueba,$emailSolicitante,$Solicitante);
 function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
 {
 
-    $MENSAJE_SOLICITANTE = "
-<!DOCTYPE html>
+    $MENSAJE_SOLICITANTE = "<!DOCTYPE html>
 <html lang='en'>
 <head>
     <link rel='preconnect' href='https://fonts.googleapis.com'>
@@ -30,69 +29,70 @@ function emailSolicitud($id_prueba,$emailSolicitante,$Solicitante )
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Confirmación de solicitud</title>
-</head>
-<body>
-    <table class='body-wrap'>
-        <tbody>
-            <tr>
-                <td></td>
-                <td class='container'>
-                    <div class='content'>
-                        <table class='main'>
-                            <tbody>
-                                <tr>
-                                    <td id='logo'>
-                                        <a href='https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php'></a><br>
-                                        <h4>¡Hola $Solicitante!</h4><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class='title'>
-                                        <h2 class='h2'> 
-                                        Te informamos que tu solicitud con <br><strong>FOLIO: $id_prueba</strong><br> ha sido recibida.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class='content-wrap'>
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class='content-block mensaje'>
-                                                        <h4 class='lead'>Te enviaremos una notificación tan pronto como haya novedades. <br>Si deseas consultar los detalles completos de tu solicitud, visita:<br>
-                                                        <b><a class='btn btn-lg btn-primary' href='https://grammermx.com/Metrologia/MetroTickets/modules/review/index.php?id_prueba=$id_prueba'>Solicitud $id_prueba</a></b></h4>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class='content-block' id='attn'>
-                                                        <h4 class='lead'><b>Laboratorio de Metrología</b><br><b>Grammer Automotive Puebla S.A de C.V.</b></h4>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class='footer'>
-                            <table>
+    <style>body {font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;}</style>
+    </head>
+    <body style='margin-top:20px; text-align:center;'>
+        <table class='body-wrap' style='width:100%; background-color:#f6f6f6; margin:0; text-align:center;'>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td class='container' style='vertical-align:top; display:block; max-width:600px; clear:both; margin:0 auto; text-align:center;'>
+                        <div class='content' style='max-width:600px; display:block; margin:0 auto; padding:20px;'>
+                            <table class='main' style='border-radius:3px; background-color:#fff; margin:0; border:1px solid #e9e9e9;'>
                                 <tbody>
                                     <tr>
-                                        <td class='aligncenter content-block'>
-                                            <a href='https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php'>© Grammer Querétaro.</a>
+                                        <td id='logo' style='background-color:#005195; padding-top:3%; padding-bottom:3%; text-align:center;'>
+                                             <a href='https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php'>
+                                             <img class='logoGrammer2-img' alt='LogoGrammer' src='logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a><br>
+                                             <h4 style='padding-top:3%; display: block; color:#fff; font-weight: bold;'>¡Hola $Solicitante!</h4><br>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class='title' style='padding:5%; text-align:center; color:#005195;'>
+                                            <h2 class='h2'> 
+                                            Te informamos que tu solicitud con <br><strong>FOLIO: $id_prueba</strong><br> ha sido recibida.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class='content-wrap'>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class='content-block mensaje' style='text-align:center; padding:2%; color:#005195; margin-bottom: 2%; font-size: 1.2rem;'>
+                                                            <h4 class='lead'>Te enviaremos una notificación tan pronto como haya novedades. <br>Si deseas consultar los detalles completos de tu solicitud, visita:<br>
+                                                            <b><a  style='color:#CAC2B6;' class='btn btn-lg btn-primary' href='https://grammermx.com/Metrologia/MetroTickets/modules/review/index.php?id_prueba=$id_prueba'>Solicitud $id_prueba</a></b></h4>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class='content-block' id='attn' style='text-align:center; padding:2%; margin-bottom: 2%; color:#005195;'>
+                                                            <h4 class='lead'><b>Laboratorio de Metrología</b><br><b>Grammer Automotive Puebla S.A de C.V.</b></h4>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class='footer' style='width:100%; margin:0; padding:20px; color:#CAC2B6; display:flex; justify-content:center; align-items:center; height:50%;'>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class='aligncenter content-block' style='box-sizing:border-box; font-size:12px; padding:0 0 20px; margin:0 auto;'>
+                                                <a href='https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php' style='text-decoration:none; color:#82AFD7; float:none; vertical-align:middle;'>© Grammer Querétaro.</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                </td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-</body>
-</html>
-";
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+    </html>";
 
     $css=file_get_contents("Metrologia/MetroTickets/Mailer/style.css");
     $MENSAJE_SOLICITANTE = "<style>" . $css . "</style>" . $MENSAJE_SOLICITANTE;
