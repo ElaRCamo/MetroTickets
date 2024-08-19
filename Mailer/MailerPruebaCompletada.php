@@ -119,7 +119,7 @@ function emailUpdate($id_prueba,$emailSolicitante,$Solicitante )
         $mail->addBCC('tickets_metrologia@grammermx.com', 'LMGrammer');
         $mail->addBCC('extern.mariela.reyes@grammer.com', 'TI');
 
-        $mail->Subject = 'Actualización de solicitud.';
+        $mail->Subject = 'Prueba completada.';
         $mail->isHTML(true);
         $mail->Body = $contenido;
 
