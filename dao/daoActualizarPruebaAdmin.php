@@ -255,10 +255,10 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
         if (isset($existingPiezas[$numParte])) {
             $existingPieza = $existingPiezas[$numParte];
 
-            echo "\n"."existente reporte: ".$existingPieza['reporte']."\n";
-            echo "existente estatus: ".$existingPieza['id_estatus']."\n";
-            echo "nuevo reporte: ".$pieza['reportePieza']."\n";
-            echo "nuevo estatus: ".$pieza['estatusPieza']."\n";
+            //echo "\n"."existente reporte: ".$existingPieza['reporte']."\n";
+            //echo "existente estatus: ".$existingPieza['id_estatus']."\n";
+            //echo "nuevo reporte: ".$pieza['reportePieza']."\n";
+            //echo "nuevo estatus: ".$pieza['estatusPieza']."\n";
 
             if ($pieza['reportePieza'] !== "Sin resultados") { // Se carga un nuevo reporte (se actualiza si ya se tiene uno)
                 if ($estatusPieza !== 6 && $estatusPieza !== 5) {
