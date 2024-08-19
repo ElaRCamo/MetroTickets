@@ -265,16 +265,16 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
                 $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
                 $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
 
-                echo ("query 1");
+                //echo ("query 1");
             } else {
                 //Ya tiene un estatus de completado/pendiente por recoger y no se adjunta nuevo reporte: Se queda el mismo reporte
-                if (($existingPieza['id_estatus'] === 5 || $existingPieza['id_estatus'] === 2) && $existingPieza['reportePieza'] !== "Sin resultados" ) {
+                if (($pieza['estatusPieza'] === 5 || $pieza['estatusPieza'] === 2) && ($existingPieza['id_estatus'] === 5 || $existingPieza['id_estatus'] === 2) && $existingPieza['reportePieza'] !== "Sin resultados" ) {
                     $updateQuery = $conexUpdate->prepare("UPDATE Piezas
                                                              SET id_estatus = ?
                                                            WHERE id_prueba = ? AND numParte = ?");
                     $updateQuery->bind_param("iss", $estatusPieza, $id_prueba, $numParte);
                     $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
-                    echo ("query 2");
+                    //echo ("query 2");
                 }//se cambia un estatus diferente a 2/5 (se quiere borrar el reporte existente)
                 elseif(($pieza['estatusPieza'] !== 5 && $pieza['estatusPieza'] !== 2) && ($existingPieza['id_estatus'] === 5 || $existingPieza['id_estatus'] === 2)){
                     $updateQuery = $conexUpdate->prepare("UPDATE Piezas
@@ -282,11 +282,11 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
                                                            WHERE id_prueba = ? AND numParte = ?");
                     $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
                     $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
-                    echo ("query 3");
+                    //echo ("query 3");
                 }else{
                     //no se carga nuevo reporte pero en la BD ya se tiene un estatus y un estatus asignado
                     $rUpdateQuery = true;
-                    echo ("query 4");
+                    //echo ("query 4");
                 }
             }
         }
