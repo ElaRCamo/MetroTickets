@@ -255,6 +255,11 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
         if (isset($existingPiezas[$numParte])) {
             $existingPieza = $existingPiezas[$numParte];
 
+            echo "\n"."existente reporte: ".$existingPieza['reportePieza']."\n";
+            echo "existente estatus: ".$existingPieza['id_estatus']."\n";
+            echo "nuevo reporte: ".$pieza['reporte']."\n";
+            echo "nuevo estatus: ".$pieza['estatusPieza']."\n";
+
             if ($pieza['reporte'] !== "Sin resultados") { // Se carga un nuevo reporte (se actualiza si ya se tiene uno)
                 if ($estatusPieza !== 6 && $estatusPieza !== 5) {
                     $estatusPieza = 5;
@@ -264,16 +269,8 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
                                                        WHERE id_prueba = ? AND numParte = ?");
                 $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
                 $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
-
                 echo ("query 1");
             } else {
-
-                echo "\n"."existente reporte: ".$existingPieza['reportePieza']."\n";
-                echo "existente estatus: ".$existingPieza['id_estatus']."\n";
-                echo "nuevo reporte: ".$pieza['reporte']."\n";
-                echo "nuevo estatus: ".$pieza['estatusPieza']."\n";
-
-
                 //Ya tiene un estatus de completado/pendiente por recoger y no se adjunta nuevo reporte: Se queda el mismo reporte
                 if ($existingPieza['reportePieza'] !== "Sin resultados" && ($pieza['estatusPieza'] === 5 || $pieza['estatusPieza'] === 2)) {
                     $updateQuery = $conexUpdate->prepare("UPDATE Piezas
