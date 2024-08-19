@@ -14,7 +14,7 @@ let dao = '';
  * ****************************FUNCIONES PARA CARGAR DATOS *******************************
  * ***************************************************************************************/
 function consultaTipoPrueba(id_prueba){
-    $.getJSON(rutaBase + 'dao/daoConsultarTipoPrueba.php?id_prueba=' + id_prueba, function (response) {
+    $.getJSON(rutaBase + '/dao/daoConsultarTipoPrueba.php?id_prueba=' + id_prueba, function (response) {
         let tipoPrueba = response.data[0].id_tipoPrueba;
         if(tipoPrueba === '5'){
             dao = rutaBase + '/dao/daoResumenPruebaMunsell.php?id_prueba='+ id_prueba;
