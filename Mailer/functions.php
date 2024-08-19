@@ -106,8 +106,6 @@ function emailUpdate($id_prueba,$emailSolicitante,$Solicitante )
 
         //Solicitante
         $mail->addAddress($emailSolicitante, $Solicitante); //Quién recibirá correo
-        $mail->addBCC('tickets_metrologia@grammermx.com', 'LMGrammer');
-        $mail->addBCC('extern.mariela.reyes@grammer.com', 'TI');
 
         $mail->Subject = 'Prueba completada.';
         $mail->isHTML(true);
