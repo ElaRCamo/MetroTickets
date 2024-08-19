@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require 'Phpmailer/Exception.php';
-require 'Phpmailer/Mailer.php';
+require 'Phpmailer/PHPMailer.php';
 require 'Phpmailer/SMTP.php';
 
 include_once('Produccion/ML/PW_MetrologyLaboratory/dao/connection.php');
@@ -20,8 +20,8 @@ function emailUpdate($id_prueba,$emailSolicitante,$Solicitante )
 {
 
     $MENSAJE = "<!DOCTYPE html>
-<html lang='en'>
-<head>
+    <html lang='en'>
+    <head>
     <link rel='preconnect' href='https://fonts.googleapis.com'>
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
     <link href='https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap' rel='stylesheet'>
