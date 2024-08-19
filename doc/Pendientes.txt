@@ -238,3 +238,9 @@ contraseña BD hostinguer: LMGrammer2024#
 tickets_metrologia@grammermx.com
 
 
+Reunion 16/08/2024
+
+- poner grafico a los solicitantes
+- programar correo para cuando deben recoger sus piezas
+
+
