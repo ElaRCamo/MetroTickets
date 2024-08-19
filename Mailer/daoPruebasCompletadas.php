@@ -2,6 +2,7 @@
 include_once('../dao/connection.php');
 include_once('functions.php');
 
+pruebasCompletadas();
 function pruebasCompletadas() {
     $con = new LocalConector();
     $conex = $con->conectar();
