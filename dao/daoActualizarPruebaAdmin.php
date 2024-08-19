@@ -268,7 +268,7 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
                 echo ("query 1");
             } else {
 
-                echo "existente reporte: ".$existingPieza['reportePieza']."\n";
+                echo "\n"."existente reporte: ".$existingPieza['reportePieza']."\n";
                 echo "existente estatus: ".$existingPieza['id_estatus']."\n";
                 echo "nuevo reporte: ".$pieza['reporte']."\n";
                 echo "nuevo estatus: ".$pieza['estatusPieza']."\n";
