@@ -276,7 +276,7 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
                     $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
                     echo ("query 2");
                 }//se cambia un estatus diferente a 2/5 (se quiere borrar el reporte existente)
-                elseif(($pieza['estatusPieza'] !== 5 && $pieza['estatusPieza'] !== 2) && ($existingPieza['id_estatus'] === 5 || $existingPieza['id_estatus'] === 2)){
+                elseif($pieza['estatusPieza'] !== 5 && $pieza['estatusPieza'] !== 2){
                     $updateQuery = $conexUpdate->prepare("UPDATE Piezas
                                                              SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
                                                            WHERE id_prueba = ? AND numParte = ?");
