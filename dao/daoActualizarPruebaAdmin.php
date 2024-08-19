@@ -268,7 +268,7 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
                 echo ("query 1");
             } else {
                 //Ya tiene un estatus de completado/pendiente por recoger y no se adjunta nuevo reporte: Se queda el mismo reporte
-                if (($pieza['estatusPieza'] === 5 || $pieza['estatusPieza'] === 2) && ($existingPieza['id_estatus'] === 5 || $existingPieza['id_estatus'] === 2) && $existingPieza['reportePieza'] !== "Sin resultados" ) {
+                if (($pieza['estatusPieza'] === 5 || $pieza['estatusPieza'] === 2) && $existingPieza['reportePieza'] !== "Sin resultados" ) {
                     $updateQuery = $conexUpdate->prepare("UPDATE Piezas
                                                              SET id_estatus = ?
                                                            WHERE id_prueba = ? AND numParte = ?");
