@@ -229,7 +229,7 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
     while ($row = $result->fetch_assoc()) {
         $existingPiezas[$row['numParte']] = [
             'id_estatus' => $row['id_estatus'],
-            'reportePieza' => $row['reportePieza']
+            'reporte' => $row['reportePieza']
         ];
     }
 
@@ -242,7 +242,7 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
 
         $newPiezas[$numParte] = [
             'estatusPieza' => $estatusPieza,
-            'reporte' => $reporte,
+            'reportePieza' => $reporte,
         ];
     }
 
@@ -250,17 +250,17 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
 
     foreach ($newPiezas as $numParte => $pieza) {
         $estatusPieza = $pieza['estatusPieza'];
-        $reporte = $pieza['reporte'];
+        $reporte = $pieza['reportePieza'];
 
         if (isset($existingPiezas[$numParte])) {
             $existingPieza = $existingPiezas[$numParte];
 
-            echo "\n"."existente reporte: ".$existingPieza['reportePieza']."\n";
+            echo "\n"."existente reporte: ".$existingPieza['reporte']."\n";
             echo "existente estatus: ".$existingPieza['id_estatus']."\n";
-            echo "nuevo reporte: ".$pieza['reporte']."\n";
+            echo "nuevo reporte: ".$pieza['reportePieza']."\n";
             echo "nuevo estatus: ".$pieza['estatusPieza']."\n";
 
-            if ($pieza['reporte'] !== "Sin resultados") { // Se carga un nuevo reporte (se actualiza si ya se tiene uno)
+            if ($pieza['reportePieza'] !== "Sin resultados") { // Se carga un nuevo reporte (se actualiza si ya se tiene uno)
                 if ($estatusPieza !== 6 && $estatusPieza !== 5) {
                     $estatusPieza = 5;
                 }
@@ -270,26 +270,51 @@ function ActualizarPiezas($conexUpdate, $numsParte, $estatussPiezas, $reportes, 
                 $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
                 $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
                 echo ("query 1");
-            } else {
-                //Ya tiene un estatus de completado/pendiente por recoger y no se adjunta nuevo reporte: Se queda el mismo reporte
-                if ($existingPieza['reportePieza'] !== "Sin resultados" && ($pieza['estatusPieza'] === 5 || $pieza['estatusPieza'] === 2)) {
+            } else {//en las demas opciones no se adjunta reporte
+
+                //Opcion 1
+                //se pone estatus 2 o 5 pero no se adjunta reporte
+                //$pieza['estatusPieza'] debe ser 2 o 5
+                //$existingPieza['reporte'] debe ser igual a "Sin resultados" y $existingPieza['reporte'] debe ser diferente de "Sin resultados"
+                //el estatus se actualiza a 3
+                if (($pieza['estatusPieza'] == 2 || $pieza['estatusPieza'] == 5) &&
+                    $existingPieza['reporte'] === "Sin resultados") {
+
+                    $estatusPieza = 3; // Actualiza el estatus a 3
                     $updateQuery = $conexUpdate->prepare("UPDATE Piezas
                                                              SET id_estatus = ?
                                                            WHERE id_prueba = ? AND numParte = ?");
-                    $updateQuery->bind_param("iss", $estatusPieza, $id_prueba, $numParte);
+                    $updateQuery->bind_param("sss", $estatusPieza, $id_prueba, $numParte);
                     $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
                     echo ("query 2");
-                }//se cambia un estatus diferente a 2/5 (se quiere borrar el reporte existente)
-                elseif($pieza['estatusPieza'] !== 5 && $pieza['estatusPieza'] !== 2){
+
+                    //Opcion 2
+                    //Ya tiene un estatus de completado/pendiente por recoger y no se adjunta nuevo reporte: Se queda el mismo reporte
+                    //no se actualiza el reporte, solo el estatus
+                    // se debe cumplir que $existingPieza['id_estatus'] sea 2 o sea 5 y que $existingPieza['reporte'] sea diferente de "Sin resultados"
+                    // ademas el $pieza['estatusPieza'] debe ser 2 o debe ser 5
+                } elseif (($existingPieza['id_estatus'] == 2 || $existingPieza['id_estatus'] == 5) &&
+                    $existingPieza['reporte'] !== "Sin resultados" &&
+                    ($pieza['estatusPieza'] == 2 || $pieza['estatusPieza'] == 5)) {
+
                     $updateQuery = $conexUpdate->prepare("UPDATE Piezas
-                                                             SET id_estatus = ?, reportePieza = ?, fechaReporte = ?
+                                                             SET id_estatus = ?
                                                            WHERE id_prueba = ? AND numParte = ?");
-                    $updateQuery->bind_param("issss", $estatusPieza, $reporte, $fecha, $id_prueba, $numParte);
+                    $updateQuery->bind_param("sss", $estatusPieza, $id_prueba, $numParte);
                     $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
                     echo ("query 3");
-                }else{
-                    //no se carga nuevo reporte pero en la BD ya se tiene un estatus y un estatus asignado
-                    $rUpdateQuery = true;
+
+                    //Opcion 3
+                    //se cambia un estatus diferente a 2/5 (se quiere borrar el reporte existente)
+                    //se actualiza estatus, reporte y fecha
+                    //se debe cumplir que $pieza['estatusPieza'] NO debe ser 2 ni 5
+                } elseif ($pieza['estatusPieza'] != 2 && $pieza['estatusPieza'] != 5) {
+
+                    $updateQuery = $conexUpdate->prepare("UPDATE Piezas
+                                                             SET id_estatus = ?, reportePieza = 'Sin resultados', fechaReporte = ?
+                                                           WHERE id_prueba = ? AND numParte = ?");
+                    $updateQuery->bind_param("ssss", $estatusPieza, $fecha, $id_prueba, $numParte);
+                    $rUpdateQuery = $rUpdateQuery && $updateQuery->execute();
                     echo ("query 4");
                 }
             }
