@@ -37,7 +37,7 @@ function emailRecuperarPassword($destinatario, $asunto, $mensaje)
                                     <tr>
                                         <td id='logo' style='background-color:#005195; padding-top:3%; padding-bottom:3%; text-align:center;'>
                                              <a href='https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php'>
-                                             <img class='logoGrammer2-img' alt='LogoGrammer' src='https://grammermx.com/logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a><br>
+                                             <img class='logoGrammer2-img' alt='LogoGrammer' src='https://grammermx.com/Metrologia/MetroTickets/imgs/logoWhite.png' style='height:100px; width:100px; display:block; margin:auto;'></a><br>
                                              <h4 style='padding-top:3%; display: block; color:#fff; font-weight: bold;'>¡Hola!</h4><br>
                                         </td>
                                     </tr>
