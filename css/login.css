@@ -293,16 +293,16 @@ body{
 
 @media (max-width: 1366px) {
     .wrapper {
-        width: 300px;
+        width: 3800px;
         padding: 6% 8% 4%;
     }
 
     .wrapper h2 {
-        font-size: 1.8em;
+        font-size: 1.5em;
     }
 
     .text-box h1 {
-        font-size: 3.2em;
+        font-size: 3em;
     }
 
     #logoInicio, #logoInicio2, #logoInicio3, #logoInicio4 {
@@ -322,16 +322,16 @@ body{
     }
 
     .wrapper .input-box {
-        margin: 25px 0;
-        height: 45px;
+        margin: 20px 0;
+        height: 40px;
     }
 
     .wrapper .remember-forgot {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .wrapper .btn {
-        height: 40px;
+        height:35px;
         font-size: 15px;
     }
 
@@ -340,6 +340,6 @@ body{
     }
 
     #actualizarPassword {
-        margin-bottom: 1.2rem;
+        margin-bottom: 1rem;
     }
 }
