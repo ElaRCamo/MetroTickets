@@ -5,7 +5,7 @@
                 <img id="logoInicio" src="../../imgs/Grammer_Logo.ico" alt="Logo Grammer">
             </div>
             <div class="LAB">
-                <p class="">LABORATORIO DE METROLOGÍA</p>
+                <h6 class="">LABORATORIO DE METROLOGÍA</h6>
             </div>
             <div class="text-box">
                 <h1 class="">METROTICKETS</h1>
