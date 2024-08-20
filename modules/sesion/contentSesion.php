@@ -5,10 +5,10 @@
                 <img id="logoInicio" src="../../imgs/Grammer_Logo.ico" alt="Logo Grammer">
             </div>
             <div class="LAB">
-                <h1 class="">LABORATORIO DE</h1>
+                <p class="">LABORATORIO DE METROLOGÍA</p>
             </div>
             <div class="text-box">
-                <h1 class="">METROLOGÍA</h1>
+                <h1 class="">METROTICKETS</h1>
             </div>
         </div>
         <div class="wrapper">
