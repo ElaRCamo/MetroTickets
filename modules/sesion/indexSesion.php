@@ -28,8 +28,6 @@
 
         # Content section
             require_once('contentSesion.php');
-        # Content section
-            //require_once('../../footer.php')
 
     ?>
 
