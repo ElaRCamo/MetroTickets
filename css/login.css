@@ -345,5 +345,6 @@ body{
     }
     .wrapper .register-link{
         margin: 10px 0 0;
+        font-size: 0.8rem;
     }
 }
