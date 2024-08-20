@@ -124,7 +124,7 @@ body{
 .wrapper .register-link{
     color: var(--color_white);
     text-decoration: none;
-    margin:0px 0 15px;
+    margin:10px 0 0;
 }
 
 .register-link p a{
