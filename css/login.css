@@ -39,13 +39,13 @@ body{
     width: 100%;
 }
 
-p{
+#formInicioSesion p{
     margin-bottom: 0;
 }
 
 /*contenedor del form*/
 .wrapper{
-    width: 420px;
+    width: 470px;
     background: transparent;
     color:var(--color_white);
     border-radius: 3%;
