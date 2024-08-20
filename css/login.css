@@ -367,4 +367,7 @@ body{
     .wrapper .input-box {
         margin: 10px 0;
     }
+    p{
+        margin-bottom: 0;
+    }
 }
