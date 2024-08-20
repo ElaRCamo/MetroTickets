@@ -310,7 +310,7 @@ body{
     #logoInicio, #logoInicio2, #logoInicio3, #logoInicio4 {
         width: 5rem;
         height: 5rem;
-        margin-bottom: 1.5em;
+        margin-bottom: 1em;
     }
 
     #logoInicio3 {
