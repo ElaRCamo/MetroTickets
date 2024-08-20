@@ -292,6 +292,7 @@ body{
 }
 
 @media (max-width: 1366px) {
+
     .wrapper {
         width: 380px;
         padding: 3% 6% 3%;
@@ -343,8 +344,35 @@ body{
     #actualizarPassword {
         margin-bottom: 0.8rem;
     }
+
     .wrapper .register-link{
-        margin: 0;
+        margin: 5px 0 0;
         font-size: 0.8rem;
+    }
+
+
+
+
+    .wrapper input{
+        font-size: 0.9rem;
+    }
+
+    .text-box h1{
+        font-size: 2.8em;
+    }
+    #divTitle3 h1{
+        font-size: 2em;
+    }
+    .wrapper .remember-forgot{
+        font-size: 0.7rem;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-top: 1px;
+    }
+    .wrapper .input-box {
+        margin: 25px 0;
+    }
+    #divFormRecuperar{
+        width: 300px;
     }
 }
