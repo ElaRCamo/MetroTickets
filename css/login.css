@@ -350,9 +350,6 @@ body{
         font-size: 0.8rem;
     }
 
-
-
-
     .wrapper input{
         font-size: 0.9rem;
     }
@@ -369,7 +366,7 @@ body{
         margin-top: 1px;
     }
     .wrapper .input-box {
-        margin: 5px 0;
+        margin: 10px 0;
     }
     #divFormRecuperar{
         width: 300px;
