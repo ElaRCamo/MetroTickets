@@ -97,17 +97,16 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 ✓   44. El reporte no enlaza al pdf (06/06/2024)
 ✗   45. Ajustar el reporte de acuerdo a necesidades
 ✓   46. Pasar a dataTables el panel de administrador(31/05/2024)
-✗   47. Que no te puedas registrar con el mismo correo
-    48. No se esta guardando archivo de la norma
-    49. Que al consultar la solicitud en pdf, se habra en otra pantalla
-    50. color en estatus piezas
+✓   47. Que no te puedas registrar con el mismo correo
+✓   48. No se esta guardando archivo de la norma
+✓   49. Que al consultar la solicitud en pdf, se habra en otra pantalla
+✓   50. color en estatus piezas
+    51. apartado Recuerdame de inicio de sesion
+    52. Validar el estatus del usuario
 
-
-   
-
-✗   98. Al cargar la base de datos cargar el usuario "Sin Asignar" con id_usuario="00000000" por default
+✓   98. Al cargar la base de datos cargar el usuario "Sin Asignar" con id_usuario="00000000" por default
 ✓   99.El boton de la regla en solicitudes tiene asignada id function
-✗   100. Asignar valores por default en la BD
+✓   100. Asignar valores por default en la BD
 
 Reunion 02/04/2024 
 ✓  1. Prueba dureza insitu > agregar norma
@@ -242,5 +241,6 @@ Reunion 16/08/2024
 
 - poner grafico a los solicitantes
 - programar correo para cuando deben recoger sus piezas
+✓ ajuste diseño inicio de sesión
 
 
