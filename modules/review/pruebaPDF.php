@@ -348,7 +348,20 @@ $conex->close();
                                 <td><?php echo $resultado['modMatematico'];?></td>
                                 <td><?php echo $resultado['estatusMaterial'];?></td>
                                 <td><?php echo $resultado['fechaReporte'];?></td>
-                                <td><?php echo $resultado['reportePieza'];?></td>
+                                <td>
+                                    <?php
+                                    $urlCompleta = $resultados[0]['reportePieza'];
+                                    if($urlCompleta != 'Sin resultados'){
+                                        $nombreArchivo = substr($urlCompleta, strrpos($urlCompleta, '/') + 1);
+                                        $numeroReferencia = explode('-', $nombreArchivo)[1];
+                                        $nombreArchivoSinPDF = substr($nombreArchivo, 0, strrpos($nombreArchivo, '.')); // Eliminar la extensión .pdf
+                                        $nombreArchivoMostrado = substr($nombreArchivoSinPDF, strlen($numeroReferencia) + 1);
+                                        echo '<a href="' . $urlCompleta . '">' . $nombreArchivoMostrado . '</a>';
+                                    } else {
+                                        echo $urlCompleta;
+                                    }
+                                    ?>
+                                </td>
                             </tr>
                         <?php }?>
                         </tbody>
