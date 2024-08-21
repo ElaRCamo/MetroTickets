@@ -92,9 +92,14 @@ table tbody tr {
     text-align: center;
     background-color: #005195;
 }
-#materialesResumenPDF thead th{
+#materialesResumenPDF thead th {
     font-size: 0.9rem;
+    vertical-align: middle;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
 }
+
 #materialesResumenPDF tbody td{
     font-size: 0.7rem;
 }
