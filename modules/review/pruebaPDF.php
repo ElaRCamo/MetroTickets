@@ -67,7 +67,9 @@ $queryDatosMunsell = "SELECT   prueba.id_prueba,
                                 prueba.nombreSolic,
                                 pm.nomina,
                                 pm.nombre,
-                                pm.area
+                                pm.area,
+                                pm.reportePersonal,
+                                pm.fechaReporte
                             FROM   
                                 PersonalMunsell pm
                                 JOIN (
@@ -122,6 +124,8 @@ $queryDatosPrueba = "SELECT   prueba.id_prueba,
                                 prueba.nombreSolic,
                                 m.numParte, 
                                 m.cantidad, 
+                                m.reportePieza,
+                                m.fechaReporte,
                                 c.descripcionCliente, 
                                 p.descripcionPlataforma,
                                 m.revisionDibujo,
@@ -292,6 +296,8 @@ $conex->close();
                             <td><?php echo $resultado['nomina'];?> </td>
                             <td><?php echo $resultado['nombre'];?></td>
                             <td><?php echo $resultado['area'];?></td>
+                            <td><?php echo $resultado['reportePersonal'];?></td>
+                            <td><?php echo $resultado['fechaReporte'];?></td>
                         </tr>
                         <?php }?>
                     </tbody>
@@ -324,6 +330,8 @@ $conex->close();
                                 <td><?php echo $resultado['revisionDibujo'];?></td>
                                 <td><?php echo $resultado['modMatematico'];?></td>
                                 <td><?php echo $resultado['estatusMaterial'];?></td>
+                                <td><?php echo $resultado['fechaReporte'];?></td>
+                                <td><?php echo $resultado['reportePieza'];?></td>
                             </tr>
                         <?php }?>
                         </tbody>
@@ -345,12 +353,6 @@ $conex->close();
                                 <td id="" ><?php echo $resultados[0]['descripcionEstatus'];?></td>
                                 <th class="">Prioridad:</th>
                                 <td id=""> <?php echo $resultados[0]['descripcionPrioridad'];?></td>
-                            </tr>
-                            <tr>
-                                <th class="">Resultados:</th>
-                                <td id="" ><?php echo $resultados[0]['resultados'];?></td>
-                                <th class="">Fecha de Respuesta:</th>
-                                <td id=""><?php echo $resultados[0]['fechaRespuesta'];?></td>
                             </tr>
                             <tr>
                                 <th class="">Observaciones:</th>
