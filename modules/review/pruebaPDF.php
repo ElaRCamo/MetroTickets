@@ -299,7 +299,20 @@ $conex->close();
                             <td><?php echo $resultado['nombre'];?></td>
                             <td><?php echo $resultado['area'];?></td>
                             <td><?php echo $resultado['fechaReporte'];?></td>
-                            <td><?php echo $resultado['reportePersonal'];?></td>
+                            <td>
+                                <?php
+                                $urlCompleta = $resultados[0]['reportePersonal'];
+                                if($urlCompleta != 'Sin resultados'){
+                                    $nombreArchivo = substr($urlCompleta, strrpos($urlCompleta, '/') + 1);
+                                    $numeroReferencia = explode('-', $nombreArchivo)[1];
+                                    $nombreArchivoSinPDF = substr($nombreArchivo, 0, strrpos($nombreArchivo, '.')); // Eliminar la extensión .pdf
+                                    $nombreArchivoMostrado = substr($nombreArchivoSinPDF, strlen($numeroReferencia) + 1);
+                                    echo '<a href="' . $urlCompleta . '">' . $nombreArchivoMostrado . '</a>';
+                                } else {
+                                    echo $urlCompleta;
+                                }
+                                ?>
+                            </td>
                         </tr>
                         <?php }?>
                     </tbody>
