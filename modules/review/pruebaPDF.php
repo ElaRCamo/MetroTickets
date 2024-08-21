@@ -288,6 +288,8 @@ $conex->close();
                         <th>No. Nómina</th>
                         <th>Nombre</th>
                         <th>Área</th>
+                        <th>Fecha reporte</th>
+                        <th>Reporte</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -296,8 +298,8 @@ $conex->close();
                             <td><?php echo $resultado['nomina'];?> </td>
                             <td><?php echo $resultado['nombre'];?></td>
                             <td><?php echo $resultado['area'];?></td>
-                            <td><?php echo $resultado['reportePersonal'];?></td>
                             <td><?php echo $resultado['fechaReporte'];?></td>
+                            <td><?php echo $resultado['reportePersonal'];?></td>
                         </tr>
                         <?php }?>
                     </tbody>
@@ -318,6 +320,8 @@ $conex->close();
                             <th>Revisión de Dibujo</th>
                             <th>Modelo Matemático</th>
                             <th>Estatus</th>
+                            <th>Fecha reporte</th>
+                            <th>Reporte</th>
                         </tr>
                         </thead>
                         <tbody>
