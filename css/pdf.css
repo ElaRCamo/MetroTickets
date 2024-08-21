@@ -96,6 +96,8 @@ table tbody tr {
     font-size: 0.7rem;
     vertical-align: middle;
     text-align: center;
+    padding-left: 1px;
+    padding-right: 1px;
 }
 
 #materialesResumenPDF tbody td{
