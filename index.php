@@ -53,6 +53,8 @@
                 pruebasPendientes();
                 tiempoRespuesta();
                 cumplimientoFechaResp();
+            <?php } else if($tipoUser == 2){?>
+
             <?php }?>
         };
 
