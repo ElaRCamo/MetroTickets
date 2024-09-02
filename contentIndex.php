@@ -159,7 +159,7 @@
     function graficaPruebasGnal(Ene,Feb, Mar, Abril, May,Jun, Jul, Ago, Sep,Oct, Nov, Dic) {
         var options = {
             series: [{
-                name: 'Pruebas realizadas',
+                name: 'Actividades en proceso',
                 data: [Ene, Feb, Mar, Abril, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
             }],
             chart: {
@@ -194,7 +194,7 @@
             },
             yaxis: {
                 title: {
-                    text: 'Pruebas realizadas',
+                    text: 'Actividades en proceso',
                     style: {
                         color: '#005195'
                     }
@@ -211,7 +211,7 @@
                 }
             },
             title: {
-                text: 'Pruebas realizadas por mes, '+anioActual,
+                text: 'Actividades en proceso, ' + anioActual,
                 floating: true,
                 offsetY: 0,
                 align: 'center',
