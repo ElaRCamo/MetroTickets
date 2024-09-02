@@ -2,9 +2,11 @@
 
 include_once('connection.php');
 
-ContadorPruebas();
+ContadorPruebasGnal();
 
-function ContadorPruebas()
+//Esta funcion genera el numero de pruebas por mes que estan en alguna etapa del proceso(pendiente de aprobacion(1),
+// aprobado-en fila(2), en proceso(3), rechazado(5)
+function ContadorPruebasGnal()
 {
     $con = new LocalConector();
     $conex = $con->conectar();
@@ -13,18 +15,17 @@ function ContadorPruebas()
 
     $datos = mysqli_query($conex, "SELECT 
                                                 COUNT(`id_prueba`) AS Pruebas, 
-                                                MONTH(`FechaRespuesta`) AS Mes 
+                                                MONTH(`FechaSolicitud`) AS Mes 
                                             FROM 
                                                 `Pruebas`
                                             WHERE 
-                                                YEAR(`FechaRespuesta`) = $anio_actual
-                                                AND id_estatusPrueba NOT IN (4, 6, 9)
+                                                YEAR(`FechaSolicitud`) = $anio_actual
+                                                AND id_estatusPrueba IN (1, 2, 3, 5)
                                             GROUP BY 
-                                                MONTH(`FechaRespuesta`);");
+                                                MONTH(`FechaSolicitud`);");
 
     $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
 }
-
 
 ?>
