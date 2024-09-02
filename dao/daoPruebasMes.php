@@ -9,7 +9,7 @@ function PruebasMesActual($fecha_busqueda){
     $con = new LocalConector();
     $conex = $con->conectar();
     $tipoUser = $_SESSION['tipoUsuario'];
-    $metrologo = $_SESSION['id_usuario'];
+    $metrologo = $_SESSION['idUser'];
 
     if($tipoUser == 1){
         $datos = mysqli_query($conex, "SELECT COUNT(*)
