@@ -1,9 +1,9 @@
 <?php
 
+
 require 'daoUsuario.php';
 
-if(isset($_POST['iniciarSesionBtn'])){
-
+if (isset($_POST['iniciarSesionBtn'])) {
     session_start();
     $Nomina = $_POST['numNomina'];
 
@@ -13,7 +13,7 @@ if(isset($_POST['iniciarSesionBtn'])){
 
     $resultado = Usuario($Nomina);
 
-    if($resultado['success']){
+    if ($resultado['success']) {
         $_SESSION['numNomina'] = $Nomina;
         $_SESSION['password'] = $_POST['password'];
         $_SESSION['nombreUsuario'] = $resultado['nombreUsuario'];
@@ -29,60 +29,65 @@ if(isset($_POST['iniciarSesionBtn'])){
 
         $passwordS = sha1($_POST['password']);
 
-        if($password_bd == $passwordS){
-            if($estatusUsuario == 1){
-                header("Location: ../index.php");
-            }else{
-                echo "<script>
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Credenciales desactivadas',
-                        text: 'Sus credenciales están desactivadas, debe contactar al administrador del laboratorio.',
-                    }).then(function() {
-                        window.location.href = 'https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php';
-                    });
-                </script>";
-            }
-        } else {
-            echo "<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>";
-            echo "<script>
-                    $(document).ready(function() {
+        // Output SweetAlert2 JavaScript
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+        echo "<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                if ('$password_bd' === '$passwordS') {
+                    if ('$estatusUsuario' == 1) {
+                        window.location.href = '../index.php';
+                    } else {
                         Swal.fire({
                             icon: 'error',
-                            title: 'Contraseña incorrecta',
-                            text: 'Contraseña incorrecta, verifique sus datos.',
+                            title: 'Credenciales desactivadas',
+                            text: 'Sus credenciales están desactivadas, debe contactar al administrador del laboratorio.',
                         }).then(function() {
                             window.location.href = 'https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php';
                         });
+                    }
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Contraseña incorrecta',
+                        text: 'Contraseña incorrecta, verifique sus datos.',
+                    }).then(function() {
+                        window.location.href = 'https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php';
                     });
-                </script>";
-
-        }
+                }
+            });
+        </script>";
     } else {
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
         echo "<script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Usuario no encontrado',
-                text: 'El usuario no existe.',
-            }).then(function() {
-                window.location.href = 'https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php';
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Usuario no encontrado',
+                    text: 'El usuario no existe.',
+                }).then(function() {
+                    window.location.href = 'https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php';
+                });
             });
         </script>";
     }
 }
 
-if(isset($_POST['cerrarSesion']) || (isset($_POST['cerrarS']))){
+if (isset($_POST['cerrarSesion']) || (isset($_POST['cerrarS']))) {
     session_start();
     session_destroy();
+    echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
     echo "<script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Sesión finalizada',
-            text: 'Sesión cerrada exitosamente.',
-        }).then(function() {
-            window.location.href = 'https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php';
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Sesión finalizada',
+                text: 'Sesión cerrada exitosamente.',
+            }).then(function() {
+                window.location.href = 'https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php';
+            });
         });
     </script>";
 }
+
 
 ?>
