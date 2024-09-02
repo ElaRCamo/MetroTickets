@@ -11,13 +11,16 @@ function ContadorPruebas()
 
     $anio_actual = date('Y');
 
-    $datos = mysqli_query($conex, "SELECT COUNT(`id_prueba`) AS Pruebas, MONTH(`FechaRespuesta`) as Mes 
-                                           FROM `Pruebas` 
-                                          WHERE YEAR(`FechaRespuesta`) = $anio_actual 
-                                            AND id_estatus <> 4
-                                            AND id_estatus <> 6
-                                            AND id_estatus <> 9
-                                          GROUP BY MONTH(`FechaRespuesta`);");
+    $datos = mysqli_query($conex, "SELECT 
+                                                COUNT(`id_prueba`) AS Pruebas, 
+                                                MONTH(`FechaRespuesta`) AS Mes 
+                                            FROM 
+                                                `Pruebas`
+                                            WHERE 
+                                                YEAR(`FechaRespuesta`) = $anio_actual
+                                                AND id_estatusPrueba NOT IN (4, 6, 9)
+                                            GROUP BY 
+                                                MONTH(`FechaRespuesta`);");
 
     $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));
