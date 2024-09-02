@@ -21,21 +21,20 @@ if(isset($_POST['iniciarSesionBtn'])){
         $_SESSION['nomina']= $resultado['idUser'];
         $_SESSION['emailUsuario']= $resultado['emailUsuario'];
         $_SESSION['fotoUsuario']= $resultado['foto'];
+        $_SESSION['estatus']= $resultado['estatus'];
 
         $password_bd = $resultado['password_bd'];
         $tipoUsuario = $_SESSION['tipoUsuario'];
+        $estatusUsuario = $_SESSION['estatus'];
 
         $passwordS = sha1($_POST['password']);
 
         if($password_bd == $passwordS){
-            if($tipoUsuario == 1){
+            if($estatusUsuario == 1){
                 header("Location: ../index.php");
-            }elseif ($tipoUsuario == 2){
-                header("Location: ../modules/requests/requestsIndex.php");
-            }elseif ($tipoUsuario == 3){
-                header("Location: ../modules/newRequest/newRequestIndex.php");
+            }else{
+                echo "<script>alert('Sus credenciales estan desactivadas, debe contactar al administrador del laborattorio.')</script>";
             }
-            echo "<script>alert('Acceso correcto')</script>";
         } else {
             echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://grammermx.com/Metrologia/MetroTickets\modules\sesion\indexSesion.php'>";
             echo "<script>alert('Contraseña incorrecta, verifique sus datos')</script>";

@@ -2,7 +2,7 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 
 ✓ 1. ¿Has olvidado la contraseña?(06/06/2024)
 ✓ 2. En registro, validar si el usuario ya existe (01/04/2024)
-✗ 	2.1 Si el usuario ya existe, no se registra y reedirecciona a registrarse nuevamente pero no envia aviso.
+✓ 	2.1 Si el usuario ya existe, no se registra y reedirecciona a registrarse nuevamente pero no envia aviso.
 ✓ 3. Cerrar sesión correctamente (27/03/2024)
 ✓ 	3.1 Cuando cierra sesión, deja "enviar" formulario pero no llega a la BD (27/03/2024)
 ✗ 	3.2 Se permite el llenado del formulario pero al seleccionar "Enviar" redirecciona
@@ -80,8 +80,7 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 ✓   	33.3 Guardar la actualizacion en la bd(23/04/2024)
 ✓   		33.3.1 al actualizar una prueba, se actualizan todas(24/04/2024)
 ✓   	33.4 Mandar correo de notificación(24/04/2024)
-✗    	33.5 Actualizar estatus de material
-✗   34. Actualizar datos generales (solicitante)
+✓   34. Actualizar datos generales (solicitante)
 ✓   35. Fecha de respuesta y actualización que se asignen correctamente(06/05/2024)
 ✓   36. Limitar las opciones del menú segun el tipo de usuario(24/04/2024)
 ✓   37. Añadir al panel de administrador que el usuario pueda actualizar el tipo de usuario
@@ -90,9 +89,7 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 ✓   39. llenarTipoPruebaUpdate(1);//Solo funciona si el tipo de evaluacion es 1, se debe evaluar(9/05/2024)
 ✓   40. Se llena newRequest con los datos para actualizar una prueba (15/05/2024)
 ✓   41. Habilitar filtros en solicitudes(29/05/2024)
-✗   42. Actualizar solicitud pero validando los estatus de los materiales 
-	42.1 Cuando se elimina un material, el formulario no se envia
-	42.2 Que no permita guardar materiales iguales
+✓   42. Que no permita guardar num Parte iguales
 ✓   43. Para actualizar se valida el estatus de la solicitud (27/05/2024)
 ✓   44. El reporte no enlaza al pdf (06/06/2024)
 ✗   45. Ajustar el reporte de acuerdo a necesidades
@@ -239,8 +236,8 @@ tickets_metrologia@grammermx.com
 
 Reunion 16/08/2024
 
-- poner grafico a los solicitantes
-- programar correo para cuando deben recoger sus piezas
+✓ poner grafico a los solicitantes
+✓ programar correo para cuando deben recoger sus piezas
 ✓ ajuste diseño inicio de sesión
 
 
