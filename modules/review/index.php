@@ -95,18 +95,6 @@
         <?php } ?>
     }
 
-    /*document.getElementById('iFechaCompromiso').addEventListener('change', function() {
-        var input = this.value;
-        var dateEntered = new Date(input);
-        var day = ("0" + dateEntered.getDate()).slice(-2);
-        var monthNames = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
-        var month = monthNames[dateEntered.getMonth()];
-        var year = dateEntered.getFullYear();
-        var formattedDate = year  + '-' + month + '-' + day;
-
-        // Actualiza el valor del campo de entrada con la fecha formateada
-        this.value = formattedDate;
-    });*/
 </script>
 <script src="../../js/general.js"></script>
 <script src="../../js/review.js"></script>
