@@ -2,32 +2,44 @@
 
 include_once('connection.php');
 
-$anio = date('Y');
-$mes = date('n'); // Cambiado a 'n' para obtener el mes en formato numérico
+session_start();
+PruebasCumplidas();
 
-PruebasCumplidas($anio, $mes);
-
-function PruebasCumplidas($anio, $mes) {
+function PruebasCumplidas() {
     $con = new LocalConector();
     $conex = $con->conectar();
 
-    // Escapar los valores para prevenir inyecciones SQL
-    $anio = mysqli_real_escape_string($conex, $anio);
-    $mes = mysqli_real_escape_string($conex, $mes);
+    $tipoUser = $_SESSION['tipoUsuario'];
+    $usuario = $_SESSION['nomina'];
+    $anio = date('Y');
+    $mes = date('n');
 
-    $query = "
-        SELECT
-            MONTH(fechaCompromiso) AS mes,
-            YEAR(fechaCompromiso) AS anio,
-            SUM(CASE WHEN fechaRespuesta <= fechaCompromiso THEN 1 ELSE 0 END) AS pruebasCumplidas,
-            COUNT(*) AS totalPruebas,
-            ROUND((SUM(CASE WHEN fechaRespuesta <= fechaCompromiso THEN 1 ELSE 0 END) / COUNT(*)) * 100, 2) AS porcentajeCumplimiento
-        FROM Pruebas
-        WHERE YEAR(fechaCompromiso) = $anio
-          AND MONTH(fechaCompromiso) = $mes
-        GROUP BY mes, anio
-        ORDER BY anio, mes;
-    ";
+    if($tipoUser == 1){
+        $query = "SELECT
+                    MONTH(fechaCompromiso) AS mes,
+                    YEAR(fechaCompromiso) AS anio,
+                    SUM(CASE WHEN fechaRespuesta <= fechaCompromiso THEN 1 ELSE 0 END) AS pruebasCumplidas,
+                    COUNT(*) AS totalPruebas,
+                    ROUND((SUM(CASE WHEN fechaRespuesta <= fechaCompromiso THEN 1 ELSE 0 END) / COUNT(*)) * 100, 2) AS porcentajeCumplimiento
+                    FROM Pruebas
+                    WHERE YEAR(fechaCompromiso) = $anio
+                      AND MONTH(fechaCompromiso) = $mes
+                    GROUP BY mes, anio
+                    ORDER BY anio, mes;";
+    }else{
+        $query = "SELECT
+                    MONTH(fechaCompromiso) AS mes,
+                    YEAR(fechaCompromiso) AS anio,
+                    SUM(CASE WHEN fechaRespuesta <= fechaCompromiso THEN 1 ELSE 0 END) AS pruebasCumplidas,
+                    COUNT(*) AS totalPruebas,
+                    ROUND((SUM(CASE WHEN fechaRespuesta <= fechaCompromiso THEN 1 ELSE 0 END) / COUNT(*)) * 100, 2) AS porcentajeCumplimiento
+                    FROM Pruebas
+                    WHERE YEAR(fechaCompromiso) = $anio
+                      AND MONTH(fechaCompromiso) = $mes
+                      AND id_metrologo = '$usuario'
+                    GROUP BY mes, anio
+                    ORDER BY anio, mes;";
+    }
 
     $datos = mysqli_query($conex, $query);
 
@@ -41,4 +53,3 @@ function PruebasCumplidas($anio, $mes) {
 }
 
 ?>
-

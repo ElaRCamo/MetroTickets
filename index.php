@@ -48,13 +48,11 @@
 
     <script>
         window.onload = function() {
-            <?php global $tipoUser; if($tipoUser == 1){ ?>
+            <?php global $tipoUser; if($tipoUser == 1 || $tipoUser == 2){ ?>
                 pruebasRealizadasMesActual();
                 pruebasPendientes();
                 tiempoRespuesta();
                 cumplimientoFechaResp();
-            <?php } else if($tipoUser == 2){?>
-
             <?php }?>
         };
 
