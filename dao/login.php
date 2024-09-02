@@ -28,6 +28,8 @@ if(isset($_POST['iniciarSesionBtn'])){
 
         $passwordS = sha1($_POST['password']);
 
+        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+
         if($password_bd == $passwordS){
             if($estatusUsuario == 1){
                 header("Location: ../index.php");
