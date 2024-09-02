@@ -56,7 +56,6 @@
                         <span class="las la-tools"></span>
                     </div>
                 </div>
-
                 <div class="card" id="cardTiempoResp">
                     <div class="card-progress" >
                         <small>TIEMPO DE RESPUESTA</small>

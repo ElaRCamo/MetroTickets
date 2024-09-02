@@ -35,9 +35,6 @@
         $fotoUsuario = $_SESSION['fotoUsuario'];
         if ($tipoUser == null){
             header("Location: https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php");
-        }elseif($tipoUser == 2){
-            echo "<script>alert('Permisos Insuficientes')</script>";
-            echo "<META HTTP-EQUIV='REFRESH' CONTENT='1; URL=https://grammermx.com/Metrologia/MetroTickets/modules/requests/requestsIndex.php'>";
         }
     ?>
 </head>
