@@ -48,10 +48,12 @@
 
     <script>
         window.onload = function() {
-            pruebasRealizadasMesActual();
-            pruebasPendientes();
-            tiempoRespuesta();
-            cumplimientoFechaResp();
+            <?php global $tipoUser; if($tipoUser == 1){ ?>
+                pruebasRealizadasMesActual();
+                pruebasPendientes();
+                tiempoRespuesta();
+                cumplimientoFechaResp();
+            <?php }?>
         };
 
     </script>
