@@ -11,14 +11,12 @@
         </div>
         <div class="side-menu" id="menuLateral">
             <ul >
-                <?php global $tipoUser; if($tipoUser == 1){ ?>
                 <li>
                     <a href="https://grammermx.com/Metrologia/MetroTickets/index.php" class="optionMenu">
                         <span class="las la-home"></span>
                         <small>Inicio</small>
                     </a>
                 </li>
-                <?php }?>
 
                 <li>
                     <a href="https://grammermx.com/Metrologia/MetroTickets/modules\newRequest\newRequestIndex.php" class="optionMenu">

@@ -32,8 +32,12 @@
                 </div>
             </div>
         </div>
+
+
         <div class="page-content">
             <div class="analytics">
+
+                <?php global $tipoUser; if($tipoUser == 1 || $tipoUser == 2 ){ ?>
                 <div class="card " id="cardActRealizadas">
                     <div class="card-progress">
                         <small>ACTIVIDADES REALIZADAS ESTE MES</small>
@@ -73,6 +77,8 @@
 
                 </div>
             </div>
+            <?php }?>
+
             <div class="container">
                 <?php global $tipoUser; if($tipoUser == 1){ ?>
                 <div class="row" id="divGraficoTipo">
