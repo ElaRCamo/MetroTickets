@@ -1,4 +1,5 @@
 <?php
+
 require 'daoUsuario.php';
 
 if(isset($_POST['iniciarSesionBtn'])){
@@ -28,8 +29,6 @@ if(isset($_POST['iniciarSesionBtn'])){
 
         $passwordS = sha1($_POST['password']);
 
-        echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
-
         if($password_bd == $passwordS){
             if($estatusUsuario == 1){
                 header("Location: ../index.php");
@@ -45,15 +44,19 @@ if(isset($_POST['iniciarSesionBtn'])){
                 </script>";
             }
         } else {
+            echo "<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>";
             echo "<script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Contraseña incorrecta',
-                    text: 'Contraseña incorrecta, verifique sus datos.',
-                }).then(function() {
-                    window.location.href = 'https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php';
-                });
-            </script>";
+                    $(document).ready(function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Contraseña incorrecta',
+                            text: 'Contraseña incorrecta, verifique sus datos.',
+                        }).then(function() {
+                            window.location.href = 'https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php';
+                        });
+                    });
+                </script>";
+
         }
     } else {
         echo "<script>
