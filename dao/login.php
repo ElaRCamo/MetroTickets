@@ -63,7 +63,7 @@ if (isset($_POST['iniciarSesionBtn'])) {
                 Swal.fire({
                     icon: 'error',
                     title: 'Usuario no encontrado',
-                    text: 'Verifique el número de nómina oingresado.',
+                    text: 'Verifique el número de nómina ingresado.',
                 }).then(function() {
                     window.location.href = 'https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php';
                 });
