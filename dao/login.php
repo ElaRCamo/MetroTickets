@@ -34,7 +34,7 @@ if (isset($_POST['iniciarSesionBtn'])) {
         echo "<script>
             document.addEventListener('DOMContentLoaded', function() {
                 if ('$password_bd' === '$passwordS') {
-                    if ('$estatusUsuario' == 1) {
+                    if ('$estatusUsuario' === '1') {
                         window.location.href = '../index.php';
                     } else {
                         Swal.fire({
