@@ -73,27 +73,34 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
             let fechaCompromisoFormateada = formatearFecha(item.fechaCompromiso);
 
             content += `
-                <tr>
-                    <td onclick="reviewPage('${item.id_prueba}')" class="idEnlace">${item.id_prueba}</td>
-                    <td>${item.descripcionPrueba}</td>
-                    <td>${fechaSolicitudFormateada}</td>
-                    <td>${item.nombreSolic}</td>
-                    <td>${fechaCompromisoFormateada}</td>
-                    <td>${item.nombreMetro}</td>
-                    <td>${item.estatusVisual}</td>
-                    <td>${item.prioridadVisual}</td>
-                    <td>
-                        <button class="btn btn-success" onclick="reviewPage('${item.id_prueba}')">
-                            <i class="las la-eye"></i><span>Consultar</span>
-                        </button>
-                        <button class="btn btn-secondary" onclick="reviewPDF('${item.id_prueba}')">
-                            <i class="las la-file-pdf"></i><span>PDF</span>
-                        </button>
-                        <button class="btn btn-danger" onclick="cancelarSolicitud('${item.id_prueba}')">
-                            <i class="las la-trash"></i></i><span>Cancelar</span>
-                        </button>
-                    </td>
-                </tr>`;
+                    <tr>
+                        <td onclick="reviewPage('${item.id_prueba}')" class="idEnlace">${item.id_prueba}</td>
+                        <td>${item.descripcionPrueba}</td>
+                        <td>${fechaSolicitudFormateada}</td>
+                        <td>${item.nombreSolic}</td>
+                        <td>${fechaCompromisoFormateada}</td>
+                        <td>${item.nombreMetro}</td>
+                        <td>${item.estatusVisual}</td>
+                        <td>${item.prioridadVisual}</td>
+                        <td>
+                            <button class="btn btn-success" onclick="reviewPage('${item.id_prueba}')">
+                                <i class="las la-eye"></i><span>Consultar</span>
+                            </button>
+                            <button class="btn btn-secondary" onclick="reviewPDF('${item.id_prueba}')">
+                                <i class="las la-file-pdf"></i><span>PDF</span>
+                            </button>`;
+
+            // Verifica si id_estatusPrueba no es 4 ni 9 antes de agregar el botón de cancelar
+            if (item.id_estatusPrueba !== 4 && item.id_estatusPrueba !== 6 && item.id_estatusPrueba !== 9) {
+                content += `
+                            <button class="btn btn-danger" onclick="cancelarSolicitud('${item.id_prueba}')">
+                                <i class="las la-trash"></i><span>Cancelar</span>
+                            </button>`;
+            }
+
+            content += `
+                        </td>
+                    </tr>`;
         });
 
         listadoPruebasBody.innerHTML = content;
