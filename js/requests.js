@@ -91,7 +91,7 @@ const TablaPruebasSolicitante = async (id_solicitante) => {
                             </button>`;
 
             // Verifica si id_estatusPrueba no es 4 ni 9 antes de agregar el botón de cancelar
-            if (item.id_estatusPrueba !== 4 && item.id_estatusPrueba !== 6 && item.id_estatusPrueba !== 9) {
+            if (item.id_estatusPrueba != '4' && item.id_estatusPrueba != '9') {
                 content += `
                             <button class="btn btn-danger" onclick="cancelarSolicitud('${item.id_prueba}')">
                                 <i class="las la-trash"></i><span>Cancelar</span>
