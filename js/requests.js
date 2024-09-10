@@ -9,6 +9,7 @@ const dataTableOptions = {
         {orderable: false, targets: [1,3,5,8]},
         {width: "8%", targets: [0,1,2,5,6,7]},
         {width: "12%", targets: [3,4]},
+        {width: "28%", targets: [8]},
         {searchable: true, targets: [0,1,2,3,4,5,6,7,8] }
     ],
     pageLength:10,
