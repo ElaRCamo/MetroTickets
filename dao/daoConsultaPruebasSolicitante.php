@@ -36,6 +36,8 @@ function resumenPrueba($id_solicitante){
                             THEN CONCAT('<span class=\"badge bg-danger\" title=\"', ep.detallesEstatus, '\">', ep.descripcionEstatus, '</span>')
                         WHEN s.id_estatusPrueba = 6 
                             THEN CONCAT('<span class=\"badge bg-dark\" title=\"', ep.detallesEstatus, '\">', ep.descripcionEstatus, '</span>')
+                        WHEN s.id_estatusPrueba = 9 
+                            THEN CONCAT('<span class=\"badge bg-dark\" title=\"', ep.detallesEstatus, '\">', ep.descripcionEstatus, '</span>')
                     END AS estatusVisual,
                     CASE
                         WHEN s.id_prioridad = 1 
