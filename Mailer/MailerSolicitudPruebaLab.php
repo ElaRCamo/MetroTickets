@@ -9,13 +9,16 @@ require 'Phpmailer/PHPMailer.php';
 require 'Phpmailer/SMTP.php';
 
 include_once('Produccion/ML/PW_MetrologyLaboratory/dao/connection.php');
+include_once('verificaciones.php');
+
 session_start();
 $id_prueba=$_POST['id_prueba'];
 $Solicitante = $_SESSION['nombreUsuario'];
+$correoSolicitante = $_SESSION['emailUsuario'];
 
-emailSolicitud($id_prueba,$Solicitante);
+emailSolicitud($id_prueba,$Solicitante,$correoSolicitante);
 
-function emailSolicitud($id_prueba,$Solicitante )
+function emailSolicitud($id_prueba,$Solicitante,$correoSolicitante )
 {
 
     $MENSAJE_LABORATORIO = "<!DOCTYPE html>
@@ -109,19 +112,55 @@ function emailSolicitud($id_prueba,$Solicitante )
         $mail->setFrom('tickets_metrologia@grammermx.com', 'Laboratorio de Metrología Grammer Automotive Puebla S.A de C.V.');
         $mail->CharSet = 'UTF-8';
 
+        // Verificar si el correo del solicitante está en la lista permitida
+        $correoVerificado = verificarCorreo($correoSolicitante);
 
-        //Laboratorio de Metrología
-        $mail->addAddress('tickets_metrologia@grammermx.com', 'LMGrammer');
-        $mail->addBCC('extern.mariela.reyes@grammer.com', 'TI');
+        if ($correoVerificado) {
+            // Si el correo está en la lista, enviarlo como destinatario principal
+            $mail->addAddress($correoVerificado, 'Solicitante');
 
-        $mail->Subject = 'Nueva solicitud.';
+            // Lista de correos permitidos para enviar en BCC
+            $correosPermitidos = [
+                'oscar.gomez@grammer.com',
+                'leyda.trejo@grammer.com',
+                'mireya.hernandez@grammer.com',
+                'adrian.aragon@grammer.com'
+            ];
+
+            // Añadir en BCC a los demás correos
+            foreach ($correosPermitidos as $correo) {
+                if ($correo !== $correoVerificado) {
+                    $mail->addBCC($correo);
+                }
+            }
+
+        } else {
+            // Si el correo no está en la lista, mandarlo como principal
+            $mail->addAddress($correoSolicitante, 'Solicitante');
+
+            // Añadir en BCC a todos los correos permitidos
+            $correosPermitidos = [
+                'oscar.gomez@grammer.com',
+                'leyda.trejo@grammer.com',
+                'mireya.hernandez@grammer.com',
+                'adrian.aragon@grammer.com'
+            ];
+
+            foreach ($correosPermitidos as $correo) {
+                $mail->addBCC($correo);
+            }
+        }
+
+        // Asunto y cuerpo del correo
+        $mail->Subject = 'Actualización de solicitud.';
         $mail->isHTML(true);
         $mail->Body = $contenido;
 
+        // Enviar el correo
         if (!$mail->send()) {
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
+            echo 'Error al enviar correo: ' . $mail->ErrorInfo;
         } else {
-            echo 'Correo enviado';
+            echo 'Correo enviado correctamente.';
         }
 
     } catch (Exception $e) {

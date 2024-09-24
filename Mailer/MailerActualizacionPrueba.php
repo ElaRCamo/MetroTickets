@@ -117,6 +117,18 @@ function emailUpdate($id_prueba,$emailSolicitante,$Solicitante )
         $mail->addBCC('tickets_metrologia@grammermx.com', 'LMGrammer');
         $mail->addBCC('extern.mariela.reyes@grammer.com', 'TI');
 
+        // Añadir en BCC a todos los correos permitidos
+        $correosPermitidos = [
+            'oscar.gomez@grammer.com',
+            'leyda.trejo@grammer.com',
+            'mireya.hernandez@grammer.com',
+            'adrian.aragon@grammer.com'
+        ];
+
+        foreach ($correosPermitidos as $correo) {
+            $mail->addBCC($correo);
+        }
+
         $mail->Subject = 'Actualización de solicitud.';
         $mail->isHTML(true);
         $mail->Body = $contenido;
