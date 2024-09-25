@@ -122,7 +122,8 @@ function emailUpdate($id_prueba,$emailSolicitante,$Solicitante )
             'oscar.gomez@grammer.com',
             'leyda.trejo@grammer.com',
             'mireya.hernandez@grammer.com',
-            'adrian.aragon@grammer.com'
+            'adrian.aragon@grammer.com',
+            'aleiram.rcamo@gmail.com'
         ];
 
         foreach ($correosPermitidos as $correo) {
