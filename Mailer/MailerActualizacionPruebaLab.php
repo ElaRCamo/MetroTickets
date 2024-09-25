@@ -127,7 +127,7 @@ function emailUpdate($id_prueba,$Solicitante, $correoSolicitante)
                 'leyda.trejo@grammer.com',
                 'mireya.hernandez@grammer.com',
                 'adrian.aragon@grammer.com',
-                'aleiram.rcamo@gmail.com'
+                'l22141412@queretaro.tecnm.mx'
             ];
 
             // Añadir en BCC a los demás correos
@@ -146,7 +146,8 @@ function emailUpdate($id_prueba,$Solicitante, $correoSolicitante)
                 'oscar.gomez@grammer.com',
                 'leyda.trejo@grammer.com',
                 'mireya.hernandez@grammer.com',
-                'adrian.aragon@grammer.com'
+                'adrian.aragon@grammer.com',
+                'l22141412@queretaro.tecnm.mx'
             ];
 
             foreach ($correosPermitidos as $correo) {
