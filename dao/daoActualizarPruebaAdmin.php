@@ -119,7 +119,7 @@ function subirArchivo($target_dir, $id_prueba, $fileArray, $index) {
     } else {
         // Quitar espacios del nombre del archivo
         $nombreArchivo = $fileArray["name"][$index];
-        $archivoFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
+        $archivoFileName = $id_prueba . "-" . str_replace([' ', ',', '$', '%', '&', '/', '?'], '-', $nombreArchivo);
         $archivoFile = $target_dir . $archivoFileName;
         $moverNormaFile = "../files/results/" . $archivoFileName;
 

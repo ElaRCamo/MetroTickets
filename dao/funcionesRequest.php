@@ -245,7 +245,7 @@ function manejarNormaFile($tipoPrueba, $id_prueba, $files, $post)
             $target_dir = "https://grammermx.com/Metrologia/MetroTickets/files/norms/";
             // Quitar espacios del nombre del archivo:
             $nombreArchivo = $files["normaFile"]["name"];
-            $normaFileName = $id_prueba . "-" . str_replace(' ', '-', $nombreArchivo);
+            $normaFileName = $id_prueba . "-" . str_replace([' ', ','], '-', $nombreArchivo);
             $normaFile = $target_dir . $normaFileName;
             $moverNormaFile = "../files/norms/" . $normaFileName;
 
