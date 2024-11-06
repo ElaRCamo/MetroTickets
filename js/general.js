@@ -186,30 +186,24 @@ function correoActualizacionPruebaLab(id_prueba){
         });
 }
 
-// Función para formatear la fecha
 const formatearFecha = (fecha) => {
-    if (fecha !== '0000-00-00'){
-        let date = new Date(fecha);
+    if (fecha !== '0000-00-00') {
+        // Descomponemos la cadena de fecha en año, mes y día
+        let [anio, mes, dia] = fecha.split('-');
+        // Creamos la fecha usando estos valores para evitar problemas de zona horaria
+        let date = new Date(anio, mes - 1, dia);
+
         let meses = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
-        let dia = date.getDate();
-        let mes = meses[date.getMonth()];
-        let anio = date.getFullYear();
-        return `${dia}/${mes}/${anio}`;
-    }else{
-        //return '0000-00-00';
+        return `${date.getDate()}/${meses[date.getMonth()]}/${date.getFullYear()}`;
+    } else {
         return 'No asignada';
     }
 };
 
 
+
 /*****************************************
- *************************************************
- * ***************************************************
- * ***************************************************
  * funciones no validadas ---> ****************************
- * ********************************************************
- * ****************************************************
- * *************************************************
  * ********************************************/
 
 
