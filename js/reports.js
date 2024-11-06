@@ -12,7 +12,7 @@ function llenarAnio() {
             createOption.value = data.data[i].anio;
             createOption.text = data.data[i].anio;
 
-            if (data.data[i].anio == anioActual) {
+            if (data.data[i].anio === anioActual) {
                 createOption.selected = true;
             }
 
