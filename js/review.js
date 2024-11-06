@@ -477,8 +477,17 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
 
     alert( "fechaCompromiso" +fechaCompromiso.value.trim());
 
-    if(estatusPruebaAdmin.value==='2' ){
+    if(estatusPruebaAdmin.value==='2'){
         data.append('fechaCompromiso', fechaCompromiso.value.trim());
+    }
+    if(fechaCompromiso.value.trim() === null || fechaCompromiso.value.trim() === ""){
+        Swal.fire({
+            title: 'Error',
+            text: 'Se debe indicar la fecha compromiso.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+        return;
     }
 
     let filas;
