@@ -18,6 +18,8 @@ function llenarAnio() {
 
             selectS.appendChild(createOption);
         }
+
+        llenarMes();
     });
 }
 
