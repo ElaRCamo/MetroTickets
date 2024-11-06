@@ -19,6 +19,8 @@ function llenarMes() {
         var selectS = id("mesR");
         selectS.innerHTML = ""; //limpiar contenido
 
+        alert("año: "+id("anioR").value)
+
         var createOptionDef = document.createElement("option");
         createOptionDef.text = "Seleccione el mes*";
         createOptionDef.value = "";

@@ -515,9 +515,6 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
         data.append('estatuss', estatusPartes.join(','));
         data.append('piezas', numPartes.join(','));
 
-        // Mostrar los valores de los arreglos estatuss y piezas
-        //mostrarValores(numPartes, 'Estatus');
-        //mostrarValores(estatusPartes, 'Piezas');
     }else {
         // Arrays para almacenar los valores
         let nominas = [];
