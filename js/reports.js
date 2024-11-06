@@ -1,19 +1,26 @@
 
-function llenarAnio(){
-    $.getJSON(rutaBase + '/dao/daoAnio.php', function (data){
-        var selectS = id("anioR");
+function llenarAnio() {
+    $.getJSON(rutaBase + '/dao/daoAnio.php', function (data) {
+        var selectS = document.getElementById("anioR");
         selectS.innerHTML = "";
+
+        // Obtener el año actual
+        const anioActual = new Date().getFullYear();
 
         for (var i = 0; i < data.data.length; i++) {
             var createOption = document.createElement("option");
             createOption.value = data.data[i].anio;
             createOption.text = data.data[i].anio;
+
+            if (data.data[i].anio == anioActual) {
+                createOption.selected = true;
+            }
+
             selectS.appendChild(createOption);
         }
     });
-
-    alert("año: "+id("anioR").value)
 }
+
 
 
 function llenarMes() {
