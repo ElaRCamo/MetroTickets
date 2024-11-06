@@ -475,8 +475,6 @@ function  updatePruebaAdmin(id_review, id_user, estatusPruebaAdmin,metrologoAdmi
     data.append('id_user', id_user);
     data.append('tipoPrueba', tipoPruebaSol);
 
-    alert( "fechaCompromiso" +fechaCompromiso.value.trim());
-
     if(estatusPruebaAdmin.value==='2'){
         data.append('fechaCompromiso', fechaCompromiso.value.trim());
     }
