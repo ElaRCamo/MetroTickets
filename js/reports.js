@@ -11,6 +11,8 @@ function llenarAnio(){
             selectS.appendChild(createOption);
         }
     });
+
+    alert("año: "+id("anioR").value)
 }
 
 
