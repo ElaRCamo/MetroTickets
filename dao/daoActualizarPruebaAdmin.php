@@ -407,6 +407,7 @@ function actualizarPruebaMunsell($id_prueba, $id_estatus, $id_prioridad, $id_met
 
 function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso)
 {
+    echo ("estatus prueba: ".$id_estatus);
 
     $rUpdateQuery = true;
     if ($fechaCompromiso !== '0000-00-00' && $id_estatus === '2') { // Estatus aprobado y sin fechaCompromiso registrada
@@ -417,6 +418,7 @@ function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad
 
     } else if ($id_estatus === '4'){//estatus completado
         $fechaHoy = date("Y-m-d");
+        echo $fechaHoy;
         $updateQuery = $conexPruebas->prepare("UPDATE Pruebas
                                            SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaRespuesta = ?
                                          WHERE id_prueba = ?");
