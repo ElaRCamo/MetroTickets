@@ -413,7 +413,7 @@ function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad
     echo $fechaHoy."-";
 
     $rUpdateQuery = true;
-    if ($id_estatus === '4'){//estatus completado
+    if ($id_estatus === 4){//estatus completado
         echo "query 2";
         $updateQuery = $conexPruebas->prepare("UPDATE Pruebas
                                            SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaRespuesta = ?
