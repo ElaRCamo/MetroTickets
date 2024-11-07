@@ -412,20 +412,21 @@ function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad
     echo $fechaHoy."-";
 
     $rUpdateQuery = true;
-    if ($fechaCompromiso !== '0000-00-00' && $id_estatus === '2') { // Estatus aprobado y sin fechaCompromiso registrada
+    if ($id_estatus === '4'){//estatus completado
+        echo "query 2";
+        $updateQuery = $conexPruebas->prepare("UPDATE Pruebas
+                                           SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaRespuesta = ?
+                                         WHERE id_prueba = ?");
+        $updateQuery->bind_param("iissss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaHoy, $id_prueba);
+
+    }else if ($fechaCompromiso !== '0000-00-00' && $id_estatus === '2') { // Estatus aprobado y sin fechaCompromiso registrada
         echo "query 1";
         $updateQuery = $conexPruebas->prepare("UPDATE Pruebas
                                            SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaCompromiso = ?
                                          WHERE id_prueba = ?");
         $updateQuery->bind_param("iissss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_prueba);
 
-    } else if ($id_estatus === '4'){//estatus completado
-        echo "query 2";
-        $updateQuery = $conexPruebas->prepare("UPDATE Pruebas
-                                           SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaRespuesta = ?
-                                         WHERE id_prueba = ?");
-        $updateQuery->bind_param("iissss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaHoy, $id_prueba);
-    }else {
+    } else {
         echo "query 3";
         $updateQuery = $conexPruebas->prepare("UPDATE Pruebas
                                            SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?
