@@ -419,7 +419,7 @@ function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad
                                          WHERE id_prueba = ?");
         $updateQuery->bind_param("iissss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_prueba);
 
-    } else if ($id_estatus === '4'){//estatus completado
+    } else if ($id_estatus === 4){//estatus completado
         echo "2";
         $updateQuery = $conexPruebas->prepare("UPDATE Pruebas
                                            SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaRespuesta = ?
