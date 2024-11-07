@@ -86,6 +86,19 @@ try {
     $resultadoMetrologos = mysqli_stmt_get_result($stmt);
     mysqli_stmt_close($stmt);
 
+    // Consulta para obtener Pruebas solicitadas por tipo de prueba
+    $consultaPruebasSolPorTipo  = "SELECT t.descripcionPrueba, COUNT(id_prueba) as pruebasSolicitadas
+                                    FROM Pruebas p, TipoPrueba t 
+                                    WHERE MONTH(fechaRespuesta) = ? 
+                                    AND YEAR(fechaRespuesta) = ?
+                                    AND p.id_tipoPrueba = t.id_tipoPrueba
+                                    GROUP BY p.id_tipoPrueba;";
+    $stmt = mysqli_prepare($conex, $consultaPruebasSolPorTipo);
+    mysqli_stmt_bind_param($stmt, "ii", $mes, $anio);
+    mysqli_stmt_execute($stmt);
+    $resultadoSolTipo = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+
     mysqli_commit($conex);
 
 } catch (Exception $e) {
@@ -183,18 +196,12 @@ $css = file_get_contents("../../css/pdf.css");
                     </tr>
                     </thead>
                     <tbody>
+                    <?php while ($fila = mysqli_fetch_assoc($resultadoSolTipo)) { ?>
                         <tr>
-                            <td>Extracción</td>
-                            <td>"20"</td>
+                            <td><?php echo htmlspecialchars($fila['descripcionPrueba']); ?></td>
+                            <td><?php echo htmlspecialchars($fila['pruebasSolicitadas']); ?></td>
                         </tr>
-                        <tr>
-                            <td>Compresión</td>
-                            <td>"16"</td>
-                        </tr>
-                        <tr>
-                            <td>Otra</td>
-                            <td>"17"</td>
-                        </tr>
+                    <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -206,7 +213,7 @@ $css = file_get_contents("../../css/pdf.css");
         <div class="row" >
             <div class="col-sm-4 text-center">
                 <small> <a href="https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php">Laboratorio de Metrología </a></small><br>
-                <small> metrotickets@arketipo.com.mx </small><br>
+                <small> tickets_metrologia@grammermx.com </small><br>
                 <strong><small>LABORATORIO DE METROLOGÍA</small></strong>
             </div>
         </div>
