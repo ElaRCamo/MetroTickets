@@ -1,27 +1,87 @@
-
 <?php
 header_remove();
 session_start();
 
 if (!isset($_SESSION['tipoUsuario'])){
     header("Location: https://grammermx.com/Metrologia/MetroTickets/modules/sesion/indexSesion.php");
-}else{
-    if($_SESSION['tipoUsuario']=="ok"){
+    exit();
+} else {
+    if ($_SESSION['tipoUsuario'] == "ok") {
         $nombreUser = $_SESSION['nombreUsuario'];
     }
 }
 
 include_once('../../dao/funtions.php');
-// Obtener los parámetros directamente desde $_GET
 $anio = filter_input(INPUT_GET, 'anio', FILTER_SANITIZE_NUMBER_INT);
 $mes = filter_input(INPUT_GET, 'mes', FILTER_SANITIZE_NUMBER_INT);
-$mes = (int)$mes;
 if (!$anio || !$mes) {
     die('Faltan parámetros o son inválidos.');
 }
 
 ob_start();
+
+include_once('../../dao/connection.php');
+$con = new LocalConector();
+$conex = $con->conectar();
+
+$pruebasRealizadas = 0;
+$pruebasPendientes = 0;
+$tiempoPromedioRespuestaDias = 0.0;
+$eficienciaOperativa = 0.0;
+
+try {
+    mysqli_begin_transaction($conex);
+
+    // Consulta para obtener Pruebas Realizadas
+    $consultaRealizadas = "SELECT COUNT(*) as pruebasRealizadas FROM Pruebas WHERE MONTH(fechaRespuesta) = ?";
+    $stmt = mysqli_prepare($conex, $consultaRealizadas);
+    mysqli_stmt_bind_param($stmt, "i", $mes);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $pruebasRealizadas);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+
+    // Consulta para obtener Pruebas Pendientes
+    $consultaPendientes = "SELECT COUNT(*) as pruebasPendientes FROM Pruebas WHERE id_estatusPrueba NOT IN (4, 9, 5)";
+    $stmt = mysqli_prepare($conex, $consultaPendientes);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $pruebasPendientes);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+
+    // Consulta para obtener Tiempo Promedio de Respuesta
+    $consultaTiempoRespuesta = "SELECT ROUND(AVG(TIMESTAMPDIFF(DAY, fechaSolicitud, fechaRespuesta)), 1) AS tiempoPromedioRespuestaDias
+                                FROM Pruebas
+                                WHERE MONTH(fechaRespuesta) = ? AND YEAR(fechaRespuesta) = ? AND id_estatusPrueba IN (4,9)";
+    $stmt = mysqli_prepare($conex, $consultaTiempoRespuesta);
+    mysqli_stmt_bind_param($stmt, "ii", $mes, $anio);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $tiempoPromedioRespuestaDias);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+
+    // Consulta para obtener Eficiencia Operativa
+    $consultaEficiencia = "SELECT ROUND(COUNT(*) / DAY(LAST_DAY(STR_TO_DATE(CONCAT(?, '-', ?, '-01'), '%Y-%m-%d'))), 2) AS eficienciaOperativa
+                           FROM Pruebas
+                           WHERE MONTH(fechaRespuesta) = ? AND YEAR(fechaRespuesta) = ? AND id_estatusPrueba IN (4, 9)";
+    $stmt = mysqli_prepare($conex, $consultaEficiencia);
+    mysqli_stmt_bind_param($stmt, "iiii", $anio, $mes, $mes, $anio);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $eficienciaOperativa);
+    mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+
+    mysqli_commit($conex);
+
+} catch (Exception $e) {
+    mysqli_rollback($conex);
+    die('Error en la transacción: ' . $e->getMessage());
+}
+
+$date = date('d-m-Y');
+$css = file_get_contents("../../css/pdf.css");
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -37,37 +97,24 @@ ob_start();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 </head>
-<body >
-<?php
-$date = date('d-m-Y');
-$css=file_get_contents("../../css/pdf.css");
-include_once('../../dao/connection.php');
-$con = new LocalConector();
-$conex = $con->conectar();
-
-$datosPrueba =  mysqli_query($conex,
-                                "SELECT * FROM Usuario");
-
-$resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
-
-?>
+<body>
 <main>
     <div class="page-header row headerLogo">
-        <table id="tableTitle">
-            <tr class="">
-                <th class="">
-                    <div class="col divTitle" id="divRespdf">
-                        <h1>Reporte <?php echo obtenerNombreMes($mes).' '; echo $anio?></h1>
-                        <h6>LABORATORIO DE METROLOGÍA</h6>
-                        <?php echo "<small>Fecha: $date</small>";?>
-                    </div>
-                </th>
-                <td>
-                    <div class="col">
-                        <img class="logoGrammer2-img logoR" alt="LogoGrammer" src="https://grammermx.com/Metrologia/MetroTickets/imgs/logoGrammer.png"><br>
-                    </div>
-                </td>
+        <table class="table table-bordered table-hover table-sm table-responsive" id="datosGeneralesTablePDF">
+            <tbody>
+            <tr class="bg-primary">
+                <th>Pruebas realizadas:</th>
+                <td><?php echo $pruebasRealizadas; ?></td>
+                <th>Tiempo de respuesta</th>
+                <td><?php echo $tiempoPromedioRespuestaDias . " días/prueba"; ?></td>
             </tr>
+            <tr>
+                <th>Pruebas pendientes</th>
+                <td><?php echo $pruebasPendientes; ?></td>
+                <th>Eficiencia operativa</th>
+                <td><?php echo $eficienciaOperativa . " pruebas/día"; ?></td>
+            </tr>
+            </tbody>
         </table>
     </div>
 
@@ -79,15 +126,15 @@ $resultados= mysqli_fetch_all($datosPrueba, MYSQLI_ASSOC);
                     <tbody>
                     <tr class="bg-primary">
                         <th class="">Pruebas realizadas: </th>
-                        <td> <?php echo "17";?> </td>
+                        <td> <?php echo $pruebasRealizadas;?> </td>
                         <th class="" > Tiempo de respuesta </th>
-                        <td><?php echo "14.8 días/prueba";?></td>
+                        <td><?php echo $tiempoPromedioRespuestaDias ." días/prueba";?></td>
                     </tr>
                     <tr>
                         <th class="">Pruebas pendientes </th>
-                        <td><?php echo "2";?></td>
+                        <td><?php echo $pruebasPendientes;?></td>
                         <th class=""> Eficiencia operativa</th>
-                        <td><?php echo "0.5 pruebas/dia";?> </td>
+                        <td><?php echo $eficienciaOperativa." pruebas/dia";?> </td>
                     </tr>
                     </tbody>
                 </table>

@@ -12,7 +12,7 @@ function PruebasPorDia(){
                                            FROM Pruebas
                                           WHERE MONTH(fechaRespuesta) = MONTH(CURRENT_DATE())
                                             AND YEAR(fechaRespuesta) = YEAR(CURRENT_DATE())
-                                            AND id_estatusPrueba = 4;");
+                                            AND id_estatusPrueba IN (4,9);");
 
     $resultado = mysqli_fetch_all($datos, MYSQLI_ASSOC);
     echo json_encode(array("data" => $resultado));

@@ -2,7 +2,7 @@ function pruebasRealizadasMesActual(){
     $.getJSON(rutaBase + '/dao/daoPruebasMes.php', function (data){
         var numPruebasMesActual = data.data[0]['COUNT(*)']; // Obtener el número de pruebas
         document.getElementById("numeroPruebas").innerText = numPruebasMesActual;
-        console.log("numPruebas: "+ data.data[0]['COUNT(*)']);
+        //console.log("numPruebas: "+ data.data[0]['COUNT(*)']);
 
     });
 }
