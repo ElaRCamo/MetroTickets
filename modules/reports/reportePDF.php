@@ -33,9 +33,9 @@ try {
     mysqli_begin_transaction($conex);
 
     // Consulta para obtener Pruebas Realizadas
-    $consultaRealizadas = "SELECT COUNT(*) as pruebasRealizadas FROM Pruebas WHERE MONTH(fechaRespuesta) = ?";
+    $consultaRealizadas = "SELECT COUNT(*) as pruebasRealizadas FROM Pruebas WHERE MONTH(fechaRespuesta) = ? AND YEAR(fechaRespuesta) = ?";
     $stmt = mysqli_prepare($conex, $consultaRealizadas);
-    mysqli_stmt_bind_param($stmt, "i", $mes);
+    mysqli_stmt_bind_param($stmt, "ii", $mes, $anio);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt, $pruebasRealizadas);
     mysqli_stmt_fetch($stmt);
@@ -69,6 +69,21 @@ try {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt, $eficienciaOperativa);
     mysqli_stmt_fetch($stmt);
+    mysqli_stmt_close($stmt);
+
+
+    // Consulta para obtener Pruebas atendidas por metrologo
+    $consultaPruebasPorMetrologo  = "SELECT u.nombreUsuario, COUNT(id_prueba) as pruebasRealizadas 
+                            FROM Pruebas p, Usuario u 
+                            WHERE MONTH(fechaRespuesta) = ? 
+                            AND YEAR(fechaRespuesta) = ?
+                            AND id_estatusPrueba IN (4, 9) 
+                            AND p.id_metrologo = u.id_usuario 
+                            GROUP BY p.id_metrologo;";
+    $stmt = mysqli_prepare($conex, $consultaPruebasPorMetrologo);
+    mysqli_stmt_bind_param($stmt, "ii", $mes, $anio);
+    mysqli_stmt_execute($stmt);
+    $resultadoMetrologos = mysqli_stmt_get_result($stmt);
     mysqli_stmt_close($stmt);
 
     mysqli_commit($conex);
@@ -149,18 +164,12 @@ $css = file_get_contents("../../css/pdf.css");
                     </tr>
                     </thead>
                     <tbody>
+                    <?php while ($fila = mysqli_fetch_assoc($resultadoMetrologos)) { ?>
                         <tr>
-                            <td>Kevin Perez</td>
-                            <td>"20"</td>
+                            <td><?php echo htmlspecialchars($fila['nombreUsuario']); ?></td>
+                            <td><?php echo htmlspecialchars($fila['pruebasRealizadas']); ?></td>
                         </tr>
-                        <tr>
-                            <td>Paola Gonzalez</td>
-                            <td>"16"</td>
-                        </tr>
-                        <tr>
-                            <td>Luisa Sánchez</td>
-                            <td>"17"</td>
-                        </tr>
+                    <?php } ?>
                     </tbody>
                 </table>
             </div>
