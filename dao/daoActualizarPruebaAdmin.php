@@ -407,28 +407,22 @@ function actualizarPruebaMunsell($id_prueba, $id_estatus, $id_prioridad, $id_met
 
 function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso)
 {
-    echo "Valor de id_estatus: " . var_export($id_estatus, true) . "-";
-
     $fechaHoy = date("Y-m-d");
-    echo $fechaHoy."-";
 
     $rUpdateQuery = true;
     if ($id_estatus === 4){//estatus completado
-        echo "query 2";
         $updateQuery = $conexPruebas->prepare("UPDATE Pruebas
                                            SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaRespuesta = ?
                                          WHERE id_prueba = ?");
         $updateQuery->bind_param("iissss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaHoy, $id_prueba);
 
     }else if ($fechaCompromiso !== '0000-00-00' && $id_estatus === '2') { // Estatus aprobado y sin fechaCompromiso registrada
-        echo "query 1";
         $updateQuery = $conexPruebas->prepare("UPDATE Pruebas
                                            SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?, fechaCompromiso = ?
                                          WHERE id_prueba = ?");
         $updateQuery->bind_param("iissss", $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso, $id_prueba);
 
     } else {
-        echo "query 3";
         $updateQuery = $conexPruebas->prepare("UPDATE Pruebas
                                            SET id_estatusPrueba = ?, id_prioridad = ?, id_metrologo = ?, especificacionesLab = ?
                                          WHERE id_prueba = ?");
