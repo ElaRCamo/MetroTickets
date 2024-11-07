@@ -407,7 +407,8 @@ function actualizarPruebaMunsell($id_prueba, $id_estatus, $id_prioridad, $id_met
 
 function actualizarPruebas($conexPruebas, $id_prueba, $id_estatus, $id_prioridad, $id_metrologo, $observaciones, $fechaCompromiso)
 {
-    echo ("estatus prueba: ".$id_estatus."-");
+    echo "Valor de id_estatus: " . var_export($id_estatus, true) . "-";
+
     $fechaHoy = date("Y-m-d");
     echo $fechaHoy."-";
 
