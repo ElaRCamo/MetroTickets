@@ -1022,7 +1022,7 @@ table tbody tr {
 
 #aGrammer, #aManual{
     background-color: transparent !important;
-    color: #fff !important;
+    color: var(--main-color)  !important;
     font-weight: bold !important;
     text-decoration: none !important;
 }
