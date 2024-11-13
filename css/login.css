@@ -29,7 +29,8 @@ body{
     width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
 }
 
-.footer_section{
+.footer_section, small, a{
+    text-decoration: none;
     background-color: transparent;
     color: #fff;
     font-weight: bold;
@@ -37,6 +38,7 @@ body{
     position: fixed;
     bottom: 0;
     width: 100%;
+
 }
 
 #formInicioSesion p{
