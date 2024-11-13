@@ -380,3 +380,9 @@ body{
     }
 
 }
+#aManualLog, #aGrammerLog{
+    background-color: transparent !important;
+    color: #fff !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}

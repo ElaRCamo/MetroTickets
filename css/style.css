@@ -1020,9 +1020,9 @@ table tbody tr {
     width: 50%;
 }
 
-#aManualLog, #aGrammerLog, #aGrammer, #aManual{
-    background-color: transparent;
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
+#aGrammer, #aManual{
+    background-color: transparent !important;
+    color: #fff !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
 }
