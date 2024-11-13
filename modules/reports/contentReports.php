@@ -13,8 +13,7 @@
                         <div class="form-group" id="divTipoReporte">
                             <select class="form-control" id="tipoReporte" name="tipoReporte" onchange="llenarAnio()" required data-error="Por favor seleccione un tipo de reporte válido.">
                                 <option value="">Seleccione el tipo de reporte*</option>
-                                <option value="1">Sólo estadísticas</option>
-                                <option value="2">Detallado</option>
+                                <option value="1">General</option>
                             </select>
                             <div class="input-group-icon"><i class="las la-clipboard-check"></i></div>
                             <div class="invalid-feedback"></div>

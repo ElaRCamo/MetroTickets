@@ -57,7 +57,7 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 ✓  27 Desarrollar historia de usuario de resumen de prueba (15/04/2024)
 ✓  	27.1 Front: html y css(12/04/2024)
 ✓  28. Agregar a la tabla de materiales el estatus(23/04/2024)
-✗  29. Personalizar colores de Boostrap
+✓  29. Personalizar colores de Boostrap
 ✓  30. Generar pdf(16/04/2024)
 ✓  	30.1 Dar estilos al pdf(16/04/2024)
 ✓  	30.1 Asignar pdf en la ventana modal(17/04/2024)
@@ -76,7 +76,7 @@ Pendientes del Proyecto del Laboratorio de Metrología:
 ✓   32 Funciones de cambio de estado para cliente, plataforma y materiales
 ✓    	32.1 Hacer cambio de estado en cascada (30/04/2024)
 ✓   33 Agregar modalResultados(23/04/2024)
-✗    	33.2 Agregar estilos
+✓    	33.2 Agregar estilos
 ✓   	33.3 Guardar la actualizacion en la bd(23/04/2024)
 ✓   		33.3.1 al actualizar una prueba, se actualizan todas(24/04/2024)
 ✓   	33.4 Mandar correo de notificación(24/04/2024)
@@ -112,7 +112,7 @@ Reunion 02/04/2024
 ✓  4. Que administrador pueda revisar contraseñas
      ---Se cambia por *Recuperar contraseña* ---
 ✓  5. Actualizaciones solo para el administrador
-✗  6. Asignar por default a Adrian para este tipo de pruebas *input editable
+✓  6. Asignar por default a Adrian para este tipo de pruebas *input editable
      Fecha> 18 abril
      Observaciones
      Estatus la solicitud
